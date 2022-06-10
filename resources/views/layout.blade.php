@@ -67,7 +67,7 @@
             <a class="nav-link" href="#">ติดต่อเรา</a>
             </li>
         </ul>
-        </div>
+        
         <div class="collapse2 navbar-collapse justify-content-end">
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -76,12 +76,14 @@
         <button class="btn btn"><i class="bi bi-cart3"></i></button>
         <button class="btn btn"><i class="bi bi-person-fill"></i></button>
         </div>
+
+        </div>
     </div>
     </nav>
 
-
     <!-- footer -->
-    <div class="footer">
+    <footer class="footer">
+        <div class="container-fluid">
         <div class="row">
             <div class="footer-col">
                 <img src="/images/logoAbleLink.png" alt="logo">
@@ -126,8 +128,8 @@
                     </ul>
             </div>
         </div>
-    </div>
-
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
