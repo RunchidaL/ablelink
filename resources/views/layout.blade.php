@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- styles -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}" >
+    <link href="/css/layout.css" rel="stylesheet">
 
   </head>
   <body>
@@ -77,7 +77,7 @@
         <button class="btn btn"><i class="bi bi-person-fill"></i></button>
         </div>
 
-        </div>
+        
     </div>
     </nav>
 
