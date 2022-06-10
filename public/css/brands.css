@@ -1,0 +1,27 @@
+/* brands */
+.container-fluid-brands{
+    margin-bottom: 20px;
+}
+.brands-col {
+    position: relative;
+    width: 20%;
+}
+
+.brands-col img{
+    width: 70%;
+    height: auto;
+    display: flex;
+    padding: 5%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media(max-width: 767px){
+    .brands-col {
+        width: 50%;
+    }
+}

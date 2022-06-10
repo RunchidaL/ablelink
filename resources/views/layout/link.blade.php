@@ -21,6 +21,9 @@
     <!-- styles -->
     <link href="/css/navfoot.css" rel="stylesheet">
     <link href="/css/highlight.css" rel="stylesheet">
+    <link href="/css/newproduct.css" rel="stylesheet">
+    <link href="/css/activity.css" rel="stylesheet">
+    <link href="/css/brands.css" rel="stylesheet">
 
   </head>
   @yield('navfoot')

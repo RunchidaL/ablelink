@@ -66,6 +66,9 @@
 
     <!-- home -->
     @yield ('highlight')
+    @yield ('newproduct')
+    @yield ('activity')
+    @yield ('brands')
 
     <!-- test -->
     @yield ('test')
