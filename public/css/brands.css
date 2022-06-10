@@ -1,6 +1,6 @@
 /* brands */
 .container-fluid{
-    margin-bottom: 5%;
+    margin-bottom: 0%;
 }
 
 .brands-col {
@@ -19,6 +19,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.B{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 @media(max-width: 767px){

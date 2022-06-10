@@ -30,6 +30,16 @@
     
 }
 
+/* ขยายรูป */
+.NP-col img{
+    transform: scale(1);
+    transition: 0.3s ease-in-out ;
+}
+.NP-col img:hover{
+    transform: scale(1.15);
+    
+}
+
 @media(max-width: 767px){
     .NP-col {
         width: 50%;

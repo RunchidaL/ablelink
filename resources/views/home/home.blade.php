@@ -2,27 +2,19 @@
 
 
 @section('highlight')
-<!-- <div class="container"> -->
 <div class="swiper">
-    <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-        <!-- Slides -->
         <div class="swiper-slide"><img src="/images/1.jpg" alt=""></div>
         <div class="swiper-slide"><img src="/images/2.jpg" alt=""></div>
         <div class="swiper-slide"><img src="/images/3.jpg" alt=""></div>
-        ...
     </div>
-    <!-- If we need pagination -->
+
     <div class="swiper-pagination"></div>
 
-    <!-- If we need navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 
-    <!-- If we need scrollbar -->
-    <!-- <div class="swiper-scrollbar"></div> -->
 </div>
-<!-- </div> -->
 
 
 
@@ -53,8 +45,6 @@
 </script>
 
 @endsection
-
-
 
 
 @section('newproduct')
@@ -98,13 +88,13 @@
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="#"><img class="img2"src="/images/1.jpg" class="d-block w-70" alt="..."></a>
+                <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325241.jpg" class="d-block w-70" alt="..."></a>
             </div>
             <div class="carousel-item">
-                <a href="#"><img class="img2"src="/images/2.jpg" class="d-block w-70" alt="..."></a>
+                <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325215.jpg" class="d-block w-70" alt="..."></a>
             </div>
             <div class="carousel-item">
-                <a href="#"><img class="img2"src="/images/3.jpg" class="d-block w-70" alt="..."></a>
+                <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325222.jpg" class="d-block w-70" alt="..."></a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -135,35 +125,38 @@
 </div>
 @endsection
 
+
 @section('brands')
 <div class="container-fluid">
-    <p class="text">แบรนด์เข้าร่วม</p>
-    <div class="row">
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+    <div class="B">
+        <p class="text">แบรนด์เข้าร่วม</p>
+        <div class="row">
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
         </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        </div>
-        <div class="brands-col">
-            <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+        <div class="row">
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
+            <div class="brands-col">
+                <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+            </div>
         </div>
     </div>
 </div>
