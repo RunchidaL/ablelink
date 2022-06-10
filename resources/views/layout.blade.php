@@ -83,8 +83,6 @@
     </div>
     </nav>
 
-    @yield('content')
-
     <!-- footer -->
     <footer class="footer">
         <div class="container-fluid">

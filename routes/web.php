@@ -17,3 +17,7 @@ Route::get('/', function () {
     return view('layout');
 });
 
+Route::get('/register', function () {
+    return view('dealer.register');
+});
+
