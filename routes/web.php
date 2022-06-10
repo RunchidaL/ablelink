@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('home.highlight');
+});
+
+Route::get('test', function () {
+    return view('test');
 });
 
 Route::get('/register', function () {
