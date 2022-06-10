@@ -1,6 +1,10 @@
 @extends('layout.navfoot')
 
-@section('highlight')
+
+
+
+<!-- sdfgsdfgsdfg -->
+@section('highlight') 
 <!-- <div class="container"> -->
 <div class="swiper">
     <!-- Additional required wrapper -->
