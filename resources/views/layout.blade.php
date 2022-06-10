@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- styles -->
-    <link href="/css/welcome.css" rel="stylesheet">
+    <link href="/css/layout.css" rel="stylesheet">
 
   </head>
   <body>
