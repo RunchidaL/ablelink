@@ -27,10 +27,12 @@
     height: auto;
     display: flex; 
     padding: 5%; /*ในนอก*/
+    
 }
 
 @media(max-width: 767px){
     .NP-col {
         width: 50%;
+        
     }
 }
