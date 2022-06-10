@@ -4,14 +4,14 @@
     align-items: center;
     justify-content: center;
     margin-left: 10%;
-    
 }
+
 .carousel-control-prev{
     margin-left: 20%;
 }
+
 .carousel-control-next{
     margin-right: 20%;
-
 }
 
 /* ด้านล่างข่าวสารกิจกรรม */
@@ -19,6 +19,7 @@
 .text-AC{
     color: red;
 }
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -38,6 +39,12 @@
     display: flex; 
     padding: 5%; /*ในนอก*/
 }
+
+/* .AC-col img:hover{
+    width: 102%;
+    height: 102%;
+    
+} */
 
 @media(max-width: 767px){
     .AC-col {
