@@ -1,0 +1,53 @@
+.container-fluid img {
+    width: 12%;
+    height: 10%;
+}
+body {
+    font-family: 'Prompt', sans-serif;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #ECECEC;
+    padding: 10px 20px;
+}
+
+.footer-col {
+    width: 20%;
+    padding: 0 15px ;
+}
+
+.footer-col h6{
+    color: #194276;
+    font-weight: 600;
+}
+
+.footer-col img{
+    width: 70%;
+}
+
+.footer-col li{
+    font-size: 12px;
+}
+
+.footer-col ul li a{
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.social{
+    position: absolute;
+    align-items: center;
+}
