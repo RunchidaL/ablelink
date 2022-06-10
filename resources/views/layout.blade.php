@@ -20,7 +20,7 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top ">
+    <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
         <div class="collapse1 navbar-collapse">
@@ -69,10 +69,12 @@
         </ul>
         
         <div class="collapse2 navbar-collapse justify-content-end">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            
         <button class="btn btn"><i class="bi bi-cart3"></i></button>
         <button class="btn btn"><i class="bi bi-person-fill"></i></button>
         </div>
@@ -80,6 +82,8 @@
         
     </div>
     </nav>
+
+    @yield('content')
 
     <!-- footer -->
     <footer class="footer">
