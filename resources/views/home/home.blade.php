@@ -1,9 +1,6 @@
 @extends('layout.navfoot')
 
 
-
-
-<!-- sdfgsdfgsdfg -->
 @section('highlight') 
 <!-- <div class="container"> -->
 <div class="swiper">
@@ -151,7 +148,7 @@
 @endsection
 
 @section('brands')
-    <div class="container-fluid-brands">
+    <div class="container-fluid">
         <p class="text">แบรนด์เข้าร่วม</p>
         <div class="row">
             <div class="brands-col">
