@@ -2,9 +2,9 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
-.container-fluid img {
-    width: 12%;
-    height: 10%;
+img {
+    width: 200px;
+    height: 60.9px;
 }
 
 h3{
@@ -15,4 +15,48 @@ h3{
     color: black;
     margin: 5px 5px 0px 5px ; /*top right bottom left*/
     line-height: 35px;
-} 
+}
+
+.form-group input {
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+}
+
+.form-group textarea {
+    border-radius: 20px;
+}
+
+h4{
+    margin-bottom: 30px;
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+
+.signin {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.signin a{
+    text-decoration: none;
+    color: #0930FF;
+}
+
+.signin i {
+    color: #C4C4C4;
+}
+
+.signin button {
+    background-color: white;
+    margin-bottom: 20px;
+}

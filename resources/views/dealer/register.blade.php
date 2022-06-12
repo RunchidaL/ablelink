@@ -1,49 +1,123 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ablelink</title>
+@extends('layout.link')
 
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- styles -->
+@section('link_register_dealer')
     <link href="/css/dealer/register.css" rel="stylesheet">
+@endsection
 
+@section('register_dealer')
+    <body>
     <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
-        <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <h3>|</h3>
-            </li>
-            <li class="nav-item">
-                <a>Create a dealer account</a>
-            </li>
-        </ul>
-        </div>
-    </div>
-    
+        <a><span>|</span> Create a dealer account</a>
     </nav>
 
+    <div class="container mt-1 p-5">
+        <h4>ข้อมูลส่วนตัว</h4>
+        <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="name">ชื่อจริง</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="lname">นามสกุล</label>
+                        <input type="text" name="lname" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์</label>
+                        <input type="text" name="phone" class="form-control">
+                    </div>
+                </div>
+                <h4>ที่อยู่</h4>
+                <div class="form-group my-2">
+                    <div class="form-group">
+                        <label for="address">ที่อยู่:</label>
+                        <textarea name="address" col="30" rows="2" class="form-control" placeholer="รายละเอียดที่อยู่"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="province">จังหวัด</label>
+                        <input type="text" name="province" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="district">อำเภอ</label>
+                        <input type="text" name="district" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="subdistrict">ตำบล</label>
+                        <input type="text" name="subdistrict" class="form-control">
+                    </div>
+                </div>
+                <h4>ข้อมูลกิจการ</h4>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companythai">ชื่อกิจการ (ภาษาไทย)</label>
+                        <input type="text" name="companythai" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companyeng">ชื่อกิจการ (ภาษาอังกฤษ)</label>
+                        <input type="text" name="companyeng" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="vatid">เลขประจำตัวผู้เสียภาษี</label>
+                        <input type="text" name="vatid" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="idcompany">สำนักงานใหญ่ / รหัสสาขา</label>
+                        <input type="text" name="idcompany" class="form-control">
+                    </div>
+                </div>
+                <h4>แนบเอกสาร</h4>
+                    <div class="col-md-6 mb-3">
+                        <label for="file1">หนังสือรับรอง/ทะเบียนการค้า</label>
+                        <input type="file" name="file1" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file2">บัตรประชาชน</label>
+                        <input type="file" name="file2" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file3">ภ.พ.01 หรือ ภ.พ.20</label>
+                        <input type="file" name="file3" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file4">งบการเงิน</label>
+                        <input type="file" name="file4" class="form-control">
+                    </div>
+                
+                <input type="submit" value="Submit" class="btn btn mx-auto">
+            </div>
+        </form>
+    </div>
+    <div class="signin">
+        <p>Already have an account?<span><a href="/"> Sign In</a></span></p>
+        <p><span><i class="bi bi-dash"></i></span>or create an user?<span><i class="bi bi-dash"></i></span></p>
+        <button>User account</button>
+    </div>
+    
 
-  </head>
-  <body>
+@endsection
 
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
-</html>

@@ -19,12 +19,16 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
     <!-- styles -->
-    <link href="/css/navfoot.css" rel="stylesheet">
-    <link href="/css/highlight.css" rel="stylesheet">
-    <link href="/css/newproduct.css" rel="stylesheet">
-    <link href="/css/activity.css" rel="stylesheet">
-    <link href="/css/brands.css" rel="stylesheet">
+    @yield('link_navfoot')
+    @yield('link_register_dealer')
+    @yield('link_home')
 
   </head>
+  <body>
   @yield('navfoot')
+
+  <!-- register_dealer -->
+  @yield('register_dealer')
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
 </html>

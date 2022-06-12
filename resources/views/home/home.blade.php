@@ -1,5 +1,11 @@
 @extends('layout.navfoot')
 
+@section('link_home')
+    <link href="/css/highlight.css" rel="stylesheet">
+    <link href="/css/newproduct.css" rel="stylesheet">
+    <link href="/css/activity.css" rel="stylesheet">
+    <link href="/css/brands.css" rel="stylesheet">
+@endsection
 
 @section('highlight') 
 <!-- <div class="container"> -->
