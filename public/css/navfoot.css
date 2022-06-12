@@ -73,6 +73,19 @@ ul {
     border-radius: 50%;
 }
 
+.bi.bi-facebook{
+    color: rgb(0, 0, 158);
+}
+.bi.bi-line{
+    color: #0EBA07;
+}
+.bi.bi-envelope{
+    color: rgba(175, 29, 24, 0.753);
+}
+.bi.bi-telephone{
+    color: black;
+}
+
 .search-bar {
     width: auto;
     max-width:fit-content;
