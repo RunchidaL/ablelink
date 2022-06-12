@@ -1,0 +1,36 @@
+/* .container{
+   margin-top: 20px;
+} */
+.text{
+    color: #DC7226;
+    margin-left: 5%;
+    font-size: 25px;
+    margin-top: 20px;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /*กดหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+}
+
+
+.NP-col{
+    position: relative;
+    width: 14.285%;
+    text-align: center;
+}
+
+.NP-col img{
+    width: 100%;
+    height: auto;
+    display: flex; 
+    padding: 5%; /*ในนอก*/
+}
+
+@media(max-width: 767px){
+    .NP-col {
+        width: 50%;
+    }
+}

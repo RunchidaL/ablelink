@@ -1,6 +1,11 @@
 @extends('layout.link')
+
+@section('link_navfoot')
+    <link href="/css/navfoot.css" rel="stylesheet">
+@endsection
+
+
 @section('navfoot')
-  <body>
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
@@ -15,9 +20,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" >ผลิตภัณฑ์</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item col" href="#">Action</a></li>
-                    <li><a class="dropdown-item col" href="#">Another action</a></li>
-                    <li><a class="dropdown-item col" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item col" href="#">Security</a></li>
+                    <li><a class="dropdown-item col" href="#">Network Infrastructure</a></li>
+                    <li><a class="dropdown-item col" href="#">Telecomm/IOT</a></li>
+                    <li><a class="dropdown-item col" href="#">Tool and Tester</a></li>
+                    <li><a class="dropdown-item col" href="#">UPS/Power supply/surge</a></li>
+                    <li><a class="dropdown-item col" href="#">Audio/Multimedia</a></li>
+                    <li><a class="dropdown-item col" href="#">Software</a></li>
+                    <li><a class="dropdown-item col" href="#">Solar/Light</a></li>
                 </ul>
             </li>
                 <!-- <div class="container">
@@ -54,10 +64,8 @@
                 <input type="text" placeholder="Search">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
-
-            
-        <button class="btn btn"><i class="bi bi-cart3"></i></button>
-        <button class="btn btn"><i class="bi bi-person-fill"></i></button>
+        <button class="icon"><i class="bi bi-cart3"></i></button>
+        <button class="icon"><i class="bi bi-person-fill"></i></button>
         </div>
 
         
@@ -66,7 +74,10 @@
 
     <!-- home -->
     @yield ('highlight')
+    @yield ('newproduct')
+    @yield ('activity')
     @yield ('brands')
+
     <!-- test -->
     @yield ('test')
     
@@ -123,7 +134,4 @@
         </div>
     </footer>
     
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
 @endsection
