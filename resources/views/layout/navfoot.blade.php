@@ -1,19 +1,23 @@
 @extends('layout.link')
+
+@section('link_navfoot')
+    <link href="/css/navfoot.css" rel="stylesheet">
+@endsection
+
 @section('navfoot')
-  <body>
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
         <div class="collapse1 navbar-collapse">
         <ul class="navbar-nav ">
             <li class="nav-item">
-            <a class="nav-link" href="#">หน้าหลัก</a>
+            <a class="nav-link" href="/">หน้าหลัก</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">เกี่ยวกับเรา</a>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" onclick="toggleDropdown()">ผลิตภัณฑ์</a>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="toggleDropdown()">ผลิตภัณฑ์</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">บริการ</a>
@@ -28,7 +32,7 @@
             <a class="nav-link" href="#">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ติดต่อเรา</a>
+            <a class="nav-link" href="/contact">ติดต่อเรา</a>
             </li>
         </ul>
 
@@ -51,7 +55,7 @@
     </div>
     </nav>
 
-    <div class="product" id="pd">
+    <div class="productNav" id="pd">
             <div>Security</div>
             <div>Network Infrastructure</div>
             <div>Telecomm/IO</div>
@@ -78,8 +82,8 @@
     @yield ('activity')
     @yield ('brands')
 
-    <!-- test -->
-    @yield ('test')
+    <!-- contact -->
+    @yield ('contact')
     
     <!-- footer -->
     <footer class="footer">
@@ -107,7 +111,7 @@
             <div class="footer-col">
                 <h6>Product</h6>
                     <ul>
-                        <li><a href="#">หน้าหลัก</a></li>
+                        <li><a href="/">หน้าหลัก</a></li>
                         <li><a href="#">ผลิตภัณฑ์</a></li>
                     </ul>
             </div>
@@ -116,7 +120,7 @@
                     <ul>
                         <li><a href="#">เกี่ยวกับเรา</a></li>
                         <li><a href="#">ร่วมงานกับเรา</a></li>
-                        <li><a href="#">ติดต่อเรา</a></li>
+                        <li><a href="/contact">ติดต่อเรา</a></li>
                     </ul>
             </div>
             <div class="footer-col">
@@ -131,6 +135,4 @@
         </div>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
 @endsection

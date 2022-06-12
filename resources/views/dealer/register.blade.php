@@ -1,0 +1,123 @@
+@extends('layout.link')
+
+@section('link_register_dealer')
+    <link href="/css/dealer/register.css" rel="stylesheet">
+@endsection
+
+@section('register_dealer')
+    <body>
+    <nav class="navbar navbar-expand-lg">
+        <img src="/images/logoAbleLink.png" alt="logo">
+        <a><span>|</span> Create a dealer account</a>
+    </nav>
+
+    <div class="container mt-1 p-5">
+        <h4>ข้อมูลส่วนตัว</h4>
+        <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="name">ชื่อจริง</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="lname">นามสกุล</label>
+                        <input type="text" name="lname" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์</label>
+                        <input type="text" name="phone" class="form-control">
+                    </div>
+                </div>
+                <h4>ที่อยู่</h4>
+                <div class="form-group my-2">
+                    <div class="form-group">
+                        <label for="address">ที่อยู่:</label>
+                        <textarea name="address" col="30" rows="2" class="form-control" placeholer="รายละเอียดที่อยู่"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="province">จังหวัด</label>
+                        <input type="text" name="province" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="district">อำเภอ</label>
+                        <input type="text" name="district" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="subdistrict">ตำบล</label>
+                        <input type="text" name="subdistrict" class="form-control">
+                    </div>
+                </div>
+                <h4>ข้อมูลกิจการ</h4>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companythai">ชื่อกิจการ (ภาษาไทย)</label>
+                        <input type="text" name="companythai" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companyeng">ชื่อกิจการ (ภาษาอังกฤษ)</label>
+                        <input type="text" name="companyeng" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="vatid">เลขประจำตัวผู้เสียภาษี</label>
+                        <input type="text" name="vatid" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="idcompany">สำนักงานใหญ่ / รหัสสาขา</label>
+                        <input type="text" name="idcompany" class="form-control">
+                    </div>
+                </div>
+                <h4>แนบเอกสาร</h4>
+                    <div class="col-md-6 mb-3">
+                        <label for="file1">หนังสือรับรอง/ทะเบียนการค้า</label>
+                        <input type="file" name="file1" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file2">บัตรประชาชน</label>
+                        <input type="file" name="file2" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file3">ภ.พ.01 หรือ ภ.พ.20</label>
+                        <input type="file" name="file3" class="form-control">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file4">งบการเงิน</label>
+                        <input type="file" name="file4" class="form-control">
+                    </div>
+                
+                <input type="submit" value="Submit" class="btn btn mx-auto">
+            </div>
+        </form>
+    </div>
+    <div class="signin">
+        <p>Already have an account?<span><a href="/"> Sign In</a></span></p>
+        <p><span><i class="bi bi-dash"></i></span>or create an user?<span><i class="bi bi-dash"></i></span></p>
+        <button>User account</button>
+    </div>
+    
+
+@endsection
+
