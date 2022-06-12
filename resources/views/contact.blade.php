@@ -1,12 +1,19 @@
 @extends('layout.navfoot')
-@section('contact')
-    <div class="wallpaper">
-        <img src="/images/contact.jpg" alt="">
-    </div>
-    <div class="content-w">
-        <p>CONTACT US</p>
-    </div>
+@section('link_contact')
+<link href="/css/contact.css" rel="stylesheet">
+@endsection
 
+
+
+@section('contact')
+<div class="wallpaper">
+    <img src="/images/contact.jpg" alt="">
+</div>
+<!-- <div class="content-w">
+    <p>CONTACT US</p>
+</div> -->
+
+<div class="all-content">
     <div class="left">
         <div class="content-h">
             <p>ABLE LINK (Thailand) CO., LTD.</p>
@@ -15,7 +22,7 @@
             <p>12 ซ.สุขาภิบาล 5 ซ.5 แยก 3 แขวงท่าแร้ง <br>
                 เขตบางเขน กรุงเทพมหานคร 10220</p>
             <ul>
-                <li><a href="https://www.facebook.com/ablelinkthailand/" ><i class="bi bi-facebook"></i></a> : Ablelink Thailand</li>
+                <li><a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a> : Ablelink Thailand</li>
                 <li><a href="#"><i class="bi bi-line"></i></a> : @Ablelink</li>
                 <li><a href="#"><i class="bi bi-envelope"></i></a> : ablelink.thailand99@gmail.com</li>
                 <li><a href="#"><i class="bi bi-telephone"></i></a> : 095-145-1538</li>
@@ -28,7 +35,5 @@
                  .1!3m3!1m2!1s0x311d636de95f5a3b%3A0x6993de58e110b43c!2z4Lia4Lij4Li04Lip4Lix4LiXIOC5guC4n-C4hOC4reC4oeC4oeC5jCAo4Lib4Lij4Liw4LmA4LiX4Lio4LmE4LiX4LiiKSDguI
                  jguLPguIHguLHguJQ!5e0!3m2!1sen!2sth!4v1655033151221!5m2!1sen!2sth" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+</div>
 @endsection
-
-
-

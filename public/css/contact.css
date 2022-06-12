@@ -13,21 +13,6 @@
     height: 100%;
 }
 
-.content-w{
-    position: absolute;
-    font-size: 50px;
-    top: 0;
-    margin-top: 9%;
-    margin-left: 10%;
-    object-fit: cover;
-}
-
-@media(max-width: 767px){
-    .content-w{
-        font-size: 25px;
-    }
-}
-
 /*  */
 
 /* ส่วนด้านล่าง */
@@ -45,7 +30,7 @@
     color: rgb(0, 0, 158);
 }
 .bi.bi-line{
-    color: rgb(147, 211, 20);
+    color: #0EBA07;
 }
 .bi.bi-envelope{
     color: rgba(175, 29, 24, 0.753);
@@ -70,6 +55,11 @@
 .left{
     width: 55%;
     float: left;
+}
+
+.all-content{
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 
