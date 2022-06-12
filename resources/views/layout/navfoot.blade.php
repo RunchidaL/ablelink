@@ -50,7 +50,7 @@
             <a class="nav-link" href="#">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ติดต่อเรา</a>
+            <a class="nav-link" href="/contact">ติดต่อเรา</a>
             </li>
         </ul>
         
@@ -73,8 +73,8 @@
     @yield ('activity')
     @yield ('brands')
 
-    <!-- test -->
-    @yield ('test')
+    <!-- contact -->
+    @yield ('contact')
     
     
 
