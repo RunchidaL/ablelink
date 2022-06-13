@@ -22,4 +22,16 @@
     font-size: 250%;
 }
 
+.title p {
+    background-color: #eaeaea;
+    padding: 5px 0 5px 10px;
+    font-size: 150%;
+    color: #DC7226;
+}
+
+.desc p {
+    background-color: white;
+    text-align: center;
+}
+
 
