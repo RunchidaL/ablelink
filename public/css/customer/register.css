@@ -1,0 +1,55 @@
+body {
+    font-family: 'Prompt', sans-serif;
+}
+
+img {
+    width: 200px;
+    height: 60.9px;
+}
+
+form {
+    width: 50%;
+}
+
+.form-group input {
+    align-self: center;
+}
+
+.form-group input {
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+}
+
+h4{
+    margin-bottom: 30px;
+}
+
+.btn {
+    width: 200px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+
+.signin {
+    text-align: center;
+}
+
+.signin a{
+    text-decoration: none;
+    color: #0930FF;
+}
+
+.signin i {
+    color: #C4C4C4;
+}
+
+.signin button {
+    background-color: white;
+    margin-bottom: 20px;
+}
