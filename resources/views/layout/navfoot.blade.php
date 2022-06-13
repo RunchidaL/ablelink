@@ -76,6 +76,7 @@
     }
 </script>
 
+
     <!-- home -->
     @yield ('highlight')
     @yield ('newproduct')
