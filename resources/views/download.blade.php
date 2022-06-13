@@ -8,22 +8,7 @@
 <div class="wallpaper">
     <img src="/images/download.png" alt="">
 </div>
-<!-- old -->
-<!-- <div class="container-fluid">
-<div class="row">
-    <div class="col">
-        <button><i class="bi bi-file-text"></i><br><p>Catelog</p></button>
-    </div>
-    <div class="col">
-        <button><i class="bi bi-file-slides"></i></i><br><p>Presentation</p></button>
-    </div>
-    <div class="col">
-        <button><i class="bi bi-camera-video"></i><br><p>VDO</p></button>
-    </div>
-</div>
-</div> -->
 
-<!-- new -->
 <div class="container-fluid">
 <div class="row">
     <div class="col">
