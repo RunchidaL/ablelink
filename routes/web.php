@@ -11,9 +11,16 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-Route::get('/register', function () {
+Route::get('/register_customer', function () {
+    return view('customer.register');
+});
+
+Route::get('/register_dealer', function () {
     return view('dealer.register');
 });
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+Route::get('/for_work', function () {
+    return view('forwork');
+});

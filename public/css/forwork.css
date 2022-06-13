@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ภาพด้านบน */
+.wallpaper img{
+    position: relative;
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* ส่วนด้านล่าง */
+.all-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.col{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+p {
+    font-size: 130%;
+}
+
+

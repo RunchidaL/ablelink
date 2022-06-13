@@ -50,7 +50,17 @@
                     <li><a class="dropdown-item row" href="#">ออกจากระบบ</a></li>
                 </ul>
         </li>     -->
-        <button class="icon"><i class="bi bi-person-fill"></i></button>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
         </div>
     </div>
     </nav>
@@ -85,6 +95,8 @@
 
     <!-- contact -->
     @yield ('contact')
+
+    @yield('forwork')
     
     <!-- footer -->
     <footer class="footer">
@@ -96,7 +108,7 @@
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-line"></i></a>
                     <a href="#"><i class="bi bi-envelope"></i></a>
-                    <a href="#"><i class="bi bi-telephone"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-col">

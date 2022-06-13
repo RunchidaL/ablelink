@@ -35,6 +35,10 @@
     margin-left: 10%;
 }
 
+.col iframe {
+    width: 80%;
+    height: 350px;
+  }
 
 @media(max-width: 820px) {
     .left {
