@@ -21,3 +21,6 @@ Route::get('/register_dealer', function () {
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+Route::get('/for_work', function () {
+    return view('forwork');
+});

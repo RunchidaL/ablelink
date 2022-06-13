@@ -25,7 +25,7 @@ footer * {
 .footer {
     position: absolute;
     margin-top: auto;
-    background-color: #ECECEC;
+    background-color: #E1B069;  /*change*/
     padding: 10px 0px;
 }
 
