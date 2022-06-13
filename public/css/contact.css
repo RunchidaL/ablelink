@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ภาพด้านบน */
+.wallpaper img{
+    position: relative;
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*  */
+
+/* ส่วนด้านล่าง */
+.content-h p{
+    font-size: 25px;
+    margin-top: 5%;
+    margin-left: 20%;
+}
+.content{
+    font-size: 20px;
+    margin-top: 2%;
+    margin-left: 20%;
+}
+.bi.bi-facebook{
+    color: rgb(0, 0, 158);
+}
+.bi.bi-line{
+    color: #0EBA07;
+}
+.bi.bi-envelope{
+    color: rgba(175, 29, 24, 0.753);
+}
+.bi.bi-telephone{
+    color: black;
+}
+
+@media(max-width: 767px){
+    .content-h p{
+        font-size: 15px;
+        margin-top: 3%;
+        margin-left: 10%;
+    }
+    .content{
+        font-size: 10px;
+        margin-top: 1%;
+        margin-left: 10%;
+    }
+}
+
+.left{
+    width: 55%;
+    float: left;
+}
+
+.all-content{
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+

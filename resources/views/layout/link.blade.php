@@ -23,6 +23,7 @@
     @yield('link_register_dealer')
     @yield('link_home')
     @yield('link_register_customer')
+    @yield('link_contact')
 
   </head>
   <body>

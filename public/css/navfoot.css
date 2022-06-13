@@ -7,6 +7,7 @@
     width: 12%;
     height: 10%;
 }
+
 body {
     font-family: 'Prompt', sans-serif;
 }
@@ -66,11 +67,24 @@ ul {
     height: 40px;
     width: 40px;
     color: #ffffff;
-    background-color: #707070;
+    background-color: #ffffff;
     margin: 10px -30px 0 30px; /*top right bottom left*/
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
+}
+
+.bi.bi-facebook{
+    color: rgb(0, 0, 158);
+}
+.bi.bi-line{
+    color: #0EBA07;
+}
+.bi.bi-envelope{
+    color: rgba(175, 29, 24, 0.753);
+}
+.bi.bi-telephone{
+    color: black;
 }
 
 .search-bar {
@@ -101,12 +115,41 @@ ul {
     background: none;
     margin-right: 20px;
 }
+
 .icon:hover{
     color: #194276;
+}
+
+.nav-link{
+    /* text-decoration: none; */
+    transition: 0.2s;
+    padding-bottom: 0.2em;
+    border-bottom: 3px solid transparent;
+}
+.nav-link:hover{
+    padding-bottom: 0;
+    border-bottom: 3px solid rgb(110, 110, 110);
 }
 
 @media(max-width: 767px){
     .footer-col {
         width: 50%;
     }
+}
+
+.productNav{
+    background-color: #cac6c6;
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.productNav div{
+    padding: 0.6rem 0;
+    transition: 0.2s all ease;
+}
+
+.productNav div:hover{
+    color: white;
 }

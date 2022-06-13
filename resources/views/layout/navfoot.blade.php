@@ -4,7 +4,6 @@
     <link href="/css/navfoot.css" rel="stylesheet">
 @endsection
 
-
 @section('navfoot')
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -12,36 +11,14 @@
         <div class="collapse1 navbar-collapse">
         <ul class="navbar-nav ">
             <li class="nav-item">
-            <a class="nav-link" href="#">หน้าหลัก</a>
+            <a class="nav-link" href="/">หน้าหลัก</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">เกี่ยวกับเรา</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" >ผลิตภัณฑ์</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item col" href="#">Security</a></li>
-                    <li><a class="dropdown-item col" href="#">Network Infrastructure</a></li>
-                    <li><a class="dropdown-item col" href="#">Telecomm/IOT</a></li>
-                    <li><a class="dropdown-item col" href="#">Tool and Tester</a></li>
-                    <li><a class="dropdown-item col" href="#">UPS/Power supply/surge</a></li>
-                    <li><a class="dropdown-item col" href="#">Audio/Multimedia</a></li>
-                    <li><a class="dropdown-item col" href="#">Software</a></li>
-                    <li><a class="dropdown-item col" href="#">Solar/Light</a></li>
-                </ul>
+            <li class="nav-item">
+            <a class="nav-link" href="#" onclick="toggleDropdown()">ผลิตภัณฑ์</a>
             </li>
-                <!-- <div class="container">
-                    <div class="row">
-                        <div class="col">Security</div>
-                        <div class="col">Network Infrastructure</div>
-                        <div class="col">Telecomm/IOT</div>
-                        <div class="col">Tool and Tester</div>
-                        <div class="col">UPS/Surge/Power supply</div>
-                        <div class="col">Audio/Multimedia</div>
-                        <div class="col">Software</div>
-                        <div class="col">Solar/Light</div>
-                    </div>
-                </div> -->
             <li class="nav-item">
             <a class="nav-link" href="#">บริการ</a>
             </li>
@@ -55,22 +32,49 @@
             <a class="nav-link" href="#">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ติดต่อเรา</a>
+            <a class="nav-link" href="/contact">ติดต่อเรา</a>
             </li>
         </ul>
-        
+
+         <!-- search Box -->
         <div class="collapse2 navbar-collapse justify-content-end">
             <form action="" class="search-bar">
                 <input type="text" placeholder="Search">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
         <button class="icon"><i class="bi bi-cart3"></i></button>
+        <!-- <li class="nav-item dropdown">  
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item row" href="#">คำสั่งซื้อ</a></li>
+                    <li><a class="dropdown-item row" href="#">ลงทะเบียนโปรเจค</a></li>
+                    <li><a class="dropdown-item row" href="#">ออกจากระบบ</a></li>
+                </ul>
+        </li>     -->
         <button class="icon"><i class="bi bi-person-fill"></i></button>
         </div>
-
-        
     </div>
     </nav>
+
+    <div class="productNav" id="pd">
+            <div>Security</div>
+            <div>Network Infrastructure</div>
+            <div>Telecomm/IO</div>
+            <div>Tool and Tester</div>
+            <div>UPS/Surge/Power Supply</div>
+            <div>Audio/Multimedis</div>
+            <div>Software</div>
+            <div>Solar/Light</div>
+    </div>
+<script>
+    const toggleDropdown = () => {
+        const pd = document.getElementById("pd");
+        if (pd.style.display === "none"){
+            pd.style.display = "flex";
+        } else {
+            pd.style.display = "none";
+        }
+    }
+</script>
 
     <!-- home -->
     @yield ('highlight')
@@ -78,12 +82,9 @@
     @yield ('activity')
     @yield ('brands')
 
-    <!-- test -->
-    @yield ('test')
+    <!-- contact -->
+    @yield ('contact')
     
-    
-
-
     <!-- footer -->
     <footer class="footer">
         <div class="container-fluid">
@@ -110,7 +111,7 @@
             <div class="footer-col">
                 <h6>Product</h6>
                     <ul>
-                        <li><a href="#">หน้าหลัก</a></li>
+                        <li><a href="/">หน้าหลัก</a></li>
                         <li><a href="#">ผลิตภัณฑ์</a></li>
                     </ul>
             </div>
@@ -119,7 +120,7 @@
                     <ul>
                         <li><a href="#">เกี่ยวกับเรา</a></li>
                         <li><a href="#">ร่วมงานกับเรา</a></li>
-                        <li><a href="#">ติดต่อเรา</a></li>
+                        <li><a href="/contact">ติดต่อเรา</a></li>
                     </ul>
             </div>
             <div class="footer-col">
