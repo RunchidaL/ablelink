@@ -3,8 +3,6 @@
 <link href="/css/contact.css" rel="stylesheet">
 @endsection
 
-
-
 @section('contact')
 <div class="wallpaper">
     <img src="/images/contact.jpg" alt="">

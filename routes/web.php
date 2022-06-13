@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('home.home');
 });
 
+Route::get('service', function () {
+    return view('service');
+});
+
 Route::get('contact', function () {
     return view('contact');
 });
