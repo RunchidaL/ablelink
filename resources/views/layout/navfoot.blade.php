@@ -95,7 +95,7 @@
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-line"></i></a>
                     <a href="#"><i class="bi bi-envelope"></i></a>
-                    <a href="#"><i class="bi bi-telephone"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-col">

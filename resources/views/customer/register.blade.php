@@ -8,7 +8,7 @@
     <body>
     <nav class="navbar navbar-expand-lg">
         <img src="/images/logoAbleLink.png" alt="logo">
-        <a><span>|</span> Create an account</a>
+        <a>| Create an account</a>
     </nav>
 
     <div class="container mt-1 p-2 d-flex justify-content-center">
@@ -17,25 +17,25 @@
             <div class="row">
                 <div class="col-12 mb-3">
                     <div class="form-group">
-                        <label for="name">ชื่อจริง</label>
+                        <label for="name">*ชื่อจริง</label>
                         <input type="text" name="name" class="form-control">
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
-                        <label for="lname">นามสกุล</label>
+                        <label for="lname">*นามสกุล</label>
                         <input type="text" name="lname" class="form-control">
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">*Email</label>
                         <input type="email" name="email" class="form-control">
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
-                        <label for="phone">เบอร์โทรศัพท์</label>
+                        <label for="phone">*เบอร์โทรศัพท์</label>
                         <input type="text" name="phone" class="form-control">
                     </div>
                 </div>                
@@ -44,11 +44,10 @@
         </form>
     </div>
     <div class="signin">
-        <p>Already have an account?<span><a href="/"> Sign In</a></span></p>
-        <p><span><i class="bi bi-dash"></i></span>or create a dealer<span><i class="bi bi-dash"></i></span></p>
+        <p>Already have an account?<a href="/"> Sign In</a></p>
+        <p><i class="bi bi-dash"></i>or create a dealer<i class="bi bi-dash"></i></p>
         <button>Dealer account</button>
     </div>
-    
 
 @endsection
 
