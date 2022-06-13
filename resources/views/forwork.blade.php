@@ -5,27 +5,36 @@
 
 @section('forwork')
 <div class="wallpaper">
-    <img src="/images/contact.jpg" alt="">
+    <img src="/images/forwork.png" alt="">
 </div>
 
 
 <div class="all-content">
-
-        <div class="left">
-            <p class="PH">สวัสดิการ</p>
+        <div class="col">
+            <p>สวัสดิการ</p>
             <ul>
-                <li><a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a> : Ablelink Thailand</li>
-                <li><a href="#"><i class="bi bi-line"></i></a> : @Ablelink</li>
-                <li><a href="#"><i class="bi bi-envelope"></i></a> : ablelink.thailand99@gmail.com</li>
-                <li><a href="#"><i class="bi bi-telephone"></i></a> : 095-145-1538</li>
+                <li>ค่ารักษาพยาบาลสูงสุด 100,000 บาท/ปี</li>
+                <li>ประกันอุบัติเหตุ 100,000 บาท/ปี</li>
+                <li>ประกันชีวิต 100,000 บาท</li>
+                <li>วันหยุดพักร้อน 10 วัน/ปี</li>
+                <li>งานเลี้ยงสังสรรค์ 2 ครั้ง /ปี</li>
+                <li>มีขนม กาเเฟให้ทานระหว่างทำงาน</li>
+                <li>เวลาทำงาน 8.30-17.30  จันทร์ - ศุกร์  *(หยุดเสาร์- อาทิตย์)</li>
             </ul>
         </div>
 
 
     <div class="col">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.5709210391615!2d100.62870271534766!3d13.864775398399654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13
-                 .1!3m3!1m2!1s0x311d636de95f5a3b%3A0x6993de58e110b43c!2z4Lia4Lij4Li04Lip4Lix4LiXIOC5guC4n-C4hOC4reC4oeC4oeC5jCAo4Lib4Lij4Liw4LmA4LiX4Lio4LmE4LiX4LiiKSDguI
-                 jguLPguIHguLHguJQ!5e0!3m2!1sen!2sth!4v1655033151221!5m2!1sen!2sth" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>ติดต่อ</p>
+        <li>เบอร์ติดต่อ HR : 089-1234567</li>
+        <li>อีเมลติดต่อ HR : Ablelink_HR@hotmail.com (ข้อมูลที่จำเป็น)</li>
+        <ul>
+            <li>ชื่อ-นามสกุล</li>
+            <li>เบอร์โทร</li>
+            <li>Email</li>
+            <li>Resume</li>
+            <li>ตำเเหน่ง</li>
+        </ul>
     </div>
 
 </div>
