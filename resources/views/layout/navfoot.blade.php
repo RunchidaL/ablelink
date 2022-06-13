@@ -26,10 +26,10 @@
             <a class="nav-link" href="#">ข่าวสาร&กิจกรรม</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ดาวน์​โหลด</a>
+            <a class="nav-link" href="/download">ดาวน์​โหลด</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ร่วมงานกับเรา</a>
+            <a class="nav-link" href="/for_work">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/contact">ติดต่อเรา</a>
@@ -86,6 +86,7 @@
     }
 </script>
 
+
     <!-- home -->
     @yield ('highlight')
     @yield ('newproduct')
@@ -95,7 +96,11 @@
     <!-- contact -->
     @yield ('contact')
 
+    <!-- forwork -->
     @yield('forwork')
+
+    <!-- download -->
+    @yield('download')
     
     <!-- footer -->
     <footer class="footer">
@@ -131,7 +136,7 @@
                 <h6>Connect</h6>
                     <ul>
                         <li><a href="#">เกี่ยวกับเรา</a></li>
-                        <li><a href="#">ร่วมงานกับเรา</a></li>
+                        <li><a href="/for_work">ร่วมงานกับเรา</a></li>
                         <li><a href="/contact">ติดต่อเรา</a></li>
                     </ul>
             </div>
@@ -140,7 +145,7 @@
                     <ul>
                         <li><a href="#">ข่าวสาร&กิจกรรม</a></li>
                         <li><a href="#">บริการ</a></li>
-                        <li><a href="#">ดาวน์​โหลด</a></li>
+                        <li><a href="/download">ดาวน์​โหลด</a></li>
                     </ul>
             </div>
         </div>

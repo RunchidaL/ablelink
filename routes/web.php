@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('home.home');
 });
 
-Route::get('contact', function () {
+Route::get('/contact', function () {
     return view('contact');
 });
 
@@ -23,4 +23,8 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Route::get('/for_work', function () {
     return view('forwork');
+});
+
+Route::get('/download', function () {
+    return view('download');
 });

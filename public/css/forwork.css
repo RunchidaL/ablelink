@@ -28,7 +28,11 @@
 }
 
 p {
-    font-size: 130%;
+    font-size: 150%;
+}
+
+li {
+    font-size: 120%;
 }
 
 
