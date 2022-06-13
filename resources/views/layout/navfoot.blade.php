@@ -94,6 +94,8 @@
 
     <!-- contact -->
     @yield ('contact')
+
+    @yield('forwork')
     
     <!-- footer -->
     <footer class="footer">
