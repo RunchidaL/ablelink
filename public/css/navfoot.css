@@ -62,7 +62,7 @@ footer * {
     flex-wrap: wrap;
 }
 
-ul {
+.footer-col ul{
     list-style: none;
 }
 

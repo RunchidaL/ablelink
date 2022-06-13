@@ -50,7 +50,17 @@
                     <li><a class="dropdown-item row" href="#">ออกจากระบบ</a></li>
                 </ul>
         </li>     -->
-        <button class="icon"><i class="bi bi-person-fill"></i></button>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
         </div>
     </div>
     </nav>
