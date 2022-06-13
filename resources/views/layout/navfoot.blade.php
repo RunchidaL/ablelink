@@ -29,7 +29,7 @@
             <a class="nav-link" href="#">ดาวน์​โหลด</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ร่วมงานกับเรา</a>
+            <a class="nav-link" href="/for_work">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/contact">ติดต่อเรา</a>
