@@ -141,20 +141,3 @@ footer *{
         width: 50%;
     }
 }
-
-.productNav{
-    background-color: #cac6c6;
-    display: none;
-    flex-direction: row;
-    justify-content: space-evenly;
-    cursor: pointer;
-}
-
-.productNav div{
-    padding: 0.6rem 0;
-    transition: 0.2s all ease;
-}
-
-.productNav div:hover{
-    color: white;
-}

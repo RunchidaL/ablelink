@@ -22,9 +22,10 @@
     @yield('link_navfoot')
     @yield('link_register_dealer')
     @yield('link_home')
+    @yield('link_product')
     @yield('link_register_customer')
-    @yield('link_contact')
     @yield('link_forwork')
+    @yield('link_contact')
 
   </head>
   <body>

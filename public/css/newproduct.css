@@ -12,7 +12,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /*กดหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
 }
 
 
