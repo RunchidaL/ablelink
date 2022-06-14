@@ -7,8 +7,12 @@ Route::get('/', function () {
     return view('home.home');
 });
 
-Route::get('contact', function () {
+Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::get('/activity', function () {
+    return view('activity');
 });
 
 Route::get('/register_customer', function () {
