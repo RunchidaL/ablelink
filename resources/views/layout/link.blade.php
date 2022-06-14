@@ -27,6 +27,7 @@
     @yield('link_forwork')
     @yield('link_activity')
     @yield('link_contact')
+    @yield('link_download')
 
   </head>
   <body>

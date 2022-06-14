@@ -26,7 +26,7 @@
             <a class="nav-link" href="/activity">ข่าวสาร&กิจกรรม</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ดาวน์​โหลด</a>
+            <a class="nav-link" href="/download">ดาวน์​โหลด</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/for_work">ร่วมงานกับเรา</a>
@@ -77,10 +77,16 @@
 
     <!-- contact -->
     @yield ('contact')
+
     <!-- main_activity -->
     @yield ('main_activity')
 
+    <!-- forwork -->
+    @yield('forwork')
 
+    <!-- download -->
+    @yield('download')
+    
     <!-- footer -->
     <footer class="footer">
         <div class="container-fluid">
@@ -123,8 +129,13 @@
                 <h6>Customer Service</h6>
                     <ul>
                         <li><a href="#">ข่าวสาร&กิจกรรม</a></li>
+<<<<<<< HEAD
                         <li><a href="/service">บริการ</a></li>
                         <li><a href="#">ดาวน์​โหลด</a></li>
+=======
+                        <li><a href="#">บริการ</a></li>
+                        <li><a href="/download">ดาวน์​โหลด</a></li>
+>>>>>>> 79036c4c2adb5dd909ec5a3746535282d2367999
                     </ul>
             </div>
         </div>
