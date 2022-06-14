@@ -28,3 +28,8 @@ Route::get('/for_work', function () {
 Route::get('/download', function () {
     return view('download');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');

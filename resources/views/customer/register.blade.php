@@ -35,8 +35,8 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
-                        <label for="phone">*เบอร์โทรศัพท์</label>
-                        <input type="text" name="phone" class="form-control">
+                        <label for="password">password</label>
+                        <input type="password" name="password" class="form-control">
                     </div>
                 </div>                
                 <input type="submit" value="Create an account" class="btn btn mx-auto">
