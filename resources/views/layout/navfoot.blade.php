@@ -23,7 +23,7 @@
             <a class="nav-link" href="/service">บริการ</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ข่าวสาร&กิจกรรม</a>
+            <a class="nav-link" href="/activity">ข่าวสาร&กิจกรรม</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">ดาวน์​โหลด</a>
@@ -77,6 +77,8 @@
 
     <!-- contact -->
     @yield ('contact')
+    <!-- main_activity -->
+    @yield ('main_activity')
 
     <!-- footer -->
     <footer class="footer">

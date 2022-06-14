@@ -26,6 +26,7 @@
     @yield('link_register_customer')
     @yield('link_forwork')
     @yield('link_contact')
+    @yield('link_activity')
 
   </head>
   <body>

@@ -15,6 +15,10 @@ Route::get('/service', function () {
     return view('service');
 });
 
+Route::get('/activity', function () {
+    return view('activity');
+});
+
 Route::get('/for_work', function () {
     return view('forwork');
 });
