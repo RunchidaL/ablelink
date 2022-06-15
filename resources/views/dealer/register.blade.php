@@ -4,7 +4,7 @@
     <link href="/css/dealer/register.css" rel="stylesheet">
 @endsection
 
-@section('content')
+@section('content2')
     <div class="head">
         <img src="/images/logoAbleLink.png" alt="logo">
         <a>| Create a dealer account</a>

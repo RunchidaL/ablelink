@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfodealerRequestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home.home');
