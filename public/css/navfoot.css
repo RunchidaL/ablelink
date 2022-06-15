@@ -132,7 +132,6 @@ footer *{
 }
 
 .nav-link:hover{
-    padding-bottom: 0;
     border-bottom: 3px solid rgb(110, 110, 110);
     color: #194276;
 }
@@ -141,8 +140,38 @@ footer *{
     text-align: center;
 }
 
+.dropdown-item{
+    text-align: center;
+    text-decoration: none;
+}
+
+.dropdown-item:hover{
+    color: white;
+    background-color: rgb(159, 157, 157);
+}
+
 @media(max-width: 767px){
     .footer-col {
         width: 50%;
     }
 }
+
+.hoverdropdown:hover ul.dropdown-menu{
+    margin-top: 25px;
+    background-color: #cac6c6;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    position: absolute;
+    margin-left: -362px;
+}
+.hoverdropdown:hover ul.dropdown-menu li{
+    padding: 0.6rem 0;
+    transition: 0.2s all ease;
+}
+
+.hoverdropdown:hover ul.dropdown-menu li:hover{
+    color: white;
+}
+
