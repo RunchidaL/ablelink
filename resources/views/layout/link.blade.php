@@ -27,13 +27,15 @@
     @yield('link_product')
     @yield('link_register_customer')
     @yield('link_forwork')
-    @yield('link_download')
+    @yield('link_activity')
     @yield('link_contact')
+    @yield('link_download')
     @yield('link_login')
+    @yield('link_service')
 
   </head>
   <body>
-  
+  @yield('navfoot')
   @yield('content')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

@@ -14,10 +14,7 @@
     margin-right: 20%;
 }
 
-
-
 /* ด้านล่างข่าวสารกิจกรรม */
-
 .text-AC{
     color: red;
 }
@@ -25,7 +22,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /*กดหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
 }
 
 
@@ -53,8 +50,6 @@
     
 }
 
-
-
 @media(max-width: 767px){
     .AC-col {
         height: 20%;
@@ -62,5 +57,76 @@
     }
 }
 
+/* main_activity หน้าหลัก */
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background: #f1f1f1;
+    border-radius: 20px;
+}
+
+.text-icon{
+    margin-left: 7%;
+}
+
+.bi.bi-file-text{
+    font-size: 400%;
+    color: black;
+}
+
+.bi.bi-box-seam{
+    font-size: 400%;
+    color: black;
+}
+
+.bi.bi-building{
+    font-size: 400%;
+    color: black;
+}
+
+.mac-left .bi.bi-file-text:hover{
+    color: rgb(124, 124, 124);
+}
+.mac-center .bi.bi-box-seam:hover{
+    color: rgb(124, 124, 124);
+}
+.mac-right .bi.bi-building:hover{
+    color: rgb(124, 124, 124);
+}
+
+@media(max-width: 414px) {
+    .menu{
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .mac-left{
+        margin-top: 3%;
+    }
+    .mac-center{
+        margin-top: 3%;
+    }
+    .mac-right{
+        margin-top: 3%;
+    }
+    .bi.bi-file-text{
+        font-size: 200%;
+        margin-left: 20%;
+    }
+    .bi.bi-box-seam{
+        font-size: 200%;
+        margin-left: 25%;
+    }
+    .bi.bi-building{
+        font-size: 200%;
+        margin-left: 20%;
+    }
+}
 
 

@@ -16,10 +16,6 @@ Route::get('/service', function () {
     return view('service');
 });
 
-Route::get('/for_work', function () {
-    return view('forwork');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -40,6 +36,10 @@ Route::get('/for_work', function () {
 
 Route::get('/download', function () {
     return view('download');
+});
+
+Route::get('/activity', function () {
+    return view('activity');
 });
 
 Auth::routes();

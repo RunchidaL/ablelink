@@ -20,10 +20,12 @@ footer *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .footer{
     position: absolute;
+    bottom: 0;
     margin-top: auto;
     background-color: #E1B069;  /*change*/
     padding: 10px 0px;
@@ -128,8 +130,8 @@ footer *{
     /* text-decoration: none; */
     transition: 0.2s;
     padding-bottom: 0.2em;
-    border-bottom: 3px solid transparent;
 }
+
 .nav-link:hover{
     padding-bottom: 0;
     border-bottom: 3px solid rgb(110, 110, 110);

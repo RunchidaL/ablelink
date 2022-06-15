@@ -67,9 +67,7 @@
     </div>
     
     <div class="col" style="margin: 0; padding: 0;">
-        <div class="hidden">
-            <img src="/images/signin.png">
-        </div>       
+        <img src="/images/signin.png">
     </div>
 </div>
 
