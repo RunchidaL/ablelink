@@ -14,7 +14,7 @@
             <a class="nav-link" href="/">หน้าหลัก</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">เกี่ยวกับเรา</a>
+            <a class="nav-link" href="/aboutus">เกี่ยวกับเรา</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/shop">ผลิตภัณฑ์</a>
@@ -124,7 +124,7 @@
             <div class="footer-col">
                 <h6>Connect</h6>
                     <ul>
-                        <li><a href="#">เกี่ยวกับเรา</a></li>
+                        <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
                         <li><a href="/forwork">ร่วมงานกับเรา</a></li>
                         <li><a href="/contact">ติดต่อเรา</a></li>
                     </ul>
