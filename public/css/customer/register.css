@@ -6,9 +6,12 @@ img {
     width: 200px;
     height: 60.9px;
 }
+.head{
+    margin: 2%;
+}
 
 form {
-    width: 50%;
+    width: 60%;
 }
 
 .form-group input {

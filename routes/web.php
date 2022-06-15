@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfodealerRequestController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('home.home');
@@ -13,18 +14,6 @@ Route::get('/product', function () {
 
 Route::get('/service', function () {
     return view('service');
-});
-
-Route::get('/activity', function () {
-    return view('activity');
-});
-
-Route::get('/download', function () {
-    return view('download');
-});
-
-Route::get('/for_work', function () {
-    return view('forwork');
 });
 
 Route::get('/contact', function () {
@@ -41,6 +30,19 @@ Route::get('/register_dealer', function () {
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+Route::get('/for_work', function () {
+    return view('forwork');
+});
+
+Route::get('/download', function () {
+    return view('download');
+});
+
+Route::get('/activity', function () {
+    return view('activity');
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+// Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
