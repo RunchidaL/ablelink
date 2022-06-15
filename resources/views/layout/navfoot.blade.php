@@ -4,7 +4,7 @@
     <link href="/css/navfoot.css" rel="stylesheet">
 @endsection
 
-@section('content')
+@section('navfoot')
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
@@ -94,22 +94,7 @@
     @yield ('brands')
 
     <!-- product -->
-    @yield('product')
-
-    <!-- service -->
-    @yield ('service')
-
-    <!-- contact -->
-    @yield ('contact')
-
-    <!-- main_activity -->
-    @yield ('main_activity')
-
-    <!-- forwork -->
-    @yield('forwork')
-
-    <!-- download -->
-    @yield('download')
+    @yield('content')
     
     <!-- footer -->
     <footer class="footer">
@@ -152,7 +137,7 @@
             <div class="footer-col">
                 <h6>Customer Service</h6>
                     <ul>
-                        <li><a href="#">ข่าวสาร&กิจกรรม</a></li>
+                        <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
                         <li><a href="/service">บริการ</a></li>
                         <li><a href="/download">ดาวน์​โหลด</a></li>
                     </ul>
@@ -160,5 +145,4 @@
         </div>
         </div>
     </footer>
-    
 @endsection

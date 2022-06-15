@@ -55,7 +55,7 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>                  
-                <div class="d-grid gap-2 d-md-flex justify-content-md-center" class="col-12 mb-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-center" class="col-12 mb-3">
                     <button type="submit" class="btn btn-primary">
                         Create an account
                     </button>
@@ -68,5 +68,4 @@
         <p><i class="bi bi-dash"></i>or create a dealer<i class="bi bi-dash"></i></p>
         <a href="/register_dealer"><button>Dealer account</button></a>
     </div>
-
 @endsection

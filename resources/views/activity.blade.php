@@ -3,7 +3,7 @@
 <link href="/css/activity.css" rel="stylesheet">
 @endsection
 
-@section("main_activity")
+@section("content")
 <div class="menu">
     <div class="mac-left">
         <a href="#"><i class="bi bi-file-text"></i></a>
@@ -18,7 +18,4 @@
         <p class="text-icon">องค์กร</p>
     </div>
 </div>
-
-
-
 @endsection

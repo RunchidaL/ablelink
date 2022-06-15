@@ -3,7 +3,7 @@
 <link href="/css/contact.css" rel="stylesheet">
 @endsection
 
-@section('contact')
+@section('content')
 <div class="wallpaper">
     <img src="/images/contact.jpg" alt="">
 </div>
@@ -20,7 +20,6 @@
                 <li><a href="#"><i class="bi bi-telephone"></i></a> : 095-145-1538</li>
             </ul>
         </div>
-
 
     <div class="right">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.5709210391615!2d100.62870271534766!3d13.864775398399654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13

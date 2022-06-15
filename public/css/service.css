@@ -9,27 +9,29 @@
     position: relative;
     background-size: cover;
     object-fit: cover;
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
 }
 
-/* ส่วนด้านล่าง */
-.all-content{
+.box{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 20px;
+}
+
+.box img{
+    width: 120px;
 }
 
 .col{
-    margin-right: 10%;
-    margin-left: 10%;
+    text-align: center;
 }
 
-p{
-    font-size: 100%;
+.col li{
+    text-align: left;
+    margin-left: 130px;
 }
 
-
-
+.col h4{
+    margin-bottom: 20px;
+}

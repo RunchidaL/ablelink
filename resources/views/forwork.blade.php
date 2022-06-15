@@ -3,7 +3,7 @@
 <link href="/css/forwork.css" rel="stylesheet">
 @endsection
 
-@section('forwork')
+@section('content')
 <div class="wallpaper">
     <img src="/images/forwork.png" alt="">
 </div>

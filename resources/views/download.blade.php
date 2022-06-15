@@ -4,7 +4,7 @@
 <link href="/css/download.css" rel="stylesheet">
 @endsection
 
-@section('download')
+@section('content')
 <div class="wallpaper">
     <img src="/images/download.png" alt="">
 </div>

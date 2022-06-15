@@ -3,7 +3,7 @@
 <link href="/css/product.css" rel="stylesheet">
 @endsection
 
-@section('product')
+@section('content')
 <div class="productNav">
     <div>Network Infrastructure</div>
     <div>Telecomm/IO</div>
