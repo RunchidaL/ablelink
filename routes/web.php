@@ -19,6 +19,10 @@ Route::get('/activity', function () {
     return view('activity');
 });
 
+Route::get('/download', function () {
+    return view('download');
+});
+
 Route::get('/for_work', function () {
     return view('forwork');
 });
@@ -37,3 +41,6 @@ Route::get('/register_dealer', function () {
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

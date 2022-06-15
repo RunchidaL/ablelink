@@ -18,7 +18,4 @@
         <p class="text-icon">องค์กร</p>
     </div>
 </div>
-
-
-
 @endsection

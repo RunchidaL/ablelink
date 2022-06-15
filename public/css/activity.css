@@ -14,10 +14,7 @@
     margin-right: 20%;
 }
 
-
-
 /* ด้านล่างข่าวสารกิจกรรม */
-
 .text-AC{
     color: red;
 }
@@ -25,7 +22,7 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /*กดหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
 }
 
 
@@ -60,11 +57,7 @@
     }
 }
 
-
-
-
 /* main_activity หน้าหลัก */
-
 .menu{
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +84,6 @@
     color: black;
 }
 
-
 .bi.bi-building{
     font-size: 400%;
     color: black;
@@ -106,7 +98,6 @@
 .mac-right .bi.bi-building:hover{
     color: rgb(124, 124, 124);
 }
-
 
 @media(max-width: 414px) {
     .menu{

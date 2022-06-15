@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1abc7822bd9f28e9a62986817bf04f76",
+    "content-hash": "b48e51cf2e3a84d07f63a74dc5cb6852",
     "packages": [
         {
             "name": "brick/math",
@@ -572,18 +572,6 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-<<<<<<< HEAD
-            "version": "7.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
-                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
-=======
             "version": "7.4.3",
             "source": {
                 "type": "git",
@@ -594,7 +582,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/guzzle/zipball/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab",
                 "reference": "74a8602c6faec9ef74b7a9391ac82c5e65b1cdab",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -689,11 +676,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.4"
-=======
                 "source": "https://github.com/guzzle/guzzle/tree/7.4.3"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -709,11 +692,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-09T21:39:15+00:00"
-=======
             "time": "2022-05-25T13:24:33+00:00"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
         },
         {
             "name": "guzzlehttp/promises",
@@ -1284,6 +1263,67 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.7.2"
             },
             "time": "2022-03-23T12:38:24+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/65ec5c03f7fee2c8ecae785795b829a15be48c2c",
+                "reference": "65ec5c03f7fee2c8ecae785795b829a15be48c2c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42|^9.0",
+                "illuminate/filesystem": "^8.42|^9.0",
+                "illuminate/support": "^8.82|^9.0",
+                "illuminate/validation": "^8.42|^9.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.4.6"
+            },
+            "time": "2022-05-20T13:38:08+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2753,18 +2793,6 @@
         },
         {
             "name": "symfony/console",
-<<<<<<< HEAD
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "6187424023fbffcd757789aeb517c9161b1eabee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/6187424023fbffcd757789aeb517c9161b1eabee",
-                "reference": "6187424023fbffcd757789aeb517c9161b1eabee",
-=======
             "version": "v6.1.0",
             "source": {
                 "type": "git",
@@ -2775,7 +2803,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/c9646197ef43b0e2ff44af61e7f0571526fd4170",
                 "reference": "c9646197ef43b0e2ff44af61e7f0571526fd4170",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -2842,11 +2869,7 @@
                 "terminal"
             ],
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/console/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/console/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -2862,11 +2885,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-08T14:02:09+00:00"
-=======
             "time": "2022-05-27T06:34:22+00:00"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
         },
         {
             "name": "symfony/css-selector",
@@ -3299,18 +3318,6 @@
         },
         {
             "name": "symfony/http-foundation",
-<<<<<<< HEAD
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "a58dc88d56e04e57993d96c1407a17407610e1df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/a58dc88d56e04e57993d96c1407a17407610e1df",
-                "reference": "a58dc88d56e04e57993d96c1407a17407610e1df",
-=======
             "version": "v6.1.0",
             "source": {
                 "type": "git",
@@ -3321,7 +3328,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/18f8a2a3ab703428143c27c055fd743ab7e7dcb1",
                 "reference": "18f8a2a3ab703428143c27c055fd743ab7e7dcb1",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -3364,11 +3370,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/http-foundation/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/http-foundation/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -3384,22 +3386,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-05-31T14:28:03+00:00"
-        },
-        {
-            "name": "symfony/http-kernel",
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "86c4d6f6c5b6cd012df41e3b950c924b3ffdc019"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/86c4d6f6c5b6cd012df41e3b950c924b3ffdc019",
-                "reference": "86c4d6f6c5b6cd012df41e3b950c924b3ffdc019",
-=======
             "time": "2022-05-21T13:34:40+00:00"
         },
         {
@@ -3414,7 +3400,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/a57c7084bd0604d80d70c89c6662512c698352d1",
                 "reference": "a57c7084bd0604d80d70c89c6662512c698352d1",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -3495,11 +3480,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/http-kernel/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/http-kernel/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -3515,22 +3496,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-09T17:31:33+00:00"
-        },
-        {
-            "name": "symfony/mailer",
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/mailer.git",
-                "reference": "db6a19a5c896139901c2de59fc9849379e0ff3b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/db6a19a5c896139901c2de59fc9849379e0ff3b6",
-                "reference": "db6a19a5c896139901c2de59fc9849379e0ff3b6",
-=======
             "time": "2022-05-27T07:21:03+00:00"
         },
         {
@@ -3545,7 +3510,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/mailer/zipball/bc4338d7729aafaaac8559e1a4680ee97b8bfedb",
                 "reference": "bc4338d7729aafaaac8559e1a4680ee97b8bfedb",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -3590,11 +3554,7 @@
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/mailer/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/mailer/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -3610,22 +3570,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-06T19:15:01+00:00"
-        },
-        {
-            "name": "symfony/mime",
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/mime.git",
-                "reference": "56508865dd883dce3c863af11b3e8053adab30d7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/56508865dd883dce3c863af11b3e8053adab30d7",
-                "reference": "56508865dd883dce3c863af11b3e8053adab30d7",
-=======
             "time": "2022-04-27T17:11:01+00:00"
         },
         {
@@ -3640,7 +3584,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/mime/zipball/032e796edbf842bc4b4c81c42598b144b95ce56a",
                 "reference": "032e796edbf842bc4b4c81c42598b144b95ce56a",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -3692,11 +3635,7 @@
                 "mime-type"
             ],
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/mime/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/mime/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -3712,11 +3651,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-09T12:51:38+00:00"
-=======
             "time": "2022-05-21T13:34:40+00:00"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -4436,18 +4371,6 @@
         },
         {
             "name": "symfony/routing",
-<<<<<<< HEAD
-            "version": "v6.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/routing.git",
-                "reference": "8f068b792e515b25e26855ac8dc7fe800399f3e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/8f068b792e515b25e26855ac8dc7fe800399f3e5",
-                "reference": "8f068b792e515b25e26855ac8dc7fe800399f3e5",
-=======
             "version": "v6.1.0",
             "source": {
                 "type": "git",
@@ -4458,7 +4381,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/routing/zipball/03c13cbaefdec9fbb7a62ed18235d487686540dd",
                 "reference": "03c13cbaefdec9fbb7a62ed18235d487686540dd",
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
                 "shasum": ""
             },
             "require": {
@@ -4517,11 +4439,7 @@
                 "url"
             ],
             "support": {
-<<<<<<< HEAD
-                "source": "https://github.com/symfony/routing/tree/v6.1.1"
-=======
                 "source": "https://github.com/symfony/routing/tree/v6.1.0"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
             },
             "funding": [
                 {
@@ -4537,11 +4455,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-06-08T12:21:15+00:00"
-=======
             "time": "2022-04-27T17:06:58+00:00"
->>>>>>> 22d2eda726a1bb55c04050b2ca99ea8c2a281975
         },
         {
             "name": "symfony/service-contracts",
