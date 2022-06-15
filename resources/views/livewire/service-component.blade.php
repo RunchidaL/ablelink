@@ -1,10 +1,7 @@
-@extends('layout.navfoot')
-@section('link_service')
+<!-- link -->
 <link href="/css/service.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@endsection
-
-@section('service')
+<!-- link -->
 <div class="wallpaper">
     <img src="/images/service.jpg" alt="">
 </div>
@@ -51,4 +48,4 @@
         <p>อุบัติเหตุหรือภัยธรรมชาติต่างๆ</p>
     </div>
 </div>
-@endsection
+

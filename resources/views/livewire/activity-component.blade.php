@@ -1,9 +1,7 @@
-@extends("layout.navfoot")
-@section("link_activity")
+<!-- link -->
 <link href="/css/activity.css" rel="stylesheet">
-@endsection
+<!-- link -->
 
-@section("main_activity")
 <div class="menu">
     <div class="mac-left">
         <a href="#"><i class="bi bi-file-text"></i></a>
@@ -18,4 +16,4 @@
         <p class="text-icon">องค์กร</p>
     </div>
 </div>
-@endsection
+

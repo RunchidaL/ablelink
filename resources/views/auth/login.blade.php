@@ -4,7 +4,7 @@
     <link href="/css/login.css" rel="stylesheet">
 @endsection
 
-@section('content')
+@section('content2')
 
 <div class="row">
     <div class="col">

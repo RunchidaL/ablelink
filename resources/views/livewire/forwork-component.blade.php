@@ -1,9 +1,7 @@
-@extends('layout.navfoot')
-@section('link_forwork')
+<!-- link -->
 <link href="/css/forwork.css" rel="stylesheet">
-@endsection
+<!-- link -->
 
-@section('forwork')
 <div class="wallpaper">
     <img src="/images/forwork.png" alt="">
 </div>
@@ -35,4 +33,4 @@
         </ul>
     </div>
 </div>
-@endsection
+

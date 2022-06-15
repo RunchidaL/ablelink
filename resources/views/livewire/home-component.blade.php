@@ -1,13 +1,11 @@
-@extends('layout.navfoot')
+<!-- link -->
+    <link href="{{asset('css/highlight.css')}}" rel="stylesheet">
+    <link href="{{asset('css/newproduct.css')}}" rel="stylesheet">
+    <link href="{{asset('css/activity.css')}}" rel="stylesheet">
+    <link href="{{asset('css/brands.css')}}" rel="stylesheet">
+<!-- link -->
 
-@section('link_home')
-    <link href="/css/highlight.css" rel="stylesheet">
-    <link href="/css/newproduct.css" rel="stylesheet">
-    <link href="/css/activity.css" rel="stylesheet">
-    <link href="/css/brands.css" rel="stylesheet">
-@endsection
-
-@section('highlight')
+<!-- highlight -->
 <div class="swiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="/images/1.jpg" alt=""></div>
@@ -50,10 +48,10 @@
     });
 </script>
 
-@endsection
 
 
-@section('newproduct')
+
+<!-- newproduct -->
 
 <div>
     <p class="text">ผลิตภัณฑ์ใหม่</p>
@@ -83,10 +81,7 @@
     </div>
 </div>
 
-@endsection
-
-
-@section('activity')
+<!-- activity -->
 <div>
     <p class="text">ข่าวสารเเละกิจกรรม</p>
 </div>
@@ -129,10 +124,8 @@
         </div>
     </div>
 </div>
-@endsection
 
-
-@section('brands')
+<!-- brands -->
 <div class="container-fluid">
     <div class="B">
         <p class="text">แบรนด์เข้าร่วม</p>
@@ -166,4 +159,3 @@
         </div>
     </div>
 </div>
-@endsection
