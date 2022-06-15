@@ -8,7 +8,6 @@
     <img src="/images/forwork.png" alt="">
 </div>
 
-
 <div class="all-content">
         <div class="col">
             <p>สวัสดิการ</p>
@@ -23,7 +22,6 @@
             </ul>
         </div>
 
-
     <div class="col">
         <p>ติดต่อ</p>
         <li>เบอร์ติดต่อ HR : 089-1234567</li>
@@ -36,7 +34,5 @@
             <li>ตำเเหน่ง</li>
         </ul>
     </div>
-
 </div>
-
 @endsection

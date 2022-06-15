@@ -19,6 +19,6 @@ class Role
         if (auth()->user()->role == 3){ //admin
             return $next($request);
         }
-        return redirect('home');
+        return redirect('home.home');
     }
 }

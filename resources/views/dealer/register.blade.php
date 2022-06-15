@@ -4,12 +4,11 @@
     <link href="/css/dealer/register.css" rel="stylesheet">
 @endsection
 
-@section('register_dealer')
-    <body>
-    <nav class="navbar navbar-expand-lg">
+@section('content')
+    <div class="head">
         <img src="/images/logoAbleLink.png" alt="logo">
         <a>| Create a dealer account</a>
-    </nav>
+    </div>
 
     <div class="container mt-1 p-5">
         <h4>ข้อมูลส่วนตัว</h4>
@@ -113,9 +112,9 @@
         </form>
     </div>
     <div class="signin">
-        <p>Already have an account?<a href="/"> Sign In</a></p>
+        <p>Already have an account?<a href="{{ route('login') }}"> Sign In</a></p>
         <p><i class="bi bi-dash"></i>or create an user?<i class="bi bi-dash"></i></p>
-        <button>User account</button>
+        <a href="{{ route('register') }}"><button>User account</button></a>
     </div>
     
 
