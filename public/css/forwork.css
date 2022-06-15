@@ -27,11 +27,11 @@
     margin-left: 10%;
 }
 
-p {
+.col p {
     font-size: 150%;
 }
 
-.col li{
+.col li {
     font-size: 120%;
 }
 

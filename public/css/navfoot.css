@@ -136,6 +136,10 @@ footer *{
     color: #194276;
 }
 
+.nav-item{
+    text-align: center;
+}
+
 @media(max-width: 767px){
     .footer-col {
         width: 50%;

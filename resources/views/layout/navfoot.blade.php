@@ -4,7 +4,7 @@
     <link href="/css/navfoot.css" rel="stylesheet">
 @endsection
 
-@section('navfoot')
+@section('content')
     <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <img src="/images/logoAbleLink.png" alt="logo">
@@ -50,10 +50,37 @@
         <!-- user -->
         <div class="dropdown">
             <a class="icon" role="button" data-bs-toggle="dropdown"><i class="bi bi-person-fill"></i></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">คำสั่งซื้อ</a></li>
-                <li><a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a></li>
-                <li><a class="dropdown-item" href="#">ออกจากระบบ</a></li>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    @endif
+                @else
+                    <li class="nav-item">
+                        <a  class="nav-link" href="#" >{{ Auth::user()->name }}</a>
+                        @if(Auth::user()->role == 1)
+                            <a  class="nav-link" href="#" >Edit Profile Customer</a>
+                            <a  class="nav-link" href="#" >order</a>
+                        @elseif(Auth::user()->role == 2)
+                            <a  class="nav-link" href="#" >Edit Profile Dealer</a>
+                            <a  class="nav-link" href="#" >ลงทะเบียนโปรเจค</a>
+                            <a  class="nav-link" href="#" >order</a>
+                        @elseif(Auth::user()->role == 3)
+                            <a  class="nav-link" href="#" >Category</a>
+                        @endif
+                        
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                    </li>
+                @endguest
             </ul>
         </div>
         </div>
@@ -125,7 +152,7 @@
             <div class="footer-col">
                 <h6>Customer Service</h6>
                     <ul>
-                        <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
+                        <li><a href="#">ข่าวสาร&กิจกรรม</a></li>
                         <li><a href="/service">บริการ</a></li>
                         <li><a href="/download">ดาวน์​โหลด</a></li>
                     </ul>

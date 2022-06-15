@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfodealerRequestController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('home.home');
@@ -40,3 +41,8 @@ Route::get('/for_work', function () {
 Route::get('/download', function () {
     return view('download');
 });
+
+Auth::routes();
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+// Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
