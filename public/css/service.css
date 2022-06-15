@@ -6,11 +6,11 @@
 
 /* ภาพด้านบน */
 .wallpaper img{
-    position: relative;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 50%;
     background-size: cover;
-    object-fit: cover;
     width: 100%;
-    height: 100%;
 }
 
 .box{

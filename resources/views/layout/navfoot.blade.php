@@ -11,28 +11,39 @@
         <div class="collapse1 navbar-collapse">
         <ul class="navbar-nav ">
             <li class="nav-item">
-            <a class="nav-link" href="/">หน้าหลัก</a>
+                <a class="nav-link" href="/">หน้าหลัก</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/aboutus">เกี่ยวกับเรา</a>
+                <a class="nav-link" href="/aboutus">เกี่ยวกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/shop">ผลิตภัณฑ์</a>
+                <a class="nav-link hoverdropdown" href="/shop">ผลิตภัณฑ์
+                    <!-- <ul class="dropdown-menu" role="menu">
+                        <li>Security</li>
+                        <li>Network Infrastructure</li> 
+                        <li>Telecomm/IO</li>     
+                        <li>Tool and Tester</li> 
+                        <li>UPS/Surge/Power Supply</li> 
+                        <li>Audio/Multimedis</li> 
+                        <li>Software</li>        
+                        <li>Solar/Light</li>                        
+                    </ul> -->
+                </a>    
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/service">บริการ</a>
+                <a class="nav-link" href="/service">บริการ</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/activity">ข่าวสาร&กิจกรรม</a>
+                <a class="nav-link" href="/activity">ข่าวสาร&กิจกรรม</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/download">ดาวน์​โหลด</a>
+                <a class="nav-link" href="/download">ดาวน์​โหลด</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/forwork">ร่วมงานกับเรา</a>
+                <a class="nav-link" href="/forwork">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/contact">ติดต่อเรา</a>
+                <a class="nav-link" href="/contact">ติดต่อเรา</a>
             </li>
         </ul>
         </div>
@@ -54,28 +65,28 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        <a class="dropdown-item" href="{{ route('login') }}">เข้าสู่ระบบ</a>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                        <a class="dropdown-item" href="{{ route('register') }}">ลงทะเบียน</a>
                     @endif
                 @else
-                    <li class="nav-item">
-                        <a  class="nav-link" href="#" >{{ Auth::user()->name }}</a>
+                    <li class="dropdown">
+                        <a class="dropdown-item disabled" href="#">{{ Auth::user()->name }}</a>
                         @if(Auth::user()->role == 1)
-                            <a  class="nav-link" href="#" >Edit Profile Customer</a>
-                            <a  class="nav-link" href="#" >order</a>
+                            <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
+                            <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                         @elseif(Auth::user()->role == 2)
-                            <a  class="nav-link" href="#" >Edit Profile Dealer</a>
-                            <a  class="nav-link" href="#" >ลงทะเบียนโปรเจค</a>
-                            <a  class="nav-link" href="#" >order</a>
+                            <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
+                            <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
+                            <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                         @elseif(Auth::user()->role == 3)
-                            <a  class="nav-link" href="#" >Category</a>
+                            <a class="dropdown-item" href="#">Category</a>
                         @endif
                         
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                            ออกจากระบบ
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -85,7 +96,7 @@
             </ul>
         </div>
         </div>
-    </div>
+    </div>  
     </nav>
 
     <!-- from livewire -->
