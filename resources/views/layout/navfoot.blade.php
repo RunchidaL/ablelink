@@ -72,9 +72,6 @@
     <!-- service -->
     @yield ('service')
 
-    <!-- forwork -->
-    @yield('forwork')
-
     <!-- contact -->
     @yield ('contact')
 
@@ -128,14 +125,9 @@
             <div class="footer-col">
                 <h6>Customer Service</h6>
                     <ul>
-                        <li><a href="#">ข่าวสาร&กิจกรรม</a></li>
-<<<<<<< HEAD
+                        <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
                         <li><a href="/service">บริการ</a></li>
-                        <li><a href="#">ดาวน์​โหลด</a></li>
-=======
-                        <li><a href="#">บริการ</a></li>
                         <li><a href="/download">ดาวน์​โหลด</a></li>
->>>>>>> 79036c4c2adb5dd909ec5a3746535282d2367999
                     </ul>
             </div>
         </div>

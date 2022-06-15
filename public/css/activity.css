@@ -115,6 +115,15 @@
         margin-left: 10%;
         margin-right: 10%;
     }
+    .mac-left{
+        margin-top: 3%;
+    }
+    .mac-center{
+        margin-top: 3%;
+    }
+    .mac-right{
+        margin-top: 3%;
+    }
     .bi.bi-file-text{
         font-size: 200%;
         margin-left: 20%;
