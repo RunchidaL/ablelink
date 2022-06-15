@@ -1,10 +1,7 @@
-@extends('layout.navfoot')
-
-@section('link_download')
+<!-- link -->
 <link href="/css/download.css" rel="stylesheet">
-@endsection
+<!-- link -->
 
-@section('content')
 <div class="wallpaper">
     <img src="/images/download.png" alt="">
 </div>
@@ -48,4 +45,3 @@
         </div>
     </div>
 </div>
-@endsection

@@ -14,10 +14,10 @@
             <a class="nav-link" href="/">หน้าหลัก</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">เกี่ยวกับเรา</a>
+            <a class="nav-link" href="/aboutus">เกี่ยวกับเรา</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/product">ผลิตภัณฑ์</a>
+            <a class="nav-link" href="/shop">ผลิตภัณฑ์</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/service">บริการ</a>
@@ -29,7 +29,7 @@
             <a class="nav-link" href="/download">ดาวน์​โหลด</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/for_work">ร่วมงานกับเรา</a>
+            <a class="nav-link" href="/forwork">ร่วมงานกับเรา</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/contact">ติดต่อเรา</a>
@@ -45,7 +45,8 @@
             </form>
             
         <!-- cart -->
-        <button class="icon"><i class="bi bi-cart3"></i></button>
+        <a href="/cart"><button class="icon"><i class="bi bi-cart3"></i></button></a>
+        
 
         <!-- user -->
         <div class="dropdown">
@@ -87,14 +88,8 @@
     </div>
     </nav>
 
-    <!-- home -->
-    @yield ('highlight')
-    @yield ('newproduct')
-    @yield ('activity')
-    @yield ('brands')
-
-    <!-- product -->
-    @yield('content')
+    <!-- from livewire -->
+    {{$slot}} 
     
     <!-- footer -->
     <footer class="footer">
@@ -129,8 +124,8 @@
             <div class="footer-col">
                 <h6>Connect</h6>
                     <ul>
-                        <li><a href="#">เกี่ยวกับเรา</a></li>
-                        <li><a href="/for_work">ร่วมงานกับเรา</a></li>
+                        <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
+                        <li><a href="/forwork">ร่วมงานกับเรา</a></li>
                         <li><a href="/contact">ติดต่อเรา</a></li>
                     </ul>
             </div>

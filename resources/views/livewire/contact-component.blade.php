@@ -1,9 +1,7 @@
-@extends('layout.navfoot')
-@section('link_contact')
+<!-- link -->
 <link href="/css/contact.css" rel="stylesheet">
-@endsection
+<!-- link -->
 
-@section('content')
 <div class="wallpaper">
     <img src="/images/contact.jpg" alt="">
 </div>
@@ -27,4 +25,4 @@
                  jguLPguIHguLHguJQ!5e0!3m2!1sen!2sth!4v1655033151221!5m2!1sen!2sth" width="500" height="350 "style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
-@endsection
+

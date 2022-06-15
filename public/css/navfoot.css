@@ -20,9 +20,11 @@ footer *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .footer{
+    width: 100%;
     position: absolute;
     margin-top: auto;
     background-color: #E1B069;  /*change*/
