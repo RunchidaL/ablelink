@@ -45,7 +45,7 @@
         <table class="table table-bordered">
             @foreach($posts as $post)
                 <tr>
-                    <td><img src="{{asset('/images')}}/{{$post -> titleimg}}" width="50"/></td>
+                    <td><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="50"/></td>
 
                     <td>{{$post->title}}</td>
                     <td>{{$post->titleimg}}</td>
@@ -56,5 +56,8 @@
         </table>
     </div>
 </div>
+
+
+
 
 

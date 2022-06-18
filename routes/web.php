@@ -14,8 +14,8 @@ use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\CartComponent;
-use App\Http\Livewire\CreateblogComponent;
-use App\Http\Controllers\PostController;
+use App\Http\Livewire\AdminAddPostComponent;
+
 
 
 use App\Http\Livewire\AdminCategoryComponent;
@@ -31,6 +31,8 @@ Route::get('/', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
 
 Route::get('/service', ServiceComponent::class);
+
+Route::get('/activity', ActivityComponent::class);
 
 Route::get('/download', DownloadComponent::class);
 
@@ -52,25 +54,6 @@ Route::get('/product_category/{category_slug}', CategoryComponent::class)->name(
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
-
-
-// ปัญหาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาา
-
-Route::get('/activity', ActivityComponent::class);
-
-// Route::get('/activity-component',[PostController::class,'index']);
-
-
-Route::get('/createblog', CreateblogComponent::class)->name('admin.createblog');
-
-// Route::get('/createblog', function () {
-//     return view('createblog');
-// });
-
-// Route::post("/post",[PostController::class,'store']);
-
-// ปัญหาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาาา
-
 Auth::routes();
 
 
@@ -89,3 +72,5 @@ Route::get('/admin/products', AdminProductComponent::class)->name('admin.product
 Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
 
 Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+
+Route::get('/adminaddpost', AdminAddPostComponent::class);
