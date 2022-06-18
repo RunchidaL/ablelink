@@ -7,11 +7,23 @@
 }
 
 .carousel-control-prev{
-    margin-left: 20%;
+    margin-left: 10%;
+    color: black;
 }
 
+.carousel-control-prev-icon{
+    background-color: rgb(163, 163, 163);
+    border-radius: 20px;
+}
+
+
 .carousel-control-next{
-    margin-right: 20%;
+    margin-right: 10%;
+}
+
+.carousel-control-next-icon{
+    background-color: rgb(163, 163, 163);
+    border-radius: 20px;
 }
 
 /* ด้านล่างข่าวสารกิจกรรม */
@@ -97,6 +109,14 @@
 }
 .mac-right .bi.bi-building:hover{
     color: rgb(124, 124, 124);
+}
+
+.content{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    background: #e9e9e9;
 }
 
 @media(max-width: 414px) {

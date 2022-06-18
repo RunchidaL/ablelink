@@ -52,6 +52,8 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Auth::routes();
 
+
+
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
 

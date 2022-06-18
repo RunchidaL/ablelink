@@ -69,6 +69,7 @@
                             <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
                             <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                         @elseif(Auth::user()->role == 3)
+                            <a class="dropdown-item" href="/createblog">Create Post</a>
                             <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
                         @endif
                         

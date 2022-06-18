@@ -36,7 +36,10 @@
                             <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="category" required>
+                                    <select class="form-control form-control-sm" name="category" wire:model="category">
+                                        <option>บทความ</option>
+                                        <option>องค์กร</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -59,8 +62,8 @@
 </div>
 
 @push('scripts')
-    <script>
-        tinymce.init({
+<script>
+    tinymce.init({
             selector: '#description',
             setup:function(editor){
                 editor.on('Change',function(e){
@@ -69,8 +72,6 @@
                     @this.set('description',d_data);
                 });
             }
-            
         });
-    </script>
+</script>
 @endpush
-

@@ -36,6 +36,7 @@
   @yield('navfoot')
   @yield('content2')
 
+
   <script src="{{asset('js/chosen.jquery.min.js')}}"></script>
   <script src="{{asset('js/jquery-1.12.4.minb8ff.js')}}"></script>
   <script src="{{asset('js/jquery-ui-1.12.4.minb8ff.js')}}"></script>
