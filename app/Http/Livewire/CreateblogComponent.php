@@ -17,6 +17,13 @@ class CreateblogComponent extends Component
 
     public function storepost()
     {
+        $this->validate([
+            'title' => 'required',
+            'titleimg' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+        ]);
+
         $post = new Post();
         $post->title = $this->title;
         
@@ -27,7 +34,7 @@ class CreateblogComponent extends Component
         $post->category = $this->category;
         $post->description = $this->description;
         $post->save();
-        // session()->flash('message','success');
+        session()->flash('message','success');
     }
     
 

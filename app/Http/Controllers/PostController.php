@@ -14,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
-        return view('livewire.activity-component',compact('posts'));
+        // $posts=Post::all();
+        // return view('livewire.activity-component',compact('posts'));
     }
 
     /**
@@ -36,9 +36,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post=$request->all();
-        Post::create($post);
-        return redirect('/activity');
+        // $post=$request->all();
+        // Post::create($post);
+        // return redirect('/activity');
     }
 
     /**

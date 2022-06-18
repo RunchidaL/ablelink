@@ -58,20 +58,3 @@
 </div>
 
 
-
-{{-- <div class="content">
-    @foreach ($posts as $post)
-        <h3>{{$post->title}}</h3>
-        <div>{!!$post->description!!}</div>
-        <div>{{$post->created_at}}</div>
-
-        <td>
-            <form action="{{route("destroy", $post->id)}}" method="POST">
-            <a href="{{route('edit' $post->id)}}">Edit</a>
-            @csrf
-            @method('Delete')
-            <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </td>
-    @endforeach
-</div> --}}
