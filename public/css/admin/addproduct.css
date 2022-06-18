@@ -1,0 +1,11 @@
+.panel{
+    justify-content: center;
+}
+
+.panel-body .form-group input {
+    width: 200%;
+}
+
+.panel-body .form-group textarea {
+    width: 200%;
+}

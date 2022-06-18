@@ -37,23 +37,23 @@
         </div>
         <div class="tab-contents" id="overview">
             <h5>Overview</h5>
-            <p>{{$product->overview}}</p>
+            <p>{!! $product->overview !!}</p>
         </div>
         <div class="tab-contents" id="application">
             <h5>Application</h5>
-            <p>{{$product->application}}</p>
+            <p>{!! $product->application !!}</p>
         </div>
         <div class="tab-contents" id="network-connectivity">
             <h5>Network Connectivity</h5>
-            <p>{{$product->network_connectivity}}</p>
+            <p>{!! $product->network_connectivity !!}</p>
         </div>
         <div class="tab-contents" id="item-spotlight">
             <h5>Item Spotlight</h5>
-            <p>{{$product->item_spotlight}}</p>
+            <p>{!! $product->item_spotlight !!}</p>
         </div>
         <div class="tab-contents" id="feature">
             <h5>Feature</h5>
-            <p>{{$product->feature}}</p>
+            <p>{!! $product->feature !!}</p>
         </div>
     </div>
 </div>

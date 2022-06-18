@@ -66,9 +66,3 @@ Route::get('/admin/products', AdminProductComponent::class)->name('admin.product
 Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
 
 Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
-
-Route::get('/test', TestComponent::class);
-
-// Route::get('/test', function () {
-//     return view('layout.test');
-// });
