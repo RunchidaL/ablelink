@@ -1,0 +1,57 @@
+.container img{
+    float: left;
+}
+
+#right{
+    margin-top: 40px;
+}
+
+.quantity {
+    display: inline-block;
+}
+
+.quantity input{
+    width: 50px;
+    text-align: center;
+}
+
+.quantity button{
+    background-color: white;
+    border: 0;
+}
+
+.quantity .handle i{
+    color: black;
+}
+
+.quantity .handle {
+    display: inline-block;
+}
+
+.quantity .addtocart button{
+    margin-left: 20px;
+    width: 125px;
+    height: 30px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+
+.tab-contral {
+    padding: 0 0 30px 0;
+}
+
+.tab-contral a{
+    padding: 0 30px 0 30px;
+    color: black;
+    text-decoration: none;
+    transition: 0.2s;
+    border-bottom: 1px solid ;
+    font-size: 25px;
+}
+
+.tab-contral a:hover{
+    border-bottom: 3px solid rgb(110, 110, 110);
+}
+
+

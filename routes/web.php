@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfodealerRequestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\AboutusComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
@@ -12,7 +14,13 @@ use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\CartComponent;
-
+use App\Http\Livewire\AdminCategoryComponent;
+use App\Http\Livewire\AdminAddCategoryComponent;
+use App\Http\Livewire\AdminEditCategoryComponent;
+use App\Http\Livewire\AdminProductComponent;
+use App\Http\Livewire\AdminAddProductComponent;
+use App\Http\Livewire\AdminEditProductComponent;
+use App\Http\Livewire\TestComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -36,6 +44,10 @@ Route::get('/register_dealer', function () {
     return view('dealer.register');
 });
 
+Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
+
+Route::get('/product_category/{category_slug}', CategoryComponent::class)->name('product.category');
+
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
 Auth::routes();
@@ -43,4 +55,20 @@ Auth::routes();
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
 
+Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
 
+Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+
+Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+
+Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
+
+Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
+
+Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+
+Route::get('/test', TestComponent::class);
+
+// Route::get('/test', function () {
+//     return view('layout.test');
+// });

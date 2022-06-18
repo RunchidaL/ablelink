@@ -35,3 +35,7 @@
 .col h4{
     margin-bottom: 20px;
 }
+
+.row {
+    width: 100%;
+}

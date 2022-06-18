@@ -10,41 +10,28 @@
         <img src="/images/logoAbleLink.png" alt="logo">
         <div class="collapse1 navbar-collapse">
         <ul class="navbar-nav ">
-            <li class="nav-item">
                 <a class="nav-link" href="/">หน้าหลัก</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/aboutus">เกี่ยวกับเรา</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link hoverdropdown" href="/shop">ผลิตภัณฑ์
-                    <!-- <ul class="dropdown-menu" role="menu">
-                        <li>Security</li>
-                        <li>Network Infrastructure</li> 
-                        <li>Telecomm/IO</li>     
-                        <li>Tool and Tester</li> 
-                        <li>UPS/Surge/Power Supply</li> 
-                        <li>Audio/Multimedis</li> 
-                        <li>Software</li>        
-                        <li>Solar/Light</li>                        
-                    </ul> -->
+                
+                <a class="nav-link hoverdropdown" id="drop" href="/shop">ผลิตภัณฑ์
+                    <div class="dropdown-menu" role="menu">
+                        <div class="inner">
+                            <p>Security</p>
+                            <p>Network Infrastructure</p>
+                            <p>Telecomm/IO</p>
+                            <p>Tool and Tester</p>
+                            <p>UPS/Surge/Power Supply</p>
+                            <p>Audio/Multimedis</p>
+                            <p>Software</p>
+                            <p>Solar/Light</p>
+                        </div>                      
+                    </div>
                 </a>    
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/service">บริการ</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/activity">ข่าวสาร&กิจกรรม</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/download">ดาวน์​โหลด</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/forwork">ร่วมงานกับเรา</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/contact">ติดต่อเรา</a>
-            </li>
         </ul>
         </div>
 
@@ -82,7 +69,7 @@
                             <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
                             <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                         @elseif(Auth::user()->role == 3)
-                            <a class="dropdown-item" href="#">Category</a>
+                            <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
                         @endif
                         
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -91,6 +78,7 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
+                        </form>
                     </li>
                 @endguest
             </ul>
@@ -98,6 +86,17 @@
         </div>
     </div>  
     </nav>
+
+    <!-- <div class="dropdown-menu" role="menu">
+        <li>Security</li>
+        <li>Network Infrastructure</li> 
+        <li>Telecomm/IO</li>     
+        <li>Tool and Tester</li> 
+        <li>UPS/Surge/Power Supply</li> 
+        <li>Audio/Multimedis</li> 
+        <li>Software</li>        
+        <li>Solar/Light</li>                        
+    </div> -->
 
     <!-- from livewire -->
     {{$slot}} 

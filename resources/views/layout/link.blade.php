@@ -17,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 
+    
+    
     <!-- slide img -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
@@ -34,7 +36,11 @@
   @yield('navfoot')
   @yield('content2')
 
-  @livewireScripts
+
+  <script src="{{ asset('js/app.js') }}" ></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <!-- New -->
+  <script src="https://cdn.tiny.cloud/1/xelo84km5tnufl5jdpdtwbi20vgqg8jrp4p0mgqefsi3hg3h/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  @livewireScripts
   </body>
 </html>
