@@ -83,6 +83,7 @@
                             <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                         @elseif(Auth::user()->role == 3)
                             <a class="dropdown-item" href="#">Category</a>
+                            <a class="dropdown-item" href="/createblog">Create Post</a>
                         @endif
                         
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -91,6 +92,7 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
+                        </form>
                     </li>
                 @endguest
             </ul>
