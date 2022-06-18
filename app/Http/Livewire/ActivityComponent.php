@@ -3,11 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Post;
 
 class ActivityComponent extends Component
 {
     public function render()
     {
-        return view('livewire.activity-component')->layout("layout.navfoot");
+        $posts = Post::paginate(3);
+        return view('livewire.activity-component',['posts'=> $posts])->layout("layout.navfoot");
     }
 }

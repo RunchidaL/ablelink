@@ -17,3 +17,12 @@
     </div>
 </div>
 
+<div class="info-body" style="padding: 10%">
+    @foreach($posts as $post)
+    <h5>{{$post->title}}</h5>
+    <img src="{{asset('images/posts')}}/{{$post->titleimg}}">
+    <p>{{$post->category}}</p>
+    <p>{!! $post->description !!}</p>
+    @endforeach
+</div>
+

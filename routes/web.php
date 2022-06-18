@@ -20,7 +20,7 @@ use App\Http\Livewire\AdminEditCategoryComponent;
 use App\Http\Livewire\AdminProductComponent;
 use App\Http\Livewire\AdminAddProductComponent;
 use App\Http\Livewire\AdminEditProductComponent;
-use App\Http\Livewire\TestComponent;
+use App\Http\Livewire\AdminAddPostComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -66,3 +66,5 @@ Route::get('/admin/products', AdminProductComponent::class)->name('admin.product
 Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
 
 Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+
+Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
