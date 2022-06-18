@@ -1,3 +1,7 @@
+.tab-contents p{
+    font-family: 'Prompt', sans-serif;
+}
+
 .container img{
     float: left;
 }
