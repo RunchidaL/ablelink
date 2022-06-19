@@ -29,7 +29,6 @@
 
   </head>
   <body>
-    
   
   @yield('navfoot')
   @yield('content2')

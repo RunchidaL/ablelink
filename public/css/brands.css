@@ -1,4 +1,10 @@
-/* brands */
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
 .container-fluid{
     margin-bottom: 0%;
 }
