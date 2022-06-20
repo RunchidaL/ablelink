@@ -76,6 +76,10 @@
     color: black;
 }
 
+.wrap-pagination-info .flex.items-center.justify-between {
+    margin: 0 0 0 5%;
+}
+
 /* resonsive */
 @media(max-width: 767px){
     .NP-col {

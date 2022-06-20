@@ -3,7 +3,7 @@
 <!-- link -->
 
 <div>
-    <p class="text">สินค้าทั้งหมด</p>
+    <p class="text">Products</p>
 </div>
 <div class="container-fluid">
     <div class="row">

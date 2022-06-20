@@ -1,13 +1,19 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h5>All Category</h5>
-                <a href="{{route('admin.addcategory')}}"><button>add category</button></a>
-                @if(Session::has('message'))
-                    <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                @endif
+            <div class="col">
+                <div class="row" id="head">
+                    <div class="col-md-4">
+                        <h2>All Category</h2>
+                    </div>
+                    <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
+                        <a href="{{route('admin.addcategory')}}"><button class="btn btn-success">Add Category</button></a>
+                    </div>
+                </div>
                 <table class="table">
+                    @if(Session::has('message'))
+                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                    @endif
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -23,34 +29,63 @@
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->slug}}</td>
-                                <td>
+                                <td class="sub-name">
                                     <ul class="slist">
                                         @foreach($category->subCategories as $scategory)
-                                            <li>{{$scategory->name}}<a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><i class="bi bi-pencil-square"></i></a></li>
-                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubcategory({{$scategory->id}})"><i class="bi bi-x"></i></a>
+                                            <li>{{$scategory->name}}
+                                                <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                                <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubcategory({{$scategory->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                            </li>
                                         @endforeach
                                     </ul> 
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})"><i class="bi bi-x"></i></a>
+                                    <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
+                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})"><i class="bi bi-x" id="edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                     
                 </table>
-                <!-- {{$categories->links()}} -->
+                {{$categories->links()}}
             </div>
 
         </div>
     </div>
     
 </div>
-{{$categories->links()}}
+
 
 <style>
-    nav .flex.items-center.justify-between{
-        bottom-magin: 10%;
+    #head{
+        margin: 2% 0 2% 0;
+    }
+    #edit{
+        color:black;
+        font-size: 25px;
+    }
+    #editsub{
+        color:black;
+        font-size: 15px;
+    }
+    .product-name{
+        width:50%;
+    }
+    .sub-name{
+        width:40%;
+    }
+    .flex.items-center.justify-between {
+        margin: 2% 0 2% 0;
+    }
+    .flex.items-center.justify-between div{
+        padding: 5px 0 5px 0;
+    }
+    .flex.items-center.justify-between a{
+        color: black;
+        text-decoration: none;
+    }
+    .flex.items-center.justify-between svg{
+    width: 3%;
     }
 </style>

@@ -3,7 +3,7 @@
 <!-- link -->
 
 <!-- <div class="container-fluid"> -->
-    <div class="row">
+    <div class="row" style="width:100%;">
         @foreach($products as $product)
         <div class="NP-col">
             <div class="card">
@@ -20,8 +20,8 @@
             </div>
         </div>
         @endforeach
-        <div class="wrap-pagination-info">
-        {{$products->links()}}
+        <div class="wrap-pagination-info" style="width:100%;">
+            {{$products->links()}}
         </div>
         
     </div>
