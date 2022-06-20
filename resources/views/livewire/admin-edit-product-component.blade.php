@@ -32,32 +32,32 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">overview</label>
-                                <div class="col-md-4">
-                                    <textarea type="text" class="form-control"  wire:model="overview"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea id="overview" type="text" class="form-control"  wire:model="overview"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Application</label>
-                                <div class="col-md-4">
-                                    <textarea type="text" class="form-control"  wire:model="application"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Network_connectivity</label>
-                                <div class="col-md-4">
-                                    <textarea type="text" class="form-control"  wire:model="network_connectivity"></textarea>
+                                <div class="col-md-4" wire:ignore> 
+                                    <textarea id="network_connectivity" type="text" class="form-control"  wire:model="network_connectivity"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Item_spotlight</label>
-                                <div class="col-md-4">
-                                    <textarea type="text" class="form-control"  wire:model="item_spotlight"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Feature</label>
-                                <div class="col-md-4">
-                                    <textarea type="text" class="form-control"  wire:model="feature"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -125,6 +125,61 @@
     </div>
 </div>
 
-
+@push('scripts')
+    <script>
+        tinymce.init({
+            selector: '#overview',
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var o_data = $('#overview').val();
+                    @this.set('overview',o_data);
+                });
+            }
+            
+        });
+        tinymce.init({
+            selector: '#application',
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#application').val();
+                    @this.set('application',sd_data);
+                });
+            }
+        });
+        tinymce.init({
+            selector: '#network_connectivity',
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var n_data = $('#network_connectivity').val();
+                    @this.set('network_connectivity',n_data);
+                });
+            }
+        });
+        tinymce.init({
+            selector: '#item_spotlight',
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var i_data = $('#item_spotlight').val();
+                    @this.set('item_spotlight',i_data);
+                });
+            }
+        });
+        
+        tinymce.init({
+            selector: '#feature',
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var f_data = $('#feature').val();
+                    @this.set('feature',f_data);
+                });
+            }
+        });
+    </script>
+@endpush
 
 

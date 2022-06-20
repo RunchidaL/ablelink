@@ -5,6 +5,7 @@
 <div class="productNav">
     @foreach($categories as $category)
     <a href="{{route('product.category',['category_slug'=> $category->slug])}}">{{$category->name}}</a>
+    @endforeach
     <!-- <div>Security</div>
     <div>Network Infrastructure</div>
     <div>Telecomm/IO</div>
@@ -13,13 +14,15 @@
     <div>Audio/Multimedis</div>
     <div>Software</div>
     <div>Solar/Light</div> -->
-    @endforeach
+    
 </div>
-<div class="choices">
+<!-- <div class="choices">
     <div class="one-box">
-        <div>CCTV</div>
-    </div>
-    <div class="one-box">
+        @foreach($category->subCategories as $scategory)
+            <div><a href="">{{$scategory->name}}</a></div>
+        @endforeach
+    </div> -->
+    <!-- <div class="one-box">
         <div>Access Control</div>
     </div>
     <div class="one-box">
@@ -36,8 +39,8 @@
     </div>
     <div class="one-box">
         <div>Gate barrier</div>
-    </div>
-</div>
+    </div> -->
+<!-- </div> -->
 
 <!-- <div>
     <p class="text">สินค้าทั้งหมด</p>

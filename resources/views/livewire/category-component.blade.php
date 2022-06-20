@@ -2,42 +2,40 @@
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->
 
+
+<!-- old -->
 <div class="productNav">
     @foreach($categories as $category)
     <a href="{{route('product.category',['category_slug'=> $category->slug])}}">{{$category->name}}</a>
-    <!-- <div>Security</div>
-    <div>Network Infrastructure</div>
-    <div>Telecomm/IO</div>
-    <div>Tool and Tester</div>
-    <div>UPS/Surge/Power Supply</div>
-    <div>Audio/Multimedis</div>
-    <div>Software</div>
-    <div>Solar/Light</div> -->
     @endforeach
 </div>
 <div class="choices">
-    <div class="one-box">
-        <div>CCTV</div>
-    </div>
-    <div class="one-box">
-        <div>Access Control</div>
-    </div>
-    <div class="one-box">
-        <div>Video wall</div>
-    </div>
-    <div class="one-box">
-        <div>Storage server</div>
-    </div>
-    <div class="one-box">
-        <div>CCTV accessories</div>
-    </div>
-    <div class="one-box">
-        <div>Hotel lock</div>
-    </div>
-    <div class="one-box">
-        <div>Gate barrier</div>
-    </div>
+    @foreach($categories as $category)
+        @foreach($category->subCategories as $scategory)
+        <div class="one-box">
+            <div><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}">{{$scategory->name}}</a></div>
+        </div>
+        @endforeach
+    @endforeach
 </div>
+
+<!-- new -->
+<!-- <div class="productNav">
+    @foreach($categories as $category)
+    <a href="{{route('product.category',['category_slug'=> $category->slug])}}">{{$category->name}}</a>
+        @if(count($category->subCategories)>0)
+            <span class="toggle-control">+</span>
+            <ul class="sub-cate">
+                @foreach($category->subCategories as $scategory)
+                    <li class="one-box">
+                        <div><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}">{{$scategory->name}}</a></div>
+                    </li>
+                @endforeach 
+            </ul>
+        @endif
+    @endforeach
+</div> -->
+
 
 <!-- <div>
     <p class="text">สินค้าทั้งหมด</p>

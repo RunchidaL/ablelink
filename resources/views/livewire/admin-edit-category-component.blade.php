@@ -17,6 +17,14 @@
                         <div class="col-md-6">
                             <input type="text" class="form-control" wire:model="slug">
                         </div>
+                        <label class="col-md-4 col-form-label text-md-end">SubCategory</label>
+                        <div class="col-md-6">
+                            <select class="form-control" wire:model="category_id">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
                         <input type="submit" value="Update" class="btn btn mx-auto">
                     </div>
                     

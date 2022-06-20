@@ -13,6 +13,7 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>slug</th>
+                            <th>Sub Category</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -23,8 +24,16 @@
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->slug}}</td>
                                 <td>
+                                    <ul class="slist">
+                                        @foreach($category->subCategories as $scategory)
+                                            <li>{{$scategory->name}}<a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><i class="bi bi-pencil-square"></i></a></li>
+                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubcategory({{$scategory->id}})"><i class="bi bi-x"></i></a>
+                                        @endforeach
+                                    </ul> 
+                                </td>
+                                <td>
                                     <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" wire:click.prevent="deleCategory({{$category->id}})"><i class="bi bi-x"></i></a>
+                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCategory({{$category->id}})"><i class="bi bi-x"></i></a>
                                 </td>
                             </tr>
                         @endforeach

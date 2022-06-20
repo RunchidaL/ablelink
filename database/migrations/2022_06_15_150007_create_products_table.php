@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('overview');
-            $table->text('application');
-            $table->text('network_connectivity');
-            $table->text('item_spotlight');
-            $table->text('feature');
+            $table->longText('overview');
+            $table->longText('application');
+            $table->longText('network_connectivity');
+            $table->longText('item_spotlight');
+            $table->longText('feature');
             $table->decimal('web_price')->nullable();
             $table->decimal('dealer_price');
             $table->decimal('customer_price');

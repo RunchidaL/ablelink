@@ -46,7 +46,7 @@ Route::get('/register_dealer', function () {
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
-Route::get('/product_category/{category_slug}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
@@ -61,7 +61,7 @@ Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.catego
 
 Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
 
-Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
 
 Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
 
