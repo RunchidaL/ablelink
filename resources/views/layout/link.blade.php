@@ -31,10 +31,10 @@
 
   </head>
   <body>
-    
   
   @yield('navfoot')
   @yield('content2')
+
 
 
   <script src="{{asset('js/chosen.jquery.min.js')}}"></script>

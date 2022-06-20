@@ -38,10 +38,19 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
+                <!-- {{$categories->links()}} -->
             </div>
 
         </div>
     </div>
-
+    
 </div>
+{{$categories->links()}}
+
+<style>
+    nav .flex.items-center.justify-between{
+        bottom-magin: 10%;
+    }
+</style>

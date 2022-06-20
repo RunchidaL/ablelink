@@ -24,6 +24,7 @@ class CategoryComponent extends Component
         $category_id = null;
         $category_name = "";
         $filter = "";
+        
         if($this->scategory_slug)
         {
             $scategory = Subcategory::where('slug',$this->scategory_slug)->first();

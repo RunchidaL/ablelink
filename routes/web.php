@@ -21,6 +21,7 @@ use App\Http\Livewire\AdminProductComponent;
 use App\Http\Livewire\AdminAddProductComponent;
 use App\Http\Livewire\AdminEditProductComponent;
 use App\Http\Livewire\AdminAddPostComponent;
+use App\Http\Livewire\NavfootComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -51,8 +52,6 @@ Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryCompon
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
 Auth::routes();
-
-
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');

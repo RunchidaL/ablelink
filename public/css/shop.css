@@ -1,34 +1,15 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 
-.productNav{
-    background-color: #cac6c6;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    cursor: pointer;
-}
 
-.productNav div{
-    padding: 0.6rem 0;
-    transition: 0.2s all ease;
-}
-
-.productNav div:hover{
-    color: white;
-}
-
-.choices{
+/* .choices{
     width: auto;
     margin: 10px 0 10px 0;
     display: flex;
-    /* align-items: center; */
-    /* flex-direction: row; */
-    /* justify-content: space-evenly; */
-    /* min-height: fit-content; */
 }
 
 .choices .one-box {
@@ -40,18 +21,12 @@
     text-align: center;
     margin: 0px 10px;
     opacity: 0.8
-    /* align-items: center; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
-    /* cursor: pointer;
-    transition: all 0.2s ease; */
 }
 
 .choices .one-box:hover{
     background: #194276;
     opacity: 1;
-}
+} */
 
 .text{
     color: #dc7226; /*change*/
@@ -101,6 +76,7 @@
     color: black;
 }
 
+/* resonsive */
 @media(max-width: 767px){
     .NP-col {
         width: 50%;
