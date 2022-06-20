@@ -2,142 +2,27 @@
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->
 
-<!-- <div class="container-fluid">
+<!-- <div class="container-fluid"> -->
     <div class="row">
+        @foreach($products as $product)
         <div class="NP-col">
-            <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-            <p>Name</p>
+            <div class="card">
+                <img src="{{asset('/images/products')}}/{{$product -> image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{{route('product.details',['slug'=>$product->slug])}}" class="card-title">{{$product -> name}}</a>
+                    @if(($product->web_price) == '0')
+                        <p></p>
+                    @else
+                        <p>{{number_format($product->web_price)}}</p>
+                    @endif
+                    <a href="#" class="btn btn">Add to cart</a>
+                </div>
+            </div>
         </div>
-        <div class="NP-col">
-            <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-            <p>Name</p>
-        </div>
-        <div class="NP-col">
-            <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-            <p>Name</p>
-        </div>
-        <div class="NP-col">
-            <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-            <p>Name</p>
-        </div>
-        <div class="NP-col">
-            <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-            <p>Name</p>
-        </div>
+        @endforeach
+        <div class="wrap-pagination-info">
+        {{$products->links()}}
+        </div>  
     </div>
-</div> -->
+<!-- </div> -->
 
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>CCTV</div>
-    </div>
-    <div class="one-box">
-        <div>Access Control</div>
-    </div>
-    <div class="one-box">
-        <div>Video wall</div>
-    </div>
-    <div class="one-box">
-        <div>Storage server</div>
-    </div>
-    <div class="one-box">
-        <div>CCTV accessories</div>
-    </div>
-    <div class="one-box">
-        <div>Hotel lock</div>
-    </div>
-    <div class="one-box">
-        <div>Gate barrier</div>
-    </div>
-</div> -->
-
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>Switch SMRT/L2/L3/L4</div>
-    </div>
-    <div class="one-box">
-        <div>Industrail Switch</div>
-    </div>
-    <div class="one-box">
-        <div>Wireless</div>
-    </div>
-    <div class="one-box">
-        <div>Cabling</div>
-    </div>
-    <div class="one-box">
-        <div>SFP</div>
-    </div>
-    <div class="one-box">
-        <div>Industrail Automation</div>
-    </div>
-    <div class="one-box">
-        <div>Media Converter</div>
-    </div>
-    <div class="one-box">
-        <div>WireMesh and FiberTray</div>
-    </div>
-</div> -->
-
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>Router 4g</div>
-    </div>
-    <div class="one-box">
-        <div>Smart lot</div>
-    </div>
-</div>  -->
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>UTP</div>
-    </div>
-    <div class="one-box">
-        <div>Fiber</div>
-    </div>
-    <div class="one-box">
-        <div>HDMI/LAN/Wireless</div>
-    </div>
-</div>  -->
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>UPS Tower</div>
-    </div>
-    <div class="one-box">
-        <div>UPS Rack</div>
-    </div>
-    <div class="one-box">
-        <div>Power Supply</div>
-    </div>
-    <div class="one-box">
-        <div>Surge</div>
-    </div>
-</div>  -->
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>Ip audio</div>
-    </div>
-    <div class="one-box">
-        <div>VOIP</div>
-    </div>
-    <div class="one-box">
-        <div>Smart Touch TV and AV Mounthing</div>
-    </div>
-    <div class="one-box">
-        <div>Multimedia</div>
-    </div>
-</div>  -->
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>Network-management</div>
-    </div>
-    <div class="one-box">
-        <div>CCTV VMS</div>
-    </div>
-</div>  -->
-<!-- <div class="choices">
-    <div class="one-box">
-        <div>Solar</div>
-    </div>
-    <div class="one-box">
-        <div>Lighting</div>
-    </div>
-</div>  -->

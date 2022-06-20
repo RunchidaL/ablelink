@@ -7,7 +7,7 @@
 @section('navfoot')
 <!-- navbar -->
 <div class="fakenav"></div>
-<nav>
+<nav class="main">
     <div class="nav-ctn-wrap">
         <div class="nav-left-element">
             <img src="/images/logoAbleLink.png" alt="logo" class="logo">
@@ -21,10 +21,10 @@
                     <div class="prod-dropdown">
                         <div class="subMenu-wrap">
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Security</li></a>
+                                <a href="/product_category/security"  style="padding: 0;"><li>Security</li></a>
                                 <ul class="contents first">
-                                    <a href="#"><li>Service</li></a>
-                                    <a href="#"><li>Access Control</li></a>
+                                    <a href="#"><li>CCTV</li></a>
+                                    <a href="/product_category/security/access-control"><li>Access Control</li></a>
                                     <a href="#"><li>Video wall</li></a>
                                     <a href="#"><li>Storage server</li></a>
                                     <a href="#"><li>CCTV accessories</li></a>
@@ -33,7 +33,7 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Network Infrastructure</li></a>
+                                <a href="/product_category/network-infrastructure"  style="padding: 0;"><li>Network Infrastructure</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Switch SMRT/L2/L3/L4</li></a>
                                     <a href="#"><li>Industrail Switch</li></a>
@@ -46,14 +46,14 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Telecomm/IO</li></a>
+                                <a href="/product_category/telecomm-iot"  style="padding: 0;"><li>Telecomm/IO</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Router 4g</li></a>
                                     <a href="#"><li>Smart lot</li></a>
                                 </ul>
                             </div> 
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Tool and Tester</li></a>
+                                <a href="/product_category/tool-and-tester"  style="padding: 0;"><li>Tool and Tester</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>UTP</li></a>
                                     <a href="#"><li>Fiber</li></a>
@@ -61,7 +61,7 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="#"  style="padding: 0;"><li>UPS/Surge/Power Supply</li></a>
+                                <a href="/product_category/upssurgepower-supply"  style="padding: 0;"><li>UPS/Surge/Power Supply</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>UPS Tower</li></a>
                                     <a href="#"><li>UPS Rack</li></a>
@@ -70,7 +70,7 @@
                                 </ul>
                             </div> 
                             <div>                          
-                                <a href="#"  style="padding: 0;"><li>Audio/Multimedis</li></a>
+                                <a href="/product_category/audiomultimedis"  style="padding: 0;"><li>Audio/Multimedis</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Ip audio</li></a>
                                     <a href="#"><li>VOIP</li></a>
@@ -79,14 +79,14 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Software</li></a>
+                                <a href="/product_category/software"  style="padding: 0;"><li>Software</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Network-management</li></a>
                                     <a href="#"><li>CCTV VMS</li></a>
                                 </ul>
                             </div>
                             <div>
-                                <a href="#"  style="padding: 0;"><li>Solar/Light</li></a>
+                                <a href="/product_category/solarlight"  style="padding: 0;"><li>Solar/Light</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Solar</li></a>
                                     <a href="#"><li>Lighting</li></a>
@@ -136,13 +136,14 @@
                                     <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
-                                    <a class="dropdown-item" href="#">Category</a>
+                                    <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
+                                    <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
                                 @endif
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     ออกจากระบบ
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"></form>
                                     @csrf
                             </li>
                         @endguest

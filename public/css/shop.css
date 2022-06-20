@@ -6,7 +6,7 @@
 }
 
 
-.choices{
+/* .choices{
     width: auto;
     margin: 10px 0 10px 0;
     display: flex;
@@ -26,7 +26,7 @@
 .choices .one-box:hover{
     background: #194276;
     opacity: 1;
-}
+} */
 
 .text{
     color: #dc7226; /*change*/
@@ -45,26 +45,35 @@
 
 .NP-col{
     position: relative;
-    width: 14.285%;
-    text-align: center;
+    width: 22%;
+    text-align: start;
+    margin: 3% 0 3% 0;
 }
 
 .NP-col img{
     width: 100%;
     height: auto;
     display: flex; 
-    padding: 5%; /*ในนอก*/
+    padding: 10%; /*ในนอก*/
     
 }
 
-/* ขยายรูป */
-.NP-col img{
-    transform: scale(1);
-    transition: 0.3s ease-in-out ;
+.NP-col .card{
+    height: 100%;
+    background-color: #cac6c6;
+    border: none;
+    border-radius: 0;
 }
-.NP-col img:hover{
-    transform: scale(1.15);
-    
+
+.NP-col .btn{
+    background-color: #dc7226;
+    color: white;
+
+}
+
+.card-body .card-title{
+    text-decoration: none;
+    color: black;
 }
 
 /* resonsive */

@@ -14,7 +14,7 @@ body{
 }
 
 /* navbar */
-nav{
+.main{
     position: fixed;
     width: 100vw;
     top: 0;
@@ -307,3 +307,6 @@ footer *{
     }
 }
 
+svg{
+    width: 5%;
+}
