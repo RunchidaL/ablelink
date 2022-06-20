@@ -2,7 +2,7 @@
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="NP-col">
             <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
@@ -25,7 +25,7 @@
             <p>Name</p>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <div class="choices">
     <div class="one-box">
