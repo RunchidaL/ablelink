@@ -30,7 +30,6 @@
     @yield('link_login')
     @livewireStyles
 
-    @yield('summernote')
 
   </head>
   <body>
@@ -49,6 +48,8 @@
   @livewireScripts
   
   @stack('scripts')
+  
+
   
   </body>
 </html>

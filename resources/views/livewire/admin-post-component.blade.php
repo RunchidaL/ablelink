@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>{{$post->id}}</td>
                                         <td><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="150"/></td>
-                                        <td>{{$post->title}}</td>
+                                        <a href="{{route('post.details',['slug'=>$post->slug])}}" class="text"><td>{{$post->title}}</td></a>
                                         <td>{{$post->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.editpost',['post_slug'=>$post->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
