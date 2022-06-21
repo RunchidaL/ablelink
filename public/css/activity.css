@@ -23,7 +23,6 @@
     border-radius: 20px;
 }
 
-
 .carousel-control-next{
     margin-right: 10%;
 }
@@ -38,7 +37,7 @@
     color: red;
 }
 
-.row {
+.row{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
@@ -125,7 +124,7 @@
     background: #e9e9e9;
 }
 
-@media(max-width: 414px) {
+@media(max-width: 414px){
     .menu{
         margin-top: 5%;
         margin-bottom: 5%;

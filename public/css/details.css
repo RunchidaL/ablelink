@@ -10,7 +10,7 @@
     margin-top: 40px;
 }
 
-.quantity {
+.quantity{
     display: inline-block;
 }
 
@@ -41,8 +41,9 @@
     border-radius: 30px;
 }
 
-.tab-contral {
+.tab-contral{
     padding: 0 0 30px 0;
+    text-align: center;
 }
 
 .tab-contral a{
@@ -58,12 +59,6 @@
     border-bottom: 3px solid rgb(110, 110, 110);
 }
 
-.line {
-    padding-top: 60px;
-    border-top: 3px solid ;
-    right: 0;
-}
-
 .tab-contents img{
     width:100%;
 }
@@ -71,3 +66,10 @@
 .tab-contents{
     margin: 5% 10% 5% 10%;
 }
+.line{
+    padding-top: 40px;
+    border-top: 3px solid ;
+}
+
+
+

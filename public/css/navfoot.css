@@ -180,9 +180,10 @@ nav .nav-ctn-wrap .nav-right-element .searchbox-wrap form{
 }
 
 .searchbox input{
-    border: 0;
     outline: none;
+    border: none;
 }
+
 
 .searchbox button{
     border: 0;

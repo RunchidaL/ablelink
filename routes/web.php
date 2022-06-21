@@ -26,7 +26,6 @@ use App\Http\Livewire\AdminPostComponent;
 use App\Http\Livewire\DetailPostComponent;
 use App\Http\Livewire\PostCategoryComponent;
 
-
 Route::get('/', HomeComponent::class);
 
 Route::get('/shop', ShopComponent::class);
@@ -76,12 +75,8 @@ Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.a
 
 Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
 
-<<<<<<< HEAD
 Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
-=======
+
 Route::get('/admin/post', AdminPostComponent::class)->name('admin.post');
 
-Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');;
-
-Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');;
->>>>>>> f89372488b09abb6019c7d5f3af81634717d6324
+Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');

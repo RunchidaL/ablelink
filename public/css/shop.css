@@ -5,47 +5,23 @@
     list-style: none;
 }
 
-
-/* .choices{
-    width: auto;
-    margin: 10px 0 10px 0;
-    display: flex;
-}
-
-.choices .one-box {
-    width: 20%;
-    border-radius: 20px;
-    padding: 5px 5px;
-    background: #194276;
-    color: white;
-    text-align: center;
-    margin: 0px 10px;
-    opacity: 0.8
-}
-
-.choices .one-box:hover{
-    background: #194276;
-    opacity: 1;
-} */
-
-.text{
-    color: #dc7226; /*change*/
+/* .text{
+    color: #dc7226;
     margin-left: 5%;
     font-size: 25px;
     margin-top: 20px;
+} */
 
-}
-
-.row {
+.row{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    width:100vw;
 }
-
 
 .NP-col{
     position: relative;
-    width: 22%;
+    width: 20%;
     text-align: start;
     margin: 3% 0 3% 0;
 }
@@ -63,16 +39,21 @@
     background-color: #cac6c6;
     border: none;
     border-radius: 0;
+    justify-content: space-between;
 }
 
-.NP-col .btn{
+.card a{
+    text-decoration: none;
+    color: black;
+}
+
+.card-footer .btn{
     background-color: #dc7226;
     color: white;
-
 }
 
-.card-body .card-title{
-    text-decoration: none;
+.card-footer .btn:hover{
+    background-color: #ffac71;
     color: black;
 }
 
@@ -84,6 +65,5 @@
 @media(max-width: 767px){
     .NP-col {
         width: 50%;
-        
     }
 }

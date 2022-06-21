@@ -23,7 +23,7 @@
                             <div>
                                 <a href="/product_category/security"  style="padding: 0;"><li>Security</li></a>
                                 <ul class="contents first">
-                                    <a href="/product_category/security/service"><li>Service</li></a>
+                                    <a href="#"><li>CCTV</li></a>
                                     <a href="/product_category/security/access-control"><li>Access Control</li></a>
                                     <a href="#"><li>Video wall</li></a>
                                     <a href="#"><li>Storage server</li></a>
