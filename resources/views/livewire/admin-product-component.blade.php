@@ -10,7 +10,7 @@
                         <a href="{{route('admin.addproduct')}}"><button class="btn btn-success">Add Products</button></a>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table table-striped">
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                     @endif
