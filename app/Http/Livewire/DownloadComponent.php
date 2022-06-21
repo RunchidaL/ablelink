@@ -8,6 +8,6 @@ class DownloadComponent extends Component
 {
     public function render()
     {
-        return view('livewire.download-component')->layout("layout.link");
+        return view('livewire.download-component')->layout("layout.navfoot");
     }
 }

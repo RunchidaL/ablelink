@@ -4,12 +4,12 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Edit New Product
+                        <div class="row" id="head">
+                            <div class="col-md-4">
+                                <h3>Edit New Product</h3>
                             </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.products')}}"><button>All Products</button></a>
+                            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
+                                <a href="{{route('admin.products')}}"><button class="btn btn-success">All Products</button></a>
                             </div>
                         </div>
                     </div>
@@ -19,44 +19,44 @@
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="updateProduct">
                             <div class="form-group">
-                                <label class="col-md-4">Product Name</label>
-                                <div class="col-md-4">
+                                <label class="col-md-12">Product Name</label>
+                                <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="name">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product Slug</label>
-                                <div class="col-md-4">
+                                <label class="col-md-12">Product Slug</label>
+                                <div class="col-md-12">
                                     <input type="text" class="form-control"  wire:model="slug">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">overview</label>
-                                <div class="col-md-4" wire:ignore>
+                                <label class="col-md-12">overview</label>
+                                <div class="col-md-12" wire:ignore>
                                     <textarea id="overview" type="text" class="form-control"  wire:model="overview"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Application</label>
-                                <div class="col-md-4" wire:ignore>
+                                <label class="col-md-12">Application</label>
+                                <div class="col-md-12" wire:ignore>
                                     <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Network_connectivity</label>
-                                <div class="col-md-4" wire:ignore> 
+                                <label class="col-md-12">Network_connectivity</label>
+                                <div class="col-md-12" wire:ignore> 
                                     <textarea id="network_connectivity" type="text" class="form-control"  wire:model="network_connectivity"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Item_spotlight</label>
-                                <div class="col-md-4" wire:ignore>
+                                <label class="col-md-12">Item_spotlight</label>
+                                <div class="col-md-12" wire:ignore>
                                     <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Feature</label>
-                                <div class="col-md-4" wire:ignore>
+                                <label class="col-md-12">Feature</label>
+                                <div class="col-md-12" wire:ignore>
                                     <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
                                 </div>
                             </div>
@@ -181,5 +181,14 @@
         });
     </script>
 @endpush
+
+<style>
+    #head{
+        margin: 2% 0 2% 0;
+    }
+    .form-group{
+        margin: 2% 0 2% 0;
+    }
+</style>
 
 

@@ -55,4 +55,5 @@
     .product-name{
         width:50%;
     }
+
 </style>
