@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="line" id="network_connectivity"></div>
-        <div class="tab-contents" >
+        <div class="tab-contents">
             <h5>Network Connectivity</h5>
             <p>{!! $product->network_connectivity !!}</p>
         </div>
