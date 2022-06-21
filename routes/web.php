@@ -25,7 +25,6 @@ use App\Http\Livewire\AdminEditProductComponent;
 use App\Http\Livewire\AdminPostComponent;
 use App\Http\Livewire\DetailPostComponent;
 use App\Http\Livewire\PostCategoryComponent;
-use App\Http\Livewire\TestComponent;
 
 Route::get('/', HomeComponent::class);
 
