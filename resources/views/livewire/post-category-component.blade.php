@@ -21,16 +21,17 @@
 
 <div class="container mt-2">
     <div class="row">
+
         <table class="table table-bordered">
             @foreach($posts as $post)
-                <tr>
-                    <td>
-                        <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="150"/></a>
-                    </td>
-                    <td>
-                        <a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}<br><br><br>Marketing Ablelink: {{$post->created_at}}</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="150"/></a>
+                </td>
+                <td>
+                    <a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}<br><br><br>Marketing Ablelink: {{$post->created_at}}</a>
+                </td>
+            </tr>
             @endforeach
         </table>
     </div>
