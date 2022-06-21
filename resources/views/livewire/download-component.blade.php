@@ -1,6 +1,4 @@
-<!-- link -->
 <link href="/css/download.css" rel="stylesheet">
-<!-- link -->
 
 <div class="wallpaper">
     <img src="/images/download.png" alt="">
@@ -19,10 +17,17 @@
             <p>Catelog</p>
         </div>
         <div class="desc">
-            <p>Catelog ของบริษัท</p>
-            <!-- <a href="#"><button>load</button></a> -->
-            <p>Catelog ของบริษัทอื่น</p>
-            <p>Catelog ของบริษัทอื่น</p>
+            @foreach($downloads as $download)
+            <div class="row d-flex justify-content-center">
+                <div class="col-1 d-flex justify-content-center">
+                    <p>Catelog ของ {{$download->name}}</p>
+                </div>
+                <div class="col-1 d-flex justify-content-center">
+                    <a href="{{url('/images/downloads')}}/{{$download -> file}}">ดาวน์โหลด</a>
+                </div>
+            </div>
+            
+            @endforeach
         </div>
     </div>
     <div class="section">
