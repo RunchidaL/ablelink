@@ -58,4 +58,14 @@
     border-bottom: 3px solid rgb(110, 110, 110);
 }
 
+.line {
+    padding-top: 60px;
+    border-top: 3px solid ;
+    right: 0;
+}
+
+.tab-contents img{
+    width:100%;
+}
+
 

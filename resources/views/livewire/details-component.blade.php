@@ -12,7 +12,7 @@
             @if(($product->web_price) == '0')
                 <p></p>
             @else
-                <p>{{$product->web_price}}</p>
+                <p>{{number_format($product->web_price)}}</p>
             @endif
             <div class="quantity">
                 <input value="1">
@@ -29,28 +29,33 @@
 
     <div class="infomation">
         <div class="tab-contral">
-            <a href="#description">Overview</a>
+            <a href="#overview" id="overview">Overview</a>
             <a href="#application">Application</a>
-            <a href="#network-connectivity">Network Connectivity</a>
+            <a href="#network_connectivity">Network Connectivity</a>
             <a href="#item-spotlight">Item Spotlight</a>
             <a href="#feature">Feature</a>
         </div>
-        <div class="tab-contents" id="overview">
+        <div class="tab-contents">
             <h5>Overview</h5>
-            <p>{!! $product->overview !!}</p>
+            <p id="">{!! $product->overview !!}</p>
         </div>
-        <div class="tab-contents" id="application">
-            <h5>Application</h5>
-            <p>{!! $product->application !!}</p>
+        <div class="line" id="application"></div>
+            <div class="tab-contents">
+                <h5>Application</h5>
+                <p>{!! $product->application !!}</p>
+            </div>
         </div>
-        <div class="tab-contents" id="network-connectivity">
+        <div class="line" id="network_connectivity"></div>
+        <div class="tab-contents" >
             <h5>Network Connectivity</h5>
             <p>{!! $product->network_connectivity !!}</p>
         </div>
+        <div class="line" id="item-spotlight"></div>
         <div class="tab-contents" id="item-spotlight">
             <h5>Item Spotlight</h5>
             <p>{!! $product->item_spotlight !!}</p>
         </div>
+        <div class="line" id="feature"></div>
         <div class="tab-contents" id="feature">
             <h5>Feature</h5>
             <p>{!! $product->feature !!}</p>

@@ -99,10 +99,21 @@
                             <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-12">
-                                    <select class="form-control" wire:model="category_id">
+                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">SubCategory</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" wire:model="scategory_id">
+                                        <option value="0">Select subategory</option>
+                                        @foreach($scategories as $scategory)
+                                            <option value="{{$scategory->id}}">{{$scategory->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -10,7 +10,7 @@
                         <a href="{{route('admin.addcategory')}}"><button class="btn btn-success">Add Category</button></a>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table table-striped">
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                     @endif
@@ -74,18 +74,5 @@
     }
     .sub-name{
         width:40%;
-    }
-    .flex.items-center.justify-between {
-        margin: 2% 0 2% 0;
-    }
-    .flex.items-center.justify-between div{
-        padding: 5px 0 5px 0;
-    }
-    .flex.items-center.justify-between a{
-        color: black;
-        text-decoration: none;
-    }
-    .flex.items-center.justify-between svg{
-    width: 3%;
     }
 </style>

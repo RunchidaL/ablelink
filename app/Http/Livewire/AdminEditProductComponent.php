@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 
@@ -26,6 +27,7 @@ class AdminEditProductComponent extends Component
     public $category_id;
     public $newimage;
     public $product_id;
+    public $scategory_id;
 
     public function mount($product_slug)
     {
@@ -43,6 +45,7 @@ class AdminEditProductComponent extends Component
         $this->stock_status = $product->stock_status;
         $this->image = $product->image;
         $this->category_id = $product->category_id;
+        $this->scategory_id = $product->subcategory_id;
         $this->product_id = $product->id;
     }
 
@@ -62,18 +65,28 @@ class AdminEditProductComponent extends Component
         $product->stock_status = $this->stock_status;
         if($this->newimage)
         {
-            $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
-            $this->image->storeAs('products',$imageName);
+            $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
+            $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
         }
         $product->category_id = $this->category_id;
+        if($this->scategory_id)
+        {
+            $product->subcategory_id = $this->scategory_id;
+        }
         $product->save();
         session()->flash('message','update Product successs');
+    }
+
+    public function changeSubcategory()
+    {
+        $this->scategory_id = 0;
     }
 
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin-edit-product-component',['categories'=>$categories])->layout("layout.navfoot");
+        $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        return view('livewire.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories])->layout("layout.navfoot");
     }
 }
