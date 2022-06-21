@@ -16,19 +16,19 @@
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="addPost">
                             <div class="form-group">
-                                <label class="col-md-12">Title</label>
+                                <label class="col-md-12">Title : </label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="title" wire:keyup="generateSlug" required >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">slug</label>
+                                <label class="col-md-12">slug : </label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="slug" required >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Title Image</label>
+                                <label class="col-md-12">Title Image : </label>
                                 <div class="col-md-12">
                                     <input type="file" class="input-file" wire:model="titleimg" required>
                                     @if($titleimg)
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Category</label>
+                                <label class="col-md-12">Category : </label>
                                 <div class="col-md-12">
                                     <select class="form-control form-control-sm" name="category" wire:model="category_id">
                                         <option value="0">--Select--</option>
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Description</label>
+                                <label class="col-md-12">Description : </label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="description" type="text" class="form-control" wire:model="description" required></textarea>
                                 </div>
@@ -102,4 +102,3 @@
         });
 </script>
 @endpush
-

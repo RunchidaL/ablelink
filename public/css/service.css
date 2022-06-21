@@ -1,8 +1,10 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
+
 
 /* ภาพด้านบน */
 .wallpaper img{
@@ -11,6 +13,7 @@
     background-position: 50%;
     background-size: cover;
     width: 100%;
+    height: 100%;
 }
 
 .box{
@@ -29,13 +32,17 @@
 
 .col li{
     text-align: left;
-    margin-left: 130px;
 }
 
 .col h4{
     margin-bottom: 20px;
 }
 
-.row {
+.row{
     width: 100%;
+}
+
+.contact{
+    display: inline-block;
+    text-align: center;
 }

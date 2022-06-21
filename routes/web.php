@@ -25,7 +25,6 @@ use App\Http\Livewire\AdminEditProductComponent;
 use App\Http\Livewire\AdminPostComponent;
 use App\Http\Livewire\DetailPostComponent;
 use App\Http\Livewire\PostCategoryComponent;
-use App\Http\Livewire\TestComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -55,13 +54,11 @@ Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->n
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
-Route::get('/product_category/{category_slug}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
 Auth::routes();
-
-
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
@@ -70,7 +67,7 @@ Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.catego
 
 Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
 
-Route::get('/admin/category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
 
 Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
 

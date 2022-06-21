@@ -12,15 +12,13 @@
         <div class="swiper-slide"><img src="/images/2.jpg" alt=""></div>
         <div class="swiper-slide"><img src="/images/3.jpg" alt=""></div>
     </div>
-
     <div class="swiper-pagination"></div>
-
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
 </div>
 
 
+@push('scripts')
 <script>
     const swiper = new Swiper('.swiper', {
         autoplay: {
@@ -41,15 +39,11 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-
     });
 </script>
-
-
-
+@endpush
 
 <!-- newproduct -->
-
 <div>
     <p class="text">ผลิตภัณฑ์ใหม่</p>
 </div>

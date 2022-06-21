@@ -1,76 +1,27 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 
-.productNav{
-    background-color: #cac6c6;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    cursor: pointer;
-}
-
-.productNav div{
-    padding: 0.6rem 0;
-    transition: 0.2s all ease;
-}
-
-.productNav div:hover{
-    color: white;
-}
-
-.choices{
-    width: auto;
-    margin: 10px 0 10px 0;
-    display: flex;
-    /* align-items: center; */
-    /* flex-direction: row; */
-    /* justify-content: space-evenly; */
-    /* min-height: fit-content; */
-}
-
-.choices .one-box {
-    width: 20%;
-    border-radius: 20px;
-    padding: 5px 5px;
-    background: #194276;
-    color: white;
-    text-align: center;
-    margin: 0px 10px;
-    opacity: 0.8
-    /* align-items: center; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
-    /* cursor: pointer;
-    transition: all 0.2s ease; */
-}
-
-.choices .one-box:hover{
-    background: #194276;
-    opacity: 1;
-}
-
-.text{
-    color: #dc7226; /*change*/
+/* .text{
+    color: #dc7226;
     margin-left: 5%;
     font-size: 25px;
     margin-top: 20px;
+} */
 
-}
-
-.row {
+.row{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    width:100vw;
 }
-
 
 .NP-col{
     position: relative;
-    width: 22%;
+    width: 20%;
     text-align: start;
     margin: 3% 0 3% 0;
 }
@@ -88,22 +39,31 @@
     background-color: #cac6c6;
     border: none;
     border-radius: 0;
+    justify-content: space-between;
 }
 
-.NP-col .btn{
-    background-color: #dc7226;
-    color: white;
-
-}
-
-.card-body .card-title{
+.card a{
     text-decoration: none;
     color: black;
 }
 
+.card-footer .btn{
+    background-color: #dc7226;
+    color: white;
+}
+
+.card-footer .btn:hover{
+    background-color: #ffac71;
+    color: black;
+}
+
+.wrap-pagination-info .flex.items-center.justify-between {
+    margin: 0 0 0 5%;
+}
+
+/* resonsive */
 @media(max-width: 767px){
     .NP-col {
         width: 50%;
-        
     }
 }

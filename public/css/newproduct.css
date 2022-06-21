@@ -1,12 +1,15 @@
-/* .container{
-   margin-top: 20px;
-} */
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
 .text{
     color: #dc7226; /*change*/
     margin-left: 5%;
     font-size: 25px;
     margin-top: 20px;
-
 }
 
 .row {

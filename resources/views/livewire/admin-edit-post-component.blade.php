@@ -5,8 +5,8 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-12">
-                                <a href="#"><button>Edit Posts</button></a>
+                            <div class="col-md-12" id="head">
+                                Edit Posts
                             </div>
                         </div>
                     </div>
@@ -16,19 +16,19 @@
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="updatePost">
                             <div class="form-group">
-                                <label class="col-md-12">title</label>
+                                <label class="col-md-12">Title : </label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="title" wire:keyup="generateSlug" required >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">slug</label>
+                                <label class="col-md-12">slug : </label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="slug" required >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Title Image</label>
+                                <label class="col-md-12">Title Image : </label>
                                 <div class="col-md-12">
                                     <input type="file" class="input-file" wire:model="newtitleimg" required>
                                     @if($newtitleimg)
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Category</label>
+                                <label class="col-md-12">Category : </label>
                                 <div class="col-md-12">
                                     <select class="form-control form-control-sm" name="category" wire:model="category_id" required>
                                         <option value="0">--Select--</option>
@@ -49,14 +49,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Description</label>
+                                <label class="col-md-12">Description : </label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="description" type="text" class="form-control" wire:model="description" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -67,6 +67,28 @@
     </div>
 </div>
 
+<style>
+    #head{
+        font-size: 30px;
+    }
+    .col-md-12{
+        font-size: 15px;
+        background: rgb(243, 243, 243);
+        border-radius: 20px;
+    }
+    .panel-heading.head{
+        font-size: 50px;
+    }
+    .panel-body{
+        margin: 2% 5% 2% 5%;
+    }
+    .row{
+        margin: 25px;
+    }
+    button{
+        margin-top: 2%
+    }
+</style>
 
 @push('scripts')
 <script>
