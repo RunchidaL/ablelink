@@ -17,7 +17,7 @@
                     @endif
                 </div>
                 <div class="card-footer">
-                    <a href="/service" class="btn btn">Add to cart</a>
+                    <a href="#" class="btn btn">Add to cart</a>
                 </div>
             </a>    
         </div>

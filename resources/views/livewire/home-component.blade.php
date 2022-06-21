@@ -17,10 +17,7 @@
     <div class="swiper-button-next"></div>
 </div>
 
-
-
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+@push('scripts')
 <script>
     const swiper = new Swiper('.swiper', {
         autoplay: {
@@ -43,6 +40,7 @@
         },
     });
 </script>
+@endpush
 
 <!-- newproduct -->
 <div>

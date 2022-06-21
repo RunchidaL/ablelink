@@ -14,14 +14,18 @@ use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\AdminAddPostComponent;
 use App\Http\Livewire\AdminCategoryComponent;
 use App\Http\Livewire\AdminAddCategoryComponent;
 use App\Http\Livewire\AdminEditCategoryComponent;
 use App\Http\Livewire\AdminProductComponent;
 use App\Http\Livewire\AdminAddProductComponent;
+use App\Http\Livewire\AdminEditPostComponent;
 use App\Http\Livewire\AdminEditProductComponent;
-use App\Http\Livewire\AdminAddPostComponent;
-use App\Http\Livewire\NavfootComponent;
+use App\Http\Livewire\AdminPostComponent;
+use App\Http\Livewire\DetailPostComponent;
+use App\Http\Livewire\PostCategoryComponent;
+use App\Http\Livewire\TestComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -44,6 +48,10 @@ Route::get('/aboutus', AboutusComponent::class);
 Route::get('/register_dealer', function () {
     return view('dealer.register');
 });
+
+Route::get('/post/{slug}', DetailPostComponent::class)->name('post.details');
+
+Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->name('post.category');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
@@ -68,4 +76,8 @@ Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.a
 
 Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
 
-Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
+Route::get('/admin/post', AdminPostComponent::class)->name('admin.post');
+
+Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');;
+
+Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');;
