@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Title Image : </label>
                                 <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="newtitleimg" required>
+                                    <input type="file" class="input-file" wire:model="newtitleimg" >
                                     @if($newtitleimg)
                                         <img src="{{$newtitleimg->temporaryUrl()}}" width="120"/>
                                     @else
