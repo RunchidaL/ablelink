@@ -21,9 +21,6 @@
 </div>
 
 
-
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
 <script>
     const swiper = new Swiper('.swiper', {
         autoplay: {

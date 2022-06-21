@@ -21,6 +21,7 @@
     
     <!-- slide img -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <!-- styles -->
     @yield('link_navfoot')
@@ -29,7 +30,6 @@
     @yield('link_login')
     @livewireStyles
 
-    @yield('summernote')
 
   </head>
   <body>
@@ -51,6 +51,8 @@
   @livewireScripts
   
   @stack('scripts')
+  
+
   
   </body>
 </html>

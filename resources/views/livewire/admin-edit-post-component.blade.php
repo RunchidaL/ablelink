@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Title Image</label>
                                 <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="newtitleimg">
+                                    <input type="file" class="input-file" wire:model="newtitleimg" required>
                                     @if($newtitleimg)
                                         <img src="{{$newtitleimg->temporaryUrl()}}" width="120"/>
                                     @else
@@ -41,7 +41,8 @@
                             <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-12">
-                                    <select class="form-control form-control-sm" name="category" wire:model="category_id">
+                                    <select class="form-control form-control-sm" name="category" wire:model="category_id" required>
+                                        <option value="0">--Select--</option>
                                         <option value="1">บทความ</option>
                                         <option value="2">องค์กร</option>
                                     </select>
@@ -50,7 +51,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Description</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="description" type="text" class="form-control" wire:model="description"></textarea>
+                                    <textarea id="description" type="text" class="form-control" wire:model="description" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
