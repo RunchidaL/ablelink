@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\posts;
 
 use Livewire\Component;
 use App\Models\Post;
@@ -41,6 +41,6 @@ class AdminAddPostComponent extends Component
     public function render()
     {
         $postcategories = PostCategory::all();
-        return view('livewire.admin-add-post-component',['postcategories'=>$postcategories])->layout("layout.navfoot");
+        return view('livewire.admin.posts.admin-add-post-component',['postcategories'=>$postcategories])->layout("layout.navfoot");
     }
 }

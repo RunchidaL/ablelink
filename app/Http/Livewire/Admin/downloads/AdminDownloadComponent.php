@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\downloads;
 
 use Livewire\Component;
 use App\Models\Download;
@@ -17,6 +17,6 @@ class AdminDownloadComponent extends Component
     public function render()
     {
         $downloads = Download::all();
-        return view('livewire.admin-download-component',['downloads'=>$downloads])->layout("layout.navfoot");
+        return view('livewire.admin.downloads.admin-download-component',['downloads'=>$downloads])->layout("layout.navfoot");
     }
 }

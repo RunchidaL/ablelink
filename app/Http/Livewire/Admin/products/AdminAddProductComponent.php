@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\products;
 
 use Livewire\Component;
 use App\Models\Category;
@@ -103,6 +103,6 @@ class AdminAddProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
-        return view('livewire.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories])->layout("layout.navfoot");
     }
 }

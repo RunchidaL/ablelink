@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\posts;
 
 use App\Models\PostCategory;
 use Livewire\Component;
@@ -28,6 +28,6 @@ class AdminAddPostCategoryComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin-add-post-category-component')->layout("layout.navfoot");
+        return view('livewire.admin.posts.admin-add-post-category-component')->layout("layout.navfoot");
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\downloads;
 
 use Livewire\Component;
 use App\Models\DownloadCategory;
@@ -39,6 +39,6 @@ class AdminEditCategoryDownloadComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin-edit-category-download-component')->layout("layout.navfoot");
+        return view('livewire.admin.downloads.admin-edit-category-download-component')->layout("layout.navfoot");
     }
 }

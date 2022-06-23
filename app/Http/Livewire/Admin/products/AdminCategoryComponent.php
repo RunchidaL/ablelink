@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\products;
 
 use App\Models\Category;
 use App\Models\Subcategory;
@@ -27,6 +27,6 @@ class AdminCategoryComponent extends Component
     public function render()
     {
         $categories = Category::paginate(5);
-        return view('livewire.admin-category-component',['categories'=>$categories])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-category-component',['categories'=>$categories])->layout("layout.navfoot");
     }
 }
