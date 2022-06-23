@@ -6,10 +6,7 @@
                     <div class="panel-heading">
                         <div class="row" id="head">
                             <div class="col-md-4">
-                                <h3>Edit New Product</h3>
-                            </div>
-                            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                                <a href="{{route('admin.products')}}"><button class="btn btn-success">All Products</button></a>
+                                <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit New Product</h2>
                             </div>
                         </div>
                     </div>
@@ -81,10 +78,7 @@
                             <div class="form-group">
                                 <label class="col-md-4">Stock</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" wire:model="stock_status">
-                                        <option value="instock">Instock</option>
-                                        <option value="outofstock">Out of Stock</option>
-                                    </select>
+                                    <input type="text" class="form-control" wire:model="stock">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -96,6 +90,36 @@
                                     @else
                                         <img src="{{asset('images/products')}}/{{$image}}" width="120"/>
                                     @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">datasheet</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newdatasheet">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">firmware</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newfirmware">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">guide</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newguide">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">cert</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newcert">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">config</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newconfig">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -127,12 +151,9 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
 
@@ -193,13 +214,13 @@
     </script>
 @endpush
 
-<style>
+<!-- <style>
     #head{
         margin: 2% 0 2% 0;
     }
-    .form-group{
+    .panel-body .form-group{
         margin: 2% 0 2% 0;
     }
-</style>
+</style> -->
 
 

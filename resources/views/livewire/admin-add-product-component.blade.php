@@ -6,10 +6,7 @@
                     <div class="panel-heading">
                         <div class="row" id="head">
                             <div class="col-md-4">
-                                <h3>Add New Product</h3>
-                            </div>
-                            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                                <a href="{{route('admin.products')}}"><button class="btn btn-success">All Products</button></a>
+                                <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add New Product</h2>
                             </div>
                         </div>
                     </div>
@@ -80,11 +77,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Stock</label>
+                                    <input type="text" class="form-control" wire:model="stock" required>
                                 <div class="col-md-12">
-                                    <select class="form-control" wire:model="stock_status">
-                                        <option value="instock">Instock</option>
-                                        <option value="outofstock">Out of Stock</option>
-                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -94,6 +88,36 @@
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120"/>
                                     @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Datasheet</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="datasheet">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Firm ware</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="firmware">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Guide</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="guide">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Certificate</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="cert">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Config</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="config">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -188,11 +212,11 @@
     </script>
 @endpush
 
-<style>
+<!-- <style>
     #head{
         margin: 2% 0 2% 0;
     }
     .form-group{
         margin: 2% 0 2% 0;
     }
-</style>
+</style> -->

@@ -323,3 +323,10 @@ footer *{
 width: 3%;
 }
 
+#head{
+    margin: 2% 0 2% 0;
+}
+
+.panel-body .form-group{
+    margin: 2% 0 2% 0;
+}

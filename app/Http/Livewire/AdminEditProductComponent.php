@@ -22,10 +22,20 @@ class AdminEditProductComponent extends Component
     public $web_price;
     public $dealer_price;
     public $customer_price;
-    public $stock_status;
+    public $stock;
     public $image;
+    public $datasheet;
+    public $firmware;
+    public $guide;
+    public $cert;
+    public $config;
     public $category_id;
     public $newimage;
+    public $newdatasheet;
+    public $newfirmware;
+    public $newguide;
+    public $newcert;
+    public $newconfig;
     public $product_id;
     public $scategory_id;
 
@@ -42,8 +52,13 @@ class AdminEditProductComponent extends Component
         $this->web_price = $product->web_price;
         $this->dealer_price = $product->dealer_price;
         $this->customer_price = $product->customer_price;
-        $this->stock_status = $product->stock_status;
+        $this->stock = $product->stock;
         $this->image = $product->image;
+        $this->datasheet = $product->datasheet;
+        $this->firmware = $product->firmware;
+        $this->guide = $product->guide;
+        $this->cert = $product->cert;
+        $this->config = $product->config;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
         $this->product_id = $product->id;
@@ -62,12 +77,42 @@ class AdminEditProductComponent extends Component
         $product->web_price = $this->web_price;
         $product->dealer_price = $this->dealer_price;
         $product->customer_price = $this->customer_price;
-        $product->stock_status = $this->stock_status;
+        $product->stock = $this->stock;
         if($this->newimage)
         {
-            $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
+            $imageName = $this->newimage->getClientOriginalName();
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
+        }
+        if($this->newdatasheet)
+        {
+            $file1 = $this->newdatasheet->getClientOriginalName();
+            $this->newdatasheet->storeAs('products',$file1);
+            $product->datasheet = $file1;
+        }
+        if($this->newfirmware)
+        {
+            $file2 = $this->newfirmware->getClientOriginalName();
+            $this->newfirmware->storeAs('products',$file2);
+            $product->firmware = $file2;
+        }
+        if($this->newguide)
+        {
+            $file3 = $this->newguide->getClientOriginalName();
+            $this->newguide->storeAs('products',$file3);
+            $product->guide = $file3;
+        }
+        if($this->newcert)
+        {
+            $file4 = $this->newcert->getClientOriginalName();
+            $this->newcert->storeAs('products',$file4);
+            $product->cert = $file4;
+        }
+        if($this->newconfig)
+        {
+            $file5 = $this->newconfig->getClientOriginalName();
+            $this->newconfig->storeAs('products',$file5);
+            $product->config = $file5;
         }
         $product->category_id = $this->category_id;
         if($this->scategory_id)

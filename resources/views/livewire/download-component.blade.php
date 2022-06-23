@@ -1,6 +1,4 @@
-<!-- link -->
 <link href="/css/download.css" rel="stylesheet">
-<!-- link -->
 
 <div class="wallpaper">
     <img src="/images/download.png" alt="">
@@ -9,40 +7,66 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <button><i class="bi bi-file-text"></i><br><p>Catelog</p></button>
-            <button><i class="bi bi-file-slides"></i></i><br><p>Presentation</p></button>
-            <button><i class="bi bi-camera-video"></i><br><p>VDO</p></button>
+            @foreach($dcategories as $dcategory)
+            <a href="{{route('download.category',['downloadcategory_slug'=>$dcategory->slug])}}"><button><i class="bi bi-file-text"></i><br><p>{{$dcategory->name}}</p></button></a>
+            @endforeach
         </div>
     </div>
     <div class="section">
         <div class="title">
             <p>Catelog</p>
         </div>
-        <div class="desc">
-            <p>Catelog ของบริษัท</p>
-            <!-- <a href="#"><button>load</button></a> -->
-            <p>Catelog ของบริษัทอื่น</p>
-            <p>Catelog ของบริษัทอื่น</p>
-        </div>
+        @foreach($downloads as $download)
+            @if(($download->category->name) == "Catelog")
+            
+            <div class="desc">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <p>Catelog ของ {{$download->name}}</p>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center">
+                        <a href="{{url('/images/downloads')}}/{{$download -> file}}">ดาวน์โหลด</a>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endforeach
     </div>
     <div class="section">
         <div class="title">
             <p>Presentation</p>
         </div>
-        <div class="desc">
-            <p>Presentation ของ____</p>
-            <p>Presentation ของ____</p>
-            <p>Presentation ของ____</p>
-        </div>
+        @foreach($downloads as $download)
+            @if(($download->category->name) == "Presentation")
+            
+            <div class="desc">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <p>	Presentation ของ {{$download->name}}</p>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center">
+                        <a href="{{url('/images/downloads')}}/{{$download -> file}}">ดาวน์โหลด</a>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endforeach
     </div>
     <div class="section">
         <div class="title">
             <p>VDO</p>
         </div>
-        <div class="desc">
-            <p>VDO ของ____</p>
-            <p>VDO ของ____</p>
-            <p>VDO ของ____</p>
-        </div>
+        @foreach($downloads as $download)
+            @if(($download->category->name) == "VDO")
+            <div class="desc">
+                <div class="row d-flex justify-content-center">
+                    <div id="vdo">
+                        <iframe width="350" height="250" src="{{url('/images/downloads')}}/{{$download -> file}}" sandbox=""></iframe>
+                        <p>	VDO ของ {{$download->name}}</p>
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endforeach
     </div>
 </div>

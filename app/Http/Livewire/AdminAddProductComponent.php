@@ -22,8 +22,13 @@ class AdminAddProductComponent extends Component
     public $web_price;
     public $dealer_price;
     public $customer_price;
-    public $stock_status;
+    public $stock;
     public $image;
+    public $datasheet;
+    public $firmware;
+    public $guide;
+    public $cert;
+    public $config;
     public $category_id;
     public $scategory_id;
 
@@ -45,10 +50,40 @@ class AdminAddProductComponent extends Component
         $product->web_price = $this->web_price;
         $product->dealer_price = $this->dealer_price;
         $product->customer_price = $this->customer_price;
-        $product->stock_status = $this->stock_status;
+        $product->stock = $this->stock;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image = $imageName;
+        if($this->datasheet)
+        {
+            $file1 = $this->datasheet->getClientOriginalName();
+            $this->datasheet->storeAs('products',$file1);
+            $product->datasheet = $file1;
+        }
+        if($this->firmware)
+        {
+            $file2 = $this->firmware->getClientOriginalName();
+            $this->firmware->storeAs('products',$file2);
+            $product->firmware = $file2;
+        }
+        if($this->guide)
+        {
+            $file3 = $this->guide->getClientOriginalName();
+            $this->guide->storeAs('products',$file3);
+            $product->guide = $file3;
+        }
+        if($this->cert)
+        {
+            $file4 = $this->cert->getClientOriginalName();
+            $this->cert->storeAs('products',$file4);
+            $product->cert = $file4;
+        }
+        if($this->config)
+        {
+            $file5 = $this->config->getClientOriginalName();
+            $this->config->storeAs('products',$file5);
+            $product->config = $file5;
+        }
         $product->category_id = $this->category_id;
         if($this->scategory_id)
         {

@@ -14,6 +14,7 @@
             @else
                 <p>{{number_format($product->web_price)}}</p>
             @endif
+            <p>In stock {{$product->stock}}</p>
             <div class="quantity">
                 <input value="1">
                 <div class="handle">
@@ -34,6 +35,7 @@
             <a href="#network_connectivity">Network Connectivity</a>
             <a href="#item-spotlight">Item Spotlight</a>
             <a href="#feature">Feature</a>
+            <a href="#resources">Resources</a>
         </div>
         <div class="tab-contents">
             <h5>Overview</h5>
@@ -59,6 +61,33 @@
         <div class="tab-contents" id="feature">
             <h5>Feature</h5>
             <p>{!! $product->feature !!}</p>
+        </div>
+        <div class="line" id="feature"></div>
+        <div class="tab-contents" id="resources">
+            <h5>Resources</h5>
+            <br>
+            <div class="row">
+                @if(($product->datasheet) == "")
+                @else
+                    <div class="col"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
+                @endif
+                @if(($product->firmware) == "")
+                @else
+                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
+                @endif
+                @if(($product->guide) == "")
+                @else
+                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
+                @endif
+                @if(($product->cert) == "")
+                @else
+                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
+                @endif
+                @if(($product->config) == "")
+                @else
+                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

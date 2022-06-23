@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="row" id="head">
                     <div class="col-md-4">
-                        <h2>All Category</h2>
+                        <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  All Category</h2>
                     </div>
                     <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
                         <a href="{{route('admin.addcategory')}}"><button class="btn btn-success">Add Category</button></a>
@@ -46,7 +46,6 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    
                 </table>
                 {{$categories->links()}}
             </div>

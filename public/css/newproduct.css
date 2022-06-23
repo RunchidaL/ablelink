@@ -1,8 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
 }
 
 .text{
@@ -17,7 +15,6 @@
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
 }
-
 
 .NP-col{
     position: relative;

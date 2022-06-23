@@ -42,6 +42,8 @@ class CategoryComponent extends Component
         
         $products = Product::where($filter.'category_id',$category_id)->paginate(8);
         $categories = Category::all();
-        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name])->layout("layout.navfoot"); 
+        $category = Category::where('slug',$this->category_slug)->first();
+        $scategory = Subcategory::where('slug',$this->scategory_slug)->first();
+        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory])->layout("layout.navfoot"); 
     }
 }

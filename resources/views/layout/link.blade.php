@@ -18,8 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 
-    
-    
     <!-- slide img -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -30,7 +28,6 @@
     @yield('link_register_customer')
     @yield('link_login')
     @livewireStyles
-
 
   </head>
   <body>
