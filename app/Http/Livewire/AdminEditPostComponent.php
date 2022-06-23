@@ -56,7 +56,7 @@ class AdminEditPostComponent extends Component
 
     public function render()
     {   
-        $postscategories = PostCategory::all();
-        return view('livewire.admin-edit-post-component',['postscategories'=>$postscategories])->layout("layout.navfoot");
+        $postcategories = PostCategory::all();
+        return view('livewire.admin-edit-post-component',['postcategories'=>$postcategories])->layout("layout.navfoot");
     }
 }

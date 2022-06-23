@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class DownloadCategory extends Model
 {
     use HasFactory;
-
     protected $table = "download_categories";
 }

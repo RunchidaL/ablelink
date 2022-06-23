@@ -15,8 +15,9 @@
                         <div class="col-md-4">
                             <h1>Post</h1>
                         </div>
-                        <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                            <a href="/admin/post/add"><button class="btn btn-success">Add Post</button></a>
+                        <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+                        <a href="{{route('admin.post.category')}}"><button class="btn btn-success">Post Category</button></a>
+                        <a href="{{route('admin.addpost')}}"><button class="btn btn-success">Add Post</button></a>
                         </div>
                     </div>
                     <div class="panel-body">
@@ -27,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Category</th>
                                     <th>Title Image</th>
                                     <th>Title</th>
                                     <th>Date</th>
@@ -34,9 +36,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                               
                                 @foreach ($posts as $post)
                                     <tr>
                                         <td>{{$post->id}}</td>
+                                        <td>{{$post->category->name}}</td>
                                         <td><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="150"/></td>
                                         <a href="{{route('post.details',['slug'=>$post->slug])}}" class="text"><td>{{$post->title}}</td></a>
                                         <td>{{$post->created_at}}</td>

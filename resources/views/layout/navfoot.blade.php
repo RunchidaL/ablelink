@@ -23,7 +23,7 @@
                             <div>
                                 <a href="/product_category/security"  style="padding: 0;"><li>Security</li></a>
                                 <ul class="contents first">
-                                    <a href="#"><li>CCTV</li></a>
+                                    <a href="/product_category/security/cctv"><li>CCTV</li></a>
                                     <a href="/product_category/security/access-control"><li>Access Control</li></a>
                                     <a href="#"><li>Video wall</li></a>
                                     <a href="#"><li>Storage server</li></a>
@@ -138,7 +138,6 @@
                                 @elseif(Auth::user()->role == 3)
                                     <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
                                     <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
-                                    <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
                                     <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
                                 @endif
                                 

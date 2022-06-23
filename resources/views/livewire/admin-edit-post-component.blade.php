@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-12" id="head">
-                                Edit Posts
+                                <a href="{{route('admin.post')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Posts
                             </div>
                         </div>
                     </div>
@@ -42,9 +42,10 @@
                                 <label class="col-md-12">Category : </label>
                                 <div class="col-md-12">
                                     <select class="form-control form-control-sm" name="category" wire:model="category_id" required>
-                                        <option value="0">--Select--</option>
-                                        <option value="1">บทความ</option>
-                                        <option value="2">องค์กร</option>
+                                        <option value="">--Select--</option>
+                                        @foreach ($postcategories as $postcategory)
+                                            <option value="{{$postcategory->id}}">{{$postcategory->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

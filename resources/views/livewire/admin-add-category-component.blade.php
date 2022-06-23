@@ -2,10 +2,7 @@
     <div class="container">
         <div class="row" id="head">
             <div class="col-md-4">
-                <h3>New Download Category</h3>
-            </div>
-            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                <a href="{{route('admin.category')}}"><button class="btn btn-success">All Download Category</button></a>
+                <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Category</h2>
             </div>
         </div>
         @if(Session::has('message'))
@@ -38,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md">
-                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <input type="submit" value="Submit" class="btn btn-success">
                     </div>    
                 </div>
             </div>

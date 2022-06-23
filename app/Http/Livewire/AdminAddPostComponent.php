@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\PostCategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
@@ -39,6 +40,7 @@ class AdminAddPostComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin-add-post-component')->layout("layout.navfoot");
+        $postcategories = PostCategory::all();
+        return view('livewire.admin-add-post-component',['postcategories'=>$postcategories])->layout("layout.navfoot");
     }
 }

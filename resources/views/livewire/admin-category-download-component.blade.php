@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="row" id="head">
                     <div class="col-md-4">
-                        <h2>All Download Category</h2>
+                        <h2><a href="{{route('admin.download')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  All Download Category</h2>
                     </div>
                     <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
                         <a href="{{route('admin.addcategorydownload')}}"><button class="btn btn-success">Add Category</button></a>

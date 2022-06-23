@@ -2,7 +2,7 @@
     {{$post->title}}
 </div>  
 <div class='body'>
-    {!!$post->description!!} <br><br>Marketing Ablelink: {{$post->created_at}}
+    {!!$post->description!!} <br><br>By Marketing Ablelink: {{$post->created_at}}
 </div>
 
 <style>

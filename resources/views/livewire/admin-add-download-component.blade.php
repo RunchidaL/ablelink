@@ -6,10 +6,7 @@
                     <div class="panel-heading">
                         <div class="row" id="head">
                             <div class="col-md-4">
-                                <h3>Add New Download</h3>
-                            </div>
-                            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                                <a href="{{route('admin.download')}}"><button class="btn btn-success">All Download</button></a>
+                                <h2><a href="{{route('admin.download')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add New Download</h2>
                             </div>
                         </div>
                     </div>
@@ -49,7 +46,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         </form>

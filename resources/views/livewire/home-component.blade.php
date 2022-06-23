@@ -102,16 +102,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="AC-col">
-            <a href="#"><img src="https://img-ha.mthcdn.com/KBZ8v5cvb_d95Gi8w57wFe2tGBo=/tech.mthai.com/app/uploads/2016/11/1-4.jpg" alt=""></a>
-            <p class="text-AC">ข่าวสาร</p>
+            <a href="/post_category/บทความ"><img src="https://img-ha.mthcdn.com/KBZ8v5cvb_d95Gi8w57wFe2tGBo=/tech.mthai.com/app/uploads/2016/11/1-4.jpg" alt=""></a>
+            <p class="text-AC">บทความ</p>
         </div>
         <div class="AC-col">
             <a href="#"><img src="https://img-ha.mthcdn.com/KBZ8v5cvb_d95Gi8w57wFe2tGBo=/tech.mthai.com/app/uploads/2016/11/1-4.jpg" alt=""></a>
-            <p class="text-AC">กิจกรรม</p>
+            <p class="text-AC">ผลิตภัณฑ์</p>
         </div>
         <div class="AC-col">
-            <a href="#"><img src="https://img-ha.mthcdn.com/KBZ8v5cvb_d95Gi8w57wFe2tGBo=/tech.mthai.com/app/uploads/2016/11/1-4.jpg" alt=""></a>
-            <p class="text-AC">อบรม</p>
+            <a href="/post_category/องค์กร"><img src="https://img-ha.mthcdn.com/KBZ8v5cvb_d95Gi8w57wFe2tGBo=/tech.mthai.com/app/uploads/2016/11/1-4.jpg" alt=""></a>
+            <p class="text-AC">องค์กร</p>
         </div>
     </div>
 </div>

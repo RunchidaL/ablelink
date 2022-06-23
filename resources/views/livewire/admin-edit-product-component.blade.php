@@ -6,10 +6,7 @@
                     <div class="panel-heading">
                         <div class="row" id="head">
                             <div class="col-md-4">
-                                <h3>Edit New Product</h3>
-                            </div>
-                            <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                                <a href="{{route('admin.products')}}"><button class="btn btn-success">All Products</button></a>
+                                <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit New Product</h2>
                             </div>
                         </div>
                     </div>
