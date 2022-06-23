@@ -10,7 +10,7 @@ body{
 }
 
 .fakenav{
-    min-height: 70px;
+    min-height: 60px;
 }
 
 /* navbar */
@@ -19,7 +19,7 @@ body{
     width: 100vw;
     top: 0;
     left: 0;
-    height: 70px;
+    height: 60px;
     display: flex;
     justify-content: center;
     z-index: 6;
@@ -28,7 +28,7 @@ body{
 
 nav .nav-ctn-wrap{
     width: 84vw;
-    height: 70px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
 }
@@ -36,7 +36,6 @@ nav .nav-ctn-wrap{
 /* navbar-left */
 nav .nav-ctn-wrap .nav-left-element{
     display: flex;
-    align-items: center;
 }
 
 nav .nav-ctn-wrap .nav-left-element .logo{
@@ -45,10 +44,12 @@ nav .nav-ctn-wrap .nav-left-element .logo{
 
 nav .nav-ctn-wrap .nav-left-element .menu-wrap{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus{
-    height: 70px;
+    height: 60px;
     display:  flex;
     text-decoration: none;
     align-items: center;
@@ -65,7 +66,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 }
 
 .prod-wrap{
-    height: 70px;
+    height: 60px;
     cursor: pointer;
 }
 
@@ -75,7 +76,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 }
 
 .prod-wrap .prod-btn{
-    height: 70px;
+    height: 60px;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -95,7 +96,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 .prod-wrap .prod-dropdown{
     background-color: rgb(158, 155, 155);
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     width: 100vw;
     min-height: 400px;
@@ -105,8 +106,8 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
     cursor: default;
 }
 
-.prod-wrap .prod-dropdown .subMenu-wrap{
-    width: 20vw;
+.prod-wrap .prod-dropdown .subMenu-wrap {
+    width: 30vw;
     min-width: fit-content;
     white-space: nowrap;
     background-color: gray;
@@ -135,9 +136,9 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 
 .prod-wrap .subMenu-wrap .contents{
     position: fixed;
-    top: 70px;
-    left: 20vw;
-    width: 80vw;
+    top: 60px;
+    left: 30vw;
+    width: 70vw;
     display: none;
     min-height: 432px;
     background-color: rgb(158, 155, 155);
@@ -225,6 +226,7 @@ footer *{
 .footer{
     width: 100%;
     position: absolute;
+    margin-top: auto;
     background-color: #E1B069;  /*change*/
     padding: 10px 0px;
 }
@@ -312,7 +314,6 @@ footer *{
 }
 .flex.items-center.justify-between div{
     padding: 5px 0 5px 0;
-    
 }
 .flex.items-center.justify-between a{
     color: black;
@@ -325,6 +326,7 @@ width: 3%;
 #head{
     margin: 2% 0 2% 0;
 }
+
 .panel-body .form-group{
     margin: 2% 0 2% 0;
 }

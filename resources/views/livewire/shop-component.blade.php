@@ -11,11 +11,11 @@
             <a href="{{route('product.details',['slug'=>$product->slug])}}" class="card-title">
                 <img src="{{asset('/images/products')}}/{{$product -> image}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p>{{$product -> name}}</p>
+                    <p class="card-title">{{$product -> name}}</p>
                     @if(($product->web_price) == '0')
-                        <p></p>
+                        <p class="card-text"></p>
                     @else
-                        <p>{{number_format($product->web_price)}}</p>
+                        <p class="card-text"></p>฿{{number_format($product->web_price)}}</p>
                     @endif
                 </div>
                 <div class="card-footer">

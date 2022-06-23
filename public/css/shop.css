@@ -1,8 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
 }
 
 .text{
@@ -45,6 +43,11 @@
 .card a{
     text-decoration: none;
     color: black;
+}
+
+.card-body .card-title{
+    height: 80px
+    ;
 }
 
 .card-footer .button{

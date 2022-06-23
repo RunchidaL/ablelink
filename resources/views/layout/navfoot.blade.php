@@ -35,7 +35,7 @@
                             <div>
                                 <a href="/product_category/network-infrastructure"  style="padding: 0;"><li>Network Infrastructure</li></a>
                                 <ul class="contents">
-                                    <a href="/product_category/network-infrastructure/switch-smrtl2l3l4"><li>Switch SMRT/L2/L3/L4</li></a>
+                                    <a href="#"><li>Switch SMRT/L2/L3/L4</li></a>
                                     <a href="#"><li>Industrail Switch</li></a>
                                     <a href="#"><li>Wireless</li></a>
                                     <a href="#"><li>Cabling</li></a>
@@ -46,7 +46,7 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="/product_category/telecommiot"  style="padding: 0;"><li>Telecomm/IO</li></a>
+                                <a href="/product_category/telecomm-iot"  style="padding: 0;"><li>Telecomm/IO</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Router 4g</li></a>
                                     <a href="#"><li>Smart lot</li></a>
@@ -70,7 +70,7 @@
                                 </ul>
                             </div> 
                             <div>                          
-                                <a href="/product_category/audiomultimedia"  style="padding: 0;"><li>Audio/Multimedis</li></a>
+                                <a href="/product_category/audiomultimedis"  style="padding: 0;"><li>Audio/Multimedis</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Ip audio</li></a>
                                     <a href="#"><li>VOIP</li></a>
@@ -136,7 +136,7 @@
                                     <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
-                                    <a class="dropdown-item" href="/admin/post">Post</a>
+                                    <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
                                     <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
                                     <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
                                     <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
