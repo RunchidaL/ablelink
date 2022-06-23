@@ -10,7 +10,7 @@ body{
 }
 
 .fakenav{
-    min-height: 60px;
+    min-height: 70px;
 }
 
 /* navbar */
@@ -19,7 +19,7 @@ body{
     width: 100vw;
     top: 0;
     left: 0;
-    height: 60px;
+    height: 70px;
     display: flex;
     justify-content: center;
     z-index: 6;
@@ -28,7 +28,7 @@ body{
 
 nav .nav-ctn-wrap{
     width: 84vw;
-    height: 60px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
 }
@@ -36,6 +36,7 @@ nav .nav-ctn-wrap{
 /* navbar-left */
 nav .nav-ctn-wrap .nav-left-element{
     display: flex;
+    align-items: center;
 }
 
 nav .nav-ctn-wrap .nav-left-element .logo{
@@ -44,12 +45,10 @@ nav .nav-ctn-wrap .nav-left-element .logo{
 
 nav .nav-ctn-wrap .nav-left-element .menu-wrap{
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus{
-    height: 60px;
+    height: 70px;
     display:  flex;
     text-decoration: none;
     align-items: center;
@@ -66,7 +65,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 }
 
 .prod-wrap{
-    height: 60px;
+    height: 70px;
     cursor: pointer;
 }
 
@@ -76,7 +75,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 }
 
 .prod-wrap .prod-btn{
-    height: 60px;
+    height: 70px;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -96,7 +95,7 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 .prod-wrap .prod-dropdown{
     background-color: rgb(158, 155, 155);
     position: fixed;
-    top: 60px;
+    top: 70px;
     left: 0;
     width: 100vw;
     min-height: 400px;
@@ -106,8 +105,8 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
     cursor: default;
 }
 
-.prod-wrap .prod-dropdown .subMenu-wrap {
-    width: 30vw;
+.prod-wrap .prod-dropdown .subMenu-wrap{
+    width: 20vw;
     min-width: fit-content;
     white-space: nowrap;
     background-color: gray;
@@ -136,9 +135,9 @@ nav .nav-ctn-wrap .nav-left-element .menu-wrap a.menus:hover .menu-item{
 
 .prod-wrap .subMenu-wrap .contents{
     position: fixed;
-    top: 60px;
-    left: 30vw;
-    width: 70vw;
+    top: 70px;
+    left: 20vw;
+    width: 80vw;
     display: none;
     min-height: 432px;
     background-color: rgb(158, 155, 155);
