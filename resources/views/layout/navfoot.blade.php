@@ -46,7 +46,7 @@
                                 </ul>
                             </div> 
                             <div>
-                                <a href="/product_category/telecomm-iot"  style="padding: 0;"><li>Telecomm/IO</li></a>
+                                <a href="/product_category/telecommiot"  style="padding: 0;"><li>Telecomm/IO</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Router 4g</li></a>
                                     <a href="#"><li>Smart lot</li></a>
@@ -70,7 +70,7 @@
                                 </ul>
                             </div> 
                             <div>                          
-                                <a href="/product_category/audiomultimedis"  style="padding: 0;"><li>Audio/Multimedis</li></a>
+                                <a href="/product_category/audiomultimedia"  style="padding: 0;"><li>Audio/Multimedis</li></a>
                                 <ul class="contents">
                                     <a href="#"><li>Ip audio</li></a>
                                     <a href="#"><li>VOIP</li></a>

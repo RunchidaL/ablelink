@@ -36,7 +36,7 @@
 
 .NP-col .card{
     height: 100%;
-    background-color: #cac6c6;
+    background-color: #dfdfdf;
     border: none;
     border-radius: 0;
     justify-content: space-between;
@@ -47,9 +47,15 @@
     color: black;
 }
 
-.card-footer .btn{
+.card-footer .button{
     background-color: #dc7226;
     color: white;
+    border-radius: 30px;
+    padding: 0.2em 1.2em;
+    border-style: solid;
+    border-color: white;
+    border-width: medium;
+    box-shadow: 0px 3px 0px #888888;
 }
 
 .card-footer .btn:hover{

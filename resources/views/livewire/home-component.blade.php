@@ -17,6 +17,7 @@
     <div class="swiper-button-next"></div>
 </div>
 
+
 @push('scripts')
 <script>
     const swiper = new Swiper('.swiper', {

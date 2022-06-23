@@ -72,5 +72,15 @@
     border-top: 3px solid ;
 }
 
+.tab-contents .col{
+    width: 20%;
+}
 
-
+.tab-contents .col a{
+    background-color: #F1F1F1;
+    border: none;
+    padding: 15px 30px 15px 30px;
+    border-radius: 0;
+    text-decoration: none;
+    color: black;
+}

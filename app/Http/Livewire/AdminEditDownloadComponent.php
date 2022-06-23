@@ -35,7 +35,7 @@ class AdminEditDownloadComponent extends Component
         $download->slug = $this->slug;
         if($this->newimage)
         {
-            $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
+            $imageName = $this->newimage->getClientOriginalName();
             $this->newimage->storeAs('downloads',$imageName);
             $download->file = $imageName;
         }

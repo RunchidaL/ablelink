@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\PostCategory;
 
 class AdminPostComponent extends Component
 {
@@ -16,8 +17,9 @@ class AdminPostComponent extends Component
     }
 
     public function render()
-    {
+    {   
+        $postcategory = PostCategory::all();
         $posts = Post::all();
-        return view('livewire.admin-post-component',['posts'=>$posts])->layout("layout.navfoot");
+        return view('livewire.admin-post-component',['posts'=>$posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
     }
 }

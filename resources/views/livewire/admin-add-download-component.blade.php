@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<style>
+<!-- <style>
     #head{
         font-size: 30px;
     }
@@ -78,5 +78,5 @@
     button{
         margin-top: 2%
     }
-</style>
+</style> -->
 

@@ -97,6 +97,36 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-12">Datasheet</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="datasheet">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Firm ware</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="firmware">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Guide</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="guide">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Certificate</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="cert">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Config</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="config">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-12">
                                     <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
@@ -188,11 +218,11 @@
     </script>
 @endpush
 
-<style>
+<!-- <style>
     #head{
         margin: 2% 0 2% 0;
     }
     .form-group{
         margin: 2% 0 2% 0;
     }
-</style>
+</style> -->

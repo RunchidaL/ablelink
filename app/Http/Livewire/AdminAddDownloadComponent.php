@@ -21,9 +21,6 @@ class AdminAddDownloadComponent extends Component
         $download = new Download();
         $download->name = $this->name;
         $download->slug = $this->slug;
-        // $imageName = Carbon::now()->timestamp. '.' . $this->file->extension();
-        // $this->file->storeAs('downloads',$imageName);
-        // $download->file = $imageName;
         $fileName = $this->file->getClientOriginalName();
         $this->file->storeAs('downloads', $fileName);
         $download->file = $fileName;
