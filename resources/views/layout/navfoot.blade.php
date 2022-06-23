@@ -6,104 +6,79 @@
 
 @section('navfoot')
 <!-- navbar -->
-<div class="fakenav"></div>
-<nav class="main">
-    <div class="nav-ctn-wrap">
-        <div class="nav-left-element">
-            <img src="/images/logoAbleLink.png" alt="logo" class="logo">
-            <div class="menu-wrap">
-                <a class="menus" href="/"><div class="menu-item">หน้าหลัก</div></a>
-                <a class="menus" href="/aboutus"><div class="menu-item">เกี่ยวกับเรา</div></a>
-                <div class="prod-wrap">
-                    <a class="prod-btn" href="/shop">
-                        <span>ผลิตภัณฑ์</span>
-                    </a>
-                    <div class="prod-dropdown">
-                        <div class="subMenu-wrap">
-                            <div>
-                                <a href="/product_category/security"  style="padding: 0;"><li>Security</li></a>
-                                <ul class="contents first">
-                                    <a href="#"><li>CCTV</li></a>
-                                    <a href="/product_category/security/access-control"><li>Access Control</li></a>
-                                    <a href="#"><li>Video wall</li></a>
-                                    <a href="#"><li>Storage server</li></a>
-                                    <a href="#"><li>CCTV accessories</li></a>
-                                    <a href="#"><li>Hotel lock</li></a>
-                                    <a href="#"><li>Gate barrier</li></a>
-                                </ul>
-                            </div> 
-                            <div>
-                                <a href="/product_category/network-infrastructure"  style="padding: 0;"><li>Network Infrastructure</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>Switch SMRT/L2/L3/L4</li></a>
-                                    <a href="#"><li>Industrail Switch</li></a>
-                                    <a href="#"><li>Wireless</li></a>
-                                    <a href="#"><li>Cabling</li></a>
-                                    <a href="#"><li>SFP</li></a>
-                                    <a href="#"><li>Industrail Automation</li></a>
-                                    <a href="#"><li>Media Converter</li></a>
-                                    <a href="#"><li>WireMesh and FiberTray</li></a>
-                                </ul>
-                            </div> 
-                            <div>
-                                <a href="/product_category/telecommiot"  style="padding: 0;"><li>Telecomm/IO</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>Router 4g</li></a>
-                                    <a href="#"><li>Smart lot</li></a>
-                                </ul>
-                            </div> 
-                            <div>
-                                <a href="/product_category/tool-and-tester"  style="padding: 0;"><li>Tool and Tester</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>UTP</li></a>
-                                    <a href="#"><li>Fiber</li></a>
-                                    <a href="#"><li>HDMI/LAN/Wireless</li></a>
-                                </ul>
-                            </div> 
-                            <div>
-                                <a href="/product_category/upssurgepower-supply"  style="padding: 0;"><li>UPS/Surge/Power Supply</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>UPS Tower</li></a>
-                                    <a href="#"><li>UPS Rack</li></a>
-                                    <a href="#"><li>Power Supply</li></a>
-                                    <a href="#"><li>Surge</li></a>
-                                </ul>
-                            </div> 
-                            <div>                          
-                                <a href="/product_category/audiomultimedia"  style="padding: 0;"><li>Audio/Multimedis</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>Ip audio</li></a>
-                                    <a href="#"><li>VOIP</li></a>
-                                    <a href="#"><li>Smart Touch TV and AV Mounthing</li></a>
-                                    <a href="#"><li>Multimedia</li></a>
-                                </ul>
-                            </div> 
-                            <div>
-                                <a href="/product_category/software"  style="padding: 0;"><li>Software</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>Network-management</li></a>
-                                    <a href="#"><li>CCTV VMS</li></a>
-                                </ul>
+<div class="navbar">
+    <div class="Container nav-wrap">
+        <div class="nav-left">
+            <img src="/images/logoAbleLink.png" alt="" logo>
+            <div class="nav-menu-wrap"> 
+                <div class="topic">
+                    <a href="/" class="link"><span>หน้าหลัก</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/aboutus" class="link"><span>เกี่ยวกับเรา</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/shop" class="link"><span>ผลิตภัณฑ์</span></a>
+                    <div class="prd-dropdown-wrap">
+                        <div class="Container prd-dropdown">
+                            <div class="menu-list">
+                                <h1>ผลิตภัณฑ์</h1>
+                                <a class="menu-link" href="" id="menuLink1"><div class="menu-link-item">Access Control</div></a>
+                                <a class="menu-link" href="" id="menuLink2"><div class="menu-link-item">Network Infrastructure</div></a>
+                                <a class="menu-link" href="" id="menuLink3"><div class="menu-link-item">Telecomm/IO</div></a>
+                                <a class="menu-link" href="" id="menuLink4"><div class="menu-link-item">Tool and Tester</div></a>
+                                <a class="menu-link" href="" id="menuLink5"><div class="menu-link-item">UPS/Surge/Power Supply</div></a>
+                                <a class="menu-link" href="" id="menuLink6"><div class="menu-link-item">Audio/Multimedis</div></a>
+                                <a class="menu-link" href="" id="menuLink7"><div class="menu-link-item">Software</div></a>
+                                <a class="menu-link" href="" id="menuLink8"><div class="menu-link-item last">Solar/Light</div></a>
                             </div>
-                            <div>
-                                <a href="/product_category/solarlight"  style="padding: 0;"><li>Solar/Light</li></a>
-                                <ul class="contents">
-                                    <a href="#"><li>Solar</li></a>
-                                    <a href="#"><li>Lighting</li></a>
-                                </ul>
+                            <div class="menu-content">
+                                <div id="content1" class="contents">Contents of Access Control</div>
+                                <div id="content2" class="contents">Contents of Network Infrastructure</div>
+                                <div id="content3" class="contents">Contents of Telecomm/IO</div>
+                                <div id="content4" class="contents">Contents of Tool and Tester</div>
+                                <div id="content5" class="contents">Contents of UPS/Surge/Power Supply</div>
+                                <div id="content6" class="contents">Contents of Audio/Multimedis</div>
+                                <div id="content7" class="contents">Contents of Software</div>
+                                <div id="content8" class="contents">Contents of Solar/Light</div>
                             </div>
+                            <script>
+                                document.getElementById("content1").style.display = "block";
+                                for( let i = 1; i<9 ; i++) {
+                                    let Parent = document.getElementById("menuLink"+i);
+                                    let Child = document.getElementById("content"+i);
+                                    Parent.addEventListener("mouseover" , (e) => {
+                                        Child.style.display = "block";
+                                        for ( let n = 1 ; n < 9 ; n++ ){
+                                            if( n !== i) {
+                                                document.getElementById("content"+n).style.display = "none";
+                                            }
+                                        }
+                                    });                                  
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
-
-                <a  class="menus" href="/service"><div class="menu-item">บริการ</div></a>
-                <a  class="menus" href="/activity"><div class="menu-item">ข่าวสาร&กิจกรรม</div></a>
-                <a  class="menus" href="/download"><div class="menu-item">ดาวน์​โหลด</div></a>
-                <a  class="menus" href="/forwork"><div class="menu-item">ร่วมงานกับเรา</div></a>
-                <a  class="menus" href="/contact"><div class="menu-item">ติดต่อเรา</div></a>
+                <div class="topic">
+                    <a href="/service" class="link"><span>บริการ</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/activity" class="link"><span>ข่าวสาร&กิจกรรม</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/download" class="link"><span>ดาวน์​โหลด</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/forwork" class="link"><span>ร่วมงานกับเรา</span></a>
+                </div>
+                <div class="topic">
+                    <a href="/contact" class="link"><span>ติดต่อเรา</span></a>
+                </div>
             </div>
         </div>
-        <div class="nav-right-element">
+
+        <div class="nav-right">
             <div class="searchbox-wrap">
                 <form action="" class="searchbox">
                     <input type="text" placeholder="Search">
@@ -154,7 +129,8 @@
             </div> 
         </div>
     </div>
-</nav>
+</div>
+<div class="fakenav"></div>
 
 <!-- from livewire -->
 {{$slot}}
