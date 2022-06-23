@@ -80,11 +80,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Stock</label>
+                                    <input type="text" class="form-control" wire:model="stock" required>
                                 <div class="col-md-12">
-                                    <select class="form-control" wire:model="stock_status">
-                                        <option value="instock">Instock</option>
-                                        <option value="outofstock">Out of Stock</option>
-                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

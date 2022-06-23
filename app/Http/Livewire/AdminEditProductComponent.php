@@ -22,7 +22,7 @@ class AdminEditProductComponent extends Component
     public $web_price;
     public $dealer_price;
     public $customer_price;
-    public $stock_status;
+    public $stock;
     public $image;
     public $datasheet;
     public $firmware;
@@ -52,7 +52,7 @@ class AdminEditProductComponent extends Component
         $this->web_price = $product->web_price;
         $this->dealer_price = $product->dealer_price;
         $this->customer_price = $product->customer_price;
-        $this->stock_status = $product->stock_status;
+        $this->stock = $product->stock;
         $this->image = $product->image;
         $this->datasheet = $product->datasheet;
         $this->firmware = $product->firmware;
@@ -77,7 +77,7 @@ class AdminEditProductComponent extends Component
         $product->web_price = $this->web_price;
         $product->dealer_price = $this->dealer_price;
         $product->customer_price = $this->customer_price;
-        $product->stock_status = $this->stock_status;
+        $product->stock = $this->stock;
         if($this->newimage)
         {
             $imageName = $this->newimage->getClientOriginalName();

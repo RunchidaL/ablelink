@@ -14,6 +14,7 @@
             @else
                 <p>{{number_format($product->web_price)}}</p>
             @endif
+            <p>In stock {{$product->stock}}</p>
             <div class="quantity">
                 <input value="1">
                 <div class="handle">
