@@ -17,11 +17,14 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\AdminAddPostComponent;
 use App\Http\Livewire\AdminCategoryComponent;
 use App\Http\Livewire\AdminAddCategoryComponent;
+use App\Http\Livewire\AdminAddPostCategoryComponent;
 use App\Http\Livewire\AdminEditCategoryComponent;
 use App\Http\Livewire\AdminProductComponent;
 use App\Http\Livewire\AdminAddProductComponent;
+use App\Http\Livewire\AdminEditPostCategoryComponent;
 use App\Http\Livewire\AdminEditPostComponent;
 use App\Http\Livewire\AdminEditProductComponent;
+use App\Http\Livewire\AdminPostCategoryComponent;
 use App\Http\Livewire\AdminPostComponent;
 use App\Http\Livewire\DetailPostComponent;
 use App\Http\Livewire\PostCategoryComponent;
@@ -77,6 +80,14 @@ Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::clas
 
 Route::get('/admin/post', AdminPostComponent::class)->name('admin.post');
 
-Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');;
+Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
 
-Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');;
+Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');
+
+Route::get('/admin/post/category', AdminPostCategoryComponent::class)->name('admin.post.category');
+
+Route::get('/admin/post/category/add', AdminAddPostCategoryComponent::class)->name('admin.add.post.category');
+
+Route::get('/admin/post/category/edit/{postcategory_slug}', AdminEditPostCategoryComponent::class)->name('admin.edit.post.category');
+
+
