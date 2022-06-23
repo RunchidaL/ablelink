@@ -5,12 +5,12 @@
     list-style: none;
 }
 
-/* .text{
+.text{
     color: #dc7226;
     margin-left: 5%;
     font-size: 25px;
     margin-top: 20px;
-} */
+}
 
 .row{
     display: flex;

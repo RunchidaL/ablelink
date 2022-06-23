@@ -35,7 +35,7 @@
                             <div>
                                 <a href="/product_category/network-infrastructure"  style="padding: 0;"><li>Network Infrastructure</li></a>
                                 <ul class="contents">
-                                    <a href="#"><li>Switch SMRT/L2/L3/L4</li></a>
+                                    <a href="/product_category/network-infrastructure/switch-smrtl2l3l4"><li>Switch SMRT/L2/L3/L4</li></a>
                                     <a href="#"><li>Industrail Switch</li></a>
                                     <a href="#"><li>Wireless</li></a>
                                     <a href="#"><li>Cabling</li></a>
@@ -139,13 +139,15 @@
                                     <a class="dropdown-item" href="/admin/post">Post</a>
                                     <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
                                     <a class="dropdown-item" href="{{route('admin.category')}}">Category</a>
+                                    <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
                                 @endif
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     ออกจากระบบ
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"></form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>

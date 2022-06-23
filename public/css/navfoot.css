@@ -226,7 +226,6 @@ footer *{
 .footer{
     width: 100%;
     position: absolute;
-    margin-top: auto;
     background-color: #E1B069;  /*change*/
     padding: 10px 0px;
 }
@@ -314,6 +313,7 @@ footer *{
 }
 .flex.items-center.justify-between div{
     padding: 5px 0 5px 0;
+    
 }
 .flex.items-center.justify-between a{
     color: black;

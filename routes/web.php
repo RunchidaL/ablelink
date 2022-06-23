@@ -25,6 +25,13 @@ use App\Http\Livewire\AdminEditProductComponent;
 use App\Http\Livewire\AdminPostComponent;
 use App\Http\Livewire\DetailPostComponent;
 use App\Http\Livewire\PostCategoryComponent;
+use App\Http\Livewire\DownloadCategoryComponent;
+use App\Http\Livewire\AdminCategoryDownloadComponent;
+use App\Http\Livewire\AdminAddCategoryDownloadComponent;
+use App\Http\Livewire\AdminEditCategoryDownloadComponent;
+use App\Http\Livewire\AdminDownloadComponent;
+use App\Http\Livewire\AdminAddDownloadComponent;
+use App\Http\Livewire\AdminEditDownloadComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -58,25 +65,24 @@ Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryCompon
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
+
 Auth::routes();
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-// Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
-
-Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
-
-Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-
-Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
-
-Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
-
-Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
-
-Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
-
-Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
-
-Route::get('/admin/post', AdminPostComponent::class)->name('admin.post');
-
-Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');
+Route::middleware(['auth:sanctum','verified','role'])->group(function(){
+    Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
+    Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
+    Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/post/add', AdminAddPostComponent::class)->name('admin.addpost');
+    Route::get('/admin/post', AdminPostComponent::class)->name('admin.post');
+    Route::get('/admin/post/edit/{post_slug}', AdminEditPostComponent::class)->name('admin.editpost');
+    Route::get('/admin/categorydownload', AdminCategoryDownloadComponent::class)->name('admin.categorydownload');
+    Route::get('/admin/categorydownload/add', AdminAddCategoryDownloadComponent::class)->name('admin.addcategorydownload');
+    Route::get('/admin/categorydownload/edit/{categorydownload_slug}', AdminEditCategoryDownloadComponent::class)->name('admin.editcategorydownload');
+    Route::get('/admin/download', AdminDownloadComponent::class)->name('admin.download');
+    Route::get('/admin/download/add', AdminAddDownloadComponent::class)->name('admin.adddownload');
+    Route::get('/admin/download/edit/{download_slug}', AdminEditDownloadComponent::class)->name('admin.editdownload');
+});

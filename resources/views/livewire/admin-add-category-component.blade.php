@@ -2,10 +2,10 @@
     <div class="container">
         <div class="row" id="head">
             <div class="col-md-4">
-                <h3>All New Category</h3>
+                <h3>New Download Category</h3>
             </div>
             <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                <a href="{{route('admin.category')}}"><button class="btn btn-success">All Category</button></a>
+                <a href="{{route('admin.category')}}"><button class="btn btn-success">All Download Category</button></a>
             </div>
         </div>
         @if(Session::has('message'))

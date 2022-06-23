@@ -57,10 +57,19 @@
     border-radius: 0;
     text-decoration: none;
     color: black;
-    
 }
 
 .col-1 p{
     padding-top: 10%;
     white-space: nowrap;
+}
+
+#vdo{
+    width: 350px;
+    height: 250px;
+    justify-content: center;
+}
+
+.col-1 p{
+    align-items: end;
 }
