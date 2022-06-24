@@ -22,7 +22,7 @@
                     <div class="prd-dropdown-wrap">
                         <div class="Container prd-dropdown">
                             <div class="menu-list">
-                                <h3>ผลิตภัณฑ์</h3>
+                                <h3>ผลิตภัณฑ์ทั้งหมด</h3>
                                 <a class="menu-link" href="#" id="menuLink1"><div class="menu-link-item"><span>Security</span></div></a>
                                 <a class="menu-link" href="#" id="menuLink2"><div class="menu-link-item"><span>Network Infrastructure</span></div></a>
                                 <a class="menu-link" href="#" id="menuLink3"><div class="menu-link-item"><span>Telecomm/IO</span></div></a>
@@ -325,6 +325,8 @@
                             </div>
                             <script>
                                 document.getElementById("content1").style.display = "block";
+                                let menuLinkCollection = document.getElementsByClassName("menu-link-item");
+
                                 for( let i = 1; i<9 ; i++) {
                                     let Parent = document.getElementById("menuLink"+i);
                                     let Child = document.getElementById("content"+i);

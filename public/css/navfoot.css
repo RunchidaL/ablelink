@@ -151,7 +151,7 @@ body{
     transition: transform 0.2s ease;
 }
 .menu-list a .menu-link-item:hover span::after {
-    transform: scaleY(1);
+    transform: scale(1,1);
     transition: transform 0.1s ease;
 }   
 
