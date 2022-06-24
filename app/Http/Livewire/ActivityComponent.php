@@ -8,12 +8,12 @@ use App\Models\PostCategory;
 
 class ActivityComponent extends Component
 {   
-    public function deletePost($id)
-    {
-        $post = Post::find($id);
-        $post->delete();
-        session()->flash('message','Post has been deleted successfully!');
-    }
+    // public function deletePost($id)
+    // {
+    //     $post = Post::find($id);
+    //     $post->delete();
+    //     session()->flash('message','Post has been deleted successfully!');
+    // }
 
 
 

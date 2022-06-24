@@ -19,6 +19,7 @@
     </div>
 </div>
 
+
 <div class="blog">
 @foreach($posts as $post)
     <div class="blog-card">
