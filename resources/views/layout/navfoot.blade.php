@@ -9,7 +9,7 @@
 <div class="navbar">
     <div class="Container nav-wrap">
         <div class="nav-left">
-            <img src="/images/logoAbleLink.png" alt="" logo>
+            <img src="/images/logoAbleLink.png" alt="" logo/>
             <div class="nav-menu-wrap"> 
                 <div class="topic">
                     <a href="/" class="link"><span>หน้าหลัก</span></a>
@@ -22,25 +22,306 @@
                     <div class="prd-dropdown-wrap">
                         <div class="Container prd-dropdown">
                             <div class="menu-list">
-                                <h1>ผลิตภัณฑ์</h1>
-                                <a class="menu-link" href="" id="menuLink1"><div class="menu-link-item">Access Control</div></a>
-                                <a class="menu-link" href="" id="menuLink2"><div class="menu-link-item">Network Infrastructure</div></a>
-                                <a class="menu-link" href="" id="menuLink3"><div class="menu-link-item">Telecomm/IO</div></a>
-                                <a class="menu-link" href="" id="menuLink4"><div class="menu-link-item">Tool and Tester</div></a>
-                                <a class="menu-link" href="" id="menuLink5"><div class="menu-link-item">UPS/Surge/Power Supply</div></a>
-                                <a class="menu-link" href="" id="menuLink6"><div class="menu-link-item">Audio/Multimedis</div></a>
-                                <a class="menu-link" href="" id="menuLink7"><div class="menu-link-item">Software</div></a>
-                                <a class="menu-link" href="" id="menuLink8"><div class="menu-link-item last">Solar/Light</div></a>
+                                <h3>ผลิตภัณฑ์</h3>
+                                <a class="menu-link" href="#" id="menuLink1"><div class="menu-link-item"><span>Security</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink2"><div class="menu-link-item"><span>Network Infrastructure</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink3"><div class="menu-link-item"><span>Telecomm/IO</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink4"><div class="menu-link-item"><span>Tool and Tester</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink5"><div class="menu-link-item"><span>UPS/Surge/Power Supply</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink6"><div class="menu-link-item"><span>Audio/Multimedis</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink7"><div class="menu-link-item"><span>Software</span></div></a>
+                                <a class="menu-link" href="#" id="menuLink8"><div class="menu-link-item last"><span>Solar/Light</span></div></a>
                             </div>
                             <div class="menu-content">
-                                <div id="content1" class="contents">Contents of Access Control</div>
-                                <div id="content2" class="contents">Contents of Network Infrastructure</div>
-                                <div id="content3" class="contents">Contents of Telecomm/IO</div>
-                                <div id="content4" class="contents">Contents of Tool and Tester</div>
-                                <div id="content5" class="contents">Contents of UPS/Surge/Power Supply</div>
-                                <div id="content6" class="contents">Contents of Audio/Multimedis</div>
-                                <div id="content7" class="contents">Contents of Software</div>
-                                <div id="content8" class="contents">Contents of Solar/Light</div>
+                                <div id="content1" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>CCTV</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Access control</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Video wall</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Storage server</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>CCTV accessories</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Hotel lock</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Gate barrier</span></span></a>
+                                            </div>
+                                        </div>         
+                                    </div>  
+                                </div>
+                                <div id="content2" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Switch SMRT/L2/L3/L4</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Industrail Switch</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Wireless</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Cabling</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>SFP</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Industrail Automation</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Media Converter</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>WireMesh and FiberTray</span></span></a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content3" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Router 4g</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Smart Iot</span></span></a>               
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content4" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>UTP</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Fiber</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>HDMI/LAN/Wireless</span></span></a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content5" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>UPS Tower</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>UPS Rack</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Power Supply</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Surge</span></span></a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content6" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Ip audio</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>VOIP</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Smart Touch TV / AV Mounthing</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Multimedia</span></span></a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content7" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span></span>Head</span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>CCTV VMS</span></span></a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div id="content8" class="contents">
+                                    <div class="items">
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Solar</span></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="photo">
+                                                <img src="/images/CCTV.png" alt="">
+                                            </div>
+                                            <div class="item-right">
+                                                <a href="#"><span><span>Lighting</span></span></a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
                             </div>
                             <script>
                                 document.getElementById("content1").style.display = "block";
@@ -55,6 +336,13 @@
                                             }
                                         }
                                     });                                  
+                                }
+                                const collection = document.getElementsByClassName("item-right");
+                                const inner = "<a href=\"#\"><span><span>category</span></span></a>";
+                                for (let d = 0; d < collection.length; d++) {
+                                    collection[d].innerHTML += inner;
+                                    collection[d].innerHTML += inner;
+                                    collection[d].innerHTML += inner;
                                 }
                             </script>
                         </div>
