@@ -16,9 +16,15 @@ class Role
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 3){ //admin
+        if (auth()->user()->role == 3) //admin
+        { 
             return $next($request);
         }
-        return redirect('home.home');
+        else
+        {
+            session()->flush();
+            return redirect()->route('login');
+        }
+        return $next($request);
     }
 }

@@ -1,7 +1,9 @@
 <!-- link -->
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->
-
+<div>
+    <p class="text">สินค้าทั้งหมด</p>
+</div>
 <div class="row">
     @foreach($products as $product)
     <div class="NP-col">
@@ -23,7 +25,7 @@
         </div>
     </div>
     @endforeach
-    <div class="wrap-pagination-info" style="width:100%;">
+    <div class="wrap-pagination-info">
         {{$products->links()}}
     </div>
 </div>

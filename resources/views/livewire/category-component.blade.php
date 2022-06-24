@@ -2,9 +2,13 @@
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->
 
-<!-- <div>
-    <p class="text">Products</p>
-</div> -->
+<div>
+    @if($scategory_slug == '')
+        <p class="text">{{$category->name}}</p>
+    @else
+        <p class="text">{{$scategory->name}}</p>
+    @endif
+</div>
 <div class="row">
     @foreach($products as $product)
     <div class="NP-col">

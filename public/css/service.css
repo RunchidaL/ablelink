@@ -39,4 +39,12 @@
 .col h4{
     margin-bottom: 20px;
     text-align: center;
+    line-height: 2;
+    padding: 0;
+}
+
+.col .detail {
+    text-align: start;
+    padding: 0 0 0 25%;
+    line-height: 1;
 }
