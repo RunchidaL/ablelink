@@ -225,7 +225,6 @@ footer *{
 
 .footer{
     width: 100%;
-    position: absolute;
     margin-top: auto;
     background-color: #E1B069;  /*change*/
     padding: 10px 0px;
@@ -297,6 +296,10 @@ footer *{
 }
 
 /* responsive */
+.Container{
+    width: 100%;
+}
+
 @media(max-width: 767px){
     .footer-col{
         width: 50%;

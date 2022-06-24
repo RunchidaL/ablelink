@@ -78,7 +78,7 @@
 
 <div class="blog">
     @foreach($posts as $post)
-    @if (($post->category_id)=='6')
+    @if (($post->category_id)==6)
         <div class="blog-card">
             <div class="meta">
                 <div class="photo">
@@ -103,6 +103,6 @@
                 </p>
             </div>
         </div>
-    @endif    
+    @endif
     @endforeach
 </div>
