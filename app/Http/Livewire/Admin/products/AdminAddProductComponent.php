@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Admin\products;
 
 use Livewire\Component;
+use App\Models\NetworkValue;
+use App\Models\NetworkImage;
+use App\Models\NetworkType;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
@@ -16,7 +19,6 @@ class AdminAddProductComponent extends Component
     public $slug;
     public $overview;
     public $application;
-    public $network_connectivity;
     public $item_spotlight;
     public $feature;
     public $web_price;
@@ -32,10 +34,28 @@ class AdminAddProductComponent extends Component
     public $category_id;
     public $scategory_id;
 
-    public function mount()
+    public $network_images;
+    public $images = [];
+    public $attr;
+    public $inputs=[];
+    public $attribute_arr=[];
+    public $attribute_values;
+
+    public function add()
     {
-        $this->stock_status = 'instock';
+        if(!in_array($this->attr,$this->attribute_arr))
+        {
+            array_push($this->inputs,$this->attr);
+            array_push($this->attribute_arr,$this->attr);
+            array_push($this->images,$this->attr);
+        }
     }
+
+    public function remove($attr)
+    {
+        unset($this->inputs[$attr]);
+    }
+
 
     public function addProduct()
     {
@@ -44,7 +64,6 @@ class AdminAddProductComponent extends Component
         $product->slug = $this->slug;
         $product->overview = $this->overview;
         $product->application = $this->application;
-        $product->network_connectivity = $this->network_connectivity;
         $product->item_spotlight = $this->item_spotlight;
         $product->feature = $this->feature;
         $product->web_price = $this->web_price;
@@ -90,6 +109,39 @@ class AdminAddProductComponent extends Component
             $product->subcategory_id = $this->scategory_id;
         }
         $product->save();
+
+        if($this->attribute_values)
+        {
+
+            foreach($this->attribute_values as $key=>$attribute_value)
+            {
+
+                if($this->network_images)
+                {
+                $attribute_image = new NetworkImage();
+                $fileNet = $this->network_images[$key]->getClientOriginalName();
+                $this->network_images[$key]->storeAs('products', $fileNet);
+                $attribute_image->image = $fileNet;
+                $attribute_image->type_id = $key;
+                $attribute_image->save();
+                
+
+                $avalues = explode(",",$attribute_value);
+                foreach($avalues as $avalue)
+                {
+                    $attr_value = new NetworkValue();
+                    $attr_value->network_image_id = $attribute_image->id;
+                    $attr_value->product_in_photo = $avalue;
+                    $attr_value->product_id = $product->id;
+                    $attr_value->save();
+                }
+                }
+            
+            }
+
+        }
+        
+        
         session()->flash('message','add Product successs');
     }
 
@@ -103,6 +155,9 @@ class AdminAddProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
-        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories])->layout("layout.navfoot");
+        $products = Product::all();
+        $network_types = NetworkType::all();
+        $network_images = NetworkImage::all();
+        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories,'products'=>$products,'network_types'=>$network_types,'network_images'=>$network_images])->layout("layout.navfoot");
     }
 }

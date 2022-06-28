@@ -50,8 +50,57 @@
         <div class="line" id="network_connectivity"></div>
         <div class="tab-contents">
             <h5>Network Connectivity</h5>
-            <p>{!! $product->network_connectivity !!}</p>
+
         </div>
+
+        <div class="swiper">
+            <div id="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/images/1.jpg" alt="">
+                <!-- <div class="carousel-caption d-none d-md-block">
+                </div> -->
+            </div>
+                <div class="swiper-slide"><img src="/images/2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="/images/3.jpg" alt=""></div>
+        </div>
+
+        <script>
+            var menu = ['Slide 1', 'Slide 2', 'Slide 3']
+            const swiper = new Swiper('.swiper', {
+                // If we need pagination
+                pagination: {
+                    el: '#swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (menu[index]) + '</span>';
+                    },
+                },
+            });
+        </script>
+
+        @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
+            <p class="card-text"><small class="text-muted">{{$network_product->image_id->type->name}}</small></p>
+            <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
+        @endforeach
+
+        <br>
+        @foreach($network_products->where('product_id',$product->id) as $network_product)
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <p>{{$network_product->image_id->type->name}}</p>
+                    <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}">{{$network_product->photo->name}}</a>
+                    <p class="card-text"><small class="text-muted">{{$network_product->photo->web_price}}</small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
         <div class="line" id="item-spotlight"></div>
         <div class="tab-contents" id="item-spotlight">
             <h5>Item Spotlight</h5>

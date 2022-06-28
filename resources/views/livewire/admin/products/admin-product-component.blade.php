@@ -3,12 +3,15 @@
         <div class="row">
             <div class="col">
                 <div class="row" id="head">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <h1>Product</h1>
                     </div>
-                    <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+                    <div class="col-md-6 gap-2 offset-md-4 d-md-flex justify-content-md-end">
                         <a href="{{route('admin.category')}}"><button class="btn btn-success">Category</button></a>
                         <a href="{{route('admin.addproduct')}}"><button class="btn btn-success">Add Products</button></a>
+                    </div>
+                    <div class="col offset-md-8 d-md-flex justify-content-md-end">
+                        <input type="text" class="form-control" placeholder="search" wire:model="searchproduct"/>
                     </div>
                 </div>
                 <table class="table table-striped">

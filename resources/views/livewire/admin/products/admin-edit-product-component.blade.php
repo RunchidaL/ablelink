@@ -40,12 +40,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Network_connectivity</label>
-                                <div class="col-md-12" wire:ignore> 
-                                    <textarea id="network_connectivity" type="text" class="form-control"  wire:model="network_connectivity"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12">Item_spotlight</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
@@ -134,8 +128,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">SubCategory</label>
-                                <div class="col-md-12">
+                                <label class="col-md-4">SubCategory</label>
+                                <div class="col-md-4">
                                     <select class="form-control" wire:model="scategory_id">
                                         <option value="0">Select subategory</option>
                                         @foreach($scategories as $scategory)
@@ -145,8 +139,35 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4">Network Type</label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <select class="form-control input-md" wire:model="attr">
+                                        <option value="0">Select Network Type</option>
+                                        @foreach($network_types as $network_type)
+                                            <option value="{{$network_type->id}}">{{$network_type->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" id="add" class="btn btn-primary mt-2" wire:click.prevent="add">Add product</button>
+                                </div>
+                            </div>
+                            @foreach($inputs as $key => $value)
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="network_images.{{$value}}">
+                                    @if($network_images)
+                                        @foreach($network_images as $network_image)
+                                            <img src="{{$network_image->temporaryUrl()}}" width="120"/>
+                                        @endforeach
+                                    @endif
+                                </div>
+                                
+                                <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
+                                <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
+                            @endforeach
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -161,6 +182,7 @@
     <script>
         tinymce.init({
             selector: '#overview',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -172,6 +194,7 @@
         });
         tinymce.init({
             selector: '#application',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -181,17 +204,8 @@
             }
         });
         tinymce.init({
-            selector: '#network_connectivity',
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var n_data = $('#network_connectivity').val();
-                    @this.set('network_connectivity',n_data);
-                });
-            }
-        });
-        tinymce.init({
             selector: '#item_spotlight',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -203,6 +217,7 @@
         
         tinymce.init({
             selector: '#feature',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -214,13 +229,5 @@
     </script>
 @endpush
 
-<!-- <style>
-    #head{
-        margin: 2% 0 2% 0;
-    }
-    .panel-body .form-group{
-        margin: 2% 0 2% 0;
-    }
-</style> -->
 
 
