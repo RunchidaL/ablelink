@@ -110,50 +110,85 @@
         </div>     
 
 <!-- activity -->
-        <div>
-            <p class="text">ข่าวสารเเละกิจกรรม</p>
-        </div>
-        <div class="activity">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325241.jpg" class="d-block w-100" alt="..." ></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325215.jpg" class="d-block w-70" alt="..."></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="#"><img class="img2" src="https://wallpaperaccess.com/full/6325222.jpg" class="d-block w-70" alt="..."></a>
+<div>
+    <p class="text">ข่าวสารเเละกิจกรรม</p>
+</div>
+
+<div class="slide-container swiper">
+    <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+            @foreach($posts as $post)
+            <div class="card swiper-slide">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <a href="{{route('post.details',['slug'=>$post->slug])}}"><img class="card-img" src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>
                     </div>
                 </div>
-               
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="AC-col">
-                    <a href="/post_category/บทความ"><img src="https://digitalmarketingwow.com/wp-content/uploads/2016/08/Writer001.jpg" alt="">
-                    <p class="text-AC">บทความ</p></a>
-                </div>
-                <div class="AC-col">
-                    <a href="#"><img src="https://www.techtalkthai.com/wp-content/uploads/2018/04/techtalkthai_2018_data_center_01.jpg" alt="">
-                    <p class="text-AC">ผลิตภัณฑ์</p></a>
-                </div>
-                <div class="AC-col">
-                    <a href="/post_category/องค์กร"><img src="https://cdn-images.prod.thinkofliving.com/wp-content/uploads/1/2019/06/11175158/Empire-Tower-1.jpg" alt="">
-                    <p class="text-AC">องค์กร</p></a>
+                <div class="card-content">
+                    <a style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}"><h2 class="name">{{$post->title}}</h2></a>
+                    <a class="button" style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
                 </div>
             </div>
+            @endforeach
         </div>
+    </div>
+    
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+@push('scripts')
+<script>
+    var swiper = new Swiper(".slide-content", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        loop: true,
+        centerSlide: 'true',
+        fade: 'true',
+        grabCursor: 'true',
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+        },
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints:{
+            0: {
+                slidesPerView: 1,
+            },
+            520: {
+                slidesPerView: 2,
+            },
+            950: {
+                slidesPerView: 3,
+            },
+        },
+    });
+</script>
+@endpush
+        
+<div class="container-fluid">
+    <div class="row">
+        <div class="AC-col">
+            <a href="/post_category/บทความ"><img src="https://digitalmarketingwow.com/wp-content/uploads/2016/08/Writer001.jpg" alt="">
+            <p class="text-AC">บทความ</p></a>
+        </div>
+        <div class="AC-col">
+            <a href="#"><img src="https://www.techtalkthai.com/wp-content/uploads/2018/04/techtalkthai_2018_data_center_01.jpg" alt="">
+            <p class="text-AC">ผลิตภัณฑ์</p></a>
+        </div>
+        <div class="AC-col">
+            <a href="/post_category/องค์กร"><img src="https://cdn-images.prod.thinkofliving.com/wp-content/uploads/1/2019/06/11175158/Empire-Tower-1.jpg" alt="">
+            <p class="text-AC">องค์กร</p></a>
+        </div>
+    </div>
+</div>
 
 <!-- brands -->
         <div class="container-fluid">
