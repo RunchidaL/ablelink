@@ -14,7 +14,7 @@ class HomeComponent extends Component
         $postcategory = PostCategory::all();
         
         $posts = Post::all();
-        $sliders = Home::where('status',1)->get();
+        $sliders = Home::where('status',0)->get();
         return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
     }
 }

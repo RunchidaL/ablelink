@@ -50,8 +50,8 @@
                                 <label class="col-md-4 control-label">Status</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="status">
-                                        <option value="0">Inactive</option>
-                                        <option value="1">Active</option>
+                                        <option value="0">Active</option>
+                                        <option value="1">Inactive</option>
                                     </select>
                                 </div>
                             </div>
