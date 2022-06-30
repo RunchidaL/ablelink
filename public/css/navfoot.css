@@ -80,8 +80,8 @@ body{
 .prd-dropdown-wrap {
     position: fixed;
     width: 100vw;
-    background: rgb(226,232,240);
-    background: linear-gradient(90deg, rgba(226,232,240,1) 0%, rgba(241,245,249,1) 100%);
+    background: rgb(243, 243, 243);
+    /* background: linear-gradient(90deg, rgb(226, 226, 226) 0%, rgba(243,243,243,1) 100%); */
     left: 0;
     transform: scaleY(0);
     transform-origin: 100% 0%;
@@ -395,6 +395,7 @@ footer *{
         max-width: 640px;
     }
 }
+
 @media (min-width: 768px){
     .Container{
         max-width: 768px;
@@ -405,6 +406,7 @@ footer *{
         max-width: 1024px;
     }
 }
+
 @media screen and (min-width: 1300px){
     .navbar { 
         padding: 0 1rem
@@ -413,6 +415,7 @@ footer *{
         max-width: 1300px;
     }
 }
+
 @media screen and (min-width: 1536px){
     .navbar { 
         padding: 0 2rem

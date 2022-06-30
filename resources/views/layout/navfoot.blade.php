@@ -23,14 +23,14 @@
                         <div class="Container prd-dropdown">
                             <div class="menu-list">
                                 <h3>ผลิตภัณฑ์</h3>
-                                <a class="menu-link" href="#" id="menuLink1"><div class="menu-link-item"><span>Security</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink2"><div class="menu-link-item"><span>Network Infrastructure</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink3"><div class="menu-link-item"><span>Telecomm/IO</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink4"><div class="menu-link-item"><span>Tool and Tester</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink5"><div class="menu-link-item"><span>UPS/Surge/Power Supply</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink6"><div class="menu-link-item"><span>Audio/Multimedis</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink7"><div class="menu-link-item"><span>Software</span></div></a>
-                                <a class="menu-link" href="#" id="menuLink8"><div class="menu-link-item last"><span>Solar/Light</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink1"><div class="menu-link-item"><span>Security</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink2"><div class="menu-link-item"><span>Network Infrastructure</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink3"><div class="menu-link-item"><span>Telecomm/IO</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink4"><div class="menu-link-item"><span>Tool and Tester</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink5"><div class="menu-link-item"><span>UPS/Surge/Power Supply</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink6"><div class="menu-link-item"><span>Audio/Multimedis</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink7"><div class="menu-link-item"><span>Software</span></div></a>
+                                <a href="#" class="menu-link" id="menuLink8"><div class="menu-link-item last"><span>Solar/Light</span></div></a>
                             </div>
                             <div class="menu-content">
                                 <div id="content1" class="contents">
@@ -425,7 +425,7 @@
 
 <!-- footer -->
 <footer class="footer">
-    <div class="container-fluid">
+    <div class="Container container-fluid">
     <div class="row">
         <div class="footer-col">
             <img src="/images/logoAbleLink.png" alt="logo">
