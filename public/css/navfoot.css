@@ -396,6 +396,7 @@ footer *{
         max-width: 640px;
     }
 }
+
 @media (min-width: 768px){
     .Container{
         max-width: 768px;
@@ -406,6 +407,7 @@ footer *{
         max-width: 1024px;
     }
 }
+
 @media screen and (min-width: 1300px){
     .navbar { 
         padding: 0 1rem
@@ -414,6 +416,7 @@ footer *{
         max-width: 1300px;
     }
 }
+
 @media screen and (min-width: 1536px){
     .navbar { 
         padding: 0 2rem

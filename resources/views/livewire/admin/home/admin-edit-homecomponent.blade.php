@@ -53,7 +53,7 @@
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="status">
                                         <option value="0">Active</option>
-                                        <option value="1">Inactive</option>
+                                        <option value="1">In-active</option>
                                     </select>
                                 </div>
                             </div>
