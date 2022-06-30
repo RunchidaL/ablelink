@@ -81,7 +81,7 @@ body{
     position: fixed;
     width: 100vw;
     background: rgb(243, 243, 243);
-    /* background: linear-gradient(90deg, rgb(226, 226, 226) 0%, rgba(243,243,243,1) 100%); */
+    background: linear-gradient(90deg, rgb(243, 243, 243,1) 0%, rgb(243, 243, 243,1) 100%);
     left: 0;
     transform: scaleY(0);
     transform-origin: 100% 0%;
@@ -89,6 +89,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background: none; */
 }
 
 .topic:hover .prd-dropdown-wrap{

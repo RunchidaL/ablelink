@@ -14,4 +14,15 @@
     .body{
         margin: 5% 20% 5% 20%;
     }
+
+    @media(max-width: 767px){
+        .head{
+        text-align: center;
+        font-size: 35px;
+        margin: 3% 3% 3% 3%; 
+        }
+        .body{
+        margin: 5% 5% 5% 5%;
+        }
+}
 </style>

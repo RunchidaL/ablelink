@@ -26,7 +26,7 @@
     <div class="blog-card">
         <div class="meta">
             <div class="photo">
-                <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}"/></a>
+                <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>
             </div>
             <ul class="details">
                 <li class="author"><a href="#"></a></li>
@@ -49,54 +49,6 @@
     </div>
     @endforeach
 </div>
-
-
-
-
-    {{-- <div class="blog-card alt">
-        <div class="meta">
-            <div class="photo">
-                <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}"/></a>
-            </div>
-            <ul class="details">
-                <li class="author"><a href="#"></a></li>
-                <li class="date">{{$post->created_at}}</li>
-                <li class="tags">
-                    <ul>
-                        <li><a href="">By Marketing Ablelink</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="description">
-            <h1><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}</a></h1>
-            <h2>ABLE LINK (Thailand) CO., LTD.</h2>
-            <p><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}</p>
-            <p class="read-more">
-                <a href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
-            </p>
-        </div>
-    </div> --}}
-
-
-
-{{-- <div class="container mt-2">
-    <div class="row">
-        <table class="table table-bordered">
-            @foreach($posts as $post)
-                <tr>
-                    <td>
-                        <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="300"/></a>
-                    </td>
-                    <td>
-                        <a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}</a><br><br><br><p class="date">Marketing Ablelink: {{$post->created_at}}</p>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-    </div>
-</div> --}}
-
 
 
 
