@@ -17,7 +17,6 @@
 
 .contentabu{
     max-width: 50%;
-    cursor: pointer;
     transition: 0.4s;
     box-sizing: border-box;
 }

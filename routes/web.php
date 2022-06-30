@@ -35,6 +35,9 @@ use App\Http\Livewire\Admin\downloads\AdminEditCategoryDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminAddDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminEditDownloadComponent;
+use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
+use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
+use App\Http\Livewire\Admin\Home\AdminHomecomponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -76,6 +79,9 @@ Auth::routes();
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
 
 Route::middleware(['auth:sanctum','verified','role'])->group(function(){
+    Route::get('/admin/home',AdminHomecomponent::class)->name('admin.homes');
+    Route::get('/admin/home/add',AdminAddHomecomponent::class)->name('admin.addhomes');
+    Route::get('/admin/home/edit/{slide_id}',AdminEditHomecomponent::class)->name('admin.edithomes');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');

@@ -159,6 +159,7 @@
     <script>
         tinymce.init({
             selector: '#overview',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
