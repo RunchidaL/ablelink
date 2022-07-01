@@ -1,6 +1,6 @@
 <!-- link -->
 <link href="/css/activity.css" rel="stylesheet">
-<link href="/css/Blog.css" rel="stylesheet">
+<link href="/css/blog.css" rel="stylesheet">
 <!-- link -->
 
 

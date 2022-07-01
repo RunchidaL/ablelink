@@ -16,6 +16,7 @@ body{
     align-items: center;
     justify-content: center;
     z-index: 5;
+    padding: 0;
 }
 
 .navbar .nav-wrap{
@@ -80,8 +81,8 @@ body{
 .prd-dropdown-wrap {
     position: fixed;
     width: 100vw;
-    background: rgb(243, 243, 243);
-    background: linear-gradient(90deg, rgb(243, 243, 243,1) 0%, rgb(243, 243, 243,1) 100%);
+    background: rgb(226,226,226);
+    background: linear-gradient(90deg, rgba(226,226,226,1) 50%, rgba(243,243,243,1) 50%);
     left: 0;
     transform: scaleY(0);
     transform-origin: 100% 0%;
@@ -89,7 +90,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: none; */
 }
 
 .topic:hover .prd-dropdown-wrap{
@@ -97,8 +97,7 @@ body{
     transition: transform 0.1s ease;
 }
 
-.prd-dropdown {
-    background-color:rgb(243, 243, 243);
+.prd-dropdown{
     display: flex;
 }
 
@@ -118,6 +117,8 @@ body{
 
 .menu-content {
     width: 100%;
+    background: rgb(243,243,243);
+
 }
 
 .contents{
@@ -136,9 +137,11 @@ body{
     width: 100%;
     white-space: nowrap;
 }
+
 .menu-list a .menu-link-item span{
     position: relative;
 }
+
 .menu-list a .menu-link-item span::after {
     position: absolute;
     content: '';
@@ -174,7 +177,6 @@ body{
 }
 
 .item .photo{
-    /* background-color: white; */
     height: 3rem;
     min-width: 4rem;
     padding: 0 0.5rem;
@@ -295,6 +297,7 @@ width: 3%;
 
 .fakenav{
     min-height: 70px;
+    padding: 0 ;
 }
 
 /* footer */
@@ -381,47 +384,11 @@ footer *{
 }
 
 /* responsive */
-.Container{
-    width: 100%;
-}
-
-@media(max-width: 767px){
-    .footer-col{
-        width: 50%;
-    }
-}
-
-@media (min-width: 640px){
-    .Container{
-        max-width: 640px;
-    }
-}
-
-@media (min-width: 768px){
-    .Container{
-        max-width: 768px;
-    }
-}
-@media screen and (min-width: 1024px){ /*mobile*/
-    .Container{
-        max-width: 1024px;
-    }
-}
-
-@media screen and (min-width: 1300px){
-    .navbar { 
-        padding: 0 1rem
-    }
-    .Container{
-        max-width: 1300px;
-    }
-}
-
 @media screen and (min-width: 1536px){
     .navbar { 
         padding: 0 2rem
     }
-    .Container{
+    .container{
         max-width: 1536px;
     }
 }
