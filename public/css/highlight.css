@@ -12,6 +12,7 @@
     min-height: 100%;
     display: none;
     overflow: hidden;
+    justify-items: center;
 }
 .prev, .next{
     position: absolute;

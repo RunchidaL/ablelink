@@ -7,7 +7,7 @@
 @section('navfoot')
 <!-- navbar -->
 <div class="navbar">
-    <div class="Container nav-wrap">
+    <div class="container nav-wrap">
         <div class="nav-left">
             <img src="/images/logoAbleLink.png" alt="" logo/>
             <div class="nav-menu-wrap"> 
@@ -20,7 +20,7 @@
                 <div class="topic">
                     <a href="/shop" class="link"><span>ผลิตภัณฑ์</span></a>
                     <div class="prd-dropdown-wrap">
-                        <div class="Container prd-dropdown">
+                        <div class="container prd-dropdown">
                             <div class="menu-list">
                                 <h3>ผลิตภัณฑ์</h3>
                                 <a href="#" class="menu-link" id="menuLink1"><div class="menu-link-item"><span>Security</span></div></a>
@@ -426,7 +426,7 @@
 
 <!-- footer -->
 <footer class="footer">
-    <div class="Container container-fluid">
+    <div class="container container-fluid">
     <div class="row">
         <div class="footer-col">
             <img src="/images/logoAbleLink.png" alt="logo">
