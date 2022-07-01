@@ -196,30 +196,44 @@
                 <p class="text">แบรนด์เข้าร่วม</p>
                 <div class="row">
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 1.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 2.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 3.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 4.png" alt="logo"></a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 5.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 6.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 7.png" alt="logo"></a>
                     </div>
                     <div class="brands-col">
-                        <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a>
+                        <a href="#"><img src="/images/brand 8.png" alt="logo"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="brands-col">
+                        <a href="#"><img src="/images/brand 9.png" alt="logo"></a>
+                    </div>
+                    <div class="brands-col">
+                        <a href="#"><img src="/images/brand 10.png" alt="logo"></a>
+                    </div>
+                    <div class="brands-col">
+                        <a href="#"><img src="/images/brand 11.png" alt="logo"></a>
+                    </div>
+                    <div class="brands-col">
+                        {{-- <a href="#"><img src="/images/logoAbleLink.png" alt="logo"></a> --}}
                     </div>
                 </div>
             </div>
