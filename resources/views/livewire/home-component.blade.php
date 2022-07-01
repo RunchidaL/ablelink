@@ -17,17 +17,15 @@
             </div>
             <img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
         </div>
-        
+        @endforeach
         <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
         <a class="next" onclick="plusSlides(1)"><i class="bi bi-chevron-right"></i></a>
 
-        
         <div class="dotsbox" style="text-align: center; display: none" >
             <span class="dot" onclick="CurrentSlide(1)"></span>
             <span class="dot" onclick="CurrentSlide(2)"></span>
             <span class="dot" onclick="CurrentSlide(3)"></span>
         </div>
-        @endforeach
     </div>
 
 @push('scripts')
