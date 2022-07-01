@@ -86,26 +86,12 @@
         </div>
         <div class="container-fluid">
             <div class="row">
+                @foreach ($Lproduct as $lproduct)
                 <div class="NP-col">
-                    <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-                    <p>Name</p>
+                    <a href="{{route('product.details',['slug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt="">
+                    <p>{{$lproduct->name}}</p></a>
                 </div>
-                <div class="NP-col">
-                    <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-                    <p>Name</p>
-                </div>
-                <div class="NP-col">
-                    <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-                    <p>Name</p>
-                </div>
-                <div class="NP-col">
-                    <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-                    <p>Name</p>
-                </div>
-                <div class="NP-col">
-                    <a href="#"><img src="https://www.jib.co.th/img_master/product/original/2021091416550448648_1.jpg" alt=""></a>
-                    <p>Name</p>
-                </div>
+                @endforeach
             </div>
         </div>     
 

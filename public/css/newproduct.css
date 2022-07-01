@@ -8,6 +8,7 @@
     margin-left: 5%;
     font-size: 25px;
     margin-top: 5%;
+    margin-bottom: 2%;
 }
 
 .row {
@@ -28,6 +29,10 @@
     display: flex; 
     padding: 5%; /*ในนอก*/
     
+}
+
+.NP-col p:hover{
+    color: rgb(110, 110, 110);
 }
 
 /* ขยายรูป */

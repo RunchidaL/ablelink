@@ -86,14 +86,11 @@
   position: relative;
   z-index: 1;
 }
-.blog-card .description h1,
-.blog-card .description h2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 .blog-card .description h1 {
   line-height: 1;
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 .blog-card .description h2 {
   font-size: 1rem;
@@ -150,6 +147,9 @@
   }
   .blog-card .description {
     flex-basis: 60%;
+  }
+  .blog-card .description h1 {
+    font-size: 1.8rem;
   }
   .blog-card .description:before {
     transform: skewX(-3deg);

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Home;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\Product;
 
 class HomeComponent extends Component
 {
@@ -15,6 +16,7 @@ class HomeComponent extends Component
         
         $posts = Post::all();
         $sliders = Home::where('status',0)->get();
-        return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
+        $Lproduct = Product::orderBy('created_at','DESC')->get()->take(5);
+        return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory,'Lproduct'=>$Lproduct])->layout("layout.navfoot");
     }
 }

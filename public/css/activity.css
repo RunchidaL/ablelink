@@ -11,7 +11,7 @@
 .slide-container{
     max-width: 1120px;
     width: 100%;
-    padding: 40px 0;
+    padding: 40px 40px;
     background: rgb(245, 245, 245);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
@@ -33,9 +33,6 @@
 
 .card-content .name{
     height: 80px;
-    padding-left: 5%;
-    padding-right: 5%;
-
 }
 
 .image-content{
@@ -50,22 +47,9 @@
     height: 100%;
     width: 100%;
     background-color: rgb(88, 88, 88);  /*rgb(114, 114, 114);*/
-    border-radius: 25px 25px 0 25px;
+    border-radius: 25px ;
 }
-.overlay::before,
-.overlay::after{
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -40px;
-    height: 40px;
-    width: 40px;
-    background-color: rgb(88, 88, 88);
-}
-.overlay::after{
-    border-radius: 0 25px 0 0;
-    background-color: #FFF;
-}
+
 .card-image{
     position: relative;
     height: 200px;
@@ -84,8 +68,12 @@
 .name{
     font-size: 18px;
     font-weight: 500;
-    color: #333;
+    color: black;
     text-align: center;
+}
+
+.name:hover{
+    color: rgb(110, 110, 110); 
 }
 
 .button{
@@ -115,10 +103,10 @@
     font-size: 35px;
 }
 .swiper-button-next{
-    right: 0;
+    right: 3%;
 }
 .swiper-button-prev{
-    left: 0;
+    left: 3%;
 }
 .swiper-pagination-bullet{
     background-color: gray;
@@ -135,7 +123,12 @@
     .swiper-navBtn{
     display: none;
     }
+    .slide-container{
+        padding: 20px 10px 30px 10px;
+    }
 }
+
+
 
 /* ด้านล่าง slider ข่าวสารกิจกรรม หน้า Home*/
 .text-AC{
@@ -169,9 +162,9 @@
     width: 100%;
     height: 100%;
     display: flex; 
-    padding: 5%; /*ในนอก*/
+    padding: 3%; /*ในนอก*/
     border-radius: 20px;
-    background-color: #ffffff;
+    background-color: #e0e0e0;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -194,19 +187,23 @@
         width: 100%;
         height: 100%;
         display: flex; 
-        padding: 5%; 
+        padding: 2%; 
         border-radius: 50px;
     }
     .text-AC{
         color: black;
         font-size: 20px;
-        margin-top: 5%;
+        margin-top: 5% 0 5% 0;
     }
     .AC-col a{
         text-decoration: underline;
         text-decoration-color: black;
     }
 }
+
+
+
+
 
 /* main_activity หน้าหลัก */
 .menu{
@@ -262,8 +259,8 @@
     .menu{
         margin-top: 5%;
         margin-bottom: 5%;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
     .mac-left{
         margin-top: 3%;
@@ -275,16 +272,16 @@
         margin-top: 3%;
     }
     .bi.bi-file-text{
-        font-size: 200%;
-        margin-left: 20%;
+        font-size: 300%;
+        margin-left: 15%;
     }
     .bi.bi-box-seam{
-        font-size: 200%;
-        margin-left: 25%;
+        font-size: 300%;
+        margin-left: 18%;
     }
     .bi.bi-building{
-        font-size: 200%;
-        margin-left: 20%;
+        font-size: 300%;
+        margin-left: 15%;
     }
 }
 
