@@ -38,7 +38,7 @@
                                         <td>{{$slider->title}}</td>
                                         <td>{{$slider->subtitle}}</td>
                                         <td>{{$slider->link}}</td>
-                                        <td>{{$slider->status == 1 ? 'Active':'Inactive'}}</td>
+                                        <td>{{$slider->status == 0 ? 'Active':'Inactive'}}</td>
                                         <td>{{$slider->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.edithomes',['slide_id'=>$slider->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
