@@ -10,13 +10,14 @@
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  
 }
 
 .content-abu{
   max-width: 50%;
   transition: 0.4s;
   box-sizing: border-box;
+  left: 0;
 }
 
 .content-abu .about{
@@ -93,11 +94,11 @@
   .teams{
     max-width: 100%;
   }
-  .contentabu{
+  .content-abu{
     max-width: 100%;
     margin: 2%;
   }
-  .contentabu img{
+  .content-abu img{
     max-width: 100%;
   } 
 }
