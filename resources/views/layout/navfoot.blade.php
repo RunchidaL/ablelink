@@ -393,11 +393,11 @@
                                 <a class="dropdown-item disabled" href="#">{{ Auth::user()->name }}</a>
                                 @if(Auth::user()->role == 1)
                                     <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
-                                    <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
+                                    <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 2)
                                     <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
-                                    <a class="dropdown-item" href="#">คำสั่งซื้อ</a>
+                                    <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
                                     <a class="dropdown-item" href="{{route('admin.homes')}}">Home Highlight</a>
                                     <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
@@ -425,52 +425,52 @@
 {{$slot}}
 
 <!-- footer -->
-<footer class="footer">
-    <div class="container container-fluid">
-    <div class="row">
-        <div class="footer-col">
-            <img src="/images/logoAbleLink.png" alt="logo">
-            <div class="social">
-                <a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-line"></i></a>
-                <a href="#"><i class="bi bi-envelope"></i></a>
-                <a href="#"><i class="bi bi-youtube"></i></a>
+<footer class="footer-wrapper">
+    <div class="container">
+        <div class="footer">
+            <div class="footer-col">
+                <img src="/images/logoAbleLink.png" alt="logo">
+                <div class="social">
+                    <a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-line"></i></a>
+                    <a href="#"><i class="bi bi-envelope"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h6>Contact</h6>
+                    <ul>
+                        <li>095-145-1538</li>
+                        <li>Email : ablelink.thailand99@gmail.com</li>
+                        <li>ABLE LINK (Thailand) CO., LTD.</li>
+                        <li>12 Soi Sukhaphiban 5 Soi 5 Yaek 3,</li>
+                        <li>Tha Raeng, Bang Khen  Bangkok 10220</li>
+                    </ul>
+            </div>
+            <div class="footer-col">
+                <h6>Product</h6>
+                    <ul>
+                        <li><a href="/">หน้าหลัก</a></li>
+                        <li><a href="/product">ผลิตภัณฑ์</a></li>
+                    </ul>
+            </div>
+            <div class="footer-col">
+                <h6>Connect</h6>
+                    <ul>
+                        <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
+                        <li><a href="/forwork">ร่วมงานกับเรา</a></li>
+                        <li><a href="/contact">ติดต่อเรา</a></li>
+                    </ul>
+            </div>
+            <div class="footer-col">
+                <h6>Customer Service</h6>
+                <ul>
+                    <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
+                    <li><a href="/service">บริการ</a></li>
+                    <li><a href="/download">ดาวน์​โหลด</a></li>
+                </ul>
             </div>
         </div>
-        <div class="footer-col">
-            <h6>Contact</h6>
-                <ul>
-                    <li>095-145-1538</li>
-                    <li>Email : ablelink.thailand99@gmail.com</li>
-                    <li>ABLE LINK (Thailand) CO., LTD.</li>
-                    <li>12 Soi Sukhaphiban 5 Soi 5 Yaek 3,</li>
-                    <li>Tha Raeng, Bang Khen  Bangkok 10220</li>
-                </ul>
-        </div>
-        <div class="footer-col">
-            <h6>Product</h6>
-                <ul>
-                    <li><a href="/">หน้าหลัก</a></li>
-                    <li><a href="/product">ผลิตภัณฑ์</a></li>
-                </ul>
-        </div>
-        <div class="footer-col">
-            <h6>Connect</h6>
-                <ul>
-                    <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
-                    <li><a href="/forwork">ร่วมงานกับเรา</a></li>
-                    <li><a href="/contact">ติดต่อเรา</a></li>
-                </ul>
-        </div>
-        <div class="footer-col">
-            <h6>Customer Service</h6>
-            <ul>
-                <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
-                <li><a href="/service">บริการ</a></li>
-                <li><a href="/download">ดาวน์​โหลด</a></li>
-            </ul>
-        </div>
-    </div>
     </div>
 </footer>
 @endsection

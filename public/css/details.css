@@ -1,7 +1,3 @@
-.tab-contents p{
-    font-family: 'Prompt', sans-serif;
-}
-
 #right{
     margin-top: 40px;
 }
@@ -59,9 +55,8 @@
     margin: 5% 10% 5% 10%;
 }
 
-.line{
-    padding-top: 40px;
-    border-top: 3px solid ;
+.tab-contents p{
+    font-family: 'Prompt', sans-serif;
 }
 
 .tab-contents .col{
@@ -74,6 +69,11 @@
     border-radius: 0;
     color: black;
     height: fit-content;
+}
+
+.line{
+    border-top: 1px solid ;
+    padding: 40px 10% 0 10%;
 }
 
 .menu-wrap ul.menu-list{
@@ -165,4 +165,9 @@
     width: 100%;
     font-size: 14px;
     font-weight: 600;
+}
+
+
+.top-content {
+    padding: 0 10%;
 }

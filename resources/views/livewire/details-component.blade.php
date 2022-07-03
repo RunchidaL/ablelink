@@ -1,8 +1,10 @@
+<!-- link -->
 <link href="/css/details.css" rel="stylesheet">
+<!-- link -->
 
 <div class="container">
-    <div class="row">
-        <div class="col">
+    <div class="row top-content">
+        <div class="col d-flex align-items-center justify-content-center">
             <img src="{{asset('/images/products')}}/{{$product -> image}}">
         </div>
         <div class="col" id="right">
@@ -47,8 +49,9 @@
             <p>{!! $product->application !!}</p>
         </div>
         
-        <div class="line" id="network_connectivity"></div>
+        
         <div class="tab-contents">
+            <div class="line" id="network_connectivity"></div>
             <h4>Network Connectivity</h4>
             <div class="menu-wrap">
                 <ul class="menu-list" id="menu-list">
@@ -343,20 +346,23 @@
             <p>{!! $product->network_connectivity !!}</p>
         </div>
             
-        <div class="line" id="item-spotlight"></div>
+        
         <div class="tab-contents" >
+            <div class="line" id="item-spotlight"></div>
             <h4>Item Spotlight</h4>
             <p>{!! $product->item_spotlight !!}</p>
         </div>
         
-        <div class="line" id="feature"></div>
+        
         <div class="tab-contents" >
+            <div class="line" id="feature"></div>
             <h4>Feature</h4>
             <p>{!! $product->feature !!}</p>
         </div>
         
-        <div class="line" id="resources"></div>
+        
         <div class="tab-contents">
+            <div class="line" id="resources"></div>
             <h4>Resources</h4>
             <br>
             <div class="row">

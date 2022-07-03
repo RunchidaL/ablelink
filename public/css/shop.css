@@ -7,14 +7,13 @@
 .text{
     color: #dc7226;
     margin-left: 5%;
-    font-size: 25px;
-    margin-top: 20px;
+    margin-top: 3rem;
 }
 
 .row{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    justify-content: space-evenly; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
     width: 100%;
 }
 
@@ -35,10 +34,7 @@
 
 .NP-col .card{
     height: 100%;
-    background-color: rgb(214, 214, 214);
-    border: none;
-    border-radius: 0;
-    justify-content: space-between;
+    border-radius: 5px;
 }
 
 .card a{
@@ -46,26 +42,37 @@
     color: black;
 }
 
-.card-body .card-title{
-    height: 80px
-    ;
-}
 
+.card-wrapper {
+    height: 100%;
+}
+.card-body p {
+    height: 100%;
+    min-height: 1.25rem;
+}
+.card-body .card-title{
+    height: 80px;
+    min-height: auto;
+}
+.card-footer {
+    display: flex;
+    justify-content: end;
+}
 .card-footer .button{
-    background-color: #dc7226;
-    color: white;
-    border-radius: 30px;
+    background-color: #ff842c;
+    /* color: white;*/
+    border-radius: 0;/*
     padding: 0.2em 1.2em;
     border-style: solid;
     border-color: white;
     border-width: medium;
-    box-shadow: 0px 3px 0px #888888;
+    box-shadow: 0px 3px 0px #888888; */
 }
 
-.card-footer .btn:hover{
+/* .card-footer .btn:hover{
     background-color: #ffac71;
     color: black;
-}
+} */
 
 .wrap-pagination-info .flex.items-center.justify-between {
     margin: 0 0 0 5%;
@@ -77,3 +84,71 @@
         width: 50%;
     }
 }
+
+
+
+
+.card-footer a{
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .card-footer a span{
+    display: block;
+  }
+  
+  .card-footer a::before,
+  .card-footer a::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #e4ff4a;
+  }
+  
+  .card-footer a span::before,
+  .card-footer a span::after {
+    content: "";
+    width: 3px;
+    height: 0;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #ff964a;
+    ;
+  }
+  
+  .card-footer a:hover::before,
+  .card-footer a:hover::after{
+    width: 100%;
+  }
+  
+  .card-footer a:hover span::before, 
+  .card-footer a:hover span::after{
+    height: 100%;
+  }
+  
+  .card-footer a.btn::after {
+    left: 0;
+    bottom: 0;
+    transition-duration: 0.4s;
+  }
+  .card-footer a.btn span::after {
+    right: 0;
+    top: 0;
+    transition-duration: 0.4s;
+  }
+  .card-footer a.btn::before {
+    right: 0;
+    top: 0;
+    transition-duration: 0.4s;
+  }
+  .card-footer a.btn span::before {
+    left: 0;
+    bottom: 0;
+    transition-duration: 0.4s;
+  }
+  

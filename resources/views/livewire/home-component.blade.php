@@ -5,7 +5,7 @@
     <link href="{{asset('css/brands.css')}}" rel="stylesheet">
 <!-- link -->
 
-<div class="screen">
+<div class="screen" style="min-height: calc(100vh - 227.5px);">
 
 <!-- highlight -->
     <div class="slider">

@@ -86,7 +86,7 @@
             </table>
         </div>
         <div class="cart-foot">
-            <a class="button-choose" href="#">ดูสินค้าเพิ่มเติม</a>
+            <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
             <a class="button-paid" href="#">ชำระสินค้า</a>
         </div>
     </div>

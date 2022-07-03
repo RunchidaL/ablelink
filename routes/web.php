@@ -14,6 +14,8 @@ use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\OrderComponent;
+use App\Http\Livewire\OrderDetailComponent;
 use App\Http\Livewire\Admin\posts\AdminAddPostComponent;
 use App\Http\Livewire\Admin\products\AdminCategoryComponent;
 use App\Http\Livewire\Admin\products\AdminAddCategoryComponent;
@@ -56,6 +58,10 @@ Route::get('/contact', ContactComponent::class);
 Route::get('/cart', CartComponent::class);
 
 Route::get('/aboutus', AboutusComponent::class);
+
+Route::get('/order', OrderComponent::class);
+
+Route::get('/orderDetail', OrderDetailComponent::class);
 
 Route::get('/register_dealer', function () {
     return view('dealer.register');

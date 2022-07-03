@@ -56,7 +56,7 @@
                     </div>
                 </div>                  
                 <div class="d-grid gap-2 d-md-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn">
                         Create an account
                     </button>
                 </div>

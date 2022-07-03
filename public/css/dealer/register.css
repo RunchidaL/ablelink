@@ -31,7 +31,7 @@ h3{
     margin-bottom: 10px;
 }
 
-.form-group textarea {
+.form-group textarea{
     border-radius: 20px;
 }
 
@@ -39,7 +39,7 @@ h4{
     margin-bottom: 30px;
 }
 
-.btn {
+.btn{
     width: 150px;
     height: 40px;
     background: #194276;
@@ -47,7 +47,7 @@ h4{
     border-radius: 30px;
 }
 
-.signin {
+.signin{
     text-align: center;
     white-space: nowrap;
 }
@@ -57,11 +57,19 @@ h4{
     color: #0930FF;
 }
 
-.signin i {
+.signin a:hover{
+    text-decoration: underline;
+}
+
+.signin i{
     color: #C4C4C4;
 }
 
-.signin button {
+.signin button{
     background-color: white;
     margin-bottom: 20px;
+}
+
+.signin button:hover{
+    background-color: #C4C4C4;
 }
