@@ -27,12 +27,19 @@ p{
 .cart-menu td{
     text-align: center;
 }
-.cart-conclu {
-    text-align: center;
-}
 
 .cart-wrapper td{
     vertical-align: middle;
+}
+
+.cart-product a img{
+    width: 100px;
+}
+
+.cart-product a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-wrapper .group-cen{
@@ -45,14 +52,8 @@ td.cart-quantity{
     white-space: nowrap;
 }
 
-.cart-product a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cart-product a img{
-    width: 100px;
+.cart-conclu{
+    text-align: center;
 }
 
 .cart-conclu td span{

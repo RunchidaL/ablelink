@@ -191,8 +191,8 @@
                     <div class="brands-col">
                         <a href="#"><img src="/images/brand 4.png" alt="logo"></a>
                     </div>
-                </div>
-                <div class="row">
+                
+                
                     <div class="brands-col">
                         <a href="#"><img src="/images/brand 5.png" alt="logo"></a>
                     </div>
@@ -205,8 +205,7 @@
                     <div class="brands-col">
                         <a href="#"><img src="/images/brand 8.png" alt="logo"></a>
                     </div>
-                </div>
-                <div class="row">
+                
                     <div class="brands-col">
                         <a href="#"><img src="/images/brand 9.png" alt="logo"></a>
                     </div>

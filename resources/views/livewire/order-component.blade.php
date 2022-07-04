@@ -15,7 +15,7 @@
                         <td>ดูรายการสินค้า</td>
                     </tr>
                 </thead>
-                <tbody class="customer-orders">
+                <tbody class="customer-order">
                     <tr class="order-wrapper">
                         <td class="order-quantity">
                             <p class="group-cen">15/03/2022</p>

@@ -14,10 +14,11 @@ p{
     max-width: 1320px;
 }
 
-.order-home h2 {
-    margin-top: 4rem;
+.order-home h2{
+    margin-top: 2rem;
     text-align: center;
 }
+
 .order-menu td{
     text-align: center;
 }

@@ -12,19 +12,19 @@
                 <thead>
                     <tr class="cart-menu">
                         <td class="image">รายการสินค้า</td>
-                        <td class="description"></td>
+                        <td class="name"></td>
                         <td class="price">ราคา</td>
                         <td class="quantity">จำนวน</td>
                         <td class="total">รวม</td>
                         <td></td>
                     </tr>
                 </thead>
-                <tbody id="customer-products">
+                <tbody class="customer-product">
                     <tr class="cart-wrapper">
                         <td class="cart-product">
                             <a href="#"><img src="\images\products\p1.jpg" alt=""></a>
                         </td>
-                        <td class="cart-description">
+                        <td class="cart-name">
                             <a href="#">1ft (0.3m) Cat6a Snagless Shielded (SFTP) PVC CMX Ethernet Network Patch Cable, Blue</a>
                         </td>
                         <td class="cart-price">
@@ -50,7 +50,7 @@
                         <td class="cart-product">
                             <a href="#"><img src="\images\products\p1.jpg" alt=""></a>
                         </td>
-                        <td class="cart-description">
+                        <td class="cart-name">
                             <a href="#">1ft (0.3m) Cat6a Snagless Shielded (SFTP) PVC CMX Ethernet Network Patch Cable, Blue</a>
                         </td>
                         <td class="cart-price">
