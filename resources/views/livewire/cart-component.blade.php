@@ -3,6 +3,7 @@
 <!-- link -->
 
 <div class="cart-page">
+    @if(Cart::count() > 0)
     <div class="container cart-home">
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
@@ -20,25 +21,26 @@
                     </tr>
                 </thead>
                 <tbody class="customer-product">
+                    @foreach (Cart::content() as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
-                            <a href="#"><img src="\images\products\p1.jpg" alt=""></a>
+                            <a href="#"><img src="\images\products\{{$item->image}}" alt="{{$item->name}}"></a>
                         </td>
                         <td class="cart-name">
-                            <a href="#">1ft (0.3m) Cat6a Snagless Shielded (SFTP) PVC CMX Ethernet Network Patch Cable, Blue</a>
+                            <a href="{{route('product.detail',['slug'=>$item->slug])}}">{{$item->name}}</a>
                         </td>
                         <td class="cart-price">
-                            <p class="group-cen" >฿65.00</p>
+                            <p class="group-cen">฿{{$item->web_price}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
                                 <a href="#" role="button" aria-pressed="true"><i class="bi bi-dash"></i></a>
-                                <span>2</span>
+                                <span>{{$item->qty}}</span>
                                 <a href="#" role="button" aria-pressed="true"><i class="bi bi-plus"></i></a>
                             </div>
                         </td>
                         <td class="cart-total">
-                            <p class="group-cen">฿130.00</p>
+                            <p class="group-cen">฿{{$item->subtotal}}</p>
                         </td>
                         <td class="cart-delete" >
                             <a id="delete" class="cart-quantity-delete text-danger" onclick="return confirm('ต้องการลบใช่หรือไม่?')" href="#">
@@ -46,33 +48,8 @@
                             </a>
                         </td>
                     </tr>
-                    <tr class="cart-wrapper">
-                        <td class="cart-product">
-                            <a href="#"><img src="\images\products\p1.jpg" alt=""></a>
-                        </td>
-                        <td class="cart-name">
-                            <a href="#">1ft (0.3m) Cat6a Snagless Shielded (SFTP) PVC CMX Ethernet Network Patch Cable, Blue</a>
-                        </td>
-                        <td class="cart-price">
-                            <p class="group-cen" >฿65.00</p>
-                        </td>
-                        <td class="cart-quantity">
-                            <div class="group-cen">
-                                <a href="#" role="button" aria-pressed="true"><i class="bi bi-dash"></i></a>
-                                <span>2</span>
-                                <a href="#" role="button" aria-pressed="true"><i class="bi bi-plus"></i></a>
-                            </div>
-                        </td>
-                        <td class="cart-total">
-                            <p class="group-cen">฿130.00</p>
-                        </td>
-                        <td class="cart-delete" >
-                            <a id="delete" class="cart-quantity-delete text-danger" onclick="return confirm('ต้องการลบใช่หรือไม่?')" href="#">
-                                <i class="bi bi-x-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>    
+                    @endforeach
+                </tbody>
                 <tfoot>
                     <tr class="cart-conclu">
                         <td></td>
@@ -90,4 +67,9 @@
             <a class="button-paid" href="#">ชำระสินค้า</a>
         </div>
     </div>
+    @else
+        <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
+            ไม่มีสินค้าในตะกร้า
+        </div>
+    @endif    
 </div>

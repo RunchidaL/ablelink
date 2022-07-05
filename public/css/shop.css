@@ -1,13 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-
-}
-
 .text{
     color: #dc7226;
     margin-left: 5%;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .row{
@@ -42,22 +36,25 @@
     color: black;
 }
 
-
-.card-wrapper {
+.card-wrapper{
     height: 100%;
 }
-.card-body p {
+
+.card-body p{
     height: 100%;
     min-height: 1.25rem;
 }
+
 .card-body .card-title{
     height: 80px;
     min-height: auto;
 }
-.card-footer {
+
+.card-footer{
     display: flex;
     justify-content: end;
 }
+
 .card-footer .button{
     background-color: #ff842c;
     /* color: white;*/
@@ -78,16 +75,6 @@
     margin: 0 0 0 5%;
 }
 
-/* resonsive */
-@media(max-width: 767px){
-    .NP-col {
-        width: 50%;
-    }
-}
-
-
-
-
 .card-footer a{
     position: relative;
     background: none;
@@ -101,7 +88,7 @@
   }
   
   .card-footer a::before,
-  .card-footer a::after {
+  .card-footer a::after{
     content: "";
     width: 0;
     height: 3px;
@@ -111,7 +98,7 @@
   }
   
   .card-footer a span::before,
-  .card-footer a span::after {
+  .card-footer a span::after{
     content: "";
     width: 3px;
     height: 0;
@@ -131,24 +118,34 @@
     height: 100%;
   }
   
-  .card-footer a.btn::after {
+  .card-footer a.btn::after{
     left: 0;
     bottom: 0;
     transition-duration: 0.4s;
   }
-  .card-footer a.btn span::after {
+
+  .card-footer a.btn span::after{
     right: 0;
     top: 0;
     transition-duration: 0.4s;
   }
-  .card-footer a.btn::before {
+
+  .card-footer a.btn::before{
     right: 0;
     top: 0;
     transition-duration: 0.4s;
   }
-  .card-footer a.btn span::before {
+
+  .card-footer a.btn span::before{
     left: 0;
     bottom: 0;
     transition-duration: 0.4s;
   }
   
+
+  /* resonsive */
+@media(max-width: 767px){
+  .NP-col {
+      width: 50%;
+  }
+}

@@ -2,10 +2,17 @@
 <link href="/css/details.css" rel="stylesheet">
 <!-- link -->
 
+
+<div>
 <div class="container">
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            <strong>Success</strong> {{Session::get('success_message')}}
+        </div>
+    @endif
     <div class="row top-content">
         <div class="col d-flex align-items-center justify-content-center">
-            <img src="{{asset('/images/products')}}/{{$product -> image}}">
+            <img src="{{asset('/images/products')}}/{{$product->image}}">
         </div>
         <div class="col" id="right">
             <p>{{$product->name}}</p>
@@ -22,7 +29,7 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <a href="#"><button>Add To Cart</button></a>
+                    <a href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->web_price}})"><button>Add To Cart</button></a>
                 </div> 
             </div>
         </div>
@@ -390,6 +397,7 @@
         </div>
     </div>
 </div>
+</div>
 
 <script>
 let menu = document.querySelectorAll(".menu-list .menu");
@@ -409,5 +417,4 @@ for (let i = 0; i < menu.length; i++) {
     });
     
 }
-
 </script>

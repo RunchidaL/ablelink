@@ -55,7 +55,7 @@ Route::get('/forwork', ForworkComponent::class);
 
 Route::get('/contact', ContactComponent::class);
 
-Route::get('/cart', CartComponent::class);
+Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/aboutus', AboutusComponent::class);
 
