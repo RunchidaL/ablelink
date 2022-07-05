@@ -52,6 +52,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4">Videos</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="newvideos" multiple>
+                                    @if($newvideos)
+                                        @foreach($newvideos as $newvideo)
+                                            @if($newvideo)
+                                                <iframe src="{{$newvideo->temporaryUrl()}}" width="120"></iframe>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        @foreach($videos as $video)
+                                            @if($video)
+                                                <iframe src="{{url('images/products')}}/{{$video}}" width="120"></iframe>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4">Web price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="web_price">
@@ -134,6 +153,17 @@
                                         <option value="0">Select subategory</option>
                                         @foreach($scategories as $scategory)
                                             <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Group Product</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="groupproduct_id">
+                                        <option value="">Select Series</option>
+                                        @foreach($groups as $group)
+                                            <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

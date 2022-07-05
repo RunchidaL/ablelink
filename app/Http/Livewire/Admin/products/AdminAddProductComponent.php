@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
+use App\Models\GroupProduct;
 
 class AdminAddProductComponent extends Component
 {
@@ -33,6 +34,8 @@ class AdminAddProductComponent extends Component
     public $config;
     public $category_id;
     public $scategory_id;
+    public $videos;
+    public $groupproduct_id;
 
     public $network_images;
     public $images = [];
@@ -108,6 +111,21 @@ class AdminAddProductComponent extends Component
         {
             $product->subcategory_id = $this->scategory_id;
         }
+
+        $product->groupproduct_id = $this->groupproduct_id;
+
+        if($this->videos)
+        {
+            $videosName = "";
+            foreach($this->videos as $key=>$video)
+            {
+                $videoName = $video->getClientOriginalName();
+                $video->storeAs('products',$videoName);
+                $videosName = $videosName. ','. $videoName ;
+            }
+            $product->videos = $videosName;
+        }
+
         $product->save();
 
         if($this->attribute_values)
@@ -156,8 +174,9 @@ class AdminAddProductComponent extends Component
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
         $products = Product::all();
+        $groups = GroupProduct::all();
         $network_types = NetworkType::all();
         $network_images = NetworkImage::all();
-        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories,'products'=>$products,'network_types'=>$network_types,'network_images'=>$network_images])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories,'products'=>$products,'network_types'=>$network_types,'network_images'=>$network_images,'groups'=>$groups])->layout("layout.navfoot");
     }
 }

@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
+use App\Models\GroupProduct;
 
 class AdminEditProductComponent extends Component
 {
@@ -40,6 +41,9 @@ class AdminEditProductComponent extends Component
     public $newconfig;
     public $product_id;
     public $scategory_id;
+    public $videos;
+    public $newvideos;
+    public $groupproduct_id;
 
     public $new_network_images=[];
     public $network_images=[];
@@ -70,7 +74,9 @@ class AdminEditProductComponent extends Component
         $this->config = $product->config;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
+        $this->videos = explode(",",$product->videos);
         $this->product_id = $product->id;
+        $this->groupproduct_id = $product->groupproduct_id;
         $this->inputs = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
         $this->attribute_arr = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
         
@@ -170,6 +176,31 @@ class AdminEditProductComponent extends Component
         {
             $product->subcategory_id = $this->scategory_id;
         }
+        if($this->newvideos)
+        {
+            if($product->videos)
+            {
+                $videos = explode(",",$product->videos);
+                foreach($videos as $video)
+                {
+                    if($video)
+                    {
+                        unlink('images/products'.'/'.$video);
+                    }
+                }
+            }
+            $videosName = "";
+            foreach($this->newvideos as $key=>$video)
+            {
+                $videoName = $video->getClientOriginalName();
+                $video->storeAs('products',$videoName);
+                $videosName = $videosName. ','. $videoName ;
+            }
+            $product->videos = $videosName;
+        }
+
+        $product->groupproduct_id = $this->groupproduct_id;
+    
         $product->save();
 
         NetworkValue::where('product_id',$product->id)->delete();
@@ -210,6 +241,7 @@ class AdminEditProductComponent extends Component
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
         $network_types = NetworkType::all();
-        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types])->layout("layout.navfoot");
+        $groups = GroupProduct::all();
+        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups])->layout("layout.navfoot");
     }
 }

@@ -41,6 +41,10 @@
     border-radius: 30px;
 }
 
+.infomation{
+    margin-top: 40px;
+}
+
 .tab-contral{
     padding: 0 0 30px 0;
     text-align: center;
@@ -133,4 +137,23 @@
 .swiper-pagination-bullet-active {
 	color:#fff;
 	background: #007aff;
+}
+
+.col img{
+    width: 400px;
+    height: 400px;
+}
+
+.relate_product a{
+    background-color: #F1F1F1;
+    border: none;
+    /* padding: 15px 30px 15px 30px; */
+    padding: 3% 6% 3% 6%;
+    border-radius: 0;
+    text-decoration: none;
+    color: black;
+}
+
+.col-2{
+    width: 30%;
 }

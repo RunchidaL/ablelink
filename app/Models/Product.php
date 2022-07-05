@@ -30,5 +30,19 @@ class Product extends Model
     {
         return $this->belongsTo(NetworkValue::class,'product_id');
     }
-    
+
+    public function product_models()
+    {
+        return $this->hasMany(ProductModels::class,'product_id');
+    }
+
+    public function group_product()
+    {
+        return $this->hasMany(GroupProduct::class, 'groupproduct_id');
+    }
+
+    public function group_products()
+    {
+        return $this->belongsTo(GroupProduct::class, 'groupproduct_id');
+    }
 }

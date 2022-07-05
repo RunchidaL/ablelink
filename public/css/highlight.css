@@ -25,3 +25,12 @@
 .swiper .swiper-pagination-bullet-active{
     background: white;
 }
+
+/* @media(max-width: 820px) {
+    .swiper-slide img{
+        width: 100vw;
+        height: 50vh;
+        align-items: center;
+        object-fit: cover;
+    }
+} */

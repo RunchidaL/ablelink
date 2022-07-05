@@ -115,6 +115,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4">Videos</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="videos" multiple>
+                                    @if($videos)
+                                        @foreach($videos as $video)
+                                            <iframe src="{{$video->temporaryUrl()}}" width="120"></iframe>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4">Category</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
@@ -132,6 +143,17 @@
                                         <option value="0">Select subategory</option>
                                         @foreach($scategories as $scategory)
                                             <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Group Product</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="groupproduct_id">
+                                        <option value="">Select Group</option>
+                                        @foreach($groups as $group)
+                                            <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

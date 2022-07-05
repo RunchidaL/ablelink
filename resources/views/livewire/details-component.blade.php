@@ -2,11 +2,9 @@
 
 <div class="container">
     <div class="row">
-
-        <div class="col">
+        <div class="col d-flex justify-content-center">
             <img src="{{asset('/images/products')}}/{{$product -> image}}">
         </div>
-
         <div class="col" id="right">
             <p>{{$product->name}}</p>
             @if(($product->web_price) == '0')
@@ -25,6 +23,56 @@
                     <a href="#"><button>Add To Cart</button></a>
                 </div> 
             </div>
+            <div class="relate_product">
+                <div class="models"><br>
+                    <p>Models:</p>
+                    <div class="row">
+                        @foreach($product_models->where('product_id',$product->id) as $product_model)
+                        <div class="col-2 d-flex mt-2">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div><br>
+                <div class="series">
+                    <p>Series:</p>
+                    <div class="row">
+                        @foreach($product_models->where('group_products',$product->groupproduct_id)->unique('series_id') as $product_model)
+                            <div class="col-2 d-flex mt-2">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->series->name}}</a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div><br>
+                <div class="types">
+                    <p>Types:</p>
+                    <div class="row">
+                    @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
+                        @foreach($types as $type)
+                            @if($type->series_id === $product_model->series_id)
+                            <div class="col-2 d-flex mt-2">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
+                            </div>
+                            @endif
+                        @endforeach
+                    @endforeach
+                    </div>
+                </div><br>
+                <div class="jacket">
+                    <p>Jacket Types:</p>
+                    <div class="row">
+                    @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
+                        @foreach($jacket_products as $jacket_product)
+                            @if($jacket_product->type_id === $product_model->type_id)
+                            <div class="col-2 d-flex mt-2">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
+                            </div>
+                            @endif
+                        @endforeach
+                    @endforeach
+                    </div>
+                </div> 
+            </div>
         </div>
     </div>
 
@@ -35,6 +83,7 @@
             <a href="#network_connectivity">Network Connectivity</a>
             <a href="#item-spotlight">Item Spotlight</a>
             <a href="#feature">Feature</a>
+            <a href="#videos">Videos</a>
             <a href="#resources">Resources</a>
         </div>
         <div class="tab-contents">
@@ -100,7 +149,6 @@
             </div>
         </div>
         @endforeach
-
         <div class="line" id="item-spotlight"></div>
         <div class="tab-contents" id="item-spotlight">
             <h5>Item Spotlight</h5>
@@ -111,6 +159,29 @@
             <h5>Feature</h5>
             <p>{!! $product->feature !!}</p>
         </div>
+        @if(($product->videos) == "")
+        @else
+        <div class="line" id="videos"></div>
+            <div class="tab-contents">
+                <h5>videos</h5>
+                <div class="row">
+                    @php
+                        $videos = explode(",",$product->videos);
+                    @endphp
+                    @foreach($videos as $video)
+                    <div class="col-4 mt-2">
+                        <div class="card" style="width: 20rem;">
+                            <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}" sandbox=""></iframe>
+                            <div class="card-body">
+                                <p class="card-text">{{$video}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="line" id="feature"></div>
         <div class="tab-contents" id="resources">
             <h5>Resources</h5>
@@ -118,23 +189,23 @@
             <div class="row">
                 @if(($product->datasheet) == "")
                 @else
-                    <div class="col"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
+                    <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
                 @endif
                 @if(($product->firmware) == "")
                 @else
-                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
+                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
                 @endif
                 @if(($product->guide) == "")
                 @else
-                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
+                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
                 @endif
                 @if(($product->cert) == "")
                 @else
-                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
+                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
                 @endif
                 @if(($product->config) == "")
                 @else
-                <div class="col"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
+                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
                 @endif
             </div>
         </div>

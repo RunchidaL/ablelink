@@ -35,6 +35,12 @@ use App\Http\Livewire\Admin\downloads\AdminEditCategoryDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminAddDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminEditDownloadComponent;
+use App\Http\Livewire\DetailsModelsComponent;
+use App\Http\Livewire\Admin\products\AdminAddmodelComponent;
+use App\Http\Livewire\Admin\products\AdminEditmodelComponent;
+use App\Http\Livewire\Admin\products\GroupComponent;
+use App\Http\Livewire\Admin\products\AdminAddGroupComponent;
+use App\Http\Livewire\Admin\products\EditGroupComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -63,6 +69,8 @@ Route::get('/post/{slug}', DetailPostComponent::class)->name('post.details');
 Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->name('post.category');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
+
+Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
 
 Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
 
@@ -94,4 +102,9 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/download', AdminDownloadComponent::class)->name('admin.download');
     Route::get('/admin/download/add', AdminAddDownloadComponent::class)->name('admin.adddownload');
     Route::get('/admin/download/edit/{download_slug}', AdminEditDownloadComponent::class)->name('admin.editdownload');
+    Route::get('/admin/model/add', AdminAddmodelComponent::class)->name('admin.addmodel');
+    Route::get('/admin/model/edit/{model_slug}', AdminEditmodelComponent::class)->name('admin.editmodel');
+    Route::get('/admin/group', GroupComponent::class)->name('admin.group');
+    Route::get('/admin/group/add', AdminAddGroupComponent::class)->name('admin.addgroup');
+    Route::get('/admin/group/edit/{group_id}/{serie_id?}/{type_id?}/{jacket_id?}', EditGroupComponent::class)->name('admin.editgroup');
 });
