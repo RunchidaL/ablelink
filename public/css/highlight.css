@@ -1,36 +1,141 @@
-.container{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slider{
+    position: relative;
     width: 100%;
-    /* height: 100%; */
-    background: white;
-    display: flex;
-    align-items: top;
-    justify-content: end;
+    background: #2c3e50;
+}
+.myslider{
+    min-height: 100%;
+    display: none;
+    overflow: hidden;
+    justify-items: center;
+}
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 50px;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.1s;
+    user-select: none;
+}
+.prev:hover, .next:hover{
+    color: #3498db;
+}
+.next{
+    right: 0;
+}
+.dotsbox{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    cursor: pointer;
+}
+.dot{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.active, .dot:hover{
+    border-color: #3498db;
 }
 
-.swiper{
-    width: 100%;
-    height: fit-content;
+
+.txt{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 15%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 1s;
+    animation-name: posi;
+    animation-duration: 1s;
+    z-index: 1;
 }
 
-.swiper-slide img{
-    width: 100%;
-    height: 100%;
-    align-items: center;
+@-webkit-keyframes posi{
+    from {left: 25%;}
+    to {left: 15%;}
 }
 
-.swiper .swiper-button-prev, .swiper .swiper-button-next{
-    color: black
+@keyframes posi{
+    from {left: 25%;}
+    to {left: 15%;}
+}
+.txt h1{
+    color: #3498db;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.txt p{
+    font-weight: bold;
+    font-size: 20px;
+}
+.imgg{
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomin;
+    animation-duration: 1s;
 }
 
-.swiper .swiper-pagination-bullet-active{
-    background: white;
+@-webkit-keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
 }
 
-/* @media(max-width: 820px) {
-    .swiper-slide img{
-        width: 100vw;
-        height: 50vh;
-        align-items: center;
+@keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+@media screen and (max-width:800px){
+    .myslider{
+        height: 400px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi2 {
+        from {top:35%;}
+        to {top: 50%;}
+    }
+    @keyframes posi2 {
+        from {top:35%;}
+        to {top: 50%;}
+    }
+    .txt h1{
+        font-size: 40px;
+    }
+    .txt p{
+        font-size: 13px;
+    }
+    .txt .imgg{
         object-fit: cover;
     }
-} */
+}
+
+@media screen and (max-width:520px){
+    .txt h1{
+        font-size: 30px;
+    }
+}

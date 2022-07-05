@@ -19,12 +19,13 @@
     </div>
 </div>
 
+
 <div class="blog">
 @foreach($posts as $post)
     <div class="blog-card">
         <div class="meta">
             <div class="photo">
-                <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}"/></a>
+                <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>
             </div>
             <ul class="details">
                 <li class="author"><a href="#"></a></li>

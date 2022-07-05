@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -93,6 +93,7 @@
 <script>
     tinymce.init({
             selector: '#description',
+            plugins: 'quickbars table image link lists media autoresize help',
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();

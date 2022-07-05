@@ -3,11 +3,20 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Home;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\Product;
 
 class HomeComponent extends Component
 {
     public function render()
-    {
-        return view('livewire.home-component')->layout("layout.navfoot");
+    {   
+        $postcategory = PostCategory::all();
+        
+        $posts = Post::all();
+        $sliders = Home::where('status',0)->get();
+        $Lproduct = Product::orderBy('created_at','DESC')->get()->take(5);
+        return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory,'Lproduct'=>$Lproduct])->layout("layout.navfoot");
     }
 }
