@@ -99,7 +99,7 @@
 </div>
 
 <div class="slide-container swiper">
-    <div class="slide-content">
+    <div class="slide-content" style="padding: 3% 2% 3% 2%">
         <div class="card-wrapper swiper-wrapper">
             @foreach($posts as $post)
             <div class="card swiper-slide">
@@ -140,6 +140,9 @@
         navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+        delay: 3000,
         },
 
         breakpoints:{

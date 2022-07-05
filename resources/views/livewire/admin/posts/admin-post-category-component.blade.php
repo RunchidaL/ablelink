@@ -59,6 +59,6 @@
 <style>
     #editsub{
         color:black;
-        font-size: 30px;
+        font-size: 25px;
     }
 </style>
