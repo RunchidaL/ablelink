@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row" id="head">
                 <div class="col-md-6">

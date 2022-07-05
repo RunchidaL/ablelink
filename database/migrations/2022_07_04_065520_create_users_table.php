@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('role')->nullable();
             $table->string('password');
+            $table->integer('coin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

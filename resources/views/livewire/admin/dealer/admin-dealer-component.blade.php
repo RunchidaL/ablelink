@@ -9,7 +9,7 @@
                                 <h1>All Slides</h1>
                             </div>
                             <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
-                                <a href="{{route('admin.addhomes')}}"><button class="btn btn-success">Add New Slide</button></a>
+                                <a href="{{route('admin.addDealer')}}"><button class="btn btn-success">Add New Dealer</button></a>
                             </div>
                         </div>
                     </div>
@@ -21,31 +21,23 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Subtitle</th>
-                                    <th>Link</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
+                                    <th>ชื่อกิจการ</th>
+                                    <th>Credit</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sliders as $slider)
+                                {{-- @foreach ($sliders as $slider) --}}
                                     <tr>
-                                        <td>{{$slider->id}}</td>
-                                        <td><img src="{{asset('/images/sliders')}}/{{$slider->image}}" width="120" alt=""></td>
-                                        <td>{{$slider->title}}</td>
-                                        <td>{{$slider->subtitle}}</td>
-                                        <td>{{$slider->link}}</td>
-                                        <td>{{$slider->status == 0 ? 'Active':'Inactive'}}</td>
-                                        <td>{{$slider->created_at}}</td>
+                                        <td>1</td>
+                                        <td>Ablelink</td>
+                                        <td>50000 บาท</td>
                                         <td>
-                                            <a href="{{route('admin.edithomes',['slide_id'=>$slider->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlide({{$slider->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                            <a href="{{route('admin.editDealer')}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent=""><i class="bi bi-x" id="editsub"></i></a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                {{-- @endforeach --}}
                             </tbody>
                         </table>
                     </div>
@@ -63,3 +55,4 @@
         margin-left: 5%
     }
 </style>
+
