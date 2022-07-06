@@ -51,7 +51,7 @@
 .col-1 a{
     background-color: #F1F1F1;
     border: none;
-    padding: 10% 20% 5% 20%;
+    padding: 1em 2em 1em 2em;
     border-radius: 0;
     text-decoration: none;
     color: black;
@@ -60,6 +60,7 @@
 .col-1 p{
     padding-top: 10%;
     white-space: nowrap;
+    margin: auto;
 }
 
 #vdo{
@@ -70,4 +71,14 @@
 
 .col-1 p{
     align-items: end;
+}
+
+.desc .row{
+    justify-content: center;
+}
+
+@media(max-width: 1024px) {
+    .desc .row{
+        justify-content: space-around;
+    }
 }

@@ -20,7 +20,7 @@
             @if(($download->category->name) == "Catelog")
             
             <div class="desc">
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex">
                     <div class="col-1 d-flex justify-content-center">
                         <p>Catelog ของ {{$download->name}}</p>
                     </div>
@@ -40,7 +40,7 @@
             @if(($download->category->name) == "Presentation")
             
             <div class="desc">
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex">
                     <div class="col-1 d-flex justify-content-center">
                         <p>	Presentation ของ {{$download->name}}</p>
                     </div>

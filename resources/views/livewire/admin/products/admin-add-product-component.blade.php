@@ -10,9 +10,6 @@
                             </div>
                         </div>
                     </div>
-                    @if(Session::has('message'))
-                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                    @endif
                     <div class="panel-body">
                         <form class="form-panel" enctype='multipart/form-data' wire:submit.prevent="addProduct"> @csrf
                             <div class="form-group">
@@ -160,19 +157,22 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Network Type</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" wire:model="attr">
-                                        <option value="0">Select Network Type</option>
-                                        @foreach($network_types as $network_type)
-                                            <option value="{{$network_type->id}}">{{$network_type->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <button type="button" id="add" class="btn btn-primary mt-2" wire:click.prevent="add">Add product</button>
+                                <div class="row justify-content-start">
+                                    <div class="col-4">
+                                        <select class="form-control" wire:model="attr">
+                                            <option value="0">Select Network Type</option>
+                                            @foreach($network_types as $network_type)
+                                                <option value="{{$network_type->id}}">{{$network_type->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>
+                                    </div>
                                 </div>
                             </div>
                             @foreach($inputs as $key => $value)
+                            <div class="form-group">
                                 <label class="col-md-4">{{$network_types->where('id',$attribute_arr[$key])->first()->name}}</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="network_images.{{$value}}">
@@ -184,14 +184,17 @@
                                 </div>
                                 <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
                                 <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
+                            </div>
                             @endforeach
-                            
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="file" class="btn btn-success">Submit</button>
+                                    <button type="file" class="btn btn-success my-4">Submit</button>
                                 </div>
                             </div>
                         </form>
+                        @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -203,7 +206,8 @@
     <script>
         tinymce.init({
             selector: '#overview',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -215,7 +219,8 @@
         });
         tinymce.init({
             selector: '#application',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -226,7 +231,8 @@
         });
         tinymce.init({
             selector: '#item_spotlight',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
@@ -238,7 +244,8 @@
         
         tinymce.init({
             selector: '#feature',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();

@@ -45,7 +45,12 @@
                     </div>
                 </div><br>
                 <div class="types">
-                    <p>Types:</p>
+                    @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
+                        @if($product_model->type_id == '')
+                        @else
+                        <p>Types:</p>
+                        @endif
+                    @endforeach
                     <div class="row">
                     @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
                         @foreach($types as $type)
@@ -59,7 +64,12 @@
                     </div>
                 </div><br>
                 <div class="jacket">
-                    <p>Jacket Types:</p>
+                    @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
+                        @if($product_model->jacket_id == '')
+                        @else
+                            <p>Jacket Types:</p>
+                        @endif
+                    @endforeach
                     <div class="row">
                     @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
                         @foreach($jacket_products as $jacket_product)
