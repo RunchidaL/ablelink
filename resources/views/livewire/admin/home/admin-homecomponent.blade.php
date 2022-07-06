@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
@@ -36,7 +36,7 @@
                                         <td>{{$slider->id}}</td>
                                         <td><img src="{{asset('/images/sliders')}}/{{$slider->image}}" width="120" alt=""></td>
                                         <td>{{$slider->title}}</td>
-                                        <td>{{$slider->subtitle}}</td>
+                                        <td class="subtitle-name">{{$slider->subtitle}}</td>
                                         <td>{{$slider->link}}</td>
                                         <td>{{$slider->status == 0 ? 'Active':'Inactive'}}</td>
                                         <td>{{$slider->created_at}}</td>
@@ -59,7 +59,10 @@
 <style>
     #editsub{
         color:black;
-        font-size: 30px;
+        font-size: 25px;
         margin-left: 5%
+    }
+    .subtitle-name{
+        width:30%;
     }
 </style>

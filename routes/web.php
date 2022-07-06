@@ -16,6 +16,9 @@ use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\OrderComponent;
 use App\Http\Livewire\OrderDetailComponent;
+use App\Http\Livewire\Admin\Dealer\AdminDealerComponent;
+use App\Http\Livewire\Admin\Dealer\AdminAddDealerComponent;
+use App\Http\Livewire\Admin\Dealer\AdminEditDealerComponent;
 use App\Http\Livewire\Admin\posts\AdminAddPostComponent;
 use App\Http\Livewire\Admin\products\AdminCategoryComponent;
 use App\Http\Livewire\Admin\products\AdminAddCategoryComponent;
@@ -37,6 +40,12 @@ use App\Http\Livewire\Admin\downloads\AdminEditCategoryDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminAddDownloadComponent;
 use App\Http\Livewire\Admin\downloads\AdminEditDownloadComponent;
+use App\Http\Livewire\DetailsModelsComponent;
+use App\Http\Livewire\Admin\products\AdminAddmodelComponent;
+use App\Http\Livewire\Admin\products\AdminEditmodelComponent;
+use App\Http\Livewire\Admin\products\GroupComponent;
+use App\Http\Livewire\Admin\products\AdminAddGroupComponent;
+use App\Http\Livewire\Admin\products\EditGroupComponent;
 use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminHomecomponent;
@@ -56,6 +65,7 @@ Route::get('/forwork', ForworkComponent::class);
 Route::get('/contact', ContactComponent::class);
 
 Route::get('/cart', CartComponent::class)->name('product.cart');
+Route::post('/cart/create/{product_id}/{product_name}/{product_price}', [CartComponent::class,'store'])->name('product.addCart');
 
 Route::get('/aboutus', AboutusComponent::class);
 
@@ -73,6 +83,8 @@ Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->n
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
+Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
+
 Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
@@ -88,6 +100,9 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/home',AdminHomecomponent::class)->name('admin.homes');
     Route::get('/admin/home/add',AdminAddHomecomponent::class)->name('admin.addhomes');
     Route::get('/admin/home/edit/{slide_id}',AdminEditHomecomponent::class)->name('admin.edithomes');
+    Route::get('/admin/dealer/',AdminDealerComponent::class)->name('admin.Dealer');
+    Route::get('/admin/dealer/add',AdminAddDealerComponent::class)->name('admin.addDealer');
+    Route::get('/admin/dealer/edit',AdminEditDealerComponent::class)->name('admin.editDealer');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
@@ -106,4 +121,9 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/download', AdminDownloadComponent::class)->name('admin.download');
     Route::get('/admin/download/add', AdminAddDownloadComponent::class)->name('admin.adddownload');
     Route::get('/admin/download/edit/{download_slug}', AdminEditDownloadComponent::class)->name('admin.editdownload');
+    Route::get('/admin/model/add', AdminAddmodelComponent::class)->name('admin.addmodel');
+    Route::get('/admin/model/edit/{model_slug}', AdminEditmodelComponent::class)->name('admin.editmodel');
+    Route::get('/admin/group', GroupComponent::class)->name('admin.group');
+    Route::get('/admin/group/add', AdminAddGroupComponent::class)->name('admin.addgroup');
+    Route::get('/admin/group/edit/{group_id}/{serie_id?}/{type_id?}/{jacket_id?}', EditGroupComponent::class)->name('admin.editgroup');
 });

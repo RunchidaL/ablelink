@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <style>
         nav svg{
             height: 20px;
@@ -63,7 +63,7 @@
 <style>
     #editsub{
         color:black;
-        font-size: 30px;
+        font-size: 25px;
         margin-left: 5%
     }
 </style>

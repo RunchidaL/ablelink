@@ -22,9 +22,10 @@
                             @endif
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="button btn" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->web_price}})">
-                                <span>Add to cart</span>
-                            </a>
+                            <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
+                                @csrf
+                                <button type='submit' class="button btn"><span>Add to cart</span></button>
+                            </form>
                         </div>
                     </a>    
                 </div>

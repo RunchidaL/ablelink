@@ -31,6 +31,14 @@
     padding: 10px 14px;
 }
 
+.card.swiper-slide{
+    transform: scale(1);
+    transition: 0.3s ease-in-out ;
+}
+.card.swiper-slide:hover{
+    transform: scale(1.08);
+}
+
 .card-content .name{
     height: 80px;
 }
@@ -201,10 +209,6 @@
         text-decoration-color: black;
     }
 }
-
-
-
-
 
 /* main_activity หน้าหลัก */
 .menu{

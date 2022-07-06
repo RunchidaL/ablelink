@@ -24,13 +24,13 @@
                     @foreach (Cart::content() as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
-                            <a href="#"><img src="\images\products\{{$item->image}}" alt="{{$item->name}}"></a>
+                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                         </td>
                         <td class="cart-name">
-                            <a href="{{route('product.detail',['slug'=>$item->slug])}}">{{$item->name}}</a>
+                            <a href="#">{{$item->model->name}}</a>
                         </td>
                         <td class="cart-price">
-                            <p class="group-cen">฿{{$item->web_price}}</p>
+                            <p class="group-cen">฿{{$item->model->web_price}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
@@ -56,7 +56,7 @@
                         <td></td>
                         <td></td>
                         <td><span><p class="button-total px-3">ยอดชำระเงิน</p></span></td>
-                        <td>฿260.00</td>
+                        <td>฿{{$item->subtotal}}</td>
                         <td></td>
                     </tr>
                 </tfoot>
