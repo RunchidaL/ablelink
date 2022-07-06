@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col d-flex">
                             @foreach($product_models->where('product_id',$product->id) as $product_model)
-                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
                             @endforeach
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col d-flex">
                             @foreach($product_models->where('group_products',$product->groupproduct_id)->unique('series_id') as $product_model)
-                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->series->name}}</a>
+                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->series->name}}</a>
                             @endforeach
                         </div>
                     </div>
@@ -56,16 +56,14 @@
                         <p>Types:</p>
                         @endif
                     @endforeach
-                    <div class="row">
-                    @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
-                        @foreach($types as $type)
-                            @if($type->series_id === $product_model->series_id)
-                            <div class="col d-flex">
+                    <div class="col d-flex">
+                        @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
+                            @foreach($types as $type)
+                                @if($type->series_id === $product_model->series_id)
                                 <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
-                            </div>
-                            @endif
+                                @endif
+                            @endforeach
                         @endforeach
-                    @endforeach
                     </div>
                 </div><br>
                 <div class="jacket">
@@ -75,16 +73,14 @@
                             <p>Jacket Types:</p>
                         @endif
                     @endforeach
-                    <div class="row">
-                    @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
-                        @foreach($jacket_products as $jacket_product)
-                            @if($jacket_product->type_id === $product_model->type_id)
-                            <div class="col d-flex">
-                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
-                            </div>
-                            @endif
+                    <div class="col d-flex">
+                        @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
+                            @foreach($jacket_products as $jacket_product)
+                                @if($jacket_product->type_id === $product_model->type_id)
+                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
+                                    @endif
+                            @endforeach
                         @endforeach
-                    @endforeach
                     </div>
                 </div> 
             </div>
@@ -162,9 +158,9 @@
                         <img src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
                         <div class="tag-list">
                             <div class="tag-item">
-                                <a href="#"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
                                 <div>
-                                    <a href="#" class="name">{{$network_product->photo->name}}</a>
+                                    <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->name}}</a>
                                     <div class="price">฿{{number_format($network_product->photo->web_price)}}</div>
                                 </div>
                             </div>

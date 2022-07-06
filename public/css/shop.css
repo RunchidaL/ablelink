@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
     width: 100%;
+    margin: 0;
 }
 
 .NP-col{

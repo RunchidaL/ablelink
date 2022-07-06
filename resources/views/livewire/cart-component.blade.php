@@ -23,9 +23,9 @@
                 <tbody class="customer-product">
                     @foreach (Cart::content() as $item)
                     <tr class="cart-wrapper">
-                        <td class="cart-product">
+                        <!-- <td class="cart-product">
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
-                        </td>
+                        </td> -->
                         <td class="cart-name">
                             <a href="#">{{$item->model->name}}</a>
                         </td>

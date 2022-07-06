@@ -20,7 +20,10 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <a href="#"><button>Add To Cart</button></a>
+                <form action="{{route('product.addCart',['product_id'=>$model->id,'product_name'=>$model->name,'product_price'=>$model->web_price])}}" method="POST">
+                    @csrf
+                    <button type='submit'>Add To Cart</button>
+                </form>
                 </div> 
             </div>
             <div class="relate_product">
