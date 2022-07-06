@@ -1,0 +1,38 @@
+p{
+    margin: 0;
+}
+
+.order-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 227.5px);
+}
+
+.order-home{
+    padding: 0 auto;
+    max-width: 1320px;
+}
+
+.order-home h2{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.order-menu td{
+    text-align: center;
+}
+
+.order-wrapper td{
+    vertical-align: middle;
+}
+
+.order-wrapper .group-cen{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+

@@ -3,11 +3,11 @@
     padding: 0;
 }
 
-body {
+body{
     font-family: 'Prompt', sans-serif;
 }
 
-.left {
+.left{
     margin: 5%;
 }
 
@@ -21,11 +21,11 @@ body {
     height: 100%;
 }
 
-.con {
+.con{
     margin-top: 20px;
 }
 
-.col-md-6 input {
+.col-md-6 input{
     border-radius: 30px;
     margin-bottom: 10px;
 }
@@ -39,7 +39,7 @@ body {
     color: black;
 }
 
-.btn {
+.btn{
     width: 200px;
     height: 40px;
     background: #194276;
@@ -47,7 +47,7 @@ body {
     border-radius: 30px;
 }
 
-.bottom {
+.bottom{
     margin-top: 20px;
 }
 
@@ -55,4 +55,11 @@ body {
     color: #0930FF;
 }
 
+.bottom a:hover{
+    text-decoration: underline;
+}
+
+.row a:hover{
+    text-decoration: underline;
+}
 

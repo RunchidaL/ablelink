@@ -1,0 +1,52 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
+}
+
+.order-detail-page{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-detail-home{
+    padding: 0 auto;
+    max-width: 1320px;
+}
+
+.order-detail-home h2{
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.order-detail-menu td{
+    text-align: center;
+}
+
+.order-detail-wrapper td{
+    vertical-align: middle;
+}
+
+.order-detail-product a img{
+    width: 100px;
+}
+
+.order-detail-product a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-detail-wrapper .group-cen{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.order-detail-conclu{
+    text-align: center;
+}

@@ -11,14 +11,13 @@
     </div>
 
     <div class="container mt-1 p-2 d-flex justify-content-center">
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{route('register')}}">
             @csrf
             <div class="row">
                 <div class="col-12 mb-3">
                     <div class="form-group">
                         <label for="name">{{ __('Name') }}</label>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -30,7 +29,6 @@
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -56,7 +54,7 @@
                     </div>
                 </div>                  
                 <div class="d-grid gap-2 d-md-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn">
                         Create an account
                     </button>
                 </div>

@@ -11,6 +11,7 @@ use App\Models\TypeModels;
 use App\Models\JacketTypes;
 use App\Models\JacketProduct;
 use App\Models\GroupProduct;
+use Cart;
 
 class DetailsComponent extends Component
 {

@@ -8,9 +8,7 @@
 .head-abu{
   background: #f5f5f5;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  
+  display: flex; 
 }
 
 .content-abu{
@@ -22,6 +20,10 @@
 
 .content-abu .about{
   margin: 5%;
+}
+
+.content-abu img {
+  object-fit: cover;
 }
 
 
@@ -101,4 +103,12 @@
   .content-abu img{
     max-width: 100%;
   } 
+}
+
+
+@media screen and (min-width: 1536px)
+{
+  .head-abu {
+    justify-content: center;
+  }
 }
