@@ -1,53 +1,53 @@
 .text{
-    color: #dc7226;
-    margin-left: 5%;
-    margin-top: 1.5rem;
+  color: #dc7226;
+  margin-left: 5%;
+  margin-top: 1.5rem;
 }
 
 .row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0;
 }
 
 .NP-col{
-    position: relative;
-    width: 20%;
-    text-align: start;
-    margin: 3% 0;
+  position: relative;
+  width: 20%;
+  text-align: start;
+  margin: 3% 0;
 }
 
 .NP-col img{
-    width: 100%;
-    height: auto;
-    display: flex; 
-    padding: 10%; /*ในนอก*/
-    
+  width: 100%;
+  height: auto;
+  display: flex; 
+  padding: 10%; /*ในนอก*/
 }
 
 .NP-col .card{
-    height: 100%;
-    border-radius: 5px;
+  height: 100%;
+  border-radius: 5px;
 }
 
 .card a{
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .card-wrapper{
-    height: 100%;
+  height: 100%;
 }
 
 .card-body p{
-    height: 100%;
-    min-height: 1.25rem;
+  height: 100%;
+  min-height: 1.25rem;
 }
 
 .card-body .card-title{
-    height: 80px;
-    min-height: auto;
+  height: 100px;
+  min-height: auto;
 }
 
 .card-footer{
@@ -56,94 +56,82 @@
 }
 
 .card-footer .button{
-    background-color: #ff842c;
-    /* color: white;*/
-    border-radius: 0;/*
-    padding: 0.2em 1.2em;
-    border-style: solid;
-    border-color: white;
-    border-width: medium;
-    box-shadow: 0px 3px 0px #888888; */
+  background-color: #ff842c;
+  border-radius: 0;
 }
 
-/* .card-footer .btn:hover{
-    background-color: #ffac71;
-    color: black;
-} */
-
 .wrap-pagination-info .flex.items-center.justify-between{
-    margin: 0 0 0 5%;
+  margin: 0 0 0 5%;
 }
 
 .card-footer button{
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-  }
-  
-  .card-footer button span{
-    display: block;
-  }
-  
-  .card-footer button::before,
-  .card-footer button::after{
-    content: "";
-    width: 0;
-    height: 3px;
-    position: absolute;
-    transition: all 0.2s linear;
-    background: red;
-  }
-  
-  .card-footer button span::before,
-  .card-footer button span::after{
-    content: "";
-    width: 3px;
-    height: 0;
-    position: absolute;
-    transition: all 0.2s linear;
-    background: red;
-    ;
-  }
-  
-  .card-footer button:hover::before,
-  .card-footer button:hover::after{
-    width: 100%;
-  }
-  
-  .card-footer button:hover span::before, 
-  .card-footer button:hover span::after{
-    height: 100%;
-  }
-  
-  .card-footer button.btn::after{
-    left: 0;
-    bottom: 0;
-    transition-duration: 0.4s;
-  }
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
 
-  .card-footer button.btn span::after{
-    right: 0;
-    top: 0;
-    transition-duration: 0.4s;
-  }
-
-  .card-footer button.btn::before{
-    right: 0;
-    top: 0;
-    transition-duration: 0.4s;
-  }
-
-  .card-footer button.btn span::before{
-    left: 0;
-    bottom: 0;
-    transition-duration: 0.4s;
-  }
+.card-footer button span{
+  display: block;
+}
   
+.card-footer button::before,
+.card-footer button::after{
+  content: "";
+  width: 0;
+  height: 3px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: red;
+}
+  
+.card-footer button span::before,
+.card-footer button span::after{
+  content: "";
+  width: 3px;
+  height: 0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: red;
+  ;
+}
+  
+.card-footer button:hover::before,
+.card-footer button:hover::after{
+  width: 100%;
+}
 
-  /* resonsive */
+.card-footer button:hover span::before, 
+.card-footer button:hover span::after{
+  height: 100%;
+}
+  
+.card-footer button.btn::after{
+  left: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn span::after{
+  right: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn::before{
+  right: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn span::before{
+  left: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+
+/* resonsive */
 @media(max-width: 767px){
   .NP-col {
       width: 50%;

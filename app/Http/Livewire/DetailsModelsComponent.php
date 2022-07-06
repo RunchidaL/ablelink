@@ -9,6 +9,7 @@ use App\Models\TypeModels;
 use App\Models\NetworkValue;
 use App\Models\JacketTypes;
 use App\Models\JacketProduct;
+use Cart;
 
 class DetailsModelsComponent extends Component
 {

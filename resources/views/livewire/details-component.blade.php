@@ -22,10 +22,10 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
-                    @csrf
-                    <button type='submit'>Add To Cart</button>
-                </form>
+                    <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
+                        @csrf
+                        <button type='submit'>Add To Cart</button>
+                    </form>
                 </div> 
             </div>
             <div class="relate-product">
@@ -52,36 +52,36 @@
                 <div class="types">
                     <p>Types:</p>
                     <div class="row">
-                    @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
-                        @foreach($types as $type)
-                            @if($type->series_id === $product_model->series_id)
-                            <div class="col d-flex">
-                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
-                            </div>
-                            @endif
-                        @endforeach
-                    @endforeach
+                        <div class="col d-flex">
+                            @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
+                                @foreach($types as $type)
+                                    @if($type->series_id === $product_model->series_id)
+                                    <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </div>     
                     </div>
                 </div><br>
                 <div class="jacket">
                     <p>Jacket Types:</p>
                     <div class="row">
-                    @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
-                        @foreach($jacket_products as $jacket_product)
-                            @if($jacket_product->type_id === $product_model->type_id)
-                            <div class="col d-flex">
+                        <div class="col d-flex">
+                            @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
+                                @foreach($jacket_products as $jacket_product)
+                                    @if($jacket_product->type_id === $product_model->type_id)
                                 <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
-                            </div>
-                            @endif
-                        @endforeach
-                    @endforeach
+                                        @endif
+                                @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div> 
             </div>
         </div>
     </div>
 
-    <div3 class="infomation">
+    <div class="infomation">
         <div class="tab-contral">
             <a href="#overview" id="overview">Overview</a>
             <a href="#application">Application</a>
@@ -97,45 +97,15 @@
             <p id="">{!! $product->overview !!}</p>
         </div>
         
-        
         <div class="tab-contents">
             <div class="line" id="application"></div>
             <h4>Application</h4>
             <p>{!! $product->application !!}</p>
         </div>
         
-        
         <div class="tab-contents">
             <div class="line" id="network_connectivity"></div>
             <h4>Network Connectivity</h4>
-
-        <!-- oum -->
-        <!-- @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
-            <p class="card-text"><small class="text-muted">{{$network_product->image_id->type->name}}</small></p>
-            <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
-        @endforeach
-
-        <br>
-        @foreach($network_products->where('product_id',$product->id) as $network_product)
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <p>{{$network_product->image_id->type->name}}</p>
-                    <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                <div class="card-body">
-                    <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}">{{$network_product->photo->name}}</a>
-                    <p class="card-text"><small class="text-muted">{{$network_product->photo->web_price}}</small></p>
-                </div>
-                </div>
-            </div>
-        </div>
-        @endforeach -->
-        <!-- oum -->
-
-
-        <!-- sui -->
             <div class="menu-wrap">
                 <ul class="menu-list" id="menu-list">
                     @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
@@ -145,7 +115,6 @@
             </div> 
             
             <div class="content"> 
-            
                 <div class="wrapper">
                 @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
                     <div id="item{{$loop->index}}" class="item">
@@ -200,6 +169,7 @@
             </div>
         </div>
         @endif
+        
         <div class="tab-contents" id="resources">
             <div class="line" id="feature"></div>
             <h4>Resources</h4>

@@ -3,8 +3,13 @@
 <!-- link -->
 
 <div class="cart-page">
-    @if(Cart::count() > 0)
     <div class="container cart-home">
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            <strong>Success</strong> {{Session::get('success_message')}}
+        </div>
+    @endif
+    @if(Cart::count() > 0)    
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
         </div>
@@ -56,7 +61,7 @@
                         <td></td>
                         <td></td>
                         <td><span><p class="button-total px-3">ยอดชำระเงิน</p></span></td>
-                        <td>฿{{$item->subtotal}}</td>
+                        <td>฿{{Cart::subtotal()}}</td>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -66,10 +71,10 @@
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
             <a class="button-paid" href="#">ชำระสินค้า</a>
         </div>
-    </div>
     @else
         <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
             ไม่มีสินค้าในตะกร้า
         </div>
-    @endif    
+    @endif 
+    </div>
 </div>
