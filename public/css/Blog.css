@@ -1,4 +1,4 @@
-.text{
+.text-blog{
   text-decoration: none;
 }
 
@@ -128,6 +128,7 @@
   color: #5ad67d;
   display: inline-block;
   position: relative;
+  text-decoration: underline;
 }
 
 .blog-card .description .read-more a:after{
@@ -173,7 +174,7 @@
   }
   .blog-card .meta {
     flex-basis: 35%;
-  }
+    }
   .blog-card .description {
     flex-basis: 60%;
   }

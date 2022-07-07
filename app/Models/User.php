@@ -17,12 +17,16 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public function dealers()
+    {
+        return $this->hasMany(Dealer::class,'dealerid');
+    }
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role',
-        'coin'
+        'role'
     ];
 
     /**

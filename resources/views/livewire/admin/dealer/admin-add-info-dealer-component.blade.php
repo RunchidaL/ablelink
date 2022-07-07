@@ -1,10 +1,10 @@
 <div class="container mt-1 p-5">
-    <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Info Dealer</h2>
+    <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add Info Dealer</h2>
     <br>
     <form enctype="multipart/form-data" wire:submit.prevent="addDealerinfo">
         @csrf
         <div class="row">
-            <h4><li>Dealer_ID</li> </h4>
+            <h4><li>Dealer_ID</li></h4>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
                         <label for="dealerid">*Dealer_Id</label>
@@ -100,8 +100,8 @@
                         <input type="text" name="idcompany" class="form-control"  wire:model="idcompany" required>
                     </div>
                 </div>
-                <div style="text-align: center" class="mt-3">
-                    <input type="submit" value="Submit" class="btn btn-success ">
+                <div style="text-align: center;" class="mt-3">
+                    <input type="submit" value="Submit" class="btn btn-success">
                 </div>
         </div>
     </form>

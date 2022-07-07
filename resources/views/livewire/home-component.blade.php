@@ -106,7 +106,7 @@
                             </div>
                             <div class="card-content">
                                 <a style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}"><h2 class="name">{{$post->title}}</h2></a>
-                                <a class="button" style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
+                                <a id="button" style="text-decoration: none;" href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
                             </div>
                         </div>
                         @endforeach
@@ -176,7 +176,7 @@
                 <div class="B">
                     <p class="text">แบรนด์เข้าร่วม</p>
                     <div class="brands">
-                        <div class="brands-row">
+                        <div class="row" id="row-brands">
                             <div class="brands-col">
                                 <a href="#"><img src="/images/brand 1.png" alt="logo"></a>
                             </div>
@@ -190,7 +190,7 @@
                                 <a href="#"><img src="/images/brand 4.png" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="brands-row">   
+                        <div class="row" id="row-brands">   
                             <div class="brands-col">
                                 <a href="#"><img src="/images/brand 5.png" alt="logo"></a>
                             </div>
@@ -204,7 +204,7 @@
                                 <a href="#"><img src="/images/brand 8.png" alt="logo"></a>
                             </div>
                         </div>
-                        <div class="brands-row">      
+                        <div class="row" id="row-brands">      
                             <div class="brands-col">
                                 <a href="#"><img src="/images/brand 9.png" alt="logo"></a>
                             </div>

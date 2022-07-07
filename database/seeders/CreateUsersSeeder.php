@@ -33,7 +33,6 @@ class CreateUsersSeeder extends Seeder
                 'email' => 'dealer@dealer.com',
                 'role' => '2',
                 'password' => bcrypt('1234'),
-                'coin' => '50000'
             ]
             ];
 

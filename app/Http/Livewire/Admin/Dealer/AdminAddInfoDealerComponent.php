@@ -4,10 +4,9 @@ namespace App\Http\Livewire\Admin\Dealer;
 
 use Livewire\Component;
 use App\Models\Dealer;
-use App\Models\User;
 use Livewire\WithFileUploads;
 
-class AdminEditDealerComponent extends Component
+class AdminAddInfoDealerComponent extends Component
 {
 
     use WithFileUploads;
@@ -26,32 +25,11 @@ class AdminEditDealerComponent extends Component
     public $idcompany;
     public $coin;
     public $dealerid;
-    public $D_id;
     
-    public function mount($infodealer_id)
-    {
-        $dealerinfo = Dealer::where('dealerid',$infodealer_id)->first();
-        $this->firstname = $dealerinfo->firstname;
-        $this->lastname = $dealerinfo->lastname;
-        $this->emailaddress = $dealerinfo->emailaddress;
-        $this->phonenumber = $dealerinfo->phonenumber;
-        $this->address = $dealerinfo->address;
-        $this->subdistrict = $dealerinfo->subdistrict;
-        $this->district = $dealerinfo->district;
-        $this->county = $dealerinfo->county;
-        $this->zipcode = $dealerinfo->zipcode;
-        $this->companyTH = $dealerinfo->companyTH;
-        $this->companyEN = $dealerinfo->companyEN;
-        $this->taxid = $dealerinfo->taxid;
-        $this->idcompany = $dealerinfo->idcompany;
-        $this->coin = $dealerinfo->coin;
-        $this->dealerid = $dealerinfo->dealerid;
-        $this->D_id = $dealerinfo->id;
-    }
 
     public function addDealerinfo()
     {
-        $dealerinfo = Dealer::find($this->D_id);
+        $dealerinfo = new Dealer();
         $dealerinfo->firstname = $this->firstname;
         $dealerinfo->lastname = $this->lastname;
         $dealerinfo->emailaddress = $this->emailaddress;
@@ -68,11 +46,11 @@ class AdminEditDealerComponent extends Component
         $dealerinfo->coin = $this->coin;
         $dealerinfo->dealerid = $this->dealerid;
         $dealerinfo->save();
-        session()->flash('message','Edit InfoDealer successs');
+        session()->flash('message','Add InfoDealer successs');
     }
 
     public function render()
     {
-        return view('livewire.admin.dealer.admin-edit-dealer-component')->layout("layout.navfoot");
+        return view('livewire.admin.dealer.admin-add-info-dealer-component')->layout("layout.navfoot");
     }
 }

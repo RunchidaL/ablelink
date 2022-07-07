@@ -7,7 +7,7 @@
     margin-bottom: 5%;
 }
 
-.brands-row{
+#row-brands{
     display: flex;
     align-items: center;
     justify-content: center;
