@@ -1,16 +1,28 @@
 <?php
 
 namespace App\Http\Livewire;
-
 use Livewire\Component;
 use Cart;
 
 class CartComponent extends Component
 {
-    public function store($product_id,$product_name,$product_price)
+    public function increaseQuantity($rowId)
     {
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
-        session()->flash('success_message','Item added in Cart');
+        $product = Cart::get($rowId);
+        $qty = $product->qty+1;
+        Cart::update($rowId,$qty);
+    }
+
+    public function decreaseQuantity($rowId)
+    {
+        $product = Cart::get($rowId);
+        $qty = $product->qty-1;
+        Cart::update($rowId,$qty);
+    }
+
+    public function delete($rowId)
+    {
+        Cart::remove($rowId);
         return redirect()->route('product.cart');
     }
 

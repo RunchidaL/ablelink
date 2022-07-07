@@ -1,18 +1,14 @@
-<!-- link -->
-<link href="/css/details.css" rel="stylesheet">
-<!-- link -->
-
 <div class="container">
     <div class="row top-content">
         <div class="col d-flex align-items-center justify-content-center">
-            <img src="{{asset('/images/products')}}/{{$product->image}}">
+            <img src="{{asset('/images/products')}}/{{$product -> image}}">
         </div>
         <div class="col" id="right">
             <p>{{$product->name}}</p>
             @if(($product->web_price) == '0')
                 <p></p>
             @else
-                <p>฿{{number_format($product->web_price)}}</p>
+                <p>฿{{number_format($product->web_price,2)}}</p>
             @endif
             <p>In stock {{$product->stock}}</p>
             <div class="quantity">
@@ -22,10 +18,7 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
-                        @csrf
-                        <button type='submit'>Add To Cart</button>
-                    </form>
+                    <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
             <div class="relate-product">

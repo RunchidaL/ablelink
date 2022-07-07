@@ -1,7 +1,3 @@
-<!-- link -->
-<link href="/css/details.css" rel="stylesheet">
-<!-- link -->
-
 <div class="container">
     <div class="row top-content">
         <div class="col d-flex align-items-center justify-content-center">
@@ -12,7 +8,7 @@
             @if(($model->web_price) == '0')
                 <p></p>
             @else
-                <p>{{number_format($model->web_price)}}</p>
+                <p>{{number_format($model->web_price,2)}}</p>
             @endif
             <p>In stock {{$model->stock}}</p>
             <div class="quantity">
@@ -22,10 +18,7 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <form action="{{route('product.addCart',['product_id'=>$model->id,'product_name'=>$model->name,'product_price'=>$model->web_price])}}" method="POST">
-                        @csrf
-                        <button type='submit'>Add To Cart</button>
-                    </form>
+                    <button wire:click.prevent="store({{$model->id}},'{{$model->name}}',{{$model->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
             <div class="relate-product">

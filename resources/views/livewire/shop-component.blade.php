@@ -1,7 +1,3 @@
-<!-- link -->
-<link href="/css/shop.css" rel="stylesheet">
-<!-- link -->
-
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
         <div>
@@ -18,14 +14,11 @@
                             @if(($product->web_price) == '0')
                                 <p></p>
                             @else
-                                <p>฿{{number_format($product->web_price)}}</p>
+                                <p>฿{{number_format($product->web_price,2)}}</p>
                             @endif
                         </div>
                         <div class="card-footer">
-                            <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
-                                @csrf
-                                <button type='submit' class="button btn"><span>Add to cart</span></button>
-                            </form>
+                            <button type='button' class="button btn" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})"><span>Add to cart</span></button>
                         </div>
                     </a>    
                 </div>

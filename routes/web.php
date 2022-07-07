@@ -65,7 +65,6 @@ Route::get('/forwork', ForworkComponent::class);
 Route::get('/contact', ContactComponent::class);
 
 Route::get('/cart', CartComponent::class)->name('product.cart');
-Route::post('/cart/create/{product_id}/{product_name}/{product_price}', [CartComponent::class,'store'])->name('product.addCart');
 
 Route::get('/aboutus', AboutusComponent::class);
 

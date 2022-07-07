@@ -1,12 +1,8 @@
-<!-- link -->
-<link href="/css/cart.css" rel="stylesheet">
-<!-- link -->
-
 <div class="cart-page">
     <div class="container cart-home">
     @if(Session::has('success_message'))
         <div class="alert alert-success">
-            <strong>Success</strong> {{Session::get('success_message')}}
+            {{Session::get('success_message')}}
         </div>
     @endif
     @if(Cart::count() > 0)    
@@ -17,11 +13,11 @@
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart-menu">
-                        <td class="image">รายการสินค้า</td>
-                        <td class="name"></td>
-                        <td class="price">ราคา</td>
-                        <td class="quantity">จำนวน</td>
-                        <td class="total">รวม</td>
+                        <td>รายการสินค้า</td>
+                        <td></td>
+                        <td>ราคา</td>
+                        <td>จำนวน</td>
+                        <td>รวม</td>
                         <td></td>
                     </tr>
                 </thead>
@@ -29,26 +25,30 @@
                     @foreach (Cart::content() as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
+                            @if($item->model->image =='')
+                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->product->image}}"></a>
+                            @else
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
+                            @endif
                         </td>
                         <td class="cart-name">
                             <a href="#">{{$item->model->name}}</a>
                         </td>
                         <td class="cart-price">
-                            <p class="group-cen">฿{{$item->model->web_price}}</p>
+                            <p class="group-cen">฿{{number_format($item->model->web_price,2)}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
-                                <a href="#" role="button" aria-pressed="true"><i class="bi bi-dash"></i></a>
+                                <a wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"><i class="bi bi-dash"></i></a>
                                 <span>{{$item->qty}}</span>
-                                <a href="#" role="button" aria-pressed="true"><i class="bi bi-plus"></i></a>
+                                <a wire:click.prevent="increaseQuantity('{{$item->rowId}}')"><i class="bi bi-plus"></i></a>
                             </div>
                         </td>
                         <td class="cart-total">
                             <p class="group-cen">฿{{$item->subtotal}}</p>
                         </td>
-                        <td class="cart-delete" >
-                            <a id="delete" class="cart-quantity-delete text-danger" onclick="return confirm('ต้องการลบใช่หรือไม่?')" href="#">
+                        <td class="cart-delete">
+                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?')">
                                 <i class="bi bi-x-lg"></i>
                             </a>
                         </td>
