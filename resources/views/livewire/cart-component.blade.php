@@ -3,8 +3,13 @@
 <!-- link -->
 
 <div class="cart-page">
-    @if(Cart::count() > 0)
     <div class="container cart-home">
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            <strong>Success</strong> {{Session::get('success_message')}}
+        </div>
+    @endif
+    @if(Cart::count() > 0)    
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
         </div>
@@ -23,14 +28,18 @@
                 <tbody class="customer-product">
                     @foreach (Cart::content() as $item)
                     <tr class="cart-wrapper">
-                        <!-- <td class="cart-product">
+                        <td class="cart-product">
+                            @if($item->model->image =='')
+                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->product->image}}"></a>
+                            @else
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
-                        </td> -->
+                            @endif
+                        </td>
                         <td class="cart-name">
                             <a href="#">{{$item->model->name}}</a>
                         </td>
                         <td class="cart-price">
-                            <p class="group-cen">฿{{$item->model->web_price}}</p>
+                            <p class="group-cen">฿{{$item->model->customer_price}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
@@ -56,7 +65,7 @@
                         <td></td>
                         <td></td>
                         <td><span><p class="button-total px-3">ยอดชำระเงิน</p></span></td>
-                        <td>฿{{$item->subtotal}}</td>
+                        <td>฿{{Cart::subtotal()}}</td>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -66,10 +75,10 @@
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
             <a class="button-paid" href="#">ชำระสินค้า</a>
         </div>
-    </div>
     @else
         <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
             ไม่มีสินค้าในตะกร้า
         </div>
-    @endif    
+    @endif 
+    </div>
 </div>

@@ -189,12 +189,12 @@ class AdminEditProductComponent extends Component
                     }
                 }
             }
-            $videosName = "";
+            $videosName = '';
             foreach($this->newvideos as $key=>$video)
             {
                 $videoName = $video->getClientOriginalName();
                 $video->storeAs('products',$videoName);
-                $videosName = $videosName. ','. $videoName ;
+                $videosName = $videosName . ','. $videoName;
             }
             $product->videos = $videosName;
         }

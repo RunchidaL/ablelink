@@ -1,13 +1,13 @@
 <!-- link -->
-<link href="/css/shop.css" rel="stylesheet">
+<!-- <link href="/css/shop.css" rel="stylesheet"> -->
 <!-- link -->
-
+<div>
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
         <div>
             <h2 class="text">สินค้าทั้งหมด</h2>
         </div>
-        <div class="row">
+        <div class="row" id="products">
             @foreach($products as $product)
             <div class="NP-col">
                 <div class="card">
@@ -22,10 +22,7 @@
                             @endif
                         </div>
                         <div class="card-footer">
-                            <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
-                                @csrf
-                                <button type='submit' class="button btn"><span>Add to cart</span></button>
-                            </form>
+                            <button type='button' class="button btn" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})"><span>Add to cart</span></button>
                         </div>
                     </a>    
                 </div>
@@ -36,6 +33,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

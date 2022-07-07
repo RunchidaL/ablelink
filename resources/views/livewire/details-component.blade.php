@@ -1,5 +1,5 @@
 <!-- link -->
-<link href="/css/details.css" rel="stylesheet">
+<!-- <link href="/css/details.css" rel="stylesheet"> -->
 <!-- link -->
 
 <div class="container">
@@ -22,10 +22,7 @@
                     <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                <form action="{{route('product.addCart',['product_id'=>$product->id,'product_name'=>$product->name,'product_price'=>$product->web_price])}}" method="POST">
-                    @csrf
-                    <button type='submit'>Add To Cart</button>
-                </form>
+                    <button type='submit' wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
             <div class="relate-product">
@@ -87,7 +84,7 @@
         </div>
     </div>
 
-    <div3 class="infomation">
+    <div class="infomation">
         <div class="tab-contral">
             <a href="#overview" id="overview">Overview</a>
             <a href="#application">Application</a>
@@ -103,45 +100,15 @@
             <p id="">{!! $product->overview !!}</p>
         </div>
         
-        
         <div class="tab-contents">
             <div class="line" id="application"></div>
             <h4>Application</h4>
             <p>{!! $product->application !!}</p>
         </div>
         
-        
         <div class="tab-contents">
             <div class="line" id="network_connectivity"></div>
             <h4>Network Connectivity</h4>
-
-        <!-- oum -->
-        <!-- @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
-            <p class="card-text"><small class="text-muted">{{$network_product->image_id->type->name}}</small></p>
-            <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
-        @endforeach
-
-        <br>
-        @foreach($network_products->where('product_id',$product->id) as $network_product)
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <p>{{$network_product->image_id->type->name}}</p>
-                    <img width="100" height="100"src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                <div class="card-body">
-                    <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}">{{$network_product->photo->name}}</a>
-                    <p class="card-text"><small class="text-muted">{{$network_product->photo->web_price}}</small></p>
-                </div>
-                </div>
-            </div>
-        </div>
-        @endforeach -->
-        <!-- oum -->
-
-
-        <!-- sui -->
             <div class="menu-wrap">
                 <ul class="menu-list" id="menu-list">
                     @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
@@ -151,7 +118,6 @@
             </div> 
             
             <div class="content"> 
-            
                 <div class="wrapper">
                 @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
                     <div id="item{{$loop->index}}" class="item">
@@ -193,19 +159,25 @@
                         $videos = explode(",",$product->videos);
                     @endphp
                     @foreach($videos as $video)
-                    <div class="col-4 mt-2">
-                        <div class="card" style="width: 20rem;">
-                            <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}" sandbox=""></iframe>
-                            <div class="card-body">
-                                <p class="card-text">{{$video}}</p>
+                        @if($video)
+                            <div class="col-4 mt-2">
+                                <div class="card" style="width: 20rem;">
+                                    <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}"></iframe>
+                                    @php
+                                        $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video);
+                                    @endphp
+                                    <div class="card-body">
+                                        <p class="card-text">{{$withoutExt}}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
         </div>
         @endif
+        
         <div class="tab-contents" id="resources">
             <div class="line" id="feature"></div>
             <h4>Resources</h4>

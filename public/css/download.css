@@ -40,8 +40,9 @@
 }
 
 .desc .row{
-    margin: 3% 3% 3% 3%;
+    margin: 3% 0 3% 0;
     display: flex;
+    justify-content: center;
 }
 
 .col-1{
@@ -67,14 +68,11 @@
     width: 350px;
     height: 250px;
     justify-content: center;
+    margin-bottom: 5%;
 }
 
 .col-1 p{
     align-items: end;
-}
-
-.desc .row{
-    justify-content: center;
 }
 
 @media(max-width: 1024px) {
