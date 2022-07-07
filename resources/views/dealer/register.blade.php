@@ -105,13 +105,12 @@
                     <div class="col-md-6 mb-3">
                         <label for="file4">งบการเงิน</label>
                         <input type="file" name="file4" class="form-control">
-                    </div>
-                
-                <input type="submit" value="Submit" class="btn btn mx-auto">
+                    </div>     
+                <input type="submit" value="Submit" class="btn btn mx-auto" style="margin-top: 30px;">
             </div>
         </form>
     </div>
-    <div class="signin">
+    <div class="signin" style="margin-top:-40px">
         <p>Already have an account?<a href="{{ route('login') }}"> Sign In</a></p>
         <p><i class="bi bi-dash"></i>or create an user?<i class="bi bi-dash"></i></p>
         <a href="{{ route('register') }}"><button>User account</button></a>

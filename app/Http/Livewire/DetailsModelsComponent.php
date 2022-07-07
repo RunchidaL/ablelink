@@ -9,6 +9,7 @@ use App\Models\TypeModels;
 use App\Models\NetworkValue;
 use App\Models\JacketTypes;
 use App\Models\JacketProduct;
+use Cart;
 
 class DetailsModelsComponent extends Component
 {
@@ -17,6 +18,13 @@ class DetailsModelsComponent extends Component
     public function mount($modelslug)
     {
         $this->modelslug = $modelslug;
+    }
+
+    public function store($product_id,$product_name,$product_price)
+    {
+        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\ProductModels');
+        session()->flash('success_message','Item added in Cart');
+        return redirect()->route('product.cart');
     }
 
     public function render()

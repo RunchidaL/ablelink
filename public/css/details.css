@@ -1,7 +1,3 @@
-.tab-contents p{
-    font-family: 'Prompt', sans-serif;
-}
-
 #right{
     margin-top: 40px;
 }
@@ -37,6 +33,32 @@
     border-radius: 30px;
 }
 
+.quantity .addtocart button:hover{
+    background: #245595;
+}
+
+.relate-product a{
+    color: black;
+    text-decoration: none;
+    
+}
+
+.relate-product .relate-box{
+    width: fit-content;
+    padding: 0 15px;
+    margin-right:10px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 3px;
+}
+
+.relate-product .relate-box:hover{
+    background-color: rgb(241, 241, 241);
+}
+
+.jacket{
+    margin-bottom: 3rem;
+}
+
 .infomation{
     margin-top: 40px;
 }
@@ -44,6 +66,7 @@
 .tab-contral{
     padding: 0 0 30px 0;
     text-align: center;
+    white-space: none;
 }
 
 .tab-contral a{
@@ -63,9 +86,8 @@
     margin: 5% 10% 5% 10%;
 }
 
-.line{
-    padding-top: 40px;
-    border-top: 3px solid ;
+.tab-contents p{
+    font-family: 'Prompt', sans-serif;
 }
 
 .tab-contents .col{
@@ -78,6 +100,11 @@
     border-radius: 0;
     color: black;
     height: fit-content;
+}
+
+.line{
+    border-top: 1px solid ;
+    padding: 40px 10% 0 10%;
 }
 
 .menu-wrap ul.menu-list{
@@ -169,4 +196,8 @@
     width: 100%;
     font-size: 14px;
     font-weight: 600;
+}
+
+.top-content{
+    padding: 0 10%;
 }

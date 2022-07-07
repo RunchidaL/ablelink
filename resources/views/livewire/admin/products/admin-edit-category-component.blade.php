@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md">
-                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="submit" value="Update" class="btn btn-success">
                     </div>    
                 </div>
             </div>

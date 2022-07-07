@@ -116,12 +116,12 @@ class AdminAddProductComponent extends Component
 
         if($this->videos)
         {
-            $videosName = "";
+            $videosName = '';
             foreach($this->videos as $key=>$video)
             {
                 $videoName = $video->getClientOriginalName();
                 $video->storeAs('products',$videoName);
-                $videosName = $videosName. ','. $videoName ;
+                $videosName = $videosName . ',' . $videoName ;
             }
             $product->videos = $videosName;
         }

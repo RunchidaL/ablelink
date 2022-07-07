@@ -307,26 +307,34 @@ footer *{
     box-sizing: border-box;
 }
 
-.footer .row{
-    justify-content: left;
-}
 
-.footer{
+
+.footer-wrapper{
     width: 100%;
     margin-top: auto;
     background-color: #E1B069;  /*change*/
-    padding: 10px 0px;
+    padding: 0.625rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 .footer-col{
-    position: relative;
-    width: 20%;
-    padding: 0 15px ;
+    padding-right: 2rem ;
+    min-width: 200px;
 }
-
+.footer-col:nth-child(1) {
+    padding-left: 2rem;
+}
 .footer-col img{
-    width: 70%;
-    height: auto;
+    margin-top: 0.7rem;
+    height: 60px;
     display: flex;
 }
 
@@ -351,20 +359,21 @@ footer *{
 }
 
 .footer-col ul li a:hover{
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
-.row{
-    display: flex;
-    flex-wrap: wrap;
+.footer-col .social { 
+    white-space: nowrap;
+    min-width: fit-content;
 }
+
 
 .footer-col .social a{
     display: inline-block;
     height: 40px;
     width: 40px;
     background-color: #ffffff;
-    margin: 10px -30px 0 30px; /*top right bottom left*/
+    margin: 0.7rem 0; 
     text-align: center;
     line-height: 40px;
     border-radius: 50%;

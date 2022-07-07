@@ -25,14 +25,22 @@ p{
 }
 
 .cart-menu td{
-    text-align: center;
-}
-.cart-conclu {
+    align-items: center;
     text-align: center;
 }
 
 .cart-wrapper td{
     vertical-align: middle;
+}
+
+.cart-product a img{
+    width: 100px;
+}
+
+.cart-product a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-wrapper .group-cen{
@@ -45,14 +53,8 @@ td.cart-quantity{
     white-space: nowrap;
 }
 
-.cart-product a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cart-product a img{
-    width: 100px;
+.cart-conclu{
+    text-align: center;
 }
 
 .cart-conclu td span{
@@ -68,6 +70,7 @@ td.cart-quantity{
     padding: 0.2rem 2rem;
     border: solid 1px white;
     color: white;
+    white-space: nowrap;
 }
 
 .cart-foot{
@@ -102,6 +105,8 @@ td.cart-quantity{
     color: white;
 } 
 
-
+.alert{
+    width: 100%;
+}
 
 

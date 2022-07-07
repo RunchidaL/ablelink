@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -6,13 +6,10 @@
                     <div class="panel-heading">
                         <div class="row" id="head">
                             <div class="col-md-4">
-                                <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add New Model</h2>
+                                <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Model</h2>
                             </div>
                         </div>
                     </div>
-                    @if(Session::has('message'))
-                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                    @endif
                     <div class="panel-body">
                         <form class="form-panel" enctype='multipart/form-data' wire:submit.prevent="updateModel"> @csrf
                             <div class="form-group">
@@ -109,10 +106,13 @@
                             </div>                
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="file" class="btn btn-success">Submit</button>
+                                    <button type="file" class="btn btn-success my-4">Update</button>
                                 </div>
                             </div>
                         </form>
+                        @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -124,7 +124,8 @@
     <script>
         tinymce.init({
             selector: '#description',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();

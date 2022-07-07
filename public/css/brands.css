@@ -2,7 +2,18 @@
     margin-bottom: 0%;
 }
 
-.brands-col {
+.B{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.brands-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brands-col{
     position: relative;
     width: 20%;
 }
@@ -10,19 +21,7 @@
 .brands-col img{
     width: 100%;
     height: auto;
-    display: flex;
     padding: 5%;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.B{
-    margin-top: 5%;
-    margin-bottom: 5%;
 }
 
 @media(max-width: 767px){
