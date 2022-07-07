@@ -12,10 +12,10 @@
             @endif
             <p>In stock {{$product->stock}}</p>
             <div class="quantity">
-                <input value="1">
+                <input wire:model="qty" pattern="[0-9]*">
                 <div class="handle">
-                    <a href="#"><button><i class="bi bi-caret-up"></i></button></a>
-                    <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
+                    <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
+                    <a wire:click.prevent="decreaseQuantity"><butoon><i class="bi bi-caret-down"></i></butoon></a>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>

@@ -35,7 +35,7 @@
                             <a href="#">{{$item->model->name}}</a>
                         </td>
                         <td class="cart-price">
-                            <p class="group-cen">฿{{number_format($item->model->web_price,2)}}</p>
+                            <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
@@ -45,7 +45,7 @@
                             </div>
                         </td>
                         <td class="cart-total">
-                            <p class="group-cen">฿{{$item->subtotal}}</p>
+                            <p class="group-cen">฿{{number_format($item->subtotal,2)}}</p>
                         </td>
                         <td class="cart-delete">
                             <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?')">
