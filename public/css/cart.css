@@ -25,6 +25,7 @@ p{
 }
 
 .cart-menu td{
+    align-items: center;
     text-align: center;
 }
 
@@ -69,6 +70,7 @@ td.cart-quantity{
     padding: 0.2rem 2rem;
     border: solid 1px white;
     color: white;
+    white-space: nowrap;
 }
 
 .cart-foot{

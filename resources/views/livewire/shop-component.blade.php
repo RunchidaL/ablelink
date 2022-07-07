@@ -1,7 +1,3 @@
-<!-- link -->
-<!-- <link href="/css/shop.css" rel="stylesheet"> -->
-<!-- link -->
-<div>
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
         <div>
@@ -18,7 +14,7 @@
                             @if(($product->web_price) == '0')
                                 <p></p>
                             @else
-                                <p>฿{{number_format($product->web_price)}}</p>
+                                <p>฿{{number_format($product->web_price,2)}}</p>
                             @endif
                         </div>
                         <div class="card-footer">

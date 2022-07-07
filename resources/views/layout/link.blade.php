@@ -29,6 +29,7 @@
     @yield('link_login')
     <link href="{{asset('/css/details.css')}}" rel="stylesheet">
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/cart.css')}}" rel="stylesheet">
     @livewireStyles
 
   </head>
