@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center" id="row-product">
         <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
-            <img src="{{asset('/images/products')}}/{{$product -> image}}">
+            <img src="{{asset('/images/products')}}/{{$product->image}}">
         </div>
         <div class="col-4" id="right-product">
             <div class="head-product">
@@ -88,7 +88,6 @@
             </div>
         </div>
     </div>
-
     <div class="infomation">
         <div class="tab-contral">
             <a href="#overview" id="overview">Overview</a>
@@ -99,7 +98,6 @@
             <a href="#videos">Videos</a>
             <a href="#resources">Resources</a>
         </div>
-        
         <div class="tab-contents">
             <h4>Overview</h4>
             <p id="">{!! $product->overview !!}</p>
@@ -124,31 +122,36 @@
             
             <div class="content"> 
                 <div class="wrapper">
-                @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
-                    <div id="item{{$loop->index}}" class="item">
-                        <img src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                <div>
-                                    <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->name}}</a>
-                                    <div class="price">฿{{number_format($network_product->photo->web_price)}}</div>
-                                </div>
+                @foreach($network_images as $network_image)
+                    @foreach($network_products->where('product_id',$product->id)->unique('network_image_id') as $network_product)
+                        @if($network_image->id == $network_product->network_image_id)
+                        <div id="item{{$loop->index}}" class="item">
+                            <img src="{{asset('/images/products')}}/{{$network_image->image}}">
+                            <div class="tag-list">
+                                @foreach($network_products->where('product_id',$product->id) as $network_product)
+                                    @if($network_image->id == $network_product->network_image_id)
+                                        <div class="tag-item">
+                                            <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                            <div>
+                                                <a href="{{route('product.details',['slug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->name}}</a>
+                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                @endforeach  
+                        @endif
+                    @endforeach
+                @endforeach
                 </div>
             </div>
-        </div>
-    
+        </div>  
         <div class="tab-contents">
             <div class="line" id="item-spotlight"></div>
             <h4>Item Spotlight</h4>
             <p>{!! $product->item_spotlight !!}</p>
         </div>
-        
-        
         <div class="tab-contents" >
             <div class="line" id="feature"></div>
             <h4>Feature</h4>
@@ -159,13 +162,13 @@
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
                 <h4>videos</h4>
-                <div class="row">
+                <div class="video">
                     @php
                         $videos = explode(",",$product->videos);
                     @endphp
                     @foreach($videos as $video)
                         @if($video)
-                            <div class="col-4 mt-2">
+                            <div class="file-detail">
                                 <div class="card" style="width: 20rem;">
                                     <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}"></iframe>
                                     @php
@@ -182,31 +185,29 @@
             </div>
         </div>
         @endif
-        
         <div class="tab-contents" id="resources">
             <div class="line" id="feature"></div>
             <h4>Resources</h4>
-            <br>
-            <div class="row" id="file_re">
+            <div class="download">
                 @if(($product->datasheet) == "")
                 @else
-                    <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
+                    <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
                 @endif
                 @if(($product->firmware) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
+                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
                 @endif
                 @if(($product->guide) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
+                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
                 @endif
                 @if(($product->cert) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
+                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
                 @endif
                 @if(($product->config) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
+                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
                 @endif
             </div>
         </div>

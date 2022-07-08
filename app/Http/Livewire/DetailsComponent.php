@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\NetworkValue;
+use App\Models\NetworkImage;
 use App\Models\ProductModels;
 use App\Models\SeriesModels;
 use App\Models\TypeModels;
@@ -55,11 +56,12 @@ class DetailsComponent extends Component
     {
         $product = Product::where('slug',$this->slug)->first();
         $network_products = NetworkValue::all();
+        $network_images = NetworkImage::all();
         $product_models = ProductModels::all();
         $series = SeriesModels::all();
         $types = TypeModels::all();
         $jacket_products = JacketProduct::all();
         $jackets = JacketTypes::all();
-        return view('livewire.details-component',['product'=>$product,'network_products'=>$network_products,'product_models'=>$product_models,'series'=>$series,'types'=>$types,'jackets'=>$jackets,'jacket_products'=>$jacket_products])->layout("layout.navfoot");
+        return view('livewire.details-component',['product'=>$product,'network_products'=>$network_products,'product_models'=>$product_models,'series'=>$series,'types'=>$types,'jackets'=>$jackets,'jacket_products'=>$jacket_products,'network_images'=>$network_images])->layout("layout.navfoot");
     }
 }
