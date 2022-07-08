@@ -4,11 +4,11 @@
             <img src="{{asset('/images/products')}}/{{$model->product->image}}">
         </div>
         <div class="col" id="right">
-            <p>{{$model->name}}</p>
-            @if(($model->web_price) == '0')
+            <p>{{$model->slug}}, {{$model->name}}</p>
+            @if(($model->web_price) == '1')
                 <p></p>
             @else
-                <p>{{number_format($model->web_price,2)}}</p>
+                <p>฿{{number_format($model->customer_price,2)}}</p>
             @endif
             <p>In stock {{$model->stock}}</p>
             <div class="quantity">
@@ -57,7 +57,12 @@
                     </div>
                 </div><br>
                 <div class="jacket">
-                    <p>Jacket Types:</p>
+                    @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
+                        @if($product_model->jacket_id == '')
+                        @else
+                            <p>Jacket Types:</p>
+                        @endif
+                    @endforeach
                     <div class="row">
                         <div class="col d-flex">
                             @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)

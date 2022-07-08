@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success my-4">Submit</button>
                                 </div>
                             </div>
                         </form>
