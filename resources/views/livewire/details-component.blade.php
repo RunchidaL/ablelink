@@ -14,8 +14,8 @@
             <div class="quantity">
                 <input value="1">
                 <div class="handle">
-                    <a href="#"><button><i class="bi bi-caret-up"></i></button></a>
-                    <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
+                    <button><i class="bi bi-caret-up"></i></button>
+                    <button><i class="bi bi-caret-down"></i></button>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
