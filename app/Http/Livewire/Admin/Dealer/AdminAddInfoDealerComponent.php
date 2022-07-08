@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Dealer;
 
 use Livewire\Component;
 use App\Models\Dealer;
+use App\Models\User;
 use Livewire\WithFileUploads;
 
 class AdminAddInfoDealerComponent extends Component
@@ -51,6 +52,7 @@ class AdminAddInfoDealerComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.dealer.admin-add-info-dealer-component')->layout("layout.navfoot");
+        $User = User::all();
+        return view('livewire.admin.dealer.admin-add-info-dealer-component',['User'=>$User])->layout("layout.navfoot");
     }
 }
