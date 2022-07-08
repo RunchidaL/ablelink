@@ -14,17 +14,35 @@ use Cart;
 class DetailsModelsComponent extends Component
 {
     public $modelslug;
+    public $qty;
 
     public function mount($modelslug)
     {
         $this->modelslug = $modelslug;
+        $this->qty = 1;
     }
 
     public function store($product_id,$product_name,$product_price)
     {
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\ProductModels');
+        Cart::add($product_id,$product_name,$this->qty,$product_price)->associate('App\Models\ProductModels');
         session()->flash('success_message','Item added in Cart');
         return redirect()->route('product.cart');
+    }
+
+    public function increaseQuantity()
+    {
+        $model = ProductModels::where('slug',$this->modelslug)->first();
+        if(($this->qty)+1 <= $model->stock){
+            $this->qty++;
+        }
+    }
+
+    public function decreaseQuantity()
+    {
+        if($this->qty > 1)
+        {
+            $this->qty--;
+        }
     }
 
     public function render()

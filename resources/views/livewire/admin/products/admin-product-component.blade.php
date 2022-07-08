@@ -43,7 +43,7 @@
                                 <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td>
                                 <td class="product-name">{{$product->name}}</td>
                                 <td class="product-name">{{$product->slug}}</td>
-                                <td>{{number_format($product->web_price)}}</td>
+                                <td>{{$product->web_price == 0 ? 'Show':'Hide'}}</td>
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)

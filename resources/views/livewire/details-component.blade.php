@@ -1,47 +1,52 @@
 <div class="container">
-    <div class="row top-content">
-        <div class="col d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center" id="row-product">
+        <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
             <img src="{{asset('/images/products')}}/{{$product -> image}}">
         </div>
-        <div class="col" id="right">
-            <p>{{$product->name}}</p>
-            @if(($product->web_price) == '0')
-                <p></p>
-            @else
-                <p>฿{{number_format($product->web_price,2)}}</p>
-            @endif
-            <p>In stock {{$product->stock}}</p>
+        <div class="col-4" id="right-product">
+            <div class="head-product">
+                <p>{{$product->slug}}, {{$product->name}}</p>
+                @if(($product->web_price) == '1')
+                @else
+                    <p>฿{{number_format($product->customer_price,2)}}</p>
+                @endif
+                <div class="head-product-stock">
+                    <p>In stock {{$product->stock}}</p>
+                </div>
+            </div>
             <div class="quantity">
-                <input value="1">
-                <div class="handle">
-                    <a href="#"><button><i class="bi bi-caret-up"></i></button></a>
-                    <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
+                <div class="add-qty">
+                    <input wire:model="qty">
+                    <div class="handle">
+                        <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
+                        <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
+                    </div>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
             <div class="relate-product">
-                <div class="models"><br>
+                <div class="models">
                     <p>Models:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                            @foreach($product_models->where('product_id',$product->id) as $product_model)
-                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
-                            @endforeach
-                        </div>
+                    <div class="relate-group">
+                        @foreach($product_models->where('product_id',$product->id) as $product_model)
+                            <div class="relate-box">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="series">
                     <p>Series:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                            @foreach($product_models->where('group_products',$product->groupproduct_id)->unique('series_id') as $product_model)
-                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->series->name}}</a>
-                            @endforeach
-                        </div>
+                    <div class="relate-group">
+                        @foreach($product_models->where('group_products',$product->groupproduct_id)->unique('series_id') as $product_model)
+                            <div class="relate-box">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->series->name}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="types">
                     @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
                         @if($product_model->type_id == '')
@@ -49,16 +54,18 @@
                         <p>Types:</p>
                         @endif
                     @endforeach
-                    <div class="col d-flex">
+                    <div class="relate-group">
                         @foreach($product_models->where('product_id',$product->id)->unique('series_id') as $product_model)
                             @foreach($types as $type)
                                 @if($type->series_id === $product_model->series_id)
-                                <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
+                                <div class="relate-box">
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
+                                </div>
                                 @endif
                             @endforeach
                         @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="jacket">
                     @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
                         @if($product_model->jacket_id == '')
@@ -66,12 +73,14 @@
                             <p>Jacket Types:</p>
                         @endif
                     @endforeach
-                    <div class="col d-flex">
+                    <div class="relate-group">
                         @foreach($product_models->where('product_id',$product->id)->unique('type_id') as $product_model)
                             @foreach($jacket_products as $jacket_product)
                                 @if($jacket_product->type_id === $product_model->type_id)
-                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
-                                    @endif
+                                <div class="relate-box">
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
+                                </div>
+                                @endif
                             @endforeach
                         @endforeach
                     </div>
@@ -178,7 +187,7 @@
             <div class="line" id="feature"></div>
             <h4>Resources</h4>
             <br>
-            <div class="row">
+            <div class="row" id="file_re">
                 @if(($product->datasheet) == "")
                 @else
                     <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>

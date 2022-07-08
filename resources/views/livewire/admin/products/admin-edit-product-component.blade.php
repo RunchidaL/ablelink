@@ -70,7 +70,10 @@
                             <div class="form-group">
                                 <label class="col-md-4">Web price</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="web_price">
+                                    <select class="form-control" wire:model="web_price">
+                                        <option value="0">Show</option>
+                                        <option value="1">Hide</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

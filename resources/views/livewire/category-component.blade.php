@@ -17,10 +17,9 @@
                 <img src="{{asset('/images/products')}}/{{$product -> image}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-title">{{$product -> name}}</p>
-                    @if(($product->web_price) == '0')
-                        <p class="card-text"></p>
+                    @if(($product->web_price) == '1')
                     @else
-                        <p class="card-text">฿{{number_format($product->web_price)}}</p>
+                        <p class="card-text">฿{{number_format($product->customer_price)}}</p>
                     @endif
                 </div>
                 <div class="card-footer">
