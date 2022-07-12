@@ -50,6 +50,7 @@ use App\Http\Livewire\Admin\products\EditGroupComponent;
 use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminHomecomponent;
+use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -90,6 +91,8 @@ Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryCompon
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
+
+Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
 
 Auth::routes();
 
