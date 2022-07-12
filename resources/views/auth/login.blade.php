@@ -6,9 +6,9 @@
 
 @section('content2')
 
-<div class="row">
-    <div class="col container">
-        <div class="left">
+<div class="h-screen">
+    <div class="left">
+        <div class="left-con">
             <div class="head">
                 <img src="/images/logoAbleLink.png" alt="logo">
                 <a>| Sign In</a>
@@ -21,7 +21,7 @@
                             <strong>{{$message}}</strong>
                         </div>
                     @endif
-                    <div class="row mb-3">
+                    <div class="mb-3">
                         <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
                         <div class="col-md-6">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -32,7 +32,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="mb-3">
                         <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
                         <div class="col-md-6">
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -42,25 +42,26 @@
                                 </span>
                             @enderror
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">
+                                <a href="{{ route('password.request') }}" forgotPass>
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
                             <div class="bottom">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="submit" class="btn btn justify-content-md-end">{{ __('Login') }}</button> 
+                                    <button type="submit" class="btn justify-content-md-end">{{ __('Login') }}</button> 
                                 </div>
                                 <br>
-                                <p>New Customer?<a href="{{ route('register') }}"> Create an account</a></p>
+                                <p class="underline">New Customer?&nbsp<a href="{{ route('register') }}"><span>Create an account</span></a></p>
                             </div>
                         </div> 
                     </div>
-                </form>
+                </form> 
             </div>
         </div>
+        
     </div> 
-    <div class="col" style="margin: 0; padding: 0;">
-        <img src="/images/signin.png">
+    <div class="right">
+        <img  src="/images/signin.png">
     </div>
 </div>
 @endsection

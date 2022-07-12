@@ -3,16 +3,26 @@
         <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
             <img src="{{asset('/images/products')}}/{{$model->product->image}}">
         </div>
+        @if(($model->product->images) == "")
+        @else
+            @php
+                $pimages = explode(",",$model->product->images);
+            @endphp
+            @foreach($pimages as $pimage)
+                @if($pimage)
+                    <img width="100" src="{{asset('/images/products')}}/{{$pimage}}"/>
+                @endif
+            @endforeach
+        @endif
         <div class="col-4" id="right-product">
             <div class="head-product">
-                <p>{{$model->slug}}, {{$model->name}}</p>
-                @if(($model->web_price) == '1')
-                    <p></p>
-                @else
-                    <p>฿{{number_format($model->customer_price,2)}}</p>
-                @endif
-                <div class="head-product-stock">
-                    <p>In stock {{$model->stock}}</p>
+                <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
+                <div class="head-product-price">
+                    @if(($model->web_price) == '1')
+                        <span>In stock {{$model->stock}}</span>
+                    @else
+                        <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                    @endif
                 </div>
             </div>
             <div class="quantity">
@@ -153,7 +163,7 @@
         @else
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
-                <h4>videos</h4>
+                <h4>Videos</h4>
                 <div class="video">
                     @php
                         $videos = explode(",",$model->product->videos);
@@ -185,23 +195,33 @@
             <div class="download">
                 @if(($model->product->datasheet) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$model->product->datasheet}}">Datasheet</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
+                </div>
                 @endif
                 @if(($model->product->firmware) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$model->product->firmware}}">Firm ware</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
+                </div>
                 @endif
                 @if(($model->product->guide) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$model->product->guide}}">Guide</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
+                </div>
                 @endif
                 @if(($model->product->cert) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$model->product->cert}}">Certificate</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->cert}}"><i class="bi bi-file-check"></i> Certificate</a>
+                </div>
                 @endif
                 @if(($model->product->config) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$model->product->config}}">Config</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
+                </div>
                 @endif
             </div>
         </div>

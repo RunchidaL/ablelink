@@ -6,23 +6,23 @@
         @if(($product->images) == "")
         @else
             @php
-                $images = explode(",",$product->images);
+                $pimages = explode(",",$product->images);
             @endphp
-            @foreach($images as $image)
-                @if($image)
-                    <img width="100" height="100" src="{{url('/images/products')}}/{{$image}}"/>
+            @foreach($pimages as $pimage)
+                @if($pimage)
+                    <img width="100" src="{{asset('/images/products')}}/{{$pimage}}"/>
                 @endif
             @endforeach
         @endif
         <div class="col-4" id="right-product">
             <div class="head-product">
-                <p>{{$product->slug}}, {{$product->name}}</p>
-                @if(($product->web_price) == '1')
-                @else
-                    <p>฿{{number_format($product->customer_price,2)}}</p>
-                @endif
-                <div class="head-product-stock">
-                    <p>In stock {{$product->stock}}</p>
+                <p>{{$product->name}}<span> #{{$product->slug}}</span></p> 
+                <div class="head-product-price">
+                    @if(($product->web_price) == '1')
+                        <p><span>In stock {{$product->stock}}</span></p>
+                    @else
+                        <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
+                    @endif
                 </div>
             </div>
             <div class="quantity">
@@ -34,21 +34,10 @@
                     </div>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}},{{$l}})">Add To Cart</button>
+                    <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
-            @if($product->subCategories == '')
             <div class="relate-product">
-            @elseif($product->subCategories->name == 'Cabling')
-            <div class="relate-product">
-                <div class="lenght">
-                <p>Lenght:</p>
-                    <div class="relate-group">
-                        <input wire:model="l">
-                    </div>
-                </div>
-            @endif
-            <!-- <div class="relate-product"> -->
                 <div class="models">
                     <p>Models:</p>
                     <div class="relate-group">
@@ -183,7 +172,7 @@
         @else
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
-                <h4>videos</h4>
+                <h4>Videos</h4>
                 <div class="video">
                     @php
                         $videos = explode(",",$product->videos);
@@ -213,23 +202,33 @@
             <div class="download">
                 @if(($product->datasheet) == "")
                 @else
-                    <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$product -> datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
+                </div>
                 @endif
                 @if(($product->firmware) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$product -> firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
+                </div>
                 @endif
                 @if(($product->guide) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$product -> guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
+                </div>
                 @endif
                 @if(($product->cert) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$product -> cert}}"><i class="bi bi-file-check"></i> Certificate</a>
+                </div>
                 @endif
                 @if(($product->config) == "")
                 @else
-                <div class="file-detail"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$product -> config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
+                </div>
                 @endif
             </div>
         </div>

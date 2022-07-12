@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Images</label>
+                                <label class="col-md-4">Product Gallery</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="newimages" multiple>
                                     @if($newimages)
@@ -116,9 +116,9 @@
                                             @endif
                                         @endforeach
                                     @else
-                                        @foreach($p_images as $p_image)
-                                            @if($p_image)
-                                                <img src="{{asset('images/products')}}/{{$p_image}}" width="120"/>
+                                        @foreach($pimages as $pimage)
+                                            @if($pimage)
+                                                <img src="{{url('images/products')}}/{{$pimage}}" width="120"/>
                                             @endif
                                         @endforeach
                                     @endif

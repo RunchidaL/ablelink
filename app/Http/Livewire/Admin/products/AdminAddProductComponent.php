@@ -79,16 +79,15 @@ class AdminAddProductComponent extends Component
         $product->image = $imageName;
         if($this->p_images)
         {
-            $p_imagesName = '';
+            $imagesName = '';
             foreach($this->p_images as $key=>$image)
             {
-                $p_imageName = $image->getClientOriginalName();
-                $image->storeAs('products',$p_imageName);
-                $p_imagesName = $p_imagesName . ',' . $p_imageName ;
+                $imageName = $image->getClientOriginalName();
+                $image->storeAs('products',$imageName);
+                $imagesName = $imagesName . ',' . $imageName ;
             }
-            $product->images = $p_imagesName;
+            $product->images = $imagesName;
         }
-
         if($this->datasheet)
         {
             $file1 = $this->datasheet->getClientOriginalName();
