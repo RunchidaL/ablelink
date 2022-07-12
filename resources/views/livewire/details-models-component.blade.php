@@ -33,7 +33,7 @@
                     <div class="relate-group">
                         @foreach($product_models->where('product_id',$model->product->id) as $product_model)
                             <div class="relate-box">
-                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->name}}</a>
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
                             </div>
                         @endforeach
                     </div>

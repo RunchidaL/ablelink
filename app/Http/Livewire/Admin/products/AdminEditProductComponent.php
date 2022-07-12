@@ -27,6 +27,7 @@ class AdminEditProductComponent extends Component
     public $customer_price;
     public $stock;
     public $image;
+    public $p_images;
     public $datasheet;
     public $firmware;
     public $guide;
@@ -34,6 +35,7 @@ class AdminEditProductComponent extends Component
     public $config;
     public $category_id;
     public $newimage;
+    public $newimages;
     public $newdatasheet;
     public $newfirmware;
     public $newguide;
@@ -67,6 +69,7 @@ class AdminEditProductComponent extends Component
         $this->customer_price = $product->customer_price;
         $this->stock = $product->stock;
         $this->image = $product->image;
+        $this->p_images = explode(",",$product->images);
         $this->datasheet = $product->datasheet;
         $this->firmware = $product->firmware;
         $this->guide = $product->guide;
@@ -135,12 +138,37 @@ class AdminEditProductComponent extends Component
         $product->dealer_price = $this->dealer_price;
         $product->customer_price = $this->customer_price;
         $product->stock = $this->stock;
+
         if($this->newimage)
         {
             $imageName = $this->newimage->getClientOriginalName();
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
         }
+
+        if($this->newimages)
+        {
+            if($product->images)
+            {
+                $images = explode(",",$product->images);
+                foreach($images as $image)
+                {
+                    if($image)
+                    {
+                        unlink('images/products'.'/'.$image);
+                    }
+                }
+            }
+            $imagesName = '';
+            foreach($this->newimages as $key=>$image)
+            {
+                $imageName = $image->getClientOriginalName();
+                $image->storeAs('products',$image);
+                $imagesName = $imagesName . ','. $imageName;
+            }
+            $product->images = $imagesName;
+        }
+
         if($this->newdatasheet)
         {
             $file1 = $this->newdatasheet->getClientOriginalName();
@@ -202,8 +230,12 @@ class AdminEditProductComponent extends Component
         $product->groupproduct_id = $this->groupproduct_id;
     
         $product->save();
-
-        NetworkValue::where('product_id',$product->id)->delete();
+        
+        if($this->network_images)
+        {
+            NetworkValue::where('product_id',$product->id)->delete();
+        }
+        
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)

@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\ProductModels;
 use Cart;
+use Livewire\WithPagination;
 
 class ShopComponent extends Component
 {
@@ -18,7 +20,8 @@ class ShopComponent extends Component
 
     public function render()
     {   
-        $products = Product::paginate(10);
+        // $products = Product::paginate(10);
+        $products = ProductModels::all();
         $categories = Category::all();
         return view('livewire.shop-component',['products'=> $products, 'categories' => $categories])->layout("layout.navfoot"); 
     }

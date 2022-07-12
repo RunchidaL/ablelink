@@ -3,6 +3,17 @@
         <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
             <img src="{{asset('/images/products')}}/{{$product->image}}">
         </div>
+        @if(($product->images) == "")
+        @else
+            @php
+                $images = explode(",",$product->images);
+            @endphp
+            @foreach($images as $image)
+                @if($image)
+                    <img width="100" height="100" src="{{url('/images/products')}}/{{$image}}"/>
+                @endif
+            @endforeach
+        @endif
         <div class="col-4" id="right-product">
             <div class="head-product">
                 <p>{{$product->slug}}, {{$product->name}}</p>
@@ -23,10 +34,21 @@
                     </div>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}})">Add To Cart</button>
+                    <button wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->customer_price}},{{$l}})">Add To Cart</button>
                 </div> 
             </div>
+            @if($product->subCategories == '')
             <div class="relate-product">
+            @elseif($product->subCategories->name == 'Cabling')
+            <div class="relate-product">
+                <div class="lenght">
+                <p>Lenght:</p>
+                    <div class="relate-group">
+                        <input wire:model="l">
+                    </div>
+                </div>
+            @endif
+            <!-- <div class="relate-product"> -->
                 <div class="models">
                     <p>Models:</p>
                     <div class="relate-group">
