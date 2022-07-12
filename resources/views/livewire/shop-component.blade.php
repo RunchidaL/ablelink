@@ -10,7 +10,7 @@
                     <a href="{{route('product.details',['slug'=>$product->slug])}}" class="card-wrapper">
                         <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                                <p class="card-title">{{$product->slug}}, {{$product->name}}</p>
+                                <p class="card-title">{{$product->name}}</p>
                             @if(($product->web_price) == '1')
                             @else
                                 <p>฿{{number_format($product->customer_price,2)}}</p>

@@ -1,10 +1,5 @@
 <div class="cart-page">
     <div class="container cart-home">
-    @if(Session::has('success_message'))
-        <div class="alert alert-success">
-            {{Session::get('success_message')}}
-        </div>
-    @endif
     @if(Cart::count() > 0)    
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>

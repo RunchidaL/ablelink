@@ -203,7 +203,11 @@ class AdminEditProductComponent extends Component
     
         $product->save();
 
-        NetworkValue::where('product_id',$product->id)->delete();
+        if($this->network_images)
+        {
+            NetworkValue::where('product_id',$product->id)->delete();
+        }
+        
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)

@@ -11,8 +11,8 @@
         <div class="box">
             <img src="/images/shipping.png">
         </div>
+        <h3>Shipping & Delivery</h3>
         <ul class="message">
-        <h4>Shipping & Delivery</h4>
             <p>ค่าบริการจัดส่งสินค้าต่างจังหวัด</p>
             <p>ยอดสั่งซื้อขั่นต่ำ 10,000 บาท ขึ้นไป</p>
             <p>จัดส่งฟรีระยะเวลาการจัดส่ง 5-7 วันทำการ</p>
@@ -25,7 +25,7 @@
         <div class="box">
             <img src="/images/customerService.png">
         </div>
-        <h4>Customer Service</h4>
+        <h3>Customer Service</h3>
         <ul class="message">
             <p>การรับประกันสินค้าทุกรายการ</p>
             <p>จะต้องเกิดความบกพร่องของตัวสินค้า</p>
@@ -43,7 +43,7 @@
         <div class="box">
             <img src="/images/warranty.png">
         </div>
-            <h4>Warranty</h4>
+        <h3>Warranty</h3>
         <ul class="message">
             <p>การรับประกันสินค้าทุกรายการ</p>
             <p>จะต้องเกิดความบกพร่องของตัวสินค้า</p>

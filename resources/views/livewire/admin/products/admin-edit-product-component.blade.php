@@ -186,7 +186,6 @@
                             </div>
                             @foreach($inputs as $key => $value)
                             <div class="form-group">
-                                <label class="col-md-4 my-2">{{$network_types->where('id',$attribute_arr[$key])->first()->name}}</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="network_images.{{$value}}">
                                     @if($network_images)
