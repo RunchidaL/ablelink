@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -10,9 +10,6 @@
                             </div>
                         </div>
                     </div>
-                    @if(Session::has('message'))
-                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                    @endif
                     <div class="panel-body">
                         <form class="form-panel" enctype='multipart/form-data' wire:submit.prevent="addModel"> @csrf
                             <div class="form-group">
@@ -36,7 +33,10 @@
                             <div class="form-group">
                                 <label class="col-md-4">Web price</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="web_price" required>
+                                    <select class="form-control" wire:model="web_price">
+                                        <option value="0">Show</option>
+                                        <option value="1">Hide</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -109,10 +109,13 @@
                             </div>                
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="file" class="btn btn-success">Submit</button>
+                                    <button type="file" class="btn btn-success my-2">Submit</button>
                                 </div>
                             </div>
                         </form>
+                        @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                     </div>
                 </div>
             </div>

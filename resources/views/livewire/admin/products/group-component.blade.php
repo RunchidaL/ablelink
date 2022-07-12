@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -42,11 +42,9 @@
                                                 <br>
                                                 @endforeach
                                             @endforeach
-                                            <div class="line"></div>
+                                            <div id="line"></div>
                                         @endforeach
-                                        
                                     </ul> 
-                                    
                                 </td>
                                 <td class="types">
                                     <ul class="slist">
@@ -61,7 +59,7 @@
                                                 <br>
                                                 @endforeach
                                             @endforeach
-                                            <div class="line"></div>
+                                            <div id="line"></div>
                                         @endforeach
                                     </ul> 
                                 </td>
@@ -78,7 +76,7 @@
                                                     </li>
                                                 @endforeach
                                             @endforeach
-                                            <div class="line"></div>
+                                            <div id="line"></div>
                                         @endforeach
                                         
                                     </ul> 
@@ -112,7 +110,7 @@
         font-size: 14px;
         
     }
-    .line{
+    #line{
         border-bottom: 1px solid ;
         margin: 5px 0 5px 0;
         border-bottom-color: #CAC6C6;

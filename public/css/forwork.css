@@ -1,9 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-
 /* ภาพด้านบน */
 .wallpaper img{
     position: relative;
@@ -27,12 +21,13 @@
     margin-left: 10%;
 }
 
-.col p {
-    font-size: 150%;
+.col li{
+    font-size: 120%;
 }
 
-.col li {
-    font-size: 120%;
+.col h5{
+    line-height: 2.5;
+    margin-bottom: 0;
 }
 
 

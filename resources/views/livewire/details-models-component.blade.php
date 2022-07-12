@@ -1,73 +1,83 @@
 <div class="container">
-    <div class="row top-content">
-        <div class="col d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center" id="row-product">
+        <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
             <img src="{{asset('/images/products')}}/{{$model->product->image}}">
         </div>
-        <div class="col" id="right">
-            <p>{{$model->name}}</p>
-            @if(($model->web_price) == '0')
-                <p></p>
-            @else
-                <p>{{number_format($model->web_price,2)}}</p>
-            @endif
-            <p>In stock {{$model->stock}}</p>
+        <div class="col-4" id="right-product">
+            <div class="head-product">
+                <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
+                <div class="head-product-price">
+                    @if(($model->web_price) == '1')
+                        <span>In stock {{$model->stock}}</span>
+                    @else
+                        <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                    @endif
+                </div>
+            </div>
             <div class="quantity">
-                <input value="1">
-                <div class="handle">
-                    <a href="#"><button><i class="bi bi-caret-up"></i></button></a>
-                    <a href="#"><butoon><i class="bi bi-caret-down"></i></butoon></a>
+                <div class="add-qty">
+                    <input wire:model="qty">
+                    <div class="handle">
+                        <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
+                        <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
+                    </div>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="store({{$model->id}},'{{$model->name}}',{{$model->customer_price}})">Add To Cart</button>
                 </div> 
             </div>
             <div class="relate-product">
-                <div class="models"><br>
+                <div class="models">
                     <p>Models:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                            @foreach($product_models->where('product_id',$model->product->id) as $product_model)
-                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->product->slug])}}">{{$product_model->name}}</a>
-                            @endforeach
-                        </div>
+                    <div class="relate-group">
+                        @foreach($product_models->where('product_id',$model->product->id) as $product_model)
+                            <div class="relate-box">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="series">
                     <p>Series:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                            @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
-                            <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
-                            @endforeach
-                        </div>
+                    <div class="relate-group">
+                        @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
+                            <div class="relate-box">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
+                            </div>
+                        @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="types">
                     <p>Types:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                                @foreach($product_models->where('product_id',$model->product->id)->unique('series_id') as $product_model)
-                                    @foreach($types as $type)
-                                        @if($type->series_id === $product_model->series_id)
-                                        <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
-                                        @endif
-                                @endforeach
+                    <div class="relate-group">
+                        @foreach($product_models->where('product_id',$model->product->id)->unique('series_id') as $product_model)
+                            @foreach($types as $type)
+                                @if($type->series_id === $product_model->series_id)
+                                    <div class="relate-box">
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
+                                    </div>
+                                @endif
                             @endforeach
-                        </div>
+                        @endforeach
                     </div>
-                </div><br>
+                </div>
                 <div class="jacket">
-                    <p>Jacket Types:</p>
-                    <div class="row">
-                        <div class="col d-flex">
-                            @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
-                                @foreach($jacket_products as $jacket_product)
-                                    @if($jacket_product->type_id === $product_model->type_id)
-                                    <a class="relate-box" href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
-                                    @endif
-                                @endforeach
+                    @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
+                        @if($product_model->jacket_id == '')
+                        @else
+                            <p>Jacket Types:</p>
+                        @endif
+                    @endforeach
+                    <div class="relate-group">
+                        @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
+                            @foreach($jacket_products as $jacket_product)
+                                @if($jacket_product->type_id === $product_model->type_id)
+                                <div class="relate-box">
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
+                                </div>
+                                @endif
                             @endforeach
-                        </div>
+                        @endforeach
                     </div>
                 </div>  
             </div>
@@ -142,20 +152,25 @@
         @else
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
-                <h4>videos</h4>
-                <div class="row">
+                <h4>Videos</h4>
+                <div class="video">
                     @php
                         $videos = explode(",",$model->product->videos);
                     @endphp
                     @foreach($videos as $video)
-                    <div class="col-4 mt-2">
-                        <div class="card" style="width: 20rem;">
-                            <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}" sandbox=""></iframe>
-                            <div class="card-body">
-                                <p class="card-text">{{$video}}</p>
+                        @if($video)
+                        <div class="file-detail">
+                            <div class="card" style="width: 20rem;">
+                                <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}" sandbox=""></iframe>
+                                @php
+                                    $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video);
+                                @endphp
+                                <div class="card-body">
+                                    <p class="card-text">{{$withoutExt}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -166,26 +181,36 @@
             <div class="line" id="feature"></div>
             <h4>Resources</h4>
             <br>
-            <div class="row">
+            <div class="download">
                 @if(($model->product->datasheet) == "")
                 @else
-                    <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> datasheet}}">Datasheet</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
+                </div>
                 @endif
                 @if(($model->product->firmware) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> firmware}}">Firm ware</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
+                </div>
                 @endif
                 @if(($model->product->guide) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> guide}}">Guide</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
+                </div>
                 @endif
                 @if(($model->product->cert) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> cert}}">Certificate</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->cert}}"><i class="bi bi-file-check"></i> Certificate</a>
+                </div>
                 @endif
                 @if(($model->product->config) == "")
                 @else
-                <div class="col d-flex"><a href="{{asset('/images/products')}}/{{$product -> config}}">Config</a></div>
+                <div class="file-detail">
+                    <a href="{{asset('/images/products')}}/{{$model->product->config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
+                </div>
                 @endif
             </div>
         </div>

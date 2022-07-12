@@ -189,12 +189,12 @@ class AdminEditProductComponent extends Component
                     }
                 }
             }
-            $videosName = "";
+            $videosName = '';
             foreach($this->newvideos as $key=>$video)
             {
                 $videoName = $video->getClientOriginalName();
                 $video->storeAs('products',$videoName);
-                $videosName = $videosName. ','. $videoName ;
+                $videosName = $videosName . ','. $videoName;
             }
             $product->videos = $videosName;
         }
@@ -203,7 +203,11 @@ class AdminEditProductComponent extends Component
     
         $product->save();
 
-        NetworkValue::where('product_id',$product->id)->delete();
+        if($this->network_images)
+        {
+            NetworkValue::where('product_id',$product->id)->delete();
+        }
+        
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)

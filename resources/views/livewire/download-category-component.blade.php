@@ -21,15 +21,14 @@
         </div>
         @foreach($downloads as $download)
         <div class="desc">
-            
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex">
                 @if(($download->category->name) == "Catelog")
                     <div class="col-1 d-flex justify-content-center">
-                        <p>Catelog ของ {{$download->name}}</p>
+                        <p>category ของ {{$download->name}}</p>
                     </div>
                     @elseif(($download->category->name) == "Presentation")
                     <div class="col-1 d-flex justify-content-center">
-                        <p>	Presentation ของ {{$download->name}}</p>
+                        <p>download ของ {{$download->name}}</p>
                     </div>
                 @endif
                 

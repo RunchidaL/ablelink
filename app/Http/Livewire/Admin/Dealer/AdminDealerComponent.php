@@ -3,11 +3,23 @@
 namespace App\Http\Livewire\Admin\Dealer;
 
 use Livewire\Component;
+use App\Models\User;
+use App\Models\Dealer;
 
 class AdminDealerComponent extends Component
 {
+
+    public function deleteDealer($infodealer_id)
+    {
+        $dealer = User::find($infodealer_id);
+        $dealer->delete();
+        session()->flash('message','Dealer has been deleted successfully!');
+    }
+
     public function render()
     {
-        return view('livewire.admin.dealer.admin-dealer-component')->layout("layout.navfoot");
+        $dealers = User::where('role',2)->get();
+        $infodealers = Dealer::all();
+        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers])->layout("layout.navfoot");
     }
 }

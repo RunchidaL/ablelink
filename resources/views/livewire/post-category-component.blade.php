@@ -1,10 +1,10 @@
 <!-- link -->
 <link href="/css/activity.css" rel="stylesheet">
-<link href="/css/Blog.css" rel="stylesheet">
+<link href="/css/blog.css" rel="stylesheet">
 <!-- link -->
 
 
-<div class="menu">
+<div class="menu-activity">
     <div class="mac-left">
         <a href="/post_category/บทความ"><i class="bi bi-file-text"></i></a>
         <p class="text-icon">บทความ</p>
@@ -38,9 +38,9 @@
             </ul>
         </div>
         <div class="description">
-            <h1><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}</a></h1>
+            <h1><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text-blog">{{$post->title}}</a></h1>
             <h2>ABLE LINK (Thailand) CO., LTD.</h2>
-            <p><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text">{{$post->title}}</p>
+            <p><a href="{{route('post.details',['slug'=>$post->slug])}}" class="text-blog">{{$post->title}}</p>
             <p class="read-more">
                 <a href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
             </p>

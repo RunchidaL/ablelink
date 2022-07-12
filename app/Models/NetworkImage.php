@@ -14,4 +14,9 @@ class NetworkImage extends Model
     {
         return $this->belongsTo(NetworkType::class,'type_id');
     }
+
+    public function images()
+    {
+        return $this->hasMany(NetworkValue::class,'network_image_id');
+    }
 }

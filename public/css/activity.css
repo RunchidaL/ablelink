@@ -84,7 +84,7 @@
     color: rgb(110, 110, 110); 
 }
 
-.button{
+#button{
     border: none;
     font-size: 16px;
     color: #FFF;
@@ -95,8 +95,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.button:hover{
+#button:hover{
     background: rgb(222, 226, 236);
+    color: #194276;
 }
 
 .swiper-navBtn{
@@ -139,6 +140,10 @@
 
 
 /* ด้านล่าง slider ข่าวสารกิจกรรม หน้า Home*/
+
+.container-fluid{
+    margin-top: 1%;
+}
 
 .text-AC{
     color: black;
@@ -187,14 +192,18 @@
 }
 
 @media(max-width: 820px){
+    .container-fluid{
+        margin-top: 5%;
+    }
     .AC-col {
         height: 350px;
         width: 100%;
-        margin-bottom: 10%;
     }
     .AC-col img{
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
         display: flex; 
         padding: 2%; 
         border-radius: 50px;
@@ -202,7 +211,7 @@
     .text-AC{
         color: black;
         font-size: 20px;
-        margin-top: 5% 0 5% 0;
+        margin-top: 10% 0 0 0;
     }
     .AC-col a{
         text-decoration: underline;
@@ -211,7 +220,7 @@
 }
 
 /* main_activity หน้าหลัก */
-.menu{
+.menu-activity{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -225,6 +234,7 @@
 
 .text-icon{
     margin-left: 7%;
+    margin-bottom: 20%
 }
 
 .bi.bi-file-text{
@@ -261,7 +271,7 @@
 }
 
 @media(max-width: 414px){
-    .menu{
+    .menu-activity{
         margin-top: 5%;
         margin-bottom: 5%;
         margin-left: 5%;

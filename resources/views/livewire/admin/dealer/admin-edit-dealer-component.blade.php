@@ -1,97 +1,112 @@
-{{-- link --}}
-<link href="/css/dealer/register.css" rel="stylesheet">
-{{-- link --}}
-
 <div class="container mt-1 p-5">
-    <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Dealer</h2>
-    <h4>ข้อมูลส่วนตัว</h4>
-    <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+    <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Info Dealer</h2>
+    <br>
+    <form enctype="multipart/form-data" wire:submit.prevent="addDealerinfo">
         @csrf
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="name">*ชื่อจริง</label>
-                    <input type="text" name="name" class="form-control" required>
+            <h4><li>Dealer_ID</li> </h4>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="dealerid">*Dealer_Id</label>
+                        <input type="text" name="dealerid" class="form-control"  wire:model="dealerid" required>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="lname">*นามสกุล</label>
-                    <input type="text" name="lname" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="email">*Email</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="phone">*เบอร์โทรศัพท์</label>
-                    <input type="text" name="phone" class="form-control" required>
-                </div>
-            </div>
-            <h4>ที่อยู่</h4>
-            <div class="form-group my-2">
-                <div class="form-group">
-                    <label for="address">*ที่อยู่:</label>
-                    <textarea name="address" col="30" rows="2" class="form-control" placeholer="รายละเอียดที่อยู่" required></textarea>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="province">*จังหวัด</label>
-                    <input type="text" name="province" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="district">*อำเภอ</label>
-                    <input type="text" name="district" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="subdistrict">*ตำบล</label>
-                    <input type="text" name="subdistrict" class="form-control" required>
-                </div>
-            </div>
-            <h4>ข้อมูลกิจการ</h4>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="companythai">*ชื่อกิจการ (ภาษาไทย)</label>
-                    <input type="text" name="companythai" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="companyeng">*ชื่อกิจการ (ภาษาอังกฤษ)</label>
-                    <input type="text" name="companyeng" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="vatid">*เลขประจำตัวผู้เสียภาษี</label>
-                    <input type="text" name="vatid" class="form-control" required>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="idcompany">*สำนักงานใหญ่ / รหัสสาขา</label>
-                    <input type="text" name="idcompany" class="form-control" required>
-                </div>
-            </div>
             <h4><li>Credit</li></h4>
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="file1">*Credit</label>
-                    <input type="text" name="Credit" class="form-control" required>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="coin">*Credit</label>
+                        <input type="text" name="Credit" class="form-control"  wire:model="coin" required>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div style="text-align: center;" class="mt-3">
-            <input type="submit" value="Submit" class="btn btn mx-auto">
+            <h4>ข้อมูลส่วนตัว</h4>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="name">*ชื่อจริง</label>
+                        <input type="text" name="name" class="form-control"  wire:model="firstname" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="lname">*นามสกุล</label>
+                        <input type="text" name="lname" class="form-control"  wire:model="lastname" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="email">*Email</label>
+                        <input type="email" name="email" class="form-control"  wire:model="emailaddress" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="phone">*เบอร์โทรศัพท์</label>
+                        <input type="text" name="phone" class="form-control"  wire:model="phonenumber" required>
+                    </div>
+                </div>
+            <h4>ที่อยู่</h4>
+                <div class="form-group my-2">
+                    <div class="form-group">
+                        <label for="address">*ที่อยู่:</label>
+                        <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"  wire:model="address" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="subdistrict">*ตำบล</label>
+                        <input type="text" name="subdistrict" class="form-control"  wire:model="subdistrict" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="district">*อำเภอ</label>
+                        <input type="text" name="district" class="form-control"  wire:model="district" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="county">*จังหวัด</label>
+                        <input type="text" name="county" class="form-control"  wire:model="county" required>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="zipcod">*รหัสไปรษณีย์</label>
+                        <input type="text" name="zipcode" class="form-control"  wire:model="zipcode" required>
+                    </div>
+                </div>
+            <h4>ข้อมูลกิจการ</h4>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companythai">*ชื่อกิจการ (ภาษาไทย)</label>
+                        <input type="text" name="companythai" class="form-control"  wire:model="companyTH" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="companyeng">*ชื่อกิจการ (ภาษาอังกฤษ)</label>
+                        <input type="text" name="companyeng" class="form-control"  wire:model="companyEN" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="taxid">*เลขประจำตัวผู้เสียภาษี</label>
+                        <input type="text" name="taxid" class="form-control"  wire:model="taxid" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="idcompany">*สำนักงานใหญ่ / รหัสสาขา</label>
+                        <input type="text" name="idcompany" class="form-control"  wire:model="idcompany" required>
+                    </div>
+                </div>
+                <div style="text-align: center" class="mt-3">
+                    <input type="submit" value="Submit" class="btn btn-success ">
+                </div>
         </div>
     </form>
+    <br>
+    @if(Session::has('message'))
+        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+    @endif
 </div>

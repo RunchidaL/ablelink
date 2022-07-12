@@ -18,6 +18,7 @@ use App\Http\Livewire\OrderComponent;
 use App\Http\Livewire\OrderDetailComponent;
 use App\Http\Livewire\Admin\Dealer\AdminDealerComponent;
 use App\Http\Livewire\Admin\Dealer\AdminAddDealerComponent;
+use App\Http\Livewire\Admin\Dealer\AdminAddInfoDealerComponent;
 use App\Http\Livewire\Admin\Dealer\AdminEditDealerComponent;
 use App\Http\Livewire\Admin\posts\AdminAddPostComponent;
 use App\Http\Livewire\Admin\products\AdminCategoryComponent;
@@ -101,7 +102,8 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/home/edit/{slide_id}',AdminEditHomecomponent::class)->name('admin.edithomes');
     Route::get('/admin/dealer/',AdminDealerComponent::class)->name('admin.Dealer');
     Route::get('/admin/dealer/add',AdminAddDealerComponent::class)->name('admin.addDealer');
-    Route::get('/admin/dealer/edit',AdminEditDealerComponent::class)->name('admin.editDealer');
+    Route::get('/admin/dealer/edit/{infodealer_id}',AdminEditDealerComponent::class)->name('admin.editDealer');
+    Route::get('/admin/dealer/addinfo',AdminAddInfoDealerComponent::class)->name('admin.addinfoDealer');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
