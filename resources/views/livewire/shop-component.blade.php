@@ -12,6 +12,7 @@
                         <div class="card-body">
                                 <p class="card-title">{{$product->name}}</p>
                             @if(($product->web_price) == '1')
+                                <p class="empty">฿</p>
                             @else
                                 <p>฿{{number_format($product->customer_price,2)}}</p>
                             @endif
