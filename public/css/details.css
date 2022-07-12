@@ -8,28 +8,36 @@
     width: 50%;
 }
 
+#left-product .gallery img{
+    width: 5em;
+    height: 5em;
+    border: 1px solid rgb(81, 81, 81);
+    margin: 0 4px;
+}
+
 #right-product{
     width: 50%;
 }
 
 .head-product{
     font-size: 24px;
-    margin: 10% 0 3% 0;
+    margin: 5% 0 5% 0;
 }
 
-.head-product p span{
+.head-product-name{
+    line-height: 2em;
+}
+
+.head-product-name p span{
+    font-size: large;
     color: gray;
-    font-size: medium;
 }
 
 .head-product-price{
     background-color: rgb(240, 240, 240);
     padding: 10px 30px;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-}
-
-.head-product-price span{
-    color: rgb(255, 106, 0);
+    margin-top: 20px;
 }
 
 .head-product-price p span{
@@ -44,6 +52,7 @@
 
 .quantity{
     display: -webkit-box;
+    margin-bottom: 5%;
 }
 
 .add-qty{

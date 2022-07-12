@@ -330,8 +330,8 @@
                                     let Child = document.getElementById("content"+i);
                                     Parent.addEventListener("mouseover" , (e) => {
                                         Child.style.display = "block";
-                                        for ( let n = 1 ; n < 9 ; n++ ){
-                                            if( n !== i) {
+                                        for ( let n = 1 ; n < 9 ; n++){
+                                            if( n !== i){
                                                 document.getElementById("content"+n).style.display = "none";
                                             }
                                         }

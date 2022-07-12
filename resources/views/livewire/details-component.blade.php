@@ -1,22 +1,26 @@
 <div class="container">
     <div class="row justify-content-center" id="row-product">
-        <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
+        <div class="col-4 d-flex align-items-center justify-content-center flex-column" id="left-product">
             <img src="{{asset('/images/products')}}/{{$product->image}}">
-        </div>
-        @if(($product->images) == "")
-        @else
-            @php
-                $pimages = explode(",",$product->images);
-            @endphp
-            @foreach($pimages as $pimage)
-                @if($pimage)
-                    <img width="100" src="{{asset('/images/products')}}/{{$pimage}}"/>
+            <div class="gallery">
+                @if(($product->images) == "")
+                @else
+                    @php
+                        $pimages = explode(",",$product->images);
+                    @endphp
+                    @foreach($pimages as $pimage)
+                        @if($pimage)
+                            <img src="{{asset('/images/products')}}/{{$pimage}}"/>
+                        @endif
+                    @endforeach
                 @endif
-            @endforeach
-        @endif
+            </div>
+        </div>
         <div class="col-4" id="right-product">
             <div class="head-product">
-                <p>{{$product->name}}<span> #{{$product->slug}}</span></p> 
+                <div class="head-product-name">
+                    <p>{{$product->name}}<span> #{{$product->slug}}</span></p> 
+                </div>
                 <div class="head-product-price">
                     @if(($product->web_price) == '1')
                         <p><span>In stock {{$product->stock}}</span></p>
