@@ -52,7 +52,8 @@ class AdminAddInfoDealerComponent extends Component
 
     public function render()
     {
-        $User = User::all();
-        return view('livewire.admin.dealer.admin-add-info-dealer-component',['User'=>$User])->layout("layout.navfoot");
+        $users = User::where('role',2,)->get();
+        $Userinfo = Dealer::all();
+        return view('livewire.admin.dealer.admin-add-info-dealer-component',['users'=>$users,'Userinfo'=>$Userinfo])->layout("layout.navfoot");
     }
 }

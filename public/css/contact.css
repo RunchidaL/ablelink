@@ -1,15 +1,100 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* ภาพด้านบน */
-.wallpaper img{
+.slider{
     position: relative;
-    background-size: cover;
-    object-fit: cover;
     width: 100%;
-    height: 100%;
+    background: #2c3e50;
+}
+.myslider{
+    min-height: 100%;
+    display: none;
+    overflow: hidden;
+    justify-items: center;
+}
+.txt{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 15%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 1s;
+    animation-name: posi;
+    animation-duration: 1s;
+    z-index: 1;
+}
+
+@-webkit-keyframes posi{
+    from {left: 25%;}
+    to {left: 15%;}
+}
+
+@keyframes posi{
+    from {left: 25%;}
+    to {left: 15%;}
+}
+.txt h1{
+    color: black;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.imgg{
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomin;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+@media screen and (max-width:800px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi2 {
+        from {top:35%;}
+        to {top: 50%;}
+    }
+    @keyframes posi2 {
+        from {top:35%;}
+        to {top: 50%;}
+    }
+    .txt h1{
+        font-size: 50px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:520px){
+    .txt h1{
+        font-size: 50px;
+    }
 }
 
 /* ส่วนด้านล่าง */
@@ -49,7 +134,7 @@
 
 @media(max-width: 414px) {
     .left {
-        font-size: 70%;
+        font-size: 100%;
         margin-left:0%;
         margin-right: 0%;
 
@@ -58,7 +143,7 @@
     }
 
     .left ul{
-        font-size: 50%;
+        font-size: 100%;
         margin-left:0%;
         margin-right: 0%;
         padding: 0%;

@@ -395,7 +395,7 @@
                                     <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 2)
-                                    <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
+                                    <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)

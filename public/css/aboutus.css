@@ -30,12 +30,15 @@
 
 
 /* VISION & MISSION */
+.container-abu{
+  margin: 5% 10%;
+}
+
+
 .box-abu{
   text-align: center;
   background: #f5f5f5;
   border-radius: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -64,9 +67,7 @@
 
 .teams{
   margin: 10px;
-
   max-width: 20%;
-  cursor: pointer;
   transition: 0.4s;
   box-sizing: border-box;
 }
@@ -82,22 +83,32 @@
 .name{
   padding: 12px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
 .about{
   margin: 20px 0;
   font-weight: lighter;
-  font-size: 14px;
+  font-size: 18px;
   color: #4e4e4e;
   padding: 0 1rem;
 }
 
-@media screen and (max-width: 600px){
+.head-award{
+  text-align: center; 
+  margin-bottom: 3%; 
+  font-size: 50px;
+}
+
+@media screen and (max-width: 1080px){
   .teams{
     max-width: 100%;
   }
+}
+
+
+@media screen and (max-width: 600px){
   .content-abu{
     max-width: 100%;
     margin: 2%;
@@ -105,4 +116,18 @@
   .content-abu img{
     max-width: 100%;
   } 
+  .container-abu{
+    margin: 5% 5%;
+  }
+  .header span{
+    font-size: 45px;
+  }
+  .teams{
+    max-width: 100%;
+  }
+  .head-award{
+    text-align: center; 
+    margin: 15% 0 5% 0; 
+    font-size: 50px;
+  }
 }
