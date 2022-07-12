@@ -4,9 +4,9 @@
 
 <div>
     @if($scategory_slug == '')
-        <p class="text">{{$category->name}}</p>
+        <h2 class="text">{{$category->name}}</h2>
     @else
-        <p class="text">{{$scategory->name}}</p>
+        <h2 class="text">{{$scategory->name}}</h2>
     @endif
 </div>
 <div class="row">
