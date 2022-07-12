@@ -3,6 +3,17 @@
         <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
             <img src="{{asset('/images/products')}}/{{$product->image}}">
         </div>
+        @if(($product->images) == "")
+        @else
+            @php
+                $pimages = explode(",",$product->images);
+            @endphp
+            @foreach($pimages as $pimage)
+                @if($pimage)
+                    <img width="100" src="{{asset('/images/products')}}/{{$pimage}}"/>
+                @endif
+            @endforeach
+        @endif
         <div class="col-4" id="right-product">
             <div class="head-product">
                 <p>{{$product->name}}<span> #{{$product->slug}}</span></p> 

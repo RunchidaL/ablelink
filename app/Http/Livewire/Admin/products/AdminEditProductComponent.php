@@ -27,6 +27,7 @@ class AdminEditProductComponent extends Component
     public $customer_price;
     public $stock;
     public $image;
+    public $pimages;
     public $datasheet;
     public $firmware;
     public $guide;
@@ -34,6 +35,7 @@ class AdminEditProductComponent extends Component
     public $config;
     public $category_id;
     public $newimage;
+    public $newimages;
     public $newdatasheet;
     public $newfirmware;
     public $newguide;
@@ -67,6 +69,7 @@ class AdminEditProductComponent extends Component
         $this->customer_price = $product->customer_price;
         $this->stock = $product->stock;
         $this->image = $product->image;
+        $this->pimages = explode(",",$product->images);
         $this->datasheet = $product->datasheet;
         $this->firmware = $product->firmware;
         $this->guide = $product->guide;
@@ -141,6 +144,28 @@ class AdminEditProductComponent extends Component
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
         }
+        if($this->newimages)
+        {
+            if($product->images)
+            {
+                $images = explode(",",$product->images);
+                foreach($images as $image)
+                {
+                    if($image)
+                    {
+                        unlink('images/products'.'/'.$image);
+                    }
+                }
+            }
+            $imagesName = '';
+            foreach($this->newimages as $key=>$image)
+            {
+                $imageName = $image->getClientOriginalName();
+                $image->storeAs('products',$imageName);
+                $imagesName = $imagesName . ','. $imageName;
+            }
+            $product->images = $imagesName;
+        }
         if($this->newdatasheet)
         {
             $file1 = $this->newdatasheet->getClientOriginalName();
@@ -203,11 +228,7 @@ class AdminEditProductComponent extends Component
     
         $product->save();
 
-        if($this->network_images)
-        {
-            NetworkValue::where('product_id',$product->id)->delete();
-        }
-        
+        NetworkValue::where('product_id',$product->id)->delete();
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)

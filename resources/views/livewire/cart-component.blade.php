@@ -27,7 +27,8 @@
                             @endif
                         </td>
                         <td class="cart-name">
-                            <a href="#">{{$item->model->name}}</a>
+                            <a href="{{route('product.details',['slug'=>$item->model->slug])}}">{{$item->model->name}}</a>
+                                <p>{{number_format($item->subtotal,2)/number_format($item->model->customer_price,2)}}m</p>
                         </td>
                         <td class="cart-price">
                             <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>

@@ -21,6 +21,7 @@ class DetailsComponent extends Component
     public $series_id;
     public $jacket_id;
     public $qty;
+    public $l;
 
     public function mount($slug)
     {
@@ -28,11 +29,30 @@ class DetailsComponent extends Component
         $this->qty = 1;
     }
     
-    public function store($product_id,$product_name,$product_price)
+    public function store($product_id,$product_name,$product_price,$lenght=null)
     {
-        Cart::add($product_id,$product_name,$this->qty,$product_price)->associate('App\Models\Product');
-        session()->flash('success_message','Item added in Cart');
-        return redirect()->route('product.cart');
+        if($this->l)
+        {
+            if($this->l == $this->l)
+            {
+                Cart::add($product_id,$product_name,$this->qty,$product_price*($this->l))->associate('App\Models\Product');
+                session()->flash('success_message','Item added in Cart');
+                return redirect()->route('product.cart');
+            }
+            else
+            {
+                Cart::add($product_id,$product_name,$this->qty,$product_price*($this->l))->associate('App\Models\Product');
+                session()->flash('success_message','Item added in Cart');
+                return redirect()->route('product.cart');
+            }
+
+        }
+        else{
+            Cart::add($product_id,$product_name,$this->qty,$product_price)->associate('App\Models\Product');
+            session()->flash('success_message','Item added in Cart');
+            return redirect()->route('product.cart');
+        }
+
     }
 
     public function increaseQuantity()
