@@ -4,18 +4,35 @@
     padding: 0 2%;
 }
 
-#left-product{
+.leftProduct{
     width: 50%;
+    /* ส่วนที่ทำให้รูปเลื่อนตาม scrolling */
+    position: sticky;
+    top: 0;
+    /* ส่วนที่ทำให้รูปย่อยอยู่ข้างล่าง */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
 }
 
-#left-product .gallery img{
+.leftProduct img{
+    width: 30em;
+    height: 30em;
+}
+
+.leftProduct .gallery img{
     width: 5em;
     height: 5em;
-    border: 1px solid rgb(81, 81, 81);
+    border: 1px solid rgb(199, 199, 199);
     margin: 0 4px;
 }
 
-#right-product{
+.leftProduct .gallery img:hover{
+    border: 1px solid black;
+}
+
+.rightProduct{
     width: 50%;
 }
 
@@ -43,11 +60,6 @@
 .head-product-price p span{
     color: rgb(255, 106, 0);
     font-size: medium;
-}
-
-#left-product img{
-    width: 30em;
-    height: 30em;
 }
 
 .quantity{
@@ -300,6 +312,10 @@
     background-color: #ffffff;
     color: #000000;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.download a > i{
+    font-size: larger;
 }
 
 @media screen and (max-width: 1400px) {

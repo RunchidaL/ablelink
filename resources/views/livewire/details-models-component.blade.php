@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row justify-content-center" id="row-product">
-        <div class="col-4 d-flex align-items-center justify-content-center flex-column" id="left-product">
+    <div class="row justify-content-center align-items-start" id="row-product">
+        <div class="leftProduct" id="left-product">
             <img src="{{asset('/images/products')}}/{{$model->product->image}}">
             <div class="gallery">
                 @if(($model->product->images) == "")
@@ -16,7 +16,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-4" id="right-product">
+        <div class="col-4 rightProduct" id="right-product">
             <div class="head-product">
                 <div class="head-product-name">
                     <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
