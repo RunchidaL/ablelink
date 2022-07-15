@@ -138,7 +138,7 @@
         autoplay: {
         delay: 3000,
         },
-        slidesPerGroup:3, 
+        // slidesPerGroup:3, 
         
 
         breakpoints:{

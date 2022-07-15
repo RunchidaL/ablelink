@@ -1,5 +1,10 @@
 <div class="cart-page">
     <div class="container cart-home">
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            {{Session::get('success_message')}}
+        </div>
+    @endif
     @if(Cart::count() > 0)    
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
@@ -27,8 +32,7 @@
                             @endif
                         </td>
                         <td class="cart-name">
-                            <a href="{{route('product.details',['slug'=>$item->model->slug])}}">{{$item->model->name}}</a>
-                                <p>{{number_format($item->subtotal,2)/number_format($item->model->customer_price,2)}}m</p>
+                            <a href="#">{{$item->model->name}}</a>
                         </td>
                         <td class="cart-price">
                             <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>

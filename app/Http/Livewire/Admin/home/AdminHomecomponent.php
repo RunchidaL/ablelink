@@ -7,11 +7,22 @@ use App\Models\Home;
 
 class AdminHomecomponent extends Component
 {
-    
-    public function deleteSlide($slide_id)
+    public $delete_id;
+
+    protected $listeners = ['deleteConfirmed'=>'deleteSlide'];
+
+    public function deleteSlides($id)
     {
-        $slider = Home::find($slide_id);
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+       
+    }
+
+    public function deleteSlide()
+    {
+        $slider = Home::where('id',$this->delete_id)->first();
         $slider->delete();
+        $this->dispatchBrowserEvent('deletedSlider');
         session()->flash('message','Slider has been deleted successfully!');
     }
 
