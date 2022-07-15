@@ -1,5 +1,10 @@
 <div class="cart-page">
     <div class="container cart-home">
+    @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            {{Session::get('success_message')}}
+        </div>
+    @endif
     @if(Cart::count() > 0)    
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
@@ -43,11 +48,10 @@
                             <p class="group-cen">฿{{number_format($item->subtotal,2)}}</p>
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete text-danger" wire:click.prevent="deleted('{{$item->rowId}}')">
+                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?')">
                                 <i class="bi bi-x-lg"></i>
                             </a>
                         </td>
-
                     </tr>
                     @endforeach
                 </tbody>
@@ -74,32 +78,3 @@
     @endif 
     </div>
 </div>
-   
-@push('scripts')
-<script>
-    window.addEventListener('show-delete-confirmation', event =>{
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                   Livewire.emit('deleteConfirmed')
-                }
-        })
-    });
-
-    window.addEventListener('deletedP', event =>{
-        Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-            )
-    });
-</script>
-@endpush
-

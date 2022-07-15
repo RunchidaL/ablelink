@@ -27,6 +27,7 @@ class AdminAddProductComponent extends Component
     public $customer_price;
     public $stock;
     public $image;
+    public $p_images;
     public $datasheet;
     public $firmware;
     public $guide;
@@ -76,6 +77,17 @@ class AdminAddProductComponent extends Component
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image = $imageName;
+        if($this->p_images)
+        {
+            $imagesName = '';
+            foreach($this->p_images as $key=>$image)
+            {
+                $imageName = $image->getClientOriginalName();
+                $image->storeAs('products',$imageName);
+                $imagesName = $imagesName . ',' . $imageName ;
+            }
+            $product->images = $imagesName;
+        }
         if($this->datasheet)
         {
             $file1 = $this->datasheet->getClientOriginalName();

@@ -47,7 +47,7 @@
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)
-                                            <li>{{$model->slug}}
+                                            <li>{{$model->id}}, {{$model->slug}}
                                                 <a href="{{route('admin.editmodel',['model_slug'=>$model->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteModel({{$model->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                             </li>
