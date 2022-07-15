@@ -1,7 +1,7 @@
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
         <div>
-            <h2 class="text">สินค้าทั้งหมด</h2>
+            <h2 class="text">ผลิตภัณฑ์ทั้งหมด</h2>
         </div>
         <div class="row" id="products">
             @foreach($products as $product)
@@ -10,7 +10,7 @@
                     <a href="{{route('product.details',['slug'=>$product->slug])}}" class="card-wrapper">
                         <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                                <p class="card-title">{{$product->slug}}, {{$product->name}}</p>
+                                <p class="card-title">{{$product->name}}</p>
                             @if(($product->web_price) == '1')
                                 <p class="empty">฿</p>
                             @else
@@ -26,6 +26,5 @@
             @endforeach
         </div>
     </div>
-</div>
 </div>
 

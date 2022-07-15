@@ -7,7 +7,7 @@
 @section('navfoot')
 <!-- navbar -->
 <div class="navbar">
-    <div class="container nav-wrap">
+    <div class="nav-wrap container">
         <div class="nav-left">
             <img src="/images/logoAbleLink.png" alt="" logo/>
             <div class="nav-menu-wrap"> 
@@ -89,7 +89,10 @@
                         @endguest
                     </ul>
                 </div>     
-            </div> 
+            </div>
+            <div class="toggle">
+                <i class="bi bi-list"></i>
+            </div>
         </div>
     </div>
 </div>
