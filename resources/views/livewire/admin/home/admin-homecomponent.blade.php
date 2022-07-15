@@ -42,7 +42,7 @@
                                         <td>{{$slider->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.edithomes',['slide_id'=>$slider->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                            <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSlide({{$slider->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                            <a href="#" wire:click.prevent="deleteSlides({{$slider->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -66,3 +66,32 @@
         width:30%;
     }
 </style>
+
+
+@push('scripts')
+<script>
+    window.addEventListener('show-delete-confirmation', event =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   Livewire.emit('deleteConfirmed')
+                }
+        })
+    });
+
+    window.addEventListener('deletedSlider', event =>{
+        Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
+    });
+</script>
+@endpush
