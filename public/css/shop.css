@@ -19,16 +19,16 @@
   margin: 3% 0;
 }
 
+.NP-col .card{
+  height: 100%;
+  border-radius: 5px;
+}
+
 .NP-col img{
   width: 100%;
   height: auto;
   display: flex; 
-  padding: 10%; /*ในนอก*/
-}
-
-.NP-col .card{
-  height: 100%;
-  border-radius: 5px;
+  padding: 10%;
 }
 
 .card a{
@@ -50,18 +50,19 @@
   min-height: auto;
 }
 
+.card-body .empty{
+  visibility:hidden;
+}
+
+
 .card-footer{
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .card-footer .button{
   background-color: #ff842c;
   border-radius: 0;
-}
-
-.wrap-pagination-info .flex.items-center.justify-between{
-  margin: 0 0 0 5%;
 }
 
 .card-footer button{
@@ -131,9 +132,13 @@
   transition-duration: 0.4s;
 }
 
+.wrap-pagination-info .flex.items-center.justify-between{
+  margin: 0 0 0 5%;
+}
+
 /* resonsive */
 @media(max-width: 767px){
   .NP-col {
-      width: 50%;
+    width: 50%;
   }
 }

@@ -12,6 +12,7 @@
                         <div class="card-body">
                                 <p class="card-title">{{$product->slug}}, {{$product->name}}</p>
                             @if(($product->web_price) == '1')
+                                <p class="empty">฿</p>
                             @else
                                 <p>฿{{number_format($product->customer_price,2)}}</p>
                             @endif
@@ -23,11 +24,7 @@
                 </div>
             </div>
             @endforeach
-            <div class="wrap-pagination-info">
-                {{$products->links()}}
-            </div>
         </div>
     </div>
 </div>
 </div>
-
