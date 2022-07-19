@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\products;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\BrandCategory;
 use Illuminate\Support\Str;
 
 class AdminAddCategoryComponent extends Component
@@ -12,6 +13,7 @@ class AdminAddCategoryComponent extends Component
     public $name;
     public $slug;
     public $category_id;
+    public $scategory_id;
 
     public function generateslug()
     {
@@ -20,7 +22,15 @@ class AdminAddCategoryComponent extends Component
 
     public function storeCategory()
     {
-        if($this->category_id)
+        if($this->scategory_id)
+        {           
+            $bcategory = new BrandCategory();
+            $bcategory->name = $this->name;
+            $bcategory->slug = $this->slug;
+            $bcategory->subcategory_id = $this->scategory_id;
+            $bcategory->save();
+        }
+        else if($this->category_id)
         {
             $scategory = new Subcategory();
             $scategory->name = $this->name;
@@ -38,9 +48,15 @@ class AdminAddCategoryComponent extends Component
         
     }
 
+    public function changeSubcategory()
+    {
+        $this->scategory_id = 0;
+    }
+
     public function render()
     {   
         $categories = Category::all();
-        return view('livewire.admin.products.admin-add-category-component',['categories'=>$categories])->layout("layout.navfoot");
+        $subcategories = Subcategory::where('category_id',$this->category_id)->get();
+        return view('livewire.admin.products.admin-add-category-component',['categories'=>$categories,'subcategories'=>$subcategories])->layout("layout.navfoot");
     }
 }

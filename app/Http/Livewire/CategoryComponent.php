@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
+use App\Models\ProductModels;
 use App\Models\Category;
 use App\Models\Subcategory;
 
@@ -40,10 +41,11 @@ class CategoryComponent extends Component
             $filter = "";
         }
         
-        $products = Product::where($filter.'category_id',$category_id)->paginate(8);
+        $products = Product::where($filter.'category_id',$category_id)->paginate();
+        $models = ProductModels::all();
         $categories = Category::all();
         $category = Category::where('slug',$this->category_slug)->first();
         $scategory = Subcategory::where('slug',$this->scategory_slug)->first();
-        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory])->layout("layout.navfoot"); 
+        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory,'models'=>$models])->layout("layout.navfoot"); 
     }
 }

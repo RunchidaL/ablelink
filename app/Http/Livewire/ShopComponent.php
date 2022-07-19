@@ -21,7 +21,8 @@ class ShopComponent extends Component
     public function render()
     {   
         // $products = Product::paginate(10);
-        $products = Product::all();
+        // $products = Product::all();
+        $products = ProductModels::all();
         $categories = Category::all();
         return view('livewire.shop-component',['products'=> $products, 'categories' => $categories])->layout("layout.navfoot"); 
     }

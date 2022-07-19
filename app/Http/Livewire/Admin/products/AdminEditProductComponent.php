@@ -22,10 +22,6 @@ class AdminEditProductComponent extends Component
     public $application;
     public $item_spotlight;
     public $feature;
-    public $web_price;
-    public $dealer_price;
-    public $customer_price;
-    public $stock;
     public $image;
     public $pimages;
     public $datasheet;
@@ -64,10 +60,6 @@ class AdminEditProductComponent extends Component
         $this->application = $product->application;
         $this->item_spotlight = $product->item_spotlight;
         $this->feature = $product->feature;
-        $this->web_price = $product->web_price;
-        $this->dealer_price = $product->dealer_price;
-        $this->customer_price = $product->customer_price;
-        $this->stock = $product->stock;
         $this->image = $product->image;
         $this->pimages = explode(",",$product->images);
         $this->datasheet = $product->datasheet;
@@ -134,10 +126,6 @@ class AdminEditProductComponent extends Component
         $product->application = $this->application;
         $product->item_spotlight = $this->item_spotlight;
         $product->feature = $this->feature;
-        $product->web_price = $this->web_price;
-        $product->dealer_price = $this->dealer_price;
-        $product->customer_price = $this->customer_price;
-        $product->stock = $this->stock;
         if($this->newimage)
         {
             $imageName = $this->newimage->getClientOriginalName();
@@ -229,6 +217,7 @@ class AdminEditProductComponent extends Component
         $product->save();
 
         NetworkValue::where('product_id',$product->id)->delete();
+        
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)
@@ -267,6 +256,7 @@ class AdminEditProductComponent extends Component
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
         $network_types = NetworkType::all();
         $groups = GroupProduct::all();
-        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups])->layout("layout.navfoot");
+        $network_images = NetworkImage::all();
+        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups,'network_images'=>$network_images])->layout("layout.navfoot");
     }
 }

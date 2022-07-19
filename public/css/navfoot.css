@@ -78,7 +78,7 @@ body{
     transform: scale(1,1);
 }
 
-.prd-dropdown-wrap {
+.prd-dropdown-wrap{
     position: fixed;
     width: 100vw;
     background: rgb(226,226,226);
@@ -115,10 +115,9 @@ body{
     text-align: center;
 }
 
-.menu-content {
+.menu-content{
     width: 100%;
     background: rgb(243,243,243);
-
 }
 
 .contents{

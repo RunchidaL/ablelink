@@ -7,6 +7,7 @@
                         <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Group Product</h2>
                     </div>
                     <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+                        <a href="{{route('admin.networktype')}}"><button class="btn btn-success">Network Type</button></a>
                         <a href="{{route('admin.addgroup')}}"><button class="btn btn-success">Add group</button></a>
                     </div>
                 </div>
@@ -49,7 +50,7 @@
                                 <td class="types">
                                     <ul class="slist">
                                         @foreach($group->product_series as $group_ser)
-                                        <br>
+                                        <!-- <br> -->
                                             @foreach($group_ser->typemodels as $type)
                                                 <li>{{$type->name}}
                                                     <a href="{{route('admin.editgroup',['group_id'=>$group->id,'serie_id'=>$group_ser->id,'type_id'=>$type->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
@@ -59,6 +60,7 @@
                                                 <br>
                                                 @endforeach
                                             @endforeach
+                                            <br>
                                             <div id="line"></div>
                                         @endforeach
                                     </ul> 
@@ -66,16 +68,18 @@
                                 <td class="types">
                                     <ul class="slist">
                                         @foreach($group->product_series as $group_ser)
-                                        <br>
+                                        <!-- <br> -->
                                             @foreach($group_ser->typemodels as $type)
-                                            <br>
+                                            <!-- <br> -->
                                                 @foreach($type->jackets as $jacket)
                                                     <li>{{$jacket->jacket_type->name}}
                                                         <a href="{{route('admin.editgroup',['group_id'=>$group->id,'serie_id'=>$group_ser->id,'type_id'=>$type->id,'jacket_id'=>$jacket->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                         <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteJacket({{$jacket->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                                     </li>
                                                 @endforeach
+                                                <br>
                                             @endforeach
+                                            <br>
                                             <div id="line"></div>
                                         @endforeach
                                         

@@ -50,6 +50,10 @@ use App\Http\Livewire\Admin\products\EditGroupComponent;
 use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminHomecomponent;
+use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
+use App\Http\Livewire\Admin\products\NetworktypeComponent;
+use App\Http\Livewire\Admin\products\AddNetworktypeComponent;
+use App\Http\Livewire\Admin\products\EditNetworktypeComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -91,6 +95,8 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
 
+Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
+
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -106,7 +112,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/dealer/addinfo',AdminAddInfoDealerComponent::class)->name('admin.addinfoDealer');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}/{bcategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
@@ -127,4 +133,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/group', GroupComponent::class)->name('admin.group');
     Route::get('/admin/group/add', AdminAddGroupComponent::class)->name('admin.addgroup');
     Route::get('/admin/group/edit/{group_id}/{serie_id?}/{type_id?}/{jacket_id?}', EditGroupComponent::class)->name('admin.editgroup');
+    Route::get('/admin/networktype', NetworktypeComponent::class)->name('admin.networktype');
+    Route::get('/admin/networktype/add', AddNetworktypeComponent::class)->name('admin.addnetworktype');
+    Route::get('/admin/networktype/edit/{network_id}', EditNetworktypeComponent::class)->name('admin.editnetworktype');
 });

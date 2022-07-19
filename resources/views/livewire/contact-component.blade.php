@@ -2,8 +2,13 @@
 <link href="/css/contact.css" rel="stylesheet">
 <!-- link -->
 
-<div class="wallpaper">
-    <img src="/images/contact.jpg" alt="">
+<div class="slider">
+    <div class="myslider" style="display: block;">
+        <div class="txt">
+            <h1>CONTACT US</h1>
+        </div>
+        <img class="imgg" src="/images/contact1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    </div>
 </div>
 
 <div class="all-content">

@@ -1,25 +1,29 @@
 <div class="container">
-    <div class="row justify-content-center" id="row-product">
-        <div class="col-4 d-flex align-items-center justify-content-center" id="left-product">
+    <div class="row justify-content-center align-items-start" id="row-product">
+        <div class="leftProduct" id="left-product">
             <img src="{{asset('/images/products')}}/{{$model->product->image}}">
-        </div>
-        @if(($model->product->images) == "")
-        @else
-            @php
-                $pimages = explode(",",$model->product->images);
-            @endphp
-            @foreach($pimages as $pimage)
-                @if($pimage)
-                    <img width="100" src="{{asset('/images/products')}}/{{$pimage}}"/>
+            <div class="gallery">
+                @if(($model->product->images) == "")
+                @else
+                    @php
+                        $pimages = explode(",",$model->product->images);
+                    @endphp
+                    @foreach($pimages as $pimage)
+                        @if($pimage)
+                            <img src="{{asset('/images/products')}}/{{$pimage}}"/>
+                        @endif
+                    @endforeach
                 @endif
-            @endforeach
-        @endif
-        <div class="col-4" id="right-product">
+            </div>
+        </div>
+        <div class="col-4 rightProduct" id="right-product">
             <div class="head-product">
-                <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
+                <div class="head-product-name">
+                    <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
+                </div>
                 <div class="head-product-price">
                     @if(($model->web_price) == '1')
-                        <span>In stock {{$model->stock}}</span>
+                        <p><span>In stock {{$model->stock}}</span></p>
                     @else
                         <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
                     @endif
@@ -32,11 +36,20 @@
                         <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
                         <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
                     </div>
+                    
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="store({{$model->id}},'{{$model->name}}',{{$model->customer_price}})">Add To Cart</button>
+                    <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
                 </div> 
             </div>
+            @if(($model->product->subCategories->name) == "Cabling")
+                <div class="length">
+                    <p>Length:</p>
+                    <div class="add-attribute">
+                        <input wire:model="attribute"> m
+                    </div>
+                </div>
+            @endif
             <div class="relate-product">
                 <div class="models">
                     <p>Models:</p>
@@ -130,20 +143,28 @@
             
             <div class="content"> 
                 <div class="wrapper">
-                @foreach($network_products->where('product_id',$model->product->id) as $network_product)
-                    <div id="item{{$loop->index}}" class="item">
-                        <img src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <a href="#"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                <div>
-                                    <a href="#" class="name">{{$network_product->photo->name}}</a>
-                                    <div class="price">฿{{number_format($network_product->photo->web_price)}}</div>
-                                </div>
+                @foreach($network_images as $network_image)
+                    @foreach($network_products->where('product_id',$model->product->id)->unique('network_image_id') as $network_product)
+                        @if($network_image->id == $network_product->network_image_id)
+                        <div id="item{{$loop->index}}" class="item">
+                            <img src="{{asset('/images/products')}}/{{$network_image->image}}">
+                            <div class="tag-list">
+                                @foreach($network_products->where('product_id',$model->product->id) as $network_product)
+                                    @if($network_image->id == $network_product->network_image_id)
+                                        <div class="tag-item">
+                                            <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->product->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                            <div>
+                                                <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
+                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                @endforeach  
+                        @endif
+                    @endforeach
+                @endforeach
                 </div>
             </div>
         </div>

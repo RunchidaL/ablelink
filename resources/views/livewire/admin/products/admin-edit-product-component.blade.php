@@ -68,33 +68,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Web price</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" wire:model="web_price">
-                                        <option value="0">Show</option>
-                                        <option value="1">Hide</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4">Dealer price</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="dealer_price">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4">Customer price</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="customer_price">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4">Stock</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="stock">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-4">Product Image</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="newimage">

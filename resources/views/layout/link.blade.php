@@ -21,7 +21,11 @@
     <!-- slide img -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- styles -->
     @yield('link_navfoot')
     @yield('link_register_dealer')
@@ -31,6 +35,7 @@
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
     <link href="{{asset('/css/cart.css')}}" rel="stylesheet">
     @livewireStyles
+    
 
   </head>
   <body>
