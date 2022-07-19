@@ -1,4 +1,3 @@
-<!-- 2loop -->
 <!-- link -->
 <link href="/css/shop.css" rel="stylesheet">
 <!-- link -->

@@ -16,22 +16,6 @@
     margin-bottom: 3rem;
 }
 
-.leftProduct img{
-    width: 30em;
-    height: 30em;
-}
-
-.leftProduct .gallery img{
-    width: 5em;
-    height: 5em;
-    border: 1px solid rgb(199, 199, 199);
-    margin: 0 4px;
-}
-
-.leftProduct .gallery img:hover{
-    border: 1px solid black;
-}
-
 .rightProduct{
     width: 50%;
 }
@@ -340,4 +324,10 @@
     .relate-product .relate-box{
         margin: 3.5% 0;
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> 8a2cd77768b7de4338f4b17dce3740e755dd1b70
