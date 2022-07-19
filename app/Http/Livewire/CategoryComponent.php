@@ -12,6 +12,9 @@ class CategoryComponent extends Component
 {
     public $category_slug;
     public $scategory_slug;
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public function mount($category_slug,$scategory_slug=null)
     {
@@ -40,7 +43,7 @@ class CategoryComponent extends Component
             $filter = "";
         }
         
-        $products = Product::where($filter.'category_id',$category_id)->paginate(8);
+        $products = Product::where($filter.'category_id',$category_id)->paginate(10);
         $categories = Category::all();
         $category = Category::where('slug',$this->category_slug)->first();
         $scategory = Subcategory::where('slug',$this->scategory_slug)->first();

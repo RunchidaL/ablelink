@@ -48,7 +48,7 @@
                             <p class="group-cen">฿{{number_format($item->subtotal,2)}}</p>
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?')">
+                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
                                 <i class="bi bi-x-lg"></i>
                             </a>
                         </td>

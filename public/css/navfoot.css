@@ -14,8 +14,7 @@ body{
     background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* justify-content: center; */
+    justify-content: center;
     z-index: 5;
     padding: 0;
 }
@@ -26,14 +25,14 @@ body{
     height: 70px;
 }
 
-/* navbar left */
-.nav-left{
-    display: flex;
-    align-items: center;
+.navbar .nav-wrap img[logo]{
+    height: 60px;
 }
 
-.nav-left img[logo]{
-    height: 60px;
+/* navbar left */
+.nav-left{
+    display: none;
+    align-items: center;
 }
 
 .nav-left .nav-menu-wrap{
@@ -233,14 +232,13 @@ body{
 .nav-right{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.searchbox{
+.nav-right .searchbox{
     z-index: 50;
 }
 
-.searchbox input{
+.nav-right .searchbox input{
     height: 20px;
     align-items: center;
     border-radius: 40px;
@@ -252,14 +250,15 @@ body{
     border: none;
 }
 
-.searchbox button{
+.nav-right .searchbox button{
     position: absolute;
     border: 0;
     transform: translate(-300%, 20%);
     background-color: white;
 }
 
-.icon{
+.nav-right .icon{
+    display: none;
     border: none;
     background: none;
     margin-right: 20px;
@@ -267,7 +266,7 @@ body{
     font-size: 20px;
 }
 
-.icon:hover{
+.nav-right .icon:hover{
     color: #194276;
 }
 
@@ -298,9 +297,47 @@ body{
 width: 3%;
 }
 
-.nav-right .toggle{
-    font-size: 3rem;
-    display: none;
+.toggle{
+    display: block;
+    position: relative;
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.toggle span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: black;
+    border-radius: 6px;
+    transform-origin: 0 0;
+    transition: 0.4s;
+}
+
+.toggle:hover span{
+    background-color: red;
+}
+
+.toggle.is-active span:nth-child(1){
+    transform: translate(0px, -2px)rotate(45deg);
+}
+
+.toggle.is-active span:nth-child(2){
+    opacity: 0;
+}
+
+.toggle.is-active span:nth-child(3){
+    transform: translate(-3px, 3px)rotate(-45deg);
+}
+
+.toggle.is-active:hover span{
+    background-color: red;
 }
 
 .fakenav{
@@ -408,17 +445,15 @@ footer *{
     }
 }
 
-@media screen and (max-width: 992px){
-    .navbar .toggle{
-        display: block;
-    }
-
-    .navbar .cart, .user{
+@media screen and (min-width: 768px){
+    .toggle{
         display: none;
     }
-
-    .navbar .nav-menu-wrap{
-        display: none;
+    .nav-left{
+        display: flex;
+    }
+    .nav-right .icon{
+        display: flex;
     }
 }
 

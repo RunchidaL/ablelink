@@ -277,14 +277,12 @@ for (let i = 0; i < menu.length; i++) {
 
 <script>
     var swiper = new Swiper(".mySwiper", {
-        loop: true,
         spaceBetween: 10,
         slidesPerView: 5,
         freeMode: true,
         watchSlidesProgress: true,
     });
     var swiper2 = new Swiper(".mySwiper2", {
-        loop: true,
         spaceBetween: 10,
         navigation: {
         nextEl: ".swiper-button-next",

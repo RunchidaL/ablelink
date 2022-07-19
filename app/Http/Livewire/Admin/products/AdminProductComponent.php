@@ -3,12 +3,16 @@
 namespace App\Http\Livewire\Admin\products;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Product;
 use App\Models\ProductModels;
 
 class AdminProductComponent extends Component
 {
     public $searchproduct;
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     
     public function deleteProduct($id)
     {
