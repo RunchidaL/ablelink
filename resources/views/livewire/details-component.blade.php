@@ -282,18 +282,16 @@ for (let i = 0; i < menu.length; i++) {
 }
 </script>
 
-
-
 <script>
     var swiper = new Swiper(".mySwiper", {
-        loop: true,
+        
         spaceBetween: 10,
         slidesPerView: 5,
         freeMode: true,
         watchSlidesProgress: true,
     });
     var swiper2 = new Swiper(".mySwiper2", {
-        loop: true,
+        
         spaceBetween: 10,
         navigation: {
         nextEl: ".swiper-button-next",
@@ -303,8 +301,7 @@ for (let i = 0; i < menu.length; i++) {
         swiper: swiper,
         },
     });
-    </script>
-
+</script>
 
 <style>
     .swiper {
@@ -391,11 +388,11 @@ for (let i = 0; i < menu.length; i++) {
 }
 
 .swiper-navBtn{
-  color: gray;
-  transition: color 0.3s ease;
-}
-.swiper-navBtn:hover{
-  color: black;
+    color: gray;
+    transition: color 0.3s ease;
 }
 
+.swiper-navBtn:hover{
+    color: black;
+}
 </style>
