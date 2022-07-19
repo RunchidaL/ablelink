@@ -24,7 +24,9 @@
                 </div>
             </div>
             @endforeach
+            <div class="paginate">
+                <div style="text-align: center">{{$products->links()}}</div>
+            </div>
         </div>
     </div>
-</div>
 </div>
