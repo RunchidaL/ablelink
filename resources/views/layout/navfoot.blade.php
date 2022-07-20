@@ -8,8 +8,8 @@
 <!-- navbar -->
 <div class="navbar">
     <div class="nav-wrap container">
+        <img src="/images/logoAbleLink.png" alt="" logo/>
         <div class="nav-left">
-            <img src="/images/logoAbleLink.png" alt="" logo/>
             <div class="nav-menu-wrap"> 
                 <div class="topic">
                     <a href="/" class="link"><span>หน้าหลัก</span></a>
@@ -90,13 +90,22 @@
                     </ul>
                 </div>     
             </div>
-            <div class="toggle">
-                <i class="bi bi-list"></i>
-            </div>
+            <button class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </div>
 </div>
 <div class="fakenav"></div>
+
+<script>
+    const toggle = document.querySelector('.toggle');
+    toggle.addEventListener('click', function(){
+        this.classList.toggle('is-active');
+    });
+</script>
 
 <!-- from livewire -->
 {{$slot}}

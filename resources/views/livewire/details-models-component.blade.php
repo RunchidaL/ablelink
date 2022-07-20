@@ -60,7 +60,6 @@
                         <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
                         <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
                     </div>
-                    
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
@@ -294,14 +293,12 @@ for (let i = 0; i < menu.length; i++) {
 
 <script>
     var swiper = new Swiper(".mySwiper", {
-        loop: true,
         spaceBetween: 10,
         slidesPerView: 5,
         freeMode: true,
         watchSlidesProgress: true,
     });
     var swiper2 = new Swiper(".mySwiper2", {
-        loop: true,
         spaceBetween: 10,
         navigation: {
         nextEl: ".swiper-button-next",

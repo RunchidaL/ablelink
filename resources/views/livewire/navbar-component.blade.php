@@ -29,6 +29,9 @@
                             </div>
                             <div class="item-right">
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>
+                                @foreach($scategory->brandCategories as $brand)
+                                    <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->slug])}}"><span><span>{{$brand->name}}</span></span></a>
+                                @endforeach
                             </div>
                         </div>
                         @endforeach 
@@ -49,13 +52,6 @@
                         }
                     }
                 });                                  
-            }
-            const collection = document.getElementsByClassName("item-right");
-            const inner = "<a href=\"#\"><span><span>category</span></span></a>";
-            for (let d = 0; d < collection.length; d++) {
-                collection[d].innerHTML += inner;
-                collection[d].innerHTML += inner;
-                collection[d].innerHTML += inner;
             }
         </script>
     </div>

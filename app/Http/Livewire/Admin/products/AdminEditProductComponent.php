@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use App\Models\GroupProduct;
+use App\Models\BrandCategory;
 
 class AdminEditProductComponent extends Component
 {
@@ -39,6 +40,7 @@ class AdminEditProductComponent extends Component
     public $newconfig;
     public $product_id;
     public $scategory_id;
+    public $bcategory_id;
     public $videos;
     public $newvideos;
     public $groupproduct_id;
@@ -69,6 +71,7 @@ class AdminEditProductComponent extends Component
         $this->config = $product->config;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
+        $this->bcategory_id = $product->brandcategory_id;
         $this->videos = explode(",",$product->videos);
         $this->product_id = $product->id;
         $this->groupproduct_id = $product->groupproduct_id;
@@ -189,6 +192,10 @@ class AdminEditProductComponent extends Component
         {
             $product->subcategory_id = $this->scategory_id;
         }
+        if($this->bcategory_id)
+        {
+            $product->brandcategory_id = $this->bcategory_id;
+        }
         if($this->newvideos)
         {
             if($product->videos)
@@ -254,9 +261,10 @@ class AdminEditProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $brands = BrandCategory::where('subcategory_id',$this->scategory_id)->get();
         $network_types = NetworkType::all();
         $groups = GroupProduct::all();
         $network_images = NetworkImage::all();
-        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups,'network_images'=>$network_images])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups,'network_images'=>$network_images,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

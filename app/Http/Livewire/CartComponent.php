@@ -59,11 +59,11 @@ class CartComponent extends Component
         {
             if($item->attribute)
             {
-                $this->subtotal += number_format($item->model->customer_price,2) * $item->quantity * $item->attribute;
+                $this->subtotal += $item->model->customer_price * $item->quantity * $item->attribute;
             }
             else
             {
-                $this->subtotal += number_format($item->model->customer_price,2) * $item->quantity;
+                $this->subtotal += $item->model->customer_price * $item->quantity;
             }
         }
 
