@@ -29,6 +29,7 @@
                             </div>
                             <div class="item-right">
                                 <a href="#"><span><span>{{$scategory->name}}</span></span></a>
+                                <a href="#"><span><span>brands</span></span></a>
                             </div>
                         </div>
                         @endforeach 
@@ -49,13 +50,6 @@
                         }
                     }
                 });                                  
-            }
-            const collection = document.getElementsByClassName("item-right");
-            const inner = "<a href=\"#\"><span><span>category</span></span></a>";
-            for (let d = 0; d < collection.length; d++) {
-                collection[d].innerHTML += inner;
-                collection[d].innerHTML += inner;
-                collection[d].innerHTML += inner;
             }
         </script>
     </div>

@@ -124,9 +124,9 @@
                 </div>
             </div>
             <div class="footer-col">
-                <h6>Contact</h6>
+                <h5>Contact</h5>
                     <ul>
-                        <li>095-145-1538</li>
+                        <li>Tel : 095-145-1538</li>
                         <li>Email : ablelink.thailand99@gmail.com</li>
                         <li>ABLE LINK (Thailand) CO., LTD.</li>
                         <li>12 Soi Sukhaphiban 5 Soi 5 Yaek 3,</li>
@@ -134,14 +134,14 @@
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Product</h6>
+                <h5>Product</h5>
                     <ul>
                         <li><a href="/">หน้าหลัก</a></li>
                         <li><a href="/product">ผลิตภัณฑ์</a></li>
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Connect</h6>
+                <h5>Connect</h5>
                     <ul>
                         <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
                         <li><a href="/forwork">ร่วมงานกับเรา</a></li>
@@ -149,7 +149,7 @@
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Customer Service</h6>
+                <h5>Customer Service</h5>
                 <ul>
                     <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
                     <li><a href="/service">บริการ</a></li>
