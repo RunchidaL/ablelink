@@ -2,7 +2,7 @@
     @if ($paginator->hasPages())
         @php(isset($this->numberOfPaginatorsRendered[$paginator->getPageName()]) ? $this->numberOfPaginatorsRendered[$paginator->getPageName()]++ : $this->numberOfPaginatorsRendered[$paginator->getPageName()] = 1)   
         <nav>
-            <ul class="pagination">
+            <ul class="pagination justify-content-center">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
@@ -47,3 +47,42 @@
         </nav>
     @endif
 </div>
+
+<style>
+    .pagination {
+    --bs-pagination-padding-x: 1.25rem;
+    --bs-pagination-padding-y: 0.375rem;
+    --bs-pagination-font-size: 1rem;
+    --bs-pagination-color: var(--bs-link-color);
+    --bs-pagination-bg: #fff;
+    --bs-pagination-border-width: 1px;
+    --bs-pagination-border-color: #dee2e6;
+    --bs-pagination-border-radius: 0.375rem;
+    --bs-pagination-hover-color: black; /*สีฟอนต์ตอน hover*/
+    --bs-pagination-hover-bg: #e9ecef; /*สีbackgroundตอน hover*/
+    --bs-pagination-hover-border-color: #dee2e6;
+    --bs-pagination-focus-color: black; /*สีฟอนต์ตอนกด*/
+    --bs-pagination-focus-bg: #ffffff;  /*สีbackgroundตอนกด*/
+    --bs-pagination-focus-box-shadow: none; /*กรอบตอนกด*/
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #194276;
+    --bs-pagination-active-border-color: #194276;
+    --bs-pagination-disabled-color: #6c757d;
+    --bs-pagination-disabled-bg: #fff;
+    --bs-pagination-disabled-border-color: #dee2e6;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    font-size: var(--bs-pagination-font-size);
+    color: black; /*สีฟอนต์ตอนไม่กด*/
+    text-decoration: none;
+    background-color: var(--bs-pagination-bg);
+    border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>

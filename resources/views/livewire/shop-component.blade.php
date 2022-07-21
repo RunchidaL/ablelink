@@ -29,9 +29,7 @@
             </div>
         </div>
     </div>
-</div>
-<div>
-    <div class="add-products-preview" wire:ignore.self>
+    <div class="add-products-preview">
         @foreach($products as $product)
         <div class="preview" data-target="{{$product->slug}}">
             <i class="bi bi-x-lg"></i>
@@ -42,14 +40,16 @@
                 <div class="col">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}">
                     <h4>{{$product->name}}<span> #{{$product->slug}}</span></h4></a>
-                    <p>฿{{number_format($product->customer_price,2)}}</p>
+                    <div class="head-product-price">
+                        <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
+                    </div><br>
                     @if(($product->product->subCategories->name) == "Cabling")
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">
                             <input wire:model="attribute"> m
                         </div>
-                    </div>
+                    </div><br>
                     @endif
                 </div>
             </div>
@@ -58,12 +58,12 @@
                     <div class="add-qty">
                         <input wire:model="qty">
                         <div class="handle">
-                            <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
-                            <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
+                            <a wire:click="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
+                            <a wire:click="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
                         </div>
                     </div>
-                    <div class="addtocart">
-                        <button wire:click="addToCart({{$product->id}})">Add To Cart</button>
+                    <div class="addtocart" style="display: inline-block;">
+                        <button wire:click.prevent="addToCart({{$product->id}})">Add To Cart</button>
                     </div> 
                 </div>
             </div>
