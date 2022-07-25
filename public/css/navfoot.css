@@ -340,6 +340,22 @@ width: 3%;
     background-color: red;
 }
 
+.checkbtn{
+    font-size: 30px;
+    float: right;
+    margin-right: 80px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+.test{
+    display: none;
+}
+
 .fakenav{
     min-height: 70px;
     padding: 0;
@@ -457,10 +473,22 @@ footer *{
     }
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 960px){
     .footer-wrapper{
         display: none;
     }
+
+    .nav-left .nav-menu-wrap{
+        display: block;
+        background: #0EBA07;
+        left: -100%;
+        position: fixed;
+    }
+
+    .nav-left .nav-menu-wrap.show{
+        left: 0;
+    }
+
 }
 
 

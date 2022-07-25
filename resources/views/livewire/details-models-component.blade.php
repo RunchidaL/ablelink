@@ -55,11 +55,7 @@
             </div>
             <div class="quantity">
                 <div class="add-qty">
-                    <input wire:model="qty">
-                    <div class="handle">
-                        <a wire:click.prevent="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></a>
-                        <a wire:click.prevent="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></a>
-                    </div>
+                    <input wire:model="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>

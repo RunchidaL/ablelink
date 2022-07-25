@@ -54,6 +54,7 @@ use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
 use App\Http\Livewire\Admin\products\NetworktypeComponent;
 use App\Http\Livewire\Admin\products\AddNetworktypeComponent;
 use App\Http\Livewire\Admin\products\EditNetworktypeComponent;
+use App\Http\Livewire\Dealer\RegisterprojectComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -96,6 +97,8 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
 
 Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
+
+Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
 
 Auth::routes();
 
