@@ -41,9 +41,9 @@
                         </td>
                         <td class="cart-total">
                             @if($item->attribute == '')
-                            <p class="group-cen">฿{{number_format($item->model->customer_price,2) * $item->quantity}}</p>
+                            <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
                             @else
-                            <p class="group-cen">฿{{number_format($item->model->customer_price,2) * $item->quantity * $item->attribute}}</p>
+                            <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
                             @endif
                         </td>
                         <td class="cart-delete">
@@ -60,7 +60,7 @@
                         <td></td>
                         <td></td>
                         <td><span><p class="button-total px-3">ยอดชำระเงิน</p></span></td>
-                        <td>฿{{$total}}</td>
+                        <td>฿{{number_format($total,2)}}</td>
                         <td></td>
                     </tr>
                 </tfoot>
