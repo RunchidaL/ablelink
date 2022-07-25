@@ -298,7 +298,7 @@ width: 3%;
 }
 
 .toggle{
-    display: block;
+    display: none;
     position: relative;
     user-select: none;
     appearance: none;
@@ -443,21 +443,27 @@ footer *{
     }
 }
 
-@media screen and (min-width: 768px){
-    .toggle{
-        display: none;
+@media screen and (min-width: 1300px){
+    .navbar{ 
+        padding: 0 1rem;
     }
+}
+
+@media screen and (min-width: 960px){
     .nav-left{
         display: flex;
     }
     .nav-right .icon{
         display: flex;
-    }  
+    }   
 }
 
 @media screen and (max-width: 960px){
     .footer-wrapper{
         display: none;
+    }
+    .toggle{
+        display: block;
     }
 }
 

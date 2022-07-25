@@ -20,6 +20,7 @@
                             <th>Name</th>
                             <th>slug</th>
                             <th>Sub Category</th>
+                            <th>Brand</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,13 +30,31 @@
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->slug}}</td>
-                                <td class="sub-name">
+                                <td>
                                     <ul class="slist">
                                         @foreach($category->subCategories as $scategory)
+                                            
                                             <li>{{$scategory->name}}
                                                 <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubcategory({{$scategory->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                             </li>
+                                            @foreach($scategory->brandCategories as $bcategory)
+                                            <br>
+                                            @endforeach
+                                        @endforeach
+                                    </ul> 
+                                </td>
+                                <td class="sub-name">
+                                    <ul class="slist">
+                                        @foreach($category->subCategories as $scategory)
+                                            @foreach($scategory->brandCategories as $bcategory)
+                                                <li>{{$bcategory->name}}
+                                                    <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$bcategory->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteBrandcategory({{$bcategory->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                                </li>
+                                                
+                                            @endforeach
+                                            <br>
                                         @endforeach
                                     </ul> 
                                 </td>
@@ -68,10 +87,7 @@
         color:black;
         font-size: 15px;
     }
-    .product-name{
-        width:50%;
-    }
     .sub-name{
-        width:40%;
+        width:20%;
     }
 </style>

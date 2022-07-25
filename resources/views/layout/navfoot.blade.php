@@ -47,7 +47,11 @@
                 </form>
             </div>     
             <div class="cart icon-wrap">
+                @guest
+                <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                @else
                 <a href="/cart"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                @endguest
             </div>
             <div class="user icon-wrap">
                 <div class="dropdown">

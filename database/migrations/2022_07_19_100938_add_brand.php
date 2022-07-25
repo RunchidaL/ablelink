@@ -14,11 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('datasheet')->nullable();
-            $table->string('firmware')->nullable();
-            $table->string('guide')->nullable();
-            $table->string('cert')->nullable();
-            $table->string('config')->nullable();
+            $table->bigInteger('brandcategory_id')->unsigned()->nullable()->after('subcategory_id');
+            $table->foreign('brandcategory_id')->references('id')->on('brand_categories')->onDelete('cascade');
         });
     }
 

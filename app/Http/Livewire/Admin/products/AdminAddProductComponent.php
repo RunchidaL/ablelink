@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use App\Models\GroupProduct;
+use App\Models\BrandCategory;
 
 class AdminAddProductComponent extends Component
 {
@@ -22,10 +23,6 @@ class AdminAddProductComponent extends Component
     public $application;
     public $item_spotlight;
     public $feature;
-    public $web_price;
-    public $dealer_price;
-    public $customer_price;
-    public $stock;
     public $image;
     public $p_images;
     public $datasheet;
@@ -35,6 +32,7 @@ class AdminAddProductComponent extends Component
     public $config;
     public $category_id;
     public $scategory_id;
+    public $bcategory_id;
     public $videos;
     public $groupproduct_id;
 
@@ -70,10 +68,6 @@ class AdminAddProductComponent extends Component
         $product->application = $this->application;
         $product->item_spotlight = $this->item_spotlight;
         $product->feature = $this->feature;
-        $product->web_price = $this->web_price;
-        $product->dealer_price = $this->dealer_price;
-        $product->customer_price = $this->customer_price;
-        $product->stock = $this->stock;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);
         $product->image = $imageName;
@@ -122,6 +116,10 @@ class AdminAddProductComponent extends Component
         if($this->scategory_id)
         {
             $product->subcategory_id = $this->scategory_id;
+        }
+        if($this->bcategory_id)
+        {
+            $product->brandcategory_id = $this->bcategory_id;
         }
 
         $product->groupproduct_id = $this->groupproduct_id;
@@ -180,15 +178,15 @@ class AdminAddProductComponent extends Component
         $this->scategory_id = 0;
     }
 
-
     public function render()
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $brands = BrandCategory::where('subcategory_id',$this->scategory_id)->get();
         $products = Product::all();
         $groups = GroupProduct::all();
         $network_types = NetworkType::all();
         $network_images = NetworkImage::all();
-        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories,'products'=>$products,'network_types'=>$network_types,'network_images'=>$network_images,'groups'=>$groups])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-add-product-component',['categories'=>$categories,'scategories'=>$scategories,'products'=>$products,'network_types'=>$network_types,'network_images'=>$network_images,'groups'=>$groups,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

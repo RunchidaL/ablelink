@@ -62,9 +62,17 @@
                     </div>
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="store({{$model->id}},'{{$model->name}}',{{$model->customer_price}})">Add To Cart</button>
+                    <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
                 </div> 
             </div>
+            @if(($model->product->subCategories->name) == "Cabling")
+                <div class="length">
+                    <p>Length:</p>
+                    <div class="add-attribute">
+                        <input wire:model="attribute"> m
+                    </div>
+                </div>
+            @endif
             <div class="relate-product">
                 <div class="models">
                     <p>Models:</p>
@@ -158,20 +166,28 @@
             
             <div class="content"> 
                 <div class="wrapper">
-                @foreach($network_products->where('product_id',$model->product->id) as $network_product)
-                    <div id="item{{$loop->index}}" class="item">
-                        <img src="{{asset('/images/products')}}/{{$network_product->image_id->image}}">
-                        <div class="tag-list">
-                            <div class="tag-item">
-                                <a href="#"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                <div>
-                                    <a href="#" class="name">{{$network_product->photo->name}}</a>
-                                    <div class="price">฿{{number_format($network_product->photo->web_price)}}</div>
-                                </div>
+                @foreach($network_images as $network_image)
+                    @foreach($network_products->where('product_id',$model->product->id)->unique('network_image_id') as $network_product)
+                        @if($network_image->id == $network_product->network_image_id)
+                        <div id="item{{$loop->index}}" class="item">
+                            <img src="{{asset('/images/products')}}/{{$network_image->image}}">
+                            <div class="tag-list">
+                                @foreach($network_products->where('product_id',$model->product->id) as $network_product)
+                                    @if($network_image->id == $network_product->network_image_id)
+                                        <div class="tag-item">
+                                            <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->product->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                            <div>
+                                                <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
+                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                @endforeach  
+                        @endif
+                    @endforeach
+                @endforeach
                 </div>
             </div>
         </div>
@@ -277,14 +293,12 @@ for (let i = 0; i < menu.length; i++) {
 
 <script>
     var swiper = new Swiper(".mySwiper", {
-        loop: true,
         spaceBetween: 10,
         slidesPerView: 5,
         freeMode: true,
         watchSlidesProgress: true,
     });
     var swiper2 = new Swiper(".mySwiper2", {
-        loop: true,
         spaceBetween: 10,
         navigation: {
         nextEl: ".swiper-button-next",

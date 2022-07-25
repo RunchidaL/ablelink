@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use App\Models\GroupProduct;
+use App\Models\BrandCategory;
 
 class AdminEditProductComponent extends Component
 {
@@ -22,10 +23,6 @@ class AdminEditProductComponent extends Component
     public $application;
     public $item_spotlight;
     public $feature;
-    public $web_price;
-    public $dealer_price;
-    public $customer_price;
-    public $stock;
     public $image;
     public $pimages;
     public $datasheet;
@@ -43,6 +40,7 @@ class AdminEditProductComponent extends Component
     public $newconfig;
     public $product_id;
     public $scategory_id;
+    public $bcategory_id;
     public $videos;
     public $newvideos;
     public $groupproduct_id;
@@ -64,10 +62,6 @@ class AdminEditProductComponent extends Component
         $this->application = $product->application;
         $this->item_spotlight = $product->item_spotlight;
         $this->feature = $product->feature;
-        $this->web_price = $product->web_price;
-        $this->dealer_price = $product->dealer_price;
-        $this->customer_price = $product->customer_price;
-        $this->stock = $product->stock;
         $this->image = $product->image;
         $this->pimages = explode(",",$product->images);
         $this->datasheet = $product->datasheet;
@@ -77,6 +71,7 @@ class AdminEditProductComponent extends Component
         $this->config = $product->config;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
+        $this->bcategory_id = $product->brandcategory_id;
         $this->videos = explode(",",$product->videos);
         $this->product_id = $product->id;
         $this->groupproduct_id = $product->groupproduct_id;
@@ -134,10 +129,6 @@ class AdminEditProductComponent extends Component
         $product->application = $this->application;
         $product->item_spotlight = $this->item_spotlight;
         $product->feature = $this->feature;
-        $product->web_price = $this->web_price;
-        $product->dealer_price = $this->dealer_price;
-        $product->customer_price = $this->customer_price;
-        $product->stock = $this->stock;
         if($this->newimage)
         {
             $imageName = $this->newimage->getClientOriginalName();
@@ -201,6 +192,10 @@ class AdminEditProductComponent extends Component
         {
             $product->subcategory_id = $this->scategory_id;
         }
+        if($this->bcategory_id)
+        {
+            $product->brandcategory_id = $this->bcategory_id;
+        }
         if($this->newvideos)
         {
             if($product->videos)
@@ -229,6 +224,7 @@ class AdminEditProductComponent extends Component
         $product->save();
 
         NetworkValue::where('product_id',$product->id)->delete();
+        
         foreach($this->attribute_values as $key=>$attribute_value)
         {
             if($this->network_images)
@@ -265,8 +261,10 @@ class AdminEditProductComponent extends Component
     {
         $categories = Category::all();
         $scategories = Subcategory::where('category_id',$this->category_id)->get();
+        $brands = BrandCategory::where('subcategory_id',$this->scategory_id)->get();
         $network_types = NetworkType::all();
         $groups = GroupProduct::all();
-        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups])->layout("layout.navfoot");
+        $network_images = NetworkImage::all();
+        return view('livewire.admin.products.admin-edit-product-component',['categories'=>$categories,'scategories'=>$scategories,'network_types'=>$network_types,'groups'=>$groups,'network_images'=>$network_images,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

@@ -1,17 +1,24 @@
-*{
-    margin: 0;
-    padding: 0;
+.body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Container{
+    width: 100%;
 }
 
 .text{
     color: #dc7226; /*change*/
     margin-left: 5%;
-    font-size: 25px;
+    font-size: 1.563rem;
     margin-top: 5%;
     margin-bottom: 2%;
 }
 
-.row {
+.row{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
@@ -40,69 +47,27 @@
     transform: scale(1);
     transition: 0.3s ease-in-out ;
 }
+
 .NP-col img:hover{
-    transform: scale(1.15);
-    
+    transform: scale(1.15); 
 }
 
-@media(max-width: 767px){
-    .NP-col {
-        width: 50%;
-        
+/* responsive */
+@media(max-width: 960px){
+    .NP-col{
+        width: 30%;  
     }
-
     .text{
         margin-top: 10%;
     }
 }
 
-/* responsive */
-.Container{
-    width: 100%;
-}
-
 @media(max-width: 767px){
-    .footer-col{
-        width: 50%;
+    .NP-col{
+        width: 50%;  
+    }
+    .text{
+        margin-top: 10%;
     }
 }
 
-@media (min-width: 640px){
-    .Container{
-        max-width: 640px;
-    }
-}
-@media (min-width: 768px){
-    .Container{
-        max-width: 768px;
-    }
-}
-@media screen and (min-width: 1024px){ /*mobile*/
-    .Container{
-        max-width: 1024px;
-    }
-}
-@media screen and (min-width: 1300px){
-    .navbar { 
-        padding: 0 1rem
-    }
-    .Container{
-        max-width: 1300px;
-    }
-}
-@media screen and (min-width: 1536px){
-    .navbar { 
-        padding: 0 2rem
-    }
-    .Container{
-        max-width: 1536px;
-    }
-}
-
-.body {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}

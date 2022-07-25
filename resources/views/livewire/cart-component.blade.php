@@ -1,11 +1,6 @@
 <div class="cart-page">
     <div class="container cart-home">
-    @if(Session::has('success_message'))
-        <div class="alert alert-success">
-            {{Session::get('success_message')}}
-        </div>
-    @endif
-    @if(Cart::count() > 0)    
+        @if($count > 0)
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
         </div>
@@ -22,33 +17,37 @@
                     </tr>
                 </thead>
                 <tbody class="customer-product">
-                    @foreach (Cart::content() as $item)
+                    @foreach ($cartitems as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
-                            @if($item->model->image =='')
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->product->image}}"></a>
-                            @else
-                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
-                            @endif
                         </td>
                         <td class="cart-name">
-                            <a href="#">{{$item->model->name}}</a>
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                            @if($item->attribute == '')
+                            @else
+                            <p>{{$item->attribute}} m</p>
+                            @endif
                         </td>
                         <td class="cart-price">
                             <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
-                                <a wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"><i class="bi bi-dash"></i></a>
-                                <span>{{$item->qty}}</span>
-                                <a wire:click.prevent="increaseQuantity('{{$item->rowId}}')"><i class="bi bi-plus"></i></a>
+                                <a wire:click.prevent="decreaseQuantity('{{$item->id}}')"><i class="bi bi-dash"></i></a>
+                                <span>{{$item->quantity}}</span>
+                                <a wire:click.prevent="increaseQuantity('{{$item->id}}')"><i class="bi bi-plus"></i></a>
                             </div>
                         </td>
                         <td class="cart-total">
-                            <p class="group-cen">฿{{number_format($item->subtotal,2)}}</p>
+                            @if($item->attribute == '')
+                            <p class="group-cen">฿{{number_format($item->model->customer_price,2) * $item->quantity}}</p>
+                            @else
+                            <p class="group-cen">฿{{number_format($item->model->customer_price,2) * $item->quantity * $item->attribute}}</p>
+                            @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->rowId}}')" onclick="return confirm('ต้องการลบใช่หรือไม่?')">
+                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
                                 <i class="bi bi-x-lg"></i>
                             </a>
                         </td>
@@ -61,7 +60,7 @@
                         <td></td>
                         <td></td>
                         <td><span><p class="button-total px-3">ยอดชำระเงิน</p></span></td>
-                        <td>฿{{Cart::subtotal()}}</td>
+                        <td>฿{{$total}}</td>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -71,10 +70,10 @@
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
             <a class="button-paid" href="#">ชำระสินค้า</a>
         </div>
-    @else
+        @else
         <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
             ไม่มีสินค้าในตะกร้า
         </div>
-    @endif 
+        @endif
     </div>
 </div>
