@@ -25,7 +25,7 @@
                         @foreach($category->subCategories as $scategory) 
                         <div class="item">
                             <div class="photo">
-                                <img src="/images/CCTV.png" alt="">
+                                <img src="{{asset('/images/products')}}/{{$scategory->image}}" alt="">
                             </div>
                             <div class="item-right">
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>

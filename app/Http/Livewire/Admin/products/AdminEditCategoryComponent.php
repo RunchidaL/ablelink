@@ -7,9 +7,12 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Brandcategory;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class AdminEditCategoryComponent extends Component
 {
+    use WithFileUploads;
     public $category_slug;
     public $category_id;
     public $name;
@@ -20,6 +23,8 @@ class AdminEditCategoryComponent extends Component
     public $bcategory_id;
     public $category_c;
     public $scategory_c;
+    public $image;
+    public $newimage;
 
     public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
     {
@@ -41,6 +46,7 @@ class AdminEditCategoryComponent extends Component
             $this->category_c = $scategory->category_id;
             $this->name = $scategory->name;
             $this->slug = $scategory->slug;
+            $this->image = $scategory->image;
         }
         else{
             $this->category_slug = $category_slug;
@@ -73,6 +79,12 @@ class AdminEditCategoryComponent extends Component
             $scategory->name = $this->name;
             $scategory->slug = $this->slug;
             $scategory->category_id = $this->category_c;
+            if($this->newimage)
+            {
+                $imageName = $this->newimage->getClientOriginalName();
+                $this->newimage->storeAs('products',$imageName);
+                $scategory->image = $imageName;
+            }
             $scategory->save();
         }
         else{

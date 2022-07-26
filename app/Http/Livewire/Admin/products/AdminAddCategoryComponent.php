@@ -7,13 +7,18 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\BrandCategory;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class AdminAddCategoryComponent extends Component
 {
+    use WithFileUploads;
     public $name;
     public $slug;
     public $category_id;
     public $scategory_id;
+    public $image;
+    
 
     public function generateslug()
     {
@@ -36,6 +41,9 @@ class AdminAddCategoryComponent extends Component
             $scategory->name = $this->name;
             $scategory->slug = $this->slug;
             $scategory->category_id = $this->category_id;
+            $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
+            $this->image->storeAs('products',$imageName);
+            $scategory->image = $imageName;
             $scategory->save();
         }
         else{

@@ -34,6 +34,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-4">Subategory Image</label>
+                    <div class="col-md-4">
+                        <input type="file" class="input-file" wire:model="image">
+                        @if($image)
+                            <img src="{{$image->temporaryUrl()}}" width="120"/>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-12">SubCategory</label>
                     <div class="col-md-12">
                         <select name="form-control input-md" wire:model="scategory_id">
