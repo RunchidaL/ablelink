@@ -28,7 +28,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Image</th>
+                            <!-- <th>Image</th> -->
                             <th>Name</th>
                             <th>Models</th>
                             <th>Action</th>
@@ -38,7 +38,7 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{$product->id}}</td>
-                                <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td>
+                                <!-- <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td> -->
                                 <td class="product-name">{{$product->name}}</td>
                                 <td class="models">
                                     <ul class="slist">

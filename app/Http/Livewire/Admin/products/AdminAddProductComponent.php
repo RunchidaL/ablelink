@@ -19,17 +19,17 @@ class AdminAddProductComponent extends Component
     use WithFileUploads;
     public $name;
     public $slug;
-    public $overview;
-    public $application;
-    public $item_spotlight;
-    public $feature;
-    public $image;
-    public $p_images;
-    public $datasheet;
-    public $firmware;
-    public $guide;
-    public $cert;
-    public $config;
+    // public $overview;
+    // public $application;
+    // public $item_spotlight;
+    // public $feature;
+    // public $image;
+    // public $p_images;
+    // public $datasheet;
+    // public $firmware;
+    // public $guide;
+    // public $cert;
+    // public $config;
     public $category_id;
     public $scategory_id;
     public $bcategory_id;
@@ -64,54 +64,54 @@ class AdminAddProductComponent extends Component
         $product = new Product();
         $product->name = $this->name;
         $product->slug = $this->slug;
-        $product->overview = $this->overview;
-        $product->application = $this->application;
-        $product->item_spotlight = $this->item_spotlight;
-        $product->feature = $this->feature;
-        $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
-        $this->image->storeAs('products',$imageName);
-        $product->image = $imageName;
-        if($this->p_images)
-        {
-            $imagesName = '';
-            foreach($this->p_images as $key=>$image)
-            {
-                $imageName = $image->getClientOriginalName();
-                $image->storeAs('products',$imageName);
-                $imagesName = $imagesName . ',' . $imageName ;
-            }
-            $product->images = $imagesName;
-        }
-        if($this->datasheet)
-        {
-            $file1 = $this->datasheet->getClientOriginalName();
-            $this->datasheet->storeAs('products',$file1);
-            $product->datasheet = $file1;
-        }
-        if($this->firmware)
-        {
-            $file2 = $this->firmware->getClientOriginalName();
-            $this->firmware->storeAs('products',$file2);
-            $product->firmware = $file2;
-        }
-        if($this->guide)
-        {
-            $file3 = $this->guide->getClientOriginalName();
-            $this->guide->storeAs('products',$file3);
-            $product->guide = $file3;
-        }
-        if($this->cert)
-        {
-            $file4 = $this->cert->getClientOriginalName();
-            $this->cert->storeAs('products',$file4);
-            $product->cert = $file4;
-        }
-        if($this->config)
-        {
-            $file5 = $this->config->getClientOriginalName();
-            $this->config->storeAs('products',$file5);
-            $product->config = $file5;
-        }
+        // $product->overview = $this->overview;
+        // $product->application = $this->application;
+        // $product->item_spotlight = $this->item_spotlight;
+        // $product->feature = $this->feature;
+        // $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
+        // $this->image->storeAs('products',$imageName);
+        // $product->image = $imageName;
+        // if($this->p_images)
+        // {
+        //     $imagesName = '';
+        //     foreach($this->p_images as $key=>$image)
+        //     {
+        //         $imageName = $image->getClientOriginalName();
+        //         $image->storeAs('products',$imageName);
+        //         $imagesName = $imagesName . ',' . $imageName ;
+        //     }
+        //     $product->images = $imagesName;
+        // }
+        // if($this->datasheet)
+        // {
+        //     $file1 = $this->datasheet->getClientOriginalName();
+        //     $this->datasheet->storeAs('products',$file1);
+        //     $product->datasheet = $file1;
+        // }
+        // if($this->firmware)
+        // {
+        //     $file2 = $this->firmware->getClientOriginalName();
+        //     $this->firmware->storeAs('products',$file2);
+        //     $product->firmware = $file2;
+        // }
+        // if($this->guide)
+        // {
+        //     $file3 = $this->guide->getClientOriginalName();
+        //     $this->guide->storeAs('products',$file3);
+        //     $product->guide = $file3;
+        // }
+        // if($this->cert)
+        // {
+        //     $file4 = $this->cert->getClientOriginalName();
+        //     $this->cert->storeAs('products',$file4);
+        //     $product->cert = $file4;
+        // }
+        // if($this->config)
+        // {
+        //     $file5 = $this->config->getClientOriginalName();
+        //     $this->config->storeAs('products',$file5);
+        //     $product->config = $file5;
+        // }
         $product->category_id = $this->category_id;
         if($this->scategory_id)
         {
@@ -124,17 +124,17 @@ class AdminAddProductComponent extends Component
 
         $product->groupproduct_id = $this->groupproduct_id;
 
-        if($this->videos)
-        {
-            $videosName = '';
-            foreach($this->videos as $key=>$video)
-            {
-                $videoName = $video->getClientOriginalName();
-                $video->storeAs('products',$videoName);
-                $videosName = $videosName . ',' . $videoName ;
-            }
-            $product->videos = $videosName;
-        }
+        // if($this->videos)
+        // {
+        //     $videosName = '';
+        //     foreach($this->videos as $key=>$video)
+        //     {
+        //         $videoName = $video->getClientOriginalName();
+        //         $video->storeAs('products',$videoName);
+        //         $videosName = $videosName . ',' . $videoName ;
+        //     }
+        //     $product->videos = $videosName;
+        // }
 
         $product->save();
 

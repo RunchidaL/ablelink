@@ -84,7 +84,7 @@
                 <div class="row">
                     @foreach ($Lproduct as $lproduct)
                     <div class="NP-col">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->product->image}}" alt="">
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt="">
                         <p>{{$lproduct->name}}</p></a>
                     </div>
                     @endforeach

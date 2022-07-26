@@ -8,7 +8,7 @@
             <div class="NP-col">
                 <div class="card">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
-                        <img src="{{asset('/images/products')}}/{{$product->product->image}}" class="card-img-top" alt="...">
+                        <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
                         <div class="card-body">
                                 <p class="card-title">{{$product->name}}<span> #{{$product->slug}}</span></p>
                             @if(($product->web_price) == '1')
@@ -33,7 +33,7 @@
             <i class="bi bi-x-lg"></i>
             <div class="row">
                 <div class="col">
-                    <img src="{{asset('/images/products')}}/{{$product->product->image}}">
+                    <img src="{{asset('/images/products')}}/{{$product->image}}">
                 </div>
                 <div class="col">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}">

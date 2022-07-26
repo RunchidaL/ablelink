@@ -489,6 +489,9 @@ footer *{
         left: 0;
     }
 
+    .nav-right .searchbox input{
+        width: 50%;
+    }
 }
 
 

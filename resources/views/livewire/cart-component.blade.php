@@ -20,7 +20,7 @@
                     @foreach ($cartitems as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
-                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->product->image}}"></a>
+                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                         </td>
                         <td class="cart-name">
                             <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>

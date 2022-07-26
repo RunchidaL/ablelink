@@ -22,7 +22,7 @@ class DetailsModelsComponent extends Component
     {
         $this->modelslug = $modelslug;
         $this->qty = 1;
-        $this->attribute = 1;
+        // $this->attribute = 1;
     }
 
     public function increaseQuantity()

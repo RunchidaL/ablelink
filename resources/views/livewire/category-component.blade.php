@@ -13,7 +13,7 @@
                 <div class="NP-col">
                     <div class="card">
                         <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}" class="card-wrapper">
-                            <img src="{{asset('/images/products')}}/{{$model->product -> image}}" class="card-img-top" alt="...">
+                            <img src="{{asset('/images/products')}}/{{$model->image}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                     <p class="card-title">{{$model->name}}<span> #{{$product->slug}}</span></p>
                                 @if(($model->web_price) == '1')

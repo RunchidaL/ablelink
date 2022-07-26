@@ -4,10 +4,10 @@
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"class="swiper mySwiper2">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{asset('/images/products')}}/{{$model->product->image}}"/>
+                        <img src="{{asset('/images/products')}}/{{$model->image}}"/>
                     </div>  
                     @php
-                        $pimages = explode(",",$model->product->images);
+                        $pimages = explode(",",$model->images);
                     @endphp
                     @foreach($pimages as $pimage)
                         @if($pimage)
@@ -24,10 +24,10 @@
             <div thumbsSlider="" class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{asset('/images/products')}}/{{$model->product->image}}"/>
+                        <img src="{{asset('/images/products')}}/{{$model->image}}"/>
                     </div>  
                     @php
-                        $pimages = explode(",",$model->product->images);
+                        $pimages = explode(",",$model->images);
                     @endphp
                     @foreach($pimages as $pimage)
                         @if($pimage)
@@ -55,7 +55,7 @@
             </div>
             <div class="quantity">
                 <div class="add-qty">
-                    <input wire:model="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
+                    <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                     <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
@@ -65,7 +65,7 @@
                 <div class="length">
                     <p>Length:</p>
                     <div class="add-attribute">
-                        <input wire:model="attribute"> m
+                        <input wire:model.defer="attribute"> m
                     </div>
                 </div>
             @endif
@@ -84,23 +84,30 @@
                     <p>Series:</p>
                     <div class="relate-group">
                         @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
+                            @if($product_model->series_id == '')
+                            @else
                             <div class="relate-box">
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
                             </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
                 <div class="types">
-                    <p>Types:</p>
+                    @foreach($product_models->where('series_id',$model->series_id)->unique('series_id') as $product_model)
+                        @if($product_model->type_id == '')
+                        @else
+                        <p>Types:</p>
+                        @endif
+                    @endforeach
                     <div class="relate-group">
-                        @foreach($product_models->where('product_id',$model->product->id)->unique('series_id') as $product_model)
-                            @foreach($types as $type)
-                                @if($type->series_id === $product_model->series_id)
-                                    <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$type->product->slug])}}">{{$type->name}}</a>
-                                    </div>
-                                @endif
-                            @endforeach
+                        @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
+                            @if($product_model->type_id == '')
+                            @else
+                            <div class="relate-box">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->typemodels->name}}</a>
+                            </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -112,7 +119,7 @@
                         @endif
                     @endforeach
                     <div class="relate-group">
-                        @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
+                        @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
                             @foreach($jacket_products as $jacket_product)
                                 @if($jacket_product->type_id === $product_model->type_id)
                                 <div class="relate-box">
@@ -140,13 +147,13 @@
 
         <div class="tab-contents">
             <h4>Overview</h4>
-            <p id="">{!! $model->product->overview !!}</p>
+            <p id="">{!! $model->overview !!}</p>
         </div>
 
         <div class="tab-contents">
             <div class="line" id="application"></div>
             <h4>Application</h4>
-            <p>{!! $model->product->application !!}</p>
+            <p>{!! $model->application !!}</p>
         </div>
 
         <div class="tab-contents">
@@ -171,7 +178,7 @@
                                 @foreach($network_products->where('product_id',$model->product->id) as $network_product)
                                     @if($network_image->id == $network_product->network_image_id)
                                         <div class="tag-item">
-                                            <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->product->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                            <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
                                             <div>
                                                 <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
                                                 <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
@@ -191,22 +198,22 @@
         <div class="tab-contents">
             <div class="line" id="item-spotlight"></div>
             <h4>Item Spotlight</h4>
-            <p>{!! $model->product->item_spotlight !!}</p>
+            <p>{!! $model->item_spotlight !!}</p>
         </div>
 
         <div class="tab-contents" >
             <div class="line" id="feature"></div>
             <h4>Feature</h4>
-            <p>{!! $model->product->feature !!}</p>
+            <p>{!! $model->feature !!}</p>
         </div>
-        @if(($model->product->videos) == "")
+        @if(($model->videos) == "")
         @else
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
                 <h4>Videos</h4>
                 <div class="video">
                     @php
-                        $videos = explode(",",$model->product->videos);
+                        $videos = explode(",",$model->videos);
                     @endphp
                     @foreach($videos as $video)
                         @if($video)
@@ -233,34 +240,34 @@
             <h4>Resources</h4>
             <br>
             <div class="download">
-                @if(($model->product->datasheet) == "")
+                @if(($model->datasheet) == "")
                 @else
                 <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->product->datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
+                    <a href="{{asset('/images/products')}}/{{$model->datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
                 </div>
                 @endif
-                @if(($model->product->firmware) == "")
+                @if(($model->firmware) == "")
                 @else
                 <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->product->firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
+                    <a href="{{asset('/images/products')}}/{{$model->firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
                 </div>
                 @endif
-                @if(($model->product->guide) == "")
+                @if(($model->guide) == "")
                 @else
                 <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->product->guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
+                    <a href="{{asset('/images/products')}}/{{$model->guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
                 </div>
                 @endif
-                @if(($model->product->cert) == "")
+                @if(($model->cert) == "")
                 @else
                 <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->product->cert}}"><i class="bi bi-file-check"></i> Certificate</a>
+                    <a href="{{asset('/images/products')}}/{{$model->cert}}"><i class="bi bi-file-check"></i> Certificate</a>
                 </div>
                 @endif
-                @if(($model->product->config) == "")
+                @if(($model->config) == "")
                 @else
                 <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->product->config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
+                    <a href="{{asset('/images/products')}}/{{$model->config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
                 </div>
                 @endif
             </div>
