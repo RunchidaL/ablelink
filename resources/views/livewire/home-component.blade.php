@@ -9,7 +9,7 @@
 <!-- highlight -->
     <div class="slider">
         @foreach ($sliders as $slide)
-        <div class="myslider" style="display: block;">
+        <div class="myslider">
             <div class="txt">
                 <a href="{{$slide->link}}" style="text-decoration: none"><h1>{{$slide->title}}</h1></a>
                 <p>{{$slide->subtitle}}</p>
@@ -19,10 +19,16 @@
         @endforeach
         <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
         <a class="next" onclick="plusSlides(1)"><i class="bi bi-chevron-right"></i></a>
-        <div class="dotsbox" style="text-align: center; display: none" >
-            <span class="dot" onclick="CurrentSlide(1)"></span>
-            <span class="dot" onclick="CurrentSlide(2)"></span>
-            <span class="dot" onclick="CurrentSlide(3)"></span>
+        <div class="dotsbox" style="text-align: center;" >
+            @php
+                $i = 0; 
+            @endphp
+            @foreach($sliders as $slide)
+                @php
+                    $i++; 
+                @endphp
+                <span class="dot" onclick="CurrentSlide({{$i}})"></span>
+            @endforeach
         </div>
     </div>
 

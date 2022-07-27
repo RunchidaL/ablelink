@@ -12,6 +12,7 @@ class CategoryComponent extends Component
 {
     public $category_slug;
     public $scategory_slug;
+
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';

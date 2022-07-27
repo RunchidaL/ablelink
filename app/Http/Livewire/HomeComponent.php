@@ -16,7 +16,7 @@ class HomeComponent extends Component
         
         $posts = Post::all();
         $sliders = Home::where('status',0)->get();
-        $Lproduct = Product::orderBy('created_at','DESC')->get()->take(5);
+        $Lproduct = Product::orderBy('created_at','DESC')->get()->take(6);
         return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory,'Lproduct'=>$Lproduct])->layout("layout.navfoot");
     }
 }

@@ -50,7 +50,13 @@ use App\Http\Livewire\Admin\products\EditGroupComponent;
 use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
 use App\Http\Livewire\Admin\Home\AdminHomecomponent;
+use App\Http\Livewire\Customer\CustomerAddAddressComponent;
+use App\Http\Livewire\Customer\CustomerAddressComponent;
+use App\Http\Livewire\Customer\CustomerChangePasswordComponent;
+use App\Http\Livewire\Customer\CustomerEditAddressComponent;
+use App\Http\Livewire\Customer\CustomerInfoComponent;
 use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
+use App\Http\Livewire\Dealer\DealerChangePasswordComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -92,13 +98,26 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
 
-Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
-
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('admin/home',[HomeController::class, 'adminHome'])->name('admin.home')->middleware('role');
 
+
+
+// for Dealer & Customer
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+    Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
+    Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
+    
+    Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
+    Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
+    Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
+    Route::get('/customer/addaddress',CustomerAddAddressComponent::class)->name('customer.addaddress');
+    Route::get('/customer/editaddress/{address_id}',CustomerEditAddressComponent::class)->name('customer.editaddress');
+});
+
+// for Admin
 Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/home',AdminHomecomponent::class)->name('admin.homes');
     Route::get('/admin/home/add',AdminAddHomecomponent::class)->name('admin.addhomes');
