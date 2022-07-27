@@ -40,15 +40,18 @@
 }
 .dot{
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    margin: 0 10px;
-    cursor: pointer;
+    height: 7px;
+    width: 26px;
+    border-radius: 25px;
+    background: #cccccc;
+
 }
+
 .active, .dot:hover{
-    border-color: #3498db;
+    height: 7px;
+    width: 26px;
+    border-radius: 25px;
+    background: rgb(255, 255, 255);
 }
 
 
