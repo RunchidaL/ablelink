@@ -65,7 +65,7 @@
                             <li class="dropdown">
                                 <a class="dropdown-item disabled" href="#">{{ Auth::user()->name }}</a>
                                 @if(Auth::user()->role == 1)
-                                    <a class="dropdown-item" href="#">แก้ไขข้อมูล</a>
+                                    <a class="dropdown-item" href="{{route('customer.info')}}">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 2)
                                     <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">แก้ไขข้อมูล</a>
@@ -77,6 +77,7 @@
                                     <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
                                     <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
                                     <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
+                                    <a class="dropdown-item" href="{{route('admin.brand')}}">Brand</a>
                                 @endif
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

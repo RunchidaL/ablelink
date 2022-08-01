@@ -20,15 +20,15 @@
         <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
         <a class="next" onclick="plusSlides(1)"><i class="bi bi-chevron-right"></i></a>
         <div class="dotsbox" style="text-align: center;" >
-        @php
-            $i = 0; 
-        @endphp
-        @foreach($sliders as $slide)
             @php
-                $i++; 
+                $i = 0; 
             @endphp
-            <span class="dot" onclick="CurrentSlide({{$i}})"></span>
-        @endforeach
+            @foreach($sliders as $slide)
+                @php
+                    $i++; 
+                @endphp
+                <span class="dot" onclick="CurrentSlide({{$i}})"></span>
+            @endforeach
         </div>
     </div>
 
@@ -144,6 +144,7 @@
         autoplay: {
         delay: 3000,
         },
+        
         breakpoints:{
             0: {
                 slidesPerView: 1,

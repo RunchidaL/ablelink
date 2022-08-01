@@ -1,10 +1,12 @@
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
         <div>
-            @if($scategory_slug == '')
+            @if($scategory_slug == '' and $bcategory_slug == '')
                 <h2 class="text">{{$category->name}}</h2>
-            @else
+            @elseif($bcategory_slug == '')
                 <h2 class="text">{{$scategory->name}}</h2>
+            @else
+                <h2 class="text">{{$bcategory->name}}</h2>
             @endif
         </div>
         <div class="row" id="products">
@@ -15,11 +17,19 @@
                         <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}" class="card-wrapper">
                             <img src="{{asset('/images/products')}}/{{$model->image}}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                    <p class="card-title">{{$model->name}}<span> #{{$product->slug}}</span></p>
+                                    <p><span>#{{$model->slug}}</span></p>
+                                    <p class="card-title">{{$model->name}}</p>
                                 @if(($model->web_price) == '1')
                                     <p class="empty">฿</p>
                                 @else
-                                    <p>฿{{number_format($model->customer_price,2)}}</p>
+                                <div class="d-flex">
+                                    <div class="me-auto p-2">
+                                        <p><span>In stock {{$model->stock}}</span></p>
+                                    </div>
+                                    <div class="p-2">
+                                        <p>฿{{number_format($model->customer_price,2)}}</p>
+                                    </div>
+                                </div>
                                 @endif
                             </div>
                         </a>

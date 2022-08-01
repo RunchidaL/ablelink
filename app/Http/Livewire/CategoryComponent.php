@@ -22,6 +22,8 @@ class CategoryComponent extends Component
     public $qty;
     public $attribute;
 
+    use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
 
     public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
@@ -93,7 +95,7 @@ class CategoryComponent extends Component
             $filter = "";
         }
         
-        $products = Product::where($filter.'category_id',$category_id)->paginate(5);
+        $products = Product::where($filter.'category_id',$category_id)->paginate(10);
         $models = ProductModels::all();
         $categories = Category::all();
         $category = Category::where('slug',$this->category_slug)->first();

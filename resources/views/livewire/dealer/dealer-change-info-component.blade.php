@@ -1,119 +1,113 @@
+<div style="text-align: center; margin-top: 3%;">
+    <span style="background: #194276; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); color: white; font-size: 200%; padding: 1%; border-radius: 20px">
+    ข้อมูลของบริษัท {{$user->Dealer->companyTH}}
+    </span>
+</div>
+
 <div class="container mt-1 p-5">
-    <h2><a href="" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Profile</h2>
-    <br>
-    <form enctype="multipart/form-data" wire:submit.prevent="">
+    <div class="row">
+        <div class="col-md-4">
+            <h4><li>ข้อมูลส่วนตัว</li></h4>
+        </div>
+        <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+            <a href="{{route('dealer.changepassword')}}"><button class="btn btn-info" style="color: white; background: #194276">เปลี่ยนรหัสผ่าน</button></a>
+        </div>
+    </div>
+
+    <form action="" method="" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <h4>ข้อมูลส่วนตัว</h4>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="name">ชื่อจริง</label>
-                        <input type="text" name="name" class="form-control"  wire:model="firstname" required>
-                    </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="name">*ชื่อจริง</label>
+                    <input type="text" name="name" class="form-control" placeholder="{{$user->Dealer->firstname}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="lname">นามสกุล</label>
-                        <input type="text" name="lname" class="form-control"  wire:model="lastname" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="lname">*นามสกุล</label>
+                    <input type="text" name="lname" class="form-control" placeholder="{{$user->Dealer->lastname}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control"  wire:model="emailaddress" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="email">*Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="{{$user->Dealer->emailaddress}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="phone">เบอร์โทรศัพท์</label>
-                        <input type="text" name="phone" class="form-control"  wire:model="phonenumber" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="phone">*เบอร์โทรศัพท์</label>
+                    <input type="text" name="phone" class="form-control" placeholder="{{$user->Dealer->phonenumber}}" /readonly>
                 </div>
-            <h4>ที่อยู่</h4>
-                <div class="form-group my-2">
-                    <div class="form-group">
-                        <label for="address">ที่อยู่:</label>
-                        <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"  wire:model="address" required></textarea>
-                    </div>
+            </div>
+            <h4 style="margin-top: 2%"><li>ที่อยู่</li></h4>
+            <div class="form-group my-2">
+                <div class="form-group">
+                    <label for="address">*ที่อยู่:</label>
+                    <input type="text" name="phone" class="form-control" placeholder="{{$user->Dealer->address}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="subdistrict">ตำบล</label>
-                        <input type="text" name="subdistrict" class="form-control"  wire:model="subdistrict" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="subdistrict">*ตำบล</label>
+                    <input type="text" name="subdistrict" class="form-control" placeholder="{{$user->Dealer->subdistrict}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="district">อำเภอ</label>
-                        <input type="text" name="district" class="form-control"  wire:model="district" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="district">*อำเภอ</label>
+                    <input type="text" name="district" class="form-control" placeholder="{{$user->Dealer->district}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="county">จังหวัด</label>
-                        <input type="text" name="county" class="form-control"  wire:model="county" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="province">*จังหวัด</label>
+                    <input type="text" name="province" class="form-control" placeholder="{{$user->Dealer->county}}" /readonly>
                 </div>
-                
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="zipcod">รหัสไปรษณีย์</label>
-                        <input type="text" name="zipcode" class="form-control"  wire:model="zipcode" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="zipcode">*รหัสไปรษณีย์</label>
+                    <input type="text" name="zipcode" class="form-control" placeholder="{{$user->Dealer->zipcode}}" /readonly>
                 </div>
-            <h4>ข้อมูลกิจการ</h4>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="companythai">ชื่อกิจการ (ภาษาไทย)</label>
-                        <input type="text" name="companythai" class="form-control"  wire:model="companyTH" required>
-                    </div>
+            </div>
+            <h4 style="margin-top: 2%"><li>ข้อมูลกิจการ</li></h4>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="companythai">*ชื่อกิจการ (ภาษาไทย)</label>
+                    <input type="text" name="companythai" class="form-control" placeholder="{{$user->Dealer->companyTH}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="companyeng">ชื่อกิจการ (ภาษาอังกฤษ)</label>
-                        <input type="text" name="companyeng" class="form-control"  wire:model="companyEN" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="companyeng">*ชื่อกิจการ (ภาษาอังกฤษ)</label>
+                    <input type="text" name="companyeng" class="form-control" placeholder="{{$user->Dealer->companyEN}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="taxid">เลขประจำตัวผู้เสียภาษี</label>
-                        <input type="text" name="taxid" class="form-control"  wire:model="taxid" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="vatid">*เลขประจำตัวผู้เสียภาษี</label>
+                    <input type="text" name="vatid" class="form-control" placeholder="{{$user->Dealer->taxid}}" /readonly>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="idcompany">สำนักงานใหญ่ / รหัสสาขา</label>
-                        <input type="text" name="idcompany" class="form-control"  wire:model="idcompany" required>
-                    </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="idcompany">*สำนักงานใหญ่ / รหัสสาขา</label>
+                    <input type="text" name="idcompany" class="form-control" placeholder="{{$user->Dealer->idcompany}}" /readonly>
                 </div>
-            <h4 class="mt-3"><li>Change Password</li></h4>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="coin">*Current password</label>
-                        <input type="text" name="Current password" class="form-control"  wire:model="coin" required>
-                    </div>
+            </div>
+            <h4 style="margin-top: 2%"><li>Credit คงเหลือ</li></h4>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="coin">*Credit</label>
+                    <input type="text" name="coin" class="form-control" placeholder="{{$user->Dealer->coin}} บาท" /readonly>
                 </div>
-                <p></p>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="coin">*New password</label>
-                        <input type="text" name="New password" class="form-control"  wire:model="coin" required>
-                    </div>
-                </div>
-                <p></p>
-                <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                        <label for="coin">*Comfirm password</label>
-                        <input type="text" name="Comfirm password" class="form-control"  wire:model="coin" required>
-                    </div>
-                </div>
-                <div style="text-align: center" class="mt-3">
-                    <input type="submit" value="Submit" class="btn btn-light " style="background: #194276; color: white;">
-                </div>
+            </div>
         </div>
     </form>
-    <br>
-    @if(Session::has('message'))
-        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-    @endif
 </div>
+
+
+
+

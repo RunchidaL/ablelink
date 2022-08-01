@@ -10,11 +10,19 @@
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
                         <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                                <p class="card-title">{{$product->name}}<span> #{{$product->slug}}</span></p>
+                                <p><span>#{{$product->slug}}</span></p>
+                                <p class="card-title">{{$product->name}}</p>
                             @if(($product->web_price) == '1')
                                 <p class="empty">฿</p>
                             @else
-                                <p>฿{{number_format($product->customer_price,2)}}</p>
+                            <div class="d-flex">
+                                <div class="me-auto p-2">
+                                    <p><span>In stock {{$product->stock}}</span></p>
+                                </div>
+                                <div class="p-2">
+                                    <p>฿{{number_format($product->customer_price,2)}}</p>
+                                </div>
+                            </div>
                             @endif
                         </div>
                     </a> 
