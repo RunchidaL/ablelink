@@ -5,11 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 
-class NavbarComponent extends Component
+class PhoneNavbarComponent extends Component
 {
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.navbar-component',['categories'=>$categories]);
+        return view('livewire.phone-navbar-component',['categories'=>$categories]);
     }
 }

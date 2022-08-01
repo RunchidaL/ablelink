@@ -10,9 +10,9 @@
                     <tr class="cart-menu">
                         <td>รายการสินค้า</td>
                         <td></td>
-                        <td>ราคา</td>
-                        <td>จำนวน</td>
-                        <td>รวม</td>
+                        <td style="width: 10%;">ราคา</td>
+                        <td style="width: 8%;">จำนวน</td>
+                        <td style="width: 10%;" >รวม</td>
                         <td></td>
                     </tr>
                 </thead>

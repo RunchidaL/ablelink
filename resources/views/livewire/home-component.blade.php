@@ -82,7 +82,7 @@
 
 <!-- newproduct -->
     <div class="body">
-        <div class="Container">
+        <div class="container">
             <div>
                 <p class="text">ผลิตภัณฑ์ใหม่</p>
             </div>
@@ -98,7 +98,9 @@
             </div>     
 
 <!-- activity -->
-            <div><p class="text">ข่าวสารเเละกิจกรรม</p></div>
+            <div>
+                <p class="text">ข่าวสารเเละกิจกรรม</p>
+            </div>
             <div class="slide-container swiper">
                 <div class="slide-content" style="padding: 3% 2% 3% 2%">
                     <div class="card-wrapper swiper-wrapper">
@@ -149,7 +151,7 @@
             0: {
                 slidesPerView: 1,
             },
-            520: {
+            820: {
                 slidesPerView: 2,
             },
             950: {

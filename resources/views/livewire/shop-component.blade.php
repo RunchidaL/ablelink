@@ -27,7 +27,7 @@
                         </div>
                     </a> 
                     <div class="card-footer">
-                        <button type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
+                        <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             {{$products->links()}}
         </div>
     </div>
-    <div class="add-products-preview">
+    <div class="add-products-preview" id="add-products-preview">
         @foreach($products as $product)
         <div class="preview" data-target="{{$product->slug}}">
             <i class="bi bi-x-lg"></i>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="addtocart" style="display: inline-block;">
                         <button wire:click.prevent="addToCart({{$product->id}})">Add To Cart</button>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,26 +75,27 @@
 </div>
 
 <script>
-let preveiwContainer = document.querySelector('.add-products-preview');
-let previewBox = preveiwContainer.querySelectorAll('.preview');
+    let buttons = document.querySelectorAll('#add-cart-button');
+    let previews = document.querySelectorAll(".preview");
+    buttons.forEach( button =>{
+        button.addEventListener("click",()=>{
+            console.log("button is clicked",button);
+            let name = button.getAttribute('data-name');
+            let flag = 0;
+            previews[0].parentElement.style.display = "flex";
+            previews.forEach(preview => {
+                let target = preview.getAttribute('data-target');
+                if(target === name) {
+                    preview.classList.add("active");
+                }
+            })
+        })
+    })
 
-    document.querySelectorAll('#products .card-footer .button').forEach(product =>{
-        product.onclick = () =>{
-            preveiwContainer.style.display = 'flex';
-            let name = product.getAttribute('data-name');
-            previewBox.forEach(preview =>{
-            let target = preview.getAttribute('data-target');
-            if(name == target){
-                preview.classList.add('active');
-            }
-            });
-        };
-    });
-
-    previewBox.forEach(close =>{
+    previews.forEach(close =>{
         close.querySelector('.bi.bi-x-lg').onclick = () =>{
             close.classList.remove('active');
-            preveiwContainer.style.display = 'none';
+            previews[0].parentElement.style.display = "none";
         };
     });
 </script>

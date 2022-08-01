@@ -4,12 +4,14 @@
     width: 100%;
     background: #2c3e50;
 }
+
 .myslider{
     min-height: 100%;
     display: none;
     overflow: hidden;
     justify-items: center;
 }
+
 .txt{
     position:absolute;
     color: #fff;
@@ -33,11 +35,13 @@
     from {left: 25%;}
     to {left: 15%;}
 }
+
 .txt h1{
     color: black;
-    font-size: 70px;
+    font-size: 4.375rem;
     margin-bottom: 20px;
 }
+
 .imgg{
     transform: scale(1.1, 1.1);
     -webkit-animation-name: zoomin;
@@ -55,6 +59,7 @@
     from {transform: scale(1,1);}
     to {transform: scale(1.1,1.1);}
 }
+
 @media screen and (max-width:800px){
     .myslider{
         height: 300px;
@@ -105,6 +110,11 @@
     font-size: 130%;
     margin-right: 10%;
     margin-left: 10%;
+    line-height: 2;
+}
+
+.left li{
+    list-style: none;
 }
 
 .right{
@@ -112,14 +122,12 @@
     margin-left: 10%;
 }
 
-
 @media(max-width: 820px) {
     .left {
         font-size: 100%;
         margin-left:7%;
         margin-right: 0%;
     }
-
     .right iframe {
         width: 300px;
         height: 250px;
@@ -131,11 +139,9 @@
         font-size: 100%;
         margin-left:0%;
         margin-right: 0%;
-
     }.left .PH{
         margin-bottom: 0;
     }
-
     .left ul{
         font-size: 100%;
         margin-left:0%;
