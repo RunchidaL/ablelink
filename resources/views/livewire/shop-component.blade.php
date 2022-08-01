@@ -24,9 +24,7 @@
                 </div>
             </div>
             @endforeach
-            <div class="paginate">
-                <div style="text-align: center">{{$products->links()}}</div>
-            </div>
+            {{$products->links()}}
         </div>
     </div>
     <div class="add-products-preview" id="add-products-preview">
@@ -47,7 +45,7 @@
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">
-                            <input wire:model="attribute"> m
+                            <input wire:model.defer="attribute"> m
                         </div>
                     </div><br>
                     @endif
@@ -56,12 +54,7 @@
             <div class="d-flex justify-content-end">
                 <div class="quantity">
                     <div class="add-qty">
-                        <!-- <input >
-                        <div class="handle">
-                            <span wire:click="increaseQuantity"><button><i class="bi bi-caret-up"></i></button></span>
-                            <span wire:click="decreaseQuantity"><button><i class="bi bi-caret-down"></i></button></span>
-                        </div> -->
-                        <input type="number" min="1" step="1" value="1">
+                        <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$product->stock}}">
                     </div>
                     <div class="addtocart" style="display: inline-block;">
                         <button wire:click.prevent="addToCart({{$product->id}})">Add To Cart</button>

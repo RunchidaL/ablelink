@@ -56,20 +56,6 @@ class ShopComponent extends Component
         }
     }
 
-    public function increaseQuantity()
-    { 
-        $this->qty++;
-    }
-
-    public function decreaseQuantity()
-    {
-        if($this->qty > 1)
-        {
-            $this->qty--;
-        }
-    }
-
-
     public function render()
     {   
         $products = ProductModels::orderBy('created_at','DESC')->paginate(10);

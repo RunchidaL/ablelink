@@ -30,7 +30,7 @@
                             <div class="item-right">
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>
                                 @foreach($scategory->brandCategories as $brand)
-                                    <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->slug])}}"><span><span>{{$brand->name}}</span></span></a>
+                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->slug])}}"><span><span>{{$brand->name}}</span></span></a>
                                 @endforeach
                             </div>
                         </div>

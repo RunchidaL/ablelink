@@ -20,7 +20,6 @@ class CartComponent extends Component
             $cart->quantity++;
             $cart->save();
         }
-
     }
 
     public function decreaseQuantity($id)

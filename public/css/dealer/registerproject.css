@@ -1,0 +1,48 @@
+#register-project h3{
+    padding: 3% 0 3% 10%;
+}
+
+.decription-project{
+    background: #EEEEEE;
+    border-radius: 30px;
+    width: fit-content;
+    padding: 3% 5%;
+    margin: auto;
+}
+
+#Form2 .decription-project{
+    padding: 3% 10%;
+    width: 60%;
+}
+
+.next{
+    margin: 3% 0 3% 66%;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+.btn:hover {
+    color: #194276;
+    border-color: #194276;
+}
+
+.pre .btn{
+    background: #4A4A4A;
+}
+
+.pre .btn:hover{
+    background: white;
+    color: #4A4A4A;
+    border-color: #4A4A4A;
+}
+
+.col-md-12 input{
+    border-radius: 30px;
+    margin-bottom: 10px;
+    border: none;
+}

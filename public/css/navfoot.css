@@ -23,10 +23,16 @@ body{
     display: flex;
     justify-content: space-between;
     height: 70px;
+    flex-wrap: nowrap;
 }
 
 .navbar .nav-wrap img[logo]{
-    height: 70px;
+    height: 4.375rem;
+}
+
+.navbar .nav-wrap img[logo2]{
+    height: 4.375rem;
+    display: none;
 }
 
 /* navbar left */
@@ -87,7 +93,7 @@ body{
     transform: scaleY(0);
     transform-origin: 100% 0%;
     transition: transform 0.2s ease;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -340,6 +346,10 @@ width: 3%;
     background-color: red;
 }
 
+.test{
+    display: none;
+}
+
 .fakenav{
     min-height: 70px;
     padding: 0;
@@ -443,22 +453,25 @@ footer *{
     }
 }
 
+@media screen and (min-width: 1400px){
+    .nav-left{
+        display: flex;
+    }
+    .nav-right .icon{
+        display: flex;
+    }
+    .prd-dropdown-wrap {
+        display: flex;
+    }
+}
+
 @media screen and (min-width: 1300px){
     .navbar{ 
         padding: 0 1rem;
     }
 }
 
-@media screen and (min-width: 960px){
-    .nav-left{
-        display: flex;
-    }
-    .nav-right .icon{
-        display: flex;
-    }   
-}
-
-@media screen and (max-width: 960px){
+@media screen and (max-width: 1400px){
     .footer-wrapper{
         display: none;
     }
@@ -467,5 +480,98 @@ footer *{
     }
 }
 
+@media screen and (max-width: 600px){
+    .navbar .nav-wrap img[logo2]{
+        display: flex;
+    }
+    .navbar .nav-wrap img[logo]{
+        display: none;
+    }
+}
 
+.a-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
 
+.a{
+    width: 100%;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.a .b a{
+    text-decoration: none;
+    color: black;
+}
+
+.a .b{
+    padding: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.a .b:hover{
+    background-color: #c8c8c8;
+}
+
+.a .b:hover a span{
+    color: #194276;
+}
+
+.a .fa{
+    height: 46.38px;
+    width: 100%;
+    background-color: #CECECE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 0;
+}
+
+.a .fa .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.a .fa .icons i{
+    font-size: 1.5rem;
+}
+
+.d-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    display: none;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub{
+    width: 100%;
+    text-align: center;
+}
+
+.a .sub b:hover{
+    background-color: #c8c8c8;
+}
+
+.e-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    display: none;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
