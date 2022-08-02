@@ -57,6 +57,8 @@ use App\Http\Livewire\Customer\CustomerEditAddressComponent;
 use App\Http\Livewire\Customer\CustomerInfoComponent;
 use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
 use App\Http\Livewire\Dealer\DealerChangePasswordComponent;
+use App\Http\Livewire\NewProductComponent;
+use App\Http\Livewire\NewProductDetailComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -87,6 +89,10 @@ Route::get('/register_dealer', function () {
 Route::get('/post/{slug}', DetailPostComponent::class)->name('post.details');
 
 Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->name('post.category');
+
+Route::get('/newproducts',NewProductComponent::class)->name('newproducts');
+
+Route::get('/newproductsdetail',NewProductDetailComponent::class)->name('newproducts.detail');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 

@@ -66,7 +66,6 @@
                                 <a class="dropdown-item disabled" href="#">{{ Auth::user()->name }}</a>
                                 @if(Auth::user()->role == 1)
                                     <a class="dropdown-item" href="{{route('customer.info')}}">แก้ไขข้อมูล</a>
-                                    <a class="dropdown-item" href="{{route('customer.changepassword')}}">เปลี่ยนรหัสผ่าน</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 2)
                                     <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">ข้อมูลส่วนตัว</a>
