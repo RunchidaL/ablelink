@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
-use App\Models\Subcategory;
 
 class NavbarComponent extends Component
 {

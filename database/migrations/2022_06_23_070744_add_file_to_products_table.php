@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('guide')->nullable();
             $table->string('cert')->nullable();
             $table->string('config')->nullable();
-            $table->unsignedInteger('stock')->default(10);
         });
     }
 

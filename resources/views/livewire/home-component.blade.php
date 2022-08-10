@@ -11,10 +11,12 @@
         @foreach ($sliders as $slide)
         <div class="myslider">
             <div class="txt">
-                <a href="{{$slide->link}}" style="text-decoration: none"><h1>{{$slide->title}}</h1></a>
+                <h1>{{$slide->title}}</h1>
+            </div>
+            <div class="txt2">
                 <p>{{$slide->subtitle}}</p>
             </div>
-            <img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+            <a href="{{$slide->link}}" style="text-decoration: none"><img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt=""></a>
         </div>
         @endforeach
         <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
@@ -82,7 +84,7 @@
 
 <!-- newproduct -->
     <div class="body">
-        <div class="Container">
+        <div class="container">
             <div>
                 <p class="text">ผลิตภัณฑ์ใหม่</p>
             </div>
@@ -90,7 +92,7 @@
                 <div class="row">
                     @foreach ($Lproduct as $lproduct)
                     <div class="NP-col">
-                        <a href="{{route('product.details',['slug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt="">
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt="">
                         <p>{{$lproduct->name}}</p></a>
                     </div>
                     @endforeach
@@ -98,7 +100,9 @@
             </div>     
 
 <!-- activity -->
-            <div><p class="text">ข่าวสารเเละกิจกรรม</p></div>
+            <div>
+                <p class="text">ข่าวสารเเละกิจกรรม</p>
+            </div>
             <div class="slide-container swiper">
                 <div class="slide-content" style="padding: 3% 2% 3% 2%">
                     <div class="card-wrapper swiper-wrapper">
@@ -149,7 +153,7 @@
             0: {
                 slidesPerView: 1,
             },
-            520: {
+            820: {
                 slidesPerView: 2,
             },
             950: {
@@ -230,3 +234,4 @@
         </div>     
     </div> 
 </div>
+

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\products;
 
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Brandcategory;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -21,6 +22,13 @@ class AdminCategoryComponent extends Component
     {
         $scategory = Subcategory::find($id);
         $scategory->delete();
+        session()->flash('message','Subcategory delete success');
+    }
+
+    public function Brandcategory($id)
+    {
+        $bcategory = Brandcategory::find($id);
+        $bcategory->delete();
         session()->flash('message','Subcategory delete success');
     }
 

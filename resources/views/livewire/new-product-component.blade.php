@@ -24,7 +24,7 @@
 <div class="row" id="products">
     <div class="NPP-col">
         <div class="card">
-            <div class="card-wrapper" >
+            <div class="card-wrapper">
                 <div class="photo" style="text-align: center">
                     <img src="/images/brand 4.png" class="card-img-top" alt="...">
                 </div>

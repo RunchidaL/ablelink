@@ -2,12 +2,17 @@
 <link href="/css/service.css" rel="stylesheet">
 <!-- link -->
 
-<div class="wallpaper">
-    <img src="/images/service.jpg" alt="">
+<div class="slider">
+    <div class="myslider" style="display: block;">
+        <div class="txt">
+            <h1>SERVICE <i class="fas fa-bolt" style="color: yellow"></i></h1>
+        </div>
+        <img class="imgg" src="/images/Service2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    </div>
 </div>
 
 <div class="all-content">
-    <div class="col">
+    <div class="content">
         <div class="box">
             <img src="/images/shipping.png">
         </div>
@@ -18,10 +23,10 @@
             <p>จัดส่งฟรีระยะเวลาการจัดส่ง 5-7 วันทำการ</p>
             <p>ยอดสั่งซื้อขั้นต่ำ 3,000 บาท บริการจัดส่งฟรี</p>
             <p>(เฉพาะเขตกรุงเทพฯ และปริมณฑล)</p>
-        </ul>    
+        </ul>
     </div>
 
-    <div class="col">
+    <div class="content">
         <div class="box">
             <img src="/images/customerService.png">
         </div>
@@ -39,7 +44,7 @@
         </ul> 
     </div>
 
-    <div class="col">
+    <div class="content">
         <div class="box">
             <img src="/images/warranty.png">
         </div>

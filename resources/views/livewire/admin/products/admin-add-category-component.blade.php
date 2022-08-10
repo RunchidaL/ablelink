@@ -11,24 +11,44 @@
         <form class="addproduct" wire:submit.prevent="storeCategory">
             <div class="row mb-3">
                 <div class="form-group">
-                    <label class="col-md-12">Category Name</label>
+                    <label class="col-md-12">Name</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">Category Slug</label>
+                    <label class="col-md-12">Slug</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="slug">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">SubCategory</label>
+                    <label class="col-md-12">Category</label>
                     <div class="col-md-12">
-                        <select name="form-control input-md" wire:model="category_id">
+                        <select name="form-control input-md" wire:model="category_id" wire:change="changeSubcategory">
                             <option value="">None</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Subategory Image</label>
+                    <div class="col-md-4">
+                        <input type="file" class="input-file" wire:model="image">
+                        @if($image)
+                            <img src="{{$image->temporaryUrl()}}" width="120"/>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">SubCategory</label>
+                    <div class="col-md-12">
+                        <select name="form-control input-md" wire:model="scategory_id">
+                            <option value="">None</option>
+                            @foreach($subcategories as $scategory)
+                                <option value="{{$scategory->id}}">{{$scategory->name}}</option>
                             @endforeach
                         </select>
                     </div>

@@ -15,7 +15,6 @@ class AdminHomecomponent extends Component
     {
         $this->delete_id = $id;
         $this->dispatchBrowserEvent('show-delete-confirmation');
-       
     }
 
     public function deleteSlide()

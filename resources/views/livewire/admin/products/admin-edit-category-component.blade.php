@@ -11,24 +11,47 @@
         <form class="addproduct" wire:submit.prevent="updateCategory">
             <div class="row mb-3">
                 <div class="form-group">
-                    <label class="col-md-12">Category Name</label>
+                    <label class="col-md-12">Name</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">Category Slug</label>
+                    <label class="col-md-12">Slug</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="slug">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">SubCategory</label>
-                    <div class="col-md-12">
-                        <select class="form-control" wire:model="category_id">
+                    <label class="col-md-6">Category</label>
+                    <div class="col-md-6">
+                        <select class="form-control" wire:model="category_c" wire:change="changeSubcategory">
+                        <option value="">None</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4">Subcategory Image</label>
+                    <div class="col-md-4">
+                        <input type="file" class="input-file" wire:model="newimage">
+                        @if($newimage)
+                            <img src="{{$newimage->temporaryUrl()}}" width="120"/>
+                        @else
+                            <img src="{{asset('images/products')}}/{{$image}}" width="120"/>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-6">SubCategory</label>
+                    <div class="col-md-6">
+                        <select name="form-control input-md" wire:model="scategory_c">
+                            <option value="">None</option>
+                            @foreach($subcategories as $scategory)
+                                <option value="{{$scategory->id}}">{{$scategory->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

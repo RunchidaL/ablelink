@@ -95,6 +95,17 @@
     background: #245595;
 }
 
+.length{
+    display: -webkit-box;
+    font-size: 18px;
+}
+
+.length input{
+    margin-left: 10px;
+    width: 70px;
+    text-align: center;
+}
+
 .relate-group{
     display: -webkit-box;
     flex-wrap: wrap;

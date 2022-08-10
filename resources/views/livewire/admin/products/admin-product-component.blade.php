@@ -28,10 +28,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Image</th>
+                            <!-- <th>Image</th> -->
                             <th>Name</th>
-                            <th>Slug</th>
-                            <th>Web Price</th>
                             <th>Models</th>
                             <th>Action</th>
                         </tr>
@@ -40,10 +38,8 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{$product->id}}</td>
-                                <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td>
+                                <!-- <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td> -->
                                 <td class="product-name">{{$product->name}}</td>
-                                <td class="product-name">{{$product->slug}}</td>
-                                <td>{{$product->web_price == 0 ? 'Show':'Hide'}}</td>
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)

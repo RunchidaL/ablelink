@@ -1,10 +1,126 @@
 /* ภาพด้านบน */
-.wallpaper img{
+.slider{
     position: relative;
-    background-size: cover;
-    object-fit: cover;
     width: 100%;
-    height: 100%;
+    background: #2c3e50;
+}
+
+.myslider{
+    min-height: 100%;
+    display: none;
+    overflow: hidden;
+    justify-items: center;
+}
+
+.txt{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 40%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 1s;
+    animation-name: posi;
+    animation-duration: 1s;
+    z-index: 1;
+    background: rgba(153, 153, 153, 0.6);
+    padding: 3px 15px;
+    border-radius: 20px;
+}
+
+@-webkit-keyframes posi{
+    from {left: 60%;}
+    to {left: 40%;}
+}
+
+@keyframes posi{
+    from {left: 60%;}
+    to {left: 40%;}
+}
+
+.txt h1{
+    color: rgb(255, 255, 255);
+    font-size: 4.375rem;
+    opacity: 1;
+}
+
+.imgg{
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomin;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@media screen and (max-width:1200px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi2 {
+        from {top:30%;}
+        to {top: 50%;}
+    }
+    @keyframes posi2 {
+        from {top:30%;}
+        to {top: 50%;}
+    }
+    .txt h1{
+        font-size: 50px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:520px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi2 {
+        from {top:30%;}
+        to {top: 50%;}
+    }
+    @keyframes posi2 {
+        from {top:30%;}
+        to {top: 50%;}
+    }
+    .txt h1{
+        font-size: 50px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
 }
 
 /* ส่วนด้านล่าง */

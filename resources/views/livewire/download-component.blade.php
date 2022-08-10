@@ -2,16 +2,28 @@
 <link href="/css/download.css" rel="stylesheet">
 <!-- link -->
 
-<div class="wallpaper">
+{{-- <div class="wallpaper">
     <img src="/images/download.png" alt="">
+</div> --}}
+
+<div class="slider">
+    <div class="myslider" style="display: block;">
+        <div class="txt">
+            <h1>Download </h1>
+        </div>
+        <div class="txt2">
+            <h1>Center</h1>
+        </div>
+        <img class="imgg" src="/images/download center.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    </div>
 </div>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            @foreach($dcategories as $dcategory)
-            <a href="{{route('download.category',['downloadcategory_slug'=>$dcategory->slug])}}"><button><i class="bi bi-file-text"></i><br><p>{{$dcategory->name}}</p></button></a>
-            @endforeach
+            <a href="/download_category/catelog"><button><i class="bi bi-file-text"></i><br><p>Catelog</p></button></a>
+            <a href="/download_category/presentation"><button><i class="bi bi-easel"></i><br><p>Presentation</p></button></a>
+            <a href="/download_category/vdo"><button><i class="bi bi-play-circle"></i><br><p>VDO</p></button></a>
         </div>
     </div>
     <div class="section">

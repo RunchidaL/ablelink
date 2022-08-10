@@ -1,14 +1,11 @@
 @extends('layout.link')
 
-@section('link_navfoot')
-    <link href="/css/navfoot.css" rel="stylesheet">
-@endsection
-
 @section('navfoot')
 <!-- navbar -->
 <div class="navbar">
     <div class="nav-wrap container">
         <img src="/images/logoAbleLink.png" alt="" logo/>
+        <img src="/images/logoAbleLink2.jpg" alt="" logo2/>
         <div class="nav-left">
             <div class="nav-menu-wrap"> 
                 <div class="topic">
@@ -47,7 +44,11 @@
                 </form>
             </div>     
             <div class="cart icon-wrap">
+                @guest
+                <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                @else
                 <a href="/cart"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                @endguest
             </div>
             <div class="user icon-wrap">
                 <div class="dropdown">
@@ -68,8 +69,8 @@
                                     <a class="dropdown-item" href="{{route('customer.info')}}">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 2)
-                                    <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">ข้อมูลส่วนตัว</a>
-                                    <a class="dropdown-item" href="#">ลงทะเบียนโปรเจค</a>
+                                    <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">แก้ไขข้อมูล</a>
+                                    <a class="dropdown-item" href="{{route('dealer.registerproject')}}">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
                                     <a class="dropdown-item" href="{{route('admin.Dealer')}}">Dealer</a>
@@ -77,6 +78,8 @@
                                     <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
                                     <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
                                     <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
+                                    <a class="dropdown-item" href="{{route('admin.brand')}}">Brand</a>
+                                    <a class="dropdown-item" href="{{route('admin.dashboard')}}">dashboard</a>
                                 @endif
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -90,25 +93,16 @@
                     </ul>
                 </div>     
             </div>
-            <button class="toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            @livewire('phone-navbar-component')
         </div>
     </div>
 </div>
 <div class="fakenav"></div>
 
-<script>
-    const toggle = document.querySelector('.toggle');
-    toggle.addEventListener('click', function(){
-        this.classList.toggle('is-active');
-    });
-</script>
-
 <!-- from livewire -->
-{{$slot}}
+<div style="width: 100%; min-height: calc(100vh - 260px);">
+    {{$slot}}
+</div>
 
 <!-- footer -->
 <footer class="footer-wrapper">
@@ -124,9 +118,9 @@
                 </div>
             </div>
             <div class="footer-col">
-                <h6>Contact</h6>
+                <h5>Contact</h5>
                     <ul>
-                        <li>095-145-1538</li>
+                        <li>Tel : 095-145-1538</li>
                         <li>Email : ablelink.thailand99@gmail.com</li>
                         <li>ABLE LINK (Thailand) CO., LTD.</li>
                         <li>12 Soi Sukhaphiban 5 Soi 5 Yaek 3,</li>
@@ -134,14 +128,14 @@
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Product</h6>
+                <h5>Product</h5>
                     <ul>
                         <li><a href="/">หน้าหลัก</a></li>
-                        <li><a href="/product">ผลิตภัณฑ์</a></li>
+                        <li><a href="/shop">ผลิตภัณฑ์</a></li>
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Connect</h6>
+                <h5>Connect</h5>
                     <ul>
                         <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
                         <li><a href="/forwork">ร่วมงานกับเรา</a></li>
@@ -149,7 +143,7 @@
                     </ul>
             </div>
             <div class="footer-col">
-                <h6>Customer Service</h6>
+                <h5>Customer Service</h5>
                 <ul>
                     <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
                     <li><a href="/service">บริการ</a></li>

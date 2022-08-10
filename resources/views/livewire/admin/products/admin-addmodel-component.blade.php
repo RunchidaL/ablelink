@@ -31,6 +31,91 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-12">overview</label>
+                                <div class="col-md-12" wire:ignore>
+                                    <textarea id="overview" type="text" class="form-control" wire:model="overview"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Application</label>
+                                <div class="col-md-12" wire:ignore>
+                                    <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Item_spotlight</label>
+                                <div class="col-md-12" wire:ignore>
+                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Feature</label>
+                                <div class="col-md-12" wire:ignore>
+                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Product Image</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="image">
+                                    @if($image)
+                                        <img src="{{$image->temporaryUrl()}}" width="120"/>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Product Gallery</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="p_images" multiple>
+                                    @if($p_images)
+                                        @foreach($p_images as $image)
+                                            <img src="{{$image->temporaryUrl()}}" width="120"/>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Datasheet</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="datasheet">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Firm ware</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="firmware">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Guide</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="guide">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Certificate</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="cert">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Config</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="config">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Videos</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="videos" multiple>
+                                    @if($videos)
+                                        @foreach($videos as $video)
+                                            <iframe src="{{$video->temporaryUrl()}}" width="120"></iframe>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4">Web price</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="web_price">
@@ -127,12 +212,62 @@
     <script>
         tinymce.init({
             selector: '#description',
-            plugins: 'quickbars table image link lists media autoresize help',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
             setup:function(editor){
                 editor.on('Change',function(e){
                     tinyMCE.triggerSave();
                     var d_data = $('#description').val();
                     @this.set('description',d_data);
+                });
+            }
+        });
+        tinymce.init({
+            selector: '#overview',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var o_data = $('#overview').val();
+                    @this.set('overview',o_data);
+                });
+            }
+            
+        });
+        tinymce.init({
+            selector: '#application',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var sd_data = $('#application').val();
+                    @this.set('application',sd_data);
+                });
+            }
+        });
+        tinymce.init({
+            selector: '#item_spotlight',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var i_data = $('#item_spotlight').val();
+                    @this.set('item_spotlight',i_data);
+                });
+            }
+        });
+        tinymce.init({
+            selector: '#feature',
+            plugins: ['quickbars table image link lists media autoresize help',
+            'searchreplace visualblocks code fullscreen'],
+            setup:function(editor){
+                editor.on('Change',function(e){
+                    tinyMCE.triggerSave();
+                    var f_data = $('#feature').val();
+                    @this.set('feature',f_data);
                 });
             }
         });

@@ -17,7 +17,7 @@ class NetworkValue extends Model
 
     public function photo()
     {
-        return $this->belongsTo(Product::class,'product_in_photo');
+        return $this->belongsTo(ProductModels::class,'product_in_photo');
     }
 
     public function image_network()

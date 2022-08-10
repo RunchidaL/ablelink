@@ -23,10 +23,16 @@ body{
     display: flex;
     justify-content: space-between;
     height: 70px;
+    flex-wrap: nowrap;
 }
 
 .navbar .nav-wrap img[logo]{
-    height: 60px;
+    height: 4.375rem;
+}
+
+.navbar .nav-wrap img[logo2]{
+    height: 4.375rem;
+    display: none;
 }
 
 /* navbar left */
@@ -87,7 +93,7 @@ body{
     transform: scaleY(0);
     transform-origin: 100% 0%;
     transition: transform 0.2s ease;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -242,10 +248,10 @@ body{
     height: 20px;
     align-items: center;
     border-radius: 40px;
-    padding: 1em 40px 1em 15px;
+    padding: 1rem 2.5rem 1rem 1rem;
     box-shadow:  0px 0px 7px 3px rgba(0,0,0,0.2);
     background-color: #fff;
-    margin: 0 15px;
+    margin: 0 1rem;
     outline: none;
     border: none;
 }
@@ -298,7 +304,7 @@ width: 3%;
 }
 
 .toggle{
-    display: block;
+    display: none;
     position: relative;
     user-select: none;
     appearance: none;
@@ -340,6 +346,10 @@ width: 3%;
     background-color: red;
 }
 
+.test{
+    display: none;
+}
+
 .fakenav{
     min-height: 70px;
     padding: 0;
@@ -368,21 +378,17 @@ footer *{
 }
 
 .footer-col{
-    padding-right: 2rem ;
-    min-width: 200px;
-}
-
-.footer-col:nth-child(1) {
-    padding-left: 2rem;
+    padding-right: 2rem;
+    min-width: 12.5rem;
 }
 
 .footer-col img{
     margin-top: 0.7rem;
-    height: 60px;
+    height: 5rem;
     display: flex;
 }
 
-.footer-col h6{
+.footer-col h5{
     color: #194276;
     font-weight: 600;
     text-decoration: underline;
@@ -390,7 +396,7 @@ footer *{
 }
 
 .footer-col li{
-    font-size: small;
+    font-size: 1rem;
 }
 
 .footer-col ul{
@@ -406,15 +412,17 @@ footer *{
     text-decoration: underline;
 }
 
-.footer-col .social { 
+.footer-col .social{ 
     white-space: nowrap;
     min-width: fit-content;
+    text-align: center;
 }
 
 .footer-col .social a{
     display: inline-block;
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: large;
     background-color: #ffffff;
     margin: 0.7rem 0; 
     text-align: center;
@@ -445,23 +453,128 @@ footer *{
     }
 }
 
-@media screen and (min-width: 768px){
-    .toggle{
-        display: none;
-    }
+@media screen and (min-width: 1400px){
     .nav-left{
         display: flex;
     }
     .nav-right .icon{
         display: flex;
     }
-}
-
-@media screen and (max-width: 576px){
-    .footer-wrapper{
-        display: none;
+    .prd-dropdown-wrap {
+        display: flex;
     }
 }
 
+@media screen and (min-width: 1300px){
+    .navbar{ 
+        padding: 0 1rem;
+    }
+}
 
+@media screen and (max-width: 1400px){
+    .footer-wrapper{
+        display: none;
+    }
+    .toggle{
+        display: block;
+    }
+}
 
+@media screen and (max-width: 600px){
+    .navbar .nav-wrap img[logo2]{
+        display: flex;
+    }
+    .navbar .nav-wrap img[logo]{
+        display: none;
+    }
+    .nav-right .searchbox input{
+        width: 80%;
+    }
+}
+
+.a-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.a{
+    width: 100%;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.a .b a{
+    text-decoration: none;
+    color: black;
+}
+
+.a .b{
+    padding: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.a .b:hover{
+    background-color: #c8c8c8;
+}
+
+.a .b:hover a span{
+    color: #194276;
+}
+
+.a .fa{
+    height: 46.38px;
+    width: 100%;
+    background-color: #CECECE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 0;
+}
+
+.a .fa .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.a .fa .icons i{
+    font-size: 1.5rem;
+}
+
+.d-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    display: none;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub{
+    width: 100%;
+    text-align: center;
+}
+
+.a .sub b:hover{
+    background-color: #c8c8c8;
+}
+
+.e-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+    display: none;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}

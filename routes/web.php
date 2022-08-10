@@ -10,6 +10,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ServiceComponent;
 use App\Http\Livewire\ActivityComponent;
+use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
@@ -56,9 +57,16 @@ use App\Http\Livewire\Customer\CustomerChangePasswordComponent;
 use App\Http\Livewire\Customer\CustomerEditAddressComponent;
 use App\Http\Livewire\Customer\CustomerInfoComponent;
 use App\Http\Livewire\Dealer\DealerChangeInfoComponent;
+use App\Http\Livewire\Admin\products\NetworktypeComponent;
+use App\Http\Livewire\Admin\products\AddNetworktypeComponent;
+use App\Http\Livewire\Admin\products\EditNetworktypeComponent;
+use App\Http\Livewire\Dealer\RegisterprojectComponent;
 use App\Http\Livewire\Dealer\DealerChangePasswordComponent;
 use App\Http\Livewire\NewProductComponent;
 use App\Http\Livewire\NewProductDetailComponent;
+use App\Http\Livewire\Admin\products\AddBrandComponent;
+use App\Http\Livewire\Admin\products\BrandComponent;
+use App\Http\Livewire\Admin\products\EditBrandComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -98,11 +106,14 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
 
-Route::get('/product_category/{category_slug}/{scategory_slug?}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
+
+
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
+
 
 Auth::routes();
 
@@ -115,6 +126,7 @@ Auth::routes();
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
     Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
+    Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
     
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
@@ -134,7 +146,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/dealer/addinfo',AdminAddInfoDealerComponent::class)->name('admin.addinfoDealer');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}/{bcategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
@@ -155,4 +167,11 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/group', GroupComponent::class)->name('admin.group');
     Route::get('/admin/group/add', AdminAddGroupComponent::class)->name('admin.addgroup');
     Route::get('/admin/group/edit/{group_id}/{serie_id?}/{type_id?}/{jacket_id?}', EditGroupComponent::class)->name('admin.editgroup');
+    Route::get('/admin/networktype', NetworktypeComponent::class)->name('admin.networktype');
+    Route::get('/admin/networktype/add', AddNetworktypeComponent::class)->name('admin.addnetworktype');
+    Route::get('/admin/networktype/edit/{network_id}', EditNetworktypeComponent::class)->name('admin.editnetworktype');
+    Route::get('/admin/brand/add', AddBrandComponent::class)->name('admin.addbrand');
+    Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
+    Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
+    Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
 });
