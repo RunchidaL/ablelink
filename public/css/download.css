@@ -222,9 +222,21 @@
     color: #DC7226;
 }
 
+/* .brandimg{
+    margin: 1% 0 0 30%;
+    width: 15%;
+} */
+
 .desc p {
     background-color: white;
     text-align: center;
+}
+
+.brandimg{
+    display: block;
+    margin: 0 10%;
+    width: 15%;
+    margin-top: 10px;
 }
 
 .desc .row{
@@ -266,5 +278,18 @@
 @media(max-width: 1024px) {
     .desc .row{
         justify-content: space-around;
+    }
+    .brandimg{
+        width: 30%;
+    }
+}
+
+@media(max-width: 420px) {
+    .brandimg{
+        width: 40%;
+    }
+    .col button {
+        border-radius: 10px;
+        padding: 2% 4% 2% 4%;
     }
 }

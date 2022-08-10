@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="row" id="head">
                     <div class="col-md-4">
-                        <h2>All Brand</h2>
+                        <h2><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a> All Brand</h2>
                     </div>
                     <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
                         <a href="{{route('admin.addbrand')}}"><button class="btn btn-success">Add New Brand</button></a>

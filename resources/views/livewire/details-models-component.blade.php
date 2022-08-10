@@ -46,11 +46,25 @@
                     <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
                 </div>
                 <div class="head-product-price">
+                @guest
                     @if(($model->web_price) == '1')
                         <p><span>In stock {{$model->stock}}</span></p>
                     @else
                         <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
                     @endif
+                @else
+                    @if(Auth::user()->role == 1)
+                        @if(($model->web_price) == '1')
+                            <p><span>In stock {{$model->stock}}</span></p>
+                        @else
+                            <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                        @endif
+                    @elseif(Auth::user()->role == 2)
+                        <p>฿{{number_format($model->dealer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                    @elseif(Auth::user()->role == 3)
+                        <p>฿{{number_format($model->customer_price,2)}}, <span style="font-size:24px; color:red;">฿{{number_format($model->dealer_price,2)}}</span><span> | In stock {{$model->stock}}</span></p>
+                    @endif
+                @endguest
                 </div>
             </div>
             <div class="quantity">
@@ -119,15 +133,14 @@
                         @endif
                     @endforeach
                     <div class="relate-group">
-                        @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
-                            @foreach($jacket_products as $jacket_product)
-                                @if($jacket_product->type_id === $product_model->type_id)
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$jacket_product->product->slug])}}">{{$jacket_product->jacket_type->name}}</a>
-                                </div>
-                                @endif
-                            @endforeach
-                        @endforeach
+                    @foreach($product_models->where('type_id',$model->type_id)->unique('jacket_id') as $product_model)
+                        @if($product_model->jacket_id == '')
+                        @else
+                        <div class="relate-box">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->jacket->name}}</a>
+                        </div>
+                        @endif
+                    @endforeach
                     </div>
                 </div>  
             </div>
@@ -161,7 +174,7 @@
             <h4>Network Connectivity</h4>
             <div class="menu-wrap">
                 <ul class="menu-list" id="menu-list">
-                    @foreach($network_products->where('product_id',$model->product->id)->unique('network_image_id') as $network_product)
+                    @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
                         <li class="menu">{{$network_product->image_id->type->name}}</li>
                     @endforeach
                 </ul>
@@ -170,18 +183,32 @@
             <div class="content"> 
                 <div class="wrapper">
                 @foreach($network_images as $network_image)
-                    @foreach($network_products->where('product_id',$model->product->id)->unique('network_image_id') as $network_product)
+                    @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
                         @if($network_image->id == $network_product->network_image_id)
                         <div id="item{{$loop->index}}" class="item">
                             <img src="{{asset('/images/products')}}/{{$network_image->image}}">
                             <div class="tag-list">
-                                @foreach($network_products->where('product_id',$model->product->id) as $network_product)
+                                @foreach($network_products->where('model_id',$model->id) as $network_product)
                                     @if($network_image->id == $network_product->network_image_id)
                                         <div class="tag-item">
                                             <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
                                             <div>
                                                 <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
-                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                @guest
+                                                    @if(($model->web_price) == '0') 
+                                                    <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                    @endif
+                                                @else
+                                                    @if(Auth::user()->role == 1)
+                                                        @if(($model->web_price) == '0')
+                                                        <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                        @endif
+                                                    @elseif(Auth::user()->role == 2)
+                                                    <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                    @elseif(Auth::user()->role == 3)
+                                                    <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                    @endif
+                                                @endguest
                                             </div>
                                         </div>
                                     @endif
@@ -216,19 +243,11 @@
                         $videos = explode(",",$model->videos);
                     @endphp
                     @foreach($videos as $video)
-                        @if($video)
                         <div class="file-detail">
-                            <div class="card" style="width: 20rem;">
-                                <iframe class="card-img-top" width="350" height="250" src="{{url('/images/products')}}/{{$video}}" sandbox=""></iframe>
-                                @php
-                                    $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video);
-                                @endphp
-                                <div class="card-body">
-                                    <p class="card-text">{{$withoutExt}}</p>
-                                </div>
+                            <div class="card" style="width: 35rem;">
+                                <iframe class="card-img-top" width="350" height="300" src="{{$video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
-                        @endif
                     @endforeach
                 </div>
             </div>

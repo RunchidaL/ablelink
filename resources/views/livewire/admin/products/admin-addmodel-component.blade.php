@@ -13,15 +13,15 @@
                     <div class="panel-body">
                         <form class="form-panel" enctype='multipart/form-data' wire:submit.prevent="addModel"> @csrf
                             <div class="form-group">
-                                <label class="col-md-12">Model Name</label>
+                                <label class="col-md-12">*Model Name</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="name" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Model Slug</label>
+                                <label class="col-md-12">*Model Slug</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="slug" required>
+                                    <input type="text" class="form-control" wire:model="slug" placeholder="Part Number" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -31,36 +31,38 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">overview</label>
+                                <label class="col-md-12">*Overview</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="overview" type="text" class="form-control" wire:model="overview"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Application</label>
+                                <label class="col-md-12">*Application</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Item_spotlight</label>
+                                <label class="col-md-12">*Item_spotlight</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Feature</label>
+                                <label class="col-md-12">*Feature</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product Image</label>
+                                <label class="col-md-4">*Product Image</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="image">
+                                    @error('image') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120"/>
                                     @endif
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -105,51 +107,50 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Videos</label>
-                                <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="videos" multiple>
-                                    @if($videos)
-                                        @foreach($videos as $video)
-                                            <iframe src="{{$video->temporaryUrl()}}" width="120"></iframe>
-                                        @endforeach
-                                    @endif
-                                </div>
+                                <label class="col-md-6">Videos (ถ้าต้องการใส่หลาย Video ให้พิมพ์ , ก่อนแล้วตามด้วย Link Video ถัดไป)</label>
+                                <textarea cols="100" rows="5" wire:model="videos"></textarea>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Web price</label>
+                                <label class="col-md-4">*Web price</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="web_price">
+                                        <option value="">Select Show or Hide</option>
                                         <option value="0">Show</option>
                                         <option value="1">Hide</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Dealer price</label>
+                                <label class="col-md-4">*Dealer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="dealer_price" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Customer price</label>
+                                <label class="col-md-4">*Customer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="customer_price" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Stock</label>   
+                                <label class="col-md-4">*Stock</label>   
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="stock" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Product</label>
+                                <label class="col-md-4">*Product</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="product_id" required>
+                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ID Product" required>
+                                    <datalist id="datalistOptions">
+                                        @foreach($products as $product)
+                                            <option value="{{$product->id}}">{{$product->name}}</option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Group Product</label>
+                                <label class="col-md-4">*Group Product</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="group_products" wire:change="changeSeries">
                                         <option value="">Select Group</option>
@@ -187,14 +188,46 @@
                                     <select class="form-control" wire:model="jacket_id">
                                         <option value="0">Select Jacket Type</option>
                                         @foreach($jackets as $jacket)
-                                            <option value="{{$jacket->id}}">{{$jacket->jacket_type->name}}</option>
+                                            <option value="{{$jacket->id}}">{{$jacket->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>                
                             <div class="form-group">
+                                <label class="col-md-6">Network Type (กรุณา Select Network Type ก่อน Add product)</label>
+                                <div class="row justify-content-start">
+                                    <div class="col-4">
+                                        <select class="form-control" wire:model="attr">
+                                            <option value="0">Select Network Type</option>
+                                            @foreach($network_types as $network_type)
+                                                <option value="{{$network_type->id}}">{{$network_type->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('attr') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>
+                                    </div>
+                                </div>
+                            </div>
+                            @foreach($inputs as $key => $value)
+                            <div class="form-group">
+                                <label class="col-md-4">{{$network_types->where('id',$attribute_arr[$key])->first()->name}}</label>
+                                <div class="col-md-4">
+                                    <input type="file" class="input-file" wire:model="network_images.{{$value}}">
+                                    @if($network_images)
+                                        @foreach($network_images as $network_image)
+                                            <img src="{{$network_image->temporaryUrl()}}" width="120"/>
+                                        @endforeach
+                                    @endif
+                                </div>
+                                <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
+                                <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
+                            </div>
+                            @endforeach
+                            <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="file" class="btn btn-success my-2">Submit</button>
+                                    <button type="file" class="btn btn-success my-4">Submit</button>
                                 </div>
                             </div>
                         </form>

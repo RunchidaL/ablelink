@@ -11,6 +11,10 @@ use App\Models\JacketProduct;
 use App\Models\GroupProduct;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use App\Models\NetworkImage;
+use App\Models\NetworkValue;
+use App\Models\NetworkType;
+use App\Models\Product;
 
 class AdminEditmodelComponent extends Component
 {
@@ -41,12 +45,19 @@ class AdminEditmodelComponent extends Component
     public $newimage;
     public $newimages;
     public $videos;
-    public $newvideos;
     public $newdatasheet;
     public $newfirmware;
     public $newguide;
     public $newcert;
     public $newconfig;
+
+    public $new_network_images=[];
+    public $network_images=[];
+    public $images = [];
+    public $attr;
+    public $inputs=[];
+    public $attribute_arr=[];
+    public $attribute_values=[];
     
 
     public function mount($model_slug)
@@ -76,7 +87,46 @@ class AdminEditmodelComponent extends Component
         $this->guide = $model->guide;
         $this->cert = $model->cert;
         $this->config = $model->config;
-        $this->videos = explode(",",$model->videos);
+        $this->videos = $model->videos;
+        $this->inputs = $model->network->where('model_id',$model->id)->unique('network_image_id')->pluck('network_image_id');
+        $this->attribute_arr = $model->network->where('model_id',$model->id)->unique('network_image_id')->pluck('network_image_id');
+        $this->images = $model->network->where('model_id',$model->id)->unique('network_image_id')->pluck('network_image_id');
+
+        foreach($this->attribute_arr as $a_rr)
+        {
+            $allValue = NetworkValue::where('model_id',$model->id)->where('network_image_id',$a_rr)->get()->pluck('product_in_photo');
+            $valueString = '';
+            foreach($allValue as $value)
+            {
+                $valueString = $valueString . $value . ',';
+            }
+            $this->attribute_values[$a_rr] = rtrim($valueString,',');
+        }
+    }
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attr' => 'required'
+        ]);
+    }
+
+    public function add()
+    {
+        $this->validate([
+            'attr' => 'required'
+        ]);
+        if(!$this->attribute_arr->contains($this->attr))
+        {
+            $this->inputs->push($this->attr);
+            $this->attribute_arr->push($this->attr);
+            $this->images->push($this->attr);
+        }
+    }
+
+    public function remove($attr)
+    {
+        unset($this->inputs[$attr]);
     }
 
     public function updateModel()
@@ -153,27 +203,13 @@ class AdminEditmodelComponent extends Component
             $this->newconfig->storeAs('products',$file5);
             $model->config = $file5;
         }
-        if($this->newvideos)
+        if($this->videos)
         {
-            if($model->videos)
-            {
-                $videos = explode(",",$model->videos);
-                foreach($videos as $video)
-                {
-                    if($video)
-                    {
-                        unlink('images/products'.'/'.$video);
-                    }
-                }
-            }
-            $videosName = '';
-            foreach($this->newvideos as $key=>$video)
-            {
-                $videoName = $video->getClientOriginalName();
-                $video->storeAs('products',$videoName);
-                $videosName = $videosName . ','. $videoName;
-            }
-            $model->videos = $videosName;
+            $model->videos = $this->videos;
+        }
+        if($this->videos == '')
+        {
+            $model->videos = null;
         }
         if($this->type_id)
         {
@@ -185,8 +221,33 @@ class AdminEditmodelComponent extends Component
             $model->jacket_id = $this->jacket_id;
         }
         
-
         $model->save();
+
+        NetworkValue::where('model_id',$model->id)->delete();
+        
+        foreach($this->attribute_values as $key=>$attribute_value)
+        {
+            if($this->network_images)
+            {
+                $attribute_image = new NetworkImage();
+                $fileNet = $this->network_images[$key]->getClientOriginalName();
+                $this->network_images[$key]->storeAs('products', $fileNet);
+                $attribute_image->image = $fileNet;
+                $attribute_image->type_id = $key;
+                $attribute_image->save();
+
+            $avalues = explode(",",$attribute_value);
+            foreach($avalues as $avalue)
+            {
+                $attr_value = new NetworkValue();
+                $attr_value->network_image_id = $attribute_image->id;
+                $attr_value->product_in_photo = $avalue;
+                $attr_value->model_id = $model->id;
+                $attr_value->save();
+            }
+            }
+        
+        }
 
         session()->flash('message','update Model successs');
     }
@@ -209,6 +270,9 @@ class AdminEditmodelComponent extends Component
         $types = TypeModels::where('series_id',$this->series_id)->get();
         $jacket_types = JacketTypes::all();
         $jackets = JacketProduct::where('type_id',$this->type_id)->get();
-        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets])->layout("layout.navfoot");
+        $network_types = NetworkType::all();
+        $network_images = NetworkImage::all();
+        $products = Product::all();
+        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products])->layout("layout.navfoot");
     }
 }

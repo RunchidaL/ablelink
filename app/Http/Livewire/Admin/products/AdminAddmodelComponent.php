@@ -11,6 +11,11 @@ use App\Models\GroupProduct;
 use App\Models\JacketProduct;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use App\Models\NetworkValue;
+use App\Models\NetworkImage;
+use App\Models\NetworkType;
+use App\Models\Product;
+use Illuminate\Support\Facades\Validator;
 
 class AdminAddmodelComponent extends Component
 {
@@ -40,6 +45,38 @@ class AdminAddmodelComponent extends Component
     public $jacket_id;
     public $group_id;
     public $group_products;
+
+    public $network_images;
+    public $images = [];
+    public $attr;
+    public $inputs=[];
+    public $attribute_arr=[];
+    public $attribute_values;
+
+    public function add()
+    {
+        $this->validate([
+            'attr' => 'required',
+        ]);
+        if(!in_array($this->attr,$this->attribute_arr))
+        {
+            array_push($this->inputs,$this->attr);
+            array_push($this->attribute_arr,$this->attr);
+            array_push($this->images,$this->attr);
+        }
+    }
+
+    public function remove($attr)
+    {
+        unset($this->inputs[$attr]);
+    }
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attr' => 'required',
+        ]);
+    }
 
     public function addModel()
     {
@@ -98,14 +135,7 @@ class AdminAddmodelComponent extends Component
 
         if($this->videos)
         {
-            $videosName = '';
-            foreach($this->videos as $key=>$video)
-            {
-                $videoName = $video->getClientOriginalName();
-                $video->storeAs('products',$videoName);
-                $videosName = $videosName . ',' . $videoName ;
-            }
-            $model->videos = $videosName;
+            $model->videos = $this->$videos;
         }
         
         $model->web_price = $this->web_price;
@@ -130,6 +160,35 @@ class AdminAddmodelComponent extends Component
 
         $model->save();
 
+        if($this->attribute_values)
+        {
+
+            foreach($this->attribute_values as $key=>$attribute_value)
+            {
+
+                if($this->network_images)
+                {
+                $attribute_image = new NetworkImage();
+                $fileNet = $this->network_images[$key]->getClientOriginalName();
+                $this->network_images[$key]->storeAs('products', $fileNet);
+                $attribute_image->image = $fileNet;
+                $attribute_image->type_id = $key;
+                $attribute_image->save();
+                
+
+                $avalues = explode(",",$attribute_value);
+                foreach($avalues as $avalue)
+                {
+                    $attr_value = new NetworkValue();
+                    $attr_value->network_image_id = $attribute_image->id;
+                    $attr_value->product_in_photo = $avalue;
+                    $attr_value->model_id = $model->id;
+                    $attr_value->save();
+                }
+                }
+            }
+        }
+
         session()->flash('message','add Model successs');
     }
 
@@ -150,6 +209,9 @@ class AdminAddmodelComponent extends Component
         $types = TypeModels::where('series_id',$this->series_id)->get();
         $jacket_types = JacketTypes::all();
         $jackets = JacketProduct::where('type_id',$this->type_id)->get();
-        return view('livewire.admin.products.admin-addmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets])->layout("layout.navfoot");
+        $network_types = NetworkType::all();
+        $network_images = NetworkImage::all();
+        $products = Product::all();
+        return view('livewire.admin.products.admin-addmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products])->layout("layout.navfoot");
     }
 }

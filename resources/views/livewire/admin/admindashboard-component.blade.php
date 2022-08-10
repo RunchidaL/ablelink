@@ -4,19 +4,31 @@
             </a><H1><b>Dashboard</b></H1>
         </div>
         <div class="col-md-12">
-            <button class="button">Products</button>
+            <a href="{{route('admin.products')}}"><button class="button">Products</button></a>
         </div>
         <div class="col-md-12">
-            <button class="button">Product Model</button>
+            <a href="{{route('admin.category')}}"><button class="button">Category</button></a>
         </div>
         <div class="col-md-12">
-            <button class="button">Category</button>
+            <a href="{{route('admin.group')}}"><button class="button">Group Product</button></a>
         </div>
         <div class="col-md-12">
-            <button class="button">Group Product</button>
+            <a href="{{route('admin.networktype')}}"><button class="button">Network type</button></a>
         </div>
         <div class="col-md-12">
-            <button class="button">Network type</button>
+            <a href="{{route('admin.Dealer')}}"><button class="button">Dealer</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.homes')}}"><button class="button">Home Highlight</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.download')}}"><button class="button">Download</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.brand')}}"><button class="button">Brand</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.post')}}"><button class="button">Post</button></a>
         </div>
     </div>
 </div>

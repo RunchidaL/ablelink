@@ -4,8 +4,8 @@
 <!-- navbar -->
 <div class="navbar">
     <div class="nav-wrap container">
-        <img src="/images/logoAbleLink.png" alt="" logo/>
-        <img src="/images/logoAbleLink2.jpg" alt="" logo2/>
+        <a href="/"><img src="/images/logoAbleLink.png" alt="" logo/></a>
+        <a href="/"><img src="/images/logoAbleLink2.jpg" alt="" logo2/></a>
         <div class="nav-left">
             <div class="nav-menu-wrap"> 
                 <div class="topic">
@@ -73,12 +73,6 @@
                                     <a class="dropdown-item" href="{{route('dealer.registerproject')}}">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
-                                    <a class="dropdown-item" href="{{route('admin.Dealer')}}">Dealer</a>
-                                    <a class="dropdown-item" href="{{route('admin.homes')}}">Home Highlight</a>
-                                    <a class="dropdown-item" href="{{route('admin.post')}}">Post</a>
-                                    <a class="dropdown-item" href="{{route('admin.products')}}">Products</a>
-                                    <a class="dropdown-item" href="{{route('admin.download')}}">Download</a>
-                                    <a class="dropdown-item" href="{{route('admin.brand')}}">Brand</a>
                                     <a class="dropdown-item" href="{{route('admin.dashboard')}}">dashboard</a>
                                 @endif
                                 
@@ -100,9 +94,7 @@
 <div class="fakenav"></div>
 
 <!-- from livewire -->
-<div style="width: 100%; min-height: calc(100vh - 260px);">
-    {{$slot}}
-</div>
+{{$slot}}
 
 <!-- footer -->
 <footer class="footer-wrapper">

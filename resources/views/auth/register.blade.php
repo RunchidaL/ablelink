@@ -6,7 +6,7 @@
 
 @section('content2')
     <div class="head">
-        <img src="/images/logoAbleLink.png" alt="logo">
+        <a href=""><img src="/images/logoAbleLink.png" alt="logo"></a>
         <a>| Create an account</a>
     </div>
 

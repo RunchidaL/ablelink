@@ -10,7 +10,7 @@
     <div class="left">
         <div class="left-con">
             <div class="head">
-                <img src="/images/logoAbleLink.png" alt="logo">
+                <a href="/"><img src="/images/logoAbleLink.png" alt="logo"></a>
                 <a>| Sign In</a>
             </div>
             <div class="con">

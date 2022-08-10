@@ -12,28 +12,28 @@
             </div>
         </div>
         <div class="b">
-            <a href="/" class="c"><span>หน้าหลัก</span></a>
+            <a href="/"><span>หน้าหลัก</span></a>
         </div>
         <div class="b">
-            <a href="/aboutus" class="c"><span>เกี่ยวกับเรา</span></a>
+            <a href="/aboutus"><span>เกี่ยวกับเรา</span></a>
         </div>
         <div class="b">
             <span class="c" id="product-mobile"><span>ผลิตภัณฑ์</span></span>
         </div>
         <div class="b">
-            <a href="/service" class="c"><span>บริการ</span></a>
+            <a href="/service"><span>บริการ</span></a>
         </div>
         <div class="b">
-            <a href="/activity" class="c"><span>ข่าวสาร&กิจกรรม</span></a>
+            <a href="/activity"><span>ข่าวสาร&กิจกรรม</span></a>
         </div>
         <div class="b">
-            <a href="/download" class="c"><span>ดาวน์​โหลด</span></a>
+            <a href="/download"><span>ดาวน์​โหลด</span></a>
         </div>
         <div class="b">
-            <a href="/forwork" class="c"><span>ร่วมงานกับเรา</span></a>
+            <a href="/forwork"><span>ร่วมงานกับเรา</span></a>
         </div>
         <div class="b">
-            <a href="/contact" class="c"><span>ติดต่อเรา</span></a>
+            <a href="/contact"><span>ติดต่อเรา</span></a>
         </div>
     </div>
 </div>

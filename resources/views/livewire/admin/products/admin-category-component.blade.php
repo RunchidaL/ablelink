@@ -4,7 +4,7 @@
             <div class="col">
                 <div class="row" id="head">
                     <div class="col-md-4">
-                        <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  All Category</h2>
+                        <h2><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  All Category</h2>
                     </div>
                     <div class="col-md-4 offset-md-4 d-md-flex justify-content-md-end">
                         <a href="{{route('admin.addcategory')}}"><button class="btn btn-success">Add Category</button></a>
@@ -48,8 +48,8 @@
                                     <ul class="slist">
                                         @foreach($category->subCategories as $scategory)
                                             @foreach($scategory->brandCategories as $bcategory)
-                                                <li>{{$bcategory->name}}
-                                                    <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$bcategory->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                                <li>{{$bcategory->brands->name}}
+                                                    <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$bcategory->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                     <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteBrandcategory({{$bcategory->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                                 </li>
                                                 

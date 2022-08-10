@@ -10,7 +10,6 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ServiceComponent;
 use App\Http\Livewire\ActivityComponent;
-use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Livewire\DownloadComponent;
 use App\Http\Livewire\ForworkComponent;
 use App\Http\Livewire\ContactComponent;
@@ -67,6 +66,8 @@ use App\Http\Livewire\NewProductDetailComponent;
 use App\Http\Livewire\Admin\products\AddBrandComponent;
 use App\Http\Livewire\Admin\products\BrandComponent;
 use App\Http\Livewire\Admin\products\EditBrandComponent;
+use App\Http\Livewire\ChooseAddressComponent;
+use App\Http\Livewire\Admin\AdmindashboardComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -85,6 +86,8 @@ Route::get('/contact', ContactComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/aboutus', AboutusComponent::class);
+
+Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
 
 Route::get('/order', OrderComponent::class);
 

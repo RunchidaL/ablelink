@@ -9,6 +9,7 @@
             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
         @endif
         <form class="addproduct" wire:submit.prevent="updateCategory">
+            @if(empty($bcategory_slug))
             <div class="row mb-3">
                 <div class="form-group">
                     <label class="col-md-12">Name</label>
@@ -22,17 +23,7 @@
                         <input type="text" class="form-control" wire:model="slug">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-6">Category</label>
-                    <div class="col-md-6">
-                        <select class="form-control" wire:model="category_c" wire:change="changeSubcategory">
-                        <option value="">None</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                        </select>
-                    </div>
-                </div>
+                @if($category_slug and $scategory_slug and empty($bcategory_slug))
                 <div class="form-group">
                     <label class="col-md-4">Subcategory Image</label>
                     <div class="col-md-4">
@@ -44,17 +35,20 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-6">SubCategory</label>
-                    <div class="col-md-6">
-                        <select name="form-control input-md" wire:model="scategory_c">
-                            <option value="">None</option>
-                            @foreach($subcategories as $scategory)
-                                <option value="{{$scategory->id}}">{{$scategory->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                @endif
+            @else
+            <div class="form-group">
+                <label class="col-md-12">Brand</label>
+                <div class="col-md-12">
+                    <select name="form-control input-md" wire:model="brand_id">
+                        <option value="">None</option>
+                        @foreach($brands as $brand)
+                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
+            </div>
+            @endif
                 <div class="form-group">
                     <div class="col-md">
                         <input type="submit" value="Update" class="btn btn-success">

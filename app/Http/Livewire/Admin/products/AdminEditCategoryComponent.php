@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Admin\products;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Subcategory;
-use App\Models\Brandcategory;
+use App\Models\BrandCategory;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use App\Models\Brand;
 
 class AdminEditCategoryComponent extends Component
 {
@@ -25,16 +26,16 @@ class AdminEditCategoryComponent extends Component
     public $scategory_c;
     public $image;
     public $newimage;
+    public $brand_id;
 
     public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
     {
         if($this->bcategory_slug)
         {
             $this->bcategory_slug = $bcategory_slug;
-            $bcategory = Brandcategory::where('slug',$bcategory_slug)->first();
+            $bcategory = BrandCategory::where('id',$bcategory_slug)->first();
             $this->bcategory_id = $bcategory->id;
-            $this->name = $bcategory->name;
-            $this->slug = $bcategory->slug;
+            $this->brand_id = $bcategory->brand_id;
             $this->category_c = $bcategory->subcategories->category_id;
             $this->scategory_c = $bcategory->subcategory_id;
         }
@@ -67,9 +68,8 @@ class AdminEditCategoryComponent extends Component
     {
         if($this->scategory_c)
         {
-            $bcategory = Brandcategory::find($this->bcategory_id);
-            $bcategory->name = $this->name;
-            $bcategory->slug = $this->slug;
+            $bcategory = BrandCategory::find($this->bcategory_id);
+            $bcategory->brand_id = $this->brand_id;
             $bcategory->subcategory_id = $this->scategory_c;
             $bcategory->save();
         }
@@ -106,6 +106,7 @@ class AdminEditCategoryComponent extends Component
     {
         $categories = Category::all();
         $subcategories = Subcategory::where('category_id',$this->category_c)->get();
-        return view('livewire.admin.products.admin-edit-category-component',['categories'=>$categories,'subcategories'=>$subcategories])->layout("layout.navfoot");
+        $brands = Brand::all();
+        return view('livewire.admin.products.admin-edit-category-component',['categories'=>$categories,'subcategories'=>$subcategories,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

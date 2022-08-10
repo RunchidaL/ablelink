@@ -56,14 +56,31 @@ class CartComponent extends Component
 
         foreach($this->cartitems as $item)
         {
-            if($item->attribute)
+            if(auth()->user()->role == '1')
             {
-                $this->subtotal += $item->model->customer_price * $item->quantity * $item->attribute;
+
+                if($item->attribute)
+                {
+                    $this->subtotal += $item->model->customer_price * $item->quantity * $item->attribute;
+                }
+                else
+                {
+                    $this->subtotal += $item->model->customer_price * $item->quantity;
+                }
+
             }
             else
             {
-                $this->subtotal += $item->model->customer_price * $item->quantity;
+                if($item->attribute)
+                {
+                    $this->subtotal += $item->model->dealer_price * $item->quantity * $item->attribute;
+                }
+                else
+                {
+                    $this->subtotal += $item->model->dealer_price * $item->quantity;
+                }
             }
+
         }
 
         $this->total = $this->subtotal;
