@@ -4,8 +4,8 @@
 <!-- navbar -->
 <div class="navbar">
     <div class="nav-wrap container">
-        <img src="/images/logoAbleLink.png" alt="" logo/>
-        <img src="/images/logoAbleLink2.jpg" alt="" logo2/>
+        <a href="/"><img src="/images/logoAbleLink.png" alt="" logo/></a>
+        <a href="/"><img src="/images/logoAbleLink2.jpg" alt="" logo2/></a>
         <div class="nav-left">
             <div class="nav-menu-wrap"> 
                 <div class="topic">

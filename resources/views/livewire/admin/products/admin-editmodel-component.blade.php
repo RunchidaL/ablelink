@@ -213,6 +213,7 @@
                                                 <option value="{{$network_type->id}}">{{$network_type->name}}</option>
                                             @endforeach
                                         </select>
+                                        @error('attr') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
                                     </div>
                                     <div class="col-4">
                                         <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>

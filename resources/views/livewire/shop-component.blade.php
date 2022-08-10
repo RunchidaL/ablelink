@@ -101,6 +101,7 @@
                         <p>Length:</p>
                         <div class="add-attribute">
                             <input wire:model.defer="attribute" required> m
+                            @error('attribute') <p class="text-danger">กรุณาใส่ความยาว</p> @enderror
                         </div>
                     </div><br>
                     @endif

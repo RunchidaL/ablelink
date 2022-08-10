@@ -15,6 +15,7 @@ use App\Models\NetworkValue;
 use App\Models\NetworkImage;
 use App\Models\NetworkType;
 use App\Models\Product;
+use Illuminate\Support\Facades\Validator;
 
 class AdminAddmodelComponent extends Component
 {
@@ -54,6 +55,9 @@ class AdminAddmodelComponent extends Component
 
     public function add()
     {
+        $this->validate([
+            'attr' => 'required',
+        ]);
         if(!in_array($this->attr,$this->attribute_arr))
         {
             array_push($this->inputs,$this->attr);
@@ -65,6 +69,13 @@ class AdminAddmodelComponent extends Component
     public function remove($attr)
     {
         unset($this->inputs[$attr]);
+    }
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attr' => 'required',
+        ]);
     }
 
     public function addModel()

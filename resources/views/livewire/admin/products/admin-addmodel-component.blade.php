@@ -58,9 +58,11 @@
                                 <label class="col-md-4">*Product Image</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="image">
+                                    @error('image') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120"/>
                                     @endif
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -201,6 +203,7 @@
                                                 <option value="{{$network_type->id}}">{{$network_type->name}}</option>
                                             @endforeach
                                         </select>
+                                        @error('attr') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
                                     </div>
                                     <div class="col-4">
                                         <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>

@@ -104,8 +104,18 @@ class AdminEditmodelComponent extends Component
         }
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attr' => 'required'
+        ]);
+    }
+
     public function add()
     {
+        $this->validate([
+            'attr' => 'required'
+        ]);
         if(!$this->attribute_arr->contains($this->attr))
         {
             $this->inputs->push($this->attr);
