@@ -21,7 +21,7 @@ class DownloadCategoryComponent extends Component
         $category_id = $downloadcategory->id;
         $category_name = $downloadcategory->name;
 
-        $downloads = Download::where('category_id',$category_id)->paginate(8);
+        $downloads = Download::where('category_id',$category_id)->paginate(20);
         $downloadcategories = DownloadCategory::all();
         $downloadcategory = DownloadCategory::where('slug',$this->downloadcategory_slug)->first();
         return view('livewire.download-category-component',['downloadcategory'=>$downloadcategory,'downloads'=>$downloads,'downloadcategories'=>$downloadcategories,'category_name'=>$category_name])->layout("layout.navfoot");

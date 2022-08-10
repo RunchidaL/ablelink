@@ -191,6 +191,6 @@
 /* resonsive */
 @media(max-width: 767px){
   .NP-col {
-    width: 50%;
+    width: 100%;
   }
 }

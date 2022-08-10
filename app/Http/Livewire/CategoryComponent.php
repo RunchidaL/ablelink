@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\BrandCategory;
 use App\Models\ShoppingCart;
+use App\Models\Brand;
 
 class CategoryComponent extends Component
 {
@@ -21,6 +22,8 @@ class CategoryComponent extends Component
     public $model_id;
     public $qty;
     public $attribute;
+    public $brand_id;
+    public $ccategory_id;
 
     use WithPagination;
 
@@ -75,7 +78,12 @@ class CategoryComponent extends Component
 
         if($this->bcategory_slug)
         {
-            $bcategory = BrandCategory::where('slug',$this->bcategory_slug)->first();
+            $brand = Brand::where('slug',$this->bcategory_slug)->first();
+            $brand_id = $brand->id;
+            $ccategory = Subcategory::where('slug',$this->scategory_slug)->first();
+            $ccategory_id = $ccategory->id;
+            $bcategory = BrandCategory::where('brand_id',$brand_id)->where('subcategory_id',$ccategory_id)->first();
+            // $bcategory = BrandCategory::where('slug',$this->bcategory_slug)->first();
             $category_id = $bcategory->id;
             $category_name = $bcategory->name;
             $filter = "brand";
@@ -100,7 +108,14 @@ class CategoryComponent extends Component
         $categories = Category::all();
         $category = Category::where('slug',$this->category_slug)->first();
         $scategory = Subcategory::where('slug',$this->scategory_slug)->first();
-        $bcategory = BrandCategory::where('slug',$this->bcategory_slug)->first();
+        if($this->bcategory_slug)
+        {
+        $bcategory = BrandCategory::where('brand_id',$brand_id)->where('subcategory_id',$ccategory_id)->first();
+        }
+        else{
+            $bcategory = null;
+        }
+        
         return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory,'models'=>$models,'bcategory'=>$bcategory])->layout("layout.navfoot"); 
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Download;
 use App\Models\DownloadCategory;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use App\Models\Brand;
 
 class AdminEditDownloadComponent extends Component
 {
@@ -17,6 +18,7 @@ class AdminEditDownloadComponent extends Component
     public $category_id;
     public $newimage;
     public $download_id;
+    public $brand_id;
 
     public function mount($download_slug)
     {
@@ -26,6 +28,7 @@ class AdminEditDownloadComponent extends Component
         $this->file = $download->file;
         $this->category_id = $download->category_id;
         $this->download_id = $download->id;
+        $this->brand_id = $download->brand_id;
     }
 
     public function updateDownload()
@@ -40,12 +43,14 @@ class AdminEditDownloadComponent extends Component
             $download->file = $imageName;
         }
         $download->category_id = $this->category_id;
+        $download->brand_id = $this->brand_id;
         $download->save();
         session()->flash('message','update download successs');
     }
     public function render()
     {
+        $brands = Brand::all();
         $categories = DownloadCategory::all();
-        return view('livewire.admin.downloads.admin-edit-download-component',['categories'=>$categories])->layout("layout.navfoot");
+        return view('livewire.admin.downloads.admin-edit-download-component',['categories'=>$categories,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

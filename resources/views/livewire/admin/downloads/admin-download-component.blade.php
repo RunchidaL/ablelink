@@ -5,7 +5,7 @@
                 <div class="panel panel-default">
                     <div class="row" id="head">
                         <div class="col-md-4">
-                            <h1>Download</h1>
+                            <h1><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a> Download</h1>
                         </div>
                         <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
                             <a href="{{route('admin.categorydownload')}}"><button class="btn btn-success">Download Category</button></a>

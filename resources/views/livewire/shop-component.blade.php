@@ -10,24 +10,63 @@
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
                         <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                                <p><span>#{{$product->slug}}</span></p>
-                                <p class="card-title">{{$product->name}}</p>
-                            @if(($product->web_price) == '1')
-                                <p class="empty">฿</p>
+                            <p><span>#{{$product->slug}}</span></p>
+                            <p class="card-title">{{$product->name}}</p>
+                            @guest
+                                @if(($product->web_price) == '1')
+                                    <p class="empty">฿</p>
+                                @else
+                                <div class="d-flex">
+                                    <div class="me-auto p-2">
+                                        <p><span>In stock {{$product->stock}}</span></p>
+                                    </div>
+                                    <div class="p-2">
+                                        <p>฿{{number_format($product->customer_price,2)}}</p>
+                                    </div>
+                                </div>
+                                @endif
                             @else
-                            <div class="d-flex">
-                                <div class="me-auto p-2">
-                                    <p><span>In stock {{$product->stock}}</span></p>
+                                @if(Auth::user()->role == 1)
+                                    @if(($product->web_price) == '1')
+                                        <p class="empty">฿</p>
+                                    @else
+                                    <div class="d-flex">
+                                        <div class="me-auto p-2">
+                                            <p><span>In stock {{$product->stock}}</span></p>
+                                        </div>
+                                        <div class="p-2">
+                                            <p>฿{{number_format($product->customer_price,2)}}</p>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @elseif(Auth::user()->role == 2)
+                                <div class="d-flex">
+                                    <div class="me-auto p-2">
+                                        <p><span>In stock {{$product->stock}}</span></p>
+                                    </div>
+                                    <div class="p-2">
+                                        <p>฿{{number_format($product->dealer_price,2)}}</p>
+                                    </div>
                                 </div>
-                                <div class="p-2">
-                                    <p>฿{{number_format($product->customer_price,2)}}</p>
+                                @elseif(Auth::user()->role == 3)
+                                <div class="d-flex">
+                                    <div class="me-auto p-2">
+                                        <p><span>In stock {{$product->stock}}</span></p>
+                                    </div>
+                                    <div class="p-2">
+                                        <p style="font-size:12px;">฿{{number_format($product->customer_price,2)}}, <span style="color: red;">฿{{number_format($product->dealer_price,2)}}</span></p>
+                                    </div>
                                 </div>
-                            </div>
-                            @endif
+                                @endif
+                            @endguest
                         </div>
                     </a> 
                     <div class="card-footer">
+                        @guest
+                        <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
+                        @else
                         <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -47,13 +86,21 @@
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}">
                     <h4>{{$product->name}}<span> #{{$product->slug}}</span></h4></a>
                     <div class="head-product-price">
+                    @guest
                         <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
+                    @else
+                        @if(Auth::user()->role == 1)
+                        <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
+                        @else
+                        <p>฿{{number_format($product->dealer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
+                        @endif
+                    @endguest
                     </div><br>
                     @if(($product->product->subCategories->name) == "Cabling")
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">
-                            <input wire:model.defer="attribute"> m
+                            <input wire:model.defer="attribute" required> m
                         </div>
                     </div><br>
                     @endif

@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Product Name</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="name" required>
+                                    <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,7 +52,7 @@
                                     <select class="form-control" wire:model="bcategory_id">
                                         <option value="0">Select brand</option>
                                         @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                            <option value="{{$brand->id}}">{{$brand->brands->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -68,37 +68,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-4">Network Type</label>
-                                <div class="row justify-content-start">
-                                    <div class="col-4">
-                                        <select class="form-control" wire:model="attr">
-                                            <option value="0">Select Network Type</option>
-                                            @foreach($network_types as $network_type)
-                                                <option value="{{$network_type->id}}">{{$network_type->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>
-                                    </div>
-                                </div>
-                            </div>
-                            @foreach($inputs as $key => $value)
-                            <div class="form-group">
-                                <label class="col-md-4">{{$network_types->where('id',$attribute_arr[$key])->first()->name}}</label>
-                                <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="network_images.{{$value}}">
-                                    @if($network_images)
-                                        @foreach($network_images as $network_image)
-                                            <img src="{{$network_image->temporaryUrl()}}" width="120"/>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
-                                <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
-                            </div>
-                            @endforeach
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button type="file" class="btn btn-success my-4">Submit</button>

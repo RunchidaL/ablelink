@@ -64,6 +64,8 @@ use App\Http\Livewire\Dealer\DealerChangePasswordComponent;
 use App\Http\Livewire\Admin\products\AddBrandComponent;
 use App\Http\Livewire\Admin\products\BrandComponent;
 use App\Http\Livewire\Admin\products\EditBrandComponent;
+use App\Http\Livewire\ChooseAddressComponent;
+use App\Http\Livewire\Admin\AdmindashboardComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -83,9 +85,11 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/aboutus', AboutusComponent::class);
 
-Route::get('/order', OrderComponent::class);
+// Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
 
-Route::get('/orderDetail', OrderDetailComponent::class);
+// Route::get('/order', OrderComponent::class);
+
+// Route::get('/orderDetail', OrderDetailComponent::class);
 
 Route::get('/register_dealer', function () {
     return view('dealer.register');
@@ -164,4 +168,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand/add', AddBrandComponent::class)->name('admin.addbrand');
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
+    Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
 });

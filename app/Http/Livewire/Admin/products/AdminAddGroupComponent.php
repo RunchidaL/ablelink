@@ -14,25 +14,25 @@ class AdminAddGroupComponent extends Component
     public $name;
     public $group_id;
     public $serie_id;
-    public $productserie_id;
+    // public $productserie_id;
     public $type_id;
     public $jacket_id;
-    public $productjacket_id;
+    // public $productjacket_id;
 
     public function storeGroup()
     {
         if($this->type_id){
             $jacket = new JacketProduct();
+            $jacket->name = $this->name;
             $jacket->type_id = $this->type_id;
-            $jacket->jacket_id = $this->jacket_id;
-            $jacket->product_id = $this->productjacket_id;
+            // $jacket->product_id = $this->productjacket_id;
             $jacket->save();
         }
         else if($this->serie_id){
             $type = new TypeModels();
             $type->name = $this->name;
             $type->series_id = $this->serie_id;
-            $type->product_id = $this->productserie_id;
+            // $type->product_id = $this->productserie_id;
             $type->save();
         }
         else if($this->group_id)

@@ -1,0 +1,22 @@
+.check-payment{
+    display: -webkit-box;
+}
+
+input[type='radio'] {
+    accent-color: black;
+}
+
+.credit{
+    margin-left: 5px;
+}
+
+.order-in-cart{
+    background-color: #EEEEEE;
+    padding: 10%;
+    border-radius: 20px;
+    width: 200%;
+}
+
+/* #order .col{
+    width: 50%;
+} */

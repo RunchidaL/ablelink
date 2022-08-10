@@ -30,8 +30,13 @@ class ProductModels extends Model
         return $this->belongsTo(JacketProduct::class,'jacket_id');
     }
 
-    public function jacketname()
+    public function network()
     {
-        return $this->belongsTo(JacketTypes::class,'jacket_id');
+        return $this->hasMany(NetworkValue::class,'model_id');
     }
+
+    // public function jacketname()
+    // {
+    //     return $this->belongsTo(JacketTypes::class,'jacket_id');
+    // }
 }

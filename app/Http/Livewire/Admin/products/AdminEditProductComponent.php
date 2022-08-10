@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use App\Models\GroupProduct;
 use App\Models\BrandCategory;
+use Illuminate\Support\Str;
 
 class AdminEditProductComponent extends Component
 {
@@ -45,13 +46,18 @@ class AdminEditProductComponent extends Component
     // public $newvideos;
     public $groupproduct_id;
 
-    public $new_network_images=[];
-    public $network_images=[];
-    public $images = [];
-    public $attr;
-    public $inputs=[];
-    public $attribute_arr=[];
-    public $attribute_values=[];
+    // public $new_network_images=[];
+    // public $network_images=[];
+    // public $images = [];
+    // public $attr;
+    // public $inputs=[];
+    // public $attribute_arr=[];
+    // public $attribute_values=[];
+
+    public function generateslug()
+    {
+        $this->slug = Str::slug($this->name);
+    }
 
     public function mount($product_slug)
     {
@@ -75,11 +81,13 @@ class AdminEditProductComponent extends Component
         // $this->videos = explode(",",$product->videos);
         $this->product_id = $product->id;
         $this->groupproduct_id = $product->groupproduct_id;
-        $this->inputs = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
-        $this->attribute_arr = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
+        // $this->inputs = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
+        // $this->attribute_arr = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
         
         // $network_products = NetworkValue::all();
-        $this->images = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
+
+        // $this->images = $product->network->where('product_id',$product->id)->unique('network_image_id')->pluck('network_image_id');
+
         // foreach($this->images as $i_rr)
         // {
         //     $allValue = NetworkImage::where('id',$network_products->id)->where('type_id',$i_rr)->get()->pluck('image');
@@ -91,34 +99,34 @@ class AdminEditProductComponent extends Component
         //     $this->network_images[$i_rr] = rtrim($valueString,',');
         // }
 
-        foreach($this->attribute_arr as $a_rr)
-        {
-            $allValue = NetworkValue::where('product_id',$product->id)->where('network_image_id',$a_rr)->get()->pluck('product_in_photo');
-            $valueString = '';
-            foreach($allValue as $value)
-            {
-                $valueString = $valueString . $value . ',';
-            }
-            $this->attribute_values[$a_rr] = rtrim($valueString,',');
-        }
+        // foreach($this->attribute_arr as $a_rr)
+        // {
+        //     $allValue = NetworkValue::where('product_id',$product->id)->where('network_image_id',$a_rr)->get()->pluck('product_in_photo');
+        //     $valueString = '';
+        //     foreach($allValue as $value)
+        //     {
+        //         $valueString = $valueString . $value . ',';
+        //     }
+        //     $this->attribute_values[$a_rr] = rtrim($valueString,',');
+        // }
     
     
     }
 
-    public function add()
-    {
-        if(!$this->attribute_arr->contains($this->attr))
-        {
-            $this->inputs->push($this->attr);
-            $this->attribute_arr->push($this->attr);
-            $this->images->push($this->attr);
-        }
-    }
+    // public function add()
+    // {
+    //     if(!$this->attribute_arr->contains($this->attr))
+    //     {
+    //         $this->inputs->push($this->attr);
+    //         $this->attribute_arr->push($this->attr);
+    //         $this->images->push($this->attr);
+    //     }
+    // }
 
-    public function remove($attr)
-    {
-        unset($this->inputs[$attr]);
-    }
+    // public function remove($attr)
+    // {
+    //     unset($this->inputs[$attr]);
+    // }
 
     public function updateProduct()
     {
@@ -223,31 +231,31 @@ class AdminEditProductComponent extends Component
     
         $product->save();
 
-        NetworkValue::where('product_id',$product->id)->delete();
+        // NetworkValue::where('product_id',$product->id)->delete();
         
-        foreach($this->attribute_values as $key=>$attribute_value)
-        {
-            if($this->network_images)
-            {
-                $attribute_image = new NetworkImage();
-                $fileNet = $this->network_images[$key]->getClientOriginalName();
-                $this->network_images[$key]->storeAs('products', $fileNet);
-                $attribute_image->image = $fileNet;
-                $attribute_image->type_id = $key;
-                $attribute_image->save();
+        // foreach($this->attribute_values as $key=>$attribute_value)
+        // {
+        //     if($this->network_images)
+        //     {
+        //         $attribute_image = new NetworkImage();
+        //         $fileNet = $this->network_images[$key]->getClientOriginalName();
+        //         $this->network_images[$key]->storeAs('products', $fileNet);
+        //         $attribute_image->image = $fileNet;
+        //         $attribute_image->type_id = $key;
+        //         $attribute_image->save();
 
-            $avalues = explode(",",$attribute_value);
-            foreach($avalues as $avalue)
-            {
-                $attr_value = new NetworkValue();
-                $attr_value->network_image_id = $attribute_image->id;
-                $attr_value->product_in_photo = $avalue;
-                $attr_value->product_id = $product->id;
-                $attr_value->save();
-            }
-            }
+        //     $avalues = explode(",",$attribute_value);
+        //     foreach($avalues as $avalue)
+        //     {
+        //         $attr_value = new NetworkValue();
+        //         $attr_value->network_image_id = $attribute_image->id;
+        //         $attr_value->product_in_photo = $avalue;
+        //         $attr_value->product_id = $product->id;
+        //         $attr_value->save();
+        //     }
+        //     }
         
-        }
+        // }
 
         session()->flash('message','update Product successs');
     }
