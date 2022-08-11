@@ -35,7 +35,7 @@
 	</div>
 	
 
-	<form action="{{route('send.projectregister')}}" method="POST" enctype="multipart/form-data">
+	<form action="" method="POST" enctype="multipart/form-data">
 	<div class="form_wrap">
 		<div class="form_1 data_info">
 			<form>
