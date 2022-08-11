@@ -16,7 +16,7 @@ class BrandComponent extends Component
 
     public function render()
     {
-        $brands = Brand::all();
+        $brands = Brand::orderBy('created_at','DESC')->get();
         return view('livewire.admin.products.brand-component',['brands'=>$brands])->layout("layout.navfoot");
     }
 }

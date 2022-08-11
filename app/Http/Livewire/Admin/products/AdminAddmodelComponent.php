@@ -135,7 +135,7 @@ class AdminAddmodelComponent extends Component
 
         if($this->videos)
         {
-            $model->videos = $this->$videos;
+            $model->videos = $this->videos;
         }
         
         $model->web_price = $this->web_price;

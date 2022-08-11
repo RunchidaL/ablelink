@@ -68,6 +68,7 @@ use App\Http\Livewire\Admin\products\BrandComponent;
 use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
+use App\Http\Controllers\ProjectDealerController;
 
 Route::get('/', HomeComponent::class);
 
@@ -112,6 +113,8 @@ Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->nam
 Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
+
+Route::post('/register-project-email',[ProjectDealerController::class,'sendEmail'])->name('registerproject.email');
 
 
 

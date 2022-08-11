@@ -14,6 +14,7 @@
                     <label class="col-md-12">Name</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug">
+                        @error('name') <p class="text-danger">ชื่อนี้มีอยู่แล้ว</p> @enderror
                     </div>
                 </div>
                 <div class="form-group">

@@ -16,7 +16,7 @@ class AdminDownloadComponent extends Component
     }
     public function render()
     {
-        $downloads = Download::all();
+        $downloads = Download::orderBy('created_at','DESC')->get();
         return view('livewire.admin.downloads.admin-download-component',['downloads'=>$downloads])->layout("layout.navfoot");
     }
 }

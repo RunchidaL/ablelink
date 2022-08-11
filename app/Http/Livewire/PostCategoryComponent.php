@@ -22,7 +22,7 @@ class PostCategoryComponent extends Component
         $category_id = $postcategory->id;
         $category_name = $postcategory->name;
         
-        $posts = Post::where('category_id',$category_id)->paginate(8);
+        $posts = Post::where('category_id',$category_id)->orderBy('created_at','DESC')->paginate(8);
 
         $postscategories = PostCategory::all();
         return view('livewire.post-category-component',['posts'=> $posts,'postscategories'=>$postscategories,'category_name'=>$category_name,'postcategory'=>$postcategory])->layout("layout.navfoot");

@@ -27,7 +27,7 @@ class AdminHomecomponent extends Component
 
     public function render()
     {
-        $sliders = Home::all();
+        $sliders = Home::orderBy('created_at','DESC')->get();
         return view('livewire.admin.home.admin-homecomponent',['sliders'=>$sliders])->layout("layout.navfoot");
     }
 }

@@ -44,7 +44,7 @@
                 
                 @if(($download->category->name) == "VDO")
                 <div id="vdo">
-                    <iframe width="350" height="250" src="{{url('/images/downloads')}}/{{$download -> file}}" sandbox=""></iframe>
+                    <iframe width="350" height="250" src="{{$download->file}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <p>	VDO ของ {{$download->name}}</p>
                 </div>
                 @else

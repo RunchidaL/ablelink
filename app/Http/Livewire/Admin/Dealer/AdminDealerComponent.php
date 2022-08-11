@@ -18,7 +18,7 @@ class AdminDealerComponent extends Component
 
     public function render()
     {
-        $dealers = User::where('role',2)->get();
+        $dealers = User::where('role',2)->orderBy('created_at','DESC')->get();
         $infodealers = Dealer::all();
         return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers])->layout("layout.navfoot");
     }
