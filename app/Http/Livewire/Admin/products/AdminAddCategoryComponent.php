@@ -27,6 +27,16 @@ class AdminAddCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required|unique:categories',
+            'slug' => 'required|unique:categories',
+            'name' => 'required|unique:subcategories',
+            'slug' => 'required|unique:subcategories'
+        ]);
+    }
+
     public function storeCategory()
     {
         if($this->scategory_id)
@@ -38,6 +48,10 @@ class AdminAddCategoryComponent extends Component
         }
         else if($this->category_id)
         {
+            $this->validate([
+                'name' => 'required|unique:subcategories',
+                'slug' => 'required|unique:subcategories'
+            ]);
             $scategory = new Subcategory();
             $scategory->name = $this->name;
             $scategory->slug = $this->slug;
@@ -52,6 +66,10 @@ class AdminAddCategoryComponent extends Component
             $scategory->save();
         }
         else{
+            $this->validate([
+                'name' => 'required|unique:categories',
+                'slug' => 'required|unique:categories'
+            ]);
             $category = new Category();
             $category->name = $this->name;
             $category->slug = $this->slug;

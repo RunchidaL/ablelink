@@ -16,7 +16,7 @@ class NetworktypeComponent extends Component
 
     public function render()
     {
-        $networks = NetworkType::all();
+        $networks = NetworkType::orderBy('created_at','DESC')->get();
         return view('livewire.admin.products.networktype-component',['networks'=>$networks])->layout("layout.navfoot");
     }
 }

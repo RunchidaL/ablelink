@@ -19,7 +19,7 @@ class AdminPostComponent extends Component
     public function render()
     {   
         $postcategory = PostCategory::all();
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at','DESC')->get();
         return view('livewire.admin.posts.admin-post-component',['posts'=>$posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
     }
 }

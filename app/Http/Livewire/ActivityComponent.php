@@ -22,7 +22,7 @@ class ActivityComponent extends Component
 
         $postcategory = PostCategory::all();
         
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at','DESC')->get();
         return view('livewire.activity-component',['posts'=> $posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
     }
 }

@@ -33,7 +33,6 @@
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
     <link href="{{asset('/css/cart.css')}}" rel="stylesheet">
     <link href="{{asset('/css/navfoot.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/chooseaddress.css')}}" rel="stylesheet">
     @livewireStyles
     
 
@@ -42,7 +41,7 @@
   
   @yield('navfoot')
   @yield('content2')
-
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script src="{{asset('js/chosen.jquery.min.js')}}"></script>
   <script src="{{asset('js/jquery-1.12.4.minb8ff.js')}}"></script>
   <script src="{{asset('js/jquery-ui-1.12.4.minb8ff.js')}}"></script>
