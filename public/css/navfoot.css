@@ -120,6 +120,7 @@ body{
     white-space: nowrap;
     font-size: 1.2rem;
     margin-top: 25px;
+    color: #dc7226;
 }
 
 .menu-content{
@@ -149,7 +150,7 @@ body{
     position: relative;
 }
 
-.menu-list a .menu-link-item span::after {
+.menu-list a .menu-link-item span::after{
     position: absolute;
     content: '';
     width: 100%;
@@ -159,9 +160,9 @@ body{
     bottom: 0;
     transform: scale(0,1);
     /* transform-origin: 0% 100%; */
-    transition: transform 0.3s linear
+    transition: transform 0.3s linear;
 }
-.menu-list a .menu-link-item:hover span::after {
+.menu-list a .menu-link-item:hover span::after{
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
@@ -207,11 +208,11 @@ body{
     color: black;    
 }
 
-.item-right a > span {
+.item-right a > span{
     position: relative;
 }
 
-.item-right a > span > span::after {
+.item-right a > span > span::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -224,13 +225,13 @@ body{
     transition: transform 0.2s ease;
 }
 
-.item-right a > span:hover > span::after {
+.item-right a > span:hover > span::after{
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
 
 /*head*/
-.item-right a:nth-child(1) {
+.item-right a:nth-child(1){
     font-size: 1.2rem;
     text-align: start;
     white-space: nowrap;
@@ -303,49 +304,6 @@ body{
 
 .flex.items-center.justify-between svg{
 width: 3%;
-}
-
-.toggle{
-    display: none;
-    position: relative;
-    user-select: none;
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-}
-
-.toggle span{
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background-color: black;
-    border-radius: 6px;
-    transform-origin: 0 0;
-    transition: 0.4s;
-}
-
-.toggle:hover span{
-    background-color: red;
-}
-
-.toggle.is-active span:nth-child(1){
-    transform: translate(0px, -2px)rotate(45deg);
-}
-
-.toggle.is-active span:nth-child(2){
-    opacity: 0;
-}
-
-.toggle.is-active span:nth-child(3){
-    transform: translate(-3px, 3px)rotate(-45deg);
-}
-
-.toggle.is-active:hover span{
-    background-color: red;
 }
 
 .fakenav{
@@ -494,6 +452,50 @@ footer *{
     .nav-wrap.container {
         max-width: none !important;
     }
+}
+
+/* NavPhone */
+.toggle{
+    display: none;
+    position: relative;
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.toggle span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: black;
+    border-radius: 6px;
+    transform-origin: 0 0;
+    transition: 0.4s;
+}
+
+.toggle:hover span{
+    background-color: red;
+}
+
+.toggle.is-active span:nth-child(1){
+    transform: translate(0px, -2px)rotate(45deg);
+}
+
+.toggle.is-active span:nth-child(2){
+    opacity: 0;
+}
+
+.toggle.is-active span:nth-child(3){
+    transform: translate(-3px, 3px)rotate(-45deg);
+}
+
+.toggle.is-active:hover span{
+    background-color: red;
 }
 
 .navDropWrap{
