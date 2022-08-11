@@ -2,8 +2,13 @@
 <link href="/css/forwork.css" rel="stylesheet">
 <!-- link -->
 
-<div class="wallpaper">
-    <img src="/images/forwork.png" alt="">
+<div class="slider">
+    <div class="myslider" style="display: block;">
+        <div class="txt">
+            <h1>ร่วมงานกับเรา</h1>
+        </div>
+        <img class="imgg" src="/images/ร่วมงานกับเรา.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    </div>
 </div>
 
 <div class="all-content">

@@ -28,12 +28,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">File</label>
-                                <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="file" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-12">
                                     <select class="form-control form-control-sm" name="category" wire:model="category_id" required>
@@ -42,6 +36,24 @@
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Brand</label>
+                                <div class="col-md-2">
+                                    <select class="form-control" wire:model="brand_id">
+                                        <option value="">Select Brand</option>
+                                        @foreach($brands as $brand)
+                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">File</label>
+                                <div class="col-md-12">
+                                    <input type="file" class="input-file" wire:model="file">
+                                    <input type="text" class="input-file" wire:model="filetext">
                                 </div>
                             </div>
                             <div class="form-group">

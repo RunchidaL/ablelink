@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Livewire\WithFileUploads;
 use App\Models\GroupProduct;
 use App\Models\BrandCategory;
+use Illuminate\Support\Str;
 
 class AdminAddProductComponent extends Component
 {
@@ -36,26 +37,31 @@ class AdminAddProductComponent extends Component
     public $videos;
     public $groupproduct_id;
 
-    public $network_images;
-    public $images = [];
-    public $attr;
-    public $inputs=[];
-    public $attribute_arr=[];
-    public $attribute_values;
+    // public $network_images;
+    // public $images = [];
+    // public $attr;
+    // public $inputs=[];
+    // public $attribute_arr=[];
+    // public $attribute_values;
 
-    public function add()
-    {
-        if(!in_array($this->attr,$this->attribute_arr))
-        {
-            array_push($this->inputs,$this->attr);
-            array_push($this->attribute_arr,$this->attr);
-            array_push($this->images,$this->attr);
-        }
-    }
+    // public function add()
+    // {
+    //     if(!in_array($this->attr,$this->attribute_arr))
+    //     {
+    //         array_push($this->inputs,$this->attr);
+    //         array_push($this->attribute_arr,$this->attr);
+    //         array_push($this->images,$this->attr);
+    //     }
+    // }
 
-    public function remove($attr)
+    // public function remove($attr)
+    // {
+    //     unset($this->inputs[$attr]);
+    // }
+    
+    public function generateslug()
     {
-        unset($this->inputs[$attr]);
+        $this->slug = Str::slug($this->name);
     }
 
 
@@ -138,36 +144,36 @@ class AdminAddProductComponent extends Component
 
         $product->save();
 
-        if($this->attribute_values)
-        {
+        // if($this->attribute_values)
+        // {
 
-            foreach($this->attribute_values as $key=>$attribute_value)
-            {
+        //     foreach($this->attribute_values as $key=>$attribute_value)
+        //     {
 
-                if($this->network_images)
-                {
-                $attribute_image = new NetworkImage();
-                $fileNet = $this->network_images[$key]->getClientOriginalName();
-                $this->network_images[$key]->storeAs('products', $fileNet);
-                $attribute_image->image = $fileNet;
-                $attribute_image->type_id = $key;
-                $attribute_image->save();
+        //         if($this->network_images)
+        //         {
+        //         $attribute_image = new NetworkImage();
+        //         $fileNet = $this->network_images[$key]->getClientOriginalName();
+        //         $this->network_images[$key]->storeAs('products', $fileNet);
+        //         $attribute_image->image = $fileNet;
+        //         $attribute_image->type_id = $key;
+        //         $attribute_image->save();
                 
 
-                $avalues = explode(",",$attribute_value);
-                foreach($avalues as $avalue)
-                {
-                    $attr_value = new NetworkValue();
-                    $attr_value->network_image_id = $attribute_image->id;
-                    $attr_value->product_in_photo = $avalue;
-                    $attr_value->product_id = $product->id;
-                    $attr_value->save();
-                }
-                }
+        //         $avalues = explode(",",$attribute_value);
+        //         foreach($avalues as $avalue)
+        //         {
+        //             $attr_value = new NetworkValue();
+        //             $attr_value->network_image_id = $attribute_image->id;
+        //             $attr_value->product_in_photo = $avalue;
+        //             $attr_value->product_id = $product->id;
+        //             $attr_value->save();
+        //         }
+        //         }
             
-            }
+        //     }
 
-        }
+        // }
         
         
         session()->flash('message','add Product successs');

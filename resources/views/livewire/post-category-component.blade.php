@@ -10,7 +10,7 @@
         <p class="text-icon">บทความ</p>
     </div>
     <div class="mac-center">
-        <a href="#"><i class="bi bi-box-seam"></i></a>
+        <a href="{{route('newproducts')}}"><i class="bi bi-box-seam"></i></a>
         <p>ผลิตภัณฑ์</p>
     </div>
     <div class="mac-right">
@@ -19,6 +19,8 @@
     </div>
 </div>
 
+
+<h1 style="text-align: center; margin-bottom: 2%; background: #194276; color: white; padding: 1% 0;">{{$postcategory->name}}</h1>
 
 <div class="blog">
 @foreach($posts as $post)

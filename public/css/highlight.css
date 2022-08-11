@@ -58,29 +58,52 @@
     letter-spacing: 2px;
     line-height: 35px;
     top: 40%;
-    left: 15%;
+    left: 25%;
     -webkit-animation-name: posi;
     -webkit-animation-duration: 1s;
     animation-name: posi;
     animation-duration: 1s;
     z-index: 1;
 }
+.txt2{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 50%;
+    left: 25%;
+    -webkit-animation-name: posi3;
+    -webkit-animation-duration: 1s;
+    animation-name: posi3;
+    animation-duration: 1s;
+    z-index: 1;
+}
 
 @-webkit-keyframes posi{
-    from {left: 25%;}
-    to {left: 15%;}
+    from {left: 5%;}
+    to {left: 25%;}
 }
 
 @keyframes posi{
-    from {left: 25%;}
-    to {left: 15%;}
+    from {left: 5%;}
+    to {left: 25%;}
+}
+
+@-webkit-keyframes posi3{
+    from {left: 45%;}
+    to {left: 25%;}
+}
+
+@keyframes posi3{
+    from {left: 45%;}
+    to {left: 25%;}
 }
 .txt h1{
     color: #3498db;
     font-weight: bold;
     margin-bottom: 20px;
 }
-.txt p{
+.txt2 p{
     font-weight: bold;
     font-size: 20px;
 }
@@ -101,13 +124,13 @@
     from {transform: scale(1,1);}
     to {transform: scale(1.1,1.1);}
 }
-@media screen and (max-width:800px){
+@media screen and (max-width:1200px){
     .myslider{
         height: 400px;
     }
     .txt{
         line-height: 25px;
-        top: 50%;
+        top: 35%;
         left: 50%;
         transform: translate(-50%, -50%);
         -webkit-animation-name: posi2;
@@ -115,18 +138,36 @@
         animation-name: posi2;
         animation-duration: 1s;
     }
+    .txt2{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi4;
+        -webkit-animation-duration: 1s;
+        animation-name: posi4;
+        animation-duration: 1s;
+    }
     @-webkit-keyframes posi2 {
-        from {top:35%;}
-        to {top: 50%;}
+        from {left:30%;}
+        to {left: 50%;}
     }
     @keyframes posi2 {
-        from {top:35%;}
-        to {top: 50%;}
+        from {left:30%;}
+        to {left: 50%;}
+    }
+    @-webkit-keyframes posi4 {
+        from {left:70%;}
+        to {left: 50%;}
+    }
+    @keyframes posi4 {
+        from {left:70%;}
+        to {left: 50%;}
     }
     .txt h1{
         font-size: 40px;
     }
-    .txt p{
+    .txt2 p{
         font-size: 13px;
     }
     .txt .imgg{
@@ -135,7 +176,57 @@
 }
 
 @media screen and (max-width:520px){
+    .myslider{
+        height: 400px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 35%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi3;
+        -webkit-animation-duration: 1s;
+        animation-name: posi3;
+        animation-duration: 1s;
+    }
+    .txt2{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi6;
+        -webkit-animation-duration: 1s;
+        animation-name: posi6;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi3 {
+        from {top:20%;}
+        to {top: 35%;}
+    }
+    @keyframes posi3 {
+        from {top:20%;}
+        to {top: 35%;}
+    }
+    @-webkit-keyframes posi6 {
+        from {top:60%;}
+        to {top: 50%;}
+    }
+    @keyframes posi6 {
+        from {top:60%;}
+        to {top: 50%;}
+    }
     .txt h1{
         font-size: 30px;
     }
+    .txt2 p{
+        font-size: 13px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+    .txt2 .imgg{
+        object-fit: cover;
+    }
 }
+
+

@@ -40,7 +40,7 @@ class GroupComponent extends Component
 
     public function render()
     {
-        $groups = GroupProduct::all();
+        $groups = GroupProduct::orderBy('created_at','DESC')->get();
         $series = SeriesModels::all();
         return view('livewire.admin.products.group-component',['groups'=>$groups,'series'=>$series])->layout("layout.navfoot");
     }

@@ -321,8 +321,17 @@
     #right-product{
         width: 100%;
     }
+
     .relate-product .relate-box{
         margin: 3.5% 0;
+    }
+
+    .leftProduct{
+        position: static;
+    }
+
+    .relate-product .relate-box{
+        margin: 5% 0;
     }
 }
 

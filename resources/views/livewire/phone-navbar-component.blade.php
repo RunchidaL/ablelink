@@ -13,6 +13,7 @@
                 <a href=""><i class="bi bi-cart-fill"></i></a>
                 <a href=""><i class="bi bi-person-circle"></i></a>
             </div>
+<<<<<<< HEAD
         </div>    
         <ul class="mainMenu"> 
             <a href="/"><li>หน้าหลัก</li></a>
@@ -44,6 +45,75 @@
             <a href="/forwork"><li>ร่วมงานกับเรา</li></a>
             <a href="/contact"><li>ติดต่อเรา</li></a>
         </ul>
+=======
+        </div>
+        <div class="b">
+            <a href="/"><span>หน้าหลัก</span></a>
+        </div>
+        <div class="b">
+            <a href="/aboutus"><span>เกี่ยวกับเรา</span></a>
+        </div>
+        <div class="b">
+            <span class="c" id="product-mobile"><span>ผลิตภัณฑ์</span></span>
+        </div>
+        <div class="b">
+            <a href="/service"><span>บริการ</span></a>
+        </div>
+        <div class="b">
+            <a href="/activity"><span>ข่าวสาร&กิจกรรม</span></a>
+        </div>
+        <div class="b">
+            <a href="/download"><span>ดาวน์​โหลด</span></a>
+        </div>
+        <div class="b">
+            <a href="/forwork"><span>ร่วมงานกับเรา</span></a>
+        </div>
+        <div class="b">
+            <a href="/contact"><span>ติดต่อเรา</span></a>
+        </div>
+    </div>
+</div>
+<div class="d-wrap" id="d">
+    <div class="a">
+        <div class="fa">
+            <div class="icons container">
+                <i class="bi bi-cart-fill"></i>
+                <i class="bi bi-person-circle"></i>
+            </div>
+        </div>
+        @php
+                $i = 0; 
+        @endphp
+        @foreach($categories as $category)
+            @php
+                $i++; 
+            @endphp
+            <div class="b" id="m{{$i}}">{{$category->name}}</div>
+        @endforeach
+    </div>
+</div>
+<div class="e-wrap" id="e">
+    <div class="a">
+        <div class="fa">
+            <div class="icons container">
+                <i class="bi bi-cart-fill"></i>
+                <i class="bi bi-person-circle"></i>
+            </div>
+        </div>
+        @php
+            $l = 0; 
+        @endphp
+        @foreach($categories as $category)
+            @php
+                $l++; 
+            @endphp
+            <span class="sub" id="sub{{$l}}">
+                @foreach($category->subCategories as $scategory)
+                    <div class="b">{{$scategory->name}}</div>
+                @endforeach
+            </span>
+        @endforeach
+>>>>>>> 5378b77389a2d853d0e1198d341ce8dfa09c689b
     </div>
 </div>
 

@@ -61,9 +61,14 @@ use App\Http\Livewire\Admin\products\AddNetworktypeComponent;
 use App\Http\Livewire\Admin\products\EditNetworktypeComponent;
 use App\Http\Livewire\Dealer\RegisterprojectComponent;
 use App\Http\Livewire\Dealer\DealerChangePasswordComponent;
+use App\Http\Livewire\NewProductComponent;
+use App\Http\Livewire\NewProductDetailComponent;
 use App\Http\Livewire\Admin\products\AddBrandComponent;
 use App\Http\Livewire\Admin\products\BrandComponent;
 use App\Http\Livewire\Admin\products\EditBrandComponent;
+use App\Http\Livewire\ChooseAddressComponent;
+use App\Http\Livewire\Admin\AdmindashboardComponent;
+use App\Http\Controllers\ProjectDealerController;
 
 Route::get('/', HomeComponent::class);
 
@@ -83,6 +88,8 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 
 Route::get('/aboutus', AboutusComponent::class);
 
+Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
+
 Route::get('/order', OrderComponent::class);
 
 Route::get('/orderDetail', OrderDetailComponent::class);
@@ -95,6 +102,10 @@ Route::get('/post/{slug}', DetailPostComponent::class)->name('post.details');
 
 Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->name('post.category');
 
+Route::get('/newproducts',NewProductComponent::class)->name('newproducts');
+
+Route::get('/newproductsdetail',NewProductDetailComponent::class)->name('newproducts.detail');
+
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
@@ -102,6 +113,10 @@ Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->nam
 Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
+
+Route::post('/register-project-email',[ProjectDealerController::class,'sendEmail'])->name('registerproject.email');
+
+
 
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
 
@@ -164,4 +179,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand/add', AddBrandComponent::class)->name('admin.addbrand');
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
+    Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
 });

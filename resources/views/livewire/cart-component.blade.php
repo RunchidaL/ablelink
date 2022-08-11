@@ -30,7 +30,11 @@
                             @endif
                         </td>
                         <td class="cart-price">
+                            @if(Auth::user()->role == 1)
                             <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                            @elseif(Auth::user()->role == 2)
+                            <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                            @endif
                         </td>
                         <td class="cart-quantity">
                             <div class="group-cen">
@@ -40,11 +44,19 @@
                             </div>
                         </td>
                         <td class="cart-total">
+                        @if(Auth::user()->role == 1)
                             @if($item->attribute == '')
                             <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
                             @else
                             <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
                             @endif
+                        @elseif(Auth::user()->role == 2)
+                            @if($item->attribute == '')
+                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                            @else
+                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                            @endif
+                        @endif
                         </td>
                         <td class="cart-delete">
                             <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
@@ -68,7 +80,7 @@
         </div>
         <div class="cart-foot">
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
-            <a class="button-paid" href="#">ชำระสินค้า</a>
+            <a class="button-paid" href="/chooseaddress">ชำระสินค้า</a>
         </div>
         @else
         <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">

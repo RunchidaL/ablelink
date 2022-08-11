@@ -38,7 +38,6 @@
                             <a href="{{route('customer.addaddress')}}"><button type="button" class="btn btn-info " style="border-radius: 20px; background:#194276; color: white;">Add Address</button></a>
                         </div>
                     </div>
-                  
                     @php
                         $i=0;
                     @endphp
@@ -47,7 +46,7 @@
                         $i++;
                         @endphp
                     @if($customeraddresses->customerid == $user->id)
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-5">
                         <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
                             <h3 style="display: flex; justify-content: space-between;">
                                 <div>

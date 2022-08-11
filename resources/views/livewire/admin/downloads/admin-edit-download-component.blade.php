@@ -28,15 +28,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">File</label>
-                                <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="newimage">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12">Category</label>
-                                <div class="col-md-12">
-                                    <select class="form-control form-control-sm" name="category" wire:model="category_id">
+                                <div class="col-md-2">
+                                    <select class="form-control" name="category" wire:model="category_id">
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -45,8 +39,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-12">Brand</label>
+                                <div class="col-md-2">
+                                    <select class="form-control" wire:model="brand_id">
+                                        <option value="">Select Brand</option>
+                                        @foreach($brands as $brand)
+                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">File</label>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <input type="file" class="input-file" wire:model="newimage">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md">
+                                    <input type="submit" value="Update" class="btn btn-success">
                                 </div>
                             </div>
                         </form>
@@ -57,27 +68,13 @@
     </div>
 </div>
 
-<!-- <style>
+<style>
     #head{
-        font-size: 30px;
+        margin: 2% 0 2% 0;
     }
-    .col-md-12{
-        font-size: 15px;
-        background: rgb(243, 243, 243);
-        border-radius: 20px;
+    .form-group{
+        margin: 1% 0 1% 0;
     }
-    .panel-heading.head{
-        font-size: 50px;
-    }
-    .panel-body{
-        margin: 2% 5% 2% 5%;
-    }
-    .row{
-        margin: 25px;
-    }
-    button{
-        margin-top: 2%
-    }
-</style> -->
+</style>
 
 

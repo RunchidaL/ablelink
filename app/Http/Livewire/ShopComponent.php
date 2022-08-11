@@ -24,13 +24,32 @@ class ShopComponent extends Component
         $this->qty = 1;
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attribute' => 'required'
+        ]);
+    }
+
     public function addToCart($id)
     {
         $this->model_id = $id;
+        
+        $model = ProductModels::where('id',$this->model_id)->first();
+        if($model->product->subCategories->name == "Cabling")
+        {
+            $this->validate([
+                'attribute' => 'required'
+            ]);
+        }
+
+
         if(auth()->user())
         {
+            
             if($this->attribute)
             {
+
                 $data = [
                 'user_id' => auth()->user()->id,
                 'product_id' => $id,

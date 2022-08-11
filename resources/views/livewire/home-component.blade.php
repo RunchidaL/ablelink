@@ -11,10 +11,12 @@
         @foreach ($sliders as $slide)
         <div class="myslider">
             <div class="txt">
-                <a href="{{$slide->link}}" style="text-decoration: none"><h1>{{$slide->title}}</h1></a>
+                <h1>{{$slide->title}}</h1>
+            </div>
+            <div class="txt2">
                 <p>{{$slide->subtitle}}</p>
             </div>
-            <img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+            <a href="{{$slide->link}}" style="text-decoration: none"><img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt=""></a>
         </div>
         @endforeach
         <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
@@ -232,3 +234,4 @@
         </div>     
     </div> 
 </div>
+

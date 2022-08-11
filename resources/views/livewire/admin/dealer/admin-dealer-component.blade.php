@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-4">
-                                <h1>All Dealers</h1>
+                                <h1><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a> All Dealers</h1>
                             </div>
                             <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
                                 <a href="{{route('admin.addinfoDealer')}}"><button class="btn btn-success">Add Info Dealer</button></a>

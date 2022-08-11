@@ -30,7 +30,7 @@
                             <div class="item-right">
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>
                                 @foreach($scategory->brandCategories as $brand)
-                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->slug])}}"><span><span>{{$brand->name}}</span></span></a>
+                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name])}}"><span><span>{{$brand->brands->name}}</span></span></a>
                                 @endforeach
                             </div>
                         </div>
@@ -45,12 +45,12 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
-    for( let i = 1; i<9 ; i++) {
+    for( let i = 1; i< 9; i++) {
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
-            for ( let n = 1 ; n < 9 ; n++ ){
+            for ( let n = 1 ; n < 9; n++ ){
                 if( n !== i) {
                     document.getElementById("content"+n).style.display = "none";
                 }

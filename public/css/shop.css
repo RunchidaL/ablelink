@@ -189,8 +189,20 @@
 }
 
 /* resonsive */
-@media(max-width: 767px){
+@media(max-width: 1200px){
   .NP-col {
-    width: 50%;
+    width: 33%;
+  }
+}
+
+@media(max-width: 900px){
+  .NP-col {
+    width: 100%;
+  }
+}
+
+@media(max-width: 520px){
+  .NP-col {
+    width: 100%;
   }
 }

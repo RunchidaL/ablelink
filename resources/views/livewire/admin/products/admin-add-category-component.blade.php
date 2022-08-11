@@ -14,6 +14,7 @@
                     <label class="col-md-12">Name</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug">
+                        @error('name') <p class="text-danger">ชื่อนี้มีอยู่แล้ว</p> @enderror
                     </div>
                 </div>
                 <div class="form-group">
@@ -40,6 +41,17 @@
                         @if($image)
                             <img src="{{$image->temporaryUrl()}}" width="120"/>
                         @endif
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">Brand</label>
+                    <div class="col-md-12">
+                        <select name="form-control input-md" wire:model="brand_id">
+                            <option value="">None</option>
+                            @foreach($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

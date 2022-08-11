@@ -6,11 +6,11 @@
 
 <div class="container mt-1 p-5">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <h4><li>ข้อมูลส่วนตัว</li></h4>
         </div>
-        <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
-            <a href="{{route('dealer.changepassword')}}"><button class="btn btn-info" style="color: white; background: #194276">เปลี่ยนรหัสผ่าน</button></a>
+        <div class="col-md-6" style="text-align: end">
+            <a href="{{route('dealer.changepassword')}}"><button class="button">เปลี่ยนรหัสผ่าน</button></a>
         </div>
     </div>
 
@@ -108,6 +108,23 @@
     </form>
 </div>
 
-
+<style>
+.button{
+    border: none;
+    box-shadow: 0 2px 5px rgba(136, 136, 136, 0.897);
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 10px;
+    width: 150px;
+    background-color: #194276;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: rgb(222, 226, 236);
+    color: #194276;
+}
+</style>
 
 

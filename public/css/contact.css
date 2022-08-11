@@ -75,11 +75,11 @@
         animation-duration: 1s;
     }
     @-webkit-keyframes posi2 {
-        from {top:35%;}
+        from {top:30%;}
         to {top: 50%;}
     }
     @keyframes posi2 {
-        from {top:35%;}
+        from {top:30%;}
         to {top: 50%;}
     }
     .txt h1{

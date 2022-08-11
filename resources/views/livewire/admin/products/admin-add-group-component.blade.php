@@ -35,7 +35,6 @@
                                 <option value="{{$serie->id}}">{{$serie->name}}</option>
                             @endforeach
                         </select>
-                        <input type="text" class="form-control mt-2" placeholder="ID" wire:model="productserie_id">
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,22 +46,6 @@
                                 <option value="{{$type->id}}">{{$type->name}}</option>
                             @endforeach
                         </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col">Jacket</label>
-                    <div class="row justify-content-start">
-                        <div class="col-md-2">
-                            <select name="form-control input-md" wire:model="jacket_id">
-                                <option value="">None</option>
-                                @foreach($jacket_types as $jacket_type)
-                                    <option value="{{$jacket_type->id}}">{{$jacket_type->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <input type="text" class="form-control" placeholder="ID" wire:model="productjacket_id">
-                        </div>
                     </div>
                 </div>
                 <div class="form-group">

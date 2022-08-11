@@ -30,10 +30,10 @@ class EditGroupComponent extends Component
             $this->jacket_id = $jacket->id;
             $this->idgroup = $jacket->type->series->group_id;
             $this->series_c = $jacket->type->series_id;
-            $this->productserie_id = $jacket->type->product_id;
+            // $this->productserie_id = $jacket->type->product_id;
             $this->types_c = $jacket->type_id;
-            $this->jackets_c = $jacket->jacket_id;
-            $this->productjacket_id = $jacket->product_id;
+            $this->name = $jacket->name;
+            // $this->productjacket_id = $jacket->product_id;
 
         }
         else if($this->type_id)
@@ -44,7 +44,7 @@ class EditGroupComponent extends Component
             $this->name = $type->name;
             $this->idgroup = $type->series->group_id;
             $this->series_c = $type->series_id;
-            $this->productserie_id = $type->product_id;
+            // $this->productserie_id = $type->product_id;
         }
         else if($this->serie_id)
         {
@@ -69,9 +69,9 @@ class EditGroupComponent extends Component
         if($this->types_c)
         {
             $jacket = JacketProduct::find($this->jacket_id);
+            $jacket->name = $this->name;
             $jacket->type_id = $this->types_c;
-            $jacket->jacket_id = $this->jackets_c;
-            $jacket->product_id = $this->productjacket_id;
+            // $jacket->product_id = $this->productjacket_id;
             $jacket->save();
 
         }
@@ -81,7 +81,7 @@ class EditGroupComponent extends Component
             $type->name = $this->name;
             $type->series_id = $this->series_c;
             $type->series->group_id = $this->idgroup;
-            $type->product_id = $this->productserie_id;
+            // $type->product_id = $this->productserie_id;
             $type->save();
 
         }
@@ -118,7 +118,6 @@ class EditGroupComponent extends Component
         $groups = GroupProduct::all();
         $series = SeriesModels::where('group_id',$this->idgroup)->get();
         $types = TypeModels::where('series_id',$this->series_c)->get();
-        $jacket_types = JacketTypes::all();
-        return view('livewire.admin.products.edit-group-component',['groups'=>$groups,'series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types])->layout("layout.navfoot");
+        return view('livewire.admin.products.edit-group-component',['groups'=>$groups,'series'=>$series,'types'=>$types])->layout("layout.navfoot");
     }
 }

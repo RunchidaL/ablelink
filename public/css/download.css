@@ -1,9 +1,206 @@
+<<<<<<< HEAD
 .wallpaper img{
+=======
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* ภาพด้านบน */
+.slider{
+>>>>>>> 5378b77389a2d853d0e1198d341ce8dfa09c689b
     position: relative;
-    background-size: cover;
-    object-fit: cover;
     width: 100%;
-    height: 100%;
+    background: #2c3e50;
+}
+
+.myslider{
+    min-height: 100%;
+    display: none;
+    overflow: hidden;
+    justify-items: center;
+}
+
+.txt{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 55%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 1s;
+    animation-name: posi;
+    animation-duration: 1s;
+    z-index: 1;
+}
+.txt2{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 55%;
+    left: 55%;
+    -webkit-animation-name: posi4;
+    -webkit-animation-duration: 1s;
+    animation-name: posi4;
+    animation-duration: 1s;
+    z-index: 1;
+}
+
+@-webkit-keyframes posi{
+    from {left: 70%;}
+    to {left: 55%;}
+}
+
+@keyframes posi{
+    from {left: 70%;}
+    to {left: 55%;}
+}
+
+@-webkit-keyframes posi4{
+    from {left: 35%;}
+    to {left: 55%;}
+}
+
+@keyframes posi4{
+    from {left: 35%;}
+    to {left: 55%;}
+}
+
+.txt h1{
+    color: rgb(255, 255, 255);
+    font-size: 4.375rem;
+    opacity: 1;
+}
+.txt2 h1{
+    color: rgb(255, 255, 255);
+    font-size: 4.375rem;
+    opacity: 1;
+}
+
+.imgg{
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomin;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@media screen and (max-width:1200px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    .txt2{
+        line-height: 25px;
+        top: 70%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi5;
+        -webkit-animation-duration: 1s;
+        animation-name: posi5;
+        animation-duration: 1s;
+    }
+    
+    @-webkit-keyframes posi2 {
+        from {left:30%;}
+        to {left: 70%;}
+    }
+    @keyframes posi2 {
+        from {left:30%;}
+        to {left: 70%;}
+    }
+    @-webkit-keyframes posi5 {
+        from {left:85%;}
+        to {left: 70%;}
+    }
+    @keyframes posi5 {
+        from {left:85%;}
+        to {left: 70%;}
+    }
+    .txt h1{
+        font-size: 50px;
+    }
+    .txt2 h1{
+        font-size: 50px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+    .txt2 .imgg{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:520px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 60%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi3;
+        -webkit-animation-duration: 1s;
+        animation-name: posi3;
+        animation-duration: 1s;
+    }
+    .txt2{
+        line-height: 25px;
+        top: 80%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi6;
+        -webkit-animation-duration: 1s;
+        animation-name: posi6;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi3 {
+        from {top:40%;}
+        to {top: 60%;}
+    }
+    @keyframes posi3 {
+        from {top:40%;}
+        to {top: 60%;}
+    }
+    @-webkit-keyframes posi6 {
+        from {top:90%;}
+        to {top: 80%;}
+    }
+    @keyframes posi6 {
+        from {top:90%;}
+        to {top: 80%;}
+    }
+    .txt h1{
+        font-size: 40px;
+    }
+    .txt2 h1{
+        font-size: 40px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
 }
 
 .col {
@@ -29,9 +226,21 @@
     color: #DC7226;
 }
 
+/* .brandimg{
+    margin: 1% 0 0 30%;
+    width: 15%;
+} */
+
 .desc p {
     background-color: white;
     text-align: center;
+}
+
+.brandimg{
+    display: block;
+    margin: 0 10%;
+    width: 15%;
+    margin-top: 10px;
 }
 
 .desc .row{
@@ -73,5 +282,18 @@
 @media(max-width: 1024px) {
     .desc .row{
         justify-content: space-around;
+    }
+    .brandimg{
+        width: 30%;
+    }
+}
+
+@media(max-width: 420px) {
+    .brandimg{
+        width: 40%;
+    }
+    .col button {
+        border-radius: 10px;
+        padding: 2% 4% 2% 4%;
     }
 }

@@ -11,7 +11,7 @@ class DownloadComponent extends Component
     public function render()
     {
         $dcategories = DownloadCategory::all();
-        $downloads = Download::all();
+        $downloads = Download::orderBy('created_at','DESC')->get();
         return view('livewire.download-component',['downloads'=>$downloads,'dcategories'=>$dcategories])->layout("layout.navfoot");
     }
 }
