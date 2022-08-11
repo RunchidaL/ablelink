@@ -91,10 +91,12 @@
         </div>
     </div>
 </div>
-<div class="fakenav"></div>
+<div class="fakenav "></div>
 
 <!-- from livewire -->
-{{$slot}}
+<div style="width: 100%; min-height: calc(100vh - 260px);">
+    {{$slot}}
+</div>
 
 <!-- footer -->
 <footer class="footer-wrapper">
