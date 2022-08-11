@@ -3,7 +3,7 @@
 @section('navfoot')
 <!-- navbar -->
 <div class="navbar">
-    <div class="nav-wrap container">
+    <div class="nav-wrap container" id="">
         <img src="/images/logoAbleLink.png" alt="" logo/>
         <img src="/images/logoAbleLink2.jpg" alt="" logo2/>
         <div class="nav-left">
@@ -96,10 +96,12 @@
         </div>
     </div>
 </div>
-<div class="fakenav"></div>
+<div class="fakenav "></div>
 
 <!-- from livewire -->
-{{$slot}}
+<div style="width: 100%; min-height: calc(100vh - 260px);">
+    {{$slot}}
+</div>
 
 <!-- footer -->
 <footer class="footer-wrapper">

@@ -117,8 +117,9 @@ body{
 }
 
 .menu-list h3{
+    white-space: nowrap;
+    font-size: 1.2rem;
     margin-top: 25px;
-    text-align: center;
 }
 
 .menu-content{
@@ -138,9 +139,10 @@ body{
 
 .menu-list a .menu-link-item{
     position: relative;
-    padding: 1.5rem 1.5rem 0 0.5rem;
+    padding: 1.5rem 0;
     width: 100%;
     white-space: nowrap;
+    text-align: center;
 }
 
 .menu-list a .menu-link-item span{
@@ -156,15 +158,15 @@ body{
     left: 0;
     bottom: 0;
     transform: scale(0,1);
-    transform-origin: 0% 100%;
-    transition: transform 0.2s ease;
+    /* transform-origin: 0% 100%; */
+    transition: transform 0.3s linear
 }
 .menu-list a .menu-link-item:hover span::after {
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
 
-.menu-list a .menu-link-item.last{
+.menu-list a .menu-link-item:nth-last-child(1){
     padding-bottom: 1.5rem;
 }
 
@@ -346,10 +348,6 @@ width: 3%;
     background-color: red;
 }
 
-.test{
-    display: none;
-}
-
 .fakenav{
     min-height: 70px;
     padding: 0;
@@ -465,12 +463,6 @@ footer *{
     }
 }
 
-@media screen and (min-width: 1300px){
-    .navbar{ 
-        padding: 0 1rem;
-    }
-}
-
 @media screen and (max-width: 1400px){
     .footer-wrapper{
         display: none;
@@ -480,7 +472,7 @@ footer *{
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 576px){
     .navbar .nav-wrap img[logo2]{
         display: flex;
     }
@@ -492,89 +484,124 @@ footer *{
     }
 }
 
-.a-wrap{
+@media (min-width: 1370px) and (max-width: 1536px){
+    .nav-wrap.container {
+        max-width: 1400px !important;
+    }
+}
+
+@media (min-width: 576px ) and ( max-width: 768px){
+    .nav-wrap.container {
+        max-width: none !important;
+    }
+}
+
+.navDropWrap{
+    width: 100%;
+    background: #CECECE;
     position: fixed;
+    top: 70px; 
     left: 0;
-    top: 70px;
-    width: 100vw;
+    height: 50px;
     display: none;
-    align-items: center;
-    justify-content: center;
 }
 
-.a{
-    width: 100%;
-    background-color: #ebebeb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.a .b a{
-    text-decoration: none;
-    color: black;
-}
-
-.a .b{
-    padding: 1.5rem 0;
-    width: 100%;
-    text-align: center;
-}
-
-.a .b:hover{
-    background-color: #c8c8c8;
-}
-
-.a .b:hover a span{
-    color: #194276;
-}
-
-.a .fa{
+.navDropWrap .fa{
     height: 46.38px;
     width: 100%;
-    background-color: #CECECE;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.7rem 0;
+    padding: 1rem 0;
 }
 
-.a .fa .icons{
+.navDropWrap .fa .icons{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.a .fa .icons i{
+.navDropWrap .fa .icons i{
     font-size: 1.5rem;
 }
 
-.d-wrap{
-    position: fixed;
-    left: 0;
-    top: 70px;
-    display: none;
-    width: 100vw;
-    align-items: center;
-    justify-content: center;
+.navDropWrap li{
+    padding: 1rem 0;
+}    
+
+.wrapper1{
+    position: relative; 
+    max-height: calc(100vh - 70px); 
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column; 
 }
 
-.sub{
-    width: 100%;
+.mainMenu{
+    background-color: #F4F4F4;
     text-align: center;
 }
 
-.a .sub b:hover{
-    background-color: #c8c8c8;
+ol, ul{
+    padding: 0;
 }
 
-.e-wrap{
-    position: fixed;
-    left: 0;
-    top: 70px;
+.arrow{
+    border: none;
+    background-color: #F4F4F4;
+    text-align: right;
+}
+
+.arrow.is-active{
+    transform: rotate(-90deg);
+}
+
+.mainMenu li .sub-menu{
     display: none;
-    width: 100vw;
+}
+.mainMenu li.showMenu .sub-menu{
+    display: block;
+}
+
+.mainMenu li i.arrow::before{
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mainMenu li.showMenu #farrow::before{
+    transform: rotate(-90deg);
+}
+.mainMenu li i:hover{
+    color:red;
+}
+
+.sub-menu .subsubmenu{
+    display: none;
+}
+
+.group-submenu{
+    list-style: none;
+    padding: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.group-submenu i{
+    transition: all 0.3s ease;
+}
+
+.group-submenu.display i::before{
+    transform: rotate(-90deg);
+}
+
+.group-submenu.display + ul.subsubmenu{
+    display: block;
+}
+
+.clickable{
+    position: relative;
+}
+.clickable i{
+    position: absolute;
 }
