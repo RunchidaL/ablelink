@@ -14,6 +14,9 @@
                 <a href=""><i class="bi bi-person-circle"></i></a>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 41eb07970632ce6eebba9dfb047fc920566b45f2
         </div>    
         <ul class="mainMenu"> 
             <a href="/"><li>หน้าหลัก</li></a>
@@ -45,6 +48,7 @@
             <a href="/forwork"><li>ร่วมงานกับเรา</li></a>
             <a href="/contact"><li>ติดต่อเรา</li></a>
         </ul>
+<<<<<<< HEAD
 =======
         </div>
         <div class="b">
@@ -114,6 +118,8 @@
             </span>
         @endforeach
 >>>>>>> 5378b77389a2d853d0e1198d341ce8dfa09c689b
+=======
+>>>>>>> 41eb07970632ce6eebba9dfb047fc920566b45f2
     </div>
 </div>
 

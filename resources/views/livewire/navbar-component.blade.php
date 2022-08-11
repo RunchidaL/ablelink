@@ -45,12 +45,12 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
-    for( let i = 1; i< 9; i++) {
+    for( let i = 1; i< $i; i++) {
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
-            for ( let n = 1 ; n < 9; n++ ){
+            for ( let n = 1 ; n < $i; n++ ){
                 if( n !== i) {
                     document.getElementById("content"+n).style.display = "none";
                 }

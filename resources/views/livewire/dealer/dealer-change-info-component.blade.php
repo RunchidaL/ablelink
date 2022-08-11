@@ -1,6 +1,6 @@
-<div style="text-align: center; margin-top: 3%;">
-    <span style="background: #194276; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); color: white; font-size: 200%; padding: 1%; border-radius: 20px">
-    ข้อมูลของบริษัท {{$user->Dealer->companyTH}}
+<div class="head">
+    <span  class="subhead" >
+        ข้อมูลของบริษัท {{$user->Dealer->companyTH}}
     </span>
 </div>
 
@@ -109,22 +109,43 @@
 </div>
 
 <style>
-.button{
-    border: none;
-    box-shadow: 0 2px 5px rgba(136, 136, 136, 0.897);
-    font-size: 16px;
-    color: #FFF;
-    padding: 8px 10px;
-    width: 150px;
-    background-color: #194276;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.button:hover{
-    background: rgb(222, 226, 236);
-    color: #194276;
-}
-</style>
+    .head{
+        text-align: center; 
+        margin-top: 3%;
+    }
+    .subhead{
+        background: #194276; 
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
+        color: white; 
+        font-size: 200%; 
+        padding: 1%; 
+        border-radius: 20px
+    }
+    .button{
+        border: none;
+        box-shadow: 0 2px 5px rgba(136, 136, 136, 0.897);
+        font-size: 16px;
+        color: #FFF;
+        padding: 8px 10px;
+        width: 150px;
+        background-color: #194276;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .button:hover{
+        background: rgb(222, 226, 236);
+        color: #194276;
+    }
+    
+    @media(max-width: 540px){
+        .head{
+            margin-top: 10%;
+        }
+        .subhead{
+            padding: 3%; 
+        }
+        }
+    </style>
 
 

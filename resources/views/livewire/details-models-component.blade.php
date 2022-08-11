@@ -333,7 +333,7 @@ for (let i = 0; i < menu.length; i++) {
 </script>
 
 <style>
-    .swiper {
+.swiper {
     width: 100%;
     height: 100%;
 }
@@ -342,7 +342,6 @@ for (let i = 0; i < menu.length; i++) {
     text-align: center;
     font-size: 18px;
     background: #fff;
-
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -391,7 +390,7 @@ for (let i = 0; i < menu.length; i++) {
 .mySwiper .swiper-slide {
     width: 25%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .mySwiper .swiper-slide-thumb-active {
@@ -424,4 +423,28 @@ for (let i = 0; i < menu.length; i++) {
 .swiper-navBtn:hover{
     color: black;
 }
-</style>
+
+
+@media(max-width: 520px){
+    .swiper.mySwiper .swiper-wrapper .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper {
+        width: 100%;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-button-prev.swiper-navBtn{
+        left: 0;
+    }
+    .swiper-button-next.swiper-navBtn{
+        right: 0;
+    }
+}

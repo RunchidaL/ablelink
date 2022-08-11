@@ -4,6 +4,7 @@
 <!-- navbar -->
 <div class="navbar">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="nav-wrap container" id="">
         <img src="/images/logoAbleLink.png" alt="" logo/>
         <img src="/images/logoAbleLink2.jpg" alt="" logo2/>
@@ -12,6 +13,11 @@
         <a href="/"><img src="/images/logoAbleLink.png" alt="" logo/></a>
         <a href="/"><img src="/images/logoAbleLink2.jpg" alt="" logo2/></a>
 >>>>>>> 5378b77389a2d853d0e1198d341ce8dfa09c689b
+=======
+    <div class="nav-wrap container">
+        <a href="/"><img src="/images/logoAbleLink.png" alt="" logo/></a>
+        <a href="/"><img src="/images/logoAbleLink2.jpg" alt="" logo2/></a>
+>>>>>>> 41eb07970632ce6eebba9dfb047fc920566b45f2
         <div class="nav-left">
             <div class="nav-menu-wrap"> 
                 <div class="topic">
