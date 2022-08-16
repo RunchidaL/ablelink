@@ -10,15 +10,50 @@
     <div class="wrapper1" style="">  
         <div class="fa">
             <div class="icons container">
-                <a href=""><i class="bi bi-cart-fill"></i></a>
-                <a href=""><i class="bi bi-person-circle"></i></a>
+                <div class="cart-phone">
+                    @guest
+                    <a href="{{ route('login') }}"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
+                    @else
+                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
+                    @endguest
+                </div>
+                <div class="user-phone">
+                    <a><i class="bi bi-person-circle" id="person"></i></a>
+                </div>
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 41eb07970632ce6eebba9dfb047fc920566b45f2
-        </div>    
-        <ul class="mainMenu"> 
+        </div>
+        <ul class="userMenu" id="userMenu">
+            @guest
+                @if (Route::has('login'))
+                    <a class="" href="{{ route('login') }}"><li>เข้าสู่ระบบ</li></a>
+                @endif
+                
+                @if (Route::has('register'))
+                    <a class="" href="{{ route('register') }}"><li>ลงทะเบียน</li></a>
+                @endif
+            @else
+                <li>
+                    <a class="name-phone" href="#">{{ Auth::user()->name }}</a>
+                    @if(Auth::user()->role == 1)
+                        <a href="{{route('customer.info')}}"><li>แก้ไขข้อมูล</li></a>
+                        <a href="/order"><li>คำสั่งซื้อ</li></a>
+                    @elseif(Auth::user()->role == 2)
+                        <a href="{{route('dealer.changeinfo')}}"><li>แก้ไขข้อมูล</li></a>
+                        <a href="{{route('dealer.registerproject')}}"><li>ลงทะเบียนโปรเจค</li></a>
+                        <a href="/order"><li>คำสั่งซื้อ</li></a>
+                    @elseif(Auth::user()->role == 3)
+                        <a href="{{route('admin.dashboard')}}"><li>Dashboard</li></a>
+                    @endif
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <li>ออกจากระบบ</li>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            @endguest
+        </ul>    
+        <ul class="mainMenu" id="mainMenu"> 
             <a href="/"><li>หน้าหลัก</li></a>
             <a href="/aboutus"><li>เกี่ยวกับเรา</li></a>
             <li>
@@ -48,78 +83,6 @@
             <a href="/forwork"><li>ร่วมงานกับเรา</li></a>
             <a href="/contact"><li>ติดต่อเรา</li></a>
         </ul>
-<<<<<<< HEAD
-=======
-        </div>
-        <div class="b">
-            <a href="/"><span>หน้าหลัก</span></a>
-        </div>
-        <div class="b">
-            <a href="/aboutus"><span>เกี่ยวกับเรา</span></a>
-        </div>
-        <div class="b">
-            <span class="c" id="product-mobile"><span>ผลิตภัณฑ์</span></span>
-        </div>
-        <div class="b">
-            <a href="/service"><span>บริการ</span></a>
-        </div>
-        <div class="b">
-            <a href="/activity"><span>ข่าวสาร&กิจกรรม</span></a>
-        </div>
-        <div class="b">
-            <a href="/download"><span>ดาวน์​โหลด</span></a>
-        </div>
-        <div class="b">
-            <a href="/forwork"><span>ร่วมงานกับเรา</span></a>
-        </div>
-        <div class="b">
-            <a href="/contact"><span>ติดต่อเรา</span></a>
-        </div>
-    </div>
-</div>
-<div class="d-wrap" id="d">
-    <div class="a">
-        <div class="fa">
-            <div class="icons container">
-                <i class="bi bi-cart-fill"></i>
-                <i class="bi bi-person-circle"></i>
-            </div>
-        </div>
-        @php
-                $i = 0; 
-        @endphp
-        @foreach($categories as $category)
-            @php
-                $i++; 
-            @endphp
-            <div class="b" id="m{{$i}}">{{$category->name}}</div>
-        @endforeach
-    </div>
-</div>
-<div class="e-wrap" id="e">
-    <div class="a">
-        <div class="fa">
-            <div class="icons container">
-                <i class="bi bi-cart-fill"></i>
-                <i class="bi bi-person-circle"></i>
-            </div>
-        </div>
-        @php
-            $l = 0; 
-        @endphp
-        @foreach($categories as $category)
-            @php
-                $l++; 
-            @endphp
-            <span class="sub" id="sub{{$l}}">
-                @foreach($category->subCategories as $scategory)
-                    <div class="b">{{$scategory->name}}</div>
-                @endforeach
-            </span>
-        @endforeach
->>>>>>> 5378b77389a2d853d0e1198d341ce8dfa09c689b
-=======
->>>>>>> 41eb07970632ce6eebba9dfb047fc920566b45f2
     </div>
 </div>
 
@@ -128,6 +91,7 @@
     const toggle = document.querySelector('.toggle');
     const arrow = document.querySelectorAll(".arrow");
     const navDropWrap = document.getElementById("navDropWrap");
+
     toggle.addEventListener('click',()=>{
         toggle.classList.toggle('is-active'); 
         if(toggle.classList.contains('is-active')) 
@@ -157,6 +121,24 @@
             for(let n=0 ; n<arrow.length ;n++){
                 arrow[n].parentElement.classList.remove("display");
             }
+        }
+    });
+
+    const person = document.getElementById("person");
+    console.log(person);
+    let op = false;
+    const mainMenu = document.getElementById("mainMenu");
+    const userMenu = document.getElementById("userMenu");
+    person.addEventListener("click", (e) => {
+        if(op==false){
+            mainMenu.style.display ="none";
+            userMenu.style.display ="inline-block";
+            op =  true;
+        }
+        else if(op==true){
+            mainMenu.style.display ="block";
+            userMenu.style.display ="none";
+            op =  false;
         }
     });
 </script>
