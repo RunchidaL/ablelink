@@ -22,7 +22,7 @@ class ProjectDealerController extends Controller
             'Purchasingstyle' => $req->Purchasingstyle
             
         ];
-        Mail::to('ablelink@mail.com')->send(new ProjectMail($data));
+        Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
         return 'Thanks for reaching out';
     }
 }

@@ -47,6 +47,13 @@ class CartComponent extends Component
         $this->count = Cart::whereUserId(auth()->user()->id)->count();
     }
 
+    public function setAmount()
+    {
+        session()->put('chooseaddress',[
+            'total' => $this->total
+        ]);
+    }
+
 
     public function render()
     {
@@ -86,6 +93,7 @@ class CartComponent extends Component
         $this->total = $this->subtotal;
         
         $this->getCartItemCount();
+        $this->setAmount();
 
         return view('livewire.cart-component')->layout("layout.navfoot");
     }

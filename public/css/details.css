@@ -313,6 +313,13 @@
     font-size: larger;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+    opacity: 1;
+
+}
+
 @media screen and (max-width: 1400px) {
     #left-product{
         width: 100%;

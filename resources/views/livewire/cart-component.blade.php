@@ -1,5 +1,8 @@
 <div class="cart-page">
     <div class="container cart-home">
+        @if(Session::has('message'))
+            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+        @endif
         @if($count > 0)
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
@@ -23,7 +26,13 @@
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                         </td>
                         <td class="cart-name">
+                            @if($item->model->stock == 0)
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} <span style="color:red;">สินค้าหมด</span></a>
+                            @elseif($item->qunatity > $item->model->stock)
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} <span style="color:red;">สินค้าใน stock เหลือ {{$item->model->stock}} ชิ้น</span></a>
+                            @else
                             <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                            @endif
                             @if($item->attribute == '')
                             @else
                             <p>{{$item->attribute}} m</p>

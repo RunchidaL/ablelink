@@ -69,6 +69,7 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
+use App\Http\Livewire\CheckoutComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -89,6 +90,8 @@ Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/aboutus', AboutusComponent::class);
 
 Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
+
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 Route::get('/order', OrderComponent::class);
 
