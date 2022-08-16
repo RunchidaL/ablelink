@@ -120,6 +120,8 @@ body{
     white-space: nowrap;
     font-size: 1.2rem;
     margin-top: 25px;
+    color: #dc7226;
+    text-align: center;
 }
 
 .menu-content{
