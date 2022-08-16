@@ -69,6 +69,7 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
+use App\Http\Livewire\CheckoutComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -116,9 +117,9 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Route::post('/register-project-email',[ProjectDealerController::class,'sendEmail'])->name('registerproject.email');
 
-
-
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
+
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 
 Auth::routes();
@@ -180,4 +181,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
     Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
+
 });

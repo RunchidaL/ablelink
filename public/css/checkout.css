@@ -141,7 +141,7 @@ input[type='radio'] {
 	left: 55px;
 	width: 250px;
 	height: 2px;
-	background: var(--secondary);
+	background: rgb(87, 192, 83);
 }
 
 .wrapper .header ul li:last-child:before{
@@ -156,7 +156,7 @@ input[type='radio'] {
 .wrapper .header ul li p{
 	width: 50px;
 	height: 50px;
-	background: var(--secondary);
+	background: rgb(87, 192, 83);
 	color: var(--white);
 	text-align: center;
 	line-height: 50px;
@@ -173,43 +173,6 @@ input[type='radio'] {
 
 .wrapper .form_wrap{
 	margin-bottom: 35px;
-}
-
-.wrapper .form_wrap h2{
-	color: var(--header-clr);
-	text-align: center;
-	text-transform: uppercase;
-	margin-bottom: 20px;
-}
-
-.wrapper .form_wrap .input_wrap{
-	width: 600px;
-	max-width: 100%;
-	margin: 0 auto 20px;
-  
-}
-
-.wrapper .form_wrap .input_wrap:last-child{
-	margin-bottom: 0;
-}
-
-.wrapper .form_wrap .input_wrap label{
-	display: block;
-	margin-bottom: 5px;
-}
-
-.wrapper .form_wrap .input_wrap .input{
-	border: 2px solid var(--secondary);
-	border-radius: 20px;
-	padding: 10px;
-	display: block;
-	width: 100%;	
-	font-size: 16px;
-	transition: 0.5s ease;
-}
-
-.wrapper .form_wrap .input_wrap .input:focus{
-	border-color: black;
 }
 
 .wrapper .btns_wrap{
@@ -242,46 +205,14 @@ input[type='radio'] {
 	cursor: pointer;
 }
 
-.wrapper .btns_wrap .common_btns button.btn_done{
-	border: 0;
-	padding: 8px 15px;
-	background: #34A853;
-	color: var(--white);
-	width: 150px;
-	justify-content: center;
-	display: flex;
-	align-items: center;
-	font-size: 16px;
-	border-radius: 20px;
-	transition: 0.3s ease;
-	cursor: pointer;
-}
-
-.wrapper .btns_wrap .common_btns button.btn_back{
-	background: #4A4A4A;
-}
-
 .wrapper .btns_wrap .common_btns button.btn_next .icon{
 	display: flex;
 	margin-left: 10px;
 }
 
-.wrapper .btns_wrap .common_btns button.btn_back .icon{
-	display: flex;
-	margin-right: 10px;
-}
-
 .wrapper .btns_wrap .common_btns button.btn_next:hover{
 	background: rgb(222, 226, 236);
     color: #194276;
-}
-.wrapper .btns_wrap .common_btns button.btn_done:hover{
-	background: #41c564;
-}
-
-.wrapper .btns_wrap .common_btns button.btn_back:hover{
-	background: #f1f1f1;
-	color: black;
 }
 
 .modal_wrapper{
@@ -343,15 +274,6 @@ input[type='radio'] {
 	transform: translate(-50%,-50%);
 }
 
-@media screen and (max-width: 1000px){
-	.col-md-5.mb-4{
-		width: 100%;
-	}
-	.col-md-6.mb-4{
-		width: 100%;
-	}
-}
-
 @media screen and (max-width: 725px){
 	.wrapper .header ul li{
 		margin-right: 100px;
@@ -360,4 +282,3 @@ input[type='radio'] {
 		width: 150px;
 	}
 }
-
