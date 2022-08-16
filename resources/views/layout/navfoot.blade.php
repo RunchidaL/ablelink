@@ -72,7 +72,6 @@
                                     <a class="dropdown-item" href="{{route('dealer.changeinfo')}}">แก้ไขข้อมูล</a>
                                     <a class="dropdown-item" href="{{route('dealer.registerproject')}}">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
-                                    <a class="dropdown-item" href="{{route('checkout')}}">checkout</a>
                                 @elseif(Auth::user()->role == 3)
                                     <a class="dropdown-item" href="{{route('admin.dashboard')}}">dashboard</a>
                                 @endif
