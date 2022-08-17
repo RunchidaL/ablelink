@@ -32,14 +32,24 @@ class ChooseAddressComponent extends Component
         $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         foreach($cartitems as $item)
         {
-            if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity)->exists())
+            if($item->attribute)
             {
-                // $name = ProductModels::where('id',$item->product_id);
-                // $removeItem = Cart::where(['user_id'=>auth()->user()->id])->where('product_id',$item->product_id)->first();
-                // $removeItem->delete();
-                session()->flash('message','สินค้าบางชนิดหมดหรือ stock มีน้อยกว่าที่ลูกค้าจะซื้อ กรุณาลบ');
-                return redirect()->route('product.cart');
-                
+                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity * $item->attribute)->exists())
+                {
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return redirect()->route('product.cart');
+                }
+            }
+            else 
+            {
+                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity)->exists())
+                {
+                    // $name = ProductModels::where('id',$item->product_id);
+                    // $removeItem = Cart::where(['user_id'=>auth()->user()->id])->where('product_id',$item->product_id)->first();
+                    // $removeItem->delete();
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return redirect()->route('product.cart');
+                }
             }
         }
         if($this->payment == '1')
@@ -54,17 +64,29 @@ class ChooseAddressComponent extends Component
             $orderid->user_id = $user->id;
             $orderid->payment_code = 1;
             $orderid->address_id = 1;
+            $orderid->total = $total;
             $orderid->save();
             
             foreach($cartitems as $item)
             {
                 $model = ProductModels::where('id',$item->product_id)->first();
-                $model->stock = $model->stock - $item->quantity;
+                if($item->attribute)
+                {
+                    $model->stock = $model->stock - ($item->quantity * $item->attribute);
+                }
+                else
+                {
+                    $model->stock = $model->stock - $item->quantity;
+                }
                 $model->save();
 
                 $order = New Order();
                 $order->product_id = $item->product_id;
                 $order->quantity = $item->quantity;
+                if($item->attribute)
+                {
+                    $order->attribute = $item->attribute;
+                }
                 $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
                 $order->order_id = $id->id;
                 $order->save();

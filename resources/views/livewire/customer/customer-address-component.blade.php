@@ -35,7 +35,7 @@
                             <h2 class="mb-4">User Profile</h2>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <a href="{{route('customer.addaddress')}}"><button type="button" class="btn btn-info " style="border-radius: 20px; background:#194276; color: white;">Add Address</button></a>
+                            <a href="{{route('customer.addaddress')}}"><button type="button" class="button">Add Address</button></a>
                         </div>
                     </div>
                     @php
@@ -148,4 +148,20 @@
     color: rgb(90, 90, 90);
 }
 
+.button{
+    border: none;
+    box-shadow: 0 2px 5px rgba(136, 136, 136, 0.897);
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 10px;
+    width: 150px;
+    background-color: #194276;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: rgb(222, 226, 236);
+    color: #194276;
+}
 </style>

@@ -93,7 +93,7 @@ class AdminEditCategoryComponent extends Component
             $category->slug = $this->slug;
             $category->save();
         }
-        session()->flash('message','edit success');
+        session()->flash('message','Edit success');
         
     }
 

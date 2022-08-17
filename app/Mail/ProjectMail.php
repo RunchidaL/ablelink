@@ -29,7 +29,7 @@ class ProjectMail extends Mailable
     public function build()
     {
         return $this->view('email.regisproject')
-                    ->subject('New projext')
+                    ->subject('Register Projext')
                     ->from('ablelinkweb@yoursite.com','System')
                     ->with('data',$this->data);
     }

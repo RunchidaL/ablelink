@@ -43,14 +43,14 @@
                     <button type="submit"><i class="bi bi-search"></i></button>
                 </form>
             </div>     
-            <div class="cart icon-wrap">
+            <div class="cart">
                 @guest
                 <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
                 @else
                 <a href="/cart"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
                 @endguest
             </div>
-            <div class="user icon-wrap">
+            <div class="user">
                 <div class="dropdown">
                     <a class="icon" role="button" data-bs-toggle="dropdown"><i class="bi bi-person-circle"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
@@ -73,7 +73,7 @@
                                     <a class="dropdown-item" href="{{route('dealer.registerproject')}}">ลงทะเบียนโปรเจค</a>
                                     <a class="dropdown-item" href="/order">คำสั่งซื้อ</a>
                                 @elseif(Auth::user()->role == 3)
-                                    <a class="dropdown-item" href="{{route('admin.dashboard')}}">dashboard</a>
+                                    <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
                                 @endif
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -91,10 +91,12 @@
         </div>
     </div>
 </div>
-<div class="fakenav"></div>
+<div class="fakenav "></div>
 
 <!-- from livewire -->
-{{$slot}}
+<div style="width: 100%; min-height: calc(100vh - 260px);">
+    {{$slot}}
+</div>
 
 <!-- footer -->
 <footer class="footer-wrapper">

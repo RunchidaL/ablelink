@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('orderid', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->bigInteger('payment_code');
-            $table->bigInteger('address_id');
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('payment_code')->nullable();
+            $table->bigInteger('address_id')->nullable();
+            $table->decimal('total')->nullable();
             $table->timestamps();
         });
     }

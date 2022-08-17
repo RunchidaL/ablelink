@@ -63,9 +63,17 @@
                     </a> 
                     <div class="card-footer">
                         @guest
-                        <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
+                            @if($product->stock == 0)
+                                <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
+                            @else
+                                <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
+                            @endif
                         @else
-                        <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
+                            @if($product->stock == 0)
+                                <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
+                            @else
+                            <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
+                            @endif
                         @endguest
                     </div>
                 </div>

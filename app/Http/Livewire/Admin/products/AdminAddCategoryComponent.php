@@ -75,7 +75,7 @@ class AdminAddCategoryComponent extends Component
             $category->slug = $this->slug;
             $category->save();
         }
-        session()->flash('message','success');
+        session()->flash('message','Success');
         
     }
 

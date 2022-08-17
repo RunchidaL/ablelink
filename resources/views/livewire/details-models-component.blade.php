@@ -72,7 +72,11 @@
                     <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
+                    @if($model->stock == 0)
+                    <button style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
+                    @else
                     <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
+                    @endif
                 </div> 
             </div>
             @if(($model->product->subCategories->name) == "Cabling")
@@ -333,7 +337,7 @@ for (let i = 0; i < menu.length; i++) {
 </script>
 
 <style>
-    .swiper {
+.swiper {
     width: 100%;
     height: 100%;
 }
@@ -342,7 +346,6 @@ for (let i = 0; i < menu.length; i++) {
     text-align: center;
     font-size: 18px;
     background: #fff;
-
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -391,7 +394,7 @@ for (let i = 0; i < menu.length; i++) {
 .mySwiper .swiper-slide {
     width: 25%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .mySwiper .swiper-slide-thumb-active {
@@ -424,4 +427,28 @@ for (let i = 0; i < menu.length; i++) {
 .swiper-navBtn:hover{
     color: black;
 }
-</style>
+
+
+@media(max-width: 520px){
+    .swiper.mySwiper .swiper-wrapper .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper {
+        width: 100%;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-button-prev.swiper-navBtn{
+        left: 0;
+    }
+    .swiper-button-next.swiper-navBtn{
+        right: 0;
+    }
+}

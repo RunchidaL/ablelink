@@ -23,6 +23,6 @@ class ProjectDealerController extends Controller
             
         ];
         Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
-        return 'Thanks for reaching out';
+        return redirect('/');
     }
 }

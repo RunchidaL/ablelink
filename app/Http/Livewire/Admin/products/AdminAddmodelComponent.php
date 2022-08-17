@@ -189,7 +189,7 @@ class AdminAddmodelComponent extends Component
             }
         }
 
-        session()->flash('message','add Model successs');
+        session()->flash('message','Add Model successs');
     }
 
     public function changeSeries()

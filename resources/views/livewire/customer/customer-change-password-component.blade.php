@@ -64,7 +64,7 @@
                     <div class="row gutters">
                         <div class="col-md-6 mt-4">
                             <div class="text-right">
-                                <button type="submit" class="btn btn-info pull-right" style="border-radius: 20px; background:#194276; color: white;">Update Password</button>
+                                <button type="submit" class="button">Update Password</button>
                             </div>
                         </div>
                     </div>
@@ -145,6 +145,23 @@
 
 .mb-4 :hover{
     color: rgb(90, 90, 90);
+}
+
+.button{
+    border: none;
+    box-shadow: 0 2px 5px rgba(136, 136, 136, 0.897);
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 10px;
+    width: 200px;
+    background-color: #194276;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: rgb(222, 226, 236);
+    color: #194276;
 }
 
 </style>

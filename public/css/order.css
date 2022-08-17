@@ -6,7 +6,6 @@ p{
     width: 100%;
     display: flex;
     justify-content: center;
-    min-height: calc(100vh - 227.5px);
 }
 
 .order-home{
