@@ -1,6 +1,3 @@
-<link href="{{asset('/css/chooseaddress.css')}}" rel="stylesheet">
-
-
 <div class="container">
     <div class="wrapper">
         <div class="header">
@@ -34,40 +31,25 @@
                 </li>
             </ul>
         </div>
-        
-        <form action="#" method="POST" enctype="multipart/form-data">
-            @csrf
             <div class="form_wrap">
                 <div class="form_1 data_info">
                     <div class="step">
                         <h2>ที่อยู่สำหรับการจัดส่ง</h2>
                     </div>
-                    <div class="row">
+                    <div class="row" id="chooseaddress">
                         <div class="col-md-5 mb-4">
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
                                 <div class="choose-address">
-                                    <input type="radio" id="address1" name="address" />
+                                    <input type="radio" id="address1" name="address" checked/>
                                     <label for="address1"></label>
                                 </div>
                                 <div class="subaddress">
-                                    <p>ผัดไท ประตูผี</p>
-                                    <p>0801911150</p>
-                                    <p>36 ซ.ผัดไท ถ.ประตูผี แขวงบางมด</p>
-                                    <p>เขตผัดไทจงเจริญ, จังหวัดกรุงเทพมหานคร, 36190</p>
+                                    <p>{{$user->name}}</p>
+                                    <p>{{$dealer->phonenumber}}</p>
+                                    <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
+                                    <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
                                 </div>
                             </div><br>
-                            <div class="address">
-                                <div class="choose-address">
-                                    <input type="radio" id="address2" name="address"/>
-                                    <label for="address2"></label>
-                                </div>
-                                <div class="subaddress">
-                                    <p>ผัดไท ประตูผี</p>
-                                    <p>0801911150</p>
-                                    <p>36 ซ.ผัดไท ถ.ประตูผี แขวงบางมด</p>
-                                    <p>เขตผัดไทจงเจริญ, จังหวัดกรุงเทพมหานคร, 36190</p>
-                                </div>
-                            </div>
                         </div>
                         
                         <div class="col-md-6 mb-4">
@@ -75,7 +57,7 @@
                                 <div class="card-header py-3">
                                     <h5 class="mb-0">สินค้าในตะกร้า</h5>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" id="item-cart">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div>
@@ -83,31 +65,24 @@
                                             </div>
                                             <span><strong>ราคา</strong></span>
                                         </li>
+                                        @foreach ($cartitems as $item)
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                            <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
-                                            <p>RG6 Indoor CCTV Cable, white, Braid Shield aluminum 500m/Roll</p> 
-                                            <span>฿400.00</span>
+                                            <img src="{{asset('/images/products')}}/{{$item->model->image}}" style="width: 100px; height: 80px; margin-right: 10px;">
+                                            @if($item->attribute)
+                                            <p>{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m x {{$item->quantity}}</p>
+                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                            @else
+                                            <p>{{$item->model->slug}}, {{$item->model->name}} x {{$item->quantity}}</p>
+                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                            @endif
                                         </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                            <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
-                                            <p>RG6 Indoor CCTV Cable, white, Power wire 500m/Roll</p> 
-                                            <span>฿200.00</span>
-                                        </li>
-                                        <hr>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 ">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                ราคารวม
-                                                <span>฿600.00</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                ค่าจัดส่ง
-                                                <span>฿50.00</span>
-                                            </li>
-                                        </li>
+                                        @endforeach
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div><strong>ยอดสั่งซื้อรวม</strong></div>
-                                            <span><strong>฿650.00</strong></span>
+                                            @if(Session::has('chooseaddress'))
+                                            <span><strong>฿{{number_format(Session::get('chooseaddress')['total'],2)}}</strong></span>
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
@@ -121,21 +96,22 @@
                     <div class="step">
                         <h2>วิธีการชำระเงิน</h2>
                     </div>
-                    <div class="row">
+                    <div class="row" id="chooseaddress">
+                        @error('payment') <p class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> @enderror
                         <div class="col-md-5 mb-4">
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
                                 <div class="choose-address">
-                                    <input type="radio" id="creditcompany" name="check" />
+                                    <input type="radio" id="creditcompany" name="check" value="1" wire:model.defer="payment"/>
                                     <label for="creditcompany"></label>
                                 </div>
                                 <div class="subaddress">
                                     <h5>จ่ายผ่านเครดิตบริษัท</h5>
-                                    <p>ยอดคงเหลือ 50,000 บาท</p>
+                                    <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
                                 </div>
                             </div><br>
                             <div class="address">
                                 <div class="choose-address">
-                                    <input type="radio" id="creditcard" name="check"/>
+                                    <input type="radio" id="creditcard" name="check" value="2" wire:model.defer="payment"/>
                                     <label for="creditcard"></label>
                                 </div>
                                 <div class="subaddress">
@@ -158,7 +134,7 @@
                                 <div class="card-header py-3">
                                     <h5 class="mb-0">สินค้าในตะกร้า</h5>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" id="item-cart">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div>
@@ -166,31 +142,24 @@
                                             </div>
                                             <span><strong>ราคา</strong></span>
                                         </li>
+                                        @foreach ($cartitems as $item)
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                            <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
-                                            <p>RG6 Indoor CCTV Cable, white, Braid Shield aluminum 500m/Roll</p>
-                                            <span>฿400.00</span>
+                                            <img src="{{asset('/images/products')}}/{{$item->model->image}}" style="width: 100px; height: 80px; margin-right: 10px;">
+                                            @if($item->attribute)
+                                            <p>{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m x {{$item->quantity}}</p>
+                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                            @else
+                                            <p>{{$item->model->slug}}, {{$item->model->name}} x {{$item->quantity}}</p>
+                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                            @endif
                                         </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                            <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
-                                            <p>RG6 Indoor CCTV Cable, white, Power wire 500m/Roll</p>
-                                            <span>฿200.00</span>
-                                        </li>
-                                        <hr>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 ">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                ราคารวม
-                                                <span>฿600.00</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                                ค่าจัดส่ง
-                                                <span>฿50.00</span>
-                                            </li>
-                                        </li>
+                                        @endforeach
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div><strong>ยอดสั่งซื้อรวม</strong></div>
-                                            <span><strong>฿650.00</strong></span>
+                                            @if(Session::has('chooseaddress'))
+                                            <span><strong>฿{{number_format(Session::get('chooseaddress')['total'],2)}}</strong></span>
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
@@ -201,18 +170,16 @@
             </div>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
-                    <button type="button" class="btn_next">ดำเนินการต่อ <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                    <button type="button" class="btn_next">ดำเนินการต่อ <span class="icon"><i class="bi bi-arrow-right"></i></span></button>
                 </div>
                 <div class="common_btns form_2_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>ย้อนกลับ</button>
-                    <a href="/checkout"><button type="button" class="btn_next">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button></a>
+                    <button type="button" class="btn_back"><span class="icon"><i class="bi bi-arrow-left"></i></span>ย้อนกลับ</button>
+                    <button type="button" class="btn_next" wire:click.prevent="checkout">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-
 
 <script>
     var form_1 = document.querySelector(".form_1");

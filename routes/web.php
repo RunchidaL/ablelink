@@ -91,6 +91,8 @@ Route::get('/aboutus', AboutusComponent::class);
 
 Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
 
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
+
 Route::get('/order', OrderComponent::class);
 
 Route::get('/orderDetail', OrderDetailComponent::class);

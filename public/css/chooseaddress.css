@@ -14,7 +14,7 @@ input[type='radio'] {
 .step h2{
 	text-align: center;
 }
-.row{
+#chooseaddress{
     display: flex;
     justify-content: space-between;
 }
@@ -32,7 +32,7 @@ input[type='radio'] {
 	height: 450px;
 	border-left: 3px solid #C4C4C4;
 }
-.card-body p{
+#item-cart p{
 	width: 70%;
 }
 .apbill li p{
@@ -47,7 +47,7 @@ input[type='radio'] {
 		width: 0%;
 		display: none;
 	}
-	.card-body p{
+	#item-cart p{
 		width: 50%;
 	}
 	.apbill li p{

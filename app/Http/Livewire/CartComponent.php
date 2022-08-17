@@ -47,6 +47,38 @@ class CartComponent extends Component
         $this->count = Cart::whereUserId(auth()->user()->id)->count();
     }
 
+    public function setAmount()
+    {
+        session()->put('chooseaddress',[
+            'total' => $this->total
+        ]);
+    }
+
+    public function check()
+    {
+        $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        foreach($cartitems as $item)
+        {
+            if($item->attribute)
+            {
+                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity * $item->attribute)->exists())
+                {
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return redirect()->route('product.cart');
+                }
+            }
+            else 
+            {
+                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity)->exists())
+                {
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return redirect()->route('product.cart');
+                }
+            }
+        }
+        return redirect()->route('chooseaddress');
+    }
+
 
     public function render()
     {
@@ -86,6 +118,7 @@ class CartComponent extends Component
         $this->total = $this->subtotal;
         
         $this->getCartItemCount();
+        $this->setAmount();
 
         return view('livewire.cart-component')->layout("layout.navfoot");
     }

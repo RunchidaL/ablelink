@@ -33,6 +33,7 @@
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
     <link href="{{asset('/css/cart.css')}}" rel="stylesheet">
     <link href="{{asset('/css/navfoot.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/chooseaddress.css')}}" rel="stylesheet">
     @livewireStyles
     
 
@@ -54,8 +55,5 @@
   @livewireScripts
   
   @stack('scripts')
-  
-
-  
   </body>
 </html>

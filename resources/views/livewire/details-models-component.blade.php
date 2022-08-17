@@ -72,7 +72,11 @@
                     <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
+                    @if($model->stock == 0)
+                    <button style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
+                    @else
                     <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
+                    @endif
                 </div> 
             </div>
             @if(($model->product->subCategories->name) == "Cabling")

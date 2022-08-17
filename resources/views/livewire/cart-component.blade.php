@@ -1,5 +1,8 @@
 <div class="cart-page">
     <div class="container cart-home">
+        @if(Session::has('message'))
+            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+        @endif
         @if($count > 0)
         <div class="cart-icon">
             <i class="bi bi-cart3"></i>
@@ -23,10 +26,20 @@
                             <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                         </td>
                         <td class="cart-name">
-                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
-                            @if($item->attribute == '')
+                            @if(empty($item->attribute))
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                                @if($item->model->stock == 0)
+                                <p>สินค้าหมด</p>
+                                @elseif($item->quantity > $item->model->stock)
+                                <p>สินค้าใน stock เหลือ {{$item->model->stock}} ชิ้น</p>
+                                @endif
                             @else
-                            <p>{{$item->attribute}} m</p>
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
+                                @if($item->model->stock == 0)
+                                <p>สินค้าหมด</p>
+                                @elseif($item->quantity * $item->attribute > $item->model->stock)
+                                <p>สินค้าใน stock เหลือ {{$item->model->stock}} m</p>
+                                @endif
                             @endif
                         </td>
                         <td class="cart-price">
@@ -80,7 +93,8 @@
         </div>
         <div class="cart-foot">
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
-            <a class="button-paid" href="/chooseaddress">ชำระสินค้า</a>
+            <!-- <a class="button-paid" href="/chooseaddress">ชำระสินค้า</a> -->
+            <button class="button-paid" wire:click="check">ชำระสินค้า</button>
         </div>
         @else
         <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">

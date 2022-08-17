@@ -43,6 +43,10 @@ p{
     justify-content: center;
 }
 
+.cart-name p{
+    color:red;
+}
+
 .cart-wrapper .group-cen{
     display: flex;
     align-items: center;

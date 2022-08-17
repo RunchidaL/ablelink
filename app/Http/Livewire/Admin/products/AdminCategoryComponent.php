@@ -34,7 +34,7 @@ class AdminCategoryComponent extends Component
 
     public function render()
     {
-        $categories = Category::orderBy('created_at','DESC')->paginate(5);
+        $categories = Category::orderBy('created_at','DESC')->get();
         return view('livewire.admin.products.admin-category-component',['categories'=>$categories])->layout("layout.navfoot");
     }
 }
