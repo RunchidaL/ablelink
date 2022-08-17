@@ -60,7 +60,7 @@
                                 <div class="card-header py-3">
                                     <h5 class="mb-0">สินค้าในตะกร้า</h5>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" id="item-cart">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div>
@@ -99,7 +99,7 @@
                     <div class="step">
                         <h2>วิธีการชำระเงิน</h2>
                     </div>
-                    <div class="row">
+                    <div class="row" id="chooseaddress">
                         @error('payment') <p class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> @enderror
                         <div class="col-md-5 mb-4">
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
@@ -180,6 +180,7 @@
                     <button type="button" class="btn_next" wire:click.prevent="checkout">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button>
                 </div>
             </div>
+        </form>
     </div>
 </div>
 
@@ -234,4 +235,6 @@
         modal_wrapper.classList.remove("active");
     })
 </script>
+
+
 

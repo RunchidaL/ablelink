@@ -22,27 +22,30 @@
 			</li>
 		</ul>
 	</div>
-	<div class="Test">
+	{{-- <div class="Test">
 		<div class="row" style="margin-bottom: 40px;  text-align: center">
-			<div class="col-md-3">คำแนะนำ</div>
-			<div class="col-md-6">Authorized Dealer</div>
-			<div class="col-md-3">Project /End-User</div>
+			<div class="col-3">คำแนะนำ</div>
+			<div class="col-6">Authorized Dealer</div>
+			<div class="col-3">Project /End-User</div>
 		</div>
-	</div>
+	</div> --}}
 	<form action="{{route('registerproject.email')}}" method="POST" enctype="multipart/form-data">
 	@csrf
 	<div class="form_wrap">
 		<div class="form_1 data_info">
-			
-				<div class="decription-project">
-                    <b>คำแนะนำในการลงทะเบียน Project</b>
-                    <p>1. กรุณากรอกข้อมูลให้ครบเพื่อความชัดเจนและความรวดเร็วในการให้บริการ</p>
-                    <p>2. บริษัท เอเบิลลิ้งค์(ประเทศไทย) จำกัดขอสงวนสิทธิ์ในการตอบรับหรือปฏิเสธ การลงทะเบียนโปรเจค</p>
-                </div>
-			
+			<div class="step">
+				<h2>คำแนะนำ</h2>
+			</div>
+			<div class="decription-project">
+				<b>คำแนะนำในการลงทะเบียน Project</b>
+				<p>1. กรุณากรอกข้อมูลให้ครบเพื่อความชัดเจนและความรวดเร็วในการให้บริการ</p>
+				<p>2. บริษัท เอเบิลลิ้งค์(ประเทศไทย) จำกัดขอสงวนสิทธิ์ในการตอบรับหรือปฏิเสธ การลงทะเบียนโปรเจค</p>
+			</div>
 		</div>
 		<div class="form_2 data_info" style="display: none;">
-			
+			<div class="step">
+				<h2>Authorized Dealer</h2>
+			</div>
 				<div class="form_container">
                     <p class="head"><b>ข้อมูล Authorized Dealer</b></p> 
                     <p class="subhead">กรุณากรอกข้อมูลบริษัทตัวแทนจำหน่าย</p>
@@ -52,36 +55,37 @@
 					</div>
 					<div class="input_wrap">
 						<label for="first_name">ชื่อผู้ดูแลโปรเจค (Project Manager)</label>
-						<input type="text" name="ProjectManager" class="input" id="first_name">
+						<input type="text" name="ProjectManager" class="input" id="first_name" required>
 					</div>
 					<div class="input_wrap">
 						<label for="last_name">E-mail ผู้ดูแลโปรเจค (Project Manager)</label>
-						<input type="text" name="EmailProjectManager" class="input" id="last_name">
+						<input type="text" name="EmailProjectManager" class="input" id="last_name" required>
 					</div>
                     <div class="input_wrap">
 						<label for="last_name">เบอร์ติดต่อ ผู้ดูแลโปรเจค (Project Manager)</label>
-						<input type="text" name="TelProjectManager" class="input" id="last_name">
+						<input type="text" name="TelProjectManager" class="input" id="last_name" required>
 					</div>
 				</div>
-			
 		</div>
 		<div class="form_3 data_info" style="display: none;">
-			
+			<div class="step">
+				<h2>Project /End-User</h2>
+			</div>
 				<div class="form_container">
                     <p class="head"><b>ข้อมูล Project และ End-User</b></p> 
                     <p class="subhead">กรุณากรอกข้อมูลธุรกิจและการติดต่อเพื่อใช้พัฒนาการให้บริการ</p>
 					<div class="input_wrap">
 						<label for="company">ชื่อบริษัท หรือ หน่วยงาน ที่เป็นเจ้าของโครงการ</label>
-						<input type="text" name="ProjectOwner" class="input" id="company">
+						<input type="text" name="ProjectOwner" class="input" id="company" required> 
 					</div>
 					<div class="input_wrap">
 						<label for="experience">ชื่อโครงการ</label>
-						<input type="text" name="ProjectName" class="input" id="experience">
+						<input type="text" name="ProjectName" class="input" id="experience" required>
 					</div>
                     <div class="input_wrap">
                         <label for="experience">สถานะโครงการ</label>
-                        <select class="form-select" aria-label="Default select example" name="projectstatus">
-                            <option selected><b>-----</b></option>
+                        <select class="form-select" aria-label="Default select example" name="projectstatus" required>
+                            <option value=""><b>-----</b></option>
                             <option value="1">สำรวจความต้องการ</option>
                             <option value="2">เตรียมเสนอราคา</option>
                             <option value="3">อนุมัติติดตั้ง</option>
@@ -89,17 +93,17 @@
                     </div>
 					<div class="input_wrap">
                         <label for="birthday">กำหนดการในการติดตั้ง:</label>
-                        <input type="date" id="birthday" name="Installationschedule" class="input">
+                        <input type="date" id="birthday" name="Installationschedule" class="input" required>
 					</div>
                     <p class="subhead">ข้อมูลผลิตภัณฑ์ที่ใช้ในโครง <br> การกรุณาให้ข้อมูลผลิตภัณฑ์เพื่อความรวดเร็วในการรับบริการ</p>
                     <div class="input_wrap">
 						<label for="experience">รายการ และ จำนวน ผลิตภัณฑ์ที่ใช้ในโปรเจค</label>
-						<textarea type="text" name="listproducts" class="input" id="experience" cols="30" row="10"></textarea>
+						<textarea type="text" name="listproducts" class="input" id="experience" cols="30" row="10" required></textarea>
 					</div>
                     <div class="input_wrap">
                         <label for="experience">ลักษณะการจัดซื้อ</label>
-                        <select class="form-select" aria-label="Default select example" name="Purchasingstyle">
-                            <option selected><b>-----</b></option>
+                        <select class="form-select" aria-label="Default select example" name="Purchasingstyle" required>
+                            <option value=""><b>-----</b></option>
                             <option value="ครั้งเดียวทั้งหมด">ครั้งเดียวทั้งหมด</option>
                             <option value="แบ่งเป็น LOT">แบ่งเป็น LOT</option>
                         </select>
@@ -121,15 +125,15 @@
 			<button type="submit" class="btn_done">ยืนยัน <ion-icon name="checkmark-circle-outline"></ion-icon></button>
 		</div>
 	</div>
+	</form>
 </div>
-</form>
-<div class="modal_wrapper">
+{{-- <div class="modal_wrapper">
 	<div class="shadow"></div>
 	<div class="success_wrap">
 		<span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
 		<p>ลงทะเบียนโปรเจ็คสำเร็จ.</p>
 	</div>
-</div>
+</div> --}}
 
 
 <script>

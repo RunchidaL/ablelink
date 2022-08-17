@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-
+        </form>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
                     <a href="/"><button type="button" class="btn_next">กลับหน้าหลัก </button></a>
