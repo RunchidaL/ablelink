@@ -36,6 +36,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>รายการสั่งซื้อ</h3>
+                <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><i class="bi bi-printer-fill"></i></div>
                 <div class="table-responsive order-detail-info">
                     <table class="table table-condensed">
                         <thead>

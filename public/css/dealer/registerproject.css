@@ -16,6 +16,13 @@
 	outline: none;
 }
 
+.step{
+	margin-bottom: 50px;
+}
+.step h2{
+	text-align: center;
+}
+
 .decription-project{
 	background: #EEEEEE;
 	border-radius: 30px;
@@ -212,14 +219,17 @@
 }
 
 .wrapper .btns_wrap .common_btns button.btn_next:hover{
-	background: #2e68b3;
+	background: rgb(222, 226, 236);
+    color: #194276;
 }
 .wrapper .btns_wrap .common_btns button.btn_done:hover{
-	background: #41c564;
+	background: #f1f1f1;
+	color: #34A853;
 }
 
 .wrapper .btns_wrap .common_btns button.btn_back:hover{
-	background: var(--back-btn-hover);
+	background: #f1f1f1;
+	color: black;
 }
 
 .modal_wrapper{
@@ -279,4 +289,32 @@
 
 .modal_wrapper.active .success_wrap{
 	transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width: 725px){
+	.wrapper .header ul li{
+		margin-right: 200px;
+	}
+	.wrapper .header ul li:before{
+		width: 250px;
+	}
+	form {
+		margin: 0 5%;
+	}
+}
+@media screen and (max-width: 570px){
+	.wrapper .header ul li{
+		margin-right: 150px;
+	}
+	.wrapper .header ul li:before{
+		width: 200px;
+	}
+}
+@media screen and (max-width: 500px){
+	.wrapper .header ul li{
+		margin-right: 100px;
+	}
+	.wrapper .header ul li:before{
+		width: 150px;
+	}
 }

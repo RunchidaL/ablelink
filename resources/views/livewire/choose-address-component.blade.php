@@ -86,28 +86,28 @@
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                             <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
                                             <p>RG6 Indoor CCTV Cable, white, Braid Shield aluminum 500m/Roll</p> 
-                                            <span>$400.00</span>
+                                            <span>฿400.00</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                             <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
                                             <p>RG6 Indoor CCTV Cable, white, Power wire 500m/Roll</p> 
-                                            <span>$200.00</span>
+                                            <span>฿200.00</span>
                                         </li>
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 ">
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 ราคารวม
-                                                <span>$600.00</span>
+                                                <span>฿600.00</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 ค่าจัดส่ง
-                                                <span>$50.00</span>
+                                                <span>฿50.00</span>
                                             </li>
                                         </li>
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div><strong>ยอดสั่งซื้อรวม</strong></div>
-                                            <span><strong>$650.00</strong></span>
+                                            <span><strong>฿650.00</strong></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -169,28 +169,28 @@
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                             <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
                                             <p>RG6 Indoor CCTV Cable, white, Braid Shield aluminum 500m/Roll</p>
-                                            <span>$400.00</span>
+                                            <span>฿400.00</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                             <img src="images/products/40180.main.jpg" style="width: 100px; height: 80px; margin-right: 10px;">
                                             <p>RG6 Indoor CCTV Cable, white, Power wire 500m/Roll</p>
-                                            <span>$200.00</span>
+                                            <span>฿200.00</span>
                                         </li>
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 ">
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 ราคารวม
-                                                <span>$600.00</span>
+                                                <span>฿600.00</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 ค่าจัดส่ง
-                                                <span>$50.00</span>
+                                                <span>฿50.00</span>
                                             </li>
                                         </li>
                                         <hr>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                             <div><strong>ยอดสั่งซื้อรวม</strong></div>
-                                            <span><strong>$650.00</strong></span>
+                                            <span><strong>฿650.00</strong></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -204,10 +204,11 @@
                     <button type="button" class="btn_next">ดำเนินการต่อ <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                 </div>
                 <div class="common_btns form_2_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"></span>ย้อนกลับ</button>
+                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>ย้อนกลับ</button>
                     <a href="/checkout"><button type="button" class="btn_next">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button></a>
                 </div>
             </div>
+        </form>
     </div>
 </div>
 
@@ -264,4 +265,6 @@
         modal_wrapper.classList.remove("active");
     })
 </script>
+
+
 
