@@ -57,6 +57,11 @@ class ChooseAddressComponent extends Component
             $user = User::find(Auth::user()->id);
             $dealer = Dealer::where('dealerid',$user->id)->first();
             $total = session()->get('chooseaddress')['total'];
+            if($total > $dealer->coin)
+            {
+                session()->flash('message','ยอดเงินคงเหลือไม่เพียงพอ');
+                return redirect()->route('chooseaddress');
+            }
             $dealer->coin = $dealer->coin - $total;
             $dealer->save();
         
