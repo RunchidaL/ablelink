@@ -9,7 +9,21 @@ use Illuminate\Http\Response;
 
 class ProjectDealerController extends Controller
 {
-    public function sendEmail(Request $request){
+    public function sendEmail(Request $req){
+
+        $req->validate([
+            'Dealercompanyname' => 'required',
+            'ProjectManager' => 'required',
+            'EmailProjectManager' => 'required',
+            'TelProjectManager' => 'required',
+            'ProjectOwner' => 'required',
+            'ProjectName' => 'required',
+            'projectstatus' => 'required',
+            'Installationschedule' => 'required',
+            'listproducts' => 'required',
+            'Purchasingstyle' => 'required'
+        ]);
+        
         $data=[
             'Dealercompanyname' => $request->Dealercompanyname,
             'ProjectManager' => $request->ProjectManager,
@@ -26,4 +40,8 @@ class ProjectDealerController extends Controller
         Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
         return redirect('/');
     }
+
+
 }
+
+

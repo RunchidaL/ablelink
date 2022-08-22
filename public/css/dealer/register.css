@@ -22,6 +22,10 @@ h3{
     line-height: 35px;
 }
 
+span{
+    color: red;
+}
+
 .form-group input {
     border-radius: 30px;
     margin-bottom: 10px;

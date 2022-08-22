@@ -8,32 +8,69 @@ use App\Mail\ContactMail;
 
 class InfodealerRequestController extends Controller
 {
+    public function sendEmail(Request $req){
 
-    public function sendEmail(Request $request){
-        $this->validate($request, [
-            'email' => 'required|email'
+        $req->validate([
+            'name' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'province' => 'required',
+            'district' => 'required',
+            'subdistrict' => 'required',
+            'companythai' => 'required',
+            'companyeng' => 'required',
+            'vatid' => 'required',
+            'idcompany' => 'required',
+            'file1' => 'required',
+            'file2' => 'required',
+            'file3' => 'required',
         ]);
 
-        $data=[
-            'name'=>$request->name,
-            'lname'=>$request->lname,
-            'email'=>$request->email,
-            'phone'=>$request->phone,
-            'address'=>$request->address,
-            'province'=>$request->province,
-            'district'=>$request->district,
-            'subdistrict'=>$request->subdistrict,
-            'companythai'=>$request->companythai,
-            'companyeng'=>$request->companyeng,
-            'vatid'=>$request->vatid,
-            'idcompany'=>$request->idcompany,
-            'file1'=>$request->file('file1'),
-            'file2'=>$request->file('file2'),
-            'file3'=>$request->file('file3'),
-            'file4'=>$request->file('file4')
-        ];
+        if($req->file('file4')){
+            $data=[
+                'name'=>$req->name,
+                'lname'=>$req->lname,
+                'email'=>$req->email,
+                'phone'=>$req->phone,
+                'address'=>$req->address,
+                'province'=>$req->province,
+                'district'=>$req->district,
+                'subdistrict'=>$req->subdistrict,
+                'companythai'=>$req->companythai,
+                'companyeng'=>$req->companyeng,
+                'vatid'=>$req->vatid,
+                'idcompany'=>$req->idcompany,
+                'file1'=>$req->file('file1'),
+                'file2'=>$req->file('file2'),
+                'file3'=>$req->file('file3'),
+                'file4'=>$req->file('file4')
+            ];
+        }
+        else
+        {
+            $data=[
+                'name'=>$req->name,
+                'lname'=>$req->lname,
+                'email'=>$req->email,
+                'phone'=>$req->phone,
+                'address'=>$req->address,
+                'province'=>$req->province,
+                'district'=>$req->district,
+                'subdistrict'=>$req->subdistrict,
+                'companythai'=>$req->companythai,
+                'companyeng'=>$req->companyeng,
+                'vatid'=>$req->vatid,
+                'idcompany'=>$req->idcompany,
+                'file1'=>$req->file('file1'),
+                'file2'=>$req->file('file2'),
+                'file3'=>$req->file('file3')
+            ];
+        }
+        // dd($data);
         Mail::to('cpe327@gmail.com')->send(new ContactMail($data));
-        return 'Thanks for reaching out!';
+        return redirect('/');
     }
     
 }

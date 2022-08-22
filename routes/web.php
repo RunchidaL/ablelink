@@ -135,6 +135,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
     Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
     Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
+
     
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
