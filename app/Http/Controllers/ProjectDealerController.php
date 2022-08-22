@@ -8,7 +8,39 @@ use App\Mail\ProjectMail;
 
 class ProjectDealerController extends Controller
 {
+ 
+
     public function sendEmail(Request $req){
+
+        $req->validate([
+            'Dealercompanyname' => 'required',
+            'ProjectManager' => 'required',
+            'EmailProjectManager' => 'required',
+            'TelProjectManager' => 'required',
+            'ProjectOwner' => 'required',
+            'ProjectName' => 'required',
+            'projectstatus' => 'required',
+            'Installationschedule' => 'required',
+            'listproducts' => 'required',
+            'Purchasingstyle' => 'required'
+        ]);
+
+        // $validated = $req->validate([
+        //     'Dealercompanyname' => 'required',
+        //     'ProjectManager' => 'required',
+        //     'EmailProjectManager' => 'required',
+        //     'TelProjectManager' => 'required',
+        //     'ProjectOwner' => 'required',
+        //     'ProjectName' => 'required',
+        //     'projectstatus' => 'required',
+        //     'Installationschedule' => 'required',
+        //     'listproducts' => 'required',
+        //     'Purchasingstyle' => 'required'
+        // ]);
+        // dd($validated);
+        
+        
+        
         $data=[
             'Dealercompanyname' => $req->Dealercompanyname,
             'ProjectManager' => $req->ProjectManager,
@@ -25,4 +57,8 @@ class ProjectDealerController extends Controller
         Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
         return redirect('/');
     }
+
+
 }
+
+

@@ -9,6 +9,26 @@ use App\Mail\ContactMail;
 class InfodealerRequestController extends Controller
 {
     public function sendEmail(Request $req){
+
+        $req->validate([
+            'name' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+            'province' => 'required',
+            'district' => 'required',
+            'subdistrict' => 'required',
+            'companythai' => 'required',
+            'companyeng' => 'required',
+            'vatid' => 'required',
+            'idcompany' => 'required',
+            'file1' => 'required',
+            'file2' => 'required',
+            'file3' => 'required',
+            'file4' => 'required',
+        ]);
+
         $data=[
             'name'=>$req->name,
             'lname'=>$req->lname,

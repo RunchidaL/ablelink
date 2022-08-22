@@ -16,6 +16,10 @@
 	outline: none;
 }
 
+.form-control span{
+	color: red;
+}
+
 .step{
 	margin-bottom: 50px;
 }
@@ -129,23 +133,24 @@
 	margin-bottom: 20px;
 }
 
-.wrapper .form_wrap .input_wrap{
+.wrapper .form_wrap .form-control{
 	width: 600px;
 	max-width: 100%;
 	margin: 0 auto 20px;
-  
+	background: #EEEEEE;
+	border: none;
 }
 
-.wrapper .form_wrap .input_wrap:last-child{
+.wrapper .form_wrap .form-control:last-child{
 	margin-bottom: 0;
 }
 
-.wrapper .form_wrap .input_wrap label{
+.wrapper .form_wrap .form-control label{
 	display: block;
 	margin-bottom: 5px;
 }
 
-.wrapper .form_wrap .input_wrap .input{
+.wrapper .form_wrap .form-control .input{
 	border: 2px solid var(--secondary);
 	border-radius: 20px;
 	padding: 10px;
@@ -155,9 +160,22 @@
 	transition: 0.5s ease;
 }
 
-.wrapper .form_wrap .input_wrap .input:focus{
+.wrapper .form_wrap .form-control .input:focus{
 	border-color: black;
 }
+
+/* .wrapper .form_wrap .form-control.error .input{
+	border-color: red;
+}
+
+.wrapper .form_wrap .form-control small{
+	visibility: hidden;
+	color: red;
+}
+.wrapper .form_wrap .form-control.error small{
+	visibility: visible;
+} */
+
 
 .wrapper .btns_wrap{
 	width: 100%;
