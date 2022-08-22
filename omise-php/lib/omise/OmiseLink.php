@@ -2,7 +2,7 @@
 
 class OmiseLink extends OmiseApiResource
 {
-    public const ENDPOINT = 'links';
+    const ENDPOINT = 'links';
 
     /**
      * Retrieves a link.
@@ -58,26 +58,6 @@ class OmiseLink extends OmiseApiResource
     public static function create($params, $publickey = null, $secretkey = null)
     {
         return parent::g_create(get_class(), self::getUrl(), $params, $publickey, $secretkey);
-    }
-
-    /**
-     * (non-PHPdoc)
-     *
-     * @see OmiseApiResource::g_destroy()
-     */
-    public function destroy()
-    {
-        parent::g_destroy(self::getUrl($this['id']));
-    }
-
-    /**
-     * (non-PHPdoc)
-     *
-     * @see OmiseApiResource::isDestroyed()
-     */
-    public static function isDestroyed()
-    {
-        return parent::isDestroyed();
     }
 
     /**

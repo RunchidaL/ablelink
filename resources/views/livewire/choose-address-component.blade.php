@@ -120,14 +120,37 @@
                                 <div class="subaddress">
                                     <h5>ชำระเงินด้วยบัตรเครดิต</h5>
                                     <hr>
-                                    <div class="form-group mb-2">
+                                    <!-- <div class="form-group mb-2">
                                         <label for="exampleInputPassword1">หมายเลขบัตร *</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="หมายเลขบัตร">
+                                        <input type="text" class="form-control" name="number" id="exampleInputPassword1" placeholder="หมายเลขบัตร">
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="exampleInputPassword1">ชื่อบัตร *</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ชื่อบัตร">
+                                        <input type="text" class="form-control" name="name" id="exampleInputPassword1" placeholder="ชื่อบัตร">
                                     </div>
+                                    <div class="form-group mb-2">
+                                        <label for="exampleInputPassword1">Expiry Year</label>
+                                        <input type="text" class="form-control" name="year" id="exampleInputPassword1" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="exampleInputPassword1">CVC</label>
+                                        <input type="text" class="form-control" name="cvc" id="exampleInputPassword1" placeholder="***">
+                                    </div> -->
+                                    <form name="checkoutForm" method="POST" action="checkout.php" enctype="multipart/form-data"> 
+                                    @csrf
+                                    <input type="hidden" name="omiseToken">
+                                    <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+                                        data-key="pkey_test_5sug3pix66gsyemc0qi"
+                                        data-image="http://bit.ly/customer_image"
+                                        data-frame-label="Merchant site name"
+                                        data-button-label="Pay now"
+                                        data-submit-label="Submit"
+                                        data-location="no"
+                                        data-amount="10025"
+                                        data-currency="thb"
+                                        >
+                                    </script>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 
 class OmiseCharge extends OmiseApiResource
 {
-    public const ENDPOINT = 'charges';
+    const ENDPOINT = 'charges';
 
     /**
      * Retrieves a charge.
@@ -85,16 +85,6 @@ class OmiseCharge extends OmiseApiResource
     }
 
     /**
-     * (non-PHPdoc)
-     *
-     * @see OmiseApiResource::g_expire()
-     */
-    public function expire()
-    {
-        parent::g_expire(self::getUrl($this['id']) . '/expire');
-    }
-
-    /**
      * Captures a charge.
      *
      * @return OmiseCharge
@@ -136,7 +126,7 @@ class OmiseCharge extends OmiseApiResource
      *
      * @return OmiseRefundList
      */
-    public function refunds($options = [])
+    public function refunds($options = array())
     {
         if (is_array($options) && ! empty($options)) {
             $refunds = parent::execute(self::getUrl($this['id']) . '/refunds?' . http_build_query($options), parent::REQUEST_GET, parent::getResourceKey());
@@ -156,12 +146,13 @@ class OmiseCharge extends OmiseApiResource
      *
      * @return OmiseScheduleList
      */
-    public static function schedules($options = [], $publickey = null, $secretkey = null)
+    public static function schedules($options = array(), $publickey = null, $secretkey = null)
     {
         if (is_array($options)) {
             $options = '?' . http_build_query($options);
         }
-        return OmiseScheduleList::g_retrieve('OmiseScheduleList', self::getUrl('schedules' . $options), $publickey, $secretkey);
+
+        return parent::g_retrieve('OmiseScheduleList', self::getUrl('schedules' . $options), $publickey, $secretkey);
     }
 
     /**

@@ -9,10 +9,9 @@
         <a href="/"><img src="/images/logoAbleLink.png" alt="logo"></a>
         <a>| Create a dealer account</a>
     </div>
-
     <div class="container mt-1 p-5">
         <h4>ข้อมูลส่วนตัว</h4>
-        <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('send.email')}}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-md-6 mb-3">
@@ -29,9 +28,13 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
+                        @error('email')
+                            <span class="text-danger"> {{ $message }} </span>
+                        @enderror
                         <label for="email">*Email</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" required>
                     </div>
+
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">

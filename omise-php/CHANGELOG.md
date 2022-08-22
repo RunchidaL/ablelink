@@ -1,28 +1,5 @@
 # CHANGELOG
 
-### [v2.15.0 _(August 2, 2022)_](https://github.com/omise/omise-php/releases/tag/v2.15.0)
-
-- Replace Curl with Guzzle Client ([#141](https://github.com/omise/omise-php/pull/141))
-
-### [v2.14.0 _(July 25, 2022)_](https://github.com/omise/omise-php/releases/tag/v2.14.0)
-
-- Add Support php version 8.1 ([#140](https://github.com/omise/omise-php/pull/140))
-
-### [v2.13.0 _(April 7, 2021)_](https://github.com/omise/omise-php/releases/tag/v2.13.0)
-
-- Change installment minimum to 200000 subunits ([#132](https://github.com/omise/omise-php/pull/132))
-- Add Receipt API ([#126](https://github.com/omise/omise-php/pull/126))
-- Add Chain API ([#127](https://github.com/omise/omise-php/pull/127))
-- Add expire method for Charge ([#130](https://github.com/omise/omise-php/pull/130))
-- Add accept method for Dispute ([#125](https://github.com/omise/omise-php/pull/125))
-- Add destroy method for Link ([#124](https://github.com/omise/omise-php/pull/124))
-- Add update method for Account ([#123](https://github.com/omise/omise-php/pull/123))
-- Add a `retrieve` method to OmiseSource ([#121](https://github.com/omise/omise-php/pull/121))
-
-### [v2.12.0 _(July 31, 2020)_](https://github.com/omise/omise-php/releases/tag/v2.12.0)
-
-- Removed certificate pinning (PR [#118](https://github.com/omise/omise-php/pull/118))
-
 ### [v2.11.2 _(May 8, 2019)_](https://github.com/omise/omise-php/releases/tag/v2.11.2)
 
 #### 🚀 Enhancements

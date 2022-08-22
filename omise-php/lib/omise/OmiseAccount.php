@@ -2,7 +2,7 @@
 
 class OmiseAccount extends OmiseApiResource
 {
-    public const ENDPOINT = 'account';
+    const ENDPOINT = 'account';
 
     /**
      * Retrieves an account.
@@ -15,16 +15,6 @@ class OmiseAccount extends OmiseApiResource
     public static function retrieve($publickey = null, $secretkey = null)
     {
         return parent::g_retrieve(get_class(), self::getUrl(), $publickey, $secretkey);
-    }
-
-    /**
-     * (non-PHPdoc)
-     *
-     * @see OmiseApiResource::g_update()
-     */
-    public function update($params)
-    {
-        parent::g_update(self::getUrl(), $params);
     }
 
     /**

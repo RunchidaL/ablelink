@@ -64,43 +64,73 @@ class ChooseAddressComponent extends Component
             }
             $dealer->coin = $dealer->coin - $total;
             $dealer->save();
-        
-            $orderid = New OrderID();
-            $orderid->user_id = $user->id;
-            $orderid->payment_code = 1;
-            $orderid->address_id = 1;
-            $orderid->total = $total;
-            $orderid->save();
-            
-            foreach($cartitems as $item)
-            {
-                $model = ProductModels::where('id',$item->product_id)->first();
-                if($item->attribute)
-                {
-                    $model->stock = $model->stock - ($item->quantity * $item->attribute);
-                }
-                else
-                {
-                    $model->stock = $model->stock - $item->quantity;
-                }
-                $model->save();
 
-                $order = New Order();
-                $order->product_id = $item->product_id;
-                $order->quantity = $item->quantity;
-                if($item->attribute)
-                {
-                    $order->attribute = $item->attribute;
-                }
-                $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
-                $order->order_id = $id->id;
-                $order->save();
-            }
-            Cart::where('user_id',auth()->id())->delete();
-            session()->forget('chooseaddress');
+            $this->cutstock();
         }
+        // else if($this->payment == '2')
+        // {
+        //     require_once dirname(__FILE__).'/omise-php/lib/Omise.php';
+        //     define('OMISE_API_VERSION', '2015-11-17');
+        //     // define('OMISE_PUBLIC_KEY', 'PUBLIC_KEY');
+        //     // define('OMISE_SECRET_KEY', 'SECRET_KEY');
+        //     define('OMISE_PUBLIC_KEY', 'pkey_test_5sug3pix66gsyemc0qi');
+        //     define('OMISE_SECRET_KEY', 'skey_test_5sug3q8trtl4y6s8ajj');
+
+        //     try{
+        //         $token = 
+        //     }
+        //     $charge = OmiseCharge::create(array(
+        //         'amount' => $total*100,
+        //         'currency' => 'thb',
+        //         'card' => $_POST["omiseToken"]
+        //     ));
+        // }
         return redirect()->route('checkout');
     }
+
+    public function cutstock()
+    {
+        $user = User::find(Auth::user()->id);
+        $total = session()->get('chooseaddress')['total'];
+        
+
+        $orderid = New OrderID();
+        $orderid->user_id = $user->id;
+        $orderid->payment_code = 1;
+        $orderid->address_id = 1;
+        $orderid->total = $total;
+        $orderid->save();
+
+        $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        
+        foreach($cartitems as $item)
+        {
+            $model = ProductModels::where('id',$item->product_id)->first();
+            if($item->attribute)
+            {
+                $model->stock = $model->stock - ($item->quantity * $item->attribute);
+            }
+            else
+            {
+                $model->stock = $model->stock - $item->quantity;
+            }
+            $model->save();
+
+            $order = New Order();
+            $order->product_id = $item->product_id;
+            $order->quantity = $item->quantity;
+            if($item->attribute)
+            {
+                $order->attribute = $item->attribute;
+            }
+            $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
+            $order->order_id = $id->id;
+            $order->save();
+        }
+        Cart::where('user_id',auth()->id())->delete();
+        session()->forget('chooseaddress');
+    }
+
     public function render()
     {
         $this->cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();

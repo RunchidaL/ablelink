@@ -61,7 +61,7 @@
                             <h4><i class="bi bi-credit-card"></i> วิธีชำระเงิน</h4>
                             @if($orderid->payment_code == 1)
                             <p>ชำระเงินด้วยเครดิตบริษัท</p>
-                            <p>ยอดคงเหลือ {{number_format($dealer->coin,2)}}</p>
+                            <p>ยอดคงเหลือ {{number_format($dealer->coin,2)}} บาท</p>
                             @else
                             <p>ชำระเงินด้วยบัตรเครดิต</p>
                             @endif

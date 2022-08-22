@@ -2,22 +2,7 @@
 
 class OmiseDispute extends OmiseApiResource
 {
-    public const ENDPOINT = 'disputes';
-
-    /**
-     * Creates a new dispute.
-     *
-     * @param  array  $params
-     * @param  string $publickey
-     * @param  string $secretkey
-     *
-     * @return OmiseDispute
-     */
-    public static function create($charge, $params, $publickey = null, $secretkey = null)
-    {
-        $url = OMISE_API_URL. 'charges/' . $charge['id'] .'/' . self::ENDPOINT;
-        return parent::g_create(get_class(), $url, $params, $publickey, $secretkey);
-    }
+    const ENDPOINT = 'disputes';
 
     /**
      * Retrieves a dispute.
@@ -69,16 +54,6 @@ class OmiseDispute extends OmiseApiResource
     public function update($params)
     {
         parent::g_update(self::getUrl($this['id']), $params);
-    }
-
-    /**
-     * (non-PHPdoc)
-     *
-     * @see OmiseApiResource::g_update()
-     */
-    public function accept()
-    {
-        parent::g_update(self::getUrl($this['id']) . '/accept');
     }
 
     /**

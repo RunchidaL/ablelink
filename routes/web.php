@@ -123,7 +123,6 @@ Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponen
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
-
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
