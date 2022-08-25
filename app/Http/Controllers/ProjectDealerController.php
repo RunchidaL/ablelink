@@ -14,7 +14,7 @@ class ProjectDealerController extends Controller
         $req->validate([
             'Dealercompanyname' => 'required',
             'ProjectManager' => 'required',
-            'EmailProjectManager' => 'required',
+            'EmailProjectManager' => 'required|email',
             'TelProjectManager' => 'required',
             'ProjectOwner' => 'required',
             'ProjectName' => 'required',
@@ -25,16 +25,16 @@ class ProjectDealerController extends Controller
         ]);
         
         $data=[
-            'Dealercompanyname' => $request->Dealercompanyname,
-            'ProjectManager' => $request->ProjectManager,
-            'EmailProjectManager' => $request->EmailProjectManager,
-            'TelProjectManager' => $request->TelProjectManager,
-            'ProjectOwner' => $request->ProjectOwner,
-            'ProjectName' => $request->ProjectName,
-            'projectstatus' => $request->projectstatus,
-            'Installationschedule' => $request->Installationschedule,
-            'listproducts' => $request->listproducts,
-            'Purchasingstyle' => $request->Purchasingstyle
+            'Dealercompanyname' => $req->Dealercompanyname,
+            'ProjectManager' => $req->ProjectManager,
+            'EmailProjectManager' => $req->EmailProjectManager,
+            'TelProjectManager' => $req->TelProjectManager,
+            'ProjectOwner' => $req->ProjectOwner,
+            'ProjectName' => $req->ProjectName,
+            'projectstatus' => $req->projectstatus,
+            'Installationschedule' => $req->Installationschedule,
+            'listproducts' => $req->listproducts,
+            'Purchasingstyle' => $req->Purchasingstyle
             
         ];
         Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));

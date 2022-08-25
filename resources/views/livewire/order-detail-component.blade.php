@@ -6,7 +6,7 @@
     <div class="container order-detail-home">
         <div class="row">
             <div class="col-md-12">
-                <h2>รหัสใบสั่งซื้อ #1</h2>
+                <h2>รหัสใบสั่งซื้อ #{{$order->id}}</h2>
                 <hr style="width:auto">
                 <div class="row">
                     <div class="col-md-6">
@@ -22,11 +22,11 @@
                     <div class="col-md-6 text-end">
                         <address>
                             <strong>ผู้ซื้อสินค้า:</strong><br>
-                            ผัดไท ประตูผี<br>
-                            0801911150<br>
-                            36 ซ.ผัดไท ถ.ประตูผี แขวงบางมด<br>
-                            เขตผัดไทจงเจริญ, จังหวัดกรุงเทพมหานคร<br>
-                            36190<br>
+                            {{$order->user->name}}<br>
+                            {{$dealer->phonenumber}}<br>
+                            {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
+                            เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
+                            {{$dealer->zipcode}}<br>
                         </address>
                     </div>
                 </div>
@@ -36,36 +36,38 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>รายการสั่งซื้อ</h3>
-                <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><i class="bi bi-printer-fill"></i></div>
+                <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
                 <div class="table-responsive order-detail-info">
                     <table class="table table-condensed">
                         <thead>
                             <tr class="order-detail-menu">
-                                <td></td>
                                 <td>ชื่อสินค้า</td>
+                                <td></td>
                                 <td>ราคา</td>
                                 <td>จำนวน</td>
                                 <td>รวม</td>
                             </tr>
                         </thead>
                         <tbody class="customer-order-detail">
+                            @foreach($items as $item)
                             <tr class="order-detail-wrapper">
                                 <td class="order-detail-product">
-                                    <a href="#"><img src="\images\products\p1.jpg" alt=""></a>
+                                    <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
                                 </td>
                                 <td class="order-detail-name">
-                                    <a href="#">1ft (0.3m) Cat6a Snagless Shielded (SFTP) PVC CMX Ethernet Network Patch Cable, Blue</a>
+                                    <a href="#">{{$item->model->slug}}, {{$item->model->name}}</a>
                                 </td>
                                 <td class="order-detail-name">
-                                    <p class="group-cen">฿130.00</p>
+                                    <p class="group-cen">฿{{$item->model->dealer_price}}</p>
                                 </td>
                                 <td class="order-detail-quantity">
-                                    <p class="group-cen">2</p>
+                                    <p class="group-cen">{{$item->quantity}}</p>
                                 </td>
                                 <td class="order-detail-total">
-                                    <p class="group-cen">฿260.00</p>
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>    
                         <tfoot>
                             <tr class="order-detail-conclu">
@@ -73,7 +75,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>ยอดรวมทั้งหมด</td>
-                                <td>฿260.00</td>
+                                <td>฿{{$order->total}}</td>
                             </tr>
                         </tfoot>
                     </table>

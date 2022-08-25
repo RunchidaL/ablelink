@@ -10,11 +10,23 @@ use App\Models\ShoppingCart as Cart;
 use App\Models\ProductModels;
 use App\Models\Order;
 use App\Models\OrderID;
+// use App\Http\Controllers\PaymentController;
+// require_once dirname(__FILE__).'/omise-php/lib/Omise.php';
+// use OmiseCharge;
+// use OmiseToken;
+// define('OMISE_API_VERSION', '2015-11-17');
+// define('OMISE_PUBLIC_KEY', 'pkey_test_5stpiir1dcgcdklou95');
+// define('OMISE_SECRET_KEY', 'skey_test_5stpiisho79oapcy3gf');
 
 class ChooseAddressComponent extends Component
 {
     public $cartitems;
     public $payment;
+    public $number;
+    public $name;
+    public $month;
+    public $year;
+    public $cvc;
 
     public function updated($fields)
     {
@@ -52,11 +64,12 @@ class ChooseAddressComponent extends Component
                 }
             }
         }
+
+        $user = User::find(Auth::user()->id);
+        $dealer = Dealer::where('dealerid',$user->id)->first();
+        $total = session()->get('chooseaddress')['total'];
         if($this->payment == '1')
         {
-            $user = User::find(Auth::user()->id);
-            $dealer = Dealer::where('dealerid',$user->id)->first();
-            $total = session()->get('chooseaddress')['total'];
             if($total > $dealer->coin)
             {
                 session()->flash('message','ยอดเงินคงเหลือไม่เพียงพอ');
@@ -69,23 +82,29 @@ class ChooseAddressComponent extends Component
         }
         // else if($this->payment == '2')
         // {
-        //     require_once dirname(__FILE__).'/omise-php/lib/Omise.php';
-        //     define('OMISE_API_VERSION', '2015-11-17');
-        //     // define('OMISE_PUBLIC_KEY', 'PUBLIC_KEY');
-        //     // define('OMISE_SECRET_KEY', 'SECRET_KEY');
-        //     define('OMISE_PUBLIC_KEY', 'pkey_test_5sug3pix66gsyemc0qi');
-        //     define('OMISE_SECRET_KEY', 'skey_test_5sug3q8trtl4y6s8ajj');
-
-        //     try{
-        //         $token = 
-        //     }
         //     $charge = OmiseCharge::create(array(
         //         'amount' => $total*100,
         //         'currency' => 'thb',
-        //         'card' => $_POST["omiseToken"]
         //     ));
+
+        //     $token = OmiseToken::create(array(
+        //     'card' => array(
+        //         'name' => $this->number,
+        //         'number' => $this->number,
+        //         'expiration_month' => $this->month,
+        //         'expiration_year' => $this->year,
+        //         'security_code' => $this->cvc
+        //     )
+        //     ));
+
+        //     $this->cutstock();
         // }
-        return redirect()->route('checkout');
+        // else if($this->payment == '2')
+        // {
+        //     PaymentController();
+        //     $this->cutstock();
+        // }
+
     }
 
     public function cutstock()
@@ -129,6 +148,7 @@ class ChooseAddressComponent extends Component
         }
         Cart::where('user_id',auth()->id())->delete();
         session()->forget('chooseaddress');
+        return redirect()->route('checkout');
     }
 
     public function render()

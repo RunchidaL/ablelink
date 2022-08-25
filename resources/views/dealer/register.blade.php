@@ -60,14 +60,14 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="district">*อำเภอ</label>
+                        <label for="district">*เขต/อำเภอ</label>
                         <input type="text" name="district" class="form-control" value="{{ old('district') }}">
                         <span>@error('district')กรุณาระบุอำเภอ@enderror</span>
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="subdistrict">*ตำบล</label>
+                        <label for="subdistrict">*แขวง/ตำบล</label>
                         <input type="text" name="subdistrict" class="form-control" value="{{ old('subdistrict') }}">
                         <span>@error('subdistrict')กรุณาระบุตำบล@enderror</span>
                     </div>

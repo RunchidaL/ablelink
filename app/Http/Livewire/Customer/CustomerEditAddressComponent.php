@@ -21,7 +21,7 @@ class CustomerEditAddressComponent extends Component
 
     public function mount($address_id)
     {
-        $customeraddress = CustomerAddress::where('id',$address_id)->first();
+        $customeraddress = CustomerAddress::where('customerid',Auth::user()->id)->where('id',$address_id)->first();
         $this->firstname = $customeraddress->firstname;
         $this->lastname = $customeraddress->lastname;
         $this->address = $customeraddress->address;

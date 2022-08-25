@@ -92,9 +92,9 @@
                         <label for="projectstatus">สถานะโครงการ</label>
                         <select class="form-select" aria-label="Default select example" name="projectstatus" id="projectstatus" value="{{ old('projectstatus') }}" wire:model="projectstatus">
                             <option value=""><b>-----</b></option>
-                            <option value="1">สำรวจความต้องการ</option>
-                            <option value="2">เตรียมเสนอราคา</option>
-                            <option value="3">อนุมัติติดตั้ง</option>
+                            <option value="สำรวจความต้องการ">สำรวจความต้องการ</option>
+                            <option value="เตรียมเสนอราคา">เตรียมเสนอราคา</option>
+                            <option value="อนุมัติติดตั้ง">อนุมัติติดตั้ง</option>
                         </select>
 						<span>@error('projectstatus')กรุณาระบุสถานะโครงการ@enderror</span>
                     </div>
