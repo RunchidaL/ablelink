@@ -20,157 +20,33 @@
 
 <h1 style="text-align: center; margin-bottom: 1%; background: #194276; color: white; padding: 1% 0;">ผลิตภัณฑ์ใหม่</h1>
 
-
 <div class="row" id="products">
+    @foreach($NewProduct->unique('brand_id') as $NewProducts)
     <div class="NPP-col">
         <div class="card">
             <div class="card-wrapper">
-                <div class="photo" style="text-align: center">
-                    <img src="/images/brand 4.png" class="card-img-top" alt="...">
+                <div class="photo">
+                    <img src="{{asset('/images/brands')}}/{{$NewProducts->brand->image}}" style="width: 250px; height: 130px;">
                 </div>
+                @foreach ($NewProduct->where('brand_id',$NewProducts->brand_id) as $NewProducts)
                 <div class="card-body">
+                    <a href="{{$NewProducts->linkproduct}}">
                     <div class="name-np">
-                        <img src="/images/CCTV.png">
+                        <img src="{{$NewProducts->img}}">
                     </div>
                     <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
+                        <p>{{$NewProducts->name}}</p>
                     </div>
+                    </a>
                 </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-
+                @endforeach
                 <div class="card-footer">
-                    <a href="{{route('newproducts.detail')}}"><button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button></a>
+                    <a href="{{route('newproducts.detail',['name'=>$NewProducts->brand->name])}}"><button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button></a>
                 </div>
             </div>    
         </div>
     </div>
-
-    <div class="NPP-col">
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="/images/brand 4.png" class="card-img-top" alt="...">
-
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button>
-                </div>
-            </div>    
-        </div>
-    </div>
-
-    <div class="NPP-col">
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="/images/brand 4.png" class="card-img-top" alt="...">
-
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png" >
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button>
-                </div>
-            </div>    
-        </div>
-    </div>
-
-    <div class="NPP-col">
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="/images/brand 4.png" class="card-img-top" alt="...">
-
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="name-np">
-                        <img src="/images/CCTV.png">
-                    </div>
-                    <div class="name-np">
-                        <p>Lorem Ipsum is printing and typesetting industry.</p>
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button>
-                </div>
-            </div>    
-        </div>
-    </div>
-
+    @endforeach
 </div>
 
 
@@ -196,12 +72,14 @@
     background: #f8f8f8;
     }
 
+    .photo{
+    margin: 5% 0;
+    }
     .NPP-col img{
-    width: 50%;
-    height: auto;
     display: block;
     margin: auto;
     }
+    
 
     .card-wrapper{
     height: 100%;
@@ -217,6 +95,7 @@
 
     .name-np{
         max-width: 100%;
+        height: 80px;
         margin: 2% 2%;
         text-align: center;
     }
@@ -331,6 +210,9 @@
     }
     .name-np img{
         width: 100px;
+    }
+    .name-np{
+        height: 100px;
     }
     }
 

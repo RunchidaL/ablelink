@@ -7,73 +7,59 @@ body{
     font-family: 'Prompt', sans-serif;
 }
 
-.left .head img{
-    width: 200px;
-    height: 60.9px;
+.h-screen{
+    height: 100vh;
+    display: flex;
 }
 
-.con {
-    /* height: calc( 98% - 60.9px );
+.alert-wrap{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.alert-wrap .alert{
+    width: 80%;
+}
+
+.left, .right{
+    width: 50%;
+}
+
+.left{
+    padding: 2% 0;
+}
+
+.left .head img{
+    width: 200px;
+    height: 64px;
+}
+
+.con{
     margin-top: 50px;
+}
+
+.con form .mb-3{
+    display: flex;
 }
 
 .col-md-6 input{
     border-radius: 30px;
     margin-bottom: 10px;
+    margin-left: 1.2rem;
 }
 
-.h-screen {
-    height: 100vh;
-    display: flex;
-}
-.left ,.right{
-    width: 50%;
-}
-.left {
-    display: flex;
-    justify-content: end;
-    padding: 2%;
-}
-.left-con {
-    width: 100%;
-    max-width: 800px;
+a[forgotPass]{
+    margin-left: 1.2rem;
 }
 
-.row a{
-    text-decoration: none;
-    color: black;
-}
-
-.btn{
-    width: 150px;
-    height: 40px;
-    background: #194276;
-    color: white;
-    border-radius: 30px;
-}
-.btn:hover {
-    color: #194276;
-    border-color: #194276;
-}
-
-.bottom a{
-    color: #0930FF;
-}
-
-.bottom p{
-    text-align: center;
-}
-
-a[forgotPass]:hover{
-    text-decoration: underline;
-}
-.underline a{
+.underline a, a[forgotPass]{
     position: relative;
 }
-.underline a span::after {
+
+.underline a span::after, a[forgotPass]::after{
     position: absolute;
     content: '';
     height: 0.1rem;
@@ -85,30 +71,57 @@ a[forgotPass]:hover{
     transform-origin: 0% 100%;
 }
 
-.underline a span:hover::after {
+.underline a span:hover::after, a[forgotPass]:hover::after{
     transform: scaleX(1);
     transition: transform 0.2s ease-in;
 }
 
-
-.con form .mb-3 {
-    display: flex;
-}
-
-.con form .mb-3 .col-md-6{
-    margin-left: 1.2rem;
-}
-
-.bottom {
+.botton{
     margin-top: 1.5rem;
 }
 
-.right {
+.botton a{
+    color: #0930FF;
+}
+
+.botton p{
+    text-align: center;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    color: #194276;
+    border-color: #194276;
+}
+
+.right{
     max-height: 100vh;
 }
 
-.right img {
+.right img{
     height: 100vh;
     width: 50vw;
     object-fit: cover;
+}
+
+/* responsive */
+@media screen and (max-width: 992px){
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 767px){
+    .col-md-6 input{
+        margin-left: 0.1rem;
+    }
 }

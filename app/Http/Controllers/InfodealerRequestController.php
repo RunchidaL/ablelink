@@ -48,7 +48,7 @@ class InfodealerRequestController extends Controller
             'file4'=>$req->file('file4')
         ];
         Mail::to('cpe327@gmail.com')->send(new ContactMail($data));
-        return 'Thanks for reaching out!';
+        return redirect('/');
     }
     
 }

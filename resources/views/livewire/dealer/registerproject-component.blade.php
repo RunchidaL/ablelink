@@ -36,6 +36,11 @@
 			<div class="step">
 				<h2>คำแนะนำ</h2>
 			</div>
+			@if ($errors->any())
+			<div class="step">
+				<h4>! กรุณาระบุข้อมูลให้ครบถ้วน !</h4>
+			</div>
+			@endif
 			<div class="decription-project">
 				<b>คำแนะนำในการลงทะเบียน Project</b>
 				<p>1. กรุณากรอกข้อมูลให้ครบเพื่อความชัดเจนและความรวดเร็วในการให้บริการ</p>

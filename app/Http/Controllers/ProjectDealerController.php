@@ -8,7 +8,6 @@ use App\Mail\ProjectMail;
 
 class ProjectDealerController extends Controller
 {
- 
 
     public function sendEmail(Request $req){
 
@@ -25,22 +24,6 @@ class ProjectDealerController extends Controller
             'Purchasingstyle' => 'required'
         ]);
 
-        // $validated = $req->validate([
-        //     'Dealercompanyname' => 'required',
-        //     'ProjectManager' => 'required',
-        //     'EmailProjectManager' => 'required',
-        //     'TelProjectManager' => 'required',
-        //     'ProjectOwner' => 'required',
-        //     'ProjectName' => 'required',
-        //     'projectstatus' => 'required',
-        //     'Installationschedule' => 'required',
-        //     'listproducts' => 'required',
-        //     'Purchasingstyle' => 'required'
-        // ]);
-        // dd($validated);
-        
-        
-        
         $data=[
             'Dealercompanyname' => $req->Dealercompanyname,
             'ProjectManager' => $req->ProjectManager,

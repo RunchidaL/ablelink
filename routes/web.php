@@ -69,6 +69,9 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
+use App\Http\Livewire\Admin\Posts\AddNewProductsComponent;
+use App\Http\Livewire\Admin\Posts\AdminNewProductsComponent;
+use App\Http\Livewire\Admin\Posts\EditNewProductsComponent;
 use App\Http\Livewire\CheckoutComponent;
 
 Route::get('/', HomeComponent::class);
@@ -107,7 +110,7 @@ Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->n
 
 Route::get('/newproducts',NewProductComponent::class)->name('newproducts');
 
-Route::get('/newproductsdetail',NewProductDetailComponent::class)->name('newproducts.detail');
+Route::get('/newproductsdetail/{name}',NewProductDetailComponent::class)->name('newproducts.detail');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
@@ -184,5 +187,8 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
     Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/AdminNewProducts', AdminNewProductsComponent::class)->name('admin.AdminNewProducts');
+    Route::get('/admin/AdminAddNewProducts', AddNewProductsComponent::class)->name('admin.AddNewProducts');
+    Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
 
 });
