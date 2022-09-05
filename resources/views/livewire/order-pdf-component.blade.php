@@ -55,10 +55,16 @@
         </thead>
         
         <tbody>
+            @foreach($items as $item)
             <tr>
-            <td>Mark</td>
+            
+            <td>{{$item->model->name}}</td>
+            <td>{{$item->model->dealer_price}}</td>
+            <td>{{$item->quantity}}</td>
+            <td>{{number_format($item->model->dealer_price * $item->quantity,2)}}</td>
+            
             </tr>
-
+            @endforeach
         </tbody>
         </table>
 
@@ -109,10 +115,13 @@
         display: flex;
     }
     .col-4{
-        width: 40%;
+        width: 50%;
     }
     .desc{
         line-height: 1;
+    }
+    table{
+        border-collapse: collapse;
     }
 
 </style>

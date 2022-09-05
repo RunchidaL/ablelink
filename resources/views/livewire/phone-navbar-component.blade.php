@@ -14,7 +14,7 @@
                     @guest
                     <a href="{{ route('login') }}"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
                     @else
-                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
+                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i><span class="count">{{$count}}</span></button></a>
                     @endguest
                 </div>
                 <div class="user-phone">

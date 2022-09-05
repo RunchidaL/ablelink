@@ -43,14 +43,78 @@
                         <div class="col-md-5 mb-4">
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
                                 <div class="choose-address">
-                                    <input type="radio" id="address1" name="address" checked/>
+                                    <input type="radio" id="address1" name="address" value="1" checked/>
                                     <label for="address1"></label>
                                 </div>
                                 <div class="subaddress">
-                                    <p>{{$user->name}}</p>
-                                    <p>{{$dealer->phonenumber}}</p>
-                                    <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
-                                    <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
+                                    @if(Auth::user()->role == 1)
+                                        <p>{{$user->name}}</p>
+                                        <p>{{$customer->phonenumber}}</p>
+                                        <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
+                                        <p>{{$customer->county}} {{$customer->zipcode}}</p>
+                                    @elseif(Auth::user()->role == 2)
+                                        <p>{{$user->name}}</p>
+                                        <p>{{$dealer->phonenumber}}</p>
+                                        <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
+                                        <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
+                                    @endif
+                                </div>
+                            </div><br>
+                            <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
+                                <div class="choose-address">
+                                    <input type="radio" id="address1" name="address" value="1" checked/>
+                                    <label for="address1"></label>
+                                </div>
+                                <div class="subaddress">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="firstname">ชื่อ :</label>
+                                            <input type="text" name="firstname" class="form-control"  wire:model="firstname" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="lastname">นามสกุล :</label>
+                                            <input type="text" name="lastname" class="form-control"  wire:model="lastname" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <div class="form-group">
+                                            <label for="address">บ้านเลขที่ ถนน ซอย :</label>
+                                            <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"  wire:model="address" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="subdistrict">เเขวง/ตำบล :</label>
+                                            <input type="text" name="subdistrict" class="form-control"  wire:model="subdistrict" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="district">เขต/อำเภอ :</label>
+                                            <input type="text" name="district" class="form-control"  wire:model="district" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <label for="county">จังหวัด :</label>
+                                            <input type="text" name="county" class="form-control"  wire:model="county" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="zipcod">รหัสไปรษณีย์ :</label>
+                                            <input type="text" name="zipcode" class="form-control"  wire:model="zipcode" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="phone">โทรศัพท์ :</label>
+                                            <input type="text" name="phone" class="form-control"  wire:model="phonenumber" required>
+                                        </div>
+                                    </div>
                                 </div>
                             </div><br>
                         </div>
@@ -73,10 +137,18 @@
                                             <img src="{{asset('/images/products')}}/{{$item->model->image}}" style="width: 100px; height: 80px; margin-right: 10px;">
                                             @if($item->attribute)
                                             <p>{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m x {{$item->quantity}}</p>
-                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @if(Auth::user()->role == 1)
+                                                <span>฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @elseif(Auth::user()->role == 2)
+                                                <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @endif
                                             @else
                                             <p>{{$item->model->slug}}, {{$item->model->name}} x {{$item->quantity}}</p>
-                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                                @if(Auth::user()->role == 1)
+                                                <span>฿{{number_format($item->model->customer_price * $item->quantity,2)}}</span>
+                                                @elseif(Auth::user()->role == 2)
+                                                <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                                @endif
                                             @endif
                                         </li>
                                         @endforeach
@@ -102,6 +174,7 @@
                     <div class="row" id="chooseaddress">
                         @error('payment') <p class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> @enderror
                         <div class="col-md-5 mb-4">
+                            @if(Auth::user()->role == 2)
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
                                 <div class="choose-address">
                                     <input type="radio" id="creditcompany" name="check" value="1" wire:model.defer="payment"/>
@@ -112,6 +185,7 @@
                                     <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
                                 </div>
                             </div><br>
+                            @endif
                             <div class="address">
                                 <div class="choose-address">
                                     <input type="radio" id="creditcard" name="check" value="2" wire:model.defer="payment"/>
@@ -120,26 +194,6 @@
                                 <div class="subaddress">
                                     <h5>ชำระเงินด้วยบัตรเครดิต</h5>
                                     <hr>
-                                    <!-- <div class="form-group mb-2">
-                                        <label for="number">หมายเลขบัตร *</label>
-                                        <input type="text" class="form-control" name="number" wire:model.defer="number" placeholder="หมายเลขบัตร"/>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="name">ชื่อบัตร *</label>
-                                        <input type="text" class="form-control" name="name" wire:model.defer="name" placeholder="ชื่อบัตร"/>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="month">Expiry Month</label>
-                                        <input type="text" class="form-control" name="month" wire:model.defer="month" placeholder="MM/YY"/>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="year">Expiry Year</label>
-                                        <input type="text" class="form-control" name="year" wire:model.defer="year" placeholder="MM/YY"/>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="cvc">CVC</label>
-                                        <input type="text" class="form-control" name="cvc" wire:model.defer="cvc" placeholder="***">
-                                    </div> -->
                                     <form name="checkoutForm" method="POST" action="{{route('check')}}" enctype="multipart/form-data"> 
                                     @csrf
                                     <input type="hidden" name="omiseToken">
@@ -177,10 +231,18 @@
                                             <img src="{{asset('/images/products')}}/{{$item->model->image}}" style="width: 100px; height: 80px; margin-right: 10px;">
                                             @if($item->attribute)
                                             <p>{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m x {{$item->quantity}}</p>
-                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @if(Auth::user()->role == 1)
+                                                <span>฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @elseif(Auth::user()->role == 2)
+                                                <span>฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</span>
+                                                @endif
                                             @else
                                             <p>{{$item->model->slug}}, {{$item->model->name}} x {{$item->quantity}}</p>
-                                            <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                                @if(Auth::user()->role == 1)
+                                                <span>฿{{number_format($item->model->customer_price * $item->quantity,2)}}</span>
+                                                @elseif(Auth::user()->role == 2)
+                                                <span>฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</span>
+                                                @endif
                                             @endif
                                         </li>
                                         @endforeach

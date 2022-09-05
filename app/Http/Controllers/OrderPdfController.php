@@ -21,8 +21,9 @@ class OrderPdfController extends Controller
     public function export($orderpdf_id)
     {
         $order = OrderID::where('user_id',Auth::user()->id)->where('id',$orderpdf_id)->first();
+        $items = Order::where('order_id',$orderpdf_id)->get();
         $dealer = Dealer::where('dealerid',Auth::user()->id)->first();
-        $pdf = PDF::loadView('livewire.order-pdf-component',['order'=>$order,'dealer'=>$dealer]);
+        $pdf = PDF::loadView('livewire.order-pdf-component',['order'=>$order,'dealer'=>$dealer,'items'=>$items]);
         // return $pdf->download('order' . rand(1,1000) .'.pdf');
         return $pdf->stream();
     }

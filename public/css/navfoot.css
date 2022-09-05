@@ -442,6 +442,24 @@ footer *{
 .bi.bi-youtube{
     color: rgb(255, 0, 0);
 }
+.bi.bi-cart-fill{
+    position: relative;
+}
+
+.count{
+    display: flex;
+    font-size: 12px;
+    position: absolute;
+    top: 12px;
+    background-color: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 130px;
+}
 
 /* responsive */
 @media screen and (min-width: 1536px){
@@ -496,6 +514,7 @@ footer *{
     .nav-wrap.container {
         max-width: none !important;
     }
+
 }
 
 .navDropWrap{

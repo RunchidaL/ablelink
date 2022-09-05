@@ -91,6 +91,7 @@ class ShopComponent extends Component
                 ];
                 }
                 ShoppingCart::updateOrCreate($data);
+                return redirect('/shop');
 
             }
             else
@@ -104,6 +105,7 @@ class ShopComponent extends Component
                         $item_cart = ShoppingCart::where('id',$item->id)->first();
                         $item_cart->quantity = $item_cart->quantity + $this->qty;
                         $item_cart->save();
+                        return redirect('/shop');
                     }
                     //มีปัญหา
                     if($item->product_id != $id)
@@ -126,6 +128,7 @@ class ShopComponent extends Component
                         ];
                         }
                         ShoppingCart::updateOrCreate($data);
+                        return redirect('/shop');
                         session()->flash('success_message','Item added in Cart');
                     }                    
                 }

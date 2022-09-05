@@ -10,13 +10,7 @@ use App\Models\ShoppingCart as Cart;
 use App\Models\ProductModels;
 use App\Models\Order;
 use App\Models\OrderID;
-// use App\Http\Controllers\PaymentController;
-// require_once dirname(__FILE__).'/omise-php/lib/Omise.php';
-// use OmiseCharge;
-// use OmiseToken;
-// define('OMISE_API_VERSION', '2015-11-17');
-// define('OMISE_PUBLIC_KEY', 'pkey_test_5stpiir1dcgcdklou95');
-// define('OMISE_SECRET_KEY', 'skey_test_5stpiisho79oapcy3gf');
+use App\Models\CustomerAddress;
 
 class ChooseAddressComponent extends Component
 {
@@ -156,6 +150,7 @@ class ChooseAddressComponent extends Component
         $this->cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         $user = User::find(Auth::user()->id);
         $dealer = Dealer::where('dealerid',$user->id)->first();
-        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer])->layout("layout.navfoot");
+        $customer = CustomerAddress::where('customerid',$user->id)->first();
+        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer,'customer'=>$customer])->layout("layout.navfoot");
     }
 }
