@@ -9,7 +9,11 @@ use App\Models\NewProduct;
 class NewProductDetailComponent extends Component
 {
 
+    public $month;
+    public $year;
     public $name;
+
+    
 
     public function mount($name)
     {
@@ -19,6 +23,7 @@ class NewProductDetailComponent extends Component
 
     public function render()
     {
+        
         $brand = Brand::where('name',$this->name)->first();
         $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
         

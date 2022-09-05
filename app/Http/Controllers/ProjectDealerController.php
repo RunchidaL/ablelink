@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ProjectMail;
+use Illuminate\Http\Response;
 
 class ProjectDealerController extends Controller
 {
-
     public function sendEmail(Request $req){
 
         $req->validate([
             'Dealercompanyname' => 'required',
             'ProjectManager' => 'required',
-            'EmailProjectManager' => 'required',
+            'EmailProjectManager' => 'required|email',
             'TelProjectManager' => 'required',
             'ProjectOwner' => 'required',
             'ProjectName' => 'required',
@@ -23,7 +23,7 @@ class ProjectDealerController extends Controller
             'listproducts' => 'required',
             'Purchasingstyle' => 'required'
         ]);
-
+        
         $data=[
             'Dealercompanyname' => $req->Dealercompanyname,
             'ProjectManager' => $req->ProjectManager,

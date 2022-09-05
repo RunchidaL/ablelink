@@ -93,12 +93,13 @@
         </div>
         <div class="cart-foot">
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
-            <!-- <a class="button-paid" href="/chooseaddress">ชำระสินค้า</a> -->
             <button class="button-paid" wire:click="check">ชำระสินค้า</button>
         </div>
         @else
-        <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
-            ไม่มีสินค้าในตะกร้า
+        <div class="alert-wrap">
+            <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
+                ไม่มีสินค้าในตะกร้า
+            </div>
         </div>
         @endif
     </div>

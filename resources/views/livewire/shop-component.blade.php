@@ -1,5 +1,8 @@
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
+        @if(Session::has('message'))
+            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+        @endif
         <div>
             <h2 class="text">ผลิตภัณฑ์ทั้งหมด</h2>
         </div>

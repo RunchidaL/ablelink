@@ -28,17 +28,32 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.regisdealer')
-                    ->subject('New Dealer')
-                    ->from('ablelinkweb@yoursite.com','System')
-                    ->with('data',$this->data)
-                    ->attach($this->data['file1']->getRealPath(),[
-                        'as' => $this->data['file1']->getClientOriginalName()])
-                    ->attach($this->data['file2']->getRealPath(),[
-                        'as' => $this->data['file2']->getClientOriginalName()])
-                    ->attach($this->data['file3']->getRealPath(),[
-                        'as' => $this->data['file3']->getClientOriginalName()])
-                    ->attach($this->data['file4']->getRealPath(),[
-                        'as' => $this->data['file4']->getClientOriginalName()]);
+        if(empty($this->data['file4']) ) {
+            return $this->view('email.regisdealer')
+            ->subject('New Dealer')
+            ->from('ablelinkweb@yoursite.com','System')
+            ->with('data',$this->data)
+            ->attach($this->data['file1']->getRealPath(),[
+                'as' => $this->data['file1']->getClientOriginalName()])
+            ->attach($this->data['file2']->getRealPath(),[
+                'as' => $this->data['file2']->getClientOriginalName()])
+            ->attach($this->data['file3']->getRealPath(),[
+                'as' => $this->data['file3']->getClientOriginalName()]);
+        }
+        else{
+            return $this->view('email.regisdealer')
+            ->subject('New Dealer')
+            ->from('ablelinkweb@yoursite.com','System')
+            ->with('data',$this->data)
+            ->attach($this->data['file1']->getRealPath(),[
+                'as' => $this->data['file1']->getClientOriginalName()])
+            ->attach($this->data['file2']->getRealPath(),[
+                'as' => $this->data['file2']->getClientOriginalName()])
+            ->attach($this->data['file3']->getRealPath(),[
+                'as' => $this->data['file3']->getClientOriginalName()])
+            ->attach($this->data['file4']->getRealPath(),[
+                'as' => $this->data['file4']->getClientOriginalName()]);
+        }
+
     }
 }

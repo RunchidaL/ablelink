@@ -10,4 +10,8 @@ class OrderID extends Model
     use HasFactory;
     protected $table="orderid";
 
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

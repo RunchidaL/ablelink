@@ -73,6 +73,9 @@ use App\Http\Livewire\Admin\Posts\AddNewProductsComponent;
 use App\Http\Livewire\Admin\Posts\AdminNewProductsComponent;
 use App\Http\Livewire\Admin\Posts\EditNewProductsComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\OrderPdfController;
+use App\Http\Livewire\OrderPdfComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -95,10 +98,6 @@ Route::get('/aboutus', AboutusComponent::class);
 Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress');
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
-
-Route::get('/order', OrderComponent::class);
-
-Route::get('/orderDetail', OrderDetailComponent::class);
 
 Route::get('/register_dealer', function () {
     return view('dealer.register');
@@ -126,6 +125,7 @@ Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponen
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
+Route::post('/check',[PaymentController::class,'check'])->name('check');
 
 Auth::routes();
 
@@ -140,6 +140,10 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
     Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
 
+    Route::get('/order', OrderComponent::class);
+    Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
+    Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
+    // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
     
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');

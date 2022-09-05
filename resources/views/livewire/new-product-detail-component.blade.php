@@ -25,14 +25,22 @@
         <img src="{{asset('/images/brands')}}/{{$NewProducts->brand->image}}">
     </div>
     @endforeach
-    <h1 class="h4">Product News 01/2021</h1>
+    <h1 class="h4">Product News</h1>
     <hr class="mt-2 pb-2 mb-3 d-none d-md-block">
     <div class="row justify-content-end">
         <div class="col-auto">
-            <select name="" id=""  class="" style="min-width:90px">
-                <option value="">01/2022</option>
-                <option value="">02/2021</option>
-                <option value="">03/2020</option>
+            {{-- <select name="" id=""  class="" style="min-width:90px" wire:model="month">
+                <option value="">ทั้งหมด</option>
+                <option value="01">มกราคม</option>
+                <option value="02">กุมภาพันธ์</option>
+                <option value="03">มีนาคม</option>
+            </select> --}}
+            <select name="" id=""  class="" style="min-width:90px" wire:model="year">
+                <option value="">{{date('Y', strtotime($NewProducts->created_at))}}</option>
+                {{-- <option value="default">ทั้งหมด</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option> --}}
             </select>
         </div>
     </div>
@@ -59,50 +67,6 @@
                     <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>{{date('d/m/Y', strtotime($NewProducts->created_at))}}</em></td>
                 </tr>
                 @endforeach
-                {{-- <tr>
-                    <td class="align-middle px-0 py-2" style="width: 10%"><a href=""><img src="images/CCTV.png" alt="" style="width: 100px" height="100px"></a></td>
-                    <td class="align-middle pl-3 py-3">
-                        <a href="">[ICA-M4580P] - With 5MP Resolutions, Super-clear Imaging is Guaranteed in Any Environment
-                            <div class="d-block d-md-none text-cust-gray">
-                                Date : <em>24/01/2022</em>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>24/01/2022</em></td>
-                </tr>
-                <tr>
-                    <td class="align-middle px-0 py-2" style="width: 10%"><a href=""><img src="images/CCTV.png" alt="" style="width: 100px" height="100px"></a></td>
-                    <td class="align-middle pl-3 py-3">
-                        <a href="">[ICA-M4580P] - With 5MP Resolutions, Super-clear Imaging is Guaranteed in Any Environment
-                            <div class="d-block d-md-none text-cust-gray">
-                                Date : <em>24/01/2022</em>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>24/01/2022</em></td>
-                </tr>
-                <tr>
-                    <td class="align-middle px-0 py-2" style="width: 10%"><a href=""><img src="images/CCTV.png" alt="" style="width: 100px" height="100px"></a></td>
-                    <td class="align-middle pl-3 py-3">
-                        <a href="">[ICA-M4580P] - With 5MP Resolutions, Super-clear Imaging is Guaranteed in Any Environment
-                            <div class="d-block d-md-none text-cust-gray">
-                                Date : <em>24/01/2022</em>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>24/01/2022</em></td>
-                </tr>
-                <tr>
-                    <td class="align-middle px-0 py-2" style="width: 10%"><a href=""><img src="images/CCTV.png" alt="" style="width: 100px" height="100px"></a></td>
-                    <td class="align-middle pl-3 py-3">
-                        <a href="">[ICA-M4580P] - With 5MP Resolutions, Super-clear Imaging is Guaranteed in Any Environment
-                            <div class="d-block d-md-none text-cust-gray">
-                                Date : <em>24/01/2022</em>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>24/01/2022</em></td> --}}
-                </tr>
             </tbody>
         </table>
     </div>
