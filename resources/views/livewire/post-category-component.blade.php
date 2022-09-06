@@ -3,7 +3,6 @@
 <link href="/css/blog.css" rel="stylesheet">
 <!-- link -->
 
-
 <div class="menu-activity">
     <div class="mac-left">
         <a href="/post_category/บทความ"><i class="bi bi-file-text"></i></a>
