@@ -26,6 +26,10 @@
 .step h2{
 	text-align: center;
 }
+.step h4{
+	text-align: center;
+	color: red;
+}
 
 .decription-project{
 	background: #EEEEEE;
