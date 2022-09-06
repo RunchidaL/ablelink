@@ -5,16 +5,18 @@
 @endsection
 
 @section('content2')
-    <div class="head">
-        <a href="/"><img src="/images/logoAbleLink.png" alt="logo"></a>
-        <a>| Create a dealer account</a>
+<div class="h-screen">
+    <div class="sc">
+        <div class="header">
+            <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
+            <span class="topic_name">| Create a dealer account</span>
+        </div>
     </div>
-
-    <div class="container mt-1 p-5">
-        <h4>ข้อมูลส่วนตัว</h4>
-        <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data">
+    <div class="container d-flex justify-content-center">
+        <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <div class="row">
+                <h4>ข้อมูลส่วนตัว</h4>  
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
                         <label for="name">*ชื่อจริง</label>
@@ -90,32 +92,35 @@
                     </div>
                 </div>
                 <h4>แนบเอกสาร</h4>
-                    <div class="col-md-6 mb-3">
-                        <label for="file1">*หนังสือรับรอง/ทะเบียนการค้า</label>
-                        <input type="file" name="file1" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="file2">*บัตรประชาชน</label>
-                        <input type="file" name="file2" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="file3">*ภ.พ.01 หรือ ภ.พ.20</label>
-                        <input type="file" name="file3" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="file4">งบการเงิน</label>
-                        <input type="file" name="file4" class="form-control">
-                    </div>     
-                <input type="submit" value="Submit" class="btn btn mx-auto" style="margin-top: 30px;">
+                <div class="col-md-6 mb-3">
+                    <label for="file1">*หนังสือรับรอง/ทะเบียนการค้า</label>
+                    <input type="file" name="file1" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="file2">*บัตรประชาชน</label>
+                    <input type="file" name="file2" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="file3">*ภ.พ.01 หรือ ภ.พ.20</label>
+                    <input type="file" name="file3" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="file4">งบการเงิน</label>
+                    <input type="file" name="file4" class="form-control">
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn">Submit</button>
+                </div>        
             </div>
         </form>
     </div>
-    <div class="signin" style="margin-top:-40px">
-        <p>Already have an account?<a href="{{ route('login') }}"> Sign In</a></p>
+    <div class="choice">
+        <p>Already have an account?&nbsp<a href="{{ route('login') }}"><span>Sign In</span></a></p>
         <p><i class="bi bi-dash"></i>or create an user?<i class="bi bi-dash"></i></p>
         <a href="{{ route('register') }}"><button>User account</button></a>
     </div>
-    
+</div>   
+
 
 @endsection
 

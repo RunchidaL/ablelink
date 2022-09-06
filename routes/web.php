@@ -123,7 +123,6 @@ Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponen
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
-
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -183,5 +182,4 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
     Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
-
 });

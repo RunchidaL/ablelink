@@ -160,9 +160,9 @@ body{
     left: 0;
     bottom: 0;
     transform: scale(0,1);
-    /* transform-origin: 0% 100%; */
-    transition: transform 0.3s linear
+    transition: transform 0.3s linear;
 }
+
 .menu-list a .menu-link-item:hover span::after {
     transform: scaleY(1);
     transition: transform 0.1s ease;
@@ -244,27 +244,29 @@ body{
     align-items: center;
 }
 
-.nav-right .searchbox{
+.searchbox-wrap .searchbox{
     z-index: 50;
 }
 
-.nav-right .searchbox input{
+.searchbox-wrap .searchbox input{
     height: 20px;
     align-items: center;
     border-radius: 40px;
     padding: 1rem 2.5rem 1rem 1rem;
-    box-shadow:  0px 0px 7px 3px rgba(0,0,0,0.2);
+    box-shadow:  0px 0px 7px 3px #00000033;
+    -webkit-appearance: none;
     background-color: #fff;
-    margin: 0 1rem;
+    margin: 0 1rem 0 1rem;
     outline: none;
     border: none;
 }
 
-.nav-right .searchbox button{
+.searchbox-wrap .searchbox button{
     position: absolute;
     border: 0;
     transform: translate(-300%, 20%);
     background-color: white;
+    color: black;
 }
 
 .nav-right .icon{
@@ -487,17 +489,18 @@ footer *{
 }
 
 @media (min-width: 1370px) and (max-width: 1536px){
-    .nav-wrap.container {
+    .nav-wrap.container{
         max-width: 1400px !important;
     }
 }
 
 @media (min-width: 576px ) and ( max-width: 768px){
-    .nav-wrap.container {
+    .nav-wrap.container{
         max-width: none !important;
     }
 }
 
+/* phone-navbar */
 .navDropWrap{
     width: 100%;
     background: #CECECE;
@@ -534,6 +537,7 @@ footer *{
 .icon-cart-phone{
     border: none;
     background: none;
+    color: black;
 }
 
 .name-phone{

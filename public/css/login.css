@@ -5,46 +5,69 @@
 
 body{
     font-family: 'Prompt', sans-serif;
+    font-size: calc(0.5em + 1vmin);
+}
+
+.h-screen{
+    height: 100vh;
+    display: flex;
+    padding: 0 2% 0% 2%;
+}
+
+.h-screen .left .head{
+    margin: 2% 0 3% 0;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.left, .right{
+    width: 50%;
+}
+
+.left .head{
+    margin: 2% 0 5% 0;
+    text-align: start;
 }
 
 .left .head img{
-    width: 200px;
-    height: 60.9px;
+    width: min(50vw, 200px);
 }
 
-.con {
-    /* height: calc( 98% - 60.9px );
+.alert-wrap{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; */
-    margin-top: 50px;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-.col-md-6 input{
+.alert-wrap .alert{
+    width: 80%;
+}
+
+form{
+    width: 60%;
+}
+
+.form-group input{
+    align-self: center;
     border-radius: 30px;
     margin-bottom: 10px;
 }
 
-.h-screen {
-    height: 100vh;
-    display: flex;
-}
-.left ,.right{
-    width: 50%;
-}
-.left {
-    display: flex;
-    justify-content: end;
-    padding: 2%;
-}
-.left-con {
-    width: 100%;
-    max-width: 800px;
+.form-group label{
+    margin-bottom: 10px;
 }
 
-.row a{
-    text-decoration: none;
-    color: black;
+a[forgotPass]{
+    margin-left: 1.2rem;
+    position: relative;
+}
+
+.button{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
 }
 
 .btn{
@@ -54,26 +77,27 @@ body{
     color: white;
     border-radius: 30px;
 }
-.btn:hover {
+
+.btn:hover{
     color: #194276;
     border-color: #194276;
 }
 
-.bottom a{
-    color: #0930FF;
-}
-
-.bottom p{
+.choice{
     text-align: center;
 }
 
-a[forgotPass]:hover{
-    text-decoration: underline;
+.choice p{
+    padding: 5px 0;
 }
-.underline a{
+
+.choice a{
+    text-decoration: none;
+    color: #0930FF;
     position: relative;
 }
-.underline a span::after {
+
+.choice span::after, a[forgotPass]::after{
     position: absolute;
     content: '';
     height: 0.1rem;
@@ -85,30 +109,131 @@ a[forgotPass]:hover{
     transform-origin: 0% 100%;
 }
 
-.underline a span:hover::after {
+.choice a span:hover::after, a[forgotPass]:hover::after{
     transform: scaleX(1);
     transition: transform 0.2s ease-in;
 }
 
-
-.con form .mb-3 {
-    display: flex;
-}
-
-.con form .mb-3 .col-md-6{
-    margin-left: 1.2rem;
-}
-
-.bottom {
-    margin-top: 1.5rem;
-}
-
-.right {
+.right{
     max-height: 100vh;
 }
 
-.right img {
+.right img{
     height: 100vh;
     width: 50vw;
     object-fit: cover;
 }
+
+/* responsive */
+@media screen and (max-width: 992px){
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .button{
+        justify-content: center;
+    }
+    a[forgotPass]{
+        margin: 0;
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.sc{
+    width: 100%;
+    display: flex;
+}
+
+.sc .header{
+    display: flex;
+    align-items: center;
+    max-height: 70px;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.sc .header a img{
+    height: 70px;
+    margin-right: 10px;
+}
+
+.sc .header .topic_name{
+    white-space: nowrap;
+    font-size:2rem;
+}
+
+@media screen and (min-width: 1090px){
+    .sc .header{
+        width: 100%;
+        padding-right: 40%;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 1931px){
+    .sc .header .topic_name{
+        font-size: calc(1.375rem + 1vw);
+    }
+}
+
+@media screen and (max-width: 620px){
+    .sc .header{
+        max-height: 50px;
+    }
+    .sc .header a img{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width:560px){
+    .sc .header{
+        max-height: 40px;
+    }
+    .sc .header a img{
+        height: 40px;
+    }
+    .sc .header .topic_name{
+        font-size: calc(1.3rem + 0.6vw);
+    }
+}
+
+@media screen and (max-width: 470px){
+    .sc .header .topic_name {
+        font-size: calc(1rem + 0.5vw);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sc .header{
+        max-height: 35px;
+    }
+    .sc .header a img{
+        height: 35px;
+    } 
+    .sc .header{  
+        margin-top: 5px;
+    }
+    .sc .header .topic_name{
+        font-size: calc( 0.8rem + 0.5vw);
+    }
+}
+
+@media screen and (max-width: 345px){
+    .sc .header{  
+        margin-top: 5px;
+    }
+    .sc .header .topic_name{
+        font-size: calc( 0.7rem + 0.5vw);
+    }
+}
+
+
+
+
+

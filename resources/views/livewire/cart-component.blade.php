@@ -97,8 +97,10 @@
             <button class="button-paid" wire:click="check">ชำระสินค้า</button>
         </div>
         @else
-        <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
-            ไม่มีสินค้าในตะกร้า
+        <div class="alert-wrap">
+            <div class="alert alert-danger" style="font-size: 1.2rem;" role="alert">
+                ไม่มีสินค้าในตะกร้า
+            </div>
         </div>
         @endif
     </div>

@@ -163,85 +163,88 @@
         </div>
 
         <div class="tab-contents">
-            <h4>Overview</h4>
-            <p id="">{!! $model->overview !!}</p>
+            <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->overview !!}</div>
         </div>
 
         <div class="tab-contents">
             <div class="line" id="application"></div>
-            <h4>Application</h4>
-            <p>{!! $model->application !!}</p>
+            <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->application !!}</div>
         </div>
 
         <div class="tab-contents">
             <div class="line" id="network_connectivity"></div>
-            <h4>Network Connectivity</h4>
-            <div class="menu-wrap">
-                <ul class="menu-list" id="menu-list">
-                    @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                        <li class="menu">{{$network_product->image_id->type->name}}</li>
-                    @endforeach
-                </ul>
-            </div> 
-            
-            <div class="content"> 
-                <div class="wrapper">
-                @foreach($network_images as $network_image)
-                    @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                        @if($network_image->id == $network_product->network_image_id)
-                        <div id="item{{$loop->index}}" class="item">
-                            <img src="{{asset('/images/products')}}/{{$network_image->image}}">
-                            <div class="tag-list">
-                                @foreach($network_products->where('model_id',$model->id) as $network_product)
-                                    @if($network_image->id == $network_product->network_image_id)
-                                        <div class="tag-item">
-                                            <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                            <div>
-                                                <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
-                                                @guest
-                                                    @if(($model->web_price) == '0') 
-                                                    <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
-                                                    @endif
-                                                @else
-                                                    @if(Auth::user()->role == 1)
-                                                        @if(($model->web_price) == '0')
+            <h4 class="me"><span>Network Connectivity</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>
+                <div class="menu-wrap">
+                    <ul class="menu-list" id="menu-list">
+                        @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
+                            <li class="menu">{{$network_product->image_id->type->name}}</li>
+                        @endforeach
+                    </ul>
+                </div> 
+                
+                <div class="content"> 
+                    <div class="wrapper">
+                    @foreach($network_images as $network_image)
+                        @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
+                            @if($network_image->id == $network_product->network_image_id)
+                            <div id="item{{$loop->index}}" class="item">
+                                <img src="{{asset('/images/products')}}/{{$network_image->image}}">
+                                <div class="tag-list">
+                                    @foreach($network_products->where('model_id',$model->id) as $network_product)
+                                        @if($network_image->id == $network_product->network_image_id)
+                                            <div class="tag-item">
+                                                <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                                <div>
+                                                    <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
+                                                    @guest
+                                                        @if(($model->web_price) == '0') 
                                                         <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
                                                         @endif
-                                                    @elseif(Auth::user()->role == 2)
-                                                    <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                    @elseif(Auth::user()->role == 3)
-                                                    <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                    @endif
-                                                @endguest
+                                                    @else
+                                                        @if(Auth::user()->role == 1)
+                                                            @if(($model->web_price) == '0')
+                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                            @endif
+                                                        @elseif(Auth::user()->role == 2)
+                                                        <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                        @elseif(Auth::user()->role == 3)
+                                                        <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                        @endif
+                                                    @endguest
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                        @endif
+                            @endif
+                        @endforeach
                     @endforeach
-                @endforeach
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="tab-contents">
             <div class="line" id="item-spotlight"></div>
-            <h4>Item Spotlight</h4>
-            <p>{!! $model->item_spotlight !!}</p>
+            <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            
+            <div>{!! $model->item_spotlight !!}</div>
         </div>
 
-        <div class="tab-contents" >
+        <div class="tab-contents">
             <div class="line" id="feature"></div>
-            <h4>Feature</h4>
-            <p>{!! $model->feature !!}</p>
+            <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->feature !!}</div>
         </div>
-        @if(($model->videos) == "")
-        @else
+            @if(($model->videos) == "")
+            @else
             <div class="tab-contents">
                 <div class="line" id="videos"></div>
-                <h4>Videos</h4>
+                <h4 class="me"><span>Videos</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
                 <div class="video">
                     @php
                         $videos = explode(",",$model->videos);
@@ -253,45 +256,40 @@
                             </div>
                         </div>
                     @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
 
         <div class="tab-contents" id="resources">
             <div class="line" id="feature"></div>
-            <h4>Resources</h4>
-            <br>
+            <h4>Resources</h4><br>
             <div class="download">
                 @if(($model->datasheet) == "")
                 @else
-                <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->datasheet}}"><i class="bi bi-file-earmark-pdf"></i> Datasheet</a>
-                </div>
+                
+                    <a href="{{asset('/images/products')}}/{{$model->datasheet}}"><div class="file-detail"><i class="bi bi-file-earmark-pdf"></i> Datasheet</div></a>
                 @endif
                 @if(($model->firmware) == "")
                 @else
-                <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->firmware}}"><i class="bi bi-motherboard"></i> Firm ware</a>
-                </div>
+                
+                    <a href="{{asset('/images/products')}}/{{$model->firmware}}"><div class="file-detail"><i class="bi bi-motherboard"></i> Firm ware</div></a>
                 @endif
                 @if(($model->guide) == "")
                 @else
-                <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->guide}}"><i class="bi bi-filetype-pdf"></i> Guide</a>
-                </div>
+                
+                    <a href="{{asset('/images/products')}}/{{$model->guide}}"><div class="file-detail"><i class="bi bi-filetype-pdf"></i> Guide</div></a>
                 @endif
                 @if(($model->cert) == "")
                 @else
-                <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->cert}}"><i class="bi bi-file-check"></i> Certificate</a>
-                </div>
+
+                    <a href="{{asset('/images/products')}}/{{$model->cert}}"><div class="file-detail"><i class="bi bi-file-check"></i> Certificate</div></a>
                 @endif
                 @if(($model->config) == "")
                 @else
-                <div class="file-detail">
-                    <a href="{{asset('/images/products')}}/{{$model->config}}"><i class="bi bi-file-earmark-arrow-up"></i> Config</a>
-                </div>
+                
+                    <a href="{{asset('/images/products')}}/{{$model->config}}"><div class="file-detail"><i class="bi bi-file-earmark-arrow-up"></i> Config</div></a>
+                
                 @endif
             </div>
         </div>
@@ -334,15 +332,28 @@ for (let i = 0; i < menu.length; i++) {
         swiper: swiper,
         },
     });
+    let meArrow = document.querySelectorAll("h4 .arw");
+    let h4 = document.querySelectorAll("h4.me");
+    for (let i = 0; i < h4.length; i++) {
+        h4[i].addEventListener("click", (e)=>{
+        let arrowParent = e.target.parentElement;//selecting main parent of arrow
+        arrowParent.classList.toggle("tog");
+        for(let l = 0 ; l < meArrow.length; l++){
+            if(l!=i){
+                h4[l].parentElement.classList.remove("tog");
+            }
+        }
+        });
+    }
 </script>
 
 <style>
-.swiper {
+.swiper{
     width: 100%;
     height: 100%;
 }
 
-.swiper-slide {
+.swiper-slid {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -361,59 +372,60 @@ for (let i = 0; i < menu.length; i++) {
     align-items: center;
 }
 
-.swiper-slide img {
+.swiper-slide img{
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.swiper {
+.swiper{
     width: 70%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.swiper-slide {
+.swiper-slide{
     background-size: cover;
     background-position: center;
 }
 
-.mySwiper2 {
+.mySwiper2{
     height: 80%;
     width: 100%;
 }
 
-.mySwiper {
+.mySwiper{
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
 }
 
-.mySwiper .swiper-slide {
+.mySwiper .swiper-slide{
     width: 25%;
     height: 100%;
     opacity: 0.3;
 }
 
-.mySwiper .swiper-slide-thumb-active {
+.mySwiper .swiper-slide-thumb-active{
     opacity: 1;
 }
 
 .swiper-slide img {
     display: block;
     width: 30em;
+    margin: 0 calc(50% - 15em);
     height: 30em;
     object-fit: cover;
 }
 
-.swiper.mySwiper .swiper-wrapper .swiper-slide img {
+.swiper.mySwiper .swiper-wrapper .swiper-slide img{
     display: block;
     width: 5em;
     height: 5em;
     object-fit: cover;
-    }
+}
 
 .swiper-button-next,.swiper-button-prev{
     color: gray;
@@ -428,23 +440,22 @@ for (let i = 0; i < menu.length; i++) {
     color: black;
 }
 
-
 @media(max-width: 520px){
-    .swiper.mySwiper .swiper-wrapper .swiper-slide img {
+    .swiper.mySwiper .swiper-wrapper .swiper-slide img{
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    .swiper {
+    .swiper{
         width: 100%;
     }
-    .swiper-slide img {
+    /* .swiper-slide img{
         display: block;
-        width: 80%;
-        height: 100%;
+        /* width: 80%;
+        height: 100%; 
         object-fit: cover;
-    }
+    } */
     .swiper-button-prev.swiper-navBtn{
         left: 0;
     }
@@ -452,3 +463,12 @@ for (let i = 0; i < menu.length; i++) {
         right: 0;
     }
 }
+
+@media(max-width: 480px) {
+    .swiper-slide img {
+    width: 20em;
+    margin: 0 calc(50% - 10em);
+    height: 20em;
+    }
+}
+</style>

@@ -5,36 +5,39 @@
 @endsection
 
 @section('content2')
-
 <div class="h-screen">
     <div class="left">
-        <div class="left-con">
-            <div class="head">
-                <a href="/"><img src="/images/logoAbleLink.png" alt="logo"></a>
-                <a>| Sign In</a>
-            </div>
-            <div class="con">
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    @if ($message = Session::get('error'))
-                        <div class="alert alert-danger alert-block">
+        <div class="sc">
+        <div class="header">
+            <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
+            <span class="topic_name">| Sign In</span>
+        </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                @if ($message = Session::get('error'))
+                    <div class="alert-wrap">
+                        <div class="alert alert-danger">
                             <strong>{{$message}}</strong>
                         </div>
-                    @endif
-                    <div class="mb-3">
-                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-                        <div class="col-md-6">
+                    </div>
+                @endif
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="form-group">
+                            <label for="email">{{ __('Email Address') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> 
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-                        <div class="col-md-6">
+                    <div class="col-12 mb-3">
+                        <div class="form-group">
+                            <label for="password">{{ __('Password') }}</label>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -46,19 +49,17 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
-                            <div class="bottom">
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="submit" class="btn justify-content-md-end">{{ __('Login') }}</button> 
-                                </div>
-                                <br>
-                                <p class="underline">New Customer?&nbsp<a href="{{ route('register') }}"><span>Create an account</span></a></p>
-                            </div>
-                        </div> 
+                        </div>
                     </div>
-                </form> 
-            </div>
+                    <div class="button">
+                        <button type="submit" class="btn">{{ __('Login') }}</button> 
+                    </div>
+                </div>
+            </form> 
         </div>
-        
+        <div class="choice">
+            <p>New Customer?&nbsp<a href="{{ route('register') }}"><span>Create an account</span></a></p>
+        </div>
     </div> 
     <div class="right">
         <img  src="/images/signin.png">

@@ -36,7 +36,7 @@ class ShopComponent extends Component
         $this->model_id = $id;
         
         $model = ProductModels::where('id',$this->model_id)->first();
-        if($model->product->subCategories->name == "Cabling")
+        if($model->product->subcategory_id == "7")
         {
             $this->validate([
                 'attribute' => 'required'
