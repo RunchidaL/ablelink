@@ -29,18 +29,16 @@
     <hr class="mt-2 pb-2 mb-3 d-none d-md-block">
     <div class="row justify-content-end">
         <div class="col-auto">
-            {{-- <select name="" id=""  class="" style="min-width:90px" wire:model="month">
+            <!-- <select name="" id=""  class="" style="min-width:90px" wire:model="month">
                 <option value="">ทั้งหมด</option>
                 <option value="01">มกราคม</option>
                 <option value="02">กุมภาพันธ์</option>
                 <option value="03">มีนาคม</option>
-            </select> --}}
-            <select name="" id=""  class="" style="min-width:90px" wire:model="year">
-                <option value="">{{date('Y', strtotime($NewProducts->created_at))}}</option>
-                {{-- <option value="default">ทั้งหมด</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option> --}}
+            </select> -->
+            <select name="" id=""  class="" style="min-width:90px">
+                @foreach($years as $year)
+                <option value="">{{date('Y', strtotime($year->created_at))}}</option>
+                @endforeach
             </select>
         </div>
     </div>

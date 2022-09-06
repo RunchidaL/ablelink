@@ -26,7 +26,7 @@ class NewProductDetailComponent extends Component
         
         $brand = Brand::where('name',$this->name)->first();
         $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
-        
-        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct])->layout("layout.navfoot");
+        $years = NewProduct::whereYear('created_at', '=', '2020')->get();
+        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'years'=>$years])->layout("layout.navfoot");
     }
 }

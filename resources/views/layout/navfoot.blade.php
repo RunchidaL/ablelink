@@ -37,12 +37,7 @@
         </div>
 
         <div class="nav-right">
-            <div class="searchbox-wrap">
-                <form action="" class="searchbox">
-                    <input type="text" placeholder="Search">
-                    <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-            </div>     
+            @livewire('search-component')
             <div class="cart">
                 @guest
                 <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>

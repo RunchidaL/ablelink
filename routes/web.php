@@ -76,6 +76,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderPdfController;
 use App\Http\Livewire\OrderPdfComponent;
+use App\Http\Livewire\SearchProductsComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -126,6 +127,8 @@ Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponen
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
 Route::post('/check',[PaymentController::class,'check'])->name('check');
+
+Route::get('/search',SearchProductsComponent::class)->name('search');
 
 Auth::routes();
 
