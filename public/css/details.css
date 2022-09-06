@@ -285,61 +285,105 @@
     flex-wrap: wrap;
 }
 
-.file-detail{
-    display: -webkit-box;
-    margin: 2% 1% 5% 0;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{  
+    opacity: 1;
+}
+
+.me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.me i.arw{
+    cursor: pointer;
+    /* transition: all 0.2s ease; */
+    /* transform: rotate(90deg); */
+}
+
+.me.tog i.arw{
+    transform: rotate(-180deg);
+}
+
+.me + div {
+    display: none;
+}
+
+.me.tog + div {
+    display: block;
 }
 
 .download{
-    display: -webkit-box;
-    flex-wrap: wrap;
-    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
 }
 
 .download a{
     background-color: #F1F1F1;
+    margin: 0.2rem;
     padding: 1em 2em 1em 2em;
     white-space: nowrap;
-    width: fit-content;
 }
 
 .download a:hover{
     background-color: #ffffff;
     color: #000000;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: #00000033 0px 12px 28px 0px, #0000001a 0px 2px 4px 0px, #ffffff0d 0px 0px 0px 1px inset;
 }
 
-.download a > i{
-    font-size: larger;
+.file-detail{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
-
-    opacity: 1;
-
+.file-detail i{
+    padding-right: 0.3rem;
 }
 
+/* responsive */
 @media screen and (max-width: 1400px) {
     #left-product{
         width: 100%;
-    }
-    
+    }  
     #right-product{
         width: 100%;
     }
-
     .relate-product .relate-box{
         margin: 3.5% 0;
     }
-
     .leftProduct{
         position: static;
     }
-
     .relate-product .relate-box{
         margin: 5% 0;
     }
+    .infomation .tab-contral{
+        display: none;
+    }
 }
 
+@media screen and (min-width: 1400px){
+    .me{
+        cursor: pointer;
+    }
+    .me span {
+        width:100%;
+    }
+    .me i.arw{
+        display: none;
+    }
+    .me + div{
+        display: block;
+    }
+    .download{
+        display: flex;
+        flex-direction: row;
+    }
+    .file-detail{
+        align-items: center;
+        justify-content: center;
+    }
+}
 

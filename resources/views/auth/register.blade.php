@@ -5,12 +5,14 @@
 @endsection
 
 @section('content2')
-    <div class="head">
-        <a href=""><img src="/images/logoAbleLink.png" alt="logo"></a>
-        <a>| Create an account</a>
+<div class="h-screen">
+    <div class="sc">
+        <div class="header">
+            <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
+            <span class="topic_name">| Create an account</span>
+        </div>
     </div>
-
-    <div class="container mt-1 p-2 d-flex justify-content-center">
+    <div class="container d-flex justify-content-center">
         <form method="POST" action="{{route('register')}}">
             @csrf
             <div class="row">
@@ -18,33 +20,33 @@
                     <div class="form-group">
                         <label for="name">{{ __('Name') }}</label>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-group">
                         <label for="password">{{ __('Password') }}</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12 mb-3">
@@ -53,17 +55,16 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>                  
-                <div class="d-grid gap-2 d-md-flex justify-content-center">
-                    <button type="submit" class="btn btn">
-                        Create an account
-                    </button>
+                <div class="button">
+                    <button type="submit" class="btn">Sign Up</button>
                 </div>
             </div>
         </form>
     </div>
-    <div class="signin">
-        <p>Already have an account?<a href="{{ route('login') }}"> Sign In</a></p>
+    <div class="choice">
+        <p>Already have an account?&nbsp<a href="{{ route('login') }}"><span>Sign In</span></a></p>
         <p><i class="bi bi-dash"></i>or create a dealer<i class="bi bi-dash"></i></p>
         <a href="/register_dealer"><button>Dealer account</button></a>
     </div>
+</div>    
 @endsection
