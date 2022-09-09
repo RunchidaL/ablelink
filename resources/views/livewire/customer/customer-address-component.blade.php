@@ -42,32 +42,32 @@
                         $i=0;
                     @endphp
                     @foreach ($customeraddress as $customeraddresses)
-                        @php
-                        $i++;
-                        @endphp
-                    @if($customeraddresses->customerid == $user->id)
-                    <div class="col-md-4 mb-5">
-                        <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
-                            <h3 style="display: flex; justify-content: space-between;">
-                                <div>
-                                    Address {{$i}}
-                                </div>
-                                <div>          
-                                    <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
-                                </div>
-                            </h3>
-                            <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
-                            <p>นามสกุล : {{$customeraddresses->lastname}}</p>
-                            <p>ที่อยู่ : {{$customeraddresses->address}}</p>
-                            <p>ตำบล : {{$customeraddresses->subdistrict}}</p>
-                            <p>อำเภอ : {{$customeraddresses->district}}</p>
-                            <p>จังหวัด : {{$customeraddresses->county}}</p>
-                            <p>รหัสไปรษณีย์ : {{$customeraddresses->zipcode}}</p>
-                            <p>Phonenumber : {{$customeraddresses->phonenumber}}</p>
+                        @if($customeraddresses->customerid == $user->id)
+                            @php
+                                $i++;
+                            @endphp
+                        <div class="col-md-4 mb-5">
+                            <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
+                                <h3 style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        Address {{$i}}
+                                    </div>
+                                    <div>          
+                                        <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                    </div>
+                                </h3>
+                                <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
+                                <p>นามสกุล : {{$customeraddresses->lastname}}</p>
+                                <p>ที่อยู่ : {{$customeraddresses->address}}</p>
+                                <p>ตำบล : {{$customeraddresses->subdistrict}}</p>
+                                <p>อำเภอ : {{$customeraddresses->district}}</p>
+                                <p>จังหวัด : {{$customeraddresses->county}}</p>
+                                <p>รหัสไปรษณีย์ : {{$customeraddresses->zipcode}}</p>
+                                <p>Phonenumber : {{$customeraddresses->phonenumber}}</p>
+                            </div>
                         </div>
-                    </div>
-                    @endif
+                        @endif
                     @endforeach
                 </div>
             </div>

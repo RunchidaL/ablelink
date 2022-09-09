@@ -15,9 +15,10 @@ class NewProductDetailComponent extends Component
 
     
 
-    public function mount($name)
+    public function mount($name,$year=null)
     {
         $this->name = $name;
+        $this->year = $year;
     }
 
 
@@ -25,8 +26,14 @@ class NewProductDetailComponent extends Component
     {
         
         $brand = Brand::where('name',$this->name)->first();
-        $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
-        $years = NewProduct::whereYear('created_at', '=', '2020')->get();
-        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'years'=>$years])->layout("layout.navfoot");
+        if($this->year){
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->whereYear('created_at', '=', $this->year)->orderBy('created_at','DESC')->get();
+        }
+        else{
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
+        }
+
+        
+        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'brand'=>$brand])->layout("layout.navfoot");
     }
 }

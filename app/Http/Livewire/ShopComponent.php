@@ -51,21 +51,21 @@ class ShopComponent extends Component
         }
 
         //check before add
-        $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
-        foreach($cartitems as $item)
-        {
-            if($item->product_id == $id)
-            {
-                $item_cart = ShoppingCart::where('id',$item->id)->first();
-                $total = $item_cart->quantity + $this->qty;
-                if($total > $model->stock)
-                {
-                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
-                    return redirect('/shop');
-                }
-            }
+        // $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        // foreach($cartitems as $item)
+        // {
+        //     if($item->product_id == $id)
+        //     {
+        //         $item_cart = ShoppingCart::where('id',$item->id)->first();
+        //         $total = $item_cart->quantity + $this->qty;
+        //         if($total > $model->stock)
+        //         {
+        //             session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+        //             return redirect('/shop');
+        //         }
+        //     }
 
-        }
+        // }
 
         if(auth()->user())
         {
@@ -108,29 +108,29 @@ class ShopComponent extends Component
                         return redirect('/shop');
                     }
                     //มีปัญหา
-                    if($item->product_id != $id)
-                    {
-                        if($this->attribute)
-                        {
-                            $data = [
-                            'user_id' => auth()->user()->id,
-                            'product_id' => $id,
-                            'quantity' => $this->qty,
-                            'attribute' => $this->attribute,
-                            ];
-                        }
-                        else
-                        {
-                        $data = [
-                            'user_id' => auth()->user()->id,
-                            'product_id' => $id,
-                            'quantity' => $this->qty,
-                        ];
-                        }
-                        ShoppingCart::updateOrCreate($data);
-                        return redirect('/shop');
-                        session()->flash('success_message','Item added in Cart');
-                    }                    
+                    // else
+                    // {
+                    //     if($this->attribute)
+                    //     {
+                    //         $data = [
+                    //         'user_id' => auth()->user()->id,
+                    //         'product_id' => $id,
+                    //         'quantity' => $this->qty,
+                    //         'attribute' => $this->attribute,
+                    //         ];
+                    //     }
+                    //     else
+                    //     {
+                    //     $data = [
+                    //         'user_id' => auth()->user()->id,
+                    //         'product_id' => $id,
+                    //         'quantity' => $this->qty,
+                    //     ];
+                    //     }
+                    //     ShoppingCart::updateOrCreate($data);
+                    //     return redirect('/shop');
+                    //     session()->flash('success_message','Item added in Cart');
+                    // }                    
                 }
             }
 

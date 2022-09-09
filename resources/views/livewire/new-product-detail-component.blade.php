@@ -1,6 +1,6 @@
-<!-- link -->
+<!-- 
 <link href="/css/activity.css" rel="stylesheet">
-<!-- link -->
+
 
 <div class="menu-activity">
     <div class="mac-left">
@@ -15,9 +15,9 @@
         <a href="/post_category/องค์กร"><i class="bi bi-building"></i></a>
         <p class="text-icon">องค์กร</p>
     </div>
-</div>
+</div> -->
 
-<h1 style="text-align: center; margin-bottom: 1%; background: #194276; color: white; padding: 1% 0;">ผลิตภัณฑ์ใหม่</h1>
+<!-- <h1 style="text-align: center; margin-bottom: 1%; background: #194276; color: white; padding: 1% 0;">ผลิตภัณฑ์ใหม่</h1> -->
 
 <div class="container-fluid">
     @foreach($NewProduct->unique('brand_id') as $NewProducts)
@@ -35,11 +35,13 @@
                 <option value="02">กุมภาพันธ์</option>
                 <option value="03">มีนาคม</option>
             </select> -->
-            <select name="" id=""  class="" style="min-width:90px">
-                @foreach($years as $year)
-                <option value="">{{date('Y', strtotime($year->created_at))}}</option>
-                @endforeach
-            </select>
+            <!-- <select name="year" id=""  class="" style="min-width:90px" onchange="window.location.href=this.value;">
+                <option value="{{route('newproducts.detail',['name'=>$brand->slug,'year'=>'2022'])}}">2022</option>
+                <option value="{{route('newproducts.detail',['name'=>$brand->slug,'year'=>'2021'])}}">2021</option>
+            </select> -->
+            <select name="year" id=""  class="" style="min-width:90px">
+                <!-- <option value="">All</option> -->
+            </select> 
         </div>
     </div>
     <div class="table-responsive mt-3">
