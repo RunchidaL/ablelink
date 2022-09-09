@@ -17,27 +17,30 @@
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="addNewProduct">
                             <div class="form-group">
                                 <label class="col-md-12">Name : </label>
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-2">
                                     <input type="text" class="form-control" wire:model="name"  required >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Image(link) : </label>
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-2">
                                     <input type="text" class="form-control" wire:model="img" required >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Product(link) : </label>
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-2">
                                     <input type="text" class="form-control" wire:model="linkproduct" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">BrandID : </label>
-                                <div class="col-md-12" >
-                                    <input type="text" class="form-control" wire:model="brand_id" required>
-                                </div>
+                                <select name="" id="" wire:model="brand_id" required>
+                                    <option value="">Select</option>
+                                    @foreach ($brand as $brands)
+                                    <option value="{{$brands->id}}">{{$brands->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">

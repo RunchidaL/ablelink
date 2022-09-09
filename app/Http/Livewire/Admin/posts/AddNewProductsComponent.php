@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Posts;
 
+use App\Models\Brand;
 use Livewire\Component;
 use App\Models\NewProduct;
 
@@ -26,6 +27,7 @@ class AddNewProductsComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.posts.add-new-products-component')->layout("layout.navfoot");
+        $brand = Brand::all();
+        return view('livewire.admin.posts.add-new-products-component',['brand'=> $brand])->layout("layout.navfoot");
     }
 }

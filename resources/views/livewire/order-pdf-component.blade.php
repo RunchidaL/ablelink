@@ -92,6 +92,19 @@
                 <td>$100</td>
             </tr>
 
+            <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                <td>$100</td>
+                <td>$100</td>
+                <td>$100</td>
+                <td>$100</td>
+                <td>$100</td>
+                <td>$100</td>
+            </tr>
+            
+            
+
             
 
             <tr>
@@ -114,7 +127,7 @@
             </tr>
         </table>
     
-   
+        <p style="page-break-before:always;"></p>
         <div class="left2">
             <p class="desc">
                 <strong style="text-decoration: underline">Sales Terms & Conditions</strong> <br>
@@ -250,12 +263,15 @@
     }
     .left3{
         float: left;
+        height: 150px;
     }
     .right3{
         float: right;
+        height: 150px;
     }
     .right4{
         float: right;
+        height: 150px;
     } 
     .blast{
         text-align: left;
@@ -265,3 +281,4 @@
     }
 
 </style>
+

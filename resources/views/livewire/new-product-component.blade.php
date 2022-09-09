@@ -28,18 +28,18 @@
                 <div class="photo">
                     <img src="{{asset('/images/brands')}}/{{$NewProducts->brand->image}}" style="width: 250px; height: 130px;">
                 </div>
-                @foreach ($NewProduct->where('brand_id',$NewProducts->brand_id) as $NewProducts)
                 <div class="card-body">
-                    <a href="{{$NewProducts->linkproduct}}">
-                    <div class="name-np">
-                        <img src="{{$NewProducts->img}}">
-                    </div>
-                    <div class="name-np">
-                        <p>{{$NewProducts->name}}</p>
-                    </div>
-                    </a>
+                    @foreach ($NewProduct->where('brand_id',$NewProducts->brand_id) as $NewProducts)
+                    <table class="table">
+                                <td class="align-middle px-0 py-2" style="width: 30%">
+                                    <a href="{{$NewProducts->linkproduct}}"><img style="width: 80%" src="{{$NewProducts->img}}"></a>
+                                </td>
+                                <td class="align-middle pl-3 py-3">
+                                    <a href="{{$NewProducts->linkproduct}}"><p>{{$NewProducts->name}}</p></a>
+                                </td>
+                    </table>
+                    @endforeach
                 </div>
-                @endforeach
                 <div class="card-footer">
                     <a href="{{route('newproducts.detail',['name'=>$NewProducts->brand->name])}}"><button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button></a>
                 </div>
@@ -55,23 +55,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 90%;
-    margin: 0 5%;
+    width: 95%;
+    margin: auto;
     }
-
+    .table td{
+        border-style: none;
+    }
     .NPP-col{
     position: relative;
-    width: 50%;
-    margin: 1% 0%;
+    width: 31%;
+    margin: 2% 0%;
     }
-
     .NPP-col .card{
     height: 100%;
     border-radius: 20px;
     box-shadow: 0 3px 7px rgb(153, 153, 153);
     background: #f8f8f8;
     }
-
     .photo{
     margin: 5% 0;
     }
@@ -79,33 +79,17 @@
     display: block;
     margin: auto;
     }
-    
-
     .card-wrapper{
     height: 100%;
     }
-
     .card-body{
         display: block;
         align-items: center;
         flex-wrap: wrap;
         background: white;
         margin: 1% 5%;
+        height: 450px;
     }
-
-    .name-np{
-        max-width: 100%;
-        height: 80px;
-        margin: 2% 2%;
-        text-align: center;
-    }
-
-    .name-np img{
-        width: 80px;
-        display: block;
-        margin: auto;
-    }
-
     .card-body .empty{
     visibility:hidden;
     }
@@ -193,26 +177,45 @@
     }
 
     /* resonsive */
-    @media(max-width: 820px){
+    @media(max-width: 1400px){
+    #products{
+        width: 90%;
+    }
     .NPP-col {
-        width: 100%;
+        width: 45%;
         margin: 3% 0;
     }
     .card-body{
-        display: block;
-        align-items: center;
-        flex-wrap: wrap;
-        background: white;
-        margin: 1% 5%;
+        height: 450px;
+    }
+    }
+
+    @media(max-width: 1200px){
+    #products{
+        width: 95%;
+    }
+    .NPP-col {
+        width: 47.5%;
+        margin: 3% 0;
+    }
+    .card-body{
+        height: 500px;
+    }
+    }
+    
+    @media(max-width: 820px){
+    #products{
+        width: 95%;
+    }
+    .NPP-col {
+        width: 95%;
+        margin: 3% 0;
+    }
+    .card-body{
+        height: auto;
     }
     .NPP-col img{
         width: 90%;
-    }
-    .name-np img{
-        width: 100px;
-    }
-    .name-np{
-        height: 100px;
     }
     }
 
