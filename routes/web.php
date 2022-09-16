@@ -110,7 +110,7 @@ Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->n
 
 Route::get('/newproducts',NewProductComponent::class)->name('newproducts');
 
-Route::get('/newproductsdetail/{name}',NewProductDetailComponent::class)->name('newproducts.detail');
+Route::get('/newproductsdetail/{name}/{year?}',NewProductDetailComponent::class)->name('newproducts.detail');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 

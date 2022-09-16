@@ -32,8 +32,8 @@ class CustomerAddAddressComponent extends Component
         $useraddress->zipcode = $this->zipcode;
         $useraddress->phonenumber = $this->phonenumber;
         $useraddress->save();
-
         session()->flash('message','Address has been updated successfully!');
+        
     }
 
     public function render()

@@ -19,7 +19,7 @@
                         <td></td>
                         <td style="width: 10%;">ราคา</td>
                         <td style="width: 8%;">จำนวน</td>
-                        <td style="width: 10%;" >รวม</td>
+                        <td style="width: 10%;">รวม</td>
                         <td></td>
                     </tr>
                 </thead>
@@ -35,14 +35,14 @@
                                 @if($item->model->stock == 0)
                                 <p>สินค้าหมด</p>
                                 @elseif($item->quantity > $item->model->stock)
-                                <p>สินค้าใน stock เหลือ {{$item->model->stock}} ชิ้น</p>
+                                <p>สินค้าใน stock เหลือแค่ {{$item->model->stock}} ชิ้น</p>
                                 @endif
                             @else
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
                                 @if($item->model->stock == 0)
                                 <p>สินค้าหมด</p>
                                 @elseif($item->quantity * $item->attribute > $item->model->stock)
-                                <p>สินค้าใน stock เหลือ {{$item->model->stock}} m</p>
+                                <p>สินค้าใน stock เหลือแค่ {{$item->model->stock}} m</p>
                                 @endif
                             @endif
                         </td>

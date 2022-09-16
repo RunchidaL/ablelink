@@ -11,6 +11,7 @@ class CartComponent extends Component
     public $total = 0;
     public $subtotal = 0;
     public $count = 0;
+    public $items;
 
     public function increaseQuantity($id)
     {
@@ -56,12 +57,25 @@ class CartComponent extends Component
 
     public function check()
     {
+        
+        $items = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        $l = 0;
+        foreach($items as $i)
+        {
+            
+            if($i->attribute)
+            {
+                $l = $l + ($i->attribute * $i->quantity);
+            }
+        }
+
         $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+
         foreach($cartitems as $item)
         {
             if($item->attribute)
             {
-                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$item->quantity * $item->attribute)->exists())
+                if(!ProductModels::where('id',$item->product_id)->where('stock','>=',$l)->exists())
                 {
                     session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
                     return redirect()->route('product.cart');

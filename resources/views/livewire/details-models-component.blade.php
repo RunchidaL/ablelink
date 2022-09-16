@@ -1,4 +1,8 @@
 <div class="container">
+    @if(Session::has('message'))
+        <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+    @endif
+    @error('attribute') <div class="alert alert-danger" role="alert">กรุณาใส่ความยาว</div> @enderror
     <div class="row justify-content-center align-items-start" id="row-product">
         <div class="leftProduct" id="left-product">
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"class="swiper mySwiper2">
@@ -72,8 +76,19 @@
                     <input wire:model="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
-                </div> 
+                @if($model->stock == 0)
+                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
+                @endif
+                @guest
+                    @if($model->stock > 0)
+                        <a href="{{ route('login') }}"><button>Add To Cart</button></button></a>
+                    @endif
+                @else
+                    @if($model->stock > 0)
+                        <button wire:click="addToCart({{$model->id}})">Add To Cart</button>
+                    @endif
+                @endguest
+                </div>
             </div>
             @if(($model->product->subCategories->name) == "Cabling")
                 <div class="length">
@@ -344,12 +359,11 @@ for (let i = 0; i < menu.length; i++) {
 </script>
 
 <style>
-.swiper{
+.swiper {
     width: 100%;
     height: 100%;
 }
-
-.swiper-slid {
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -367,91 +381,73 @@ for (let i = 0; i < menu.length; i++) {
     -webkit-align-items: center;
     align-items: center;
 }
-
-.swiper-slide img{
+.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
-
-.swiper{
+.swiper {
     width: 70%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
 }
-
-.swiper-slide{
+.swiper-slide {
     background-size: cover;
     background-position: center;
 }
-
-.mySwiper2{
+.mySwiper2 {
     height: 80%;
     width: 100%;
 }
-
-.mySwiper{
+.mySwiper {
     height: 20%;
     box-sizing: border-box;
     padding: 10px 0;
 }
-
-.mySwiper .swiper-slide{
+.mySwiper .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.3;
 }
-
-.mySwiper .swiper-slide-thumb-active{
+.mySwiper .swiper-slide-thumb-active {
     opacity: 1;
 }
-
 .swiper-slide img {
     display: block;
     width: 30em;
-    margin: 0 calc(50% - 15em);
     height: 30em;
     object-fit: cover;
 }
-
-.swiper.mySwiper .swiper-wrapper .swiper-slide img{
+.swiper.mySwiper .swiper-wrapper .swiper-slide img {
     display: block;
     width: 5em;
     height: 5em;
     object-fit: cover;
-}
-
+    }
 .swiper-button-next,.swiper-button-prev{
     color: gray;
 }
-
 .swiper-navBtn{
     color: gray;
     transition: color 0.3s ease;
 }
-
 .swiper-navBtn:hover{
     color: black;
 }
 
-@media(max-width: 520px){
-    .swiper.mySwiper .swiper-wrapper .swiper-slide img{
-        display: block;
+@media(max-width: 767px){
+    .swiper {
         width: 100%;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 90%;
         height: 100%;
         object-fit: cover;
     }
-    .swiper{
-        width: 100%;
-    }
-    /* .swiper-slide img{
-        display: block;
-        /* width: 80%;
-        height: 100%; 
-        object-fit: cover;
-    } */
     .swiper-button-prev.swiper-navBtn{
         left: 0;
     }
@@ -459,12 +455,21 @@ for (let i = 0; i < menu.length; i++) {
         right: 0;
     }
 }
-
-@media(max-width: 480px) {
+@media(max-width: 520px){
+    .swiper.mySwiper .swiper-wrapper .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper {
+        width: 100%;
+    }
     .swiper-slide img {
-    width: 20em;
-    margin: 0 calc(50% - 10em);
-    height: 20em;
+        display: block;
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 </style>

@@ -1,12 +1,8 @@
-.address{
-    display: -webkit-box;
-    background: #f1f1f1; border-radius: 20px; padding: 5% 10%
-}
-input[type='radio'] {
-    accent-color: black;
-}
 .subaddress{
     margin-left: 5px;
+	background: #f1f1f1; 
+	border-radius: 20px; 
+	padding: 5% 10%;
 }
 .step{
 	margin-bottom: 50px;
@@ -21,7 +17,6 @@ input[type='radio'] {
 .content-bill{
 	display: flex;
 	flex-wrap: wrap;
-	
 }
 .apbill{
 	width: 47%;
@@ -360,4 +355,6 @@ input[type='radio'] {
 		width: 150px;
 	}
 }
+
+
 

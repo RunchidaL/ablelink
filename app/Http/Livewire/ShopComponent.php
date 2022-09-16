@@ -19,6 +19,7 @@ class ShopComponent extends Component
     public $count = 0;
 
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['addToCart'];
 
     public function mount()
     {
@@ -47,24 +48,30 @@ class ShopComponent extends Component
         if($this->qty > $model->stock || $this->attribute * $this->qty > $model->stock)
         {
             session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
-            return redirect('/shop');
+            return redirect(request()->header('Referer'));
         }
 
         //check before add
-        $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
-        foreach($cartitems as $item)
+        $c_item = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->where('product_id',$id)->first();
+        if($c_item)
         {
-            if($item->product_id == $id)
+            if(empty($c_item->attribute))
             {
-                $item_cart = ShoppingCart::where('id',$item->id)->first();
-                $total = $item_cart->quantity + $this->qty;
+                $total = $c_item->quantity + $this->qty;
                 if($total > $model->stock)
                 {
                     session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
-                    return redirect('/shop');
+                    return redirect(request()->header('Referer'));
                 }
             }
-
+            else{
+                $len = ($c_item->quantity * $c_item->attribute) +  ($this->qty *$this->attribute);
+                if($len > $model->stock)
+                    {
+                        session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                        return redirect(request()->header('Referer'));
+                    }
+            }
         }
 
         if(auth()->user())
@@ -73,73 +80,64 @@ class ShopComponent extends Component
             
             if($count == 0)
             {
-                if($this->attribute)
-                {
-                    $data = [
-                    'user_id' => auth()->user()->id,
-                    'product_id' => $id,
-                    'quantity' => $this->qty,
-                    'attribute' => $this->attribute,
-                    ];
-                }
-                else
-                {
-                $data = [
-                    'user_id' => auth()->user()->id,
-                    'product_id' => $id,
-                    'quantity' => $this->qty,
-                ];
-                }
-                ShoppingCart::updateOrCreate($data);
-                return redirect('/shop');
-
+                $this->create($id);
             }
             else
             {
-                $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
-                foreach($cartitems as $item)
+                $cartitem = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->where('product_id',$id)->first();
+                if($cartitem)
                 {
-                    
-                    if($item->product_id == $id)
+                    if($cartitem->attribute == null || $cartitem->attribute == $this->attribute)
                     {
-                        $item_cart = ShoppingCart::where('id',$item->id)->first();
-                        $item_cart->quantity = $item_cart->quantity + $this->qty;
-                        $item_cart->save();
-                        return redirect('/shop');
+                        $cartitem->quantity = $cartitem->quantity + $this->qty;
+                        $cartitem->save();
+                        return redirect(request()->header('Referer'));
                     }
-                    //มีปัญหา
-                    if($item->product_id != $id)
+                    else
                     {
-                        if($this->attribute)
-                        {
-                            $data = [
+                        $data = [
                             'user_id' => auth()->user()->id,
                             'product_id' => $id,
                             'quantity' => $this->qty,
                             'attribute' => $this->attribute,
                             ];
-                        }
-                        else
-                        {
-                        $data = [
-                            'user_id' => auth()->user()->id,
-                            'product_id' => $id,
-                            'quantity' => $this->qty,
-                        ];
-                        }
                         ShoppingCart::updateOrCreate($data);
-                        return redirect('/shop');
-                        session()->flash('success_message','Item added in Cart');
-                    }                    
+                        return redirect(request()->header('Referer'));
+                    }
+                }
+                else
+                {
+                    $this->create($id);
                 }
             }
-
-
         }
         else
         {
             return redirect(route('login'));
         }
+    }
+
+    public function create($id)
+    {
+        if($this->attribute)
+        {
+            $data = [
+            'user_id' => auth()->user()->id,
+            'product_id' => $id,
+            'quantity' => $this->qty,
+            'attribute' => $this->attribute,
+            ];
+        }
+        else
+        {
+        $data = [
+            'user_id' => auth()->user()->id,
+            'product_id' => $id,
+            'quantity' => $this->qty,
+        ];
+        }
+        ShoppingCart::updateOrCreate($data);
+        return redirect(request()->header('Referer'));
     }
 
     public function render()

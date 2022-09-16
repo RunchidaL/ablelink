@@ -22,11 +22,19 @@
                     <div class="col-md-6 text-end">
                         <address>
                             <strong>ผู้ซื้อสินค้า:</strong><br>
-                            {{$order->user->name}}<br>
-                            {{$dealer->phonenumber}}<br>
-                            {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
-                            เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
-                            {{$dealer->zipcode}}<br>
+                            @if(Auth::user()->role == 1)
+                                {{$customer->firstname}} {{$customer->lastname}}<br>
+                                {{$customer->phonenumber}}<br>
+                                {{$customer->address}} แขวง/ตำบล {{$customer->subdistrict}} <br>
+                                เขต/อำเภอ {{$customer->district}} {{$customer->county}} <br>
+                                {{$customer->zipcode}}<br>
+                            @elseif(Auth::user()->role == 2)
+                                {{$order->user->name}}<br>
+                                {{$dealer->phonenumber}}<br>
+                                {{$dealer->address}} แขวง/ตำบล {{$dealer->subdistrict}} <br>
+                                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
+                                {{$dealer->zipcode}}<br>
+                            @endif
                         </address>
                     </div>
                 </div>
@@ -83,7 +91,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>ยอดรวมทั้งหมด</td>
-                                <td>฿{{$order->total}}</td>
+                                <td>฿{{number_format($order->total,2)}}</td>
                             </tr>
                         </tfoot>
                     </table>

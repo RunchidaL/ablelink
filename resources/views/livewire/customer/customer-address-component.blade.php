@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row gutters">
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="account-settings">
@@ -20,10 +20,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-1">
             <div class="vl"></div>
         </div>
-        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-7">
             @if(Session::has('message'))
             <div class='alert alert-success' role='alert'>{{Session::get('message')}}</div>
             @endif
@@ -31,10 +31,10 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="row gutters">
-                        <div class="col-md-6 ">
+                        <div class="col-xl-8 ">
                             <h2 class="mb-4">User Profile</h2>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-xl-4 mb-4">
                             <a href="{{route('customer.addaddress')}}"><button type="button" class="button">Add Address</button></a>
                         </div>
                     </div>
@@ -42,32 +42,32 @@
                         $i=0;
                     @endphp
                     @foreach ($customeraddress as $customeraddresses)
-                        @php
-                        $i++;
-                        @endphp
-                    @if($customeraddresses->customerid == $user->id)
-                    <div class="col-md-4 mb-5">
-                        <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
-                            <h3 style="display: flex; justify-content: space-between;">
-                                <div>
-                                    Address {{$i}}
-                                </div>
-                                <div>          
-                                    <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                    <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
-                                </div>
-                            </h3>
-                            <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
-                            <p>นามสกุล : {{$customeraddresses->lastname}}</p>
-                            <p>ที่อยู่ : {{$customeraddresses->address}}</p>
-                            <p>ตำบล : {{$customeraddresses->subdistrict}}</p>
-                            <p>อำเภอ : {{$customeraddresses->district}}</p>
-                            <p>จังหวัด : {{$customeraddresses->county}}</p>
-                            <p>รหัสไปรษณีย์ : {{$customeraddresses->zipcode}}</p>
-                            <p>Phonenumber : {{$customeraddresses->phonenumber}}</p>
+                        @if($customeraddresses->customerid == $user->id)
+                            @php
+                                $i++;
+                            @endphp
+                        <div class="col-xl-6 mb-5">
+                            <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
+                                <h3 style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        Address {{$i}}
+                                    </div>
+                                    <div>          
+                                        <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
+                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                    </div>
+                                </h3>
+                                <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
+                                <p>นามสกุล : {{$customeraddresses->lastname}}</p>
+                                <p>ที่อยู่ : {{$customeraddresses->address}}</p>
+                                <p>ตำบล : {{$customeraddresses->subdistrict}}</p>
+                                <p>อำเภอ : {{$customeraddresses->district}}</p>
+                                <p>จังหวัด : {{$customeraddresses->county}}</p>
+                                <p>รหัสไปรษณีย์ : {{$customeraddresses->zipcode}}</p>
+                                <p>Phonenumber : {{$customeraddresses->phonenumber}}</p>
+                            </div>
                         </div>
-                    </div>
-                    @endif
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -102,7 +102,7 @@
     color: #9fa8b9;
 }
 .account-settings .about {
-    margin: 2rem 0 0 25%;
+    margin: 2rem 0 0 30%;
     text-align: start;
 }
 .account-settings .about h5 {
@@ -163,5 +163,12 @@
 .button:hover{
     background: rgb(222, 226, 236);
     color: #194276;
+}
+
+@media(max-width: 1200px){
+    .account-settings .about {
+        margin: 0;
+        text-align: center;
+    }
 }
 </style>

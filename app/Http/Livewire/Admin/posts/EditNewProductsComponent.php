@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Posts;
 
+use App\Models\Brand;
 use Livewire\Component;
 use App\Models\NewProduct;
 
@@ -33,11 +34,12 @@ class EditNewProductsComponent extends Component
         $NewProduct->linkproduct = $this->linkproduct;
         $NewProduct->brand_id = $this->brand_id;
         $NewProduct->save();
-        session()->flash('message','Add NewProduct successs');
+        session()->flash('message','Edit NewProduct successs');
     }
 
     public function render()
     {
-        return view('livewire.admin.posts.edit-new-products-component')->layout('layout.navfoot');
+        $brand = Brand::all();
+        return view('livewire.admin.posts.edit-new-products-component',['brand'=> $brand])->layout('layout.navfoot');
     }
 }

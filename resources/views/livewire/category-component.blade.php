@@ -3,6 +3,7 @@
         @if(Session::has('message'))
             <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
         @endif
+        @error('attribute') <div class="alert alert-danger" role="alert">กรุณาใส่ความยาว</div> @enderror
         <div>
             @if($scategory_slug == '' and $bcategory_slug == '')
                 <h2 class="text">{{$category->name}}</h2>
@@ -73,10 +74,17 @@
                             </div>
                         </a>
                         <div class="card-footer">
+                            @if($model->stock == 0)
+                                <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
+                            @endif
                             @guest
-                            <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
+                                @if($model->stock > 0)
+                                    <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
+                                @endif
                             @else
-                            <button id="add-cart-button" type='button' class="button btn" data-name="{{$model->slug}}"><span>Add to cart</span></button>
+                                @if($model->stock > 0)
+                                <button id="add-cart-button" type='button' class="button btn" data-name="{{$model->slug}}"><span>Add to cart</span></button>
+                                @endif
                             @endguest
                         </div>
                     </div>
@@ -114,6 +122,7 @@
                             <p>Length:</p>
                             <div class="add-attribute">
                                 <input wire:model.defer="attribute"> m
+                                @error('attribute') <p class="text-danger">กรุณาใส่ความยาว</p> @enderror
                             </div>
                         </div><br>
                         @endif

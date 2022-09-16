@@ -11,7 +11,6 @@ use App\Models\Subcategory;
 use App\Models\BrandCategory;
 use App\Models\ShoppingCart;
 use App\Models\Brand;
-use App\Http\Livewire\Redirect;
 
 class CategoryComponent extends Component
 {
@@ -30,6 +29,7 @@ class CategoryComponent extends Component
 
     protected $paginationTheme = 'bootstrap';
 
+
     public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
     {
         $this->$category_slug = $category_slug;
@@ -41,54 +41,108 @@ class CategoryComponent extends Component
     public function addToCart($id)
     {
         $this->model_id = $id;
-
+        
         $model = ProductModels::where('id',$this->model_id)->first();
-        if($model->product->subCategories->name == "Cabling")
+        if($model->product->subcategory_id == "7")
         {
             $this->validate([
                 'attribute' => 'required'
             ]);
         }
 
-        if($this->qty > $model->stock)
+        if($this->qty > $model->stock || $this->attribute * $this->qty > $model->stock)
         {
-            return back()->with('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+            session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+            return redirect(request()->header('Referer'));
         }
-        else if($this->attribute * $this->qty > $model->stock)
+
+        //check before add
+        $c_item = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->where('product_id',$id)->first();
+        if($c_item)
         {
-            return back()->with('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+            if(empty($c_item->attribute))
+            {
+                $total = $c_item->quantity + $this->qty;
+                if($total > $model->stock)
+                {
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return redirect(request()->header('Referer'));
+                }
+            }
+            else{
+                $len = ($c_item->quantity * $c_item->attribute) +  ($this->qty *$this->attribute);
+                if($len > $model->stock)
+                    {
+                        session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                        return redirect(request()->header('Referer'));
+                    }
+            }
         }
 
         if(auth()->user())
         {
+            $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
             
-            if($this->attribute)
+            if($count == 0)
             {
-                $data = [
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-                'quantity' => $this->qty,
-                'attribute' => $this->attribute,
-                ];
-
+                $this->create($id);
             }
             else
             {
-            $data = [
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-                'quantity' => $this->qty,
-            ];
+                $cartitem = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->where('product_id',$id)->first();
+                if($cartitem)
+                {
+                    if($cartitem->attribute == null || $cartitem->attribute == $this->attribute)
+                    {
+                        $cartitem->quantity = $cartitem->quantity + $this->qty;
+                        $cartitem->save();
+                        return redirect(request()->header('Referer'));
+                    }
+                    else
+                    {
+                        $data = [
+                            'user_id' => auth()->user()->id,
+                            'product_id' => $id,
+                            'quantity' => $this->qty,
+                            'attribute' => $this->attribute,
+                            ];
+                        ShoppingCart::updateOrCreate($data);
+                        return redirect(request()->header('Referer'));
+                    }
+                }
+                else
+                {
+                    $this->create($id);
+                }
             }
-            ShoppingCart::updateOrCreate($data);
-            // session()->flash('success_message','Item added in Cart');
-            return url()->previous();
-            
         }
         else
         {
             return redirect(route('login'));
         }
+    }
+
+    public function create($id)
+    {
+        if($this->attribute)
+        {
+            $data = [
+            'user_id' => auth()->user()->id,
+            'product_id' => $id,
+            'quantity' => $this->qty,
+            'attribute' => $this->attribute,
+            ];
+        }
+        else
+        {
+        $data = [
+            'user_id' => auth()->user()->id,
+            'product_id' => $id,
+            'quantity' => $this->qty,
+        ];
+        }
+        ShoppingCart::updateOrCreate($data);
+        return redirect(request()->header('Referer'));
     }
 
     public function render()

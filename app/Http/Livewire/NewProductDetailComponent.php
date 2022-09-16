@@ -15,9 +15,11 @@ class NewProductDetailComponent extends Component
 
     
 
-    public function mount($name)
+    public function mount()
     {
-        $this->name = $name;
+        
+        $this->month = "default";
+        $this->year = "default";
     }
 
 
@@ -25,8 +27,19 @@ class NewProductDetailComponent extends Component
     {
         
         $brand = Brand::where('name',$this->name)->first();
-        $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
-        $years = NewProduct::whereYear('created_at', '=', '2020')->get();
-        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'years'=>$years])->layout("layout.navfoot");
+        if($this->year=="default" and $this->month=="default"){
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
+        }
+        else if($this->year=="default" and $this->month){
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', $this->month)->orderBy('created_at','DESC')->get();
+        }
+        else if($this->year and $this->month=="default"){
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->whereYear('created_at', '=', $this->year)->orderBy('created_at','DESC')->get();
+        }
+        else {
+            $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', $this->month)->whereYear('created_at', '=', $this->year)->orderBy('created_at','DESC')->get();
+        }
+
+        return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'brand'=> $brand])->layout("layout.navfoot");
     }
 }

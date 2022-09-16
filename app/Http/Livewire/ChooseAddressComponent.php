@@ -16,11 +16,7 @@ class ChooseAddressComponent extends Component
 {
     public $cartitems;
     public $payment;
-    public $number;
-    public $name;
-    public $month;
-    public $year;
-    public $cvc;
+    public $ad;
 
     public function updated($fields)
     {
@@ -74,31 +70,6 @@ class ChooseAddressComponent extends Component
 
             $this->cutstock();
         }
-        // else if($this->payment == '2')
-        // {
-        //     $charge = OmiseCharge::create(array(
-        //         'amount' => $total*100,
-        //         'currency' => 'thb',
-        //     ));
-
-        //     $token = OmiseToken::create(array(
-        //     'card' => array(
-        //         'name' => $this->number,
-        //         'number' => $this->number,
-        //         'expiration_month' => $this->month,
-        //         'expiration_year' => $this->year,
-        //         'security_code' => $this->cvc
-        //     )
-        //     ));
-
-        //     $this->cutstock();
-        // }
-        // else if($this->payment == '2')
-        // {
-        //     PaymentController();
-        //     $this->cutstock();
-        // }
-
     }
 
     public function cutstock()
@@ -106,13 +77,23 @@ class ChooseAddressComponent extends Component
         $user = User::find(Auth::user()->id);
         $total = session()->get('chooseaddress')['total'];
         
+        if($user->role == '2'){
+            $orderid = New OrderID();
+            $orderid->user_id = $user->id;
+            $orderid->payment_code = $this->payment;
+            $orderid->address_id = 1;
+            $orderid->total = $total;
+            $orderid->save();
+        }
+        else{
+            $orderid = New OrderID();
+            $orderid->user_id = $user->id;
+            $orderid->payment_code = $this->payment;
+            $orderid->address_id = $this->address;
+            $orderid->total = $total;
+            $orderid->save();
+        }
 
-        $orderid = New OrderID();
-        $orderid->user_id = $user->id;
-        $orderid->payment_code = 1;
-        $orderid->address_id = 1;
-        $orderid->total = $total;
-        $orderid->save();
 
         $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         
@@ -150,7 +131,7 @@ class ChooseAddressComponent extends Component
         $this->cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         $user = User::find(Auth::user()->id);
         $dealer = Dealer::where('dealerid',$user->id)->first();
-        $customer = CustomerAddress::where('customerid',$user->id)->first();
-        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer,'customer'=>$customer])->layout("layout.navfoot");
+        $customers = CustomerAddress::where('customerid',$user->id)->get();
+        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer,'customers'=>$customers])->layout("layout.navfoot");
     }
 }

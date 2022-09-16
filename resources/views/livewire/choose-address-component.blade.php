@@ -35,88 +35,98 @@
             </ul>
         </div>
             <div class="form_wrap">
+            <form name="checkoutForm" action="{{route('check')}}" method="POST" enctype="multipart/form-data"> 
+            @csrf
                 <div class="form_1 data_info">
                     <div class="step">
                         <h2>ที่อยู่สำหรับการจัดส่ง</h2>
                     </div>
                     <div class="row" id="chooseaddress">
+                    @error('ad') <p class="text-danger">กรุณาเลือกที่อยู่สำหรับจัดส่ง</p> @enderror
                         <div class="col-md-5 mb-4">
-                            <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
-                                <div class="choose-address">
-                                    <input type="radio" id="address1" name="address" value="1" checked/>
-                                    <label for="address1"></label>
-                                </div>
-                                <div class="subaddress">
-                                    @if(Auth::user()->role == 1)
-                                        <p>{{$user->name}}</p>
-                                        <p>{{$customer->phonenumber}}</p>
-                                        <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
-                                        <p>{{$customer->county}} {{$customer->zipcode}}</p>
-                                    @elseif(Auth::user()->role == 2)
-                                        <p>{{$user->name}}</p>
-                                        <p>{{$dealer->phonenumber}}</p>
-                                        <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
-                                        <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
-                                    @endif
-                                </div>
-                            </div><br>
-                            <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
-                                <div class="choose-address">
-                                    <input type="radio" id="address1" name="address" value="1" checked/>
-                                    <label for="address1"></label>
-                                </div>
-                                <div class="subaddress">
-                                    <div class="col-md-6 mb-3">
+                            @if(Auth::user()->role == 1)
+                                @foreach($customers as $customer)
+                                        <input type="radio" id="address{{$customer->id}}" name="ad" value="{{$customer->id}}"/>
+                                        <label for="address{{$customer->id}}">
+                                            <p>{{$user->name}}</p>
+                                            <p>{{$customer->phonenumber}}</p>
+                                            <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
+                                            <p>{{$customer->county}} {{$customer->zipcode}}</p>
+                                        </label>
+                                @endforeach
+                            @endif
+                            @if(Auth::user()->role == 2)
+                                        <input type="radio" id="address1" name="ad" value="{{$dealer->id}}"/>
+                                        <label for="address1">
+                                            <p>{{$user->name}}</p>
+                                            <p>{{$dealer->phonenumber}}</p>
+                                            <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
+                                            <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
+                                        </label>
+                            @endif
+                            @if(Auth::user()->role == 1)
+                                <input type="radio" id="addressnew"  name="ad" value="new"/>
+                                <label for="addressnew" onclick="myFunction()">ใส่ที่อยู่ใหม่ </label>
+                                <div class="subaddress" id="myDIV" style="display: none;">
+                                    <div class="col-md-12 mb-3">
                                         <div class="form-group">
-                                            <label for="firstname">ชื่อ :</label>
-                                            <input type="text" name="firstname" class="form-control"  wire:model="firstname" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="lastname">นามสกุล :</label>
-                                            <input type="text" name="lastname" class="form-control"  wire:model="lastname" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-2">
-                                        <div class="form-group">
-                                            <label for="address">บ้านเลขที่ ถนน ซอย :</label>
-                                            <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"  wire:model="address" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="subdistrict">เเขวง/ตำบล :</label>
-                                            <input type="text" name="subdistrict" class="form-control"  wire:model="subdistrict" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="district">เขต/อำเภอ :</label>
-                                            <input type="text" name="district" class="form-control"  wire:model="district" required>
+                                            <p>ชื่อ :</p>
+                                            <input type="text" name="fname" class="form-control">
+                                            @error('fname')<p class="text-danger">กรุณาใส่ชื่อจริง</p>@enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <div class="form-group">
-                                            <label for="county">จังหวัด :</label>
-                                            <input type="text" name="county" class="form-control"  wire:model="county" required>
+                                            <p>นามสกุล :</p>
+                                            <input type="text" name="lname" class="form-control">
+                                            @error('lname')<p class="text-danger">กรุณาใส่นามสกุล</p>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <div class="form-group">
+                                            <p>บ้านเลขที่ ถนน ซอย :</p>
+                                            <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"></textarea>
+                                            @error('address')<p class="text-danger">กรุณาใส่ที่อยู่</p>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <p>เเขวง/ตำบล :</p>
+                                            <input type="text" name="subdistrict" class="form-control">
+                                            @error('subdistrict')<p class="text-danger">กรุณาใส่เเขวง/ตำบล</p>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <p>เขต/อำเภอ :</p>
+                                            <input type="text" name="district" class="form-control">
+                                            @error('district')<p class="text-danger">กรุณาใส่เขต/อำเภอ</p>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">
+                                            <p>จังหวัด :</p>
+                                            <input type="text" name="county" class="form-control">
+                                            @error('county')<p class="text-danger">กรุณาใส่จังหวัด</p>@enderror
                                         </div>
                                     </div>
                                     
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-12 mb-3">
                                         <div class="form-group">
-                                            <label for="zipcod">รหัสไปรษณีย์ :</label>
-                                            <input type="text" name="zipcode" class="form-control"  wire:model="zipcode" required>
+                                            <p>รหัสไปรษณีย์ :</p>
+                                            <input type="text" name="zipcode" class="form-control">
+                                            @error('zipcode')<p class="text-danger">กรุณาใส่รหัสไปรษณีย์</p>@enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="phone">โทรศัพท์ :</label>
-                                            <input type="text" name="phone" class="form-control"  wire:model="phonenumber" required>
+                                    <div class="col-md-12 mb-3">
+                                        <div class="form-group">           
+                                            <p>โทรศัพท์ :</p>
+                                            <input type="text" name="phone" class="form-control">
+                                            @error('phone')<p class="text-danger">กรุณาใส่โทรศัพท์</p>@enderror
                                         </div>
                                     </div>
                                 </div>
-                            </div><br>
+                            @endif
                         </div>
                         
                         <div class="col-md-6 mb-4">
@@ -175,44 +185,29 @@
                         @error('payment') <p class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> @enderror
                         <div class="col-md-5 mb-4">
                             @if(Auth::user()->role == 2)
-                            <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
-                                <div class="choose-address">
-                                    <input type="radio" id="creditcompany" name="check" value="1" wire:model.defer="payment"/>
-                                    <label for="creditcompany"></label>
-                                </div>
-                                <div class="subaddress">
+                                <input type="radio" id="creditcompany" name="check" value="1" wire:model.defer="payment"/>
+                                <label for="creditcompany">
                                     <h5>จ่ายผ่านเครดิตบริษัท</h5>
                                     <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
-                                </div>
-                            </div><br>
+                                </label>
                             @endif
-                            <div class="address">
-                                <div class="choose-address">
-                                    <input type="radio" id="creditcard" name="check" value="2" wire:model.defer="payment"/>
-                                    <label for="creditcard"></label>
-                                </div>
-                                <div class="subaddress">
-                                    <h5>ชำระเงินด้วยบัตรเครดิต</h5>
-                                    <hr>
-                                    <form name="checkoutForm" method="POST" action="{{route('check')}}" enctype="multipart/form-data"> 
-                                    @csrf
-                                    <input type="hidden" name="omiseToken">
-                                    <script type="text/javascript" src="https://cdn.omise.co/omise.js"
-                                        data-key="pkey_test_5stpiir1dcgcdklou95"
-                                        data-image="http://bit.ly/customer_image"
-                                        data-frame-label="Merchant site name"
-                                        data-button-label="Pay now"
-                                        data-submit-label="Submit"
-                                        data-location="no"
-                                        data-amount="{{Session::get('chooseaddress')['total']*100}}"
-                                        data-currency="thb"
-                                        >
-                                    </script>
-                                    </form>
-                                </div>
+                            <div class="subaddress">
+                                <h5>ชำระเงินด้วยบัตรเครดิต</h5>
+                                <hr>
+                                <input type="hidden" name="omiseToken">
+                                <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+                                    data-key="pkey_test_5t30hpp2jv76v7wwj48"
+                                    data-image="http://bit.ly/customer_image"
+                                    data-frame-label="Merchant site name"
+                                    data-button-label="Pay now"
+                                    data-submit-label="Submit"
+                                    data-location="no"
+                                    data-amount="{{Session::get('chooseaddress')['total']*100}}"
+                                    data-currency="thb"
+                                    >
+                                </script>
                             </div>
                         </div>
-                        
                         <div class="col-md-6 mb-4">
                             <div class="card mb-4">
                                 <div class="card-header py-3">
@@ -260,6 +255,7 @@
                     </div>
                 </div>
             </div>
+            </form>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
                     <button type="button" class="btn_next">ดำเนินการต่อ <span class="icon"><i class="bi bi-arrow-right"></i></span></button>
@@ -272,6 +268,40 @@
         </form>
     </div>
 </div>
+
+<style>
+input[type="radio"]{
+    display: none;
+}
+label{
+	position: relative;
+	box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+	background-color: #EEEEEE;
+	color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	border-radius: 20px; 
+	padding: 5% 10%;
+	margin-bottom: 5%;
+	width: 100%;
+}
+input[type="radio"]:checked + label{
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+	background-color: #194276;
+	color: white;
+}
+</style>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+    x.style.display = "block";
+    } else {
+    x.style.display = "none";
+    }
+}
+</script>
 
 <script>
     var form_1 = document.querySelector(".form_1");
@@ -324,6 +354,3 @@
         modal_wrapper.classList.remove("active");
     })
 </script>
-
-
-
