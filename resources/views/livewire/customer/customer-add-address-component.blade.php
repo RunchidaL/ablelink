@@ -87,7 +87,7 @@
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                             <div class="text-right">
-                                <button type="submit" class="button" onclick="history.back(window.location.reload());">Save Address</button>
+                                <button type="submit" class="button">Save Address</button>
                             </div>
                         </div>
                     </div>
