@@ -34,6 +34,7 @@ class CustomerAddAddressComponent extends Component
         $useraddress->save();
 
         session()->flash('message','Address has been updated successfully!');
+        
     }
 
     public function render()

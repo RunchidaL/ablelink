@@ -41,30 +41,111 @@ class DetailsModelsComponent extends Component
         }
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'attribute' => 'required'
+        ]);
+    }
+
     public function addToCart($id)
     {
+        $this->model_id = $id;
+        
+        $model = ProductModels::where('id',$this->model_id)->first();
+        if($model->product->subCategories->name == "Cabling")
+        {
+            $this->validate([
+                'attribute' => 'required'
+            ]);
+        }
+
+        if($this->qty > $model->stock || $this->attribute * $this->qty > $model->stock)
+        {
+            session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+            return redirect('/shop');
+        }
+
+        //check before add
+        $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        foreach($cartitems as $item)
+        {
+            if($item->product_id == $id)
+            {
+                $item_cart = ShoppingCart::where('id',$item->id)->first();
+                $total = $item_cart->quantity + $this->qty;
+                if($total > $model->stock)
+                {
+                    session()->flash('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+                    return back();
+                }
+            }
+
+        }
+
         if(auth()->user())
         {
-            if($this->attribute)
+            $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
+            
+            if($count == 0)
             {
+                if($this->attribute)
+                {
+                    $data = [
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $id,
+                    'quantity' => $this->qty,
+                    'attribute' => $this->attribute,
+                    ];
+                }
+                else
+                {
                 $data = [
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-                'quantity' => $this->qty,
-                'attribute' => $this->attribute,
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $id,
+                    'quantity' => $this->qty,
                 ];
+                }
+                ShoppingCart::updateOrCreate($data);
 
             }
             else
             {
-            $data = [
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-                'quantity' => $this->qty,
-            ];
+                $cartitems = ShoppingCart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+                foreach($cartitems as $item)
+                {
+                    
+                    if($item->product_id == $id)
+                    {
+                        $item_cart = ShoppingCart::where('id',$item->id)->first();
+                        $item_cart->quantity = $item_cart->quantity + $this->qty;
+                        $item_cart->save();
+                    }
+                    //มีปัญหา
+                    if($item->product_id != $id)
+                    {
+                        if($this->attribute)
+                        {
+                            $data = [
+                            'user_id' => auth()->user()->id,
+                            'product_id' => $id,
+                            'quantity' => $this->qty,
+                            'attribute' => $this->attribute,
+                            ];
+                        }
+                        else
+                        {
+                        $data = [
+                            'user_id' => auth()->user()->id,
+                            'product_id' => $id,
+                            'quantity' => $this->qty,
+                        ];
+                        }
+                        ShoppingCart::updateOrCreate($data);
+                        // session()->flash('success_message','Item added in Cart');
+                    }                    
+                }
             }
-            ShoppingCart::updateOrCreate($data);
-            session()->flash('success_message','Item added in Cart');
         }
         else
         {

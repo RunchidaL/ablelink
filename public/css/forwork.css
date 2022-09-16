@@ -17,8 +17,8 @@
     color: #fff;
     letter-spacing: 2px;
     line-height: 35px;
-    top: 40%;
-    left: 40%;
+    top: 35%;
+    left: 38%;
     -webkit-animation-name: posi;
     -webkit-animation-duration: 1s;
     animation-name: posi;
@@ -31,12 +31,12 @@
 
 @-webkit-keyframes posi{
     from {left: 60%;}
-    to {left: 40%;}
+    to {left: 38%;}
 }
 
 @keyframes posi{
     from {left: 60%;}
-    to {left: 40%;}
+    to {left: 38%;}
 }
 
 .txt h1{
@@ -63,6 +63,28 @@
     to {transform: scale(1.1,1.1);}
 }
 
+@media screen and (max-width:1600px){
+    .txt{
+        top: 40%;
+        left: 35%;
+        -webkit-animation-name: posi;
+        -webkit-animation-duration: 1s;
+        animation-name: posi;
+        animation-duration: 1s;
+        z-index: 1;
+    }
+    
+    @-webkit-keyframes posi{
+        from {left: 60%;}
+        to {left: 35%;}
+    }
+    
+    @keyframes posi{
+        from {left: 60%;}
+        to {left: 35%;}
+    }
+}
+
 @media screen and (max-width:1200px){
     .myslider{
         height: 300px;
@@ -87,6 +109,7 @@
     }
     .txt h1{
         font-size: 50px;
+        width: 320px;
     }
     .txt .imgg{
         object-fit: cover;
@@ -117,6 +140,7 @@
     }
     .txt h1{
         font-size: 40px;
+        width: 260px;
     }
     .txt .imgg{
         object-fit: cover;

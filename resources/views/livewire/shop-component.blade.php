@@ -107,7 +107,7 @@
                         @endif
                     @endguest
                     </div><br>
-                    @if(($product->product->subCategories->name) == "Cabling")
+                    @if(($product->product->subcategory_id) == 7)
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">

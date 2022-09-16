@@ -37,23 +37,19 @@
         </div>
 
         <div class="nav-right">
-            <div class="searchbox-wrap">
-                <form action="" class="searchbox">
-                    <input type="text" placeholder="Search">
-                    <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-            </div>     
+            @livewire('search-component')
             <div class="cart">
                 @guest
                 <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
                 @else
-                <a href="/cart"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                    @livewire('cart-count-component')
                 @endguest
             </div>
             <div class="user">
                 <div class="dropdown">
-                    <a class="icon" role="button" data-bs-toggle="dropdown"><i class="bi bi-person-circle"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                    
+                    <a class="icon" role="button" id="profileBtn" data-bs-toggle="dropdown"><i class="bi bi-person-circle"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink" id="profileDrop">
                         @guest
                             @if (Route::has('login'))
                                 <a class="dropdown-item" href="{{ route('login') }}">เข้าสู่ระบบ</a>
@@ -90,16 +86,17 @@
             @livewire('phone-navbar-component')
         </div>
     </div>
+    
 </div>
 <div class="fakenav "></div>
 
 <!-- from livewire -->
-<div style="width: 100%; min-height: calc(100vh - 260px);">
+<div style="width: 100%; min-height: calc(100vh - 260px);" >
     {{$slot}}
 </div>
 
 <!-- footer -->
-<footer class="footer-wrapper">
+<footer class="footer-wrapper" >
     <div class="container">
         <div class="footer">
             <div class="footer-col">
@@ -147,4 +144,5 @@
         </div>
     </div>
 </footer>
+
 @endsection

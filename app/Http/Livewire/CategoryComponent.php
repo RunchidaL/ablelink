@@ -81,7 +81,9 @@ class CategoryComponent extends Component
             ];
             }
             ShoppingCart::updateOrCreate($data);
-            session()->flash('success_message','Item added in Cart');
+            // session()->flash('success_message','Item added in Cart');
+            return url()->previous();
+            
         }
         else
         {

@@ -249,7 +249,7 @@ class AdminEditmodelComponent extends Component
         
         }
 
-        session()->flash('message','update Model successs');
+        session()->flash('message','Update Model successs');
     }
 
     public function changeSeries()

@@ -22,11 +22,19 @@
                     <div class="col-md-6 text-end">
                         <address>
                             <strong>ผู้ซื้อสินค้า:</strong><br>
-                            {{$order->user->name}}<br>
-                            {{$dealer->phonenumber}}<br>
-                            {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
-                            เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
-                            {{$dealer->zipcode}}<br>
+                            @if(Auth::user()->role == 1)
+                                {{$customer->firstname}} {{$customer->lastname}}<br>
+                                {{$customer->phonenumber}}<br>
+                                {{$customer->address}} แขวง/ตำบล {{$customer->subdistrict}} <br>
+                                เขต/อำเภอ {{$customer->district}} {{$customer->county}} <br>
+                                {{$customer->zipcode}}<br>
+                            @elseif(Auth::user()->role == 2)
+                                {{$order->user->name}}<br>
+                                {{$dealer->phonenumber}}<br>
+                                {{$dealer->address}} แขวง/ตำบล {{$dealer->subdistrict}} <br>
+                                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
+                                {{$dealer->zipcode}}<br>
+                            @endif
                         </address>
                     </div>
                 </div>
@@ -55,7 +63,11 @@
                                     <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
                                 </td>
                                 <td class="order-detail-name">
-                                    <a href="#">{{$item->model->slug}}, {{$item->model->name}}</a>
+                                    @if($item->attribute)
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
+                                    @else
+                                    <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                                    @endif
                                 </td>
                                 <td class="order-detail-name">
                                     <p class="group-cen">฿{{$item->model->dealer_price}}</p>
@@ -64,7 +76,11 @@
                                     <p class="group-cen">{{$item->quantity}}</p>
                                 </td>
                                 <td class="order-detail-total">
+                                    @if($item->attribute)
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                                    @else
                                     <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

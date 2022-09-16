@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row gutters">
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-4">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="account-settings">
@@ -20,10 +20,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-1">
             <div class="vl"></div>
         </div>
-        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+        <div class="col-xl-7">
             @if(Session::has('message'))
             <div class="alert alert-success" role="alert"><p style="text-align: center">{{Session::get('message')}}</p></div>
             @endif
@@ -31,7 +31,7 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="row gutters">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                        <div class="col-xl-12">
                             <h2 class="mb-4"><a href="{{route('customer.address')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Address</h2> 
                         </div>
                         <div class="col-md-6 mb-3">
@@ -124,7 +124,7 @@
     color: #9fa8b9;
 }
 .account-settings .about {
-    margin: 2rem 0 0 25%;
+    margin: 2rem 0 0 30%;
     text-align: start;
 }
 .account-settings .about h5 {
@@ -185,6 +185,13 @@
 .button:hover{
     background: rgb(222, 226, 236);
     color: #194276;
+}
+
+@media(max-width: 1200px){
+    .account-settings .about {
+        margin: 0;
+        text-align: center;
+    }
 }
 </style>
 

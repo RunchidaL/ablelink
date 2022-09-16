@@ -27,18 +27,6 @@ class NewProductDetailComponent extends Component
     {
         
         $brand = Brand::where('name',$this->name)->first();
-        // if($this->month=="01"){
-        //     $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', '01')->orderBy('created_at','DESC')->get();
-        // }
-        // else if($this->month=="02"){
-        //     $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', '02')->orderBy('created_at','DESC')->get();
-        // }
-        // else if($this->month=="03"){
-        //     $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', '03')->orderBy('created_at','DESC')->get();
-        // }
-        // else {
-        //     $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
-        // }
         if($this->year=="default" and $this->month=="default"){
             $NewProduct = NewProduct::where('brand_id',$brand->id)->orderBy('created_at','DESC')->get();
         }
@@ -52,7 +40,6 @@ class NewProductDetailComponent extends Component
             $NewProduct = NewProduct::where('brand_id',$brand->id)->whereMonth('created_at', '=', $this->month)->whereYear('created_at', '=', $this->year)->orderBy('created_at','DESC')->get();
         }
 
-        
         return view('livewire.new-product-detail-component',['NewProduct'=> $NewProduct,'brand'=> $brand])->layout("layout.navfoot");
     }
 }

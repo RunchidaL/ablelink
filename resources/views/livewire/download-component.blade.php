@@ -21,9 +21,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <a href="/download_category/catelog"><button><i class="bi bi-file-text"></i><br><p>Catelog</p></button></a>
-            <a href="/download_category/presentation"><button><i class="bi bi-easel"></i><br><p>Presentation</p></button></a>
-            <a href="/download_category/vdo"><button><i class="bi bi-play-circle"></i><br><p>VDO</p></button></a>
+            <a href="/download_category/catelog"><button><i class="bi bi-file-text" style="color: black"></i><br><p style="color: black">Catelog</p></button></a>
+            <a href="/download_category/presentation"><button><i class="bi bi-easel" style="color: black"></i><br><p style="color: black">Presentation</p></button></a>
+            <a href="/download_category/vdo"><button><i class="bi bi-play-circle" style="color: black"></i><br><p style="color: black">VDO</p></button></a>
         </div>
     </div>
     <div class="section">
