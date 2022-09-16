@@ -76,69 +76,9 @@
                             @endif
                             <div class="address" style="background: #f1f1f1; border-radius: 20px; padding: 5% 10%">
                                 <div class="choose-address">
-                                    <input type="radio" id="addressnew" name="ad" value="new"/>
-                                    <label for="addressnew"></label>
+                                    <a href="{{route('customer.addaddress')}}">ใส่ที่อยู่ใหม่</a> 
                                 </div>
-                                <div class="subaddress">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="firstname">ชื่อ :</label>
-                                            <input type="text" name="fname" class="form-control">
-                                            @error('fname')<p class="text-danger">กรุณาใส่ชื่อจริง</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="lastname">นามสกุล :</label>
-                                            <input type="text" name="lname" class="form-control">
-                                            @error('lname')<p class="text-danger">กรุณาใส่นามสกุล</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group my-2">
-                                        <div class="form-group">
-                                            <label for="address">บ้านเลขที่ ถนน ซอย :</label>
-                                            <textarea name="address" col="30" rows="5" class="form-control" placeholer="รายละเอียดที่อยู่"></textarea>
-                                            @error('address')<p class="text-danger">กรุณาใส่ที่อยู่</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="subdistrict">เเขวง/ตำบล :</label>
-                                            <input type="text" name="subdistrict" class="form-control">
-                                            @error('subdistrict')<p class="text-danger">กรุณาใส่เเขวง/ตำบล</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="district">เขต/อำเภอ :</label>
-                                            <input type="text" name="district" class="form-control">
-                                            @error('district')<p class="text-danger">กรุณาใส่เขต/อำเภอ</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 mb-3">
-                                        <div class="form-group">
-                                            <label for="county">จังหวัด :</label>
-                                            <input type="text" name="county" class="form-control">
-                                            @error('county')<p class="text-danger">กรุณาใส่จังหวัด</p>@enderror
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="zipcod">รหัสไปรษณีย์ :</label>
-                                            <input type="text" name="zipcode" class="form-control">
-                                            @error('zipcode')<p class="text-danger">กรุณาใส่รหัสไปรษณีย์</p>@enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label for="phone">โทรศัพท์ :</label>
-                                            <input type="text" name="phone" class="form-control">
-                                            @error('phone')<p class="text-danger">กรุณาใส่โทรศัพท์</p>@enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><br>
+                            </div>
                         </div>
                         
                         <div class="col-md-6 mb-4">
@@ -216,7 +156,6 @@
                                 <div class="subaddress">
                                     <h5>ชำระเงินด้วยบัตรเครดิต</h5>
                                     <hr>
-
                                     <input type="hidden" name="omiseToken">
                                     <script type="text/javascript" src="https://cdn.omise.co/omise.js"
                                         data-key="pkey_test_5t30hpp2jv76v7wwj48"
@@ -229,12 +168,9 @@
                                         data-currency="thb"
                                         >
                                     </script>
-                                    
                                 </div>
                             </div>
-                            
                         </div>
-                        
                         <div class="col-md-6 mb-4">
                             <div class="card mb-4">
                                 <div class="card-header py-3">

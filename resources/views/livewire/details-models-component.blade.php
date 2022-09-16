@@ -1,4 +1,8 @@
 <div class="container">
+    @if(Session::has('message'))
+        <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+    @endif
+    @error('attribute') <div class="alert alert-danger" role="alert">กรุณาใส่ความยาว</div> @enderror
     <div class="row justify-content-center align-items-start" id="row-product">
         <div class="leftProduct" id="left-product">
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"class="swiper mySwiper2">
@@ -72,8 +76,19 @@
                     <input wire:model="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
                 </div>
                 <div class="addtocart" style="display: inline-block;">
-                    <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
-                </div> 
+                @if($model->stock == 0)
+                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
+                @endif
+                @guest
+                    @if($model->stock > 0)
+                        <a href="{{ route('login') }}"><button>Add To Cart</button></button></a>
+                    @endif
+                @else
+                    @if($model->stock > 0)
+                        <button wire:click="addToCart({{$model->id}})">Add To Cart</button>
+                    @endif
+                @endguest
+                </div>
             </div>
             @if(($model->product->subCategories->name) == "Cabling")
                 <div class="length">

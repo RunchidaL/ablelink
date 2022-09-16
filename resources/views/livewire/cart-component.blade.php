@@ -15,7 +15,7 @@
                         <td></td>
                         <td style="width: 10%;">ราคา</td>
                         <td style="width: 8%;">จำนวน</td>
-                        <td style="width: 10%;" >รวม</td>
+                        <td style="width: 10%;">รวม</td>
                         <td></td>
                     </tr>
                 </thead>

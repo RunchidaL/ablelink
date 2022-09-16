@@ -16,12 +16,7 @@ class ChooseAddressComponent extends Component
 {
     public $cartitems;
     public $payment;
-    // public $number;
-    // public $name;
-    // public $month;
-    // public $year;
-    // public $cvc;
-    public $address;
+    public $ad;
 
     public function updated($fields)
     {
@@ -75,31 +70,6 @@ class ChooseAddressComponent extends Component
 
             $this->cutstock();
         }
-        // else if($this->payment == '2')
-        // {
-        //     $charge = OmiseCharge::create(array(
-        //         'amount' => $total*100,
-        //         'currency' => 'thb',
-        //     ));
-
-        //     $token = OmiseToken::create(array(
-        //     'card' => array(
-        //         'name' => $this->number,
-        //         'number' => $this->number,
-        //         'expiration_month' => $this->month,
-        //         'expiration_year' => $this->year,
-        //         'security_code' => $this->cvc
-        //     )
-        //     ));
-
-        //     $this->cutstock();
-        // }
-        // else if($this->payment == '2')
-        // {
-        //     PaymentController();
-        //     $this->cutstock();
-        // }
-
     }
 
     public function cutstock()

@@ -91,7 +91,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>ยอดรวมทั้งหมด</td>
-                                <td>฿{{$order->total}}</td>
+                                <td>฿{{number_format($order->total,2)}}</td>
                             </tr>
                         </tfoot>
                     </table>
