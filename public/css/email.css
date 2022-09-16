@@ -9,12 +9,19 @@ body{
 }
 
 .h-screen{
+    height: 100vh;
+    display: flex;
     padding: 0 2% 0% 2%;
+}
+
+.left, .right{
+    width: 50%;
 }
 
 .sc{
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 .sc .header{
@@ -24,6 +31,7 @@ body{
     padding: 5px;
     margin-top: 40px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .sc .header a img{
@@ -32,28 +40,57 @@ body{
 }
 
 .sc .header .topic_name{
+    width: 100%;
+    max-width: 900px;
     white-space: nowrap;
     font-size: 2rem;
 }
 
-form{
-    width: 60%;
+.md-sc .main-form .main{
+    width: 100%; 
+    max-width: 725px; 
 }
 
-.form-group input{
-    align-self: center;
+.alert-wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.alert-wrap .alert{
+    width: 80%;
+}
+
+.md-sc{
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+.message{
+    margin: 4% 0 8% 0;
+}
+
+.fg{
+    width: 100%;
+    max-width: 725px;
+}
+
+.fg input{
+    margin: 0.7rem 0;
     border-radius: 30px;
-    margin-bottom: 10px;
 }
 
-.form-group label{
-    margin-bottom: 10px;
+.form-control{
+    display: block;
 }
 
 .button{
     display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    justify-content: end;
+    margin: 1rem 0;
 }
 
 .btn{
@@ -69,23 +106,18 @@ form{
     border-color: #194276;
 }
 
-.choice{
-    text-align: center;
-    line-height: 2;
-}
-
-.choice p{
-    padding: 5px 0;
+.choice span{
+    line-height: 2.5;
 }
 
 .choice a{
     text-decoration: none;
     color: #0930FF;
     position: relative;
-    
+    line-height: 2;
 }
 
-.choice span::after{
+.choice span::after, a[forgotPass]::after{
     position: absolute;
     content: '';
     height: 0.1rem;
@@ -97,43 +129,47 @@ form{
     transform-origin: 0% 100%;
 }
 
-.choice a span:hover::after{
+.choice a span:hover::after, a[forgotPass]:hover::after{
     transform: scaleX(1);
     transition: transform 0.2s ease-in;
 }
 
-.choice i{
-    color: #C4C4C4;
+.right{
+    max-height: 100vh;
 }
 
-.choice button{
-    background-color: white;
-    margin-top: 10px;
-    padding: 2px 4px;
-    border-color: black;
-    border-radius: 5px;
-    color: black;
+.right img{
+    height: 100vh;
+    width: 50vw;
+    object-fit: cover;
 }
 
-.choice button:hover{
-    background-color: #C4C4C4;
-}
-
-@media screen and (min-width: 1090px){
+/* responsive */
+@media screen and (min-width: 1890px){
     .sc .header{
-        width: 100%;
-        padding-right: 40%;
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 1931px){
+@media screen and (max-width: 1800px){
     .sc .header .topic_name{
-        font-size: calc(1.375rem + 1vw);
+        font-size: calc(1rem + 1vw);
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .md-sc span{
+        width: auto;
     }
 }
 
 @media screen and (max-width: 1045px){
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
     .sc .header{ 
         margin-top: 15px;
     }

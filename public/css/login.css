@@ -14,23 +14,42 @@ body{
     padding: 0 2% 0% 2%;
 }
 
-.h-screen .left .head{
-    margin: 2% 0 3% 0;
-    text-align: start;
-    white-space: nowrap;
-}
-
 .left, .right{
     width: 50%;
 }
 
-.left .head{
-    margin: 2% 0 5% 0;
-    text-align: start;
+.sc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.left .head img{
-    width: min(50vw, 200px);
+.sc .header{
+    display: flex;
+    align-items: center;
+    max-height: 70px;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.sc .header a img{
+    height: 70px;
+    margin-right: 10px;
+}
+
+.sc .header .topic_name{
+    width: 100%;
+    max-width: 900px;
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+.md-sc .main-form .main{
+    width: 100%; 
+    max-width: 725px; 
+    min-width: 400px    
 }
 
 .alert-wrap{
@@ -45,19 +64,28 @@ body{
     width: 80%;
 }
 
-form{
-    width: 60%;
+.md-sc{
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
 }
 
-.form-group input{
-    align-self: center;
+.message{
+    margin: 4% 0 8% 0;
+}
+
+.fg{
+    width: 100%;
+    max-width: 725px;
+}
+
+.fg input{
+    margin: 0.7rem 0;
     border-radius: 30px;
-    margin-bottom: 10px;
-    margin-left: 1.2rem;
 }
 
-.form-group label{
-    margin-bottom: 10px;
+.form-control{
+    display: block;
 }
 
 a[forgotPass]{
@@ -68,7 +96,7 @@ a[forgotPass]{
 .button{
     display: flex;
     justify-content: end;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 .btn{
@@ -86,6 +114,7 @@ a[forgotPass]{
 
 .choice{
     text-align: center;
+    line-height: 2;
 }
 
 .choice p{
@@ -96,6 +125,7 @@ a[forgotPass]{
     text-decoration: none;
     color: #0930FF;
     position: relative;
+    
 }
 
 .choice span::after, a[forgotPass]::after{
@@ -115,6 +145,23 @@ a[forgotPass]{
     transition: transform 0.2s ease-in;
 }
 
+.choice i{
+    color: #C4C4C4;
+}
+
+.choice button{
+    background-color: white;
+    margin-top: 10px;
+    padding: 2px 4px;
+    border-color: black;
+    border-radius: 5px;
+    color: black;
+}
+
+.choice button:hover{
+    background-color: #C4C4C4;
+}
+
 .right{
     max-height: 100vh;
 }
@@ -126,60 +173,33 @@ a[forgotPass]{
 }
 
 /* responsive */
-@media screen and (max-width: 992px){
+@media screen and (min-width: 1890px){
+    .sc .header{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1800px){
+    .sc .header .topic_name{
+        font-size: calc(1rem + 1vw);
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .md-sc span{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1045px){
     .right{
         display: none;
     }
     .left{
         width: 100%;
     }
-}
-
-@media screen and (max-width: 400px){
-    .button{
-        justify-content: center;
-    }
-    a[forgotPass]{
-        margin: 0;
-        display: flex;
-        justify-content: end;
-    }
-}
-
-.sc{
-    width: 100%;
-    display: flex;
-}
-
-.sc .header{
-    display: flex;
-    align-items: center;
-    max-height: 70px;
-    padding: 5px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.sc .header a img{
-    height: 70px;
-    margin-right: 10px;
-}
-
-.sc .header .topic_name{
-    white-space: nowrap;
-    font-size:2rem;
-}
-
-@media screen and (min-width: 1090px){
-    .sc .header{
-        width: 100%;
-        padding-right: 40%;
-        justify-content: center;
-    }
-}
-@media screen and (max-width: 1931px){
-    .sc .header .topic_name{
-        font-size: calc(1.375rem + 1vw);
+    .sc .header{ 
+        margin-top: 15px;
     }
 }
 
@@ -205,12 +225,18 @@ a[forgotPass]{
 }
 
 @media screen and (max-width: 470px){
-    .sc .header .topic_name {
+    .sc .header .topic_name{
         font-size: calc(1rem + 0.5vw);
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px){
+    .md-sc .main-form .main{
+        min-width: auto;
+    }
+}
+
+@media screen and (max-width: 400px){
     .sc .header{
         max-height: 35px;
     }
@@ -232,9 +258,9 @@ a[forgotPass]{
     .sc .header .topic_name{
         font-size: calc( 0.7rem + 0.5vw);
     }
+<<<<<<< HEAD
 }
 
-
-
-
-
+=======
+}
+>>>>>>> 85d3e7b48cb52cd97e9f69f1f66f463d8101e3e4

@@ -1,7 +1,11 @@
 <div class="cart-page">
     <div class="container cart-home">
         @if(Session::has('message'))
-            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+            <div class="alert-wrap">
+                <div class="alert alert-danger" role="alert">
+                    {{Session::get('message')}}
+                </div>
+            </div>
         @endif
         @if($count > 0)
         <div class="cart-icon">
