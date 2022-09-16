@@ -49,7 +49,6 @@ body{
 .md-sc .main-form .main{
     width: 100%; 
     max-width: 725px; 
-    min-width: 400px    
 }
 
 .alert-wrap{
@@ -88,11 +87,6 @@ body{
     display: block;
 }
 
-a[forgotPass]{
-    margin-left: 1.2rem;
-    position: relative;
-}
-
 .button{
     display: flex;
     justify-content: end;
@@ -112,20 +106,15 @@ a[forgotPass]{
     border-color: #194276;
 }
 
-.choice{
-    text-align: center;
-    line-height: 2;
-}
-
-.choice p{
-    padding: 5px 0;
+.choice span{
+    line-height: 2.5;
 }
 
 .choice a{
     text-decoration: none;
     color: #0930FF;
     position: relative;
-    
+    line-height: 2;
 }
 
 .choice span::after, a[forgotPass]::after{
@@ -143,23 +132,6 @@ a[forgotPass]{
 .choice a span:hover::after, a[forgotPass]:hover::after{
     transform: scaleX(1);
     transition: transform 0.2s ease-in;
-}
-
-.choice i{
-    color: #C4C4C4;
-}
-
-.choice button{
-    background-color: white;
-    margin-top: 10px;
-    padding: 2px 4px;
-    border-color: black;
-    border-radius: 5px;
-    color: black;
-}
-
-.choice button:hover{
-    background-color: #C4C4C4;
 }
 
 .right{
@@ -227,12 +199,6 @@ a[forgotPass]{
 @media screen and (max-width: 470px){
     .sc .header .topic_name{
         font-size: calc(1rem + 0.5vw);
-    }
-}
-
-@media screen and (max-width: 420px){
-    .md-sc .main-form .main{
-        min-width: auto;
     }
 }
 

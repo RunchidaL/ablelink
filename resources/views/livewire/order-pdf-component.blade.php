@@ -1,17 +1,50 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  </head>
-  <body>
-    <div id="element">
-        <div>first</div>
-        <div class="html2pdf__page-break"></div>
-        <div>sec</div>
-    </div>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="row">
+            <div class="column">
+                <img src="{{ public_path('images/AbleLink.jpg') }}" id="logo">
+            </div>
+            <div class="column text-end">
+                <p>บริษัท เอเบิลลิ้งค์ (ประเทศไทย) จำกัด เลขประจำตัวผู้เสียภาษี 0-10556-1132-34-1</p>
+                <p>12 ซอยสุขาภิบาล 5 ซอย 5 แยก 3 แขวงท่าแร้ง เขตบางเขน กรุงเทพฯ</p>
+                <p>Tel : 02-973-1966-67  www.ablelink.co.th / info@ablelink.co.th</p>
+            </div>
+        </div>
+        <h3 class="text-center">QUOTATION</h3>
+        <p class="Pro">No.1 of the ICT Product</p>
+        <div style="height: 3px; background: black"></div>
+        <div class="left1">
+            <p class="desc">
+                Attn : <br>
+                Position : <br>
+                Company : {{$dealer->companyTH}}<br>
+                Address : {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
+                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} {{$dealer->zipcode}}<br>
+                E-Mail : {{$dealer->emailaddress}}<br>
+                Phone : {{$dealer->phonenumber}}<br>
+                Fax : 
+            </p>
+        </div>
+        <div class="right1">
+            <p class="desc">
+                Quotation No. : <br>
+                Presale Checklist : <br>
+                Date : {{$dealer->companyTH}}<br>
+                Revised Date : {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}}<br>
+                Page No. : {{$dealer->district}} {{$dealer->county}} {{$dealer->zipcode}}<br>
+                Sale :  {{$dealer->emailaddress}}<br>
+                Mobile :  {{$dealer->phonenumber}}<br>
+                validity : <br>
+                Project :
+            </p>
+        </div>
+        
+        <h6 style="clear: both;"></h6>
 
         Ablelink (Thailand) Co., Ltd. Would like to thank you for your trust to selected services, products and we pround to offer quotation as :-
         <table>
@@ -248,4 +281,3 @@
     }
 
 </style>
-

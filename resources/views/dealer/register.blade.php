@@ -132,6 +132,4 @@
         <a href="{{ route('register') }}"><button>User account</button></a>
     </div>
 </div>   
-
-
 @endsection

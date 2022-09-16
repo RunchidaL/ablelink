@@ -55,9 +55,9 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>                  
-                <div class="button">
+                <span class="button">
                     <button type="submit" class="btn">Sign Up</button>
-                </div>
+                </span>
             </div>
         </form>
     </div>
