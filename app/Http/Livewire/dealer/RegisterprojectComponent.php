@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Mail;
 
 class RegisterprojectComponent extends Component
 {
-
     public function render()
     {
         return view('livewire.dealer.registerproject-component')->layout("layout.navfoot");

@@ -1,5 +1,8 @@
 <div style=" min-height: calc(100vh - 227.5px); width: 100%; display: flex; justify-content: start; align-items: center; flex-direction: column;">
     <div class="container">
+        @if(Session::has('message'))
+            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+        @endif
         <div>
             @if($scategory_slug == '' and $bcategory_slug == '')
                 <h2 class="text">{{$category->name}}</h2>
@@ -110,7 +113,7 @@
                         <div class="length">
                             <p>Length:</p>
                             <div class="add-attribute">
-                                <input wire:model="attribute"> m
+                                <input wire:model.defer="attribute"> m
                             </div>
                         </div><br>
                         @endif

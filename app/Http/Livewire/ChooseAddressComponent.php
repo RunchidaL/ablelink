@@ -10,11 +10,17 @@ use App\Models\ShoppingCart as Cart;
 use App\Models\ProductModels;
 use App\Models\Order;
 use App\Models\OrderID;
+use App\Models\CustomerAddress;
 
 class ChooseAddressComponent extends Component
 {
     public $cartitems;
     public $payment;
+    public $number;
+    public $name;
+    public $month;
+    public $year;
+    public $cvc;
 
     public function updated($fields)
     {
@@ -52,55 +58,99 @@ class ChooseAddressComponent extends Component
                 }
             }
         }
+
+        $user = User::find(Auth::user()->id);
+        $dealer = Dealer::where('dealerid',$user->id)->first();
+        $total = session()->get('chooseaddress')['total'];
         if($this->payment == '1')
         {
-            $user = User::find(Auth::user()->id);
-            $dealer = Dealer::where('dealerid',$user->id)->first();
-            $total = session()->get('chooseaddress')['total'];
+            if($total > $dealer->coin)
+            {
+                session()->flash('message','ยอดเงินคงเหลือไม่เพียงพอ');
+                return redirect()->route('chooseaddress');
+            }
             $dealer->coin = $dealer->coin - $total;
             $dealer->save();
-        
-            $orderid = New OrderID();
-            $orderid->user_id = $user->id;
-            $orderid->payment_code = 1;
-            $orderid->address_id = 1;
-            $orderid->total = $total;
-            $orderid->save();
-            
-            foreach($cartitems as $item)
-            {
-                $model = ProductModels::where('id',$item->product_id)->first();
-                if($item->attribute)
-                {
-                    $model->stock = $model->stock - ($item->quantity * $item->attribute);
-                }
-                else
-                {
-                    $model->stock = $model->stock - $item->quantity;
-                }
-                $model->save();
 
-                $order = New Order();
-                $order->product_id = $item->product_id;
-                $order->quantity = $item->quantity;
-                if($item->attribute)
-                {
-                    $order->attribute = $item->attribute;
-                }
-                $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
-                $order->order_id = $id->id;
-                $order->save();
-            }
-            Cart::where('user_id',auth()->id())->delete();
-            session()->forget('chooseaddress');
+            $this->cutstock();
         }
+        // else if($this->payment == '2')
+        // {
+        //     $charge = OmiseCharge::create(array(
+        //         'amount' => $total*100,
+        //         'currency' => 'thb',
+        //     ));
+
+        //     $token = OmiseToken::create(array(
+        //     'card' => array(
+        //         'name' => $this->number,
+        //         'number' => $this->number,
+        //         'expiration_month' => $this->month,
+        //         'expiration_year' => $this->year,
+        //         'security_code' => $this->cvc
+        //     )
+        //     ));
+
+        //     $this->cutstock();
+        // }
+        // else if($this->payment == '2')
+        // {
+        //     PaymentController();
+        //     $this->cutstock();
+        // }
+
+    }
+
+    public function cutstock()
+    {
+        $user = User::find(Auth::user()->id);
+        $total = session()->get('chooseaddress')['total'];
+        
+
+        $orderid = New OrderID();
+        $orderid->user_id = $user->id;
+        $orderid->payment_code = 1;
+        $orderid->address_id = 1;
+        $orderid->total = $total;
+        $orderid->save();
+
+        $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
+        
+        foreach($cartitems as $item)
+        {
+            $model = ProductModels::where('id',$item->product_id)->first();
+            if($item->attribute)
+            {
+                $model->stock = $model->stock - ($item->quantity * $item->attribute);
+            }
+            else
+            {
+                $model->stock = $model->stock - $item->quantity;
+            }
+            $model->save();
+
+            $order = New Order();
+            $order->product_id = $item->product_id;
+            $order->quantity = $item->quantity;
+            if($item->attribute)
+            {
+                $order->attribute = $item->attribute;
+            }
+            $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
+            $order->order_id = $id->id;
+            $order->save();
+        }
+        Cart::where('user_id',auth()->id())->delete();
+        session()->forget('chooseaddress');
         return redirect()->route('checkout');
     }
+
     public function render()
     {
         $this->cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         $user = User::find(Auth::user()->id);
         $dealer = Dealer::where('dealerid',$user->id)->first();
-        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer])->layout("layout.navfoot");
+        $customer = CustomerAddress::where('customerid',$user->id)->first();
+        return view('livewire.choose-address-component',['user'=>$user,'dealer'=>$dealer,'customer'=>$customer])->layout("layout.navfoot");
     }
 }

@@ -352,7 +352,6 @@ input[type='radio'] {
 	}
 }
 
-/* responsive */
 @media screen and (max-width: 725px){
 	.wrapper .header ul li{
 		margin-right: 100px;

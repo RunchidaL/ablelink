@@ -69,7 +69,14 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
+use App\Http\Livewire\Admin\Posts\AddNewProductsComponent;
+use App\Http\Livewire\Admin\Posts\AdminNewProductsComponent;
+use App\Http\Livewire\Admin\Posts\EditNewProductsComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\OrderPdfController;
+use App\Http\Livewire\OrderPdfComponent;
+use App\Http\Livewire\SearchProductsComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -93,10 +100,6 @@ Route::get('/chooseaddress', ChooseAddressComponent::class)->name('chooseaddress
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
-Route::get('/order', OrderComponent::class);
-
-Route::get('/orderDetail', OrderDetailComponent::class);
-
 Route::get('/register_dealer', function () {
     return view('dealer.register');
 });
@@ -107,7 +110,7 @@ Route::get('/post_category/{postcategory_slug}',PostCategoryComponent::class)->n
 
 Route::get('/newproducts',NewProductComponent::class)->name('newproducts');
 
-Route::get('/newproductsdetail',NewProductDetailComponent::class)->name('newproducts.detail');
+Route::get('/newproductsdetail/{name}',NewProductDetailComponent::class)->name('newproducts.detail');
 
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
@@ -123,6 +126,10 @@ Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponen
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
+Route::post('/check',[PaymentController::class,'check'])->name('check');
+
+Route::get('/search',SearchProductsComponent::class)->name('search');
+
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -135,6 +142,11 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
     Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
     Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
+
+    Route::get('/order', OrderComponent::class);
+    Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
+    Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
+    // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
     
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
@@ -182,4 +194,8 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/brand', BrandComponent::class)->name('admin.brand');
     Route::get('/admin/brand/edit/{brand_slug}', EditBrandComponent::class)->name('admin.editbrand');
     Route::get('/admin/Admindashboard', AdmindashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/AdminNewProducts', AdminNewProductsComponent::class)->name('admin.AdminNewProducts');
+    Route::get('/admin/AdminAddNewProducts', AddNewProductsComponent::class)->name('admin.AddNewProducts');
+    Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
+
 });

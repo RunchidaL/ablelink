@@ -37,12 +37,12 @@
         </div>
 
         <div class="nav-right">
-            @livewire('searchbox-component')
+            @livewire('search-component')
             <div class="cart">
                 @guest
                 <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
                 @else
-                <a href="/cart"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                    @livewire('cart-count-component')
                 @endguest
             </div>
             <div class="user">

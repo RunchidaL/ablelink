@@ -1,7 +1,11 @@
 <div class="cart-page">
     <div class="container cart-home">
         @if(Session::has('message'))
-            <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
+            <div class="alert-wrap">
+                <div class="alert alert-danger" role="alert">
+                    {{Session::get('message')}}
+                </div>
+            </div>
         @endif
         @if($count > 0)
         <div class="cart-icon">
@@ -93,7 +97,6 @@
         </div>
         <div class="cart-foot">
             <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
-            <!-- <a class="button-paid" href="/chooseaddress">ชำระสินค้า</a> -->
             <button class="button-paid" wire:click="check">ชำระสินค้า</button>
         </div>
         @else

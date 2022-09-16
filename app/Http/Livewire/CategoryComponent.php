@@ -11,6 +11,7 @@ use App\Models\Subcategory;
 use App\Models\BrandCategory;
 use App\Models\ShoppingCart;
 use App\Models\Brand;
+use App\Http\Livewire\Redirect;
 
 class CategoryComponent extends Component
 {
@@ -40,6 +41,24 @@ class CategoryComponent extends Component
     public function addToCart($id)
     {
         $this->model_id = $id;
+
+        $model = ProductModels::where('id',$this->model_id)->first();
+        if($model->product->subCategories->name == "Cabling")
+        {
+            $this->validate([
+                'attribute' => 'required'
+            ]);
+        }
+
+        if($this->qty > $model->stock)
+        {
+            return back()->with('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+        }
+        else if($this->attribute * $this->qty > $model->stock)
+        {
+            return back()->with('message','สินค้าใน stock มีจำนวนน้อยกว่าที่ลูกค้าต้องการ');
+        }
+
         if(auth()->user())
         {
             
@@ -62,7 +81,9 @@ class CategoryComponent extends Component
             ];
             }
             ShoppingCart::updateOrCreate($data);
-            session()->flash('success_message','Item added in Cart');
+            // session()->flash('success_message','Item added in Cart');
+            return url()->previous();
+            
         }
         else
         {

@@ -3,11 +3,15 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\NewProduct;
 
 class NewProductComponent extends Component
 {
     public function render()
     {
-        return view('livewire.new-product-component')->layout("layout.navfoot");
+
+        $NewProduct = NewProduct::all();
+        return view('livewire.new-product-component',['NewProduct'=> $NewProduct,])->layout("layout.navfoot");
     }
+
 }

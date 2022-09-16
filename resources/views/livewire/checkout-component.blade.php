@@ -61,7 +61,7 @@
                             <h4><i class="bi bi-credit-card"></i> วิธีชำระเงิน</h4>
                             @if($orderid->payment_code == 1)
                             <p>ชำระเงินด้วยเครดิตบริษัท</p>
-                            <p>ยอดคงเหลือ {{number_format($dealer->coin,2)}}</p>
+                            <p>ยอดคงเหลือ {{number_format($dealer->coin,2)}} บาท</p>
                             @else
                             <p>ชำระเงินด้วยบัตรเครดิต</p>
                             @endif
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-
+        </form>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
                     <a href="/"><button type="button" class="btn_next">กลับหน้าหลัก </button></a>
