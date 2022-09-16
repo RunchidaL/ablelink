@@ -1,50 +1,36 @@
-<!-- 
-<link href="/css/activity.css" rel="stylesheet">
-
-
-<div class="menu-activity">
-    <div class="mac-left">
-        <a href="/post_category/บทความ"><i class="bi bi-file-text"></i></a>
-        <p class="text-icon">บทความ</p>
-    </div>
-    <div class="mac-center">
-        <a href="{{route('newproducts')}}"><i class="bi bi-box-seam"></i></a>
-        <p>ผลิตภัณฑ์</p>
-    </div>
-    <div class="mac-right">
-        <a href="/post_category/องค์กร"><i class="bi bi-building"></i></a>
-        <p class="text-icon">องค์กร</p>
-    </div>
-</div> -->
-
-<!-- <h1 style="text-align: center; margin-bottom: 1%; background: #194276; color: white; padding: 1% 0;">ผลิตภัณฑ์ใหม่</h1> -->
-
 <div class="container-fluid">
-    @foreach($NewProduct->unique('brand_id') as $NewProducts)
     <div class="brand">
-        <img src="{{asset('/images/brands')}}/{{$NewProducts->brand->image}}">
+        <img src="{{asset('/images/brands')}}/{{$brand->image}}">
     </div>
-    @endforeach
     <h1 class="h4">Product News</h1>
-    <hr class="mt-2 pb-2 mb-3 d-none d-md-block">
+    <hr class="mt-2 pb-2 mb-4 d-none d-md-block">
     <div class="row justify-content-end">
         <div class="col-auto">
-            <!-- <select name="" id=""  class="" style="min-width:90px" wire:model="month">
-                <option value="">ทั้งหมด</option>
+            <select name="" id=""  class="" style="min-width:90px" wire:model="month">
+                <option value="default" selected="selected">ทั้งหมด</option>
                 <option value="01">มกราคม</option>
                 <option value="02">กุมภาพันธ์</option>
                 <option value="03">มีนาคม</option>
-            </select> -->
-            <!-- <select name="year" id=""  class="" style="min-width:90px" onchange="window.location.href=this.value;">
-                <option value="{{route('newproducts.detail',['name'=>$brand->slug,'year'=>'2022'])}}">2022</option>
-                <option value="{{route('newproducts.detail',['name'=>$brand->slug,'year'=>'2021'])}}">2021</option>
-            </select> -->
-            <select name="year" id=""  class="" style="min-width:90px">
-                <!-- <option value="">All</option> -->
-            </select> 
+                <option value="04">เมษายน</option>
+                <option value="05">พฤษภาคม</option>
+                <option value="06">มิถุนายน </option>
+                <option value="07">กรกฎาคม </option>
+                <option value="08">สิงหาคม </option>
+                <option value="09">กันยายน </option>
+                <option value="10">ตุลาคม </option>
+                <option value="11">พฤศจิกายน </option>
+                <option value="12">ธันวาคม </option>
+            </select>
+            <select style="min-width:90px" wire:model="year">
+                <option value="default" selected="selected">ทั้งหมด</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
         </div>
     </div>
     <div class="table-responsive mt-3">
+        @if($NewProduct->count()>0)
         <table class="table table-sm table-header-no-border table-header-theme-blue">
             <thead>
                 <tr>
@@ -61,7 +47,7 @@
                     <td class="align-middle pl-3 py-3">
                         <a href="{{$NewProducts->linkproduct}}">{{$NewProducts->name}}</a>
                             <div class="d-block d-md-none text-cust-gray">
-                                Date : <em>{{$NewProducts->created_at}}</em>
+                                Date : <em>{{date('d/m/Y', strtotime($NewProducts->created_at))}}</em>
                             </div>
                     </td>
                     <td class="text-center align-middle d-none d-md-table-cell" style="width: 15%"><em>{{date('d/m/Y', strtotime($NewProducts->created_at))}}</em></td>
@@ -69,6 +55,17 @@
                 @endforeach
             </tbody>
         </table>
+        @else
+        <table class="table table-sm table-header-no-border table-header-theme-blue">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="2">Subject</th>
+                    <th class="text-center d-none d-md-table-cell" width="120">Date</th>
+                </tr>
+            </thead>
+        </table>
+            <h5 style="text-align: center; margin-top: 10%">ไม่มีสินค้าใหม่ในช่วงเวลาที่ท่านเลือก</h5>
+        @endif
     </div>
 </div>
 
@@ -83,6 +80,13 @@
         padding-left: 15px;
         margin-right: auto;
         margin-left: auto;
+    }
+    .head1{
+        text-align: center; 
+        margin-bottom: 1%; 
+        background: #194276; 
+        color: white; 
+        padding: 1% 0;
     }
     .brand{
         text-align: center;
@@ -124,11 +128,31 @@
     border-color: inherit;
     }
 
+    @media screen and (max-width: 1200px){
+        .brand img{
+        width: 40%;
+        margin-bottom:10%; 
+        }
+        .container-fluid{
+        padding-right: 50px;
+        padding-left: 50px;
+        }
+    }
+
     @media (min-width: 768px){
-    .d-md-none {
-    display: none!important;
+        .d-md-none {
+        display: none!important;
+        }
     }
-    
+
+    @media screen and (max-width: 700px){
+        .brand img{
+            width: 50%;
+            margin-bottom:10%; 
+        }
+        .container-fluid{
+            padding-right: 15px;
+            padding-left: 15px;
+        }
     }
-    
 </style>

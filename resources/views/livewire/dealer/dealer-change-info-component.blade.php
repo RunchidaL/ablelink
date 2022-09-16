@@ -117,7 +117,7 @@
         background: #194276; 
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
         color: white; 
-        font-size: 200%; 
+        font-size: 100%; 
         padding: 1%; 
         border-radius: 20px
     }
