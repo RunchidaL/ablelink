@@ -197,5 +197,4 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/AdminNewProducts', AdminNewProductsComponent::class)->name('admin.AdminNewProducts');
     Route::get('/admin/AdminAddNewProducts', AddNewProductsComponent::class)->name('admin.AddNewProducts');
     Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
-
 });

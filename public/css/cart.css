@@ -13,11 +13,6 @@ p{
     justify-content: center;
 }
 
-.cart-home{
-    padding: 0 auto;
-    max-width: 1320px;
-}
-
 .alert-wrap{
     width: 100%;
     display: flex;
@@ -74,18 +69,9 @@ td.cart-quantity{
 }
 
 .cart-conclu td span{
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.button-total{
-    background-color: grey;
-    border-radius: 30px;
-    padding: 0.2rem 2rem;
-    border: solid 1px white;
-    color: white;
     white-space: nowrap;
 }
 
@@ -119,6 +105,76 @@ td.cart-quantity{
 .button-paid:hover{
     background-color: #2db953;
     color: white;
-} 
+}
+
+/* responsive phone */
+.phone-cart-home{
+    display: none;
+    padding: 0 auto;
+}
+
+.phone-cart-menu{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+}
+
+.phone-cart-wrapper{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    display: flex;
+    padding: 10px 0;
+}
+
+.phone-cart-right{
+    padding: 0 5px;
+    width: 100%;
+}
+
+.phone-cart-product a img{
+    width: 100px;
+}
+
+.phone-cart-name p{
+    color:red;
+}
+
+.phone-cart-total{
+    padding: 10px 0;
+}
+
+.phone-cart-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-cart-conclu{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.phone-cart-foot{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* responsive screen*/
+@media screen and (max-width: 767px){
+    .cart-home{
+        display: none;
+    }
+    .phone-cart-home{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1536px){
+    .container.cart-home{
+        max-width: 1320px;
+    }
+}
+
+
 
 

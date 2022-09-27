@@ -125,7 +125,6 @@
     });
 
     const person = document.getElementById("person");
-    console.log(person);
     let op = false;
     const mainMenu = document.getElementById("mainMenu");
     const userMenu = document.getElementById("userMenu");

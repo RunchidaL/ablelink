@@ -44,7 +44,8 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
-    for( let i = 1; i < 9; i++) {
+    const elementSize = document.getElementsByClassName("menu-link-item").length;
+    for( let i = 1; i <= elementSize ; i++) {
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
