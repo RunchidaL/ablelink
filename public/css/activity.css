@@ -174,7 +174,7 @@
 
 .AC-col{
     position: relative;
-    width: 14.285%;
+    width: 18%;
     text-align: center;
     margin-top: 20px;
 }
@@ -208,7 +208,7 @@
         margin-top: 5%;
     }
     .AC-col{
-        height: 350px;
+        height: 300px;
         width: 100%;
     }
     .AC-col img{

@@ -76,7 +76,7 @@
                         @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete text-danger" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                            <a class="cart-quantity-delete text-danger" wire:click.prevent="deleteItems('{{$item->id}}')">
                                 <i class="bi bi-x-lg"></i>
                             </a>
                         </td>
@@ -108,3 +108,30 @@
         @endif
     </div>
 </div>
+
+
+<script>
+    window.addEventListener('show-delete-confirmation', event =>{
+        Swal.fire({
+            title: 'ต้องการลบสินค้าใช่หรือไม่?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ใช่',
+            cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteConfirmed')
+                }
+        })
+    });
+
+    window.addEventListener('deletedItem', event =>{
+        Swal.fire(
+            'สำเร็จ!',
+            'ลบสินค้าในตะกร้าเรียบร้อย',
+            'success'
+            )
+    });
+</script>

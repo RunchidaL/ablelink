@@ -143,7 +143,8 @@
             margin-top: 10%;
         }
         .subhead{
-            padding: 3%; 
+            padding: 3%;
+            font-size: 65%; 
         }
-        }
-    </style>
+    }
+</style>

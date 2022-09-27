@@ -137,18 +137,13 @@
 		</div>
 		<div class="common_btns form_3_btns" style="display: none;">
 			<button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>ย้อนกลับ</button>
-			<button type="submit" class="btn_done">ยืนยัน <ion-icon name="checkmark-circle-outline"></ion-icon></button>
+			<button type="submit" class="btn_done">ยืนยัน&nbsp;<ion-icon name="checkmark-circle-outline"></ion-icon></button>
 		</div>
 	</div>
 	</form>
+	
 </div>
-{{-- <div class="modal_wrapper">
-	<div class="shadow"></div>
-	<div class="success_wrap">
-		<span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-		<p>ลงทะเบียนโปรเจ็คสำเร็จ.</p>
-	</div>
-</div> --}}
+
 
 
 <script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InfodealerRequestController extends Controller
 {
@@ -70,6 +71,7 @@ class InfodealerRequestController extends Controller
         }
         // dd($data);
         Mail::to('cpe327@gmail.com')->send(new ContactMail($data));
+        Alert::success('Register Dealer','Successfully!');
         return redirect('/');
     }
     

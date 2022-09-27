@@ -24,6 +24,8 @@
         "bootstrap-icons": "^1.8.3",
         "html2pdf.js": "^0.10.1",
         "jquery": "^3.6.0",
+        "sweetalert": "^2.1.2",
+        "sweetalert2": "^11.4.33",
         "tinymce": "^6.0.3"
     }
 }

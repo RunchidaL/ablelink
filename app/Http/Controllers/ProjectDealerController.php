@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ProjectMail;
 use Illuminate\Http\Response;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ProjectDealerController extends Controller
 {
@@ -38,7 +40,8 @@ class ProjectDealerController extends Controller
             
         ];
         Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
-        return redirect('/');
+        Alert::success('Register Project','Successfully!');
+        return redirect('/dealer/registerproject');
     }
 
 

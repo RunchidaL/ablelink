@@ -142,8 +142,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
     Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
     Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
-
-    Route::get('/order', OrderComponent::class);
+    Route::get('/order',OrderComponent::class);
     Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
     Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
     // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');

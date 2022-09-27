@@ -191,10 +191,12 @@
                                     <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
                                 </label>
                             @endif
-                            <div class="subaddress">
+                            
+                            <input type="radio" name="check" id="omise"  >
+                            <label>
                                 <h5>ชำระเงินด้วยบัตรเครดิต</h5>
                                 <hr>
-                                <input type="hidden" name="omiseToken">
+                                <input type="hidden" name="check" id="omise">
                                 <script type="text/javascript" src="https://cdn.omise.co/omise.js"
                                     data-key="pkey_test_5t30hpp2jv76v7wwj48"
                                     data-image="http://bit.ly/customer_image"
@@ -206,7 +208,7 @@
                                     data-currency="thb"
                                     >
                                 </script>
-                            </div>
+                            </label>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="card mb-4">
@@ -290,6 +292,13 @@ input[type="radio"]:checked + label{
 	background-color: #194276;
 	color: white;
 }
+input[type="hidden"]:checked + label{
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+	background-color: #194276;
+	color: white;
+}
+
+
 </style>
 
 <script>
