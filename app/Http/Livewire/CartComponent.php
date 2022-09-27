@@ -20,6 +20,7 @@ class CartComponent extends Component
         if(($cart->quantity) < $model->stock){
             $cart->quantity++;
             $cart->save();
+            return redirect(request()->header('Referer'));
         }
     }
 
@@ -30,6 +31,7 @@ class CartComponent extends Component
         {
             $cart->quantity--;
             $cart->save();
+            return redirect(request()->header('Referer'));
         }
     }
 

@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Order#{{$order->id}}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     </head>
     <body>
@@ -34,9 +35,9 @@
             <p class="desc">
                 Quotation No. : <br>
                 Presale Checklist : <br>
-                Date : {{$dealer->companyTH}}<br>
-                Revised Date : {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}}<br>
-                Page No. : {{$dealer->district}} {{$dealer->county}} {{$dealer->zipcode}}<br>
+                Date : {{date('d/m/Y', strtotime($order->created_at))}}<br>
+                Revised Date : <br>
+                Page No. : <br>
                 Sale :  {{$dealer->emailaddress}}<br>
                 Mobile :  {{$dealer->phonenumber}}<br>
                 validity : <br>
@@ -58,8 +59,25 @@
                 <th style="width: 15%;">Unit Price (Baht)</th>
                 <th style="width: 10%;">Amount (Baht)</th>
             </tr>
-
+            @php
+                $i = 0;
+            @endphp
+            @foreach($items as $item)
+                @php
+                    $i++;
+                @endphp
             <tr>
+                <td>{{$i}}</td>
+                <td>{{$item->model->product->brand->name}}</td>
+                <td>{{$item->model->slug}}</td>
+                <td>{!! $item->model->description !!}</td>
+                <td>{{$item->quantity}}</td>
+                <td></td>
+                <td>{{number_format($item->model->dealer_price,2)}}</td>
+                <td>{{number_format($item->model->dealer_price * $item->quantity,2)}}</td>
+            </tr>
+            @endforeach
+            <!-- <tr>
                 <td>Peter</td>
                 <td>Griffin</td>
                 <td>$100</td>
@@ -90,18 +108,7 @@
                 <td>$100</td>
                 <td>$100</td>
                 <td>$100</td>
-            </tr>
-
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-            </tr>
+            </tr> -->
             
             
 
@@ -113,7 +120,7 @@
                 <td rowspan="3"></td>
                 <td rowspan="3" colspan="2" style="color: red">หมายเหตุ xxxxxxxx</td>
                 <td class="blast" colspan="2">&nbsp;    Total</td>
-                <td class="last"><strong>-  &nbsp;</strong></td>
+                <td class="last"><strong>{{$order->total}}</strong></td>
             </tr>
 
             <tr>

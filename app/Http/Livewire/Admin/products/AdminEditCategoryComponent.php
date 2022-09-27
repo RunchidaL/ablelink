@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
 use App\Models\Brand;
+use App\Models\SubBrandCategory;
 
 class AdminEditCategoryComponent extends Component
 {
@@ -27,10 +28,19 @@ class AdminEditCategoryComponent extends Component
     public $image;
     public $newimage;
     public $brand_id;
+    public $sbcategory_slug;
 
-    public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
+    public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null,$sbcategory_slug=null)
     {
-        if($this->bcategory_slug)
+        if($this->sbcategory_slug)
+        {
+            $this->sbcategory_slug = $sbcategory_slug;
+            $sbcategory = SubBrandCategory::where('id',$sbcategory_slug)->first();
+            $this->sbcategory_id = $sbcategory->id;
+            $this->name = $sbcategory->name;
+            $this->slug = $sbcategory->slug;
+        }
+        else if($this->bcategory_slug)
         {
             $this->bcategory_slug = $bcategory_slug;
             $bcategory = BrandCategory::where('id',$bcategory_slug)->first();
@@ -66,7 +76,14 @@ class AdminEditCategoryComponent extends Component
 
     public function updateCategory()
     {
-        if($this->scategory_c)
+        if($this->sbcategory_slug)
+        {
+            $sbcategory = SubBrandCategory::find($this->sbcategory_slug);
+            $sbcategory->name = $this->name;
+            $sbcategory->slug = $this->slug;
+            $sbcategory->save();
+        }
+        else if($this->scategory_c)
         {
             $bcategory = BrandCategory::find($this->bcategory_id);
             $bcategory->brand_id = $this->brand_id;

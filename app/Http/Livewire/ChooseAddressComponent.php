@@ -22,6 +22,7 @@ class ChooseAddressComponent extends Component
     {
         $this->validateOnly($fields,[
             'payment' => 'required',
+            'ad' => 'required',
         ]);
     }
 
@@ -29,6 +30,7 @@ class ChooseAddressComponent extends Component
     {
         $this->validate([
             'payment' => 'required',
+            'ad' => 'required',
         ]);
         
         $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();

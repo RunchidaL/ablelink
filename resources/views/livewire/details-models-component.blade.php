@@ -90,11 +90,11 @@
                 @endguest
                 </div>
             </div>
-            @if(($model->product->subCategories->name) == "Cabling")
+            @if($model->product->subcategory_id == "7")
                 <div class="length">
                     <p>Length:</p>
                     <div class="add-attribute">
-                        <input wire:model.defer="attribute"> m @error('attribute') <span class="text-danger">กรุณาใส่ความยาว</span> @enderror
+                        <input wire:model.defer="attribute"> m <span class="text-danger">กรุณาใส่ความยาว</span>
                     </div>
                 </div>
             @endif

@@ -43,8 +43,16 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h3>รายการสั่งซื้อ</h3>
-                <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
+                <div class="d-flex">
+                    <div class="me-auto align-self-center">
+                        <h3>รายการสั่งซื้อ</h3>
+                    </div>
+                    <div class="p-2">
+                        @if(Auth::user()->role == 2)
+                        <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
+                        @endif
+                    </div>
+                </div>
                 <div class="table-responsive order-detail-info">
                     <table class="table table-condensed">
                         <thead>

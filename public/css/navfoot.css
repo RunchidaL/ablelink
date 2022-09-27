@@ -444,23 +444,27 @@ footer *{
 .bi.bi-youtube{
     color: rgb(255, 0, 0);
 }
-.bi.bi-cart-fill{
-    position: relative;
+
+/* cart count */
+.count{
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
 }
 
-.count{
-    display: flex;
+#CartCount{
+    display: inline-block;
     font-size: 12px;
-    position: absolute;
-    top: 12px;
-    background-color: red;
-    color: white;
-    width: 18px;
-    height: 18px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    right: 130px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0px 5px 0px 5px;
+    margin-left: -10px; 
+    /* margin-bottom: -5px; */
+    margin-top: -5px;  
+    vertical-align: top;
+    z-index: 10;
 }
 
 /* responsive */
@@ -491,6 +495,9 @@ footer *{
     }
     .toggle{
         display: block;
+    }
+    #CartCount{
+        padding: 2px 5px 2px 5px;
     }
 }
 

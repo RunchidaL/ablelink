@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
 use App\Models\Brand;
+use App\Models\SubBrandCategory;
 
 class AdminAddCategoryComponent extends Component
 {
@@ -39,7 +40,22 @@ class AdminAddCategoryComponent extends Component
 
     public function storeCategory()
     {
-        if($this->scategory_id)
+        if($this->brand_id)
+        {           
+            $sbcategory = new SubBrandCategory();
+            $sbcategory->name = $this->name;
+            $sbcategory->slug = $this->slug;
+
+            $brand = Brand::where('id',$this->brand_id)->first();
+            $brandid = $brand->id;
+            $ccategory = Subcategory::where('id',$this->scategory_id)->first();
+            $ccategory_id = $ccategory->id;
+            $sb_id = BrandCategory::where('brand_id',$brandid)->where('subcategory_id',$ccategory_id)->first();
+
+            $sbcategory->brandcategory_id = $sb_id->id;
+            $sbcategory->save();
+        }
+        else if($this->scategory_id)
         {           
             $bcategory = new BrandCategory();
             $bcategory->subcategory_id = $this->scategory_id;

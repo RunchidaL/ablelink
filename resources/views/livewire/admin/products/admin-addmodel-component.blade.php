@@ -241,69 +241,47 @@
     </div>
 </div>
 
-@push('scripts')
-    <script>
-        tinymce.init({
-            selector: '#description',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var d_data = $('#description').val();
-                    @this.set('description',d_data);
-                });
+<script>
+    $('#description').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents1, $editable) {
+                @this.set('description', contents1);
             }
-        });
-        tinymce.init({
-            selector: '#overview',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var o_data = $('#overview').val();
-                    @this.set('overview',o_data);
-                });
+        }
+    });
+    $('#overview').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents2, $editable) {
+                @this.set('overview', contents2);
             }
-            
-        });
-        tinymce.init({
-            selector: '#application',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var sd_data = $('#application').val();
-                    @this.set('application',sd_data);
-                });
+        }
+    });
+    $('#application').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents3, $editable) {
+                @this.set('application', contents3);
             }
-        });
-        tinymce.init({
-            selector: '#item_spotlight',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var i_data = $('#item_spotlight').val();
-                    @this.set('item_spotlight',i_data);
-                });
+        }
+    });
+    $('#item_spotlight').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents4, $editable) {
+                @this.set('item_spotlight', contents4);
             }
-        });
-        tinymce.init({
-            selector: '#feature',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var f_data = $('#feature').val();
-                    @this.set('feature',f_data);
-                });
+        }
+    });
+    $('#feature').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents5, $editable) {
+                @this.set('feature', contents5);
             }
-        });
-    </script>
-@endpush
+        }
+    });
+</script>
+
 

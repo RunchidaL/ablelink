@@ -165,6 +165,7 @@ class DetailsModelsComponent extends Component
         $network_products = NetworkValue::all();
         $jacket_products = JacketProduct::all();
         $network_images = NetworkImage::all();
+        
         return view('livewire.details-models-component',['model'=>$model,'network_products'=>$network_products,'product_models'=>$product_models,'series'=>$series,'types'=>$types,'jackets'=>$jackets,'jacket_products'=>$jacket_products,'network_images'=>$network_images])->layout("layout.navfoot");
     }
 }
