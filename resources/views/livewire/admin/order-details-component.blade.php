@@ -22,13 +22,13 @@
                     <div class="col-md-6 text-end">
                         <address>
                             <strong>ผู้ซื้อสินค้า:</strong><br>
-                            @if(Auth::user()->role == 1)
+                            @if($user->role == 1)
                                 {{$customer->firstname}} {{$customer->lastname}}<br>
                                 {{$customer->phonenumber}}<br>
                                 {{$customer->address}} แขวง/ตำบล {{$customer->subdistrict}} <br>
                                 เขต/อำเภอ {{$customer->district}} {{$customer->county}} <br>
                                 {{$customer->zipcode}}<br>
-                            @elseif(Auth::user()->role == 2)
+                            @elseif($user->role == 2)
                                 {{$order->user->name}}<br>
                                 {{$dealer->phonenumber}}<br>
                                 {{$dealer->address}} แขวง/ตำบล {{$dealer->subdistrict}} <br>
@@ -48,7 +48,7 @@
                         <h3>รายการสั่งซื้อ</h3>
                     </div>
                     <div class="p-2">
-                        @if(Auth::user()->role == 2)
+                        @if($user->role == 2)
                         <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
                         @endif
                     </div>

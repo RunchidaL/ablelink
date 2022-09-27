@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Description : </label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="description" type="text" class="form-control" wire:model="description" required></textarea>
+                                    <textarea id="description" type="text" class="form-control" wire:model="description" required>{{ $post->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -91,19 +91,16 @@
     }
 </style>
 
-@push('scripts')
+
 <script>
-    tinymce.init({
-            selector: '#description',
-            plugins: 'quickbars table image link lists media autoresize help',
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var d_data = $('#description').val();
-                    @this.set('description',d_data);
-                });
+$('#description').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents, $editable) {
+                @this.set('description', contents);
             }
-        });
+        }
+    });
 </script>
-@endpush
+
 

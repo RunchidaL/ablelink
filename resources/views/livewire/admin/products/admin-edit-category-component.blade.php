@@ -9,7 +9,7 @@
             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
         @endif
         <form class="addproduct" wire:submit.prevent="updateCategory">
-            @if(empty($bcategory_slug))
+            @if(empty($bcategory_slug) or $sbcategory_slug)
             <div class="row mb-3">
                 <div class="form-group">
                     <label class="col-md-12">Name</label>

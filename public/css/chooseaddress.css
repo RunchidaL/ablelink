@@ -34,6 +34,13 @@
 	width: 50%;
 }
 
+.omise-checkout-button{
+	background-color: rgb(109, 225, 105);
+	border: none;
+	border-radius: 30px;
+	padding: 1% 4%;
+}
+
 @media screen and (max-width: 1200px){
 	.apbill{
 		width: 100%;

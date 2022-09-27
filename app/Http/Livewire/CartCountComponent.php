@@ -17,7 +17,13 @@ class CartCountComponent extends Component
             return redirect()->route('login');
         }
         else{
-            $this->count = Cart::whereUserId(auth()->user()->id)->count();
+            $items = Cart::whereUserId(auth()->user()->id)->get();
+            $count = 0;
+            foreach($items as $item)
+            {
+                $this->count += $item->quantity;
+            }
+            
         }
     }
     

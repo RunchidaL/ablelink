@@ -50,6 +50,7 @@ class AdminEditmodelComponent extends Component
     public $newguide;
     public $newcert;
     public $newconfig;
+    public $model_slug;
 
     public $new_network_images=[];
     public $network_images=[];
@@ -273,6 +274,7 @@ class AdminEditmodelComponent extends Component
         $network_types = NetworkType::all();
         $network_images = NetworkImage::all();
         $products = Product::all();
-        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products])->layout("layout.navfoot");
+        $model = ProductModels::where('slug',$this->model_slug)->first();
+        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products,'model'=>$model])->layout("layout.navfoot");
     }
 }

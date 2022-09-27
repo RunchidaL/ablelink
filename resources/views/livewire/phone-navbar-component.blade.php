@@ -14,7 +14,7 @@
                     @guest
                     <a href="{{ route('login') }}"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
                     @else
-                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i><span class="count">{{$count}}</span></button></a>
+                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i><span class="count count-warning" id="CartCount">{{$count}}</span></button></a>
                     @endguest
                 </div>
                 <div class="user-phone">
@@ -66,12 +66,12 @@
                 <ul class="sub-menu">
                     @foreach($categories as $category)
                     <li class="group-submenu">
-                        <a href=""><span>{{$category->name}}</span></a> 
+                        <a href="{{route('product.category',['category_slug'=>$category->slug])}}"><span>{{$category->name}}</span></a> 
                         <i class="bi bi-caret-left-fill arrow"></i>
                     </li>
                     <ul class="subsubmenu">
                         @foreach($category->subCategories as $scategory)
-                        <a href=""><li style="cursor: defualt;">{{$scategory->name}}</li></a>
+                        <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><li style="cursor: defualt;">{{$scategory->name}}</li></a>
                         @endforeach
                     </ul>
                     @endforeach
