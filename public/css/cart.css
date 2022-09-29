@@ -229,6 +229,7 @@ td.cart-quantity{
     justify-content: space-between;
 }
 
+
 /* responsive screen*/
 @media screen and (max-width: 767px){
     .cart-home{
@@ -244,3 +245,5 @@ td.cart-quantity{
         max-width: 1320px;
     }
 }
+
+

@@ -26,16 +26,17 @@
 
 .NP-col{
     position: relative;
-    width: 14.285%;
+    width: 16.66%;
     text-align: center;
 }
 
 .NP-col img{
-    width: 100%;
+    width: 200px;
     height: auto;
     display: flex; 
-    padding: 5%; /*ในนอก*/
-    
+    padding: 5%; 
+    display: block;
+    margin: auto;
 }
 
 .NP-col p:hover{
@@ -52,10 +53,41 @@
     transform: scale(1.15); 
 }
 
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #194276;
+    color: #fff;
+    font-size: 1em;
+}
+
 /* responsive */
-@media(max-width: 960px){
+@media(max-width: 1540px){
+    .NP-col img{
+        width: 170px;
+        height: auto;
+        display: flex; 
+        
+    }
+}
+
+@media(max-width: 1200px){
+    .NP-col img{
+        width: 140px;
+        height: auto;
+        display: flex; 
+    }
+}
+
+@media(max-width: 992px){
     .NP-col{
         width: 30%;  
+    }
+    .NP-col img{
+        width: 180px;
+        height: auto;
+        display: flex; 
     }
     .text{
         margin-top: 10%;
@@ -66,8 +98,12 @@
     .NP-col{
         width: 50%;  
     }
+    .NP-col img{
+        width: 168px;
+        height: auto;
+        display: flex; 
+    }
     .text{
         margin-top: 10%;
     }
 }
-
