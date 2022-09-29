@@ -12,6 +12,9 @@ class CartComponent extends Component
     public $subtotal = 0;
     public $count = 0;
     public $items;
+    public $delete_id;
+
+    protected $listeners = ['deleteConfirmed'=>'deleteItem'];
 
     public function increaseQuantity($id)
     {
@@ -20,7 +23,6 @@ class CartComponent extends Component
         if(($cart->quantity) < $model->stock){
             $cart->quantity++;
             $cart->save();
-            return redirect(request()->header('Referer'));
         }
     }
 
@@ -31,18 +33,21 @@ class CartComponent extends Component
         {
             $cart->quantity--;
             $cart->save();
-            return redirect(request()->header('Referer'));
         }
     }
 
-    public function delete($id)
+    public function deleteItems($id)
     {
-        $cart = Cart::whereId($id)->first();
-        if($cart)
-        {
-            $cart->delete();
-        }
-        return redirect()->route('product.cart');
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    public function deleteItem()
+    {
+        $item = Cart::where('id',$this->delete_id)->first();
+        $item->delete();
+        $this->dispatchBrowserEvent('deletedItem');
+        session()->flash('message','Item has been deleted successfully!');
     }
 
     public function getCartItemCount()

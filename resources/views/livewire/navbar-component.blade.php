@@ -31,6 +31,9 @@
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>
                                 @foreach($scategory->brandCategories as $brand)
                                 <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name])}}"><span><span>{{$brand->brands->name}}</span></span></a>
+                                    @foreach($brand->subbrandCategories as $sbcategory)
+                                    <a href="#"><span><span>{{$sbcategory->name}}</span></span></a>
+                                    @endforeach
                                 @endforeach
                             </div>
                         </div>

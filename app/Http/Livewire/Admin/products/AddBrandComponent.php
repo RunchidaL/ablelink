@@ -14,6 +14,7 @@ class AddBrandComponent extends Component
     public $name;
     public $slug;
     public $image;
+    public $link;
 
     public function generateslug()
     {
@@ -26,10 +27,15 @@ class AddBrandComponent extends Component
         $brand = new Brand();
         $brand->name = $this->name;
         $brand->slug = $this->slug;
+        if($this->image)
+        {
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('brands',$imageName);
         $brand->image = $imageName;
+        }
+        $brand->link = $this->link;
         $brand->save();
+        
 
         session()->flash('message','success');
         

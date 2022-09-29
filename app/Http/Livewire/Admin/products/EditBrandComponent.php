@@ -15,6 +15,7 @@ class EditBrandComponent extends Component
     public $slug;
     public $image;
     public $newimage;
+    public $link;
 
     public function mount($brand_slug)
     {
@@ -24,6 +25,7 @@ class EditBrandComponent extends Component
         $this->name = $brand->name;
         $this->slug = $brand->slug;
         $this->image = $brand->image;
+        $this->link = $brand->link;
         
     }
 
@@ -43,6 +45,7 @@ class EditBrandComponent extends Component
             $this->newimage->storeAs('brands',$imageName);
             $brand->image = $imageName;
         }
+        $brand->link = $this->link;
         $brand->save();
         session()->flash('message','edit success');
     }

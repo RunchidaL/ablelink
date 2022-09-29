@@ -20,6 +20,7 @@
                             <th>Image</th>
                             <th>Name</th>
                             <th>slug</th>
+                            <th>link</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                                 <td><img src="{{asset('/images/brands')}}/{{$brand->image}}" width="120" alt=""></td>
                                 <td>{{$brand->name}}</td>
                                 <td>{{$brand->slug}}</td>
+                                <td>{{$brand->link}}</td>
                                 <td>
                                     <a href="{{route('admin.editbrand',['brand_slug'=>$brand->slug])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
                                     <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteBrand({{$brand->id}})"><i class="bi bi-x" id="edit"></i></a>
