@@ -19,6 +19,7 @@ class AdminEditPostComponent extends Component
     public $description;
     public $newtitleimg;
     public $post_id;
+    public $post_slug;
 
     public function mount($post_slug)
     {
@@ -57,6 +58,7 @@ class AdminEditPostComponent extends Component
     public function render()
     {   
         $postcategories = PostCategory::all();
-        return view('livewire.admin.posts.admin-edit-post-component',['postcategories'=>$postcategories])->layout("layout.navfoot");
+        $post = Post::where('slug',$this->post_slug)->first();
+        return view('livewire.admin.posts.admin-edit-post-component',['postcategories'=>$postcategories,'post'=>$post])->layout("layout.navfoot");
     }
 }

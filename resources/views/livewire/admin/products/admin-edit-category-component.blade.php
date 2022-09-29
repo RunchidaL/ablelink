@@ -2,14 +2,25 @@
     <div class="container">
         <div class="row" id="head">
             <div class="col-md-4">
-                <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Category</h2>
+                
+                <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  
+                @if($sbcategory_slug)
+                    Edit SubBrand
+                @elseif($bcategory_slug)
+                    Edit Brand
+                @elseif($scategory_slug)
+                    Edit SubCategory
+                @elseif($category_slug)
+                    Edit Category
+                @endif
+                </h2>
             </div>
         </div>
         @if(Session::has('message'))
             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
         @endif
         <form class="addproduct" wire:submit.prevent="updateCategory">
-            @if(empty($bcategory_slug))
+            @if(empty($bcategory_slug) or $sbcategory_slug)
             <div class="row mb-3">
                 <div class="form-group">
                     <label class="col-md-12">Name</label>

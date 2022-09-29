@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ablelink</title>
+    <link rel="icon" href="/images/logo2.png" type="image/png">
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -23,6 +24,10 @@
     <!-- slide img -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     
 
     <!-- styles -->
@@ -30,6 +35,8 @@
     @yield('link_register_customer')
     @yield('link_login')
     @yield('link_email')
+    @yield('link_reset')
+    @yield('link_confirm')
     <link href="{{asset('/css/details.css')}}" rel="stylesheet">
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
     <link href="{{asset('/css/cart.css')}}" rel="stylesheet">
@@ -57,7 +64,7 @@
   <script src="https://cdn.omise.co/omise.js"></script>
   <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
   @livewireScripts
-  
+  @include('sweetalert::alert')
   @stack('scripts')
   </body>
 </html>

@@ -1,8 +1,12 @@
 <div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row" id="head">
-            <div class="col-md-4">
-                <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Category</h2>
+            <div class="col-md-12">
+                <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Category, SubCategory, Brand, SubBrand</h2>
+                <p>- New Category ใส่ข้อมูลเฉพาะช่อง Name กับ Slug</p>
+                <p>- New SubCategory ใส่ข้อมูลในช่อง Name กับ Slug และเลือก Category ที่ SubCategory อยู่</p>
+                <p>- New Brand เลือก Brand และเลือก Category กับ SubCategory ที่ Brand อยู่</p>
+                <p>- New SubBrand ใส่ข้อมูลในช่อง Name กับ Slug และเลือก Category, SubCategory กับ Brand ที่ SubBrand อยู่</p>
             </div>
         </div>
         @if(Session::has('message'))
@@ -35,7 +39,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4">Subategory Image</label>
+                    <label class="col-md-4">SubCategory Image</label>
                     <div class="col-md-4">
                         <input type="file" class="input-file" wire:model="image">
                         @if($image)

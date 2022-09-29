@@ -13,15 +13,11 @@ class NewProductDetailComponent extends Component
     public $year;
     public $name;
 
-    
-
     public function mount()
     {
-        
         $this->month = "default";
         $this->year = "default";
     }
-
 
     public function render()
     {

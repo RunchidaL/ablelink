@@ -18,7 +18,6 @@
     </div>
 </div>
 
-
 <h1 style="text-align: center; margin-bottom: 1%; background: #194276; color: white; padding: 1% 0;">ผลิตภัณฑ์ใหม่</h1>
 
 <div class="row" id="products">

@@ -27,31 +27,31 @@
                             <div class="form-group">
                                 <label class="col-md-12">Description</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="description" type="text" class="form-control" wire:model="description"></textarea>
+                                    <textarea id="description" type="text" class="form-control" wire:model="description">{{ $model->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">*Overview</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="overview" type="text" class="form-control"  wire:model="overview"></textarea>
+                                    <textarea id="overview" type="text" class="form-control"  wire:model="overview">{{ $model->overview }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">*Application</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
+                                    <textarea id="application" type="text" class="form-control"  wire:model="application">{{ $model->application }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">*Item_spotlight</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
+                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight">{{ $model->item_spotlight }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">*Feature</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
+                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature">{{ $model->feature }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -250,69 +250,46 @@
     </div>
 </div>
 
-@push('scripts')
-    <script>
-        tinymce.init({
-            selector: '#description',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var d_data = $('#description').val();
-                    @this.set('description',d_data);
-                });
+<script>
+    $('#description').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents1, $editable) {
+                @this.set('description', contents1);
             }
-        });
-        tinymce.init({
-            selector: '#overview',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var o_data = $('#overview').val();
-                    @this.set('overview',o_data);
-                });
+        }
+    });
+    $('#overview').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents2, $editable) {
+                @this.set('overview', contents2);
             }
-            
-        });
-        tinymce.init({
-            selector: '#application',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var sd_data = $('#application').val();
-                    @this.set('application',sd_data);
-                });
+        }
+    });
+    $('#application').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents3, $editable) {
+                @this.set('application', contents3);
             }
-        });
-        tinymce.init({
-            selector: '#item_spotlight',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var i_data = $('#item_spotlight').val();
-                    @this.set('item_spotlight',i_data);
-                });
+        }
+    });
+    $('#item_spotlight').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents4, $editable) {
+                @this.set('item_spotlight', contents4);
             }
-        });
-        tinymce.init({
-            selector: '#feature',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var f_data = $('#feature').val();
-                    @this.set('feature',f_data);
-                });
+        }
+    });
+    $('#feature').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents5, $editable) {
+                @this.set('feature', contents5);
             }
-        });
-    </script>
-@endpush
+        }
+    });
+</script>
 

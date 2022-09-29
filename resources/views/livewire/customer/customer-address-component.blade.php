@@ -54,7 +54,7 @@
                                     </div>
                                     <div>          
                                         <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                        <a href="#" wire:click.prevent="deleteAddresses({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                     </div>
                                 </h3>
                                 <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
@@ -75,6 +75,33 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    window.addEventListener('show-delete-confirmation', event =>{
+        Swal.fire({
+            title: 'ต้องการลบที่อยู่ใช่หรือไม่?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ใช่',
+            cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteConfirmed')
+                }
+        })
+    });
+
+    window.addEventListener('deleteaddress', event =>{
+        Swal.fire(
+            'สำเร็จ!',
+            'ลบที่อยู่เรียบร้อยเเล้ว',
+            'success'
+            )
+    });
+</script>
 
 <style>
 .account-settings .user-profile {

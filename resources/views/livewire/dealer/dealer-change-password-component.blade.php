@@ -8,9 +8,7 @@
         @endif
         <form  name="signupForm" id="signupForm" wire:submit.prevent="changePassword">
             <img src="/images/key.jpg" id="signupLogo"/>
-            <h1 class="formTitle">
-                Change Password
-            </h1>
+            <h1 class="formTitle">Change Password</h1>
             <div class="inputDiv">
                 <label class="inputLabel" for="Current_password">Current Password</label>
                 <input type="password" id="password" name="Current_password" wire:model="current_password"/>

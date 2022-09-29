@@ -77,6 +77,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderPdfController;
 use App\Http\Livewire\OrderPdfComponent;
 use App\Http\Livewire\SearchProductsComponent;
+use App\Http\Livewire\Admin\AllOrderComponent;
+use App\Http\Livewire\Admin\OrderDetailsComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -124,8 +126,6 @@ Route::post('/register-project-email',[ProjectDealerController::class,'sendEmail
 
 Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
 
-Route::get('/checkout', CheckoutComponent::class)->name('checkout');
-
 Route::post('/check',[PaymentController::class,'check'])->name('check');
 
 Route::get('/search',SearchProductsComponent::class)->name('search');
@@ -166,7 +166,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/dealer/addinfo',AdminAddInfoDealerComponent::class)->name('admin.addinfoDealer');
     Route::get('/admin/category', AdminCategoryComponent::class)->name('admin.category');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
-    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}/{bcategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}/{bcategory_slug?}/{sbcategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
@@ -197,5 +197,6 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/AdminNewProducts', AdminNewProductsComponent::class)->name('admin.AdminNewProducts');
     Route::get('/admin/AdminAddNewProducts', AddNewProductsComponent::class)->name('admin.AddNewProducts');
     Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
-
+    Route::get('/admin/AllOrder', AllOrderComponent::class)->name('admin.AllOrder');
+    Route::get('/admin/order/{orderid}', OrderDetailsComponent::class)->name('admin.OrderDetails');
 });

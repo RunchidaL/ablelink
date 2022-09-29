@@ -151,7 +151,7 @@ body{
     position: relative;
 }
 
-.menu-list a .menu-link-item span::after {
+.menu-list a .menu-link-item span::after{
     position: absolute;
     content: '';
     width: 100%;
@@ -163,7 +163,7 @@ body{
     transition: transform 0.3s linear;
 }
 
-.menu-list a .menu-link-item:hover span::after {
+.menu-list a .menu-link-item:hover span::after{
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
@@ -181,14 +181,22 @@ body{
 
 .item{
     display: flex;
-    width: 33%;
+    width: auto;
+    max-width: auto;
+}
+
+.item:not(:nth-last-child(1)){
+    display: flex;
+    width: calc(1/3 * 100%); 
     min-width: fit-content;
+    max-width: calc(1/3 * 100%);
+    min-height: 150px;
 }
 
 .item .photo{
     height: 3rem;
     min-width: 4rem;
-    padding: 0 0.5rem;
+    padding: 0 1rem 0 0.5rem;
     margin-top: 0.5rem;
     display: flex;
     justify-content: center;
@@ -196,12 +204,14 @@ body{
 
 .item .photo img{
     height: 3rem;
+    min-width: 54px;
 }
 
 .item-right{
     display: flex;
     flex-direction: column;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    align-items: flex-start;
 }
 
 .item-right a{
@@ -209,11 +219,20 @@ body{
     color: black;    
 }
 
-.item-right a > span {
-    position: relative;
+.item-right .subTopic {
+    font-size: 1.2rem;
+    
 }
 
-.item-right a > span > span::after {
+.item-right > .subTopic > span,
+.item-right .brand .brandname {
+    position: relative;
+    
+}
+
+
+.item-right > .subTopic > span > span::after,
+.item-right .brand .brandname span::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -223,19 +242,73 @@ body{
     bottom: 0;
     transform: scale(0,1);
     transform-origin: 0% 100%;
-    transition: transform 0.2s ease;
+    transition: transform 0.1s ease-out;
 }
 
-.item-right a > span:hover > span::after {
-    transform: scaleY(1);
-    transition: transform 0.1s ease;
-}   
+.item-right .brand a:hover {
+    color: red;
+}
 
-/*head*/
-.item-right a:nth-child(1) {
-    font-size: 1.2rem;
-    text-align: start;
+.item-right > .subTopic:hover > span > span::after,
+.item-right .brand:hover .brandname span::after{
+    transform: scaleY(1);
+    transition: transform 0.25s ease-in;
+}
+.item-right .brand:hover .brandname span::after{
+    transition: transform 0.1s ease-out;
+}
+
+.item-right .brand{
+    position: relative;
+}
+
+.item-right .brand > a{
+    z-index: 5;
+}
+
+.item-right .brand .box-wrap{
+    position: absolute;
+    left: 100%;
+    top: -0.3rem;
+    z-index: 6;
+    display: none;
+}
+
+.item-right .brand .box-wrap .box{
+    margin: 0.125rem 0.5rem 0.275rem 0.2rem; /*DO NOT change*/
+    min-width: 100px;
+    background-color: #545454;
+    border-left: 3px solid red;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-right .brand .box-wrap .box a{
     white-space: nowrap;
+    color: #fff;
+    transition: all 0.1s linear;
+    padding: 0 0.7rem;
+    width: 100%;
+}
+
+.item-right .brand .box-wrap .box a:nth-last-child(1) {
+    padding-bottom: 0.3rem;
+    border-bottom-right-radius: 5px;
+}
+.item-right .brand .box-wrap .box a:nth-child(1) {
+    padding-top: 0.3rem;
+    border-top-right-radius: 5px;
+}
+.item-right .brand .box-wrap .box a:hover {
+    color: red;
+    background-color: #424242;
+    padding-left: 0.85rem;
+    padding-right: 0.55rem;
+}
+
+.item-right .brand:hover .box-wrap{
+    display: block;
 }
 
 /* navbar-right */
@@ -444,23 +517,26 @@ footer *{
 .bi.bi-youtube{
     color: rgb(255, 0, 0);
 }
-.bi.bi-cart-fill{
-    position: relative;
+
+/* cart count */
+.count{
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
 }
 
-.count{
-    display: flex;
+#CartCount{
+    display: inline-block;
     font-size: 12px;
-    position: absolute;
-    top: 12px;
-    background-color: red;
-    color: white;
-    width: 18px;
-    height: 18px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    right: 130px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0px 5px 0px 5px;
+    margin-left: -10px; 
+    margin-top: -5px;  
+    vertical-align: top;
+    z-index: 10;
 }
 
 /* responsive */
@@ -491,6 +567,9 @@ footer *{
     }
     .toggle{
         display: block;
+    }
+    #CartCount{
+        padding: 2px 5px 2px 5px;
     }
 }
 
@@ -564,10 +643,6 @@ footer *{
     pointer-events: none;
 }
 
-.navDropWrap li{
-    padding: 1rem 0;
-}    
-
 .wrapper1{
     position: relative; 
     max-height: calc(100vh - 70px); 
@@ -594,7 +669,7 @@ ol, ul{
 
 .arrow{
     border: none;
-    background-color: #F4F4F4;
+
     text-align: right;
 }
 
@@ -614,16 +689,26 @@ ol, ul{
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.mainMenu li #farrow::before{
+    line-height: 0;
+    margin-left: 0.2rem;
+}
 
 .mainMenu li.showMenu #farrow::before{
+    line-height: 0;
     transform: rotate(-90deg);
 }
 
-.mainMenu li i:hover{
-    color:red;
+.mainMenu li.p .clickable i:hover,
+.mainMenu li.p .clickable a span.link_name:hover,
+.mainMenu li.p.showMenu .clickable i{
+    color:#ff8c00;
+    cursor: pointer;
+    transition: all 0.1s ease;
 }
 
-.sub-menu .subsubmenu{
+
+.sub-menu .ssmenu{
     display: none;
 }
 
@@ -639,18 +724,177 @@ ol, ul{
     transition: all 0.3s ease;
 }
 
-.group-submenu.display i::before{
+.group-submenu.display i::before,
+.group-ssmenu.display i::before{
     transform: rotate(-90deg);
 }
 
-.group-submenu.display + ul.subsubmenu{
+.group-submenu.display + ul.ssmenu{
     display: block;
 }
 
-.clickable{
+.group-ssmenu{
+    display: flex;
+    justify-content: center;
+}
+
+.clickable ,
+.group-submenu > span{
     position: relative;
 }
 
 .clickable i{
     position: absolute;
 }
+
+ul.mainMenu a.m li{
+    padding: 1rem 0;
+    border-left: 6px solid transparent;
+}
+
+ul.mainMenu a.m li:hover,
+.clickable:hover,
+.mainMenu li.p.showMenu .clickable{
+    color: #ff2a00;
+    background-color: #e9e8e8;
+    border-left: 6px solid rgb(255, 42, 0);
+}
+
+.clickable:hover a span.link_name,
+.mainMenu li.p.showMenu .clickable a span.link_name ,
+.mainMenu li.p.showMenu .clickable a span.l{
+    color: rgb(255, 42, 0);
+}
+
+.clickable{
+    border-left: 6px solid transparent;
+    height: 100%;
+    padding: 1rem 0;
+}
+
+li.group-submenu{
+    padding-left: 6px;
+}
+
+li.group-submenu > span{
+    position: relative;
+    padding: 0.7rem 0;
+}
+
+li.group-submenu:nth-child(1){
+    box-shadow: 0px 17px 20px -14px rgba(0,0,0,0.16) inset;
+    -webkit-box-shadow: 0px 17px 20px -14px rgba(0,0,0,0.16) inset;
+    -moz-box-shadow: 0px 71px 20px -14px rgba(0,0,0,0.16) inset;
+}
+
+li.group-submenu:nth-last-child(2){   
+    box-shadow: 1px -18px 20px -14px rgba(0,0,0,0.16) inset;
+    -webkit-box-shadow: 1px -18px 20px -14px rgba(0,0,0,0.16) inset;
+    -moz-box-shadow: 1px -18px 20px -14px rgba(0,0,0,0.16) inset;
+}
+
+li.group-submenu span > i{
+    position: absolute;
+    padding-left: 0.2rem;
+    left: 100%;
+}
+
+li.group-submenu{
+    border-left: 6px solid #ff684a;
+    background-image: linear-gradient(90deg,
+    #F4F4F4 0%,
+    #F4F4F4 50%,
+    #ff684a 50%,
+    #ff9079 100%);
+    background-size: 200%;
+    transition: none;
+}
+
+li.group-submenu:hover{
+    background-position: -100% 100%;
+    transition: background-position .2s cubic-bezier(.47, .1, 1, .63),color .2s linear;
+    transition-delay: 0.0s, 0.1s;
+}
+
+li.group-submenu span a{
+    color: black;
+}
+
+li.group-submenu.display span i{
+        color: #ffffffb3;
+}
+
+li.group-submenu span a:hover,
+li.group-submenu span i:hover,
+li.group-submenu.display span i:hover{
+    color: white;
+    transition: all 0.1s ease;
+}
+
+li.group-submenu.display{
+    background-position: -100% 100%;
+}
+
+.group-ssmenu > span > i.subcatName{
+    position: absolute;
+    padding-left: 0.2rem;
+}
+
+.group-ssmenu{
+    border-left: 6px solid #fbac6f;
+    background-image: linear-gradient(90deg,
+    #fde8da 0%,
+    #fde8da 50%,
+    #fbac6f 50%,
+    #fde8da 100%);
+    background-size: 200%;
+transition: none;
+}
+
+.group-ssmenu:hover,
+.group-ssmenu.display{
+    background-position: -100% 100%;
+    transition: background-position .2s cubic-bezier(.47, .1, 1, .63),
+        color .2s linear, padding-left 0.1s ease;
+    transition-delay: 0.0s, 0.1s;
+}
+
+.group-ssmenu span{
+    margin: 0.3rem 0;
+}
+
+.group-ssmenu span:hover,
+.group-ssmenu.display span{
+    color: black;
+    padding-left: 1rem;
+    transition: all 0.1s ease;
+}
+
+.group-ssmenu span i:hover,
+.group-ssmenu.display span i{
+    color: orange;
+}
+
+li.group-ssmenu + ul.brandname-wrap{
+    display: none;
+}
+
+li.group-ssmenu.display + ul.brandname-wrap{
+    display: block;
+}
+
+.brandname-wrap .brandname{
+    display: flex;
+    justify-content: center;
+    padding-left: calc(1rem + 6px);
+}
+
+.brandname-wrap .brandname > span{
+    position: relative;
+}
+
+.brandname-wrap .brandname > span > i{
+    position: absolute;
+}
+
+

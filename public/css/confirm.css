@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Prompt', sans-serif;
+    font-size: calc(0.5em + 1vmin);
+}
+
+.h-screen{
+    padding: 0 2% 0% 2%;
+}
+
+.sc{
+    width: 100%;
+    display: flex;
+}
+
+.sc .header{
+    display: flex;
+    align-items: center;
+    max-height: 70px;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.sc .header a img{
+    height: 70px;
+    margin-right: 10px;
+}
+
+.sc .header .topic_name{
+    white-space: nowrap;
+    font-size: 2rem;
+}
+
+.md-sc .main-form .main{
+    width: 100%; 
+    max-width: 725px; 
+}
+
+.md-sc{
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+.message{
+    margin: 4% 0 8% 0;
+}
+
+.fg{
+    width: 100%;
+    max-width: 725px;
+}
+
+.fg input{
+    margin: 0.7rem 0;
+    border-radius: 30px;
+}
+
+.form-control{
+    display: block;
+}
+
+.button{
+    display: flex;
+    justify-content: end;
+    margin: 1rem 0;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    color: #194276;
+    border-color: #194276;
+}
+
+/* responsive */
+@media screen and (min-width: 1890px){
+    .sc .header{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1800px){
+    .sc .header .topic_name{
+        font-size: calc(1rem + 1vw);
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .md-sc span{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1045px){
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+    .sc .header{ 
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .sc .header{
+        max-height: 50px;
+    }
+    .sc .header a img{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width:560px){
+    .sc .header{
+        max-height: 40px;
+    }
+    .sc .header a img{
+        height: 40px;
+    }
+    .sc .header .topic_name{
+        font-size: calc(1.3rem + 0.6vw);
+    }
+}
+
+@media screen and (max-width: 470px){
+    .sc .header .topic_name{
+        font-size: calc(1rem + 0.5vw);
+    }
+}
+
+@media screen and (max-width: 400px){
+    .sc .header{
+        max-height: 35px;
+    }
+    .sc .header a img{
+        height: 35px;
+    } 
+    .sc .header{  
+        margin-top: 5px;
+    }
+    .sc .header .topic_name{
+        font-size: calc( 0.8rem + 0.5vw);
+    }
+}
+
+@media screen and (max-width: 345px){
+    .sc .header{  
+        margin-top: 5px;
+    }
+    .sc .header .topic_name{
+        font-size: calc( 0.7rem + 0.5vw);
+    }
+}

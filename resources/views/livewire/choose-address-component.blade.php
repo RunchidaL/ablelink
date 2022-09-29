@@ -46,7 +46,7 @@
                         <div class="col-md-5 mb-4">
                             @if(Auth::user()->role == 1)
                                 @foreach($customers as $customer)
-                                        <input type="radio" id="address{{$customer->id}}" name="ad" value="{{$customer->id}}"/>
+                                        <input type="radio" id="address{{$customer->id}}" name="ad" value="{{$customer->id}}" wire:model.defer="ad"/>
                                         <label for="address{{$customer->id}}">
                                             <p>{{$user->name}}</p>
                                             <p>{{$customer->phonenumber}}</p>
@@ -56,7 +56,7 @@
                                 @endforeach
                             @endif
                             @if(Auth::user()->role == 2)
-                                        <input type="radio" id="address1" name="ad" value="{{$dealer->id}}"/>
+                                        <input type="radio" id="address1" name="ad" value="{{$dealer->id}}" wire:model.defer="ad"/>
                                         <label for="address1">
                                             <p>{{$user->name}}</p>
                                             <p>{{$dealer->phonenumber}}</p>
@@ -65,7 +65,7 @@
                                         </label>
                             @endif
                             @if(Auth::user()->role == 1)
-                                <input type="radio" id="addressnew"  name="ad" value="new"/>
+                                <input type="radio" id="addressnew"  name="ad" value="new" wire:model.defer="ad"/>
                                 <label for="addressnew" onclick="myFunction()">ใส่ที่อยู่ใหม่ </label>
                                 <div class="subaddress" id="myDIV" style="display: none;">
                                     <div class="col-md-12 mb-3">
@@ -191,7 +191,8 @@
                                     <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
                                 </label>
                             @endif
-                            <div class="subaddress">
+                            <input type="radio" name="check" value="2" wire:model.defer="payment"/>
+                            <label>
                                 <h5>ชำระเงินด้วยบัตรเครดิต</h5>
                                 <hr>
                                 <input type="hidden" name="omiseToken">
@@ -199,14 +200,14 @@
                                     data-key="pkey_test_5t30hpp2jv76v7wwj48"
                                     data-image="http://bit.ly/customer_image"
                                     data-frame-label="Merchant site name"
-                                    data-button-label="Pay now"
+                                    data-button-label="ชำระเงิน"
                                     data-submit-label="Submit"
                                     data-location="no"
                                     data-amount="{{Session::get('chooseaddress')['total']*100}}"
                                     data-currency="thb"
                                     >
                                 </script>
-                            </div>
+                            </label>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="card mb-4">
