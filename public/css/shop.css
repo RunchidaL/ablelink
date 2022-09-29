@@ -1,0 +1,209 @@
+.text{
+  color: #dc7226;
+  margin-left: 5%;
+  margin-top: 1.5rem;
+}
+
+#products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0;
+}
+
+.NP-col{
+  position: relative;
+  width: 20%;
+  text-align: start;
+  margin: 3% 0;
+}
+
+.NP-col .card{
+  height: 100%;
+  border-radius: 5px;
+}
+
+.NP-col img{
+  width: 100%;
+  height: auto;
+  display: flex; 
+  padding: 10%;
+}
+
+.card a{
+  text-decoration: none;
+  color: black;
+}
+
+.card-wrapper{
+  height: 100%;
+}
+
+.card-body p{
+  height: 100%;
+  min-height: 1.25rem;
+}
+
+.card-body p span{
+  color: gray;
+  font-size:small;
+}
+
+.card-body .card-title{
+  height: 100px;
+  min-height: auto;
+}
+
+.card-body .empty{
+  visibility:hidden;
+}
+
+
+.card-footer{
+  display: flex;
+  justify-content: end;
+}
+
+.card-footer .button{
+  background-color: #ff842c;
+  border-radius: 0;
+}
+
+.card-footer button{
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.card-footer button span{
+  display: block;
+}
+  
+.card-footer button::before,
+.card-footer button::after{
+  content: "";
+  width: 0;
+  height: 3px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: red;
+}
+  
+.card-footer button span::before,
+.card-footer button span::after{
+  content: "";
+  width: 3px;
+  height: 0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: red;
+  ;
+}
+  
+.card-footer button:hover::before,
+.card-footer button:hover::after{
+  width: 100%;
+}
+
+.card-footer button:hover span::before, 
+.card-footer button:hover span::after{
+  height: 100%;
+}
+  
+.card-footer button.btn::after{
+  left: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn span::after{
+  right: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn::before{
+  right: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.card-footer button.btn span::before{
+  left: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+
+.add-products-preview{
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(78, 78, 78, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.add-products-preview .preview{
+  display: none;
+  padding: 2rem 2rem 1rem 2rem;
+  background: #fff;
+  text-align: center;
+  position: relative;
+  margin: 2rem;
+  width: 40rem;
+}
+
+.add-products-preview .preview h4{
+  text-align: left;
+}
+
+.add-products-preview .preview p{
+  text-align: left;
+}
+
+.add-products-preview .preview h4 span{
+  color: gray;
+  font-size: large;
+}
+
+.add-products-preview .preview .bi.bi-x-lg{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.add-products-preview .preview img{
+  height: 10rem;
+}
+
+.add-products-preview .preview.active{
+  display: inline-block;
+}
+
+/* resonsive */
+@media(max-width: 1200px){
+  .NP-col {
+    width: 33%;
+  }
+}
+
+@media(max-width: 900px){
+  .NP-col {
+    width: 100%;
+  }
+}
+
+@media(max-width: 520px){
+  .NP-col {
+    width: 100%;
+  }
+}

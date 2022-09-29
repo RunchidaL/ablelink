@@ -1,0 +1,165 @@
+/* ภาพด้านบน */
+.slider{
+    position: relative;
+    width: 100%;
+    background: #2c3e50;
+}
+
+.myslider{
+    min-height: 100%;
+    display: none;
+    overflow: hidden;
+    justify-items: center;
+}
+
+.txt{
+    position:absolute;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 35%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 1s;
+    animation-name: posi;
+    animation-duration: 1s;
+    z-index: 1;
+}
+
+@-webkit-keyframes posi{
+    from {left: 70%;}
+    to {left: 35%;}
+}
+
+@keyframes posi{
+    from {left: 70%;}
+    to {left: 35%;}
+}
+
+.txt h1{
+    color: rgb(255, 255, 255);
+    font-size: 6.375rem;
+    opacity: 1;
+}
+
+.imgg{
+    transform: scale(1.1, 1.1);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 1s;
+    animation-name: zoomin;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@keyframes zoomin{
+    from {transform: scale(1,1);}
+    to {transform: scale(1.1,1.1);}
+}
+
+@media screen and (max-width:1200px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 1s;
+        animation-name: posi2;
+        animation-duration: 1s;
+    }
+    
+    @-webkit-keyframes posi2 {
+        from {left:30%;}
+        to {left: 50%;}
+    }
+    @keyframes posi2 {
+        from {left:30%;}
+        to {left: 50%;}
+    }
+    .txt h1{
+        font-size: 50px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:520px){
+    .myslider{
+        height: 300px;
+    }
+    .txt{
+        width: 300px;
+        line-height: 25px;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi3;
+        -webkit-animation-duration: 1s;
+        animation-name: posi3;
+        animation-duration: 1s;
+    }
+    @-webkit-keyframes posi3 {
+        from {top:20%;}
+        to {top: 50%;}
+    }
+    @keyframes posi3 {
+        from {top:20%;}
+        to {top: 50%;}
+    }
+    .txt h1{
+        font-size: 40px;
+    }
+    .txt .imgg{
+        object-fit: cover;
+    }
+}
+
+.all-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 33%;
+}
+
+.content .box{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content .box img{
+    width: 120px;
+}
+
+.content h3{
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0;
+}
+
+.content ul{
+    font-size: 120%;
+}
+
+@media screen and (max-width: 1080px){
+.content{
+    width: 100%;
+}
+}

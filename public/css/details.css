@@ -1,0 +1,389 @@
+#row-product{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2%;
+}
+
+.leftProduct{
+    width: 50%;
+    /* ส่วนที่ทำให้รูปเลื่อนตาม scrolling */
+    position: sticky;
+    top: 0;
+    /* ส่วนที่ทำให้รูปย่อยอยู่ข้างล่าง */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.rightProduct{
+    width: 50%;
+}
+
+.head-product{
+    font-size: 24px;
+    margin: 5% 0 5% 0;
+}
+
+.head-product-name{
+    line-height: 2em;
+}
+
+.head-product-name p span{
+    font-size: large;
+    color: gray;
+}
+
+.head-product-price{
+    background-color: rgb(240, 240, 240);
+    padding: 10px 30px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.head-product-price p span{
+    color: rgb(255, 106, 0);
+    font-size: medium;
+}
+
+.quantity{
+    display: -webkit-box;
+    margin-bottom: 5%;
+}
+
+.add-qty{
+    display: flex;
+    height: 40px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 3px;
+}
+
+.quantity input{
+    width: 70px;
+    text-align: center;
+    border: 0;
+    font-size: 20px;
+}
+
+.handle button{
+    background: none;
+    border: 0;
+}
+
+.quantity .handle i{
+    color: black;
+}
+
+.quantity .add-qty .handle{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+.quantity .addtocart button{
+    margin-left: 20px;
+    width: 125px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+}
+
+.quantity .addtocart button:hover{
+    background: #245595;
+}
+
+.length{
+    display: -webkit-box;
+    font-size: 18px;
+}
+
+.length input{
+    margin-left: 10px;
+    width: 70px;
+    text-align: center;
+}
+
+.relate-group{
+    display: -webkit-box;
+    flex-wrap: wrap;
+}
+
+.relate-product p{
+    font-size: 18px;
+    margin: 2% 0 2% 0;
+}
+
+.relate-product a{
+    color: black;
+    text-decoration: none;
+    white-space: nowrap;
+    margin: 1% 0 1% 0;
+    width: fit-content;
+    padding: 10px 15px;
+    margin-right:10px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 3px;
+    font-size: 16px;
+} 
+
+.relate-product .relate-box{
+    margin: 2.5% 0;
+}
+
+.relate-product a:hover{
+    background-color: rgb(241, 241, 241);
+}
+
+.jacket{
+    margin-bottom: 3rem;
+}
+
+.infomation{
+    margin-top: 40px;
+}
+
+.tab-contral{
+    padding: 0 0 30px 0;
+    text-align: center;
+    white-space: none;
+}
+
+.tab-contral a{
+    padding: 0 30px 0 30px;
+    color: black;
+    text-decoration: none;
+    transition: 0.2s;
+    border-bottom: 1px solid ;
+    font-size: 23px;
+}
+
+.tab-contral a:hover{
+    border-bottom: 3px solid rgb(110, 110, 110);
+}
+
+.tab-contents{
+    margin: 3% 10% 3% 10%;
+}
+
+.tab-contents p{
+    font-family: 'Prompt', sans-serif;
+}
+
+.tab-contents .col{
+    width: 20%;
+}
+
+.tab-contents .col a{
+    border: none;
+    padding: 15px 30px 15px 30px;
+    border-radius: 0;
+    color: black;
+    height: fit-content;
+}
+
+.line{
+    border-top: 1px solid ;
+    padding: 40px 10% 0 5%;
+}
+
+.menu-wrap ul.menu-list{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+.menu-wrap ul.menu-list li{
+    white-space: nowrap;
+    margin: 0.8rem 0.5rem 0.8rem  0px ;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    padding: 5px 25px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    opacity: 0.5;
+    transition: all 0.2s linear;
+    border: 1px solid black;
+}
+
+.content .wrapper{
+    margin-top: 1rem;
+    display: flex;
+}
+
+.wrapper .item{
+    min-width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper .item:nth-child(1){
+    display: flex;
+}
+
+.menu-wrap ul li:hover,
+.menu-wrap ul li.active{
+    background: rgba(255, 248, 248, 0.7);
+    opacity: 1;
+}
+
+.swiper-container{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide{
+    width: 100%;
+    height: 100%;
+}
+
+.content .wrapper .item img{
+    width: 100%;
+}
+
+.content .wrapper .item .tag-list .tag-item{
+    display: flex;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    padding: 0px 3rem;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.content .wrapper .item .tag-list .tag-item img{
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+}
+
+.content .wrapper .item .tag-list .tag-item .name{
+    width: 100%;
+    font-size: 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.content .wrapper .item .tag-list .tag-item .price{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.video{
+    display: -webkit-box;
+    flex-wrap: wrap;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button{  
+    opacity: 1;
+}
+
+.me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.me i.arw{
+    cursor: pointer;
+    /* transition: all 0.2s ease; */
+    /* transform: rotate(90deg); */
+}
+
+.me.tog i.arw{
+    transform: rotate(-180deg);
+}
+
+.me + div {
+    display: none;
+}
+
+.me.tog + div {
+    display: block;
+}
+
+.download{
+    display: flex;
+    flex-direction: column;
+}
+
+.download a{
+    background-color: #F1F1F1;
+    margin: 0.2rem;
+    padding: 1em 2em 1em 2em;
+    white-space: nowrap;
+}
+
+.download a:hover{
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: #00000033 0px 12px 28px 0px, #0000001a 0px 2px 4px 0px, #ffffff0d 0px 0px 0px 1px inset;
+}
+
+.file-detail{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.file-detail i{
+    padding-right: 0.3rem;
+}
+
+/* responsive */
+@media screen and (max-width: 1400px) {
+    #left-product{
+        width: 100%;
+    }  
+    #right-product{
+        width: 100%;
+    }
+    .relate-product .relate-box{
+        margin: 3.5% 0;
+    }
+    .leftProduct{
+        position: static;
+    }
+    .relate-product .relate-box{
+        margin: 5% 0;
+    }
+    .infomation .tab-contral{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .me{
+        cursor: pointer;
+    }
+    .me span {
+        width:100%;
+    }
+    .me i.arw{
+        display: none;
+    }
+    .me + div{
+        display: block;
+    }
+    .download{
+        display: flex;
+        flex-direction: row;
+    }
+    .file-detail{
+        align-items: center;
+        justify-content: center;
+    }
+}
+

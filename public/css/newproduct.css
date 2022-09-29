@@ -1,0 +1,73 @@
+.body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Container{
+    width: 100%;
+}
+
+.text{
+    color: #dc7226; /*change*/
+    margin-left: 5%;
+    font-size: 1.563rem;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+}
+
+.NP-col{
+    position: relative;
+    width: 14.285%;
+    text-align: center;
+}
+
+.NP-col img{
+    width: 100%;
+    height: auto;
+    display: flex; 
+    padding: 5%; /*ในนอก*/
+    
+}
+
+.NP-col p:hover{
+    color: rgb(110, 110, 110);
+}
+
+/* ขยายรูป */
+.NP-col img{
+    transform: scale(1);
+    transition: 0.3s ease-in-out ;
+}
+
+.NP-col img:hover{
+    transform: scale(1.15); 
+}
+
+/* responsive */
+@media(max-width: 960px){
+    .NP-col{
+        width: 30%;  
+    }
+    .text{
+        margin-top: 10%;
+    }
+}
+
+@media(max-width: 767px){
+    .NP-col{
+        width: 50%;  
+    }
+    .text{
+        margin-top: 10%;
+    }
+}
+

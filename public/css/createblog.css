@@ -1,0 +1,41 @@
+.bi.bi-house-door{
+    font-size: 300%;
+    color: black;
+}
+
+.bi.bi-house-door:hover{
+    font-size: 300%;
+    color: black;
+    opacity: 0.6;
+}
+
+.text-black{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    background: #cfcfcf;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    height: 7%;
+}
+
+.form-cont{
+    width: 40%;
+}
+
+.form-control.form-control-sm{
+    width: 30%;
+}
+
+.btn.btn-lg{
+    background: #194276;
+    border-radius: 15px;
+    border-color: black;
+    border: 4px solid;
+    color:white;
+}
+
+.btn.btn-lg:hover{
+    opacity: 0.8;
+    color: white;
+}

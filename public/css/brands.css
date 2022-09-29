@@ -1,0 +1,31 @@
+.container-fluid{
+    margin-bottom: 0%;
+}
+
+.B{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#row-brands{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brands-col{
+    position: relative;
+    width: 20%;
+}
+
+.brands-col img{
+    width: 80%;
+    height: auto;
+    padding: 5%;
+}
+
+@media(max-width: 767px){
+    .brands-col {
+        width: 50%;
+    }
+}
