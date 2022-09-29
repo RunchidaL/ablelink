@@ -608,6 +608,7 @@ footer *{
     left: 0;
     height: 50px;
     display: none;
+    
 }
 
 .navDropWrap .fa{
@@ -726,7 +727,8 @@ ol, ul{
 }
 
 .group-submenu.display i::before,
-.group-ssmenu.display i::before{
+.group-ssmenu.display i::before,
+li.brandname.display > span > i::before{
     transform: rotate(-90deg);
 }
 
@@ -813,7 +815,7 @@ li.group-submenu{
 
 li.group-submenu:hover{
     background-position: -100% 100%;
-    transition: background-position .2s cubic-bezier(.47, .1, 1, .63),color .2s linear;
+    transition: background-position .2s cubic-bezier(.47, .1, 1, .63),color .1s linear;
     transition-delay: 0.0s, 0.1s;
 }
 
@@ -830,6 +832,10 @@ li.group-submenu span i:hover,
 li.group-submenu.display span i:hover{
     color: white;
     transition: all 0.1s ease;
+}
+
+.group-ssmenu.display > span > a{
+    color: rgb(255, 0, 102);
 }
 
 li.group-submenu.display{
@@ -856,7 +862,7 @@ transition: none;
 .group-ssmenu.display{
     background-position: -100% 100%;
     transition: background-position .2s cubic-bezier(.47, .1, 1, .63),
-        color .2s linear, padding-left 0.1s ease;
+        color .1s linear, padding-left 0.1s ease;
     transition-delay: 0.0s, 0.1s;
 }
 
@@ -872,7 +878,8 @@ transition: none;
 }
 
 .group-ssmenu span i:hover,
-.group-ssmenu.display span i{
+.group-ssmenu.display span i,
+.group-ssmenu > span > a:hover{
     color: orange;
 }
 
@@ -890,12 +897,84 @@ li.group-ssmenu.display + ul.brandname-wrap{
     padding-left: calc(1rem + 6px);
 }
 
-.brandname-wrap .brandname > span{
+.brandname-wrap .brandname > span,
+li.brandname > span{
     position: relative;
 }
 
-.brandname-wrap .brandname > span > i{
+.brandname-wrap .brandname > span > i,
+li.brandname > span > i{
     position: absolute;
 }
 
+li.brandname + ul.subbrand{
+    display: none;
+    padding-left: 1rem;
+}
 
+li.brandname.display + ul.subbrand{
+    display: flex;
+}
+
+li.brandname{
+    padding: 0.2rem 0;
+    border-left: 6px solid #fbac6f;
+    background-image: linear-gradient(90deg,
+    #dafdf9 0%,
+    #b4f7ef 50%,
+    #131833 50%,
+    #222847 100%);
+    background-size: 200%;
+    border-left: 6px solid #131833;
+    color: #131833;
+}
+
+li.brandname:hover,
+li.brandname.display{
+    color: white;
+    background-position: -100% 100%;
+    transition: background-position .2s cubic-bezier(.47, .1, 1, .63),
+        color .1s linear, padding-left 0.1s ease;
+    transition-delay: 0.0s, 0.1s;
+}
+
+li.brandname:hover span a,
+li.brandname.display > span > a,
+li.brandname.display > span > i{
+    color: white;
+}
+
+li.brandname.display > span > a:hover,
+li.brandname:hover span a:hover,
+li.brandname.display > span > i:hover
+li.brandname:hover > span > i:hover{
+    color: rgb(0, 255, 238);
+}
+
+.t{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.subbrand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.t li{
+    padding: 0 1rem;
+    transition: padding 0.15s ease-in,background-color 0.15s ease-in;
+}
+
+.t li:hover{
+    padding: 0 0.7rem 0 1.3rem;
+    text-shadow: rgba(58, 248, 255, 0.86) 0px 0px 2px;
+}
+
+.t li span a{
+    color: black;
+}

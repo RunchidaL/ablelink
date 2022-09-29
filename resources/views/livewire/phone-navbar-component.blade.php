@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="navfoot.css">
 
-<button class="toggle is-active">
+<button class="toggle">
     <span></span>
     <span></span>
     <span></span>
 </button>
 
 <div class="navDropWrap" id="navDropWrap">
-    <div class="wrapper1" >  
+    <div class="wrapper1">  
         <div class="fa">
             <div class="icons container">
                 <div class="cart-phone">
@@ -84,9 +84,20 @@
                                 <!-- TVT -->
                                 <span>
                                     <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}">{{$brand->brands->name ?? ''}}</a> 
-                                    <i class="bi bi-caret-left-fill arrow"></i>
+                                    @if(count($brand->subbrandCategories)>0)<i class="bi bi-caret-left-fill arrow subbrandArrow"></i>@endif
                                 </span>
                             </li>
+                            <ul class="subbrand">
+                                <div class="t">
+                                    @foreach($brand->subbrandCategories as $sbcategory)                                     
+                                    <li>
+                                        <span>
+                                            <a href="#">{{$sbcategory->name}}</a>
+                                        </span>
+                                    </li>                                              
+                                    @endforeach
+                                </div>
+                            </ul>
                             @endforeach
                         </ul>
                         @endforeach
@@ -108,6 +119,7 @@
     const toggle = document.querySelector('.toggle');
     const catName = document.querySelectorAll(".catName");
     const subcatName = document.querySelectorAll(".subcatName");
+    const subbrandArrow = document.querySelectorAll(".subbrandArrow");
     const navDropWrap = document.getElementById("navDropWrap");
 
     toggle.addEventListener('click',()=>{
@@ -123,20 +135,10 @@
         for(let n=0 ; n<subcatName.length ;n++){
             subcatName[n].parentElement.parentElement.classList.remove("display");
         }
+        for(let n=0 ; n<subbrandArrow.length ;n++){
+            subbrandArrow[n].parentElement.parentElement.classList.remove("display");
+        }
     })
-//     const test = (array) => {
-//         for (let i = 0; i < array.length; i++){
-//             array[i].addEventListener("click", (e)=>{
-//             let arrowParent = e.target.parentElement.parentElement;
-//             arrowParent.classList.toggle("display");
-//             for(let n=0 ; n<array.length ;n++){
-//                     if(n!=i) array[n].parentElement.parentElement.classList.remove("display");
-//                 }
-//         })
-//     }
-// }
-//     test(catName);
-//     test(subcatName);
         
     for (let i = 0; i < catName.length; i++){
         catName[i].addEventListener("click", (e)=>{
@@ -156,7 +158,16 @@
             }
         })
     }
-    
+
+    for (let i = 0; i < subbrandArrow.length; i++){
+        subbrandArrow[i].addEventListener("click", (e)=>{
+        let subbrandArrowParent = e.target.parentElement.parentElement;
+        subbrandArrowParent.classList.toggle("display");
+        for(let n=0 ; n<subbrandArrow.length ;n++){
+                if(n!=i) subbrandArrow[n].parentElement.parentElement.classList.remove("display");
+            }
+        })
+    }
     
     farrow.addEventListener("click", (e) => {
         let fParent = e.target.parentElement.parentElement;
