@@ -173,7 +173,7 @@
             @endforeach
             <div class="phone-cart-conclu">
                 <span>ยอดชำระเงิน</span>
-                <span>฿{{number_format($total,2)}}</sp>
+                <span>฿{{number_format($total,2)}}</span>
             </div>
             <div class="phone-cart-foot">
                 <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>

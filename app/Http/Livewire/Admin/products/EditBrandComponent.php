@@ -44,7 +44,7 @@ class EditBrandComponent extends Component
             $brand->image = $imageName;
         }
         $brand->save();
-        session()->flash('message','edit success');
+        session()->flash('message','Edit success');
     }
 
     public function render()

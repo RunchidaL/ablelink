@@ -33,8 +33,7 @@
                                 <td>{{$category->slug}}</td>
                                 <td>
                                     <ul class="slist">
-                                        @foreach($category->subCategories as $scategory)
-                                            
+                                        @foreach($category->subCategories as $scategory)   
                                             <li>{{$scategory->name}}
                                                 <a href="{{route('admin.editcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteSubcategory({{$scategory->id}})"><i class="bi bi-x" id="editsub"></i></a>
@@ -89,12 +88,9 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-    
 </div>
-
 
 <style>
     #head{

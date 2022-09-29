@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="navfoot.css">
 
-<button class="toggle">
+<button class="toggle is-active">
     <span></span>
     <span></span>
     <span></span>
 </button>
 
 <div class="navDropWrap" id="navDropWrap">
-    <div class="wrapper1" style="">  
+    <div class="wrapper1" >  
         <div class="fa">
             <div class="icons container">
                 <div class="cart-phone">
@@ -54,34 +54,51 @@
             @endguest
         </ul>    
         <ul class="mainMenu" id="mainMenu"> 
-            <a href="/"><li>หน้าหลัก</li></a>
-            <a href="/aboutus"><li>เกี่ยวกับเรา</li></a>
-            <li>
+            <a class="m" href="/"><li>หน้าหลัก</li></a>
+            <a class="m" href="/aboutus"><li>เกี่ยวกับเรา</li></a>
+            <li class="p">
                 <div class="clickable">
-                    <a href="/shop">
-                        <span class="link_name" style="cursor: defualt;">ผลิตภัณฑ์</span>
-                    </a>
+                    <a href="/shop"><span class="link_name" style="cursor: defualt;">ผลิตภัณฑ์</span></a>
                     <i class="bi bi-caret-left-fill" id="farrow"></i>
                 </div>
                 <ul class="sub-menu">
                     @foreach($categories as $category)
                     <li class="group-submenu">
-                        <a href="{{route('product.category',['category_slug'=>$category->slug])}}"><span>{{$category->name}}</span></a> 
-                        <i class="bi bi-caret-left-fill arrow"></i>
+                        <span>
+                            <a href="{{route('product.category',['category_slug'=>$category->slug])}}">{{$category->name}}</a> 
+                            <i class="bi bi-caret-left-fill arrow catName"></i>
+                        </span>
                     </li>
-                    <ul class="subsubmenu">
+                    <ul class="ssmenu">
                         @foreach($category->subCategories as $scategory)
-                        <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><li style="cursor: defualt;">{{$scategory->name}}</li></a>
+                        <li class="group-ssmenu">
+                            <!-- CCTV -->
+                            <span>
+                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}">{{$scategory->name}}</a>
+                                <i class="bi bi-caret-left-fill arrow subcatName"></i>
+                            </span>
+                        </li>
+                        <ul class="brandname-wrap">
+                            @foreach($scategory->brandCategories as $brand)
+                            <li class="brandname">
+                                <!-- TVT -->
+                                <span>
+                                    <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}">{{$brand->brands->name ?? ''}}</a> 
+                                    <i class="bi bi-caret-left-fill arrow"></i>
+                                </span>
+                            </li>
+                            @endforeach
+                        </ul>
                         @endforeach
                     </ul>
                     @endforeach
                 </ul>
             </li>
-            <a href="/service"><li>บริการ</li></a>
-            <a href="/activity"><li>ข่าวสาร&กิจกรรม</li></a>
-            <a href="/download"><li>ดาวน์โหลด</li></a>
-            <a href="/forwork"><li>ร่วมงานกับเรา</li></a>
-            <a href="/contact"><li>ติดต่อเรา</li></a>
+            <a class="m" href="/service"><li>บริการ</li></a>
+            <a class="m" href="/activity"><li>ข่าวสาร&กิจกรรม</li></a>
+            <a class="m" href="/download"><li>ดาวน์โหลด</li></a>
+            <a class="m" href="/forwork"><li>ร่วมงานกับเรา</li></a>
+            <a class="m" href="/contact"><li>ติดต่อเรา</li></a>
         </ul>
     </div>
 </div>
@@ -89,7 +106,8 @@
 <script> 
     const farrow = document.querySelector("#farrow");
     const toggle = document.querySelector('.toggle');
-    const arrow = document.querySelectorAll(".arrow");
+    const catName = document.querySelectorAll(".catName");
+    const subcatName = document.querySelectorAll(".subcatName");
     const navDropWrap = document.getElementById("navDropWrap");
 
     toggle.addEventListener('click',()=>{
@@ -99,27 +117,53 @@
         else
             navDropWrap.style.display = "none";
         farrow.parentElement.parentElement.classList.remove("showMenu");
-        for(let n=0 ; n<arrow.length ;n++){
-            arrow[n].parentElement.classList.remove("display");
+        for(let n=0 ; n<catName.length ;n++){
+            catName[n].parentElement.parentElement.classList.remove("display");
+        }
+        for(let n=0 ; n<subcatName.length ;n++){
+            subcatName[n].parentElement.parentElement.classList.remove("display");
         }
     })
+//     const test = (array) => {
+//         for (let i = 0; i < array.length; i++){
+//             array[i].addEventListener("click", (e)=>{
+//             let arrowParent = e.target.parentElement.parentElement;
+//             arrowParent.classList.toggle("display");
+//             for(let n=0 ; n<array.length ;n++){
+//                     if(n!=i) array[n].parentElement.parentElement.classList.remove("display");
+//                 }
+//         })
+//     }
+// }
+//     test(catName);
+//     test(subcatName);
         
-    for (let i = 0; i < arrow.length; i++) {
-        arrow[i].addEventListener("click", (e)=>{
-        let arrowParent = e.target.parentElement;
+    for (let i = 0; i < catName.length; i++){
+        catName[i].addEventListener("click", (e)=>{
+        let arrowParent = e.target.parentElement.parentElement;
         arrowParent.classList.toggle("display");
-        for(let n=0 ; n<arrow.length ;n++){
-                if(n!=i)arrow[n].parentElement.classList.remove("display");
+        for(let n=0 ; n<catName.length ;n++){
+                if(n!=i) catName[n].parentElement.parentElement.classList.remove("display");
+            }
+        })
+    }
+    for (let i = 0; i < subcatName.length; i++){
+        subcatName[i].addEventListener("click", (e)=>{
+        let subarrowParent = e.target.parentElement.parentElement;
+        subarrowParent.classList.toggle("display");
+        for(let n=0 ; n<subcatName.length ;n++){
+                if(n!=i) subcatName[n].parentElement.parentElement.classList.remove("display");
             }
         })
     }
     
+    
     farrow.addEventListener("click", (e) => {
         let fParent = e.target.parentElement.parentElement;
         fParent.classList.toggle("showMenu");
-        if(!(farrow.parentElement.parentElement.classList.contains("showMenu"))) {
+        if(!(farrow.parentElement.parentElement.classList.contains("showMenu"))){
             for(let n=0 ; n<arrow.length ;n++){
-                arrow[n].parentElement.classList.remove("display");
+                catName[n].parentElement.parentElement.classList.remove("display");
             }
         }
     });

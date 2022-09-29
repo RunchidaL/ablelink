@@ -22,7 +22,7 @@ class EditNetworktypeComponent extends Component
         $network = NetworkType::find($this->network_id);
         $network->name = $this->name;
         $network->save();
-        session()->flash('message','edit success');
+        session()->flash('message','Edit success');
     }
     public function render()
     {

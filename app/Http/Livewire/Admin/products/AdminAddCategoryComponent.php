@@ -40,7 +40,7 @@ class AdminAddCategoryComponent extends Component
 
     public function storeCategory()
     {
-        if($this->brand_id)
+        if($this->brand_id and $this->name)
         {           
             $sbcategory = new SubBrandCategory();
             $sbcategory->name = $this->name;

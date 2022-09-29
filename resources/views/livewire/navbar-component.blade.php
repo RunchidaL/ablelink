@@ -28,9 +28,22 @@
                                 <img src="{{asset('/images/products')}}/{{$scategory->image}}" alt="">
                             </div>
                             <div class="item-right">
-                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span><span>{{$scategory->name}}</span></span></a>
+                                <a class="subTopic"  href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}">
+                                    <span><span>{{$scategory->name}}</span></span>
+                                </a> 
                                 @foreach($scategory->brandCategories as $brand)
-                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name])}}"><span><span>{{$brand->brands->name}}</span></span></a>
+                                    <div class="brand">
+                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
+                                        @if(count($brand->subbrandCategories)>0)
+                                        <div class="box-wrap">
+                                            <div class="box">
+                                            @foreach($brand->subbrandCategories as $sbcategory)                                     
+                                                <a href="#">> {{$sbcategory->name}}</a>                                               
+                                            @endforeach
+                                            </div>
+                                        </div> 
+                                        @endif
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -50,7 +63,7 @@
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
-            for ( let n = 1 ; n < 9; n++ ){
+            for ( let n = 1 ; n <= elementSize ; n++ ){
                 if( n !== i) {
                     document.getElementById("content"+n).style.display = "none";
                 }
