@@ -74,7 +74,7 @@
                         @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                            <a class="cart-quantity-delete" wire:click.prevent="deleteItems('{{$item->id}}')">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
