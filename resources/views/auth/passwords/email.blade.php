@@ -10,7 +10,7 @@
         <div class="sc">
             <div class="header">
                 <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-                <span class="topic_name">| Forget Password</span>
+                <span class="topic_name">| Forgot Password</span>
             </div>
         </div>
         @if (session('status'))

@@ -27,8 +27,7 @@ class AddBrandComponent extends Component
         $brand = new Brand();
         $brand->name = $this->name;
         $brand->slug = $this->slug;
-        if($this->image)
-        {
+        if($this->image){
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('brands',$imageName);
         $brand->image = $imageName;
@@ -37,7 +36,7 @@ class AddBrandComponent extends Component
         $brand->save();
         
 
-        session()->flash('message','success');
+        session()->flash('message','Success');
         
     }
 

@@ -35,6 +35,8 @@
     @yield('link_register_customer')
     @yield('link_login')
     @yield('link_email')
+    @yield('link_reset')
+    @yield('link_confirm')
     <link href="{{asset('/css/details.css')}}" rel="stylesheet">
     <link href="{{asset('/css/shop.css')}}" rel="stylesheet">
     <link href="{{asset('/css/cart.css')}}" rel="stylesheet">

@@ -47,7 +47,7 @@ class EditBrandComponent extends Component
         }
         $brand->link = $this->link;
         $brand->save();
-        session()->flash('message','edit success');
+        session()->flash('message','Edit success');
     }
 
     public function render()

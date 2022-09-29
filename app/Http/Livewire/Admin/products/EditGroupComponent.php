@@ -99,7 +99,7 @@ class EditGroupComponent extends Component
         }
         
 
-        session()->flash('message','edit success');
+        session()->flash('message','Edit success');
         
     }
 

@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4">Subategory Image</label>
+                    <label class="col-md-4">SubCategory Image</label>
                     <div class="col-md-4">
                         <input type="file" class="input-file" wire:model="image">
                         @if($image)

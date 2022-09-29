@@ -74,7 +74,7 @@
                         @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete" wire:click.prevent="deleteItems('{{$item->id}}')">
+                            <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
@@ -164,7 +164,7 @@
                             <span>{{$item->quantity}}</span>
                             <a wire:click.prevent="increaseQuantity('{{$item->id}}')"><i class="bi bi-plus"></i></a>
                         </div>
-                        <a class="cart-quantity-delete" wire:click.prevent="deleteItems('{{$item->id}}')">
+                        <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>
@@ -173,7 +173,7 @@
             @endforeach
             <div class="phone-cart-conclu">
                 <span>ยอดชำระเงิน</span>
-                <span>฿{{number_format($total,2)}}</sp>
+                <span>฿{{number_format($total,2)}}</span>
             </div>
             <div class="phone-cart-foot">
                 <a class="button-choose" href="/shop">ดูสินค้าเพิ่มเติม</a>
