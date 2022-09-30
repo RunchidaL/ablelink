@@ -58,13 +58,13 @@
 <script>
     document.getElementById("content1").style.display = "block";
     const elementSize = document.getElementsByClassName("menu-link-item").length;
-    for( let i = 1; i <= elementSize ; i++) {
+    for( let i = 1; i <= elementSize ; i++){
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
             for ( let n = 1 ; n <= elementSize ; n++ ){
-                if( n !== i) {
+                if( n !== i){
                     document.getElementById("content"+n).style.display = "none";
                 }
             }
