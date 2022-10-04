@@ -28,20 +28,22 @@ class AdminAddCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
-    public function updated($fields)
-    {
-        $this->validateOnly($fields,[
-            'name' => 'required|unique:categories',
-            'slug' => 'required|unique:categories',
-            'name' => 'required|unique:subcategories',
-            'slug' => 'required|unique:subcategories'
-        ]);
-    }
+    // public function updated($fields)
+    // {
+    //     $this->validateOnly($fields,[
+    //         'name' => 'required',
+    //         'slug' => 'required',
+    //     ]);
+    // }
 
     public function storeCategory()
     {
         if($this->brand_id and $this->name)
-        {           
+        {   
+            $this->validate([
+                'name' => 'required',
+                'slug' => 'required'
+            ]);
             $sbcategory = new SubBrandCategory();
             $sbcategory->name = $this->name;
             $sbcategory->slug = $this->slug;
@@ -65,8 +67,8 @@ class AdminAddCategoryComponent extends Component
         else if($this->category_id)
         {
             $this->validate([
-                'name' => 'required|unique:subcategories',
-                'slug' => 'required|unique:subcategories'
+                'name' => 'required',
+                'slug' => 'required'
             ]);
             $scategory = new Subcategory();
             $scategory->name = $this->name;
@@ -83,8 +85,8 @@ class AdminAddCategoryComponent extends Component
         }
         else{
             $this->validate([
-                'name' => 'required|unique:categories',
-                'slug' => 'required|unique:categories'
+                'name' => 'required',
+                'slug' => 'required'
             ]);
             $category = new Category();
             $category->name = $this->name;
@@ -104,7 +106,7 @@ class AdminAddCategoryComponent extends Component
     {   
         $categories = Category::all();
         $subcategories = Subcategory::where('category_id',$this->category_id)->get();
-        $brands = Brand::all();
+        $brands = Brand::orderBy('name','ASC')->get();
         return view('livewire.admin.products.admin-add-category-component',['categories'=>$categories,'subcategories'=>$subcategories,'brands'=>$brands])->layout("layout.navfoot");
     }
 }

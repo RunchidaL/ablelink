@@ -69,9 +69,9 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
-use App\Http\Livewire\Admin\Posts\AddNewProductsComponent;
-use App\Http\Livewire\Admin\Posts\AdminNewProductsComponent;
-use App\Http\Livewire\Admin\Posts\EditNewProductsComponent;
+use App\Http\Livewire\Admin\posts\AddNewProductsComponent;
+use App\Http\Livewire\Admin\posts\AdminNewProductsComponent;
+use App\Http\Livewire\Admin\posts\EditNewProductsComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderPdfController;
@@ -118,7 +118,7 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
 
-Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}/{sbcategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 

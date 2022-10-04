@@ -58,6 +58,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4">SubBrand</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="sbcategory_id">
+                                        <option value="0">Select Subbrand</option>
+                                        @foreach($subbrands as $subbrand)
+                                            <option value="{{$subbrand->id}}">{{$subbrand->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4">Group Product</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="groupproduct_id">

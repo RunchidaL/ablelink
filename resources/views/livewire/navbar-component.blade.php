@@ -33,12 +33,12 @@
                                 </a> 
                                 @foreach($scategory->brandCategories as $brand)
                                     <div class="brand">
-                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
+                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
                                         @if(count($brand->subbrandCategories)>0)
                                         <div class="box-wrap">
                                             <div class="box">
                                             @foreach($brand->subbrandCategories as $sbcategory)                                     
-                                                <a href="#">> {{$sbcategory->name}}</a>                                               
+                                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}">> {{$sbcategory->name}}</a>                                               
                                             @endforeach
                                             </div>
                                         </div> 

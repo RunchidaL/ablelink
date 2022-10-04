@@ -164,7 +164,7 @@
                             <span>{{$item->quantity}}</span>
                             <a wire:click.prevent="increaseQuantity('{{$item->id}}')"><i class="bi bi-plus"></i></a>
                         </div>
-                        <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                        <a class="cart-quantity-delete" wire:click="deleteItems('{{$item->id}}')">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>

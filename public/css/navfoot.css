@@ -7,6 +7,10 @@ body{
     font-family: 'Prompt', sans-serif;
 }
 
+ol, ul{
+    padding: 0;
+}
+
 /* navbar */
 .navbar{
     position: fixed;
@@ -90,7 +94,7 @@ body{
     background: rgb(226,226,226);
     background: linear-gradient(90deg, rgba(226,226,226,1) 50%, rgba(243,243,243,1) 50%);
     left: 0;
-    transform: scaleY(0);
+    transform: scaleY(0);/*change*/
     transform-origin: 100% 0%;
     transition: transform 0.2s ease;
     display: none;
@@ -167,6 +171,11 @@ body{
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
+
+/* .menu-list a .menu-link-item:hover~.menu-content::after{
+    transform: scaleY(1);
+    transition: transform 0.1s ease;
+}    */
 
 .menu-list a .menu-link-item:nth-last-child(1){
     padding-bottom: 1.5rem;
@@ -245,10 +254,6 @@ body{
     transition: transform 0.1s ease-out;
 }
 
-.item-right .brand a:hover {
-    color: red;
-}
-
 .item-right > .subTopic:hover > span > span::after,
 .item-right .brand:hover .brandname span::after{
     transform: scaleY(1);
@@ -277,7 +282,7 @@ body{
 .item-right .brand .box-wrap .box{
     margin: 0.125rem 0.5rem 0.275rem 0.2rem; /*DO NOT change*/
     min-width: 100px;
-    background-color: #545454;
+    background-color: rgb(226, 226, 226);
     border-left: 3px solid red;
     border-radius: 0 5px 5px 0;
     display: flex;
@@ -286,7 +291,7 @@ body{
 
 .item-right .brand .box-wrap .box a{
     white-space: nowrap;
-    color: #fff;
+    /* color: #fff; */
     transition: all 0.1s linear;
     padding: 0 0.7rem;
     width: 100%;
@@ -302,7 +307,7 @@ body{
 }
 .item-right .brand .box-wrap .box a:hover {
     color: red;
-    background-color: #424242;
+    background-color: white;
     padding-left: 0.85rem;
     padding-right: 0.55rem;
 }
@@ -661,10 +666,6 @@ footer *{
     text-align: center;
     display: none;
     padding: 1rem 0;
-}
-
-ol, ul{
-    padding: 0;
 }
 
 .arrow{

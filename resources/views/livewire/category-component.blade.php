@@ -5,13 +5,14 @@
         @endif
         @error('attribute') <div class="alert alert-danger" role="alert">กรุณาใส่ความยาว</div> @enderror
         <div>
-            @if($scategory_slug == '' and $bcategory_slug == '')
+            @if($scategory_slug == '' and $bcategory_slug == '' and $sbcategory_slug == '')
                 <h2 class="text">{{$category->name}}</h2>
-            @elseif($bcategory_slug == '')
+            @elseif($bcategory_slug == '' and $sbcategory_slug == '')
                 <h2 class="text">{{$scategory->name}}</h2>
+            @elseif($sbcategory_slug == '')
+                <h2 class="text">{{$bcategory->brands->name}}</h2>
             @else
-            <!-- change -->
-                <h2 class="text">{{$bcategory->brands->name}}</h2> 
+                <h2 class="text">{{$sbcategory->name}}</h2>
             @endif
         </div>
         <div class="row" id="products">
