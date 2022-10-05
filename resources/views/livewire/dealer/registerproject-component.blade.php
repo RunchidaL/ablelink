@@ -97,11 +97,13 @@
                         </select>
 						<span>@error('projectstatus')กรุณาระบุสถานะโครงการ@enderror</span>
                     </div>
+					
 					<div class="form-control">
                         <label for="Installationschedule">กำหนดการในการติดตั้ง:</label>
                         <input type="date" id="Installationschedule" name="Installationschedule" class="input" value="{{ old('Installationschedule') }}" wire:model="Installationschedule">
 						<span>@error('Installationschedule')กรุณาระบุกำหนดการในการติดตั้ง@enderror</span>
 					</div>
+
                     <p class="subhead">ข้อมูลผลิตภัณฑ์ที่ใช้ในโครง <br> การกรุณาให้ข้อมูลผลิตภัณฑ์เพื่อความรวดเร็วในการรับบริการ</p>
                     <div class="form-control">
 						<label for="listproducts">รายการ และ จำนวน ผลิตภัณฑ์ที่ใช้ในโปรเจค</label>
@@ -111,7 +113,7 @@
                     <div class="form-control">
                         <label for="Purchasingstyle">ลักษณะการจัดซื้อ</label>
                         <select class="form-select" aria-label="Default select example" name="Purchasingstyle" id="Purchasingstyle" value="{{ old('Purchasingstyle') }}"wire:model="Purchasingstyle">
-                            <option value=""><b>-----</b></option>
+                            <option value="" ><b>-----</b></option>
                             <option value="ครั้งเดียวทั้งหมด">ครั้งเดียวทั้งหมด</option>
                             <option value="แบ่งเป็น LOT">แบ่งเป็น LOT</option>
                         </select>
@@ -136,6 +138,8 @@
 	</div>
 	</form>
 </div>
+
+
 {{-- <div class="modal_wrapper">
 	<div class="shadow"></div>
 	<div class="success_wrap">

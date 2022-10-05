@@ -11,6 +11,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 
 .brands-col{
@@ -19,14 +21,45 @@
 }
 
 .brands-col img{
-    width: 80%;
-    height: auto;
-    padding: 5%;
-    margin-left: 10%;
+    width: 180px;
+    height: 140px;
+    padding: 10% 0%;
+    display: block;
+    margin: auto;
+}
+
+@media(max-width: 1200px){
+    .brands-col img{
+        width: 140px;
+        height: 100px;
+        padding: 10% 0%;
+    }
+}
+
+@media(max-width: 995px){
+    .brands-col img{
+        width: 120px;
+        height: 80px;
+        padding: 10% 10%;
+    }
 }
 
 @media(max-width: 820px){
     .brands-col {
         width: 50%;
+    }
+    .brands-col img{
+        width: 130px;
+        height: 90px;
+    }
+}
+
+@media(max-width: 600px){
+    .brands-col {
+        width: 50%;
+    }
+    .brands-col img{
+        width: 130px;
+        height: 80px;
     }
 }

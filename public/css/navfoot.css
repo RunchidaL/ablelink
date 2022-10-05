@@ -67,6 +67,20 @@ body{
     white-space: nowrap;
 }
 
+/* ****** */
+.topic .link a.active{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: rgb(255, 0, 0);
+    left: 0;
+    bottom: 0;
+    transform: scale(0,1);
+    transform-origin: 0% 100%;
+    transition: transform 0.2s ease;
+}
+
 .topic .link span::after{
     content: '';
     position: absolute;

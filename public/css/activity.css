@@ -174,7 +174,7 @@
 
 .AC-col{
     position: relative;
-    width: 14.285%;
+    width: 18%;
     text-align: center;
     margin-top: 20px;
 }
@@ -208,8 +208,8 @@
         margin-top: 5%;
     }
     .AC-col{
-        height: 350px;
-        width: 100%;
+        height: 300px;
+        width: 90%;
     }
     .AC-col img{
         width: 80%;
@@ -225,11 +225,9 @@
         font-size: 20px;
         margin-top: 10% 0 0 0;
     }
-    .AC-col a{
-        text-decoration: underline;
-        text-decoration-color: black;
-    }
+    
 }
+
 
 /* main_activity หน้าหลัก */
 .menu-activity{
