@@ -137,10 +137,10 @@
 
     li.menu-name span{
         display: flex;
-        color: rgb(135, 135, 135);
+        color: rgba(102, 102, 102, 0.696);
         width: 100%;
         padding: .875rem .875rem .875rem .5rem;
-        border-bottom: 1px solid rgb(48, 48, 48);
+        border-bottom: 1px solid rgba(154, 154, 154, 0.642);
         justify-content: space-between;
     }
     
@@ -148,7 +148,7 @@
         display: flex;
         width: 100%;
         padding: .875rem .875rem .875rem .5rem;
-        border-bottom: 1px solid rgb(48, 48, 48);
+        border-bottom: 1px solid rgba(154, 154, 154, 0.642);
         transition: padding-left .1s ease;
     }
 

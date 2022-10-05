@@ -100,7 +100,6 @@
             {
                 for(let i=0;i<clickBtn.length;i++)
                 {
-                    console.log(clickBtn[i]);
                     clickBtn[i].classList.remove('display');
                     mobileNavbar.setAttribute('once', '');
                 }
@@ -127,7 +126,6 @@
     }
 
     const goBack = document.querySelectorAll("#goBack");
-    console.log(goBack);
     for(let i=0 ; i < goBack.length ; i++ )
     {
         goBack[i].addEventListener('click',
