@@ -106,9 +106,9 @@
                             <div class="aRow">
                             @php
                                 $i = 0; 
-                                $count = $product_models->where('product_id',$model->product->id)->unique('models_id')->count();
+                                $count = $product_models->where('product_id',$model->product->id)->count();
                             @endphp        
-                            @foreach($product_models->where('product_id',$model->product->id)->unique('models_id') as $product_model)
+                            @foreach($product_models->where('product_id',$model->product->id) as $product_model)
                                 <div class="relate-box">
                                     <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
                                 </div>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="relate-wrap pc">
                             <div class="aRow">       
-                            @foreach($product_models->where('product_id',$model->product->id)->unique('models_id') as $product_model)
+                            @foreach($product_models->where('product_id',$model->product->id) as $product_model)
                                 <div class="relate-box">
                                     <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
                                 </div>

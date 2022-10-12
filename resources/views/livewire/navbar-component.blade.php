@@ -66,11 +66,11 @@
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
-            Parent.style.backgroundColor = "#f3f3f3";
+            Parent.style.backgroundColor = "rgb(243,243,243)";
             for ( let n = 1 ; n <= elementSize ; n++ ){
                 if( n !== i){
                     document.getElementById("content"+n).style.display = "none";
-                    document.getElementById("menuLink"+n).style.backgroundColor = "#eb4034";
+                    document.getElementById("menuLink"+n).style.backgroundColor = "rgb(226, 226, 226";
                 }
             }
         });                                  
@@ -78,11 +78,11 @@
 </script>
 
 <style>
-@font-face {
+@font-face{
     font-family: 'SukhumvitSet';
     src: url('fonts/SukhumvitSet-SemiBold.ttf') format('truetype');
 }
-body{
+.prd-dropdown-wrap{
     font-family: 'SukhumvitSet', sans-serif;
 }
 </style>

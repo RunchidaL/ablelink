@@ -1,8 +1,8 @@
 {
     "thsarabunnew": {
-        "normal": "C:\\xampp\\htdocs\\ablelink-laravel\\storage\\fonts\/thsarabunnew_normal_1d815cefd2c205af17ff2247c624944d",
-        "bold": "C:\\xampp\\htdocs\\ablelink-laravel\\storage\\fonts\/thsarabunnew_bold_6e540ba2bcef89416d83480f90289420",
-        "italic": "C:\\xampp\\htdocs\\ablelink-laravel\\storage\\fonts\/thsarabunnew_italic_0d15029d9839b0879e59c2e0bd9add54",
-        "bold_italic": "thsarabunnew_bold_italic_3eb60e7a0b33e9b60a7de5da9c514324"
+        "normal": "C:\\xampp\\htdocs\\ablelink\\storage\\fonts\/thsarabunnew_normal_561bdda3e9c8a5d8a1e078b61a511b67",
+        "bold": "C:\\xampp\\htdocs\\ablelink\\storage\\fonts\/thsarabunnew_bold_b99700269022012a81ef57d1fe43d289",
+        "italic": "C:\\xampp\\htdocs\\ablelink\\storage\\fonts\/thsarabunnew_italic_3ad1093a92439f021ed4d6ea2c2379b7",
+        "bold_italic": "thsarabunnew_bold_italic_3aa7978de45c0c1ca6517422ebdf1061"
     }
 }
