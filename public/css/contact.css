@@ -12,6 +12,15 @@
     justify-items: center;
 }
 
+.PH{
+    display: block;
+    margin: auto;
+    background: #194276;
+    color: white;
+    padding: 2% 5%;
+    box-shadow: 5px 5px 4px 1px rgb(182, 182, 182);
+}
+
 .txt{
     position:absolute;
     color: #fff;

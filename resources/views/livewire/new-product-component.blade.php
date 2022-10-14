@@ -40,8 +40,8 @@
                     </table>
                     @endforeach
                 </div>
-                <div class="card-footer">
-                    <a href="{{route('newproducts.detail',['name'=>$NewProducts->brand->name])}}"><button type='button' class="button btn" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button></a>
+                <div class="card-footerr">
+                    <a href="{{route('newproducts.detail',['name'=>$NewProducts->brand->name])}}"><button type='button' class="buttonnp" wire:click.prevent=""><span>ดูเพิ่มเติม >></span></button></a>
                 </div>
             </div>    
         </div>
@@ -60,6 +60,9 @@
     }
     .table td{
         border-style: none;
+    }
+    .table p:hover{
+        color: rgb(100, 100, 100);
     }
     .NPP-col{
     position: relative;
@@ -83,94 +86,36 @@
     height: 100%;
     }
     .card-body{
-        display: block;
-        align-items: center;
-        flex-wrap: wrap;
-        background: white;
-        margin: 1% 5%;
-        height: 450px;
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    background: white;
+    margin: 1% 5%;
+    height: 450px;
     }
     .card-body .empty{
     visibility:hidden;
     }
 
-    .card-footer{
+    .card-footerr{
     display: flex;
     justify-content: end;
+    margin: 2% 4%;
     }
 
-    .card-footer .button{
+    .buttonnp{
     background-color: #194276;
-    border-radius: 0;
-    color: #f1f1f1
+    border-radius: 15px;
+    padding: 0.3rem 1rem;
+    border: solid 1px white;
+    color: white;
+    transition: all 0.3s ease;
     }
 
-    .card-footer button{
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    }
-
-    .card-footer button span{
-    display: block;
-    }
-    
-    .card-footer button::before,
-    .card-footer button::after{
-    content: "";
-    width: 0;
-    height: 3px;
-    position: absolute;
-    transition: all 0.2s linear;
-    background: white;
-    }
-    
-    .card-footer button span::before,
-    .card-footer button span::after{
-    content: "";
-    width: 3px;
-    height: 0;
-    position: absolute;
-    transition: all 0.2s linear;
-    background: white;
-    ;
-    }
-    
-    .card-footer button:hover::before,
-    .card-footer button:hover::after{
-    width: 100%;
-    }
-
-    .card-footer button:hover span::before, 
-    .card-footer button:hover span::after{
-    height: 100%;
-    }
-    
-    .card-footer button.btn::after{
-    left: 0;
-    bottom: 0;
-    transition-duration: 0.4s;
-    }
-
-    .card-footer button.btn span::after{
-    right: 0;
-    top: 0;
-    transition-duration: 0.4s;
-    }
-
-    .card-footer button.btn::before{
-    right: 0;
-    top: 0;
-    transition-duration: 0.4s;
-    }
-
-    .card-footer button.btn span::before{
-    left: 0;
-    bottom: 0;
-    transition-duration: 0.4s;
-    }
+    .buttonnp:hover{
+        background: rgb(222, 226, 236);
+        color: #194276;
+    } 
 
     .wrap-pagination-info .flex.items-center.justify-between{
     margin: 0 0 0 5%;

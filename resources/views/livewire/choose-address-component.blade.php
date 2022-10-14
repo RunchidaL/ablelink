@@ -45,18 +45,33 @@
                     @error('ad') <p class="text-danger">กรุณาเลือกที่อยู่สำหรับจัดส่ง</p> @enderror
                         <div class="col-md-5 mb-4">
                             @if(Auth::user()->role == 1)
+                            @php 
+                                $i=0;
+                            @endphp
                                 @foreach($customers as $customer)
-                                        <input type="radio" id="address{{$customer->id}}" name="ad" value="{{$customer->id}}" wire:model.defer="ad"/>
+                                    @php $i++;@endphp
+                                    {{-- <p>{{$i}}</p> --}}
+                                        @if ($i<2)
+                                            <input type="radio" id="address{{$customer->id}}" value="{{$customer->id}}"  name="ad" checked/>
+                                            <label for="address{{$customer->id}}">
+                                                <p>{{$user->name}}</p>
+                                                <p>{{$customer->phonenumber}}</p>
+                                                <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
+                                                <p>{{$customer->county}} {{$customer->zipcode}}</p>
+                                            </label>
+                                        @else
+                                        <input type="radio" id="address{{$customer->id}}" value="{{$customer->id}}"  name="ad"/>
                                         <label for="address{{$customer->id}}">
                                             <p>{{$user->name}}</p>
                                             <p>{{$customer->phonenumber}}</p>
                                             <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
                                             <p>{{$customer->county}} {{$customer->zipcode}}</p>
                                         </label>
+                                        @endif
                                 @endforeach
                             @endif
                             @if(Auth::user()->role == 2)
-                                        <input type="radio" id="address1" name="ad" value="{{$dealer->id}}" wire:model.defer="ad"/>
+                                        <input type="radio" id="address1" value="{{$dealer->id}}" checked/>
                                         <label for="address1">
                                             <p>{{$user->name}}</p>
                                             <p>{{$dealer->phonenumber}}</p>
