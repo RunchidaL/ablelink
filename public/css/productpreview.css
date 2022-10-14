@@ -1,3 +1,80 @@
+.containertest{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+nav{
+    background: #fff;
+    border-radius: 50px;
+    padding: 10px;
+    box-shadow: 0px 0px 2px 8px #636363;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 13px 35px;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 0.5s;
+}
+
+#ul{
+    margin-bottom: 0;
+}
+
+nav ul li::after{
+    content: '';
+    background: #f44566;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+}
+
+nav ul li a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li:hover::after{
+    top: 50%;
+    opacity: 1;
+}
+
+.fakecategory{
+    height: 100px; 
+    visibility: hidden;
+}
+
+.maincatagory{
+    border-radius: 10px;
+}
+.subcatagory{
+    background: #A9CCE2; 
+    text-align: center; 
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 0;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+}
+
 .product-grid{
 font-family: 'Poppins', sans-serif;
 text-align: center;
@@ -92,6 +169,31 @@ text-align: center;
     font-weight: 400;
     text-decoration: line-through;
 }
-@media screen and (max-width: 990px){
-    .product-grid{ margin-bottom: 30px; }
+
+@media screen and (max-width: 995px){
+    .product-grid{ 
+        margin-bottom: 30px; 
+    }
+    nav ul li{
+        padding: 13px 10px;
+        margin: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
 }
+
+@media screen and (max-width: 769px){
+    .product-grid{ 
+        margin-bottom: 30px; 
+    }
+    .containertest{
+        display: none;
+    }
+    .fakecategory{
+        display: none;
+    }
+    .slide-container{
+        margin-bottom: 10%;
+    }
+}
+

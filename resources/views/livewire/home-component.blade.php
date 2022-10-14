@@ -51,289 +51,310 @@
                         @endforeach
                     </div>
                 </div> 
-                
 {{-- catagory--}}
-            <div style="background:; border-radius: 10px;">
-                <div style="text-align: center; background: #A9CCE2; border-radius: 10px;" data-aos="fade-right" data-aos-duration="800"><h3>Security</h3></div>
-                <div class="slide-container swiper">
-                    <div class="slide-content1" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn" id="next1"></div>
-                    <div class="swiper-button-prev swiper-navBtn" id="prev1"></div>
-                    <div class="swiper-pagination" id="pagination1"></div>
-                </div>
-            </div>
+    <div class="containertest" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+        <nav>
+            <ul id="ul">
+                <li><a href="#Security">Security</a></li>
+                <li><a href="#Network">Network</a></li>
+                <li><a href="#Telecomm">Telecomm</a></li>
+                <li><a href="#Audio">Audio</a></li>
+                <li><a href="#Software">Software</a></li>
+            </ul>
+        </nav>
+    </div>
 
-            <div style="background: ; border-radius: 10px;">
-                <div style="text-align: center; background: #A9CCE2; border-radius: 10px;" data-aos="fade-right" data-aos-duration="800"><h3>Network</h3></div>
-                <div class="slide-container swiper">
-                    <div class="slide-content2" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn" id="next2"></div>
-                    <div class="swiper-button-prev swiper-navBtn" id="prev2"></div>
-                    <div class="swiper-pagination" id="pagination2"></div>
-                </div>
-            </div>
 
-            <div style="background: ; border-radius: 10px;">
-                <div style="text-align: center; background: #A9CCE2; border-radius: 10px;" data-aos="fade-right" data-aos-duration="800"><h3>Telecomm</h3></div>
-                <div class="slide-container swiper">
-                    <div class="slide-content3" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
+    <div id="Security" class="fakecategory">test</div>
+    <div class="maincatagory">
+        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">Security</div>
+        <div class="slide-container swiper">
+            <div class="slide-content1" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Security</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-button-next swiper-navBtn" id="next3"></div>
-                    <div class="swiper-button-prev swiper-navBtn" id="prev3"></div>
-                    <div class="swiper-pagination" id="pagination3"></div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Security</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Security</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="swiper-button-next swiper-navBtn" id="next1"></div>
+            <div class="swiper-button-prev swiper-navBtn" id="prev1"></div>
+            <div class="swiper-pagination" id="pagination1"></div>
+        </div>
+    </div>
 
-            <div style="background: ; border-radius: 10px;">
-                <div style="text-align: center; background: #A9CCE2; border-radius: 10px;" data-aos="fade-right" data-aos-duration="800"><h3>Audio</h3></div>
-                <div class="slide-container swiper">
-                    <div class="slide-content4" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn" id="next4"></div>
-                    <div class="swiper-button-prev swiper-navBtn" id="prev4"></div>
-                    <div class="swiper-pagination" id="pagination4"></div>
-                </div>
-            </div>
 
-            <div style="background: ; border-radius: 10px;">
-                <div style="text-align: center; background: #A9CCE2; border-radius: 10px;" data-aos="fade-right" data-aos-duration="800"><h3>Software</h3></div>
-                <div class="slide-container swiper">
-                    <div class="slide-content5" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <div class="card-wrapper swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
+    <div id="Network" class="fakecategory">test</div>
+    <div class="maincatagory">
+        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">Network</div>
+        <div class="slide-container swiper">
+            <div class="slide-content2" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Network</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="product-grid">
-                                    <div class="product-image">
-                                        <a href="#" class="image">
-                                            <img src="http://127.0.0.1:8000/images/products/1659422087.jpg">
-                                        </a>
-                                        <span class="product-discount-label">Security</span>
-                                        <a href="" class="add-to-cart">Read More</a>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
-                                    </div>
-                                </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-button-next swiper-navBtn" id="next5"></div>
-                    <div class="swiper-button-prev swiper-navBtn" id="prev5"></div>
-                    <div class="swiper-pagination" id="pagination5"></div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Network</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Network</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="swiper-button-next swiper-navBtn" id="next2"></div>
+            <div class="swiper-button-prev swiper-navBtn" id="prev2"></div>
+            <div class="swiper-pagination" id="pagination2"></div>
+        </div>
+    </div>
+
+
+    <div id="Telecomm" class="fakecategory">test</div>
+    <div class="maincatagory">
+        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">Telecomm</div>
+        <div class="slide-container swiper">
+            <div class="slide-content3" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Telecomm</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Telecomm</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Telecomm</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn" id="next3"></div>
+            <div class="swiper-button-prev swiper-navBtn" id="prev3"></div>
+            <div class="swiper-pagination" id="pagination3"></div>
+        </div>
+    </div>
+
+
+    <div id="Audio" class="fakecategory">test</div>
+    <div class="maincatagory">
+        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">Audio</div>
+        <div class="slide-container swiper">
+            <div class="slide-content4" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Audio</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Audio</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Audio</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn" id="next4"></div>
+            <div class="swiper-button-prev swiper-navBtn" id="prev4"></div>
+            <div class="swiper-pagination" id="pagination4"></div>
+        </div>
+    </div>
+
+
+    <div id="Software" class="fakecategory">test</div>
+    <div class="maincatagory">
+        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">Software</div>
+        <div class="slide-container swiper">
+            <div class="slide-content5" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Software</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Software</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="https://sv1.picz.in.th/images/2022/10/14/pvImA9.jpg">
+                                </a>
+                                <span class="product-discount-label">Software</span>
+                                <a href="" class="add-to-cart">DETAIL</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"><a href="#">Duplex, 9/125 SM , 2Core</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn" id="next5"></div>
+            <div class="swiper-button-prev swiper-navBtn" id="prev5"></div>
+            <div class="swiper-pagination" id="pagination5"></div>
+        </div>
+    </div>
             
 <!-- activity -->
             <div>
                 <p class="text" data-aos="fade-right" data-aos-duration="800">ข่าวสารเเละกิจกรรม</p>
             </div>
             <div class="slide-container swiper">
-                <div class="slide-content6" style="padding: 3% 2% 3% 2%" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                <div class="slide-content6" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
                     <div class="card-wrapper swiper-wrapper">
                         @foreach($posts as $post)
                         <div class="card swiper-slide">
