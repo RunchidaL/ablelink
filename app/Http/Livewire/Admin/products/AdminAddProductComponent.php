@@ -27,16 +27,24 @@ class AdminAddProductComponent extends Component
     public $sbcategory_id;
     public $groupproduct_id;
     
-    public function generateslug()
-    {
-        $this->slug = Str::slug($this->name);
-    }
+    // public function generateslug()
+    // {
+    //     $this->slug = Str::slug($this->name);
+    // }
 
     public function addProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'scategory_id' => 'required',
+            'bcategory_id' => 'required',
+            'sbcategory_id' => 'required',
+            'groupproduct_id' => 'required'
+        ]);
         $product = new Product();
         $product->name = $this->name;
-        $product->slug = $this->slug;
+        // $product->slug = $this->slug;
         $product->category_id = $this->category_id;
         if($this->scategory_id)
         {

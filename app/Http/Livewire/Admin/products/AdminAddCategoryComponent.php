@@ -21,6 +21,7 @@ class AdminAddCategoryComponent extends Component
     public $scategory_id;
     public $image;
     public $brand_id;
+    public $addcat;
     
 
     public function generateslug()
@@ -28,21 +29,17 @@ class AdminAddCategoryComponent extends Component
         $this->slug = Str::slug($this->name);
     }
 
-    // public function updated($fields)
-    // {
-    //     $this->validateOnly($fields,[
-    //         'name' => 'required',
-    //         'slug' => 'required',
-    //     ]);
-    // }
 
     public function storeCategory()
     {
-        if($this->brand_id and $this->name)
+        if($this->addcat == "sbcat")
         {   
             $this->validate([
                 'name' => 'required',
-                'slug' => 'required'
+                'slug' => 'required',
+                'category_id' => 'required',
+                'brand_id' => 'required',
+                'scategory_id' => 'required'
             ]);
             $sbcategory = new SubBrandCategory();
             $sbcategory->name = $this->name;
@@ -57,18 +54,24 @@ class AdminAddCategoryComponent extends Component
             $sbcategory->brandcategory_id = $sb_id->id;
             $sbcategory->save();
         }
-        else if($this->scategory_id)
-        {           
+        else if($this->addcat == "bcat")
+        {          
+            $this->validate([
+                'category_id' => 'required',
+                'brand_id' => 'required',
+                'scategory_id' => 'required'
+            ]); 
             $bcategory = new BrandCategory();
             $bcategory->subcategory_id = $this->scategory_id;
             $bcategory->brand_id = $this->brand_id;
             $bcategory->save();
         }
-        else if($this->category_id)
+        else if($this->addcat == "scat")
         {
             $this->validate([
-                'name' => 'required',
-                'slug' => 'required'
+                'name' => 'required|unique:subcategories',
+                'slug' => 'required|unique:subcategories',
+                'category_id' => 'required'
             ]);
             $scategory = new Subcategory();
             $scategory->name = $this->name;
@@ -83,10 +86,10 @@ class AdminAddCategoryComponent extends Component
 
             $scategory->save();
         }
-        else{
+        else if($this->addcat == "cat"){
             $this->validate([
-                'name' => 'required',
-                'slug' => 'required'
+                'name' => 'required|unique:categories',
+                'slug' => 'required|unique:categories'
             ]);
             $category = new Category();
             $category->name = $this->name;

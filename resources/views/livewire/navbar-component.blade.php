@@ -57,17 +57,30 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
+    document.getElementById("menuLink1").style.backgroundColor= "rgb(243,243,243)";
     const elementSize = document.getElementsByClassName("menu-link-item").length;
     for( let i = 1; i <= elementSize ; i++) {
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
+            Parent.style.backgroundColor = "rgb(243,243,243)";
             for ( let n = 1 ; n <= elementSize ; n++ ){
                 if( n !== i) {
                     document.getElementById("content"+n).style.display = "none";
+                    document.getElementById("menuLink"+n).style.backgroundColor = "rgb(226, 226, 226)";
                 }
             }
         });                                  
     }
 </script>
+
+<style>
+@font-face {
+    font-family: 'SukhumvitSet';
+    src: url("{{ asset('fonts/SukhumvitSet-SemiBold.ttf') }}") format('truetype');
+}
+.prd-dropdown-wrap{
+    font-family: 'SukhumvitSet', sans-serif;
+}
+</style>

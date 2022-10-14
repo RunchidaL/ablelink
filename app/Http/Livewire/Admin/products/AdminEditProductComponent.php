@@ -20,7 +20,6 @@ class AdminEditProductComponent extends Component
 {
     use WithFileUploads;
     public $name;
-    public $slug;
     public $category_id;
     public $product_id;
     public $scategory_id;
@@ -28,16 +27,10 @@ class AdminEditProductComponent extends Component
     public $sbcategory_id;
     public $groupproduct_id;
 
-    public function generateslug()
-    {
-        $this->slug = Str::slug($this->name);
-    }
-
     public function mount($product_slug)
     {
-        $product = Product::where('slug',$product_slug)->first();
+        $product = Product::where('id',$product_slug)->first();
         $this->name = $product->name;
-        $this->slug = $product->slug;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;
         $this->bcategory_id = $product->brandcategory_id;
@@ -51,7 +44,6 @@ class AdminEditProductComponent extends Component
     {
         $product = Product::find($this->product_id);
         $product->name = $this->name;
-        $product->slug = $this->slug;
         $product->category_id = $this->category_id;
         if($this->scategory_id)
         {

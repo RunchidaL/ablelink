@@ -14,36 +14,51 @@ class AdminAddGroupComponent extends Component
     public $name;
     public $group_id;
     public $serie_id;
-    // public $productserie_id;
     public $type_id;
     public $jacket_id;
-    // public $productjacket_id;
+    public $addgroup;
 
     public function storeGroup()
     {
-        if($this->type_id){
+        if($this->addgroup == "jtype"){
+            $this->validate([
+                'name' => 'required',
+                'group_id' => 'required',
+                'serie_id' => 'required',
+                'type_id' => 'required',
+            ]);
             $jacket = new JacketProduct();
             $jacket->name = $this->name;
             $jacket->type_id = $this->type_id;
-            // $jacket->product_id = $this->productjacket_id;
             $jacket->save();
         }
-        else if($this->serie_id){
+        else if($this->addgroup == "type"){
+            $this->validate([
+                'name' => 'required',
+                'group_id' => 'required',
+                'serie_id' => 'required'
+            ]);
             $type = new TypeModels();
             $type->name = $this->name;
             $type->series_id = $this->serie_id;
-            // $type->product_id = $this->productserie_id;
             $type->save();
         }
-        else if($this->group_id)
+        else if($this->addgroup == "series")
         {
+            $this->validate([
+                'name' => 'required',
+                'group_id' => 'required'
+            ]);
             $serie = new SeriesModels();
             $serie->name = $this->name;
             $serie->group_id = $this->group_id;
             $serie->save();
 
         }
-        else{
+        else if($this->addgroup == "group"){
+            $this->validate([
+            'name' => 'required|unique:group_products'
+            ]);
             $group = new GroupProduct();
             $group->name = $this->name;
             $group->save();
