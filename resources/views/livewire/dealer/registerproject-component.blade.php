@@ -142,14 +142,6 @@
 	</div>
 	</form>
 </div>
-{{-- <div class="modal_wrapper">
-	<div class="shadow"></div>
-	<div class="success_wrap">
-		<span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-		<p>ลงทะเบียนโปรเจ็คสำเร็จ.</p>
-	</div>
-</div> --}}
-
 
 <script>
 var form_1 = document.querySelector(".form_1");

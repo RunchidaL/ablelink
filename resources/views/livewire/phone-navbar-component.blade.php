@@ -1,187 +1,138 @@
-<link rel="stylesheet" href="navfoot.css">
+<link rel="stylesheet" href="/css/phoneNavbar.css">
 
-<button class="toggle is-active">
+<button class="toggle">
     <span></span>
     <span></span>
     <span></span>
 </button>
 
-<div class="navDropWrap" id="navDropWrap">
-    <div class="wrapper1" >  
-        <div class="fa">
-            <div class="icons container">
-                <div class="cart-phone">
-                    @guest
-                    <a href="{{ route('login') }}"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i></button></a>
-                    @else
-                    <a href="/cart"><button class="icon-cart-phone"><i class="bi bi-cart-fill"></i><span class="count count-warning" id="CartCount">{{$count}}</span></button></a>
-                    @endguest
-                </div>
-                <div class="user-phone">
-                    <a><i class="bi bi-person-circle" id="person"></i></a>
-                </div>
-            </div>
-        </div>
-        <ul class="userMenu" id="userMenu">
+<div class="mobile-navbar" id="mobile-navbar" once>
+    <ul class="first">
+        <li class="double-icons">
             @guest
-                @if (Route::has('login'))
-                    <a class="" href="{{ route('login') }}"><li>เข้าสู่ระบบ</li></a>
-                @endif
-                
-                @if (Route::has('register'))
-                    <a class="" href="{{ route('register') }}"><li>ลงทะเบียน</li></a>
-                @endif
+            <a href="{{ route('login') }}"><span><i class="bi bi-cart-fill"></i></span></a>
             @else
-                <li>
-                    <a class="name-phone" href="#">{{ Auth::user()->name }}</a>
-                    @if(Auth::user()->role == 1)
-                        <a href="{{route('customer.info')}}"><li>แก้ไขข้อมูล</li></a>
-                        <a href="/order"><li>คำสั่งซื้อ</li></a>
-                    @elseif(Auth::user()->role == 2)
-                        <a href="{{route('dealer.changeinfo')}}"><li>แก้ไขข้อมูล</li></a>
-                        <a href="{{route('dealer.registerproject')}}"><li>ลงทะเบียนโปรเจค</li></a>
-                        <a href="/order"><li>คำสั่งซื้อ</li></a>
-                    @elseif(Auth::user()->role == 3)
-                        <a href="{{route('admin.dashboard')}}"><li>Dashboard</li></a>
-                    @endif
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <li>ออกจากระบบ</li>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
+            <a href="/cart"><i class="bi bi-cart-fill"></i></span></a>
             @endguest
-        </ul>    
-        <ul class="mainMenu" id="mainMenu"> 
-            <a class="m" href="/"><li>หน้าหลัก</li></a>
-            <a class="m" href="/aboutus"><li>เกี่ยวกับเรา</li></a>
-            <li class="p">
-                <div class="clickable">
-                    <a href="/shop"><span class="link_name" style="cursor: defualt;">ผลิตภัณฑ์</span></a>
-                    <i class="bi bi-caret-left-fill" id="farrow"></i>
-                </div>
-                <ul class="sub-menu">
-                    @foreach($categories as $category)
-                    <li class="group-submenu">
-                        <span>
-                            <a href="{{route('product.category',['category_slug'=>$category->slug])}}">{{$category->name}}</a> 
-                            <i class="bi bi-caret-left-fill arrow catName"></i>
-                        </span>
-                    </li>
-                    <ul class="ssmenu">
-                        @foreach($category->subCategories as $scategory)
-                        <li class="group-ssmenu">
-                            <!-- CCTV -->
-                            <span>
-                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}">{{$scategory->name}}</a>
-                                <i class="bi bi-caret-left-fill arrow subcatName"></i>
-                            </span>
-                        </li>
-                        <ul class="brandname-wrap">
+            <span id="person"><i class="bi bi-person-circle"></i></span> 
+        </li>
+        <ul class="my-account" id="my-account" style="--ulbg: #EAFD92;">
+            <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
+            @guest
+                <li class="menu"><a href="{{ route('login') }}"><span>เข้าสู่ระบบ</span></a></li>
+                <li class="menu"><a href="{{ route('register') }}"><span>ลงทะเบียน</span></a></li>
+            @else
+            <li>
+                <li class="menu-name"><a class="name-phone" href="#"><span>{{ Auth::user()->name }}</span></a></li>
+                @if(Auth::user()->role == 1)
+                    <li class="menu"><a href="{{route('customer.info')}}"><span>แก้ไขข้อมูล</span></a></li>
+                    <li class="menu"><a href="/order"><span>คำสั่งซื้อ</span></a></li>
+                @elseif(Auth::user()->role == 2)
+                    <li class="menu"><a href="{{route('dealer.changeinfo')}}"><span>แก้ไขข้อมูล</span></a></li>
+                    <li class="menu"><a href="{{route('dealer.registerproject')}}"><span>ลงทะเบียนโปรเจค</span></a></li>
+                    <li class="menu"><a href="/order"><span>คำสั่งซื้อ</span></a></li>
+                @elseif(Auth::user()->role == 3)
+                    <li class="menu"><a href="{{route('admin.dashboard')}}"><span>Dashboard</span></a></li>
+                @endif
+                <li class="menu">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span>ออกจากระบบ</span>
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+            @endguest
+        </ul>
+
+        <li class="menu"><a href="/"><span>หน้าหลัก</span></a></li>
+        <li class="menu"><a href="/aboutus"><span>เกี่ยวกับเรา</span></a></li>
+        <li class="menu" id="ulOpenBtn"><span>ผลิตภัณฑ์<i class="bi bi-caret-right-fill arrow"></i></span></li>
+        <ul class="second" style="--ulbg: #9d03fc;">
+            <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
+            <li class="menu"><a href="/shop"><span>View All ผลิตภัณฑ์</span></a></li>   
+            @foreach($categories as $category)
+                <li class="menu" id="ulOpenBtn"><span>{{$category->name}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
+                <ul class="third" style="--ulbg: #036bfc;">
+                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
+                    <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug])}}"><span>View All {{$category->name}}</span></a></li>   
+                    @foreach($category->subCategories as $scategory)
+                        <li class="menu" id="ulOpenBtn"><span>{{$scategory->name}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
+                        <ul class="fourth" style="--ulbg: #03c6fc;">
+                            <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
+                            <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span>View All {{$scategory->name}}</span></a></li>   
                             @foreach($scategory->brandCategories as $brand)
-                            <li class="brandname">
-                                <!-- TVT -->
-                                <span>
-                                    <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}">{{$brand->brands->name ?? ''}}</a> 
-                                    <i class="bi bi-caret-left-fill arrow"></i>
-                                </span>
-                            </li>
+                                <li class="menu" id="ulOpenBtn"><span>{{$brand->brands->name ?? ''}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
+                                <ul class="fifth" style="--ulbg: #03fc90;">
+                                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
+                                    <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>View All {{$brand->brands->name ?? ''}} @if(count($brand->subbrandCategories)>0) @endif</span></a></li>   
+                                    @foreach($brand->subbrandCategories as $sbcategory)
+                                        <li class="menu" id="ulOpenBtn"><span>{{$sbcategory->name}}</span></li>
+                                    @endforeach
+                                </ul>
                             @endforeach
                         </ul>
-                        @endforeach
-                    </ul>
                     @endforeach
                 </ul>
-            </li>
-            <a class="m" href="/service"><li>บริการ</li></a>
-            <a class="m" href="/activity"><li>ข่าวสาร&กิจกรรม</li></a>
-            <a class="m" href="/download"><li>ดาวน์โหลด</li></a>
-            <a class="m" href="/forwork"><li>ร่วมงานกับเรา</li></a>
-            <a class="m" href="/contact"><li>ติดต่อเรา</li></a>
+            @endforeach
         </ul>
-    </div>
+
+        <li class="menu"><a href="/service"><span>บริการ</span></a></li>
+        <li class="menu"><a href="/activity"><span>ข่าวสาร&กิจกรรม</span></a></li>
+        <li class="menu"><a href="/download"><span>ดาวน์โหลด</span></a></li>
+        <li class="menu"><a href="/forwork"><span>ร่วมงานกับเรา</i></span></a></li>
+        <li class="menu"><a href="/contact"><span>ติดต่อเรา</i></span></a></li>
+    </ul>
 </div>
 
 <script> 
-    const farrow = document.querySelector("#farrow");
+    
     const toggle = document.querySelector('.toggle');
-    const catName = document.querySelectorAll(".catName");
-    const subcatName = document.querySelectorAll(".subcatName");
-    const navDropWrap = document.getElementById("navDropWrap");
+    const mobileNavbar = document.querySelector('#mobile-navbar');
+    const clickBtn = document.querySelectorAll("#ulOpenBtn");
 
-    toggle.addEventListener('click',()=>{
-        toggle.classList.toggle('is-active'); 
-        if(toggle.classList.contains('is-active')) 
-            navDropWrap.style.display = "block";
-        else
-            navDropWrap.style.display = "none";
-        farrow.parentElement.parentElement.classList.remove("showMenu");
-        for(let n=0 ; n<catName.length ;n++){
-            catName[n].parentElement.parentElement.classList.remove("display");
-        }
-        for(let n=0 ; n<subcatName.length ;n++){
-            subcatName[n].parentElement.parentElement.classList.remove("display");
-        }
-    })
-//     const test = (array) => {
-//         for (let i = 0; i < array.length; i++){
-//             array[i].addEventListener("click", (e)=>{
-//             let arrowParent = e.target.parentElement.parentElement;
-//             arrowParent.classList.toggle("display");
-//             for(let n=0 ; n<array.length ;n++){
-//                     if(n!=i) array[n].parentElement.parentElement.classList.remove("display");
-//                 }
-//         })
-//     }
-// }
-//     test(catName);
-//     test(subcatName);
-        
-    for (let i = 0; i < catName.length; i++){
-        catName[i].addEventListener("click", (e)=>{
-        let arrowParent = e.target.parentElement.parentElement;
-        arrowParent.classList.toggle("display");
-        for(let n=0 ; n<catName.length ;n++){
-                if(n!=i) catName[n].parentElement.parentElement.classList.remove("display");
-            }
-        })
-    }
-    for (let i = 0; i < subcatName.length; i++){
-        subcatName[i].addEventListener("click", (e)=>{
-        let subarrowParent = e.target.parentElement.parentElement;
-        subarrowParent.classList.toggle("display");
-        for(let n=0 ; n<subcatName.length ;n++){
-                if(n!=i) subcatName[n].parentElement.parentElement.classList.remove("display");
-            }
-        })
-    }
-    
-    
-    farrow.addEventListener("click", (e) => {
-        let fParent = e.target.parentElement.parentElement;
-        fParent.classList.toggle("showMenu");
-        if(!(farrow.parentElement.parentElement.classList.contains("showMenu"))){
-            for(let n=0 ; n<arrow.length ;n++){
-                catName[n].parentElement.parentElement.classList.remove("display");
+    toggle.addEventListener('click',
+        () => {
+            toggle.classList.toggle('is-active');
+            mobileNavbar.classList.toggle('open');
+            if(!toggle.classList.contains('is-active'))
+            {
+                for(let i=0;i<clickBtn.length;i++)
+                {
+                    clickBtn[i].classList.remove('display');
+                    mobileNavbar.setAttribute('once', '');
+                }
             }
         }
-    });
+    );
 
-    const person = document.getElementById("person");
-    let op = false;
-    const mainMenu = document.getElementById("mainMenu");
-    const userMenu = document.getElementById("userMenu");
-    person.addEventListener("click", (e) => {
-        if(op==false){
-            mainMenu.style.display ="none";
-            userMenu.style.display ="inline-block";
-            op =  true;
+    const person = document.querySelector("#person");
+    person.addEventListener('click',
+        () => {
+            person.parentElement.classList.toggle('display');
+            mobileNavbar.removeAttribute('once');
         }
-        else if(op==true){
-            mainMenu.style.display ="block";
-            userMenu.style.display ="none";
-            op =  false;
-        }
-    });
+    )
+    
+    for( let i=0 ; i < clickBtn.length ; i++)
+    {
+        clickBtn[i].addEventListener('click',
+            (e) => {
+                clickBtn[i].classList.toggle('display');
+                mobileNavbar.removeAttribute('once');
+            }
+        );
+    }
+
+    const goBack = document.querySelectorAll("#goBack");
+    for(let i=0 ; i < goBack.length ; i++ )
+    {
+        goBack[i].addEventListener('click',
+            (e) => {
+                goBack[i].parentElement.previousElementSibling.classList.remove('display');
+            }
+        );
+    }
+
 </script>

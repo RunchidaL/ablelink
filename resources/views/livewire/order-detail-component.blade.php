@@ -40,119 +40,130 @@
                 </div>
             </div>
         </div>
+        <div class="order-detail-info">
+            <div class="d-flex">
+                <div class="me-auto align-self-center">
+                    <h3>รายการสั่งซื้อ</h3>
+                </div>
+                <div class="p-2">
+                    @if(Auth::user()->role == 2)
+                    <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
+                    @endif
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="order-detail-menu">
+                            <td>รายการสินค้า</td>
+                            <td></td>
+                            <td>ราคา</td>
+                            <td>จำนวน</td>
+                            <td>รวม</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($items as $item)
+                        <tr class="order-detail-wrapper">
+                            <td class="order-detail-product">
+                                <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
+                            </td>
+                            <td class="order-detail-name">
+                                @if($item->attribute)
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
+                                @else
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                                @endif
+                            </td>
+                            <td class="order-detail-price">
+                                @if(Auth::user()->role == 1)
+                                    @if($item->attribute == '')
+                                        <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                                    @else
+                                        <p class="group-cen">฿{{number_format($item->model->customer_price * $item->attribute,2)}}</p>
+                                    @endif
+                                @elseif(Auth::user()->role == 2)
+                                    @if($item->attribute == '')
+                                        <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                                    @else
+                                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->attribute,2)}}</p>
+                                    @endif
+                                @endif
+                            </td>
+                            <td class="order-detail-quantity">
+                                <p class="group-cen">{{$item->quantity}}</p>
+                            </td>
+                            <td class="order-detail-total">
+                                @if(Auth::user()->role == 1)
+                                    @if($item->attribute == '')
+                                    <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
+                                    @else
+                                    <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
+                                    @endif
+                                @elseif(Auth::user()->role == 2)
+                                    @if($item->attribute == '')
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                                    @else
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                                    @endif
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>    
+                    <tfoot>
+                        <tr class="order-detail-conclu">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>ยอดรวมทั้งหมด</td>
+                            <td>฿{{number_format($order->total,2)}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="d-flex">
-                    <div class="me-auto align-self-center">
-                        <h3>รายการสั่งซื้อ</h3>
+        <!-- responsive phone -->
+        <div class="phone-order-detail-info">
+            <div class="phone-order-detail-menu"><span>รายการสั่งซื้อ</span>
+                @if(Auth::user()->role == 2)
+                    <a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill" style="font-size: 30px"></i></a>
+                @endif
+            </div>
+            @foreach($items as $item)
+            <div class="phone-order-detail-wrapper">
+                <div class="phone-order-detail-left">
+                    <div class="phone-order-detail-product">
+                        <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
                     </div>
-                    <div class="p-2">
-                        @if(Auth::user()->role == 2)
-                        <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
+                </div>
+                <div class="phone-order-detail-right">
+                    <div class="phone-order-detail-name">
+                        @if($item->attribute)
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
+                        @else
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
                         @endif
                     </div>
+                    <div class="phone-order-detail-total">
+                        @if($item->attribute)
+                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                        @else
+                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                        @endif
+                    </div>
+                    <div class="phone-order-detail-quantity">
+                        <p class="group-cen">จำนวน {{$item->quantity}} ชิ้น</p>
+                    </div>
                 </div>
-                <div class="table-responsive order-detail-info">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr class="order-detail-menu">
-                                <td>ชื่อสินค้า</td>
-                                <td></td>
-                                <td>ราคา</td>
-                                <td>จำนวน</td>
-                                <td>รวม</td>
-                            </tr>
-                        </thead>
-                        <tbody class="customer-order-detail">
-                            @foreach($items as $item)
-                            <tr class="order-detail-wrapper">
-                                <td class="order-detail-product">
-                                    <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
-                                </td>
-                                <td class="order-detail-name">
-                                    @if($item->attribute)
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
-                                    @else
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
-                                    @endif
-                                </td>
-                                <td class="order-detail-name">
-                                    <p class="group-cen">฿{{$item->model->dealer_price}}</p>
-                                </td>
-                                <td class="order-detail-quantity">
-                                    <p class="group-cen">{{$item->quantity}}</p>
-                                </td>
-                                <td class="order-detail-total">
-                                    @if($item->attribute)
-                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
-                                    @else
-                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
-                                    @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>    
-                        <tfoot>
-                            <tr class="order-detail-conclu">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>ยอดรวมทั้งหมด</td>
-                                <td>฿{{number_format($order->total,2)}}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+            </div>
+            @endforeach
+            <div class="phone-order-detail-conclu">
+                <span>ยอดรวมทั้งหมด</span>
+                <span>฿{{number_format($order->total,2)}}</span>
             </div>
         </div>
     </div>
-    <!-- responsive phone -->
-    <!-- <div class="container phone-order-detail-home">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="d-flex">
-                    <div class="phone-order-detail-menu"><span>รายการสั่งซื้อ</span></div>
-                    <div class="p-2">
-                        @if(Auth::user()->role == 2)
-                        <div class="d-flex flex-row-reverse mr-10" style="font-size: 40px"><a href="{{route('orderpdf',['orderpdf_id'=>$order->id])}}"><i class="bi bi-printer-fill"></i></a></div>
-                        @endif
-                    </div>
-                </div>
-                @foreach($items as $item)
-                <div class="phone-order-detail-wrapper">
-                    <div class="phone-order-detail-left">
-                        <div class="phone-order-detail-product">
-                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="phone-order-detail-right">
-                        <div class="phone-order-detail-name">
-                            @if($item->attribute)
-                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
-                            @else
-                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
-                            @endif
-                        </div>
-                        <div class="phone-order-detail-total">
-                            @if($item->attribute)
-                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
-                            @else
-                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
-                            @endif
-                        </div>
-                        <div class="order-detail-quantity">
-                            <p class="group-cen">{{$item->quantity}}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-                <div class="phone-order-detail-conclu">
-                    <span>ยอดรวมทั้งหมด</span>
-                    <span>฿{{number_format($order->total,2)}}</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>
 

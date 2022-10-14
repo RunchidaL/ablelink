@@ -46,9 +46,17 @@
                         </td>
                         <td class="cart-price">
                             @if(Auth::user()->role == 1)
-                            <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                                @if($item->attribute == '')
+                                    <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                                @else
+                                    <p class="group-cen">฿{{number_format($item->model->customer_price * $item->attribute,2)}}</p>
+                                @endif
                             @elseif(Auth::user()->role == 2)
-                            <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                                @if($item->attribute == '')
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                                @else
+                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->attribute,2)}}</p>
+                                @endif
                             @endif
                         </td>
                         <td class="cart-quantity">
@@ -74,7 +82,7 @@
                         @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                            <a class="cart-quantity-delete" wire:click.prevent="deleteItems('{{$item->id}}')">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
@@ -158,7 +166,7 @@
                         @endif
                     @endif
                     </div>
-                    <div class="phone-cart-info">
+                    <div class="phone-cart-quantity">
                         <div class="group-cen">
                             <a wire:click.prevent="decreaseQuantity('{{$item->id}}')"><i class="bi bi-dash"></i></a>
                             <span>{{$item->quantity}}</span>

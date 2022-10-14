@@ -14,7 +14,7 @@ p{
 }
 
 .order-home h2{
-    margin-top: 2rem;
+    margin: 2rem 0;
     text-align: center;
 }
 
@@ -30,6 +30,36 @@ p{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+/* responsive phone */
+.phone-order-home{
+    display: none;
+    padding: 0 auto;
+}
+
+.phone-order-home h2{
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.phone-order-wrapper{
+    border-top: 1px solid rgba(195, 195, 195, 0.5);
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* responsive screen*/
+@media screen and (max-width: 767px){
+    .order-home{
+        display: none;
+    }
+    .phone-order-home{
+        display: block;
+    }
 }
 
 

@@ -1,0 +1,184 @@
+.mobile-navbar{
+    display: none;
+}
+
+@media screen and (max-width:1400px){
+    .toggle{
+        position: relative;
+        user-select: none;
+        appearance: none;
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .toggle span{
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: black;
+        border-radius: 6px;
+        transform-origin: 0 0;
+        transition: .4s, background-color .1s;
+    }
+    
+    .toggle:hover span{ background-color: black; }
+    .toggle.is-active span:nth-child(1){transform: translate(0px, -2px)rotate(45deg);}
+    .toggle.is-active span:nth-child(2){ opacity: 0; }
+    .toggle.is-active span:nth-child(3){ transform: translate(-3px, 3px)rotate(-45deg); }
+    .toggle.is-active:hover span{ background-color: #d81b1b; }
+
+    .mobile-navbar{
+        display: block;
+        position: fixed;
+        background-color: white;
+        top: 70px;
+        left: 0;
+        width: 100%; 
+        min-height: calc(100% - 70px);
+        box-shadow: 0px 77px 27px -88px rgba(0,0,0,0.75) inset;
+        -webkit-box-shadow: 0px 77px 27px -88px rgba(0,0,0,0.75) inset;
+        clip-path: circle(0px at top right);
+        transition: clip-path cubic-bezier(.06,.76,.68,.78) 200ms;
+    }
+
+    .mobile-navbar.open{
+        clip-path: circle(150% at top right);
+        transition: clip-path cubic-bezier(.06,.76,.68,.78) 400ms;
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li.double-icons {
+        display: flex;
+        border: 3px solid gray;
+    }
+
+    li.double-icons  > span,
+    li.double-icons > a{
+        cursor: pointer;
+        font-size: larger;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        padding: 0.5rem;
+        color:  white;
+        background-color: gray;
+        transition:  color .2s ease, background-color .2s ease;
+    }
+
+    li.double-icons > a:hover,
+    li.double-icons > span:hover{
+        color: gray;
+        background-color: #fdfdfd;
+    }
+
+    .mobile-navbar[once] .first li + ul{
+        animation-duration: 0s !important;
+        -webkit-animation-duration: 0s !important;
+    } 
+    .mobile-navbar .first li + ul{
+        transform: translateX(100%);
+        animation: slide-in .5s forwards;
+        transition: slide-in .5s ease;
+    }
+
+    .mobile-navbar .first li.display + ul{
+        animation: slide-out .5s forwards;
+        transition: slide-out .5s ease;
+    }
+
+    @keyframes slide-in{
+        0% { transform: translateX(0%);}
+        100% { transform: translateX(100%);}
+    }
+    @keyframes slide-out{
+        0% {  transform: translateX(100%);}
+        100% { transform: translateX(0%);}
+    }
+
+    ul.my-account, ul.second, ul.third, ul.fourth, ul.fifth{
+        position: fixed;
+        background: #F9F9F9;
+        left: 0;
+        width: 100%;
+    }
+
+    ul.my-account, ul.second{
+        top:70px;
+        min-height: calc(100% - 70px);
+    }
+
+    ul.third, ul.fourth, ul.fifth{
+        top:0;
+        min-height: 100%;
+    }
+
+    .mobile-navbar ul.first li.menu,
+    li.goBack{
+        cursor: pointer;
+        width: 100%;
+        padding: 0 0.6rem;
+    }
+
+    ul.first li.menu-name{
+        pointer-events: none;
+        width: 100%;
+        padding: 0 0.6rem;
+    }
+
+    li.menu-name span{
+        display: flex;
+        color: rgba(102, 102, 102, 0.696);
+        width: 100%;
+        padding: .875rem .875rem .875rem .5rem;
+        border-bottom: 1px solid rgba(154, 154, 154, 0.642);
+        justify-content: space-between;
+    }
+    
+    li.menu span, li.goBack span{
+        display: flex;
+        width: 100%;
+        padding: .875rem .875rem .875rem .5rem;
+        border-bottom: 1px solid rgba(154, 154, 154, 0.642);
+        transition: padding-left .1s ease;
+    }
+
+    li.goBack span{
+        justify-content: flex-start;
+        transition: padding-left .1s ease;
+    }
+
+    li.menu span{
+        justify-content: space-between;
+    }
+
+    li.menu span i, li.goBack span i{
+        padding-right: 0.5rem;
+        transition: padding-right .3s ease;
+    }
+
+    li.goBack:hover span{
+        padding-left: .2rem;
+    }
+
+    li.goBack:hover span i{
+        padding-right: 0;
+    }
+
+    li.menu a:hover{
+        color: black;
+    }
+
+    .mobile-navbar ul.first li.menu:hover span{
+        padding-left: .875rem;
+    }
+}

@@ -47,7 +47,6 @@
             </div>
             <div class="user">
                 <div class="dropdown">
-                    
                     <a class="icon" role="button" id="profileBtn" data-bs-toggle="dropdown"><i class="bi bi-person-circle"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink" id="profileDrop">
                         @guest
@@ -71,7 +70,6 @@
                                 @elseif(Auth::user()->role == 3)
                                     <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
                                 @endif
-                                
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     ออกจากระบบ
                                 </a>
@@ -86,7 +84,6 @@
             @livewire('phone-navbar-component')
         </div>
     </div>
-    
 </div>
 <div class="fakenav "></div>
 
