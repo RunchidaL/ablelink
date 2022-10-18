@@ -47,9 +47,9 @@ use App\Http\Livewire\Admin\products\AdminEditmodelComponent;
 use App\Http\Livewire\Admin\products\GroupComponent;
 use App\Http\Livewire\Admin\products\AdminAddGroupComponent;
 use App\Http\Livewire\Admin\products\EditGroupComponent;
-use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
-use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
-use App\Http\Livewire\Admin\Home\AdminHomecomponent;
+use App\Http\Livewire\Admin\home\AdminAddHomecomponent;
+use App\Http\Livewire\Admin\home\AdminEditHomecomponent;
+use App\Http\Livewire\Admin\home\AdminHomecomponent;
 use App\Http\Livewire\Customer\CustomerAddAddressComponent;
 use App\Http\Livewire\Customer\CustomerAddressComponent;
 use App\Http\Livewire\Customer\CustomerChangePasswordComponent;
@@ -79,6 +79,9 @@ use App\Http\Livewire\OrderPdfComponent;
 use App\Http\Livewire\SearchProductsComponent;
 use App\Http\Livewire\Admin\AllOrderComponent;
 use App\Http\Livewire\Admin\OrderDetailsComponent;
+use App\Http\Livewire\Admin\home\ProductPreviewComponent;
+use App\Http\Livewire\Admin\home\AddProductPreviewComponent;
+use App\Http\Livewire\Admin\home\EditProductPreviewComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -199,4 +202,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
     Route::get('/admin/AllOrder', AllOrderComponent::class)->name('admin.AllOrder');
     Route::get('/admin/order/{orderid}', OrderDetailsComponent::class)->name('admin.OrderDetails');
+    Route::get('/admin/productpreview', ProductPreviewComponent::class)->name('admin.productpreview');
+    Route::get('/admin/productpreview/add', AddProductPreviewComponent::class)->name('admin.addproductpreview');
+    Route::get('/admin/productpreview/edit/{preview_id}', EditProductPreviewComponent::class)->name('admin.editproductpreview');
 });

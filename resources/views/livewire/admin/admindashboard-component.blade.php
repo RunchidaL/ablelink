@@ -22,6 +22,9 @@
             <a href="{{route('admin.homes')}}"><button class="button">Home Highlight</button></a>
         </div>
         <div class="col-md-12">
+            <a href="{{route('admin.productpreview')}}"><button class="button">Product Preview</button></a>
+        </div>
+        <div class="col-md-12">
             <a href="{{route('admin.post')}}"><button class="button">Post</button></a>
         </div>
         <div class="col-md-12">

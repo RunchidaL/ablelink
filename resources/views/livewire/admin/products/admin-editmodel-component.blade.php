@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">*Stock</label>   
+                                <label class="col-md-4">Stock</label>   
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="stock">
                                 </div>

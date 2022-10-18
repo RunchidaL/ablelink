@@ -68,7 +68,7 @@
                                     <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
                                     <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>View All {{$brand->brands->name ?? ''}} @if(count($brand->subbrandCategories)>0) @endif</span></a></li>   
                                     @foreach($brand->subbrandCategories as $sbcategory)
-                                        <li class="menu" id="ulOpenBtn"><span>{{$sbcategory->name}}</span></li>
+                                        <li class="menu" id="ulOpenBtn"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}"><span>{{$sbcategory->name}}</span></a></li>
                                     @endforeach
                                 </ul>
                             @endforeach
