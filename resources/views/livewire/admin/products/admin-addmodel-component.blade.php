@@ -15,13 +15,15 @@
                             <div class="form-group">
                                 <label class="col-md-12">*Model Name</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="name" required>
+                                    <input type="text" class="form-control" wire:model="name">
+                                    @error('name') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">*Model Slug</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="slug" placeholder="Part Number" required>
+                                    <input type="text" class="form-control" wire:model="slug" placeholder="Part Number">
+                                    @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -31,25 +33,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Overview</label>
+                                <label class="col-md-12">Overview</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="overview" type="text" class="form-control" wire:model="overview"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Application</label>
+                                <label class="col-md-12">Application</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Item_spotlight</label>
+                                <label class="col-md-12">Item_spotlight</label> 
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Feature</label>
+                                <label class="col-md-12">Feature</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="feature" type="text" class="form-control"  wire:model="feature"></textarea>
                                 </div>
@@ -57,21 +59,21 @@
                             <div class="form-group">
                                 <label class="col-md-4">*Product Image</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="image">
-                                    @error('image') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
-                                    @if($image)
+                                    <input type="file" class="input-file" wire:model="image" accept=".jpg,.jpeg,.png">
+                                    @if($errors->has('image'))
+                                        @error('image') <p class="text-danger">{{ $message }}</p> @enderror
+                                    @elseif($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120"/>
                                     @endif
-                                    
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Product Gallery</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="p_images" multiple>
+                                    <input type="file" class="input-file" wire:model="p_images" accept=".jpg,.jpeg,.png" multiple>
                                     @if($p_images)
-                                        @foreach($p_images as $image)
-                                            <img src="{{$image->temporaryUrl()}}" width="120"/>
+                                        @foreach($p_images as $images)
+                                            <img src="{{$images->temporaryUrl()}}" width="120"/>
                                         @endforeach
                                     @endif
                                 </div>
@@ -79,31 +81,35 @@
                             <div class="form-group">
                                 <label class="col-md-4">Datasheet</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="datasheet">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4">Firm ware</label>
-                                <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="firmware">
+                                    <input type="file" class="input-file" wire:model="datasheet" accept=".pdf">
+                                    @error('datasheet') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Guide</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="guide">
+                                    <input type="file" class="input-file" wire:model="guide" accept=".pdf">
+                                    @error('guide') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Certificate</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="cert">
+                                    <input type="file" class="input-file" wire:model="cert" accept=".pdf">
+                                    @error('cert') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">Config</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="config">
+                                    <input type="file" class="input-file" wire:model="config" accept=".pdf">
+                                    @error('config') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Firm ware</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" wire:model="firmware">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -118,30 +124,34 @@
                                         <option value="0">Show</option>
                                         <option value="1">Hide</option>
                                     </select>
+                                    @error('web_price') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Dealer price</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="dealer_price" required>
+                                    <input type="text" class="form-control" wire:model="dealer_price">
+                                    @error('dealer_price') <p class="text-danger">กรุณาใส่</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Customer price</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="customer_price" required>
+                                    <input type="text" class="form-control" wire:model="customer_price">
+                                    @error('customer_price') <p class="text-danger">กรุณาใส่</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">*Stock</label>   
+                                <label class="col-md-4">Stock</label>   
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" wire:model="stock" required>
+                                    <input type="text" class="form-control" wire:model="stock">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Product</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ID Product" required>
+                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ID Product">
+                                    @error('product_id') <p class="text-danger">กรุณาใส่</p> @enderror
                                     <datalist id="datalistOptions">
                                         @foreach($products as $product)
                                             <option value="{{$product->id}}">{{$product->name}}</option>
@@ -158,6 +168,7 @@
                                             <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('group_products') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">

@@ -46,7 +46,6 @@ class AdminEditmodelComponent extends Component
     public $newimages;
     public $videos;
     public $newdatasheet;
-    public $newfirmware;
     public $newguide;
     public $newcert;
     public $newconfig;
@@ -108,7 +107,13 @@ class AdminEditmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'attr' => 'required'
+            'attr' => 'required',
+            'newimage' => 'mimes:jpeg,jpg,png|required',
+            // 'p_images' => 'mimes:jpeg,jpg,png|required',
+            'newdatasheet' => 'mimes:pdf',
+            'newguide' => 'mimes:pdf',
+            'newcert' => 'mimes:pdf',
+            'newconfig' => 'mimes:pdf',
         ]);
     }
 
@@ -132,6 +137,17 @@ class AdminEditmodelComponent extends Component
 
     public function updateModel()
     {
+        $this->validate([
+            'name' => 'required|unique:product_models',
+            'slug' => 'required|unique:product_models',
+            'image' => 'required',
+            'web_price' => 'required',
+            'dealer_price' => 'required',
+            'customer_price' => 'required',
+            'product_id' => 'required',
+            'group_products' => 'required',
+        ]);
+
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;
         $model->slug = $this->slug;
@@ -180,11 +196,9 @@ class AdminEditmodelComponent extends Component
             $this->newdatasheet->storeAs('products',$file1);
             $model->datasheet = $file1;
         }
-        if($this->newfirmware)
+        if($this->firmware)
         {
-            $file2 = $this->newfirmware->getClientOriginalName();
-            $this->newfirmware->storeAs('products',$file2);
-            $model->firmware = $file2;
+            $model->firmware = $this->firmware;
         }
         if($this->newguide)
         {

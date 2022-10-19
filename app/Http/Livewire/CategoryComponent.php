@@ -11,6 +11,7 @@ use App\Models\Subcategory;
 use App\Models\BrandCategory;
 use App\Models\ShoppingCart;
 use App\Models\Brand;
+use App\Models\SubBrandCategory;
 
 class CategoryComponent extends Component
 {
@@ -19,6 +20,7 @@ class CategoryComponent extends Component
     public $category_slug;
     public $scategory_slug;
     public $bcategory_slug;
+    public $sbcategory_slug;
     public $model_id;
     public $qty;
     public $attribute;
@@ -30,11 +32,12 @@ class CategoryComponent extends Component
     protected $paginationTheme = 'bootstrap';
 
 
-    public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
+    public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null,$sbcategory_slug=null)
     {
         $this->$category_slug = $category_slug;
         $this->$scategory_slug = $scategory_slug;
         $this->$bcategory_slug = $bcategory_slug;
+        $this->$sbcategory_slug = $sbcategory_slug;
         $this->qty = 1;
     }
 
@@ -151,7 +154,19 @@ class CategoryComponent extends Component
         $category_name = "";
         $filter = "";
 
-        if($this->bcategory_slug)
+        if($this->sbcategory_slug)
+        {
+            $brand = Brand::where('slug',$this->bcategory_slug)->first();
+            $brand_id = $brand->id;
+            $ccategory = Subcategory::where('slug',$this->scategory_slug)->first();
+            $ccategory_id = $ccategory->id;
+            $bcategory = BrandCategory::where('brand_id',$brand_id)->where('subcategory_id',$ccategory_id)->first();
+            $sbcategory = SubBrandCategory::where('slug',$this->sbcategory_slug)->where('brandcategory_id',$bcategory->id)->first();
+            $category_id = $sbcategory->id;
+            $category_name = $sbcategory->name;
+            $filter = "subbrand";
+        }
+        else if($this->bcategory_slug)
         {
             $brand = Brand::where('slug',$this->bcategory_slug)->first();
             $brand_id = $brand->id;
@@ -190,7 +205,8 @@ class CategoryComponent extends Component
         else{
             $bcategory = null;
         }
+        $sbcategory = SubBrandCategory::where('slug',$this->sbcategory_slug)->first();
         
-        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory,'models'=>$models,'bcategory'=>$bcategory])->layout("layout.navfoot"); 
+        return view('livewire.category-component',['products'=> $products, 'categories' => $categories, 'category_name' => $category_name,'category'=>$category,'scategory'=>$scategory,'models'=>$models,'bcategory'=>$bcategory,'sbcategory'=>$sbcategory])->layout("layout.navfoot"); 
     }
 }

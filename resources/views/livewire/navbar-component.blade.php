@@ -9,7 +9,9 @@
                 @php
                     $i++; 
                 @endphp
-                <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="menu-link"><div class="menu-link-item" id="menuLink{{$i}}"><span>{{$category->name}}</span></div></a>
+                <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="menu-link">
+                    <div class="menu-link-item" id="menuLink{{$i}}"><span>{{$category->name}}</span></div>
+                </a>
             @endforeach
         </div>
         <div class="menu-content">
@@ -33,12 +35,12 @@
                                 </a> 
                                 @foreach($scategory->brandCategories as $brand)
                                     <div class="brand">
-                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
+                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
                                         @if(count($brand->subbrandCategories)>0)
                                         <div class="box-wrap">
                                             <div class="box">
                                             @foreach($brand->subbrandCategories as $sbcategory)                                     
-                                                <a href="#">> {{$sbcategory->name}}</a>                                               
+                                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}">> {{$sbcategory->name}}</a>                                               
                                             @endforeach
                                             </div>
                                         </div> 
@@ -57,17 +59,31 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
+    document.getElementById("menuLink1").style.backgroundColor= "rgb(243,243,243)";
     const elementSize = document.getElementsByClassName("menu-link-item").length;
-    for( let i = 1; i <= elementSize ; i++) {
+    document.getElementById("menuLink1").style.backgroundColor= "rgb(243,243,243)";
+    for( let i = 1; i <= elementSize ; i++){
         let Parent = document.getElementById("menuLink"+i);
         let Child = document.getElementById("content"+i);
         Parent.addEventListener("mouseover" , (e) => {
             Child.style.display = "block";
+            Parent.style.backgroundColor = "rgb(243,243,243)";
             for ( let n = 1 ; n <= elementSize ; n++ ){
-                if( n !== i) {
+                if( n !== i){
                     document.getElementById("content"+n).style.display = "none";
+                    document.getElementById("menuLink"+n).style.backgroundColor = "rgb(226, 226, 226)";
                 }
             }
         });                                  
     }
 </script>
+
+<style>
+@font-face{
+    font-family: 'SukhumvitSet';
+    src: url("{{asset('fonts/SukhumvitSet-SemiBold.ttf')}}")format('truetype');
+}
+.prd-dropdown-wrap{
+    font-family: 'SukhumvitSet', sans-serif;
+}
+</style>

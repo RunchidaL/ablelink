@@ -8,6 +8,9 @@
                             <div class="col-md-4">
                                 <h2><a href="{{route('admin.products')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add New Product</h2>
                             </div>
+                            @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                            @endif
                         </div>
                     </div>
                     <div class="panel-body">
@@ -15,13 +18,8 @@
                             <div class="form-group">
                                 <label class="col-md-12">Product Name</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Product Slug</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="slug" required>
+                                    <input type="text" class="form-control" wire:model="name">
+                                    @error('name') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -33,6 +31,7 @@
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('category_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -44,6 +43,7 @@
                                             <option value="{{$scategory->id}}">{{$scategory->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('scategory_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -55,6 +55,19 @@
                                             <option value="{{$brand->id}}">{{$brand->brands->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('bcategory_id') <p class="text-danger">กรุณาเลือก</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">SubBrand</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="sbcategory_id">
+                                        <option value="0">Select Subbrand</option>
+                                        @foreach($subbrands as $subbrand)
+                                            <option value="{{$subbrand->id}}">{{$subbrand->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('sbcategory_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -66,6 +79,7 @@
                                             <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('groupproduct_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -74,9 +88,6 @@
                                 </div>
                             </div>
                         </form>
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                        @endif
                     </div>
                 </div>
             </div>

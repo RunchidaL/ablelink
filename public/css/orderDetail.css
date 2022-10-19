@@ -50,3 +50,56 @@ p{
 .order-detail-conclu{
     text-align: center;
 }
+
+/* responsive phone */
+.phone-order-detail-info{
+    display: none;
+    padding: 0 auto;
+}
+
+.phone-order-detail-menu{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phone-order-detail-wrapper{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    display: flex;
+    padding: 10px 0;
+}
+
+.phone-order-detail-product a img{
+    width: 100px;
+}
+
+.phone-order-detail-right{
+    padding: 0 5px;
+    width: 100%;
+}
+
+.phone-order-detail-total{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.phone-order-detail-conclu{
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* responsive screen*/
+@media screen and (max-width: 767px){
+    .order-detail-info{
+        display: none;
+    }
+    .phone-order-detail-info{
+        display: block;
+    }
+}
+

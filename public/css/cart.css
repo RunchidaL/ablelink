@@ -125,13 +125,13 @@ td.cart-quantity{
     padding: 10px 0;
 }
 
-.phone-cart-right{
-    padding: 0 5px;
-    width: 100%;
-}
-
 .phone-cart-product a img{
     width: 100px;
+}
+
+.phone-cart-right{
+    padding: 0 10px;
+    width: 100%;
 }
 
 .phone-cart-name p{
@@ -142,7 +142,7 @@ td.cart-quantity{
     padding: 10px 0;
 }
 
-.phone-cart-info{
+.phone-cart-quantity{
     display: flex;
     justify-content: space-between;
 }

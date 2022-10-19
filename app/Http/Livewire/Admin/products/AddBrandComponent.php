@@ -23,7 +23,10 @@ class AddBrandComponent extends Component
 
     public function storeBrand()
     {
-        
+        $this->validate([
+            'name' => 'required|unique:brands',
+            'slug' => 'required|unique:brands'
+        ]);
         $brand = new Brand();
         $brand->name = $this->name;
         $brand->slug = $this->slug;

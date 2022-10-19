@@ -45,6 +45,7 @@ class AdminAddmodelComponent extends Component
     public $jacket_id;
     public $group_id;
     public $group_products;
+    public $message;
 
     public $network_images;
     public $images = [];
@@ -74,12 +75,23 @@ class AdminAddmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'attr' => 'required',
+            'image' => 'required',
         ]);
     }
 
     public function addModel()
     {
+        $this->validate([
+            
+            'name' => 'required|unique:product_models',
+            'slug' => 'required|unique:product_models',
+            'image' => 'required',
+            'web_price' => 'required',
+            'dealer_price' => 'required',
+            'customer_price' => 'required',
+            'product_id' => 'required',
+            'group_products' => 'required',
+        ]);
         $model = new ProductModels();
         $model->name = $this->name;
         $model->slug = $this->slug;
@@ -110,9 +122,7 @@ class AdminAddmodelComponent extends Component
         }
         if($this->firmware)
         {
-            $file2 = $this->firmware->getClientOriginalName();
-            $this->firmware->storeAs('products',$file2);
-            $model->firmware = $file2;
+            $model->firmware = $this->firmware;
         }
         if($this->guide)
         {

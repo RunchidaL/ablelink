@@ -377,26 +377,27 @@ input[type=number]::-webkit-outer-spin-button{
         overflow-x: scroll;
         max-height: calc(112px + 2.6rem);
     }
-    .relate-group::-webkit-scrollbar {
+    .relate-group::-webkit-scrollbar{
         height: 0.12rem;
         border-radius: 10px; 
         background-color: rgb(255, 255, 255);
     }
-    .relate-group::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px lightgrey; 
+    .relate-group::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px rgb(255, 255, 255); 
     }
-    .relate-group::-webkit-scrollbar-thumb {
+    .relate-group::-webkit-scrollbar-thumb{
         background: red; 
+        position: relative;
         border-radius: 10px;
         cursor: pointer;
     } 
-    .relate-group::-webkit-scrollbar-thumb:hover {
-        background: rgb(170, 6, 6); 
+    .relate-group::-webkit-scrollbar-thumb:hover{
+        background: rgb(170, 6, 6);
     }
-    .relate-wrap.pc {
+    .relate-wrap.pc{
         display: none;
     }
-    .relate-wrap.mob {
+    .relate-wrap.mob{
         display: flex;
     }
 }

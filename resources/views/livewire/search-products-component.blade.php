@@ -142,7 +142,6 @@
     let previews = document.querySelectorAll(".preview");
     buttons.forEach( button =>{
         button.addEventListener("click",()=>{
-            console.log("button is clicked",button);
             let name = button.getAttribute('data-name');
             let flag = 0;
             previews[0].parentElement.style.display = "flex";
