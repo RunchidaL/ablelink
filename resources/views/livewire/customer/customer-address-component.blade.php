@@ -76,14 +76,13 @@
     </div>
 </div>
 
-
 <script>
     window.addEventListener('show-delete-confirmation', event =>{
         Swal.fire({
             title: 'ต้องการลบที่อยู่ใช่หรือไม่?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#194276',
             cancelButtonColor: '#d33',
             confirmButtonText: 'ใช่',
             cancelButtonText: 'ยกเลิก'
@@ -190,6 +189,20 @@
 .button:hover{
     background: rgb(222, 226, 236);
     color: #194276;
+}
+
+.swal2-icon.swal2-warning {
+    border-color: #dc7226;
+    color: #dc7226;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #194276;
+    color: #fff;
+    font-size: 1em;
 }
 
 @media(max-width: 1200px){

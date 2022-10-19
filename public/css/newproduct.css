@@ -14,6 +14,7 @@
     color: #dc7226; /*change*/
     margin-left: 5%;
     font-size: 1.563rem;
+    font-weight: bold;
     margin-top: 5%;
     margin-bottom: 2%;
 }
@@ -22,6 +23,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /*กำหนดให้ในเเถวเดียวกันอยู่ตรงกลาง*/
+    margin-bottom: 50px;
 }
 
 .NP-col{

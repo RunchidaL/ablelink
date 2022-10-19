@@ -354,7 +354,7 @@ ol, ul{
     display: none;
     border: none;
     background: none;
-    margin-right: 20px;
+    padding: 0 10px;
     color: black;
     font-size: 20px;
 }

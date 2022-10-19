@@ -87,11 +87,12 @@ td.cart-quantity{
     padding: 0.2rem 2rem;
     border: solid 1px white;
     color: white;
+    transition: all 0.3s ease;
 }
 
 .button-choose:hover{
-    background-color: #2f67b1;
-    color: white;
+    background: rgb(222, 226, 236);
+    color: #194276;
 } 
 
 .button-paid{
@@ -100,11 +101,12 @@ td.cart-quantity{
     padding: 0.2rem 2rem;
     border: solid 1px white;
     color: white;
+    transition: all 0.3s ease;
 }
 
 .button-paid:hover{
-    background-color: #2db953;
-    color: white;
+    background-color: rgb(222, 226, 236);
+    color: #2db953;
 }
 
 /* responsive phone */
@@ -229,6 +231,7 @@ td.cart-quantity{
     justify-content: space-between;
 }
 
+
 /* responsive screen*/
 @media screen and (max-width: 767px){
     .cart-home{
@@ -244,3 +247,5 @@ td.cart-quantity{
         max-width: 1320px;
     }
 }
+
+

@@ -12,7 +12,7 @@
 </div>
 
 <div class="all-content">
-    <div class="content">
+    <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
             <img src="/images/shipping.png">
         </div>
@@ -26,7 +26,7 @@
         </ul>
     </div>
 
-    <div class="content">
+    <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
             <img src="/images/customerService.png">
         </div>
@@ -44,7 +44,7 @@
         </ul> 
     </div>
 
-    <div class="content">
+    <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
             <img src="/images/warranty.png">
         </div>

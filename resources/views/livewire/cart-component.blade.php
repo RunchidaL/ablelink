@@ -197,15 +197,30 @@
     </div>
 </div>
 
+<style>
+.swal2-icon.swal2-warning {
+    border-color: #dc7226;
+    color: #dc7226;
+}
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #194276;
+    color: #fff;
+    font-size: 1em;
+}
+</style>
+
 <script>
     window.addEventListener('show-delete-confirmation', event =>{
         Swal.fire({
             title: 'ต้องการลบสินค้าใช่หรือไม่?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#194276',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'ใช่',
+            confirmButtonText: '&nbsp;   ใช่   &nbsp;',
             cancelButtonText: 'ยกเลิก'
             }).then((result) => {
                 if (result.isConfirmed) {

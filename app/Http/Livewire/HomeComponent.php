@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\ProductModels;
 use App\Models\Brand;
+use App\Models\ProductPreview;
 
 class HomeComponent extends Component
 {
@@ -18,6 +19,7 @@ class HomeComponent extends Component
         $posts = Post::orderBy('created_at','DESC')->get();
         $sliders = Home::where('status',0)->get();
         $Lproduct = ProductModels::orderBy('created_at','DESC')->get()->take(6);
-        return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory,'Lproduct'=>$Lproduct,'brand'=>$brand])->layout("layout.navfoot");
+        $previews = ProductPreview::all();
+        return view('livewire.home-component',['sliders'=>$sliders,'posts'=> $posts,'postcategory'=>$postcategory,'Lproduct'=>$Lproduct,'brand'=>$brand,'previews'=>$previews])->layout("layout.navfoot");
     }
 }
