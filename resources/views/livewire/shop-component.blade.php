@@ -9,7 +9,7 @@
         </div>
         <div class="row" id="products">
             @foreach($products as $product)
-            <div class="NP-col">
+            <div class="NP-col" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
                 <div class="card">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
                         <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
