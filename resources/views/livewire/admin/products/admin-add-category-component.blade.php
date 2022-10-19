@@ -5,19 +5,20 @@
                 <h2><a href="{{route('admin.category')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Category, SubCategory, Brand, SubBrand</h2>
             </div>
         </div>
+        @if(Session::has('message'))
+            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+        @endif
         <h5>กรุณาเลือกหมวดหมู่ที่ต้องการ</h5>
         <input type="radio" id="cat" name="addcat" value="cat" wire:model="addcat">
         <label for="cat">Category</label>
         <input type="radio" id="scat" name="addcat" value="scat" wire:model="addcat">
         <label for="scat">SubCategory</label>
         <input type="radio" id="bcat" name="addcat" value="bcat" wire:model="addcat">
-        <label for="bcat">BrandCategory</label>
+        <label for="bcat">Brand</label>
         <input type="radio" id="sbcat" name="addcat" value="sbcat" wire:model="addcat">
-        <label for="sbcat">SubBrandCategory</label>
+        <label for="sbcat">SubBrand</label>
         
-        @if(Session::has('message'))
-            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-        @endif
+
         <form class="addproduct" wire:submit.prevent="storeCategory">
             <div class="row mb-3">
                 @if($addcat)

@@ -27,9 +27,9 @@ class AdminEditProductComponent extends Component
     public $sbcategory_id;
     public $groupproduct_id;
 
-    public function mount($product_slug)
+    public function mount($product_id)
     {
-        $product = Product::where('id',$product_slug)->first();
+        $product = Product::where('id',$product_id)->first();
         $this->name = $product->name;
         $this->category_id = $product->category_id;
         $this->scategory_id = $product->subcategory_id;

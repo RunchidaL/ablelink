@@ -19,7 +19,7 @@
         <div class="col">
             <a href="/download_category/catelog"><button><i class="bi bi-file-text"></i><br><p>Catelog</p></button></a>
             <a href="/download_category/presentation"><button><i class="bi bi-easel"></i><br><p>Presentation</p></button></a>
-            <a href="/download_category/vdo"><button><i class="bi bi-play-circle"></i><br><p>VDO</p></button></a>
+            <a href="/download_category/vdo"><button><i class="bi bi-play-circle"></i><br><p>Marketing Videos</p></button></a>
         </div>
     </div>
     <div class="section">

@@ -49,7 +49,7 @@
                                     </ul> 
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.editproduct',['product_slug'=>$product->id])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
+                                    <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
                                     <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{$product->id}})"><i class="bi bi-x" id="edit"></i></a>
                                 </td>
                             </tr>

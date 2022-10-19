@@ -1,11 +1,13 @@
 <div style="margin-left: 5%; margin-right: 5%">
     <div class="container">
         <div class="row" id="head">
-            <div class="col-md-4">
-                <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Group</h2>
+            <div class="col-md-12">
+                <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  New Group, Series, Type, Jacket Type</h2>
             </div>
         </div>
-
+        @if(Session::has('message'))
+            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+        @endif
         <h5>กรุณาเลือกหมวดหมู่ที่ต้องการ</h5>
         <input type="radio" id="group" name="addgroup" value="group" wire:model="addgroup">
         <label for="group">Group</label>
@@ -16,9 +18,7 @@
         <input type="radio" id="jtype" name="addgroup" value="jtype" wire:model="addgroup">
         <label for="jtype">Jacket Type</label>
 
-        @if(Session::has('message'))
-            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-        @endif
+
         <form class="addproduct" wire:submit.prevent="storeGroup">
             <div class="row mb-3">
                 @if($addgroup)

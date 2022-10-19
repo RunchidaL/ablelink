@@ -289,7 +289,6 @@
                         @endforeach
                     </ul>
                 </div> 
-                
                 <div class="content"> 
                     <div class="wrapper">
                     @foreach($network_images as $network_image)
@@ -356,7 +355,7 @@
                     @endphp
                     @foreach($videos as $video)
                         <div class="file-detail">
-                            <div class="card" style="width: 35rem;">
+                            <div class="card mb-3" style="width: 35rem;">
                                 <iframe class="card-img-top" width="350" height="300" src="{{$video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
@@ -370,26 +369,19 @@
             <div class="line" id="feature"></div>
             <h4>Resources</h4><br>
             <div class="download">
-                @if(($model->datasheet) == "")
-                @else
+                @if(!empty($model->datasheet))
                     <a href="{{asset('/images/products')}}/{{$model->datasheet}}"><div class="file-detail"><i class="bi bi-file-earmark-pdf"></i> Datasheet</div></a>
                 @endif
-                @if(($model->firmware) == "")
-                @else
-                
-                    <a href="{{asset('/images/products')}}/{{$model->firmware}}"><div class="file-detail"><i class="bi bi-motherboard"></i> Firm ware</div></a>
+                @if(!empty($model->firmware))
+                    <a href="{{$model->firmware}}"><div class="file-detail"><i class="bi bi-motherboard"></i> Firm ware</div></a>
                 @endif
-                @if(($model->guide) == "")
-                @else
-                
+                @if(!empty($model->guide))
                     <a href="{{asset('/images/products')}}/{{$model->guide}}"><div class="file-detail"><i class="bi bi-filetype-pdf"></i> Guide</div></a>
                 @endif
-                @if(($model->cert) == "")
-                @else
+                @if(!empty($model->cert))
                     <a href="{{asset('/images/products')}}/{{$model->cert}}"><div class="file-detail"><i class="bi bi-file-check"></i> Certificate</div></a>
                 @endif
-                @if(($model->config) == "")
-                @else
+                @if(!empty($model->config))
                     <a href="{{asset('/images/products')}}/{{$model->config}}"><div class="file-detail"><i class="bi bi-file-earmark-arrow-up"></i> Config</div></a>
                 @endif
             </div>

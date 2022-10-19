@@ -63,7 +63,7 @@ class AdminAddGroupComponent extends Component
             $group->name = $this->name;
             $group->save();
         }
-        session()->flash('message','success');
+        session()->flash('message','Success');
     }
 
     public function changeSeries()

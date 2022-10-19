@@ -60,7 +60,7 @@ class AdminAddProductComponent extends Component
         }
         $product->groupproduct_id = $this->groupproduct_id;
         $product->save();    
-        session()->flash('message','add Product successs');
+        session()->flash('message','Add Product Success!');
     }
 
     public function changeSubcategory()
