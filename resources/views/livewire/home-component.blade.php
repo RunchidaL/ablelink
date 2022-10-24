@@ -52,17 +52,17 @@
                     </div>
                 </div> 
 {{-- catagory--}}
-    <div class="containertest" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+    <div class="containertest">
         <nav>
-            <ul id="ul">
-                @foreach($previews->unique('category_id') as $preview)
-                <li><a href="#{{$preview->categories->name}}">{{$preview->categories->name}}</a></li>
-                @endforeach
+            <ul id="preview-menu">
+                <li><a href=""><i class="bi bi-shield-check" style="font-size: 36px;"></i><br>Security</a></li>
+                <li><a href=""><i class="bi bi-volume-up" style="font-size: 36px;"></i><br>Audio</a></li>
+                <li><a href=""><i class="bi bi-sliders" style="font-size: 36px;"></i><br>Telecomm</a></li>
+                <li><a href=""><i class="bi bi-wifi" style="font-size: 36px;"></i><br>Network</a></li>
+                <li><a href=""><i class="bi bi-plugin" style="font-size: 36px;"></i><br>Software</a></li>
             </ul>
         </nav>
     </div>
-
-
     @php
     $i = 0; 
     @endphp
@@ -83,11 +83,11 @@
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}" class="image">
                                     <img src="{{asset('/images/products')}}/{{$preview->product->image}}">
                                 </a>
-                                <span class="product-discount-label">{{$preview->categories->name}}</span>
-                                <a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}" class="add-to-cart">DETAIL</a>
+                                <span class="product-slug">{{$preview->product->slug}}</span>
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}" class="detail">DETAIL</a>
                             </div>
                             <div class="product-content">
-                                <h3 class="title"><a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}">{{$preview->product->name}}</a></h3>
+                                <p class="title"><a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}">{{$preview->product->name}}</a></p>
                             </div>
                         </div>
                     </div>

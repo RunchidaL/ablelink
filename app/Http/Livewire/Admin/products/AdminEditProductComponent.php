@@ -42,6 +42,13 @@ class AdminEditProductComponent extends Component
 
     public function updateProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'scategory_id' => 'required',
+            'bcategory_id' => 'required',
+            'sbcategory_id' => 'required',
+        ]);
         $product = Product::find($this->product_id);
         $product->name = $this->name;
         $product->category_id = $this->category_id;
@@ -57,7 +64,10 @@ class AdminEditProductComponent extends Component
         {
             $product->subbrandcategory_id = $this->sbcategory_id;
         }
-        $product->groupproduct_id = $this->groupproduct_id;
+        if($this->groupproduct_id)
+        {
+            $product->groupproduct_id = $this->groupproduct_id;
+        }
         $product->save();
         session()->flash('message','update Product successs');
     }

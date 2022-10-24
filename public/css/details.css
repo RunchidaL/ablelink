@@ -364,6 +364,10 @@ input[type=number]::-webkit-outer-spin-button{
         margin: 1.3rem 0;
         visibility: visible;
     }
+    .file-detail{
+        align-items: center;
+        justify-content: center;
+    }
     .aRow{
         visibility: visible;
     }
