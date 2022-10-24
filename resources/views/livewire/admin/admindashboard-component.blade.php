@@ -39,6 +39,9 @@
         <div class="col-md-12">
             <a href="{{route('admin.AllOrder')}}"><button class="button">Order</button></a>
         </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.customcontact',['contact_id'=>'1'])}}"><button class="button">Contact</button></a>
+        </div>
     </div>
 </div>
 

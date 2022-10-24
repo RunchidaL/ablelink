@@ -82,6 +82,7 @@ use App\Http\Livewire\Admin\OrderDetailsComponent;
 use App\Http\Livewire\Admin\home\ProductPreviewComponent;
 use App\Http\Livewire\Admin\home\AddProductPreviewComponent;
 use App\Http\Livewire\Admin\home\EditProductPreviewComponent;
+use App\Http\Livewire\Admin\Mainpage\CustomContactComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -205,4 +206,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/productpreview', ProductPreviewComponent::class)->name('admin.productpreview');
     Route::get('/admin/productpreview/add', AddProductPreviewComponent::class)->name('admin.addproductpreview');
     Route::get('/admin/productpreview/edit/{preview_id}', EditProductPreviewComponent::class)->name('admin.editproductpreview');
+    Route::get('/admin/mainpage/customcontact/{contact_id}', CustomContactComponent::class)->name('admin.customcontact');
 });
