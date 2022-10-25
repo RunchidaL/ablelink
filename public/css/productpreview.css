@@ -41,7 +41,7 @@ nav ul li{
 
 nav ul li::after{
     content: '';
-    background: #194276;
+    /* background: #194276; */
     width: 100%;
     height: 100%;
     /* border-radius: 30px; */
@@ -53,6 +53,7 @@ nav ul li::after{
     z-index: -1;
     opacity: 0;
     transition: top 0.5s, opacity 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 nav ul li a{
@@ -60,7 +61,7 @@ nav ul li a{
 }
 
 nav ul li a:hover{
-    color: #fff;
+    color: #194276;
     text-decoration: none;
 }
 
