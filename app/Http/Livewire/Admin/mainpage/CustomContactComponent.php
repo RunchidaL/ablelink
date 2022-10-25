@@ -4,11 +4,14 @@ namespace App\Http\Livewire\Admin\Mainpage;
 
 use Livewire\Component;
 use App\Models\Contact;
+use Livewire\WithFileUploads;
 
 class CustomContactComponent extends Component
 {
+    use WithFileUploads;
     public $contact;
     public $image;
+    public $newimage;
     public $title;
     public $Address;
     public $facebook;
@@ -29,6 +32,7 @@ class CustomContactComponent extends Component
     {
         $contact = Contact::find($contact_id);
         $this->title = $contact->title;
+        $this->image = $contact->image;
         $this->Address = $contact->Address;
         $this->facebook = $contact->facebook;
         $this->link_facebook = $contact->link_facebook;
@@ -46,6 +50,12 @@ class CustomContactComponent extends Component
     {
         $contact = Contact::find($this->contact_id);
         $contact->title = $this->title;
+        if($this->newimage)
+        {
+            $imageName = $this->newimage->getClientOriginalName();
+            $this->newimage->storeAs('mainpage',$imageName);
+            $contact->image = $imageName;
+        }
         $contact->Address = $this->Address;
         $contact->facebook = $this->facebook;
         $contact->link_facebook = $this->link_facebook;

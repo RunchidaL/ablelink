@@ -57,9 +57,9 @@
             <ul id="preview-menu">
                 <li><a href=""><i class="bi bi-shield-check" style="font-size: 36px;"></i><br>Security</a></li>
                 <li><a href=""><i class="bi bi-volume-up" style="font-size: 36px;"></i><br>Audio</a></li>
-                <li><a href=""><i class="bi bi-sliders" style="font-size: 36px;"></i><br>Telecomm</a></li>
+                <li><a href=""><i class="bi bi-broadcast-pin" style="font-size: 36px;"></i><br>Telecomm</a></li>
                 <li><a href=""><i class="bi bi-wifi" style="font-size: 36px;"></i><br>Network</a></li>
-                <li><a href=""><i class="bi bi-plugin" style="font-size: 36px;"></i><br>Software</a></li>
+                <li><a href=""><i class="bi bi-gear" style="font-size: 36px;"></i><br>Software</a></li>
             </ul>
         </nav>
     </div>
