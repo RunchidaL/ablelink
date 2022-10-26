@@ -131,6 +131,16 @@
     margin-left: 10%;
 }
 
+.contact{
+ width: 360px;
+}
+
+@media(max-width: 1400px) {
+    .right {
+    margin-top: 5%;
+    }
+}
+
 @media(max-width: 820px) {
     .left {
         font-size: 100%;

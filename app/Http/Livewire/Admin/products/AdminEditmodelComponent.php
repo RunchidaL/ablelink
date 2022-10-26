@@ -137,16 +137,6 @@ class AdminEditmodelComponent extends Component
 
     public function updateModel()
     {
-        $this->validate([
-            'name' => 'required|unique:product_models',
-            'slug' => 'required|unique:product_models',
-            'image' => 'required',
-            'web_price' => 'required',
-            'dealer_price' => 'required',
-            'customer_price' => 'required',
-            'product_id' => 'required',
-            'group_products' => 'required',
-        ]);
 
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;

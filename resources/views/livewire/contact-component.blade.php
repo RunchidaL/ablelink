@@ -14,7 +14,7 @@
 <div class="all-content">
     <div class="left" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <p class="PH">ABLE LINK (Thailand) CO., LTD. </p><br>
-        <p>{{$contact->Address}}</p>
+        <p class="contact">{{$contact->Address}}</p>
         <ul>
             <li><a href="{{$contact->link_facebook}}"><i class="bi bi-facebook"></i></a> : {{$contact->facebook}}</li>
             <li><a href="{{$contact->link_line}}"><i class="bi bi-line"></i></a> : {{$contact->line}}</li>

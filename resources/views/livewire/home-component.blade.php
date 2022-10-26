@@ -101,6 +101,34 @@
     </div>
     @endforeach
 
+<!-- activity -->
+    <div>
+        <p class="text" data-aos="fade-right" data-aos-duration="800">ข่าวสารเเละกิจกรรม</p>
+    </div>
+    <div class="slide-container swiper">
+        <div class="slide-content6" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+            <div class="card-wrapper swiper-wrapper">
+                @foreach($posts as $post)
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
+                        <div class="card-image">
+                            <a href="{{route('post.details',['slug'=>$post->slug])}}"><img class="card-img" src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <a style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}"><h2 class="name">{{$post->title}}</h2></a>
+                        <a id="button" style="text-decoration: none;" href="{{route('post.details',['slug'=>$post->slug])}}">Read More</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="swiper-button-next swiper-navBtn" id="next6"></div>
+        <div class="swiper-button-prev swiper-navBtn" id="prev6"></div>
+        <div class="swiper-pagination" id="pagination6"></div>
+    </div>
+    
             <div class="container-fluid">
                 <div class="row">
                     <div class="AC-col" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
