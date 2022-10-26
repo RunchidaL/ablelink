@@ -1,0 +1,91 @@
+.bg-green-50	   { background-color: rgb(240 253 244);}
+.bg-green-100	{background-color: rgb(220 252 231);}
+.bg-green-200	{background-color: rgb(187 247 208);}
+.bg-green-300	{background-color: rgb(134 239 172);}
+.bg-green-400	{background-color: rgb(74 222 128);}
+.bg-green-500	{background-color: rgb(34 197 94);}
+.bg-green-600	{background-color: rgb(22 163 74);}
+.bg-green-700	{background-color: rgb(21 128 61);}
+.bg-green-800	{background-color: rgb(22 101 52);}
+.bg-green-900	{background-color: rgb(20 83 45);}
+.bg-gray {background-color: gray;}
+
+.flex { display: flex;}
+.flex-col {flex-direction: column;}
+.flex-row {flex-direction: row;}
+.justify-center {justify-content: center;}
+.items-center {align-items: center;}
+
+.w-full {width  :100%;}
+.h-full {height  :100%;}
+.w-screen {width  :100vw;}
+.h-screen {height  :100vh;}
+
+.w-50 {width: 50%;}
+.w-16 {width: 4.375rem;}
+
+.h-10 {height: 2.5rem;}
+
+.pl-2 { padding-left: 0.5rem;}
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem;}
+.py-4 { padding-top: 1rem; padding-bottom: 1rem;}
+.p-4 { padding: 1rem;}
+
+.my-10px {margin-top: 10px; margin-bottom:10px;}
+.mr-10px { margin-right: 10px;}
+.mr-20px { margin-right: 20px;}
+.mt-20px { margin-top: 20px;}
+.mb-20px { margin-bottom: 20px;}
+
+.text-center {text-align: center;}
+
+.text-black {color: black;}
+.text-red {color: red;}
+.text-gray { color: gray;}
+
+.text-xs   {font-size: 0.75rem; /* 12px */line-height: 1rem; /* 16px */}
+.text-sm   {font-size: 0.875rem; /* 14px */line-height: 1.25rem; /* 20px */}
+.text-base {font-size: 1rem; /* 16px */ line-height: 1.5rem; /* 24px */}
+.text-xl   {font-size: 1.25rem; /* 20px */line-height: 1.75rem; /* 28px */}
+.text-2xl  {font-size: 1.5rem; /* 24px */ line-height: 2rem; /* 32px */}
+
+
+.whitespace-none {white-space: nowrap;}
+
+.pricecard {
+    background-color: rgb(240, 240, 240);
+    padding: 10px 30px;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+    margin-top: 20px;
+    max-width: 700px;
+}
+.pricecard > p {
+    font-size: 1.5rem; /* 24px */ line-height: 2rem; /* 32px */
+    color: black;
+}
+.pricecard > p > span {
+    font-size: 1rem; /* 16px */ line-height: 1.5rem; /* 24px */
+    color: red;
+}
+
+.addToCartButton {
+    width: 125px;
+    height: 40px;
+    background: #194276;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+}
+
+.card {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    min-width: fit-content;
+    white-space: nowrap;
+}
+
+.scroll-x {overflow-x: scroll;}

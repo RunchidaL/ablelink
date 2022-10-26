@@ -253,118 +253,102 @@
             </div>
         </div>
     </div>
-
     <div class="infomation">
         <div class="tab-contral">
-            <a href="#overview" id="overview">Overview</a>
+            @if(!empty($model->description))
+            <a href="#description" id="description">Description</a>
+            @endif
+            @if(!empty($model->overview))
+            <a href="#overview">Overview</a>
+            @endif
+            @if(!empty($model->application))
             <a href="#application">Application</a>
-            <a href="#network_connectivity">Network Connectivity</a>
+            @endif
+            <!-- <a href="#network_connectivity">Network Connectivity</a> -->
+            @if(!empty($model->item_spotlight))
             <a href="#item-spotlight">Item Spotlight</a>
+            @endif
+            @if(!empty($model->feature))
             <a href="#feature">Feature</a>
+            @endif
+            @if(!empty($model->videos))
             <a href="#videos">Videos</a>
+            @endif
+            @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
             <a href="#resources">Resources</a>
+            @endif
         </div>
-
+        @if(!empty($model->description))
         <div class="tab-contents">
-            <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div>{!! $model->overview !!}</div>
-        </div>
-
-        <div class="tab-contents">
-            <div class="line" id="application"></div>
-            <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div>{!! $model->application !!}</div>
-        </div>
-
-        <div class="tab-contents">
-            <div class="line" id="network_connectivity"></div>
-            <h4 class="me"><span>Network Connectivity</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div>
-                <div class="menu-wrap">
-                    <ul class="menu-list" id="menu-list">
-                        @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                            <li class="menu">{{$network_product->image_id->type->name}}</li>
-                        @endforeach
-                    </ul>
-                </div> 
-                <div class="content"> 
-                    <div class="wrapper">
-                    @foreach($network_images as $network_image)
-                        @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                            @if($network_image->id == $network_product->network_image_id)
-                            <div id="item{{$loop->index}}" class="item">
-                                <img src="{{asset('/images/products')}}/{{$network_image->image}}">
-                                <div class="tag-list">
-                                    @foreach($network_products->where('model_id',$model->id) as $network_product)
-                                        @if($network_image->id == $network_product->network_image_id)
-                                            <div class="tag-item">
-                                                <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                                <div>
-                                                    <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
-                                                    @guest
-                                                        @if(($model->web_price) == '0') 
-                                                        <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
-                                                        @endif
-                                                    @else
-                                                        @if(Auth::user()->role == 1)
-                                                            @if(($model->web_price) == '0')
-                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
-                                                            @endif
-                                                        @elseif(Auth::user()->role == 2)
-                                                        <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                        @elseif(Auth::user()->role == 3)
-                                                        <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                        @endif
-                                                    @endguest
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                            @endif
-                        @endforeach
-                    @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-contents">
-            <div class="line" id="item-spotlight"></div>
-            <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            
-            <div>{!! $model->item_spotlight !!}</div>
-        </div>
-
-        <div class="tab-contents">
-            <div class="line" id="feature"></div>
-            <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div>{!! $model->feature !!}</div>
-        </div>
-        
-        @if(!empty($model->videos))
-        <div class="tab-contents">
-            <div class="line" id="videos"></div>
-            <h4 class="me"><span>Videos</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div class="video">
-                @php
-                    $videos = explode(",",$model->videos);
-                @endphp
-                @foreach($videos as $video)
-                    <div class="file-detail">
-                        <div class="card mb-3" style="width: 35rem;">
-                            <iframe class="card-img-top" width="350" height="300" src="{{$video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                @endforeach
-                </div>
-            </div>
+            <h4 class="me"><span>Description</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->description !!}</div>
+            <div class="fake-scroll" id="overview"></div>
         </div>
         @endif
-
-        <div class="tab-contents" id="resources">
-            <div class="line" id="feature"></div>
+        @if(!empty($model->overview))
+        <div class="tab-contents">
+            <div class="line"></div>
+            <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->overview !!}</div>
+            <div class="fake-scroll" id="application"></div>
+        </div>
+        @endif
+        @if(!empty($model->application))
+        <div class="tab-contents">
+            <div class="line"></div>
+            <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->application !!}</div>
+            <div class="fake-scroll" id="item-spotlight"></div>
+        </div>
+        @endif
+        
+        @if(!empty($model->item_spotlight))
+        <div class="tab-contents">
+            <div class="line"></div>
+            <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->item_spotlight !!}</div>
+            <div class="fake-scroll" id="feature"></div>
+        </div>
+        @endif
+        @if(!empty($model->feature))
+        <div class="tab-contents">
+            <div class="line"></div>
+            <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div>{!! $model->feature !!}</div>
+            <div class="fake-scroll" id="videos"></div>
+        </div>
+        @endif
+        @if(!empty($model->videos))
+        <div class="tab-contents">
+            <div class="line"></div>
+            <h4 class="me"><span>Videos</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <div class="video">
+                <div class="slide-container4 swiper" id="swipercontainer4">
+                    <div class="slide-content4" id="swiper4" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+                        <div class="card-wrapper swiper-wrapper">
+                            @php
+                            $videos = explode(",",$model->videos);
+                            @endphp
+                            @foreach ($videos as $video)
+                            <div class="swiper-slide" id="swiper-slide4">
+                                    <div class="card mt-3 mb-3" style="width: 30rem;">
+                                        <iframe class="card-img-top" width="345" height="300" src="{{$video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="swiper-button-next swiper-navBtn4" id="next4"></div>
+                    <div class="swiper-button-prev swiper-navBtn4" id="prev4"></div>
+                    <div class="swiper-pagination" id="pagination4"></div>
+                </div>
+            </div>
+            <div class="fake-scroll" id="resources"></div>
+        </div>
+        @endif
+        @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
+        <div class="tab-contents">
+            <div class="line"></div>
             <h4>Resources</h4><br>
             <div class="download">
                 @if(!empty($model->datasheet))
@@ -383,7 +367,9 @@
                     <a href="{{asset('/images/products')}}/{{$model->config}}"><div class="file-detail"><i class="bi bi-file-earmark-arrow-up"></i> Config</div></a>
                 @endif
             </div>
+            <div class="fake-scroll" id=""></div>
         </div>
+        @endif
     </div>
 </div>
 
@@ -437,12 +423,81 @@ for (let i = 0; i < menu.length; i++) {
     }
 </script>
 
+<script>
+    var swiper4 = new Swiper(".slide-content4", {
+        slidesPerView: 2,
+        spaceBetween: 25,
+        slidesPerGroup: 1,
+        centerSlide: 'true',
+        fade: 'true',
+        grabCursor: 'true',
+        pagination: {
+        el: "#pagination4",
+        clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+          },
+        },
+        navigation: {
+        nextEl: "#next4",
+        prevEl: "#prev4",
+        },
+        
+        breakpoints:{
+            0: {
+                slidesPerView: 1,
+            },
+            1400: {
+                slidesPerView: 2,
+            },
+        },
+    });
+</script>
+
 <style>
-.swiper {
+/* swiper video */
+#swipercontainer4{
     width: 100%;
-    height: 100%;
+    height: 400px;
+    padding: 0px 20px;
+}
+#swiper4{
+    margin: 0 40px;
+    overflow: hidden;
+    padding: 0% 2% 0% 2%;
 }
 
+.swiper-navBtn4{
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.swiper-navBtn4:hover{
+    color: black;
+}
+
+.swiper-pagination-bullet{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active{
+    color: #fff;
+    background: #313131;
+}
+.fake-scroll{
+    height: 25px;
+    visibility: hidden;
+}
+
+
+/* swiper image product */
 .swiper-slide{
     text-align: center;
     font-size: 18px;
@@ -529,6 +584,12 @@ for (let i = 0; i < menu.length; i++) {
     color: black;
 }
 
+@media screen and (max-width: 1000px) {
+    .swiper-navBtn4{
+        display: none;
+    }
+}
+
 @media(max-width: 767px){
     .swiper {
         width: 100%;
@@ -545,6 +606,11 @@ for (let i = 0; i < menu.length; i++) {
     .swiper-button-next.swiper-navBtn{
         right: 0;
     }
+    #swiper4{
+    margin: 0 0px;
+    overflow: hidden;
+    padding: 0% 0% 0% 0%;
+}
 }
 
 @media(max-width: 520px){
