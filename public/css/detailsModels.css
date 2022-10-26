@@ -106,23 +106,6 @@
     text-align: center;
 }
 
-.relate-group{
-    display: flex;
-    flex-direction: column;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-
-.relate-wrap{
-    display:flex;
-    flex-direction: column;
-}
-
-.aRow{
-    display: flex;
-    min-width: fit-content;
-}
-
 .relate-product p{
     font-size: 18px;
     margin: 0.7rem 0 ;
@@ -147,6 +130,24 @@
 
 .relate-product a:hover{
     background-color: rgb(241, 241, 241);
+}
+
+.relate-group{
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    z-index: 5;
+}
+
+.relate-wrap{
+    display:flex;
+    flex-direction: column;
+}
+
+.aRow{
+    display: flex;
+    min-width: fit-content;
 }
 
 .jacket{
@@ -449,4 +450,3 @@ input[type=number]::-webkit-outer-spin-button{
         display: none;
     }
 }
-

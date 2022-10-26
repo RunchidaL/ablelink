@@ -149,6 +149,9 @@ form{
 }
 
 @media screen and (max-width:560px){
+    form{
+        width: 100%;
+    }
     .sc .header{
         max-height: 40px;
     }

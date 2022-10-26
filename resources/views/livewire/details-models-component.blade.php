@@ -172,7 +172,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="types">
                     @php
                         $i = 0; 
@@ -408,7 +407,7 @@ for (let i = 0; i < menu.length; i++) {
         swiper: swiper,
         },
     });
-    let meArrow = document.querySelectorAll("h4 .arw");
+    let meArrow = document.querySelectorAll("p .arw");
     let h4 = document.querySelectorAll("h4.me");
     for (let i = 0; i < h4.length; i++) {
         h4[i].addEventListener("click", (e)=>{
