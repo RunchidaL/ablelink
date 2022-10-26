@@ -12,7 +12,7 @@
             @guest
             <a href="{{ route('login') }}"><span><i class="bi bi-cart-fill"></i></span></a>
             @else
-            <a href="/cart"><i class="bi bi-cart-fill"></i></span></a>
+            <a href="/cart"><span><i class="bi bi-cart-fill"></i></span></a>
             @endguest
             <span id="person"><i class="bi bi-person-circle"></i></span> 
         </li>
@@ -81,8 +81,8 @@
         <li class="menu"><a href="/service"><span>บริการ</span></a></li>
         <li class="menu"><a href="/activity"><span>ข่าวสาร&กิจกรรม</span></a></li>
         <li class="menu"><a href="/download"><span>ดาวน์โหลด</span></a></li>
-        <li class="menu"><a href="/forwork"><span>ร่วมงานกับเรา</i></span></a></li>
-        <li class="menu"><a href="/contact"><span>ติดต่อเรา</i></span></a></li>
+        <li class="menu"><a href="/forwork"><span>ร่วมงานกับเรา</span></a></li>
+        <li class="menu"><a href="/contact"><span>ติดต่อเรา</span></a></li>
     </ul>
 </div>
 

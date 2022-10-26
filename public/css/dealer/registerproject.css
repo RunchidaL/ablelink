@@ -9,8 +9,6 @@
 }
 
 *{
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 	list-style: none;
 	outline: none;
@@ -154,7 +152,7 @@
 	margin-bottom: 5px;
 }
 
-.wrapper .form_wrap .form-control .input{
+.wrapper .form_wrap .form-control input{
 	border: 2px solid var(--secondary);
 	border-radius: 20px;
 	padding: 10px;
@@ -164,22 +162,37 @@
 	transition: 0.5s ease;
 }
 
+input[type="date"]{
+	position: relative;
+	min-width: 95%;
+	display:block;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+	color: transparent;
+	background: none;
+	z-index: 1;
+}
+
+input[type="date"]:before{
+	color: transparent;
+	background: none;
+	display: block;
+	font-family: 'FontAwesome';
+	content: '\f073';
+	/* This is the calendar icon in FontAwesome */
+	width: 30px;
+	position: absolute;
+	top: 0.275rem;
+	right: 0;
+	color: #999;
+}
+
 .wrapper .form_wrap .form-control .input:focus{
 	border-color: black;
 }
-
-/* .wrapper .form_wrap .form-control.error .input{
-	border-color: red;
-}
-
-.wrapper .form_wrap .form-control small{
-	visibility: hidden;
-	color: red;
-}
-.wrapper .form_wrap .form-control.error small{
-	visibility: visible;
-} */
-
 
 .wrapper .btns_wrap{
 	width: 100%;

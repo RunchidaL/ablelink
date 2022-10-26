@@ -1,4 +1,5 @@
 {{-- link --}}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="{{asset('css/dealer/registerproject.css')}}" rel="stylesheet">
 {{-- link --}}
 <h1 class="mt-5" style="margin-left: 10%">ลงทะเบียนโปรเจค</h1>
@@ -26,7 +27,7 @@
 		<div class="row" style="margin-bottom: 40px;  text-align: center">
 			<div class="col-3">คำแนะนำ</div>
 			<div class="col-6">Authorized Dealer</div>
-			<div class="col-3">Project /End-User</div>
+			<div class="col-3">Project/End-User</div>
 		</div>
 	</div> --}}
 	<form action="{{route('registerproject.email')}}" id="form" method="POST" enctype="multipart/form-data">
@@ -78,7 +79,7 @@
 		</div>
 		<div class="form_3 data_info" style="display: none;">
 			<div class="step">
-				<h2>Project /End-User</h2>
+				<h2>Project/End-User</h2>
 			</div>
 				<div class="form_container">
                     <p class="head"><b>ข้อมูล Project และ End-User</b></p> 

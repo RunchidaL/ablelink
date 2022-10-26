@@ -43,11 +43,13 @@
         -webkit-box-shadow: 0px 77px 27px -88px rgba(0,0,0,0.75) inset;
         clip-path: circle(0px at top right);
         transition: clip-path cubic-bezier(.06,.76,.68,.78) 200ms;
+        pointer-events: none
     }
 
     .mobile-navbar.open{
         clip-path: circle(150% at top right);
         transition: clip-path cubic-bezier(.06,.76,.68,.78) 400ms;
+        pointer-events: all;
     }
 
     ul{

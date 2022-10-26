@@ -106,23 +106,6 @@
     text-align: center;
 }
 
-.relate-group{
-    display: flex;
-    flex-direction: column;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-
-.relate-wrap{
-    display:flex;
-    flex-direction: column;
-}
-
-.aRow{
-    display: flex;
-    min-width: fit-content;
-}
-
 .relate-product p{
     font-size: 18px;
     margin: 0.7rem 0 ;
@@ -149,6 +132,24 @@
     background-color: rgb(241, 241, 241);
 }
 
+.relate-group{
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    z-index: 5;
+}
+
+.relate-wrap{
+    display:flex;
+    flex-direction: column;
+}
+
+.aRow{
+    display: flex;
+    min-width: fit-content;
+}
+
 .jacket{
     margin-bottom: 3rem;
 }
@@ -159,17 +160,20 @@
 
 .tab-contral{
     padding: 0 0 30px 0;
-    text-align: center;
+    /* text-align: center; */
     white-space: none;
+    margin-left: 8%;
+    text-align: start;
 }
 
 .tab-contral a{
-    padding: 0 30px 0 30px;
     color: black;
     text-decoration: none;
     transition: 0.2s;
     border-bottom: 1px solid ;
-    font-size: 23px;
+    font-size: 20px;
+    padding: 0 10px 0 10px;
+    margin: 0 5px;
 }
 
 .tab-contral a:hover{
@@ -177,11 +181,11 @@
 }
 
 .tab-contents{
-    margin: 3% 10% 3% 10%;
+    margin: 1% 8% 1% 8%;
 }
 
-.tab-contents p{
-    font-family: 'Prompt', sans-serif;
+.tab-contents h4{
+    font-size: 20px;
 }
 
 .tab-contents .col{
@@ -198,7 +202,7 @@
 
 .line{
     border-top: 1px solid ;
-    padding: 40px 10% 0 5%;
+    padding: 0 10% 3% 5%;
 }
 
 .menu-wrap ul.menu-list{
@@ -364,6 +368,10 @@ input[type=number]::-webkit-outer-spin-button{
         margin: 1.3rem 0;
         visibility: visible;
     }
+    .file-detail{
+        align-items: center;
+        justify-content: center;
+    }
     .aRow{
         visibility: visible;
     }
@@ -400,9 +408,15 @@ input[type=number]::-webkit-outer-spin-button{
     .relate-wrap.mob{
         display: flex;
     }
+    .line{
+        padding: 30px 10% 0 5%;
+    }
+    .fake-scroll{
+        display: none;
+    }
 }
 
-@media screen and (min-width: 1400px){
+@media screen and (min-width: 1401px){
     .me{
         cursor: pointer;
     }
@@ -436,4 +450,3 @@ input[type=number]::-webkit-outer-spin-button{
         display: none;
     }
 }
-
