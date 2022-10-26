@@ -23,13 +23,6 @@
 			</li>
 		</ul>
 	</div>
-	{{-- <div class="Test">
-		<div class="row" style="margin-bottom: 40px;  text-align: center">
-			<div class="col-3">คำแนะนำ</div>
-			<div class="col-6">Authorized Dealer</div>
-			<div class="col-3">Project/End-User</div>
-		</div>
-	</div> --}}
 	<form action="{{route('registerproject.email')}}" id="form" method="POST" enctype="multipart/form-data">
 	@csrf
 	<div class="form_wrap">
