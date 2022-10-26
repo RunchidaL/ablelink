@@ -166,10 +166,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">*Group Product</label>
+                                <label class="col-md-4">Group Product</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="group_products" wire:change="changeSeries">
-                                        <option value="">Select Series</option>
+                                        <option value="">Select Group</option>
                                         @foreach($groups as $group)
                                             <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach

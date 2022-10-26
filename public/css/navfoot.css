@@ -19,7 +19,7 @@ ol, ul{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 5;
+    z-index: 7;
     padding: 0;
 }
 
@@ -108,7 +108,7 @@ ol, ul{
 
 .topic:hover .prd-dropdown-wrap{
     transform: scaleY(1);
-    transition: transform 0.1s ease;
+    transition: transform 0.2s ease;
 }
 
 .prd-dropdown{
@@ -153,6 +153,12 @@ ol, ul{
     width: 100%;
     white-space: nowrap;
     text-align: center;
+}
+
+.menu-list a .menu-link-item.hov {
+    /* background-color: #f3f3f3;*/
+    background: rgb(226,226,226);
+    background: linear-gradient(90deg, rgba(226,226,226,1) 0%, rgba(243,243,243,1) 30%);
 }
 
 .menu-list a .menu-link-item span{

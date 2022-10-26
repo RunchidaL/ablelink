@@ -4,11 +4,11 @@
 <!-- link -->
 <div class="head-abu">
     <div class="content-abu" data-aos="fade-right" data-aos-duration="800">
-        <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" height="100%" width="100%" alt="">
+        <img src="{{asset('/images/mainpage')}}/{{$us->image}}" height="100%" width="100%" alt="">
     </div>
     <div class="content-abu" data-aos="fade-left" data-aos-duration="800">
-        <div class="about"><h1>บริษัท โฟคอมม์ (ประเทศไทย) จำกัด <br> Focomm (Thailand) CO., LTD.</h1></div>
-        <div class="about">>>     บริษัท โฟคอมม์ (ประเทศไทย) จำกัด จดทะเบียนจัดตั้งเมื่อวันที่ 24 มีนาคม 2559 โดยมีวัตถุประสงค์เพื่อมุ่งเน้นธุรกิจข่ายสายสัญญาณคอมพิวเตอร์ (Network Cabling) โดยผู้ก่อตั้งบริษัท อดีตเคยทำงานจำหน่ายสินค้าประเภทโครงข่ายสายนำสัญญา ในกลุ่มผลิตภัณฑ์ของอเมริกา และ ยุโรป มามากกว่า 15 ปี จึงมีความคิดที่จะทำแบรนด์สินค้าที่มีคุณภาพดีเทียบเท่าอเมริกา และยุโรป จึงเป็นที่มาของแบรนด์ FOCOMM โดยทางบริษัทได้จดทะเบียนการค้าถูกต้องตามกฎหมาย เป้าหมายของทาง บริษัทฯ คือ การมุ่งเน้นคุณภาพสินค้าและราคาที่เหมาะสม ซึ่งสินค้าและบริการเรามีดังนี้</div>
+        <div class="about"><h1>{{$us->company}}</h1></div>
+        <div class="about">>>     {{$us->description}}</div>
     </div>
 </div>
 
@@ -19,24 +19,24 @@
         </div>
         <div class="sub-container">
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านสินค้า และ บริการ</div>
-                <div class="about">จัดจำหน่ายสินค้ากลุ่มประเภทสินค้า ICT ทุกประเภท เรามีบริการจัดส่งฟรีทั่วประเทศ และ ระบบการสั่งซื้อ Online และตัวแทนจำหน่ายทั่วประเทศ มีพนักงานคอยตอบปัญหา ทางด้านเทคนิค</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_vision1}}" alt="">
+                <div class="name">{{$us->title_vision1}}</div>
+                <div class="about">{{$us->vision1}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านธุรกิจ</div>
-                <div class="about">เราดำเนินธุรกิจแบบ B2B เราจะมุ่งเน้นช่วยหาสินค้าที่ ดีมีคุณภาพให้แกลูกค้าของเรา และมุ่งเน้นการบริการที่ทันสมัยในรูปแบบ Online </div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_vision2}}" alt="">
+                <div class="name">{{$us->title_vision2}}</div>
+                <div class="about">{{$us->vision2}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านการตลาด</div>
-                <div class="about">เน้นเจาะกลุ่ม ธุรกิจ B2B และ กลุ่มลูกค้าโครงการรัฐบาล พร้อมทั้งการทำตลาดที่ช่วยร้านค้าในการ การจัดจำหน่ายสินค้ารูปแบบ online พร้อมผู้ช่วยทางด้านการตลาดที่ทางเรามีให้กับทางลูกค้า</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_vision3}}" alt="">
+                <div class="name">{{$us->title_vision3}}</div>
+                <div class="about">{{$us->vision3}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านความสัมพันธ์กับลูกค้า</div>
-                <div class="about">เรามีกิจกรรม CRM กับทางลูกค้ามาตลาดเพื่อเพิ่มการซื้อซ้ำ และการบอกต่ออย่างต่อเนื่อง เราถือว่าลูกค้าทุกคนคือลูกค้า VIP</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_vision4}}" alt="">
+                <div class="name">{{$us->title_vision4}}</div>
+                <div class="about">{{$us->vision4}}</div>
             </div>
         </div>
     </div>
@@ -49,24 +49,24 @@
         </div>
         <div class="sub-container">
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านพัฒนานวัตกรรม</div>
-                <div class="about">มุ่งเน้นนำนวัตกรรมจากสินค้าจากต่างประเทศมาปรับ ใช้ให้เหมาะสมกับประเทศเรา</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_mission1}}" alt="">
+                <div class="name">{{$us->title_mission1}}</div>
+                <div class="about">{{$us->mission1}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านมาตรฐานผลิตภัณฑ์</div>
-                <div class="about">เราเลือกใช้สินค้าที่ได้พิสูจน์แล้วในระดับสากล กล่าวคือ สินค้าที่นำเข้ามาจำหน่ายจะต้องได้รับ มาตราฐานสากลเป็นอย่างน้อยเพื่อความเชื่อมั่น</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_mission2}}" alt="">
+                <div class="name">{{$us->title_mission2}}</div>
+                <div class="about">{{$us->mission2}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านบุคคลากร</div>
-                <div class="about">ด้านบุคคลการภายในองค์กร เรามุ่มเน้นการฝึกอบรบทางด้านทักษะของสินค้า และ เรายังอบรมทักษะอื่นๆ เช่น ด้านบริการ  ด้านการทำงานเป็นทีม การเป็นผู้นำ เราเล็งเห็นว่าการพัฒนาองค์กรที่ยั่งยืน คือการพัฒนาบุคลากรที่มีทักษะทุกๆด้าน</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_mission3}}" alt="">
+                <div class="name">{{$us->title_mission3}}</div>
+                <div class="about">{{$us->mission3}}</div>
             </div>
             <div class="teams" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                <img src="https://assets.brandinside.asia/uploads/2019/03/shutterstock_370390046-e1553013870583.jpg" alt="">
-                <div class="name">ด้านความสัมพันธ์กับลูกค้า</div>
-                <div class="about">เรามีกิจกรรม CRM กับทางลูกค้ามาตลาดเพื่อเพิ่มการซื้อซ้ำ และการบอกต่ออย่างต่อเนื่อง เราถือว่าลูกค้าทุกคนคือลูกค้า VIP</div>
+                <img src="{{asset('/images/mainpage')}}/{{$us->image_mission4}}" alt="">
+                <div class="name">{{$us->title_mission4}}</div>
+                <div class="about">{{$us->mission4}}</div>
             </div>
         </div>
     </div>

@@ -134,7 +134,9 @@
                     </div>
                 </div>
                 <div class="series">
-                    <p>Series:</p>
+                    @if(!empty($product_model->series_id))
+                        <p>Series:</p>
+                    @endif
                     <div class="relate-group">
                         <div class="relate-wrap mob">
                             <div class="aRow">
@@ -143,8 +145,7 @@
                                 $count = $product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id')->count();
                             @endphp
                             @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
-                                @if($product_model->series_id == '')
-                                @else
+                                @if(!empty($product_model->series_id))
                                     <div class="relate-box">
                                         <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
                                     </div>
@@ -161,8 +162,7 @@
                         <div class="relate-wrap pc">
                             <div class="aRow">
                             @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
-                                @if($product_model->series_id == '')
-                                @else
+                                @if(!empty($product_model->series_id))
                                     <div class="relate-box">
                                         <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
                                     </div>
@@ -172,15 +172,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="types">
                     @php
                         $i = 0; 
                         $count = $product_models->where('series_id',$model->series_id)->unique('series_id')->count();
                     @endphp
                     @foreach($product_models->where('series_id',$model->series_id)->unique('series_id') as $product_model)
-                        @if($product_model->type_id == '')
-                        @else
+                        @if(!empty($product_model->type_id))
                         <p>Types:</p>
                         @endif
                     @endforeach
@@ -224,8 +222,7 @@
                         $count = $product_models->where('product_id',$model->product->id)->unique('type_id')->count();
                     @endphp
                     @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
-                        @if($product_model->jacket_id == '')
-                        @else
+                        @if(!empty($product_model->jacket_id))
                             <p>Jacket Types:</p>
                         @endif
                     @endforeach
@@ -255,7 +252,6 @@
             </div>
         </div>
     </div>
-
     <div class="infomation">
         <div class="tab-contral">
             @if(!empty($model->description))
@@ -411,7 +407,7 @@ for (let i = 0; i < menu.length; i++) {
         swiper: swiper,
         },
     });
-    let meArrow = document.querySelectorAll("h4 .arw");
+    let meArrow = document.querySelectorAll("p .arw");
     let h4 = document.querySelectorAll("h4.me");
     for (let i = 0; i < h4.length; i++) {
         h4[i].addEventListener("click", (e)=>{

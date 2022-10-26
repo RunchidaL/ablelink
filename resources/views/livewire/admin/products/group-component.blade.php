@@ -42,7 +42,7 @@
                                                 <br>
                                                 @endforeach
                                             @endforeach
-                                            <div id="line"></div>
+                                            <!-- <div id="line"></div> -->
                                         @endforeach
                                     </ul> 
                                 </td>
@@ -60,7 +60,7 @@
                                                 @endforeach
                                             @endforeach
                                             <br>
-                                            <div id="line"></div>
+                                            <!-- <div id="line"></div> -->
                                         @endforeach
                                     </ul> 
                                 </td>
@@ -79,7 +79,7 @@
                                                 <br>
                                             @endforeach
                                             <br>
-                                            <div id="line"></div>
+                                            <!-- <div id="line"></div> -->
                                         @endforeach
                                         
                                     </ul> 

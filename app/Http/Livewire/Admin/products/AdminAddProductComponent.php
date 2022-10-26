@@ -40,7 +40,6 @@ class AdminAddProductComponent extends Component
             'scategory_id' => 'required',
             'bcategory_id' => 'required',
             'sbcategory_id' => 'required',
-            'groupproduct_id' => 'required'
         ]);
         $product = new Product();
         $product->name = $this->name;
@@ -58,7 +57,10 @@ class AdminAddProductComponent extends Component
         {
             $product->subbrandcategory_id = $this->sbcategory_id;
         }
-        $product->groupproduct_id = $this->groupproduct_id;
+        if($this->groupproduct_id)
+        {
+            $product->groupproduct_id = $this->groupproduct_id;
+        }
         $product->save();    
         session()->flash('message','Add Product Success!');
     }
