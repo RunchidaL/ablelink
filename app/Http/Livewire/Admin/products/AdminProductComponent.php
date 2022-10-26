@@ -31,7 +31,7 @@ class AdminProductComponent extends Component
     public function render()
     {
         $search = '%' . $this->searchproduct . '%';
-        $products = Product::where('slug','LIKE',$search)
+        $products = Product::where('name','LIKE',$search)
                     ->orderBy('id','DESC')->paginate(10);
 
         return view('livewire.admin.products.admin-product-component',['products' => $products])->layout("layout.navfoot");

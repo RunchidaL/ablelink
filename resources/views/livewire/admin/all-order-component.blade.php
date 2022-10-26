@@ -27,7 +27,7 @@
                             <th>จ่ายเงินผ่าน</th>
                             <th>สถานะ</th>
                             <th>วันที่สั่ง</th>
-                            <th>Action</th>
+                            <th colspan="2" class="text-center" style="width:20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +56,16 @@
                                 <td>
                                     <a href="{{route('admin.OrderDetails',['orderid'=>$order->id])}}"><button class="btn btn-success">รายละเอียด</button></a>
                                 </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-success" data-bs-toggle="dropdown">สถานะ <span><i class="bi bi-caret-down-fill" style="font-size:12px"></i></span></button>
+                                        <ul class="dropdown-menu" id="status">
+                                            <li><a href="#">กำลังจัดเตรียมสินค้า</a></li>
+                                            <li><a href="#">กำลังจัดส่ง</a></li>
+                                            <li><a href="#">จัดส่งสำเร็จ</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -81,5 +91,7 @@
     .product-name{
         width:20%;
     }
-
+    #status{
+        padding: 8%;
+    }
 </style>

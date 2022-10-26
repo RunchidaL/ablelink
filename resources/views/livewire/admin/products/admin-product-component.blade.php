@@ -28,6 +28,7 @@
                             <th>ID</th>
                             <!-- <th>Image</th> -->
                             <th>Name</th>
+                            <th>Brand</th>
                             <th>Models</th>
                             <th>Action</th>
                         </tr>
@@ -38,10 +39,11 @@
                                 <td>{{$product->id}}</td>
                                 <!-- <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td> -->
                                 <td class="product-name">{{$product->name}}</td>
+                                <td class="product-name">{{$product->brand->name}}</td>
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)
-                                            <li>{{$model->id}}, {{$model->slug}}
+                                            <li>{{$model->slug}}
                                                 <a href="{{route('admin.editmodel',['model_slug'=>$model->slug])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteModel({{$model->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                             </li>
@@ -49,7 +51,7 @@
                                     </ul> 
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.editproduct',['product_slug'=>$product->slug])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
+                                    <a href="{{route('admin.editproduct',['product_id'=>$product->id])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
                                     <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteProduct({{$product->id}})"><i class="bi bi-x" id="edit"></i></a>
                                 </td>
                             </tr>

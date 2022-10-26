@@ -34,6 +34,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-12">Link</label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" wire:model="link">
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-md">
                         <input type="submit" value="Update" class="btn btn-success">
                     </div>    

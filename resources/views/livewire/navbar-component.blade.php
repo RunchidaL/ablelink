@@ -35,12 +35,12 @@
                                 </a> 
                                 @foreach($scategory->brandCategories as $brand)
                                     <div class="brand">
-                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
+                                        <a class="brandname" href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? ''])}}"><span>{{$brand->brands->name ?? ''}}</span></a>
                                         @if(count($brand->subbrandCategories)>0)
                                         <div class="box-wrap">
                                             <div class="box">
                                             @foreach($brand->subbrandCategories as $sbcategory)                                     
-                                                <a href="#">> {{$sbcategory->name}}</a>                                               
+                                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}">> {{$sbcategory->name}}</a>                                               
                                             @endforeach
                                             </div>
                                         </div> 
@@ -59,6 +59,7 @@
 
 <script>
     document.getElementById("content1").style.display = "block";
+    document.getElementById("menuLink1").style.backgroundColor= "rgb(243,243,243)";
     const elementSize = document.getElementsByClassName("menu-link-item").length;
     // document.getElementById("menuLink1").style.backgroundColor= "rgb(243,243,243)";
     document.getElementById("menuLink1").classList.add("hov");;
@@ -83,7 +84,7 @@
 <style>
 @font-face{
     font-family: 'SukhumvitSet';
-    src: url('fonts/SukhumvitSet-SemiBold.ttf') format('truetype');
+    src: url("{{asset('fonts/SukhumvitSet-SemiBold.ttf')}}")format('truetype');
 }
 .prd-dropdown-wrap{
     font-family: 'SukhumvitSet', sans-serif;

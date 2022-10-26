@@ -66,7 +66,11 @@
                         @foreach($items as $item)
                         <tr class="order-detail-wrapper">
                             <td class="order-detail-product">
+                                @if($item->model->image)
                                 <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
+                                @else
+                                <a href="#"><img src="" alt=""></a>
+                                @endif
                             </td>
                             <td class="order-detail-name">
                                 @if($item->attribute)

@@ -11,10 +11,12 @@ class AddNetworktypeComponent extends Component
 
     public function storeNetwork()
     {
-
-    $network = new NetworkType();
-    $network->name = $this->name;
-    $network->save();
+        $this->validate([
+            'name' => 'required'
+        ]);
+        $network = new NetworkType();
+        $network->name = $this->name;
+        $network->save();
 
     session()->flash('message','success');
     

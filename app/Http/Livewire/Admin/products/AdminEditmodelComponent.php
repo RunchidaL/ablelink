@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\ProductModels;
 use App\Models\SeriesModels;
 use App\Models\TypeModels;
-use App\Models\JacketTypes;
 use App\Models\JacketProduct;
 use App\Models\GroupProduct;
 use Livewire\WithFileUploads;
@@ -46,7 +45,6 @@ class AdminEditmodelComponent extends Component
     public $newimages;
     public $videos;
     public $newdatasheet;
-    public $newfirmware;
     public $newguide;
     public $newcert;
     public $newconfig;
@@ -108,7 +106,12 @@ class AdminEditmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'attr' => 'required'
+            'attr' => 'required',
+            'newimage' => 'mimes:jpeg,jpg,png|required',
+            'newdatasheet' => 'mimes:pdf',
+            'newguide' => 'mimes:pdf',
+            'newcert' => 'mimes:pdf',
+            'newconfig' => 'mimes:pdf',
         ]);
     }
 
@@ -140,8 +143,6 @@ class AdminEditmodelComponent extends Component
         $model->customer_price = $this->customer_price;
         $model->stock = $this->stock;
         $model->product_id = $this->product_id;
-        $model->series_id = $this->series_id;
-        $model->group_products = $this->group_products;
         $model->overview = $this->overview;
         $model->application = $this->application;
         $model->item_spotlight = $this->item_spotlight;
@@ -180,11 +181,9 @@ class AdminEditmodelComponent extends Component
             $this->newdatasheet->storeAs('products',$file1);
             $model->datasheet = $file1;
         }
-        if($this->newfirmware)
+        if($this->firmware)
         {
-            $file2 = $this->newfirmware->getClientOriginalName();
-            $this->newfirmware->storeAs('products',$file2);
-            $model->firmware = $file2;
+            $model->firmware = $this->firmware;
         }
         if($this->newguide)
         {
@@ -212,14 +211,27 @@ class AdminEditmodelComponent extends Component
         {
             $model->videos = null;
         }
+        if($this->group_products)
+        {
+            $model->group_products = $this->group_products;
+        }
+        if($this->series_id)
+        {
+            $model->series_id = $this->series_id;
+        }
         if($this->type_id)
         {
             $model->type_id = $this->type_id;
         }
-        
         if($this->jacket_id)
         {
             $model->jacket_id = $this->jacket_id;
+        }
+        else{
+            $model->group_products = null;
+            $model->series_id = null;
+            $model->type_id = null;
+            $model->jacket_id = null;
         }
         
         $model->save();
@@ -269,12 +281,11 @@ class AdminEditmodelComponent extends Component
         $groups = GroupProduct::all();
         $series = SeriesModels::where('group_id',$this->group_products)->get();
         $types = TypeModels::where('series_id',$this->series_id)->get();
-        $jacket_types = JacketTypes::all();
         $jackets = JacketProduct::where('type_id',$this->type_id)->get();
         $network_types = NetworkType::all();
         $network_images = NetworkImage::all();
-        $products = Product::all();
+        $products = Product::orderBy('created_at','DESC')->get();
         $model = ProductModels::where('slug',$this->model_slug)->first();
-        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products,'model'=>$model])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products,'model'=>$model])->layout("layout.navfoot");
     }
 }

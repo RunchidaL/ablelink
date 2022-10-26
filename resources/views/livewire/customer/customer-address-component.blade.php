@@ -54,7 +54,7 @@
                                     </div>
                                     <div>          
                                         <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
-                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteAddress({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                        <a href="#" wire:click.prevent="deleteAddresses({{$customeraddresses->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                     </div>
                                 </h3>
                                 <p>ชื่อจริง : {{$customeraddresses->firstname}}</p>
@@ -75,6 +75,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.addEventListener('show-delete-confirmation', event =>{
+        Swal.fire({
+            title: 'ต้องการลบที่อยู่ใช่หรือไม่?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#194276',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ใช่',
+            cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteConfirmed')
+                }
+        })
+    });
+
+    window.addEventListener('deleteaddress', event =>{
+        Swal.fire(
+            'สำเร็จ!',
+            'ลบที่อยู่เรียบร้อยเเล้ว',
+            'success'
+            )
+    });
+</script>
 
 <style>
 .account-settings .user-profile {
@@ -163,6 +189,20 @@
 .button:hover{
     background: rgb(222, 226, 236);
     color: #194276;
+}
+
+.swal2-icon.swal2-warning {
+    border-color: #dc7226;
+    color: #dc7226;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #194276;
+    color: #fff;
+    font-size: 1em;
 }
 
 @media(max-width: 1200px){

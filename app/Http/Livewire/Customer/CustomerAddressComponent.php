@@ -9,17 +9,29 @@ use App\Models\CustomerAddress;
 
 class CustomerAddressComponent extends Component
 {
-    public function deleteAddress($id)
+    public $delete_id;
+
+    protected $listeners = ['deleteConfirmed'=>'deleteAddress'];
+
+    public function deleteAddresses($id)
     {
-        $deleteuser = CustomerAddress::find($id);
-        $deleteuser->delete();
-        session()->flash('message','Post has been deleted successfully!');
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
+    }
+
+    public function deleteAddress()
+    {
+        $customeraddresses = CustomerAddress::where('id',$this->delete_id)->first();
+        $customeraddresses->status = 0;
+        $customeraddresses->save();
+        $this->dispatchBrowserEvent('deleteaddress');
+        session()->flash('message','Item has been deleted successfully!');
     }
 
     public function render()
     {
         $user = User::find(Auth::user()->id);
-        $customeraddress = CustomerAddress::all();
+        $customeraddress = CustomerAddress::where('status',1)->get();
         return view('livewire.customer.customer-address-component',['user'=>$user],['customeraddress'=>$customeraddress])->layout("layout.navfoot");
     }
 }

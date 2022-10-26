@@ -162,10 +162,30 @@
 }
 
 .col li{
-    font-size: 120%;
+    font-size: 22px;
+}
+.col i{
+    font-size: 30px;
+    color: #4CBB17;
 }
 
 .col h5{
     line-height: 2.5;
     margin-bottom: 0;
 }
+
+.H3{
+    display: block;
+    margin: auto;
+    background: #194276;
+    color: white;
+    padding: 1% 3%;
+    box-shadow: 5px 5px 4px 1px rgb(182, 182, 182);
+}
+
+@media screen and (max-width:560px){ 
+    .col li{
+        font-size: 16px;
+    }
+}
+

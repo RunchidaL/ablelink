@@ -22,6 +22,9 @@
             <a href="{{route('admin.homes')}}"><button class="button">Home Highlight</button></a>
         </div>
         <div class="col-md-12">
+            <a href="{{route('admin.productpreview')}}"><button class="button">Product Preview</button></a>
+        </div>
+        <div class="col-md-12">
             <a href="{{route('admin.post')}}"><button class="button">Post</button></a>
         </div>
         <div class="col-md-12">
@@ -35,6 +38,12 @@
         </div>
         <div class="col-md-12">
             <a href="{{route('admin.AllOrder')}}"><button class="button">Order</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.customcontact',['contact_id'=>'1'])}}"><button class="button">ติดต่อเรา</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.customaboutus',['about_id'=>'1'])}}"><button class="button">เกี่ยวกับเรา</button></a>
         </div>
     </div>
 </div>

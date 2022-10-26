@@ -152,6 +152,18 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'name' => [
+            'required' => 'กรุณาใส่ชื่อ',
+            'unique' => 'ชื่อนี้มีอยู่แล้ว'
+        ],
+        'slug' => [
+            'required' => 'กรุณาใส่ slug',
+            'unique' => 'ชื่อนี้มีอยู่แล้ว'
+        ],
+        'image' => [
+            'required' => 'กรุณาใส่รูป',
+            'mimes' => 'กรุณาใส่ไฟล์ jpeg,jpg,png เท่านั้น'
+        ],
     ],
 
     /*

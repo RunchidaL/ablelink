@@ -82,7 +82,7 @@
                         @endif
                         </td>
                         <td class="cart-delete">
-                            <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                            <a class="cart-quantity-delete" wire:click.prevent="deleteItems('{{$item->id}}')">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
@@ -172,7 +172,7 @@
                             <span>{{$item->quantity}}</span>
                             <a wire:click.prevent="increaseQuantity('{{$item->id}}')"><i class="bi bi-plus"></i></a>
                         </div>
-                        <a class="cart-quantity-delete" wire:click.prevent="delete('{{$item->id}}')" onclick="confirm('ต้องการลบใช่หรือไม่?') || event.stopImmediatePropagation()">
+                        <a class="cart-quantity-delete" wire:click="deleteItems('{{$item->id}}')">
                             <i class="bi bi-trash"></i>
                         </a>
                     </div>
@@ -196,3 +196,43 @@
         @endif
     </div>
 </div>
+
+<style>
+.swal2-icon.swal2-warning {
+    border-color: #dc7226;
+    color: #dc7226;
+}
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #194276;
+    color: #fff;
+    font-size: 1em;
+}
+</style>
+
+<script>
+    window.addEventListener('show-delete-confirmation', event =>{
+        Swal.fire({
+            title: 'ต้องการลบสินค้าใช่หรือไม่?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#194276',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '&nbsp;   ใช่   &nbsp;',
+            cancelButtonText: 'ยกเลิก'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('deleteConfirmed')
+                }
+        })
+    });
+    window.addEventListener('deletedItem', event =>{
+        Swal.fire(
+            'สำเร็จ!',
+            'ลบสินค้าในตะกร้าเรียบร้อย',
+            'success'
+            )
+    });
+</script>

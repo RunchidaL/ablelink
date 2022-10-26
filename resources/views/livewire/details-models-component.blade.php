@@ -252,7 +252,6 @@
             </div>
         </div>
     </div>
-
     <div class="infomation">
         <div class="tab-contral">
             @if(!empty($model->description))
@@ -282,40 +281,45 @@
         <div class="tab-contents">
             <h4 class="me"><span>Description</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->description !!}</div>
+            <div class="fake-scroll" id="overview"></div>
         </div>
         @endif
         @if(!empty($model->overview))
         <div class="tab-contents">
-            <div class="line" id="overview"></div>
+            <div class="line"></div>
             <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->overview !!}</div>
+            <div class="fake-scroll" id="application"></div>
         </div>
         @endif
         @if(!empty($model->application))
         <div class="tab-contents">
-            <div class="line" id="application"></div>
+            <div class="line"></div>
             <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->application !!}</div>
+            <div class="fake-scroll" id="item-spotlight"></div>
         </div>
         @endif
         
         @if(!empty($model->item_spotlight))
         <div class="tab-contents">
-            <div class="line" id="item-spotlight"></div>
+            <div class="line"></div>
             <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->item_spotlight !!}</div>
+            <div class="fake-scroll" id="feature"></div>
         </div>
         @endif
         @if(!empty($model->feature))
         <div class="tab-contents">
-            <div class="line" id="feature"></div>
+            <div class="line"></div>
             <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->feature !!}</div>
+            <div class="fake-scroll" id="videos"></div>
         </div>
         @endif
         @if(!empty($model->videos))
         <div class="tab-contents">
-            <div class="line" id="videos"></div>
+            <div class="line"></div>
             <h4 class="me"><span>Videos</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div class="video">
                 <div class="slide-container4 swiper" id="swipercontainer4">
@@ -338,11 +342,12 @@
                     <div class="swiper-pagination" id="pagination4"></div>
                 </div>
             </div>
+            <div class="fake-scroll" id="resources"></div>
         </div>
         @endif
         @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
-        <div class="tab-contents" id="resources">
-            <div class="line" id="feature"></div>
+        <div class="tab-contents">
+            <div class="line"></div>
             <h4>Resources</h4><br>
             <div class="download">
                 @if(!empty($model->datasheet))
@@ -361,6 +366,7 @@
                     <a href="{{asset('/images/products')}}/{{$model->config}}"><div class="file-detail"><i class="bi bi-file-earmark-arrow-up"></i> Config</div></a>
                 @endif
             </div>
+            <div class="fake-scroll" id=""></div>
         </div>
         @endif
     </div>
@@ -427,9 +433,9 @@ for (let i = 0; i < menu.length; i++) {
         pagination: {
         el: "#pagination4",
         clickable: true,
-        renderBullet: function (index, className){
+          renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
-        },
+          },
         },
         navigation: {
         nextEl: "#next4",
@@ -484,11 +490,12 @@ for (let i = 0; i < menu.length; i++) {
     color: #fff;
     background: #313131;
 }
-
-.swiper {
-    width: 100%;
-    height: 100%;
+.fake-scroll{
+    height: 25px;
+    visibility: hidden;
 }
+
+
 /* swiper image product */
 .swiper-slide{
     text-align: center;
@@ -576,6 +583,12 @@ for (let i = 0; i < menu.length; i++) {
     color: black;
 }
 
+@media screen and (max-width: 1000px) {
+    .swiper-navBtn4{
+        display: none;
+    }
+}
+
 @media(max-width: 767px){
     .swiper {
         width: 100%;
@@ -592,6 +605,11 @@ for (let i = 0; i < menu.length; i++) {
     .swiper-button-next.swiper-navBtn{
         right: 0;
     }
+    #swiper4{
+    margin: 0 0px;
+    overflow: hidden;
+    padding: 0% 0% 0% 0%;
+}
 }
 
 @media(max-width: 520px){

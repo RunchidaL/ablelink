@@ -5,30 +5,27 @@
 <div class="slider">
     <div class="myslider" style="display: block;">
         <div class="txt">
-            <h1>CONTACT US</h1>
+            <h1>{{$contact->title}}</h1>
         </div>
-        <img class="imgg" src="/images/contact1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+        <img class="imgg" src="{{asset('/images/mainpage')}}/{{$contact->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
     </div>
 </div>
 
 <div class="all-content">
-    <div class="left">
+    <div class="left" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <p class="PH">ABLE LINK (Thailand) CO., LTD. </p><br>
-        <p>12 ซ.สุขาภิบาล 5 ซ.5 แยก 3 แขวงท่าแร้ง <br>
-            เขตบางเขน กรุงเทพมหานคร 10220</p>
+        <p class="contact">{{$contact->Address}}</p>
         <ul>
-            <li><a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a> : Ablelink Thailand</li>
-            <li><a href="#"><i class="bi bi-line"></i></a> : @Ablelink</li>
-            <li><a href="#"><i class="bi bi-youtube"></i></a> : Ablelink</li>
-            <li><a href="#"><i class="bi bi-envelope"></i></a> : ablelink.thailand99@gmail.com</li>
-            <li><a href="#"><i class="bi bi-telephone"></i></a> : 095-145-1538</li>
+            <li><a href="{{$contact->link_facebook}}"><i class="bi bi-facebook"></i></a> : {{$contact->facebook}}</li>
+            <li><a href="{{$contact->link_line}}"><i class="bi bi-line"></i></a> : {{$contact->line}}</li>
+            <li><a href="{{$contact->link_youtube}}"><i class="bi bi-youtube"></i></a> : {{$contact->youtube}}</li>
+            <li><a href="{{$contact->link_email}}"><i class="bi bi-envelope"></i></a> : {{$contact->email}}</li>
+            <li><a href="#"><i class="bi bi-telephone"></i></a> : {{$contact->tel}}</li>
         </ul>
     </div>
 
-    <div div class="right">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.5709210391615!2d100.62870271534766!3d13.864775398399654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13
-                    .1!3m3!1m2!1s0x311d636de95f5a3b%3A0x6993de58e110b43c!2z4Lia4Lij4Li04Lip4Lix4LiXIOC5guC4n-C4hOC4reC4oeC4oeC5jCAo4Lib4Lij4Liw4LmA4LiX4Lio4LmE4LiX4LiiKSDguI
-                    jguLPguIHguLHguJQ!5e0!3m2!1sen!2sth!4v1655033151221!5m2!1sen!2sth" width="500" height="350 " style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    <div div class="right" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+        <iframe src="{{$contact->googlemap}}" width="500" height="350 " style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
 </div>

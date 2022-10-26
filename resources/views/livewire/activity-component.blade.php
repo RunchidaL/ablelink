@@ -4,7 +4,7 @@
 <!-- link -->
 
 
-<div class="menu-activity">
+<div class="menu-activity" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
     <div class="mac-left">
         <a href="/post_category/บทความ"><i class="bi bi-file-text"></i></a>
         <p class="text-icon">บทความ</p>
@@ -23,7 +23,7 @@
 
 <div class="blog">
     @foreach($posts as $post)
-    <div class="blog-card">
+    <div class="blog-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="meta">
             <div class="photo">
                 <a href="{{route('post.details',['slug'=>$post->slug])}}"><img src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>

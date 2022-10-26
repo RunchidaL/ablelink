@@ -14,6 +14,7 @@ class AddBrandComponent extends Component
     public $name;
     public $slug;
     public $image;
+    public $link;
 
     public function generateslug()
     {
@@ -22,7 +23,10 @@ class AddBrandComponent extends Component
 
     public function storeBrand()
     {
-        
+        $this->validate([
+            'name' => 'required|unique:brands',
+            'slug' => 'required|unique:brands'
+        ]);
         $brand = new Brand();
         $brand->name = $this->name;
         $brand->slug = $this->slug;
@@ -31,7 +35,9 @@ class AddBrandComponent extends Component
         $this->image->storeAs('brands',$imageName);
         $brand->image = $imageName;
         }
+        $brand->link = $this->link;
         $brand->save();
+        
 
         session()->flash('message','Success');
         

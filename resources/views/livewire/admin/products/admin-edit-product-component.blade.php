@@ -15,13 +15,7 @@
                             <div class="form-group">
                                 <label class="col-md-12">Product Name</label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="name" wire:keyup="generateslug">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Product Slug</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control"  wire:model="slug">
+                                    <input type="text" class="form-control" wire:model="name">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -58,10 +52,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-4">SubBrand</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" wire:model="sbcategory_id">
+                                        <option value="0">Select Subbrand</option>
+                                        @foreach($subbrands as $subbrand)
+                                            <option value="{{$subbrand->id}}">{{$subbrand->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-4">Group Product</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="groupproduct_id">
-                                        <option value="">Select Series</option>
+                                        <option value="">Select Group</option>
                                         @foreach($groups as $group)
                                             <option value="{{$group->id}}">{{$group->name}}</option>
                                         @endforeach

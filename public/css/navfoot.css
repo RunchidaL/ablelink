@@ -99,7 +99,7 @@ ol, ul{
     background: rgb(226,226,226);
     background: linear-gradient(90deg, rgba(226,226,226,1) 50%, rgba(243,243,243,1) 50%);
     left: 0;
-    transform: scaleY(0);
+    transform: scaleY(0);/*change*/
     transform-origin: 100% 0%;
     transition: transform 0.2s ease;
     align-items: center;
@@ -181,6 +181,11 @@ ol, ul{
     transform: scaleY(1);
     transition: transform 0.1s ease;
 }   
+
+/* .menu-list a .menu-link-item:hover~.menu-content::after{
+    transform: scaleY(1);
+    transition: transform 0.1s ease;
+}    */
 
 .menu-list a .menu-link-item:nth-last-child(1){
     padding-bottom: 1.5rem;
@@ -355,7 +360,7 @@ ol, ul{
     display: none;
     border: none;
     background: none;
-    margin-right: 20px;
+    padding: 0 10px;
     color: black;
     font-size: 20px;
 }

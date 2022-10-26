@@ -47,9 +47,9 @@ use App\Http\Livewire\Admin\products\AdminEditmodelComponent;
 use App\Http\Livewire\Admin\products\GroupComponent;
 use App\Http\Livewire\Admin\products\AdminAddGroupComponent;
 use App\Http\Livewire\Admin\products\EditGroupComponent;
-use App\Http\Livewire\Admin\Home\AdminAddHomecomponent;
-use App\Http\Livewire\Admin\Home\AdminEditHomecomponent;
-use App\Http\Livewire\Admin\Home\AdminHomecomponent;
+use App\Http\Livewire\Admin\home\AdminAddHomecomponent;
+use App\Http\Livewire\Admin\home\AdminEditHomecomponent;
+use App\Http\Livewire\Admin\home\AdminHomecomponent;
 use App\Http\Livewire\Customer\CustomerAddAddressComponent;
 use App\Http\Livewire\Customer\CustomerAddressComponent;
 use App\Http\Livewire\Customer\CustomerChangePasswordComponent;
@@ -69,9 +69,9 @@ use App\Http\Livewire\Admin\products\EditBrandComponent;
 use App\Http\Livewire\ChooseAddressComponent;
 use App\Http\Livewire\Admin\AdmindashboardComponent;
 use App\Http\Controllers\ProjectDealerController;
-use App\Http\Livewire\Admin\Posts\AddNewProductsComponent;
-use App\Http\Livewire\Admin\Posts\AdminNewProductsComponent;
-use App\Http\Livewire\Admin\Posts\EditNewProductsComponent;
+use App\Http\Livewire\Admin\posts\AddNewProductsComponent;
+use App\Http\Livewire\Admin\posts\AdminNewProductsComponent;
+use App\Http\Livewire\Admin\posts\EditNewProductsComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\OrderPdfController;
@@ -79,6 +79,11 @@ use App\Http\Livewire\OrderPdfComponent;
 use App\Http\Livewire\SearchProductsComponent;
 use App\Http\Livewire\Admin\AllOrderComponent;
 use App\Http\Livewire\Admin\OrderDetailsComponent;
+use App\Http\Livewire\Admin\home\ProductPreviewComponent;
+use App\Http\Livewire\Admin\home\AddProductPreviewComponent;
+use App\Http\Livewire\Admin\home\EditProductPreviewComponent;
+use App\Http\Livewire\Admin\mainpage\CustomContactComponent;
+use App\Http\Livewire\Admin\mainpage\CustomAboutusComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -118,7 +123,7 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
 
-Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}/{sbcategory_slug?}', CategoryComponent::class)->name('product.category');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
@@ -169,7 +174,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/category/edit/{category_slug}/{scategory_slug?}/{bcategory_slug?}/{sbcategory_slug?}', AdminEditCategoryComponent::class)->name('admin.editcategory');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.addproduct');
-    Route::get('/admin/product/edit/{product_slug}', AdminEditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/product/edit/{product_id}', AdminEditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/post/category', AdminPostCategoryComponent::class)->name('admin.post.category');
     Route::get('/admin/post/category/add', AdminAddPostCategoryComponent::class)->name('admin.add.post.category');
     Route::get('/admin/post/category/edit/{postcategory_slug}', AdminEditPostCategoryComponent::class)->name('admin.edit.post.category');
@@ -199,4 +204,9 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
     Route::get('/admin/AllOrder', AllOrderComponent::class)->name('admin.AllOrder');
     Route::get('/admin/order/{orderid}', OrderDetailsComponent::class)->name('admin.OrderDetails');
+    Route::get('/admin/productpreview', ProductPreviewComponent::class)->name('admin.productpreview');
+    Route::get('/admin/productpreview/add', AddProductPreviewComponent::class)->name('admin.addproductpreview');
+    Route::get('/admin/productpreview/edit/{preview_id}', EditProductPreviewComponent::class)->name('admin.editproductpreview');
+    Route::get('/admin/mainpage/customcontact/{contact_id}', CustomContactComponent::class)->name('admin.customcontact');
+    Route::get('/admin/mainpage/customaboutus/{about_id}', CustomAboutusComponent::class)->name('admin.customaboutus');
 });

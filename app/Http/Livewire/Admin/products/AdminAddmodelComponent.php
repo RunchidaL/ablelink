@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\ProductModels;
 use App\Models\SeriesModels;
 use App\Models\TypeModels;
-use App\Models\JacketTypes;
 use App\Models\GroupProduct;
 use App\Models\JacketProduct;
 use Livewire\WithFileUploads;
@@ -45,6 +44,7 @@ class AdminAddmodelComponent extends Component
     public $jacket_id;
     public $group_id;
     public $group_products;
+    public $message;
 
     public $network_images;
     public $images = [];
@@ -74,12 +74,22 @@ class AdminAddmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'attr' => 'required',
+            'image' => 'required',
         ]);
     }
 
     public function addModel()
     {
+        $this->validate([
+            
+            'name' => 'required|unique:product_models',
+            'slug' => 'required|unique:product_models',
+            'image' => 'required',
+            'web_price' => 'required',
+            'dealer_price' => 'required',
+            'customer_price' => 'required',
+            'product_id' => 'required',
+        ]);
         $model = new ProductModels();
         $model->name = $this->name;
         $model->slug = $this->slug;
@@ -110,9 +120,7 @@ class AdminAddmodelComponent extends Component
         }
         if($this->firmware)
         {
-            $file2 = $this->firmware->getClientOriginalName();
-            $this->firmware->storeAs('products',$file2);
-            $model->firmware = $file2;
+            $model->firmware = $this->firmware;
         }
         if($this->guide)
         {
@@ -132,23 +140,24 @@ class AdminAddmodelComponent extends Component
             $this->config->storeAs('products',$file5);
             $model->config = $file5;
         }
-
         if($this->videos)
         {
             $model->videos = $this->videos;
         }
-        
         $model->web_price = $this->web_price;
         $model->dealer_price = $this->dealer_price;
         $model->customer_price = $this->customer_price;
         $model->stock = $this->stock;
         $model->product_id = $this->product_id;
+
+        if($this->group_products)
+        {
+            $model->group_products = $this->group_products;
+        }
         if($this->series_id)
         {
             $model->series_id = $this->series_id;
         }
-        $model->group_products = $this->group_products;
-        
         if($this->type_id)
         {
             $model->type_id = $this->type_id;
@@ -207,11 +216,10 @@ class AdminAddmodelComponent extends Component
         $groups = GroupProduct::all();
         $series = SeriesModels::where('group_id',$this->group_products)->get();
         $types = TypeModels::where('series_id',$this->series_id)->get();
-        $jacket_types = JacketTypes::all();
         $jackets = JacketProduct::where('type_id',$this->type_id)->get();
         $network_types = NetworkType::all();
         $network_images = NetworkImage::all();
-        $products = Product::all();
-        return view('livewire.admin.products.admin-addmodel-component',['series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products])->layout("layout.navfoot");
+        $products = Product::orderBy('created_at','DESC')->get();
+        return view('livewire.admin.products.admin-addmodel-component',['series'=>$series,'types'=>$types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products])->layout("layout.navfoot");
     }
 }
