@@ -5,58 +5,44 @@
 <div class="slider">
     <div class="myslider" style="display: block;">
         <div class="txt">
-            <h1>SERVICE <i class="fas fa-bolt" style="color: yellow"></i></h1>
+            <h1>{{$service->title}} <i class="fas fa-bolt" style="color: yellow"></i></h1>
         </div>
-        <img class="imgg" src="/images/Service2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+        <img class="imgg" src="{{asset('/images/mainpage')}}/{{$service->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
     </div>
 </div>
 
 <div class="all-content">
     <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
-            <img src="/images/shipping.png">
+            <img src="{{asset('/images/mainpage')}}/{{$service->image1}}">
         </div>
-        <h3>Shipping & Delivery</h3>
+        <h3>{{$service->title1}}</h3>
         <ul class="message">
-            <p>ค่าบริการจัดส่งสินค้าต่างจังหวัด</p>
-            <p>ยอดสั่งซื้อขั่นต่ำ 10,000 บาท ขึ้นไป</p>
-            <p>จัดส่งฟรีระยะเวลาการจัดส่ง 5-7 วันทำการ</p>
-            <p>ยอดสั่งซื้อขั้นต่ำ 3,000 บาท บริการจัดส่งฟรี</p>
-            <p>(เฉพาะเขตกรุงเทพฯ และปริมณฑล)</p>
+            <p>{{$service->description1}}</p>
         </ul>
     </div>
 
     <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
-            <img src="/images/customerService.png">
+            <img src="{{asset('/images/mainpage')}}/{{$service->image2}}">
         </div>
-        <h3>Customer Service</h3>
+        <h3>{{$service->title2}}</h3>
         <ul class="message">
-            <p>การรับประกันสินค้าทุกรายการ</p>
-            <p>จะต้องเกิดความบกพร่องของตัวสินค้า</p>
-            <p>ลูกค้าสามารถส่งคืนสินค้าได้ทันที</p>
-            <p>ตรวจสอบสถานะของสินค้า</p>
-            <p>การจัดส่งและส่งคืนได้ที่</p>
-            <p>Email : info@focomm-cabling.com</p>
-            <p>ID LINE : @focomm</p>
-            <p>Facebook : focomm cabling</p>
-            <p>Tel : 086-339-2814</p>
+            <p>{{$service->description2}}</p>
+            <p>Email: {{$contact->email}}</p>
+            <p>ID LINE :{{$contact->line}}</p>
+            <p>Facebook :{{$contact->facebook}}</p>
+            <p>Tel :{{$contact->tel}}</p>
         </ul> 
     </div>
 
     <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
-            <img src="/images/warranty.png">
+            <img src="{{asset('/images/mainpage')}}/{{$service->image3}}">
         </div>
-        <h3>Warranty</h3>
+        <h3>{{$service->title3}}</h3>
         <ul class="message">
-            <p>การรับประกันสินค้าทุกรายการ</p>
-            <p>จะต้องเกิดความบกพร่องของตัวสินค้า</p>
-            <p>เนื่องจากการใช้งานปกติ</p>
-            <p>หรือเกิดจากความผิดพลาดในการผลิต</p>
-            <p>หรือสาเหตุจากความผิดผลาดของบริษัทผู้ขาย</p>
-            <p>ไม่ครอบคลุมการใช้งานผิดประเภท</p>
-            <p>อุบัติเหตุหรือภัยธรรมชาติต่างๆ</p>
+            <p>{{$service->description3}}</p>
         </ul>    
     </div>
 </div>

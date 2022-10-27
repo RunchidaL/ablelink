@@ -263,7 +263,11 @@
             @if(!empty($model->application))
             <a href="#application">Application</a>
             @endif
-            <!-- <a href="#network_connectivity">Network Connectivity</a> -->
+            @foreach($network_products->where('model_id',$model->id)->unique('model_id') as $network_product)
+                @if($network_product->model_id == $model->id)
+                <a href="#network_connectivity">Network Connectivity</a>
+                @endif
+            @endforeach
             @if(!empty($model->item_spotlight))
             <a href="#item-spotlight">Item Spotlight</a>
             @endif
@@ -297,10 +301,67 @@
             <div class="line"></div>
             <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->application !!}</div>
-            <div class="fake-scroll" id="item-spotlight"></div>
+            <div class="fake-scroll" id="network_connectivity"></div>
         </div>
         @endif
-        
+        @foreach($network_products->where('model_id',$model->id)->unique('model_id') as $network_product)
+            @if($network_product->model_id == $model->id)
+            <div class="tab-contents">
+                <div class="line"></div>
+                <h4 class="me"><span>Network Connectivity</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+                <div>
+                    <div class="menu-wrap">
+                        <ul class="menu-list" id="menu-list">
+                            @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
+                                <li class="menu">{{$network_product->image_id->type->name}}</li>
+                            @endforeach
+                        </ul>
+                    </div> 
+                    <div class="content"> 
+                        <div class="wrapper">
+                        @foreach($network_images as $network_image)
+                            @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
+                                @if($network_image->id == $network_product->network_image_id)
+                                <div id="item{{$loop->index}}" class="item">
+                                    <img src="{{asset('/images/products')}}/{{$network_image->image}}">
+                                    <div class="tag-list">
+                                        @foreach($network_products->where('model_id',$model->id) as $network_product)
+                                            @if($network_image->id == $network_product->network_image_id)
+                                                <div class="tag-item">
+                                                    <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
+                                                    <div>
+                                                        <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
+                                                        @guest
+                                                            @if(($model->web_price) == '0') 
+                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                            @endif
+                                                        @else
+                                                            @if(Auth::user()->role == 1)
+                                                                @if(($model->web_price) == '0')
+                                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
+                                                                @endif
+                                                            @elseif(Auth::user()->role == 2)
+                                                            <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                            @elseif(Auth::user()->role == 3)
+                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
+                                                            @endif
+                                                        @endguest
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
+                        @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="fake-scroll" id="item-spotlight"></div>
+            </div>
+            @endif
+        @endforeach
         @if(!empty($model->item_spotlight))
         <div class="tab-contents">
             <div class="line"></div>

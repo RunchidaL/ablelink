@@ -45,6 +45,12 @@
         <div class="col-md-12">
             <a href="{{route('admin.customaboutus',['about_id'=>'1'])}}"><button class="button">เกี่ยวกับเรา</button></a>
         </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.customservice',['service_id'=>'1'])}}"><button class="button">บริการ</button></a>
+        </div>
+        <div class="col-md-12">
+            <a href="{{route('admin.customforwork',['forwork_id'=>'1'])}}"><button class="button">ร่วมงานกับเรา</button></a>
+        </div>
     </div>
 </div>
 

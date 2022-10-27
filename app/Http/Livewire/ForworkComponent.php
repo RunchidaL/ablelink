@@ -3,11 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Forwork;
 
 class ForworkComponent extends Component
 {
     public function render()
     {
-        return view('livewire.forwork-component')->layout("layout.navfoot");
+        $work = Forwork::where('id',1)->first();
+        return view('livewire.forwork-component',['work'=>$work])->layout("layout.navfoot");
     }
 }

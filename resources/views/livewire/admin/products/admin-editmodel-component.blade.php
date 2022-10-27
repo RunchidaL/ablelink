@@ -100,18 +100,21 @@
                                         <option value="0">Show</option>
                                         <option value="1">Hide</option>
                                     </select>
+                                    @error('web_price') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Dealer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="dealer_price">
+                                    @error('dealer_price') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Customer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="customer_price">
+                                    @error('customer_price') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -158,6 +161,7 @@
                                 <label class="col-md-4">*Product</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" list="datalistOptions" wire:model="product_id">
+                                    @error('product_id') <p class="text-danger">กรุณาใส่</p> @enderror
                                     <datalist id="datalistOptions">
                                         @foreach($products as $product)
                                             <option value="{{$product->id}}">{{$product->name}}</option>

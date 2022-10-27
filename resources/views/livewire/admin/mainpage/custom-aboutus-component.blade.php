@@ -10,7 +10,7 @@
     <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-6">
-                <h2><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Custom About Us page</h2>
+                <h2><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  แก้ไขหน้าเกี่ยวกับเรา</h2>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -34,9 +34,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-6 control-label">Description</label>
-                                <div class="col-md-6">
-                                    <textarea type="text" class="form-control input-md" cols="20" rows="5" wire:model="description"></textarea>
+                                <label class="col-md-8 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <textarea type="text" class="form-control input-md" cols="20" rows="10" wire:model="description"></textarea>
                                 </div>
                             </div>
 

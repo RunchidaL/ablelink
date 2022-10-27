@@ -112,6 +112,8 @@ class AdminEditmodelComponent extends Component
             'newguide' => 'mimes:pdf',
             'newcert' => 'mimes:pdf',
             'newconfig' => 'mimes:pdf',
+            'customer_price' => 'numeric|max:999999',
+            'dealer_price' => 'numeric|max:999999',
         ]);
     }
 
@@ -135,6 +137,15 @@ class AdminEditmodelComponent extends Component
 
     public function updateModel()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'image' => 'required',
+            'web_price' => 'required',
+            'dealer_price' => 'numeric|max:999999',
+            'customer_price' => 'numeric|max:999999',
+            'product_id' => 'required',
+        ]);
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;
         $model->slug = $this->slug;
