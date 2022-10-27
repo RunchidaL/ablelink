@@ -285,28 +285,30 @@
         <div class="tab-contents">
             <h4 class="me"><span>Description</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->description !!}</div>
-            <div class="fake-scroll" id="overview"></div>
+            
         </div>
         @endif
         @if(!empty($model->overview))
         <div class="tab-contents">
+            <div class="fake-scroll" id="overview"></div>
             <div class="line"></div>
             <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->overview !!}</div>
-            <div class="fake-scroll" id="application"></div>
         </div>
         @endif
         @if(!empty($model->application))
         <div class="tab-contents">
+            <div class="fake-scroll" id="application"></div>
             <div class="line"></div>
             <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->application !!}</div>
-            <div class="fake-scroll" id="network_connectivity"></div>
+            
         </div>
         @endif
         @foreach($network_products->where('model_id',$model->id)->unique('model_id') as $network_product)
             @if($network_product->model_id == $model->id)
             <div class="tab-contents">
+                <div class="fake-scroll" id="network_connectivity"></div>
                 <div class="line"></div>
                 <h4 class="me"><span>Network Connectivity</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
                 <div>
@@ -358,28 +360,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="fake-scroll" id="item-spotlight"></div>
             </div>
             @endif
         @endforeach
         @if(!empty($model->item_spotlight))
         <div class="tab-contents">
+            <div class="fake-scroll" id="item-spotlight"></div>
             <div class="line"></div>
             <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->item_spotlight !!}</div>
-            <div class="fake-scroll" id="feature"></div>
         </div>
         @endif
         @if(!empty($model->feature))
         <div class="tab-contents">
+            <div class="fake-scroll" id="feature"></div>
             <div class="line"></div>
             <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->feature !!}</div>
-            <div class="fake-scroll" id="videos"></div>
         </div>
         @endif
         @if(!empty($model->videos))
         <div class="tab-contents">
+            <div class="fake-scroll" id="videos"></div>
             <div class="line"></div>
             <h4 class="me"><span>Videos</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div class="video">
@@ -387,7 +389,7 @@
                     <div class="slide-content4" id="swiper4" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
                         <div class="card-wrapper swiper-wrapper">
                             @php
-                            $videos = explode(",",$model->videos);
+                                $videos = explode(",",$model->videos);
                             @endphp
                             @foreach ($videos as $video)
                             <div class="swiper-slide" id="swiper-slide4">
@@ -403,11 +405,12 @@
                     <div class="swiper-pagination" id="pagination4"></div>
                 </div>
             </div>
-            <div class="fake-scroll" id="resources"></div>
+            
         </div>
         @endif
         @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
         <div class="tab-contents">
+            <div class="fake-scroll" id="resources"></div>
             <div class="line"></div>
             <h4>Resources</h4><br>
             <div class="download">
@@ -427,11 +430,16 @@
                     <a href="{{asset('/images/products')}}/{{$model->config}}"><div class="file-detail"><i class="bi bi-file-earmark-arrow-up"></i> Config</div></a>
                 @endif
             </div>
-            <div class="fake-scroll" id=""></div>
         </div>
         @endif
     </div>
 </div>
+
+<script>
+    function getACount() {
+    return document.getElementsByTagName('a').length;
+}
+</script>
 
 <script>
 let menu = document.querySelectorAll(".menu-list .menu");
@@ -552,7 +560,7 @@ for (let i = 0; i < menu.length; i++) {
     background: #313131;
 }
 .fake-scroll{
-    height: 25px;
+    height: 30px;
     visibility: hidden;
 }
 
