@@ -28,7 +28,7 @@
                             <th>ID</th>
                             <!-- <th>Image</th> -->
                             <th>Name</th>
-                            <th>Brand</th>
+                            <!-- <th>Brand</th> -->
                             <th>Models</th>
                             <th>Action</th>
                         </tr>
@@ -39,7 +39,7 @@
                                 <td>{{$product->id}}</td>
                                 <!-- <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td> -->
                                 <td class="product-name">{{$product->name}}</td>
-                                <td class="product-name">{{$product->brand->name}}</td>
+                                <!-- <td class="product-name">{{$product->brand->name}}</td> -->
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)

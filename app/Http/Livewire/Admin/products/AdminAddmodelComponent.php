@@ -74,20 +74,25 @@ class AdminAddmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'image' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|required',
+            'datasheet' => 'mimes:pdf',
+            'guide' => 'mimes:pdf',
+            'cert' => 'mimes:pdf',
+            'config' => 'mimes:pdf',
+            'dealer_price' => 'required|numeric|max:999999',
+            'customer_price' => 'required|numeric|max:999999'
         ]);
     }
 
     public function addModel()
     {
         $this->validate([
-            
             'name' => 'required|unique:product_models',
             'slug' => 'required|unique:product_models',
             'image' => 'required',
             'web_price' => 'required',
-            'dealer_price' => 'required',
-            'customer_price' => 'required',
+            'dealer_price' => 'required|numeric|max:999999',
+            'customer_price' => 'required|numeric|max:999999',
             'product_id' => 'required',
         ]);
         $model = new ProductModels();

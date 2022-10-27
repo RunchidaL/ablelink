@@ -131,14 +131,14 @@
                                 <label class="col-md-4">*Dealer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="dealer_price">
-                                    @error('dealer_price') <p class="text-danger">กรุณาใส่</p> @enderror
+                                    @error('dealer_price') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4">*Customer price</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="customer_price">
-                                    @error('customer_price') <p class="text-danger">กรุณาใส่</p> @enderror
+                                    @error('customer_price') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -254,6 +254,7 @@
 
 <script>
     $('#description').summernote({
+        fontName: 'Arial',
         height: 200,
         callbacks: {
             onChange: function(contents1, $editable) {
