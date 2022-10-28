@@ -183,6 +183,24 @@
     box-shadow: 5px 5px 4px 1px rgb(182, 182, 182);
 }
 
+@media screen and (max-width:1450px){ 
+    .col{
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width:1100px){ 
+    .all-content{
+        display: block;
+        margin: auto;
+    }
+    .col{
+        margin: 10% 10%;
+    }
+    
+}
+
 @media screen and (max-width:560px){ 
     .col li{
         font-size: 16px;

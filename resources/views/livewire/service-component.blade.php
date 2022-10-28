@@ -36,7 +36,7 @@
         </ul> 
     </div>
 
-    <div class="content" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+    <div class="content" id="content-responsive" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
         <div class="box">
             <img src="{{asset('/images/mainpage')}}/{{$service->image3}}">
         </div>

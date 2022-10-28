@@ -157,9 +157,18 @@
 .content ul{
     font-size: 120%;
 }
+.message{
+    width: 360px;
+}
 
-@media screen and (max-width: 1080px){
+@media screen and (max-width: 1200px){
 .content{
     width: 100%;
+}
+.message{
+    width: 80%;
+}
+#content-responsive{
+    margin-bottom: 10%;
 }
 }

@@ -39,7 +39,7 @@
     <div class="body">
         <div class="container">
                 <div>
-                    <p class="text" data-aos="fade-right" data-aos-duration="800">ผลิตภัณฑ์ใหม่</p>
+                    <p class="text" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">ผลิตภัณฑ์ใหม่</p>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
@@ -72,7 +72,7 @@
     @endphp
     <div id="{{$preview->categories->name}}" class="fakecategory">test</div>
     <div class="maincatagory">
-        <div class="subcatagory" data-aos="fade-right" data-aos-duration="800">{{$preview->categories->name}}</div>
+        <div class="subcatagory" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">{{$preview->categories->name}}</div>
         <div class="slide-container swiper">
             <div class="slide-content{{$i}}" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
                 <div class="card-wrapper swiper-wrapper">
@@ -103,7 +103,7 @@
     
 <!-- activity -->
     <div>
-        <p class="text" data-aos="fade-right" data-aos-duration="800">ข่าวสารเเละกิจกรรม</p>
+        <p class="text" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">ข่าวสารเเละกิจกรรม</p>
     </div>
     <div class="slide-container swiper">
         <div class="slide-content6" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
@@ -149,7 +149,7 @@
 <!-- brands -->
             <div class="container-fluid">
                 <div class="B">
-                    <p class="text" data-aos="fade-right" data-aos-duration="800">แบรนด์เข้าร่วม</p>
+                    <p class="text" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">แบรนด์เข้าร่วม</p>
                     <div class="brands">
                         <div class="row" id="row-brands">
                             @foreach ($brand as $brands)
@@ -229,7 +229,7 @@
         prevEl: "#prev1",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
@@ -264,7 +264,7 @@
         prevEl: "#prev2",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
@@ -299,7 +299,7 @@
         prevEl: "#prev3",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
@@ -334,7 +334,7 @@
         prevEl: "#prev4",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
@@ -369,7 +369,7 @@
         prevEl: "#prev5",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
@@ -404,7 +404,7 @@
         prevEl: "#prev6",
         },
         autoplay: {
-        delay: 3000,
+        delay: 5000,
         },
         
         breakpoints:{
