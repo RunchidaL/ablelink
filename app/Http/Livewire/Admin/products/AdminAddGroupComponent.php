@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\GroupProduct;
 use App\Models\SeriesModels;
 use App\Models\TypeModels;
-use App\Models\JacketTypes;
 use App\Models\JacketProduct;
 
 class AdminAddGroupComponent extends Component
@@ -81,7 +80,6 @@ class AdminAddGroupComponent extends Component
         $groups = GroupProduct::all();
         $series = SeriesModels::where('group_id',$this->group_id)->get();
         $types = TypeModels::where('series_id',$this->serie_id)->get();
-        $jacket_types = JacketTypes::all();
-        return view('livewire.admin.products.admin-add-group-component',['groups'=>$groups,'series'=>$series,'types'=>$types,'jacket_types'=>$jacket_types])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-add-group-component',['groups'=>$groups,'series'=>$series,'types'=>$types])->layout("layout.navfoot");
     }
 }

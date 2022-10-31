@@ -23,9 +23,9 @@ use App\Models\OrderID;
 class PaymentController extends Controller
 {
     public function check(Request $request){
-        $request->validate([
-            'ad' => 'required',
-        ]);
+        // $request->validate([
+        //     'ad' => 'required',
+        // ]);
         if($request['ad'] == 'new'){
             $request->validate([
                 'fname' => 'required',
@@ -55,8 +55,17 @@ class PaymentController extends Controller
                 $orderid = New OrderID();
                 $orderid->user_id = $user->id;
                 $orderid->payment_code = 2;
-                $orderid->address_id = 1;
                 $orderid->total = $total;
+                $orderid->firstname = $user->dealer->firstname;
+                $orderid->lastname = $user->dealer->lastname;
+                $orderid->email = $user->dealer->emailaddress;
+                $orderid->address = $user->dealer->address;
+                $orderid->subdistrict = $user->dealer->subdistrict;
+                $orderid->district = $user->dealer->district;
+                $orderid->county = $user->dealer->county;
+                $orderid->zipcode = $user->dealer->zipcode;
+                $orderid->phonenumber = $user->dealer->phonenumber;
+                $orderid->company = $user->dealer->companyTH;
                 $orderid->save();
             }
             else{
@@ -75,11 +84,30 @@ class PaymentController extends Controller
                     $useraddress->phonenumber = $request['phone'];
                     $useraddress->customerid = $user->id;
                     $useraddress->save();
-                    $id = CustomerAddress::where('customerid',$user->id)->latest('created_at')->first();
-                    $orderid->address_id = $id->id;
+
+                    $orderid->firstname = $request['fname'];
+                    $orderid->lastname = $request['lname'];
+                    $orderid->email = $user->email;
+                    $orderid->address = $request['address'];
+                    $orderid->subdistrict = $request['subdistrict'];
+                    $orderid->district = $request['district'];
+                    $orderid->county = $request['county'];
+                    $orderid->zipcode = $request['zipcode'];
+                    $orderid->phonenumber = $request['phone'];
+                    $orderid->save();
                 }
                 else{
-                    $orderid->address_id = $request['ad'];
+                    $id_ad = $request['ad'];
+                    $ad = CustomerAddress::find($id_ad);
+                    $orderid->firstname = $ad->firstname;
+                    $orderid->lastname = $ad->lastname;
+                    $orderid->email = $user->email;
+                    $orderid->address = $ad->address;
+                    $orderid->subdistrict = $ad->subdistrict;
+                    $orderid->district = $ad->district;
+                    $orderid->county = $ad->county;
+                    $orderid->zipcode = $ad->zipcode;
+                    $orderid->phonenumber = $ad->phonenumber;
                 }
                 $orderid->total = $total;
                 $orderid->save();

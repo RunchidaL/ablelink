@@ -3,15 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Download;
-use App\Models\DownloadCategory;
+use App\Models\Brand;
 
 class DownloadComponent extends Component
 {
     public function render()
     {
-        $dcategories = DownloadCategory::all();
-        $downloads = Download::orderBy('created_at','DESC')->get();
-        return view('livewire.download-component',['downloads'=>$downloads,'dcategories'=>$dcategories])->layout("layout.navfoot");
+        $brand = Brand::all();
+        return view('livewire.download-component',['brand'=>$brand])->layout("layout.navfoot");
     }
 }

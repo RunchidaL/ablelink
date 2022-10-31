@@ -131,7 +131,7 @@ Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->nam
 
 Route::post('/register-project-email',[ProjectDealerController::class,'sendEmail'])->name('registerproject.email');
 
-Route::get('/download_category/{downloadcategory_slug}',DownloadCategoryComponent::class)->name('download.category');
+Route::get('/download/{download_brand}',DownloadCategoryComponent::class)->name('download.brand');
 
 Route::post('/check',[PaymentController::class,'check'])->name('check');
 

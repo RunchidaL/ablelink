@@ -257,7 +257,9 @@
             @if(!empty($model->description))
             <a href="#description" id="description">Description</a>
             @endif
-            @if(!empty($model->overview))
+            @if($model->overview and empty($model->description))
+            <a href="#overview" id="overview">Overview</a>
+            @elseif(!empty($model->overview))
             <a href="#overview">Overview</a>
             @endif
             @if(!empty($model->application))
@@ -285,13 +287,16 @@
         <div class="tab-contents">
             <h4 class="me"><span>Description</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->description !!}</div>
-            
         </div>
         @endif
         @if(!empty($model->overview))
         <div class="tab-contents">
+            @if(!empty($model->description))
             <div class="fake-scroll" id="overview"></div>
+            @endif
+            @if(!empty($model->description))
             <div class="line"></div>
+            @endif
             <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->overview !!}</div>
         </div>

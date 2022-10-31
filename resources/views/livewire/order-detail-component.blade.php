@@ -22,19 +22,11 @@
                     <div class="col-md-6 text-end">
                         <address>
                             <strong>ผู้ซื้อสินค้า:</strong><br>
-                            @if(Auth::user()->role == 1)
-                                {{$customer->firstname}} {{$customer->lastname}}<br>
-                                {{$customer->phonenumber}}<br>
-                                {{$customer->address}} แขวง/ตำบล {{$customer->subdistrict}} <br>
-                                เขต/อำเภอ {{$customer->district}} {{$customer->county}} <br>
-                                {{$customer->zipcode}}<br>
-                            @elseif(Auth::user()->role == 2)
-                                {{$order->user->name}}<br>
-                                {{$dealer->phonenumber}}<br>
-                                {{$dealer->address}} แขวง/ตำบล {{$dealer->subdistrict}} <br>
-                                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} <br>
-                                {{$dealer->zipcode}}<br>
-                            @endif
+                                {{$order->firstname}} {{$order->lastname}}<br>
+                                {{$order->phonenumber}}<br>
+                                {{$order->address}} แขวง/ตำบล {{$order->subdistrict}} <br>
+                                เขต/อำเภอ {{$order->district}} {{$order->county}} <br>
+                                {{$order->zipcode}}<br>
                         </address>
                     </div>
                 </div>
@@ -66,31 +58,37 @@
                         @foreach($items as $item)
                         <tr class="order-detail-wrapper">
                             <td class="order-detail-product">
-                                @if($item->model->image)
-                                <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
+                                @if(empty($item->model->id))
+                                <a href="#"><img src="{{asset('/images')}}/no-photo-available.png" alt=""></a>
                                 @else
-                                <a href="#"><img src="" alt=""></a>
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
                                 @endif
                             </td>
                             <td class="order-detail-name">
-                                @if($item->attribute)
+                                @if(empty($item->model->id))
+                                <a href="">ไม่มีสินค้าในระบบแล้ว</a>
+                                @elseif($item->attribute)
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
                                 @else
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
                                 @endif
                             </td>
                             <td class="order-detail-price">
-                                @if(Auth::user()->role == 1)
-                                    @if($item->attribute == '')
-                                        <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
-                                    @else
-                                        <p class="group-cen">฿{{number_format($item->model->customer_price * $item->attribute,2)}}</p>
-                                    @endif
-                                @elseif(Auth::user()->role == 2)
-                                    @if($item->attribute == '')
-                                        <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
-                                    @else
-                                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->attribute,2)}}</p>
+                                @if(empty($item->model->id))
+                                <p class="group-cen">-</p>
+                                @else
+                                    @if(Auth::user()->role == 1)
+                                        @if($item->attribute == '')
+                                            <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                                        @else
+                                            <p class="group-cen">฿{{number_format($item->model->customer_price * $item->attribute,2)}}</p>
+                                        @endif
+                                    @elseif(Auth::user()->role == 2)
+                                        @if($item->attribute == '')
+                                            <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                                        @else
+                                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->attribute,2)}}</p>
+                                        @endif
                                     @endif
                                 @endif
                             </td>
@@ -98,17 +96,21 @@
                                 <p class="group-cen">{{$item->quantity}}</p>
                             </td>
                             <td class="order-detail-total">
-                                @if(Auth::user()->role == 1)
-                                    @if($item->attribute == '')
-                                    <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
-                                    @else
-                                    <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
-                                    @endif
-                                @elseif(Auth::user()->role == 2)
-                                    @if($item->attribute == '')
-                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
-                                    @else
-                                    <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                                @if(empty($item->model->id))
+                                <p class="group-cen">-</p>
+                                @else
+                                    @if(Auth::user()->role == 1)
+                                        @if($item->attribute == '')
+                                        <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
+                                        @else
+                                        <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
+                                        @endif
+                                    @elseif(Auth::user()->role == 2)
+                                        @if($item->attribute == '')
+                                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                                        @else
+                                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                                        @endif
                                     @endif
                                 @endif
                             </td>
@@ -139,23 +141,51 @@
             <div class="phone-order-detail-wrapper">
                 <div class="phone-order-detail-left">
                     <div class="phone-order-detail-product">
-                        <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
+                        @if(empty($item->model->id))
+                        <a href="#"><img src="{{asset('/images')}}/no-photo-available.png" alt=""></a>
+                        @else
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt=""></a>
+                        @endif
                     </div>
                 </div>
                 <div class="phone-order-detail-right">
                     <div class="phone-order-detail-name">
-                        @if($item->attribute)
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
-                        @else
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
+                    @if(empty($item->model->id))
+                    <p class="group-cen">-</p>
+                    @else
+                        @if(Auth::user()->role == 1)
+                            @if($item->attribute == '')
+                                <p class="group-cen">฿{{number_format($item->model->customer_price,2)}}</p>
+                            @else
+                                <p class="group-cen">฿{{number_format($item->model->customer_price * $item->attribute,2)}}</p>
+                            @endif
+                        @elseif(Auth::user()->role == 2)
+                            @if($item->attribute == '')
+                                <p class="group-cen">฿{{number_format($item->model->dealer_price,2)}}</p>
+                            @else
+                                <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->attribute,2)}}</p>
+                            @endif
                         @endif
+                    @endif
                     </div>
                     <div class="phone-order-detail-total">
-                        @if($item->attribute)
-                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
-                        @else
-                        <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                    @if(empty($item->model->id))
+                    <p class="group-cen">-</p>
+                    @else
+                        @if(Auth::user()->role == 1)
+                            @if($item->attribute == '')
+                            <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity,2)}}</p>
+                            @else
+                            <p class="group-cen">฿{{number_format($item->model->customer_price * $item->quantity * $item->attribute,2)}}</p>
+                            @endif
+                        @elseif(Auth::user()->role == 2)
+                            @if($item->attribute == '')
+                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
+                            @else
+                            <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
+                            @endif
                         @endif
+                    @endif
                     </div>
                     <div class="phone-order-detail-quantity">
                         <p class="group-cen">จำนวน {{$item->quantity}} ชิ้น</p>

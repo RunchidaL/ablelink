@@ -83,19 +83,20 @@ class ChooseAddressComponent extends Component
             $orderid = New OrderID();
             $orderid->user_id = $user->id;
             $orderid->payment_code = $this->payment;
-            $orderid->address_id = 1;
             $orderid->total = $total;
+            $orderid->firstname = $user->dealer->firstname;
+            $orderid->lastname = $user->dealer->lastname;
+            $orderid->email = $user->dealer->emailaddress;
+            $orderid->address = $user->dealer->address;
+            $orderid->subdistrict = $user->dealer->subdistrict;
+            $orderid->district = $user->dealer->district;
+            $orderid->county = $user->dealer->county;
+            $orderid->zipcode = $user->dealer->zipcode;
+            $orderid->phonenumber = $user->dealer->phonenumber;
+            $orderid->company = $user->dealer->companyTH;
+            
             $orderid->save();
         }
-        else{
-            $orderid = New OrderID();
-            $orderid->user_id = $user->id;
-            $orderid->payment_code = $this->payment;
-            $orderid->address_id = $this->address;
-            $orderid->total = $total;
-            $orderid->save();
-        }
-
 
         $cartitems = Cart::with('model')->where(['user_id'=>auth()->user()->id])->get();
         
@@ -113,7 +114,7 @@ class ChooseAddressComponent extends Component
             $model->save();
 
             $order = New Order();
-            $order->product_id = $item->product_id;
+            $order->product_id = $item->product_id;           
             $order->quantity = $item->quantity;
             if($item->attribute)
             {

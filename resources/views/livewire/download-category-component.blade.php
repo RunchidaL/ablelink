@@ -17,44 +17,65 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <a href="/download_category/catelog"><button><i class="bi bi-file-text"></i><br><p>Catelog</p></button></a>
-            <a href="/download_category/presentation"><button><i class="bi bi-easel"></i><br><p>Presentation</p></button></a>
-            <a href="/download_category/vdo"><button><i class="bi bi-play-circle"></i><br><p>Marketing Videos</p></button></a>
+            <a href=""><button><i class="bi bi-file-text"></i><br><p>Catelog</p></button></a>
+            <a href=""><button><i class="bi bi-easel"></i><br><p>Presentation</p></button></a>
+            <a href=""><button><i class="bi bi-play-circle"></i><br><p>Marketing Videos</p></button></a>
         </div>
     </div>
     <div class="section">
-
-        <div class="title">
-            <p>{{$downloadcategory->name}}</p>
-        </div>
-        @foreach($downloads->unique('brand_id') as $download)
-            <div class="desc">
-            <img src="{{asset('/images/brands')}}/{{$download->brand->image}}" class="brandimg">
-            @foreach($downloads->where('brand_id',$download->brand_id) as $download)
+        <div class="desc">
             <div class="row d-flex">
-                @if(($download->category->name) == "Catelog")
-                <div class="col-1 d-flex justify-content-center">
-                    <p>Catelog ของ {{$download->name}}</p>
+            @if($downloads->count()>0)
+                <div class="title">
+                    @foreach($downloads->unique('category_id') as $download)
+                        @if(!empty($download->category_id == 1))
+                        <p>Catelog</p>
+                        @endif
+                    @endforeach
                 </div>
-                @elseif(($download->category->name) == "Presentation")
-                <div class="col-1 d-flex justify-content-center">
-                    <p>Presentation ของ {{$download->name}}</p>
+                @foreach($catelogs as $c)
+                    <div class="col-1 d-flex justify-content-center">
+                        <p>Catelog ของ {{$c->name}}</p>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center">
+                        <a href="{{url('/images/downloads')}}/{{$c -> file}}">ดาวน์โหลด</a>
+                    </div>
+                @endforeach
+                <div class="title">
+                    @foreach($downloads->unique('category_id') as $download)
+                        @if(!empty($download->category_id == 3))
+                        <p>Presentation</p>
+                        @endif
+                    @endforeach
                 </div>
-                @endif
-                
-                @if(($download->category->name) == "VDO")
-                <div id="vdo">
-                    <iframe width="350" height="250" src="{{$download->file}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>	VDO ของ {{$download->name}}</p>
+                @foreach($pres as $p)
+                    <div class="col-1 d-flex justify-content-center">
+                        <p>Presentation ของ {{$p->name}}</p>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center">
+                        <a href="{{url('/images/downloads')}}/{{$p -> file}}">ดาวน์โหลด</a>
+                    </div>
+                @endforeach
+                <div class="title">
+                    @foreach($downloads->unique('category_id') as $download)
+                        @if(!empty($download->category_id == 5))
+                        <p>Marketing Videos</p>
+                        @endif
+                    @endforeach
                 </div>
-                @else
-                <div class="col-1 d-flex justify-content-center">
-                    <a href="{{url('/images/downloads')}}/{{$download -> file}}">ดาวน์โหลด</a>
-                </div>
-                @endif
+                @foreach($vdos as $v)
+                    @if(!empty($v))
+                    <div id="vdo">
+                        <iframe width="350" height="250" src="{{$v->file}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>	VDO ของ {{$v->name}}</p>
+                    </div>
+                    @endif
+                @endforeach
+            @else
+                <p>ไม่มี</p>
+            @endif
             </div>
-            @endforeach
-            </div>
-        @endforeach
+
+        </div>
     </div>
 </div>
