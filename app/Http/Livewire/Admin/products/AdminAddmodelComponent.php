@@ -74,6 +74,8 @@ class AdminAddmodelComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
+            'name' => 'required',
+            'slug' => 'required|alpha_dash|unique:product_models,slug',
             'image' => 'mimes:jpeg,jpg,png|required',
             'datasheet' => 'mimes:pdf',
             'guide' => 'mimes:pdf',
@@ -87,8 +89,8 @@ class AdminAddmodelComponent extends Component
     public function addModel()
     {
         $this->validate([
-            'name' => 'required|unique:product_models',
-            'slug' => 'required|unique:product_models',
+            'name' => 'required',
+            'slug' => 'required|alpha_dash|unique:product_models,slug',
             'image' => 'required',
             'web_price' => 'required',
             'dealer_price' => 'required|numeric|max:999999',

@@ -23,11 +23,11 @@
             <p class="desc">
                 Attn : <br>
                 Position : <br>
-                Company : {{$dealer->companyTH}}<br>
-                Address : {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
-                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} {{$dealer->zipcode}}<br>
-                E-Mail : {{$dealer->emailaddress}}<br>
-                Phone : {{$dealer->phonenumber}}<br>
+                Company : {{$order->company}}<br>
+                Address : {{$order->address}}  แขวง/ตำบล {{$order->subdistrict}} <br>
+                เขต/อำเภอ {{$order->district}} {{$order->county}} {{$order->zipcode}}<br>
+                E-Mail : {{$order->email}}<br>
+                Phone : {{$order->phonenumber}}<br>
                 Fax : 
             </p>
         </div>
@@ -38,8 +38,8 @@
                 Date : {{date('d/m/Y', strtotime($order->created_at))}}<br>
                 Revised Date : <br>
                 Page No. : <br>
-                Sale :  {{$dealer->emailaddress}}<br>
-                Mobile :  {{$dealer->phonenumber}}<br>
+                Sale : <br>
+                Mobile :  {{$order->phonenumber}}<br>
                 validity : <br>
                 Project :
             </p>
@@ -70,49 +70,13 @@
                 <td>{{$i}}</td>
                 <td>{{$item->model->product->brand->name}}</td>
                 <td>{{$item->model->slug}}</td>
-                <td>{!! $item->model->description !!}</td>
+                <td></td>
                 <td>{{$item->quantity}}</td>
                 <td></td>
                 <td>{{number_format($item->model->dealer_price,2)}}</td>
                 <td>{{number_format($item->model->dealer_price * $item->quantity,2)}}</td>
             </tr>
             @endforeach
-            <!-- <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-            </tr>
-
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-            </tr>
-
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-                <td>$100</td>
-            </tr> -->
-            
-            
-
-            
 
             <tr>
                 <td rowspan="3"></td>

@@ -52,20 +52,11 @@
                                 <p>สั่งซื้อเมื่อวันที่ {{date('d/m/Y', strtotime($orderid->created_at))}}</p>
                             </div>
                             <h4><i class="bi bi-geo-alt"></i> ที่อยู่จัดส่ง</h4>
-                            @if(Auth::user()->role == 1)
-                                <p>{{$user->name}}</p>
-                                <p>{{$customer->phonenumber}}</p>
-                                <p>{{$customer->address}} {{$customer->subdistrict}} {{$customer->district}}</p>
-                                <p>{{$customer->county}} {{$customer->zipcode}}</p>
+                                <p>{{$orderid->firstname}}</p>
+                                <p>{{$orderid->phonenumber}}</p>
+                                <p>{{$orderid->address}} {{$orderid->subdistrict}} {{$orderid->district}}</p>
+                                <p>{{$orderid->county}} {{$orderid->zipcode}}</p>
                                 <br>
-                            @elseif(Auth::user()->role == 2)
-                                <p>{{$user->name}}</p>
-                                <p>{{$dealer->phonenumber}}</p>
-                                <p>บริษัท {{$dealer->companyTH}}</p>
-                                <p>{{$dealer->address}} {{$dealer->subdistrict}} {{$dealer->district}}</p>
-                                <p>{{$dealer->county}} {{$dealer->zipcode}}</p>
-                                <br>
-                            @endif
 
                             <h4><i class="bi bi-credit-card"></i> วิธีชำระเงิน</h4>
                             @if($orderid->payment_code == 1)

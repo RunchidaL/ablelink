@@ -154,6 +154,7 @@ class AdminEditmodelComponent extends Component
         $model->customer_price = $this->customer_price;
         $model->stock = $this->stock;
         $model->product_id = $this->product_id;
+        $model->description = $this->description;
         $model->overview = $this->overview;
         $model->application = $this->application;
         $model->item_spotlight = $this->item_spotlight;
