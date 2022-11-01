@@ -197,10 +197,10 @@
                         <h2>วิธีการชำระเงิน</h2>
                     </div>
                     <div class="row" id="chooseaddress">
-                        @error('payment') <p class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> @enderror
+                        <p id="error-ad" class="text-danger">กรุณาเลือกวิธีชำระเงิน</p> 
                         <div class="col-md-5 mb-4">
                             @if(Auth::user()->role == 2)
-                                <input type="radio" id="creditcompany" name="check" value="1" wire:model.defer="payment"/>
+                                <input type="radio" id="creditcompany" name="check" value="1" onclick="choosepay()" wire:model.defer="payment"/>
                                 <label for="creditcompany">
                                     <h5>จ่ายผ่านเครดิตบริษัท</h5>
                                     <p>ยอดคงเหลือ {{number_format($user->dealer->coin,2)}} บาท</p>
@@ -271,14 +271,13 @@
                     </div>
                 </div>
             </div>
-            </form>
             <div class="btns_wrap">
                 <div class="common_btns form_1_btns">
                     <button type="button" class="btn_next">ดำเนินการต่อ <span class="icon"><i class="bi bi-arrow-right"></i></span></button>
                 </div>
                 <div class="common_btns form_2_btns" style="display: none;">
                     <button type="button" class="btn_back"><span class="icon"><i class="bi bi-arrow-left"></i></span>ย้อนกลับ</button>
-                    <button type="button" class="btn_next" wire:click.prevent="checkout">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button>
+                    <button type="button" class="btn_next" id="c" wire:click="checkout" style="display: none;">ชำระเงิน <span class="icon"><i class="bi bi-check-lg"></i></span></button>
                 </div>
             </div>
         </form>
@@ -309,6 +308,14 @@ input[type="radio"]:checked + label{
 </style>
 
 <script>
+function choosepay() {
+    if(document.getElementById('creditcompany').checked == true){
+        document.getElementById("c").style.display = "flex";
+        document.getElementById("error-ad").style.display = "none";
+    }
+}
+
+
 function myFunction() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {

@@ -25,9 +25,8 @@
                             <th>นามสกุล</th>
                             <th>โทรศัพท์</th>
                             <th>จ่ายเงินผ่าน</th>
-                            <th>สถานะ</th>
                             <th>วันที่สั่ง</th>
-                            <th colspan="2" class="text-center" style="width:20%">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,23 +47,12 @@
                                     @endforeach
                                 @endif
                                 <td>{{$order->payment_code == 1 ? 'เครดิตบริษัท':'บัตรเครดิต'}}</td>
-                                <td>กำลังจัดส่ง</td>
                                 <td>{{date('d/m/Y', strtotime($order->created_at))}}
                                     <br>
                                     เวลา {{date('H:i', strtotime($order->created_at))}} น.
                                 </td>
                                 <td>
                                     <a href="{{route('admin.OrderDetails',['orderid'=>$order->id])}}"><button class="btn btn-success">รายละเอียด</button></a>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-success" data-bs-toggle="dropdown">สถานะ <span><i class="bi bi-caret-down-fill" style="font-size:12px"></i></span></button>
-                                        <ul class="dropdown-menu" id="status">
-                                            <li><a href="#">กำลังจัดเตรียมสินค้า</a></li>
-                                            <li><a href="#">กำลังจัดส่ง</a></li>
-                                            <li><a href="#">จัดส่งสำเร็จ</a></li>
-                                        </ul>
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach
