@@ -316,6 +316,7 @@ function myFunction() {
     } else {
     x.style.display = "none";
     }
+    this.checked = false;
 }
 </script>
 
