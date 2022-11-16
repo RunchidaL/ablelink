@@ -17,7 +17,7 @@
         </div>
         <div class="row" id="products">
             @foreach($products as $product)
-                @foreach($models->where('product_id',$product->id)->unique('product_id') as $model)
+                @foreach($models->where('product_id',$product->id) as $model)
                 <div class="NP-col">
                     <div class="card">
                         <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}" class="card-wrapper">
@@ -92,7 +92,7 @@
                 </div>
                 @endforeach
             @endforeach
-            {{$products->links()}}
+
         </div>
     </div>
     <div class="add-products-preview">

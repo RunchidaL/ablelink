@@ -28,6 +28,12 @@ class EditNewProductsComponent extends Component
 
     public function updateNewProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'img' => 'required',
+            'linkproduct' => 'required',
+            'brand_id' => 'required',
+        ]);
         $NewProduct = NewProduct::find($this->N_id);
         $NewProduct->name = $this->name;
         $NewProduct->img = $this->img;

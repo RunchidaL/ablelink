@@ -22,20 +22,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">slug</label>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="slug">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12">Category</label>
                                 <div class="col-md-2">
-                                    <select class="form-control" name="category" wire:model="category_id">
+                                    <select class="form-control form-control" name="category" wire:model="category_id">
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('category_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -50,9 +45,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                @if($category_id)
                                 <label class="col-md-12">File</label>
-                                <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="newimage">
+                                @endif
+                                <div class="col-md-6">
+                                    @if($category_id == 1 or $category_id == 3)
+                                    <input type="file" class="input-file" wire:model="newfile">
+                                    @error('file') <p class="text-danger">กรุณาเลือกไฟล์</p> @enderror
+                                    @elseif($category_id == 5)
+                                    <input type="text" class="form-control" wire:model="filetext">
+                                    @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">

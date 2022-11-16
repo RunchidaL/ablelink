@@ -24,6 +24,7 @@
                                 <label class="col-md-4 control-label">Post Category Name</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Post Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateslug">
+                                    @error('name') <p class="text-danger">กรุณาใส่</p> @enderror
                                 </div>
                             </div>
 
@@ -31,6 +32,7 @@
                                 <label class="col-md-4 control-label">Post Category Slug</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Post Category Slug" class="form-control input-md" wire:model="slug">
+                                    @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
 

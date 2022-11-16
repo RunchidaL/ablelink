@@ -26,6 +26,13 @@ class AdminAddPostComponent extends Component
 
     public function addPost()
     {
+        $this->validate([
+            'title' => 'required',
+            'slug' => 'required|alpha_dash',
+            'titleimg' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+        ]);
         $post = new Post();
         $post->title = $this->title;
         $post->slug = $this->slug;

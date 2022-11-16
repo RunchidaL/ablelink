@@ -28,10 +28,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Name</label>
+                                <label class="col-md-4 control-label">ID</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="PartNumber">
-                                    @error('product') <p class="text-danger">กรุณาใส่</p> @enderror
+                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ID หรือค้นหาโดยการใส่ PartNumber">
+                                    @error('product_id') <p class="text-danger">{{ $message }}</p> @enderror
                                     <datalist id="datalistOptions">
                                         @foreach($products as $product)
                                             <option value="{{$product->id}}">{{$product->slug}}</option>

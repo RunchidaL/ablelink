@@ -23,6 +23,10 @@ class AdminAddHomecomponent extends Component
 
     public function addSlide()
     {
+        $this->validate([
+            'image' => 'required',
+            'status' => 'required'
+        ]);
         $slider = new Home();
         $slider->title = $this->title;
         $slider->subtitle = $this->subtitle;

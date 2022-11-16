@@ -19,6 +19,10 @@ class AdminAddPostCategoryComponent extends Component
 
     public function storePostCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|alpha_dash',
+        ]);
         $postcategory = new PostCategory();
         $postcategory->name = $this->name;
         $postcategory->slug = $this->slug;

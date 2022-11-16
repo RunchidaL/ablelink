@@ -23,6 +23,10 @@ class EditProductPreviewComponent extends Component
 
     public function updatePreview()
     {
+        $this->validate([
+            'product_id' => 'required|numeric',
+            'category_id' => 'required'
+        ]);
         $preview = ProductPreview::find($this->preview_id);
         $preview->category_id = $this->category_id;
         $preview->product_id = $this->product_id;

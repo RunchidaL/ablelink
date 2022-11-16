@@ -41,6 +41,7 @@
                         <a href="{{url('/images/downloads')}}/{{$c -> file}}">ดาวน์โหลด</a>
                     </div>
                 @endforeach
+                {{$catelogs->appends(['presentations'=>$presentations->currentPage()])->appends(['vdos'=>$vdos->currentPage()])->links()}}
                 <div class="title">
                     @foreach($downloads->unique('category_id') as $download)
                         @if(!empty($download->category_id == 3))
@@ -48,7 +49,7 @@
                         @endif
                     @endforeach
                 </div>
-                @foreach($pres as $p)
+                @foreach($presentations as $p)
                     <div class="col-1 d-flex justify-content-center">
                         <p>Presentation ของ {{$p->name}}</p>
                     </div>
@@ -56,6 +57,7 @@
                         <a href="{{url('/images/downloads')}}/{{$p -> file}}">ดาวน์โหลด</a>
                     </div>
                 @endforeach
+                {{$presentations->appends(['catelogs'=>$catelogs->currentPage()])->appends(['vdos'=>$vdos->currentPage()])->links()}}
                 <div class="title">
                     @foreach($downloads->unique('category_id') as $download)
                         @if(!empty($download->category_id == 5))
@@ -71,11 +73,11 @@
                     </div>
                     @endif
                 @endforeach
+                {{$vdos->appends(['catelogs'=>$catelogs->currentPage()])->appends(['presentations'=>$presentations->currentPage()])->links()}}
             @else
                 <p>ไม่มี</p>
             @endif
             </div>
-
         </div>
     </div>
 </div>

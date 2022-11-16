@@ -95,7 +95,7 @@ class AdminAddmodelComponent extends Component
             'web_price' => 'required',
             'dealer_price' => 'required|numeric|max:999999',
             'customer_price' => 'required|numeric|max:999999',
-            'product_id' => 'required',
+            'product_id' => 'required|numeric',
         ]);
         $model = new ProductModels();
         $model->name = $this->name;
@@ -154,7 +154,13 @@ class AdminAddmodelComponent extends Component
         $model->web_price = $this->web_price;
         $model->dealer_price = $this->dealer_price;
         $model->customer_price = $this->customer_price;
-        $model->stock = $this->stock;
+        if($this->stock){
+            $model->stock = $this->stock;
+        }
+        else{
+            $model->stock = 0;
+        }
+        
         $model->product_id = $this->product_id;
 
         if($this->group_products)

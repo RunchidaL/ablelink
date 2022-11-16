@@ -13,34 +13,47 @@ class AdminEditDownloadComponent extends Component
 {
     use WithFileUploads;
     public $name;
-    public $slug;
     public $file;
+    public $filetext;
     public $category_id;
-    public $newimage;
+    public $newfile;
     public $download_id;
     public $brand_id;
+    
 
-    public function mount($download_slug)
+    public function mount($download_id)
     {
-        $download = Download::where('slug',$download_slug)->first();
+        $download = Download::where('id',$download_id)->first();
         $this->name = $download->name;
-        $this->slug = $download->slug;
-        $this->file = $download->file;
+        if($this->category_id == '1' or $this->category_id == '3'){
+            $this->file = $download->file;
+        }
+        else{
+            $this->filetext = $download->file;
+        }
         $this->category_id = $download->category_id;
-        $this->download_id = $download->id;
         $this->brand_id = $download->brand_id;
     }
 
     public function updateDownload()
     {
+        $this->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'filetext' => 'required',
+        ]);
         $download = Download::find($this->download_id);
         $download->name = $this->name;
-        $download->slug = $this->slug;
-        if($this->newimage)
+        if($this->newfile)
         {
-            $imageName = $this->newimage->getClientOriginalName();
-            $this->newimage->storeAs('downloads',$imageName);
-            $download->file = $imageName;
+            $fileName = $this->newfile->getClientOriginalName();
+            $this->newfile->storeAs('downloads',$fileName);
+            $download->file = $fileName;
+        }
+        if($this->filetext){
+
+            $download->file = $this->filetext;
         }
         $download->category_id = $this->category_id;
         $download->brand_id = $this->brand_id;

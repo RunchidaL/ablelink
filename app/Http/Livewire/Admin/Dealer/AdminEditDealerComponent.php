@@ -51,6 +51,23 @@ class AdminEditDealerComponent extends Component
 
     public function addDealerinfo()
     {
+        $this->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'emailaddress' => 'required|email',
+            'phonenumber' => 'required',
+            'address' => 'required',
+            'subdistrict' => 'required',
+            'district' => 'required',
+            'county' => 'required',
+            'zipcode' => 'required',
+            'companyTH' => 'required',
+            'companyEN' => 'required',
+            'taxid' => 'required',
+            'idcompany' => 'required',
+            'coin' => 'required',
+            'dealerid' => 'required|numeric',
+        ]);
         $dealerinfo = Dealer::find($this->D_id);
         $dealerinfo->firstname = $this->firstname;
         $dealerinfo->lastname = $this->lastname;
@@ -73,6 +90,7 @@ class AdminEditDealerComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.dealer.admin-edit-dealer-component')->layout("layout.navfoot");
+        $users = User::where('role',2,)->get();
+        return view('livewire.admin.dealer.admin-edit-dealer-component',['users'=>$users])->layout("layout.navfoot");
     }
 }

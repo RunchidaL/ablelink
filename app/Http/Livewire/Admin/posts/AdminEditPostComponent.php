@@ -40,15 +40,19 @@ class AdminEditPostComponent extends Component
 
     public function updatePost()
     {
+        $this->validate([
+            'title' => 'required',
+            'slug' => 'required|alpha_dash',
+            'titleimg' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+        ]);
         $post = Post::find($this->post_id);
         $post->title = $this->title;
         $post->slug = $this->slug;
-        if($this->newtitleimg)
-        {
-            $imageName = Carbon::now()->timestamp. '.' . $this->newtitleimg->extension();
-            $this->newtitleimg->storeAs('posts',$imageName);
-            $post->titleimg = $imageName;
-        }
+        $imageName = Carbon::now()->timestamp. '.' . $this->newtitleimg->extension();
+        $this->newtitleimg->storeAs('posts',$imageName);
+        $post->titleimg = $imageName;
         $post->category_id = $this->category_id;
         $post->description = $this->description;
         $post->save();

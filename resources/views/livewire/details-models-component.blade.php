@@ -47,6 +47,7 @@
         <div class="col-4 rightProduct" id="right-product">
             <div class="head-product">
                 <div class="head-product-name">
+                    <p>{{$brand->brand->brands->name}}</p>
                     <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
                 </div>
                 <div class="head-product-price">
@@ -142,9 +143,9 @@
                             <div class="aRow">
                             @php
                                 $i = 0;                 
-                                $count = $product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id')->count();
+                                $count = $product_models->where('group_products',$model->group_products)->unique('series_id')->count();
                             @endphp
-                            @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
+                            @foreach($product_models->where('group_products',$model->group_products)->unique('series_id') as $product_model)
                                 @if(!empty($product_model->series_id))
                                     <div class="relate-box">
                                         <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
@@ -161,7 +162,7 @@
                         </div>  
                         <div class="relate-wrap pc">
                             <div class="aRow">
-                            @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
+                            @foreach($product_models->where('group_products',$model->group_products)->unique('series_id') as $product_model)
                                 @if(!empty($product_model->series_id))
                                     <div class="relate-box">
                                         <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
@@ -256,31 +257,51 @@
         <div class="tab-contral">
             @if(!empty($model->description))
             <a href="#description" id="description">Description</a>
-            @endif
-            @if($model->overview and empty($model->description))
-            <a href="#overview" id="overview">Overview</a>
-            @elseif(!empty($model->overview))
-            <a href="#overview">Overview</a>
-            @endif
-            @if(!empty($model->application))
-            <a href="#application">Application</a>
-            @endif
-            @foreach($network_products->where('model_id',$model->id)->unique('model_id') as $network_product)
-                @if($network_product->model_id == $model->id)
-                <a href="#network_connectivity">Network Connectivity</a>
+                @if(!empty($model->overview))
+                <a href="#overview">Overview</a>
                 @endif
-            @endforeach
-            @if(!empty($model->item_spotlight))
-            <a href="#item-spotlight">Item Spotlight</a>
+                @if(!empty($model->application))
+                <a href="#application">Application</a>
+                @endif
+                @if(!empty($model->item_spotlight))
+                <a href="#item_spotlight">Item Spotlight</a>
+                @endif
+                @if(!empty($model->feature))
+                <a href="#feature">Feature</a>
+                @endif
+            @elseif(!empty($model->overview))
+            <a href="#overview" id="overview">Overview</a>
+                @if(!empty($model->application))
+                <a href="#application">Application</a>
+                @endif
+                @if(!empty($model->item_spotlight))
+                <a href="#item_spotlight">Review</a>
+                @endif
+                @if(!empty($model->feature))
+                <a href="#feature">Feature</a>
+                @endif
+            @elseif(!empty($model->application))
+            <a href="#application" id="application">Application</a>
+                @if(!empty($model->item_spotlight))
+                <a href="#item_spotlight">Item Spotlight</a>
+                @endif
+                @if(!empty($model->feature))
+                <a href="#feature">Feature</a>
+                @endif
+            @elseif(!empty($model->item_spotlight))
+            <a href="#item-spotlight" id="item-spotlight">Review</a>
+                @if(!empty($model->feature))
+                <a href="#feature">Feature</a>
+                @endif
+            @elseif(!empty($model->feature))
+            <a href="#feature" id="feature">Feature</a>
             @endif
-            @if(!empty($model->feature))
-            <a href="#feature">Feature</a>
-            @endif
+            
             @if(!empty($model->videos))
             <a href="#videos">Videos</a>
             @endif
             @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
-            <a href="#resources">Resources</a>
+            <a href="#downloads">Downloads</a>
             @endif
         </div>
         @if(!empty($model->description))
@@ -293,8 +314,6 @@
         <div class="tab-contents">
             @if(!empty($model->description))
             <div class="fake-scroll" id="overview"></div>
-            @endif
-            @if(!empty($model->description))
             <div class="line"></div>
             @endif
             <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
@@ -303,83 +322,30 @@
         @endif
         @if(!empty($model->application))
         <div class="tab-contents">
+            @if(!empty($model->description) or !empty($model->overview))
             <div class="fake-scroll" id="application"></div>
             <div class="line"></div>
+            @endif
             <h4 class="me"><span>Application</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->application !!}</div>
-            
         </div>
         @endif
-        @foreach($network_products->where('model_id',$model->id)->unique('model_id') as $network_product)
-            @if($network_product->model_id == $model->id)
-            <div class="tab-contents">
-                <div class="fake-scroll" id="network_connectivity"></div>
-                <div class="line"></div>
-                <h4 class="me"><span>Network Connectivity</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-                <div>
-                    <div class="menu-wrap">
-                        <ul class="menu-list" id="menu-list">
-                            @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                                <li class="menu">{{$network_product->image_id->type->name}}</li>
-                            @endforeach
-                        </ul>
-                    </div> 
-                    <div class="content"> 
-                        <div class="wrapper">
-                        @foreach($network_images as $network_image)
-                            @foreach($network_products->where('model_id',$model->id)->unique('network_image_id') as $network_product)
-                                @if($network_image->id == $network_product->network_image_id)
-                                <div id="item{{$loop->index}}" class="item">
-                                    <img src="{{asset('/images/products')}}/{{$network_image->image}}">
-                                    <div class="tag-list">
-                                        @foreach($network_products->where('model_id',$model->id) as $network_product)
-                                            @if($network_image->id == $network_product->network_image_id)
-                                                <div class="tag-item">
-                                                    <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}"><img src="{{asset('/images/products')}}/{{$network_product->photo->image}}" class="img-fluid rounded-start" alt="..."></a>
-                                                    <div>
-                                                        <a href="{{route('product.detailsmodels',['modelslug'=>$network_product->photo->slug])}}" class="name">{{$network_product->photo->slug}}, {{$network_product->photo->name}}</a>
-                                                        @guest
-                                                            @if(($model->web_price) == '0') 
-                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
-                                                            @endif
-                                                        @else
-                                                            @if(Auth::user()->role == 1)
-                                                                @if(($model->web_price) == '0')
-                                                                <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}</div>
-                                                                @endif
-                                                            @elseif(Auth::user()->role == 2)
-                                                            <div class="price">฿{{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                            @elseif(Auth::user()->role == 3)
-                                                            <div class="price">฿{{number_format($network_product->photo->customer_price,2)}}, {{number_format($network_product->photo->dealer_price,2)}}</div>
-                                                            @endif
-                                                        @endguest
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                </div>
-                                @endif
-                            @endforeach
-                        @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-        @endforeach
         @if(!empty($model->item_spotlight))
         <div class="tab-contents">
+            @if(!empty($model->description) or !empty($model->overview) or !empty($model->application))
             <div class="fake-scroll" id="item-spotlight"></div>
             <div class="line"></div>
+            @endif
             <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->item_spotlight !!}</div>
         </div>
         @endif
         @if(!empty($model->feature))
         <div class="tab-contents">
+            @if(!empty($model->description) or !empty($model->overview) or !empty($model->application) or !empty($model->item_spotlight))
             <div class="fake-scroll" id="feature"></div>
             <div class="line"></div>
+            @endif
             <h4 class="me"><span>Feature</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->feature !!}</div>
         </div>
@@ -610,10 +576,11 @@ for (let i = 0; i < menu.length; i++) {
     background-position: center;
 }
 
-.mySwiper2 {
+.mySwiper2{
     height: 80%;
     width: 100%;
 }
+
 .mySwiper{
     height: 20%;
     box-sizing: border-box;
@@ -632,16 +599,12 @@ for (let i = 0; i < menu.length; i++) {
 
 .swiper-slide img {
     display: block;
-    width: 30em;
-    height: 30em;
-    object-fit: cover;
+    width: 80%;
 }
 
 .swiper.mySwiper .swiper-wrapper .swiper-slide img{
     display: block;
-    width: 5em;
-    height: 5em;
-    object-fit: cover;
+    width: 100%;
 }
 
 .swiper-button-next,.swiper-button-prev{
@@ -657,7 +620,32 @@ for (let i = 0; i < menu.length; i++) {
     color: black;
 }
 
-@media screen and (max-width: 1000px) {
+span, p, li, td, th{
+    font-family: 'Prompt', sans-serif !important;
+}
+
+@media screen and (max-width: 1400px){
+    p img, table, .table-responsive, .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl,  .row > *{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .col-sm-6, .col-md-6, .col-lg-4{
+        flex-basis: 0;
+    }
+    .row > *{
+        margin: auto;
+    }
+    .row{
+        display: block;
+    }
+    table p, table span{
+        font-size: 0.625rem !important;
+        line-height: 16px !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1000px){
     .swiper-navBtn4{
         display: none;
     }
@@ -671,7 +659,6 @@ for (let i = 0; i < menu.length; i++) {
         display: block;
         width: 90%;
         height: 100%;
-        object-fit: cover;
     }
     .swiper-button-prev.swiper-navBtn{
         left: 0;
@@ -683,7 +670,7 @@ for (let i = 0; i < menu.length; i++) {
     margin: 0 0px;
     overflow: hidden;
     padding: 0% 0% 0% 0%;
-}
+    }
 }
 
 @media(max-width: 520px){
@@ -691,7 +678,6 @@ for (let i = 0; i < menu.length; i++) {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover;
     }
     .swiper {
         width: 100%;
@@ -700,7 +686,10 @@ for (let i = 0; i < menu.length; i++) {
         display: block;
         width: 80%;
         height: 100%;
-        object-fit: cover;
+    }
+    table span, table span{
+        font-size: 0.5rem !important;
+        line-height: 10px !important;
     }
 }
 </style>

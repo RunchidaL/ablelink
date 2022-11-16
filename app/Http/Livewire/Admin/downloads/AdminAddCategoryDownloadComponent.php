@@ -18,6 +18,10 @@ class AdminAddCategoryDownloadComponent extends Component
 
     public function storeCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|alpha_dash'
+        ]);
         $category = new DownloadCategory();
         $category->name = $this->name;
         $category->slug = $this->slug;

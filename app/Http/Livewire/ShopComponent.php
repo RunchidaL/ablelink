@@ -35,6 +35,8 @@ class ShopComponent extends Component
 
     public function addToCart($id)
     {
+        if(auth()->user())
+        {
         $this->model_id = $id;
         
         $model = ProductModels::where('id',$this->model_id)->first();
@@ -74,9 +76,8 @@ class ShopComponent extends Component
             }
         }
 
-        if(auth()->user())
-        {
-            $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
+
+        $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
             
             if($count == 0)
             {
@@ -113,7 +114,7 @@ class ShopComponent extends Component
         }
         else
         {
-            return redirect(route('login'));
+            return redirect('/login');
         }
     }
 

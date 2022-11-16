@@ -239,12 +239,6 @@ class AdminEditmodelComponent extends Component
         {
             $model->jacket_id = $this->jacket_id;
         }
-        else{
-            $model->group_products = null;
-            $model->series_id = null;
-            $model->type_id = null;
-            $model->jacket_id = null;
-        }
         
         $model->save();
 
