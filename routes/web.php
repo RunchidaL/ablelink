@@ -88,6 +88,7 @@ use App\Http\Livewire\Admin\mainpage\CustomServiceComponent;
 use App\Http\Livewire\Admin\mainpage\CustomForworkComponent;
 use App\Http\Controllers\AdminOrderPdfController;
 use App\Http\Livewire\GroupCategoryComponent;
+use App\Http\Livewire\ReviewComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -164,6 +165,8 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
     Route::get('/customer/addaddress',CustomerAddAddressComponent::class)->name('customer.addaddress');
     Route::get('/customer/editaddress/{address_id}',CustomerEditAddressComponent::class)->name('customer.editaddress');
+
+    Route::get('/review/{order_item_id}',ReviewComponent::class)->name('review');
 });
 
 // for Admin

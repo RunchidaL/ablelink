@@ -163,7 +163,8 @@ return [
         ],
         'image' => [
             'required' => 'กรุณาใส่รูป',
-            'mimes' => 'กรุณาใส่ไฟล์ jpeg,jpg,png เท่านั้น'
+            'mimes' => 'กรุณาใส่ไฟล์ jpeg,jpg,png เท่านั้น',
+            'size' => 'กรุณาใส่ไฟล์ที่มีขนาดน้อยกว่า 300 MB'
         ],
         'dealer_price' => [
             'required' => 'กรุณาใส่',

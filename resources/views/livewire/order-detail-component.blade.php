@@ -52,6 +52,7 @@
                             <td>ราคา</td>
                             <td>จำนวน</td>
                             <td>รวม</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,7 +114,9 @@
                                         @endif
                                     @endif
                                 @endif
+                                
                             </td>
+                            <td><div class="review"><a href="{{route('review',['order_item_id'=>$item->id])}}">เขียนรีวิว</a></div></td>
                         </tr>
                         @endforeach
                     </tbody>    
@@ -189,6 +192,7 @@
                     </div>
                     <div class="phone-order-detail-quantity">
                         <p class="group-cen">จำนวน {{$item->quantity}} ชิ้น</p>
+                        <div class="review"><a href="{{route('review',['order_item_id'=>$item->id])}}">เขียนรีวิว</a></div>
                     </div>
                 </div>
             </div>
@@ -196,6 +200,7 @@
             <div class="phone-order-detail-conclu">
                 <span>ยอดรวมทั้งหมด</span>
                 <span>฿{{number_format($order->total,2)}}</span>
+                
             </div>
         </div>
     </div>

@@ -34,9 +34,9 @@ class CategoryComponent extends Component
 
     public function mount($category_slug,$scategory_slug=null,$bcategory_slug=null)
     {
-        $this->$category_slug = $category_slug;
-        $this->$scategory_slug = $scategory_slug;
-        $this->$bcategory_slug = $bcategory_slug;
+        $this->category_slug = $category_slug;
+        $this->scategory_slug = $scategory_slug;
+        $this->bcategory_slug = $bcategory_slug;
         $this->qty = 1;
     }
 
@@ -192,8 +192,10 @@ class CategoryComponent extends Component
             $filter = "";
         }
         
-        $products = Product::where($filter.'category_id',$category_id)->paginate(10);
-        $models = ProductModels::all();
+        $products = Product::where($filter.'category_id',$category_id)->get();
+        $models = ProductModels::join('products', 'product_models.product_id', '=', 'products.id')->where('products.category_id', $this->category_slug)
+                                ->get();
+
         $categories = Category::all();
         $category = Category::where('slug',$this->category_slug)->first();
         $scategory = Subcategory::where('slug',$this->scategory_slug)->first();

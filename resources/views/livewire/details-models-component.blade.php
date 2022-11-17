@@ -47,7 +47,6 @@
         <div class="col-4 rightProduct" id="right-product">
             <div class="head-product">
                 <div class="head-product-name">
-                    <p>{{$brand->brand->brands->name}}</p>
                     <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
                 </div>
                 <div class="head-product-price">
@@ -263,9 +262,6 @@
                 @if(!empty($model->application))
                 <a href="#application">Application</a>
                 @endif
-                @if(!empty($model->item_spotlight))
-                <a href="#item_spotlight">Item Spotlight</a>
-                @endif
                 @if(!empty($model->feature))
                 <a href="#feature">Feature</a>
                 @endif
@@ -273,9 +269,6 @@
             <a href="#overview" id="overview">Overview</a>
                 @if(!empty($model->application))
                 <a href="#application">Application</a>
-                @endif
-                @if(!empty($model->item_spotlight))
-                <a href="#item_spotlight">Review</a>
                 @endif
                 @if(!empty($model->feature))
                 <a href="#feature">Feature</a>
@@ -288,21 +281,16 @@
                 @if(!empty($model->feature))
                 <a href="#feature">Feature</a>
                 @endif
-            @elseif(!empty($model->item_spotlight))
-            <a href="#item-spotlight" id="item-spotlight">Review</a>
-                @if(!empty($model->feature))
-                <a href="#feature">Feature</a>
-                @endif
             @elseif(!empty($model->feature))
             <a href="#feature" id="feature">Feature</a>
             @endif
-            
             @if(!empty($model->videos))
             <a href="#videos">Videos</a>
             @endif
             @if(!empty($model->datasheet) or !empty($model->firmware) or !empty($model->guide) or !empty($model->cert) or !empty($model->config))
             <a href="#downloads">Downloads</a>
             @endif
+            <a href="#reviews" id="reviews">Reviews</a>
         </div>
         @if(!empty($model->description))
         <div class="tab-contents">
@@ -330,19 +318,10 @@
             <div>{!! $model->application !!}</div>
         </div>
         @endif
-        @if(!empty($model->item_spotlight))
-        <div class="tab-contents">
-            @if(!empty($model->description) or !empty($model->overview) or !empty($model->application))
-            <div class="fake-scroll" id="item-spotlight"></div>
-            <div class="line"></div>
-            @endif
-            <h4 class="me"><span>Item Spotlight</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
-            <div>{!! $model->item_spotlight !!}</div>
-        </div>
-        @endif
+
         @if(!empty($model->feature))
         <div class="tab-contents">
-            @if(!empty($model->description) or !empty($model->overview) or !empty($model->application) or !empty($model->item_spotlight))
+            @if(!empty($model->description) or !empty($model->overview) or !empty($model->application))
             <div class="fake-scroll" id="feature"></div>
             <div class="line"></div>
             @endif
@@ -350,6 +329,7 @@
             <div>{!! $model->feature !!}</div>
         </div>
         @endif
+
         @if(!empty($model->videos))
         <div class="tab-contents">
             <div class="fake-scroll" id="videos"></div>
@@ -383,7 +363,7 @@
         <div class="tab-contents">
             <div class="fake-scroll" id="resources"></div>
             <div class="line"></div>
-            <h4>Resources</h4><br>
+            <h4>Downloads</h4><br>
             <div class="download">
                 @if(!empty($model->datasheet))
                     <a href="{{asset('/images/products')}}/{{$model->datasheet}}"><div class="file-detail"><i class="bi bi-file-earmark-pdf"></i> Datasheet</div></a>
@@ -403,6 +383,67 @@
             </div>
         </div>
         @endif
+
+        <div class="tab-contents">
+            <div class="fake-scroll" id="reviews"></div>
+            <div class="line mt-2"></div>
+            <h4 class="me"><span>Reviews</span></h4>
+            @php
+                $avg = 0;
+            @endphp
+            @if($reviews->count()>0)
+                @foreach($rating as $r)
+                    @php
+                        $avg += $r->rating;
+                    @endphp
+                @endforeach
+                @php
+                    $score = $avg/$rating->count();
+                    $star = floor($score);
+                    $dot = fmod($score, 1);
+                @endphp
+                @for($i=1;$i<=$star;$i++)
+                    <i class="bi bi-star-fill"></i>
+                @endfor
+                @if($dot>=0.5)
+                <i class="bi bi-star-half"></i>
+                @endif
+                {{number_format($score,2)}}/5
+                @foreach($reviews as $review)
+                    <div class="row justify-content-start mt-3">
+                        <div class="col-2">
+                            <div>{{$review->user->name}}</div>
+                        </div>
+                        <div class="col-6">
+                            @php
+                                $rate = $review->rating;
+                            @endphp
+                            @for($i=1;$i<=5;$i++)
+                                @if($i <= $rate)
+                                <i class="bi bi-star-fill"></i>
+                                @endif
+                            @endfor
+                            <div>{!! $review->comment !!}</div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div>{{date('d M Y', strtotime($review->created_at))}}</div>
+                        </div>
+                    </div>
+                    <div class="line-review"></div>
+                @endforeach
+
+            @if($this->amount == 5)
+            <br>
+            {{$reviews->links()}}
+            @else
+            <div class="seemore"><a wire:click="load" >ดูเพิ่มเติม</a></div>
+            @endif
+
+            @else
+            <p>ยังไม่พบการรีวิวสินค้า</p>
+            @endif
+        </div>
+
     </div>
 </div>
 

@@ -13,7 +13,6 @@
                         <td>รหัสใบสั่งซื้อ</td>
                         <td>วันสั่งซื้อ</td>
                         <td>ยอดชำระเงิน</td>
-                        <td>สถานะ</td>
                         <td>ดูรายการสินค้า</td>
                     </tr>
                 </thead>
@@ -28,9 +27,6 @@
                         </td>
                         <td class="order-total">
                             <p class="group-cen">฿{{number_format($order->total,2)}}</p>
-                        </td>
-                        <td class="order-status">
-                            <p class="group-cen">อยู่ระหว่างการขนส่ง</p>
                         </td>
                         <td class="order-detail">
                             <div class="group-cen">
@@ -63,11 +59,6 @@
                     </div>
                     <div class="phone-order-quantity">
                         <p class="group-cen">{{date('d/m/Y', strtotime($order->created_at))}}</p>
-                    </div>
-                </div>
-                <div class="phone-order-mid">
-                    <div class="phone-order-status">
-                        <p class="group-cen">อยู่ระหว่างการขนส่ง</p>
                     </div>
                 </div>
                 <div class="phone-order-right">

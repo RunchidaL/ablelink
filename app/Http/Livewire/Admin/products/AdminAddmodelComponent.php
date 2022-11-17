@@ -76,7 +76,7 @@ class AdminAddmodelComponent extends Component
         $this->validateOnly($fields,[
             'name' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
-            'image' => 'mimes:jpeg,jpg,png|required',
+            'image' => 'mimes:jpeg,jpg,png|required|size:300',
             'datasheet' => 'mimes:pdf',
             'guide' => 'mimes:pdf',
             'cert' => 'mimes:pdf',
@@ -99,6 +99,7 @@ class AdminAddmodelComponent extends Component
         ]);
         $model = new ProductModels();
         $model->name = $this->name;
+        $model->nickname = $this->nickname;
         $model->slug = $this->slug;
         $model->description = $this->description;
         $model->overview = $this->overview;
