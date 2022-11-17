@@ -8,33 +8,18 @@
 
 <div class="screen" style="min-height: calc(100vh - 227.5px);">
 <!-- highlight -->
-    <div class="slider">
-        @foreach ($sliders as $slide)
-        <div class="myslider">
-            <div class="txt">
-                <h1>{{$slide->title}}</h1>
-            </div>
-            <div class="txt2">
-                <p>{{$slide->subtitle}}</p>
-            </div>
-            <a href="{{$slide->link}}" style="text-decoration: none"><img class="imgg" src="{{asset('images/sliders')}}/{{$slide->image}}" style="width: 100%; height: 100%; object-fit: cover;" alt=""></a>
-        </div>
-        @endforeach
-        <a class="prev" onclick="plusSlides(-1)"><i class="bi bi-chevron-left"></i></a>
-        <a class="next" onclick="plusSlides(1)"><i class="bi bi-chevron-right"></i></a>
-        <div class="dotsbox" style="text-align: center;" >
-            @php
-                $i = 0; 
-            @endphp
-            @foreach($sliders as $slide)
-                @php
-                    $i++; 
-                @endphp
-                <span class="dot" onclick="CurrentSlide({{$i}})"></span>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="swiper-wrapper">
+            @foreach ($sliders as $slide)
+            <div class="swiper-slide"><img src="{{asset('images/sliders')}}/{{$slide->image}}"></div>
             @endforeach
         </div>
+        <div class="swiper-button-next" id="nextver1"></div>
+        <div class="swiper-button-prev" id="prevver1"></div>
+        <div class="swiper-pagination" id="pagver1"></div>
     </div>
-
+ 
 <!-- newproduct -->
     <div class="body">
         <div class="container">
@@ -45,8 +30,10 @@
                     <div class="row">
                         @foreach ($Lproduct as $lproduct)
                         <div class="NP-col" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="800">
-                            <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" style="text-decoration: none; color: black; "><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt="">
-                            <p>{{$lproduct->name}}</p></a>
+                            <div class="boximgnp">
+                                <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" class="imgnp"><img src="{{asset('/images/products')}}/{{$lproduct->image}}" alt=""></a>
+                            </div>
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$lproduct->slug])}}" class="nameimgnp"><p>{{$lproduct->name}}</p></a>
                         </div>
                         @endforeach
                     </div>
@@ -81,7 +68,9 @@
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}" class="image">
-                                    <img src="{{asset('/images/products')}}/{{$preview->product->image}}">
+                                    <div class="boximgpp">
+                                        <div class="imgpp"><img src="{{asset('/images/products')}}/{{$preview->product->image}}"></div>
+                                    </div>
                                 </a>
                                 <span class="product-slug">{{$preview->product->slug}}</span>
                                 <a href="{{route('product.detailsmodels',['modelslug'=>$preview->product->slug])}}" class="detail">DETAIL</a>
@@ -166,49 +155,23 @@
 </div>
 
 <script>
-    const myslide = document.querySelectorAll('.myslider'),
-        dot = document.querySelectorAll('.dot');
-
-    let counter = 1;
-    slidefun(counter);
-
-    let timer = setInterval(autoslide, 5000);
-    function autoslide(){
-        counter += 1;
-        slidefun(counter);
-    }
-    function plusSlides(n){
-        counter += n;
-        slidefun(counter);
-        resetTimer();
-    }
-    function CurrentSlide(n){
-        counter = n;
-        slidefun(counter);
-        resetTimer();
-    }
-    function resetTimer(){
-        clearInterval(timer);
-        timer = setInterval(autoslide, 8000);
-    }
-
-    function slidefun(n){
-        let i;
-        for(i = 0;i<myslide.length;i++){
-            myslide[i].style.display = "none";
-        }
-        for(i = 0;i<dot.length;i++){
-            dot[i].classList.remove('active');
-        }
-        if(n > myslide.length){
-            counter = 1;
-        }
-        if(n < 1){
-            counter = myslide.length;
-        }
-        myslide[counter - 1].style.display = "block";
-        dot[counter - 1].classList.add('active');
-    }
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      autoplay: {
+        delay: 5000,
+      },
+      
+    });
 </script>
 
 <script>

@@ -31,6 +31,9 @@
 			<div class="step">
 				<h2>คำแนะนำ</h2>
 			</div>
+			@if(Session::has('message'))
+            <div class="alert alert-success" role="alert"><p style="text-align: center">{{Session::get('message')}}</p></div>
+            @endif
 			@if ($errors->any())
 			<div class="step">
 				<h4>! กรุณาระบุข้อมูลให้ครบถ้วน !</h4>

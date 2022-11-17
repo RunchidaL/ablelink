@@ -16,6 +16,9 @@
         <form action="{{route('send.email')}}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <div class="row">
+                @if(Session::has('message'))
+                <div class="alert alert-success" role="alert"><p style="text-align: center">{{Session::get('message')}}</p></div>
+                @endif
                 <h4>ข้อมูลส่วนตัว</h4>  
                 <div class="col-md-6 mb-3">
                     <div class="form-group">

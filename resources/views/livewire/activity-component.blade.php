@@ -3,7 +3,6 @@
 <link href="/css/blog.css" rel="stylesheet">
 <!-- link -->
 
-
 <div class="menu-activity" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
     <div class="mac-left">
         <a href="/post_category/บทความ"><i class="bi bi-file-text"></i></a>

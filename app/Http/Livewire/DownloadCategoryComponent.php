@@ -6,10 +6,14 @@ use Livewire\Component;
 use App\Models\Download;
 use App\Models\DownloadCategory;
 use App\Models\Brand;
+use Livewire\WithPagination;
 
 class DownloadCategoryComponent extends Component
 {
+    use WithPagination;
     public $download_brand;
+    
+    protected $paginationTheme = 'bootstrap';
 
     public function mount($download_brand)
     {
@@ -21,9 +25,9 @@ class DownloadCategoryComponent extends Component
         $brand_id = $this->download_brand;
         $brand = Brand::where('slug',$brand_id)->first();
         $downloads = Download::where('brand_id',$brand->id)->get();
-        $catelogs = Download::where('brand_id',$brand->id)->where('category_id',1)->get();
-        $pres = Download::where('brand_id',$brand->id)->where('category_id',3)->get();
-        $vdos = Download::where('brand_id',$brand->id)->where('category_id',5)->get();
-        return view('livewire.download-category-component',['downloads'=>$downloads,'catelogs'=>$catelogs,'pres'=>$pres,'vdos'=>$vdos])->layout("layout.navfoot");
+        $catelogs = Download::where('brand_id',$brand->id)->where('category_id',1)->paginate(2, ['*'], 'catelogs');
+        $presentations = Download::where('brand_id',$brand->id)->where('category_id',3)->paginate(2, ['*'], 'presentations');
+        $vdos = Download::where('brand_id',$brand->id)->where('category_id',5)->paginate(2, ['*'], 'vdos');
+        return view('livewire.download-category-component',['brand'=>$brand,'downloads'=>$downloads,'catelogs'=>$catelogs,'presentations'=>$presentations,'vdos'=>$vdos])->layout("layout.navfoot");
     }
 }

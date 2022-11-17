@@ -2,6 +2,7 @@
   color: #dc7226;
   margin-left: 5%;
   margin-top: 1.5rem;
+  font-weight: bold;
 }
 
 #products{
@@ -24,11 +25,26 @@
   border-radius: 5px;
 }
 
+.boximgnp{
+  display: table;
+  height: 275px;
+  margin: auto;
+}
+
+.imgnp{
+  text-decoration: none; 
+  color: black; 
+  margin: auto; 
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
 .NP-col img{
-  width: 100%;
+  width: 80%;
   height: auto;
   display: flex; 
-  padding: 10%;
+  margin: auto;
 }
 
 .card a{

@@ -590,14 +590,6 @@ for (let i = 0; i < menu.length; i++) {
     align-items: center;
 }
 
-.swiper-slide img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-}
-
 .swiper{
     width: 70%;
     height: 300px;
@@ -632,16 +624,12 @@ for (let i = 0; i < menu.length; i++) {
 
 .swiper-slide img {
     display: block;
-    width: 30em;
-    height: 30em;
-    object-fit: cover;
+    width: 80%;
 }
 
 .swiper.mySwiper .swiper-wrapper .swiper-slide img{
     display: block;
-    width: 5em;
-    height: 5em;
-    object-fit: cover;
+    width: 80%;
 }
 
 .swiper-button-next,.swiper-button-prev{
@@ -671,7 +659,6 @@ for (let i = 0; i < menu.length; i++) {
         display: block;
         width: 90%;
         height: 100%;
-        object-fit: cover;
     }
     .swiper-button-prev.swiper-navBtn{
         left: 0;
@@ -700,7 +687,6 @@ for (let i = 0; i < menu.length; i++) {
         display: block;
         width: 80%;
         height: 100%;
-        object-fit: cover;
     }
 }
 </style>

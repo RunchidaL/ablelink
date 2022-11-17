@@ -9,10 +9,12 @@
         </div>
         <div class="row" id="products">
             @foreach($products as $product)
-            <div class="NP-col" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
+            <div class="NP-col">
                 <div class="card">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
-                        <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
+                        <div class="boximgnp">
+                            <div class="imgnp"><img src="{{asset('/images/products')}}/{{$product->image}}" alt="..."></div>
+                        </div>
                         <div class="card-body">
                             <p><span>#{{$product->slug}}</span></p>
                             <p class="card-title">{{$product->name}}</p>
@@ -82,7 +84,7 @@
                 </div>
             </div>
             @endforeach
-            {{$products->links()}}
+            {{$products->links()}} 
         </div>
     </div>
     <div class="add-products-preview" id="add-products-preview">

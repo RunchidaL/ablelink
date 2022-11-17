@@ -21,7 +21,9 @@
                 <div class="NP-col">
                     <div class="card">
                         <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}" class="card-wrapper">
-                            <img src="{{asset('/images/products')}}/{{$model->image}}" class="card-img-top" alt="...">
+                            <div class="boximgnp">
+                                <div class="imgnp"><img src="{{asset('/images/products')}}/{{$model->image}}" alt="..."></div>
+                            </div>
                             <div class="card-body">
                                 <p><span>#{{$model->slug}}</span></p>
                                 <p class="card-title">{{$model->name}}</p>

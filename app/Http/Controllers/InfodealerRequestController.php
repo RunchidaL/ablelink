@@ -71,8 +71,9 @@ class InfodealerRequestController extends Controller
         }
         // dd($data);
         Mail::to('cpe327@gmail.com')->send(new ContactMail($data));
+        session()->flash('message','Register Dealer Successfully!');
         Alert::success('Register Dealer','Successfully!');
-        return redirect('/');
+        return redirect('/register_dealer');
     }
     
 }

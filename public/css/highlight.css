@@ -1,232 +1,41 @@
-*{
-    box-sizing: border-box;
-}
-.slider{
-    position: relative;
+#swiper-wrapper img{
     width: 100%;
-    background: #2c3e50;
 }
-.myslider{
-    min-height: 100%;
-    display: none;
-    overflow: hidden;
-    justify-items: center;
+#nextver1 , #prevver1{
+    color: 	#A9A9A9;
+    padding: 30px 25px;
+    border-radius: 10px; 
+    transition: all 0.3s ease;
 }
-.prev, .next{
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    font-size: 50px;
-    padding: 15px;
-    cursor: pointer;
-    color: #fff;
-    transition: 0.1s;
-    user-select: none;
+#nextver1:hover{
+    color: black;
+    background: #F5F5F5;
+    border-radius: 10px; 
+    opacity: 0.7;
 }
-.prev:hover, .next:hover{
-    color: #3498db;
+#prevver1:hover{
+    color: black;
+    background: #F5F5F5;
+    border-radius: 10px; 
+    opacity: 0.7;
 }
-.next{
-    right: 0;
-}
-.dotsbox{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 20px;
-    cursor: pointer;
-}
-.dot{
-    display: inline-block;
+.swiper.mySwiper .swiper-pagination-bullet{
     height: 7px;
     width: 26px;
     border-radius: 25px;
     background: #cccccc;
-
+}
+.swiper.mySwiper .swiper-pagination-bullet-active{
+    background: white;
 }
 
-.active, .dot:hover{
-    height: 7px;
-    width: 26px;
-    border-radius: 25px;
-    background: rgb(255, 255, 255);
-}
-
-.txt{
-    position:absolute;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 35px;
-    top: 40%;
-    left: 25%;
-    -webkit-animation-name: posi;
-    -webkit-animation-duration: 1s;
-    animation-name: posi;
-    animation-duration: 1s;
-    z-index: 1;
-}
-.txt2{
-    position:absolute;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 35px;
-    top: 50%;
-    left: 25%;
-    -webkit-animation-name: posi3;
-    -webkit-animation-duration: 1s;
-    animation-name: posi3;
-    animation-duration: 1s;
-    z-index: 1;
-}
-
-@-webkit-keyframes posi{
-    from {left: 5%;}
-    to {left: 25%;}
-}
-
-@keyframes posi{
-    from {left: 5%;}
-    to {left: 25%;}
-}
-
-@-webkit-keyframes posi3{
-    from {left: 45%;}
-    to {left: 25%;}
-}
-
-@keyframes posi3{
-    from {left: 45%;}
-    to {left: 25%;}
-}
-.txt h1{
-    color: #3498db;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.txt2 p{
-    font-weight: bold;
-    font-size: 20px;
-}
-.imgg{
-    transform: scale(1.1, 1.1);
-    -webkit-animation-name: zoomin;
-    -webkit-animation-duration: 1s;
-    animation-name: zoomin;
-    animation-duration: 1s;
-}
-
-@-webkit-keyframes zoomin{
-    from {transform: scale(1,1);}
-    to {transform: scale(1.1,1.1);}
-}
-
-@keyframes zoomin{
-    from {transform: scale(1,1);}
-    to {transform: scale(1.1,1.1);}
-}
-@media screen and (max-width:1200px){
-    .myslider{
-        height: 400px;
+@media screen and (max-width:560px){
+    #nextver1 , #prevver1{
+        display: none;
     }
-    .txt{
-        line-height: 25px;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-animation-name: posi2;
-        -webkit-animation-duration: 1s;
-        animation-name: posi2;
-        animation-duration: 1s;
-    }
-    .txt2{
-        line-height: 25px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-animation-name: posi4;
-        -webkit-animation-duration: 1s;
-        animation-name: posi4;
-        animation-duration: 1s;
-    }
-    @-webkit-keyframes posi2 {
-        from {left:30%;}
-        to {left: 50%;}
-    }
-    @keyframes posi2 {
-        from {left:30%;}
-        to {left: 50%;}
-    }
-    @-webkit-keyframes posi4 {
-        from {left:70%;}
-        to {left: 50%;}
-    }
-    @keyframes posi4 {
-        from {left:70%;}
-        to {left: 50%;}
-    }
-    .txt h1{
-        font-size: 40px;
-    }
-    .txt2 p{
-        font-size: 13px;
-    }
-    .txt .imgg{
+    #swiper-wrapper img{
+        width: 100%;
+        height: 220px;
         object-fit: cover;
     }
 }
-
-@media screen and (max-width:520px){
-    .myslider{
-        height: 400px;
-    }
-    .txt{
-        line-height: 25px;
-        top: 35%;
-        left: 45%;
-        transform: translate(-50%, -50%);
-        -webkit-animation-name: posi3;
-        -webkit-animation-duration: 1s;
-        animation-name: posi3;
-        animation-duration: 1s;
-    }
-    .txt2{
-        line-height: 25px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -webkit-animation-name: posi6;
-        -webkit-animation-duration: 1s;
-        animation-name: posi6;
-        animation-duration: 1s;
-    }
-    @-webkit-keyframes posi3 {
-        from {top:20%;}
-        to {top: 35%;}
-    }
-    @keyframes posi3 {
-        from {top:20%;}
-        to {top: 35%;}
-    }
-    @-webkit-keyframes posi6 {
-        from {top:60%;}
-        to {top: 50%;}
-    }
-    @keyframes posi6 {
-        from {top:60%;}
-        to {top: 50%;}
-    }
-    .txt h1{
-        font-size: 30px;
-    }
-    .txt2 p{
-        font-size: 13px;
-    }
-    .txt .imgg{
-        object-fit: cover;
-    }
-    .txt2 .imgg{
-        object-fit: cover;
-    }
-}
-
-

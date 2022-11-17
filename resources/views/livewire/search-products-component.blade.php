@@ -3,16 +3,18 @@
         @if(Session::has('message'))
             <div class="alert alert-danger" role="alert">{{Session::get('message')}}</div>
         @endif
+        @if($products->count()>0)
         <div>
             <h2 class="text">ผลิตภัณฑ์ทั้งหมด</h2>
         </div>
-        @if($products->count()>0)
         <div class="row" id="products">
             @foreach($products as $product)
             <div class="NP-col">
                 <div class="card">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}" class="card-wrapper">
-                        <img src="{{asset('/images/products')}}/{{$product->image}}" class="card-img-top" alt="...">
+                        <div class="boximgnp">
+                            <div class="imgnp"><img src="{{asset('/images/products')}}/{{$product->image}}"></div>
+                        </div>
                         <div class="card-body">
                             <p><span>#{{$product->slug}}</span></p>
                             <p class="card-title">{{$product->name}}</p>
@@ -86,7 +88,7 @@
             {{$products->links()}}
         </div>
         @else
-        <p>No products</p>
+        <p class="noproduct">ไม่พบสินค้าที่ค้นหา</p>
         @endif
     </div>
     <div class="add-products-preview" id="add-products-preview">
@@ -161,3 +163,12 @@
         };
     });
 </script>
+
+<style>
+    .noproduct{
+        text-align: center;
+        margin: 10% 0;
+        font-weight: bold;
+        font-size: 30px;
+    }
+</style>

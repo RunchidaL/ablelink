@@ -1,52 +1,62 @@
-<div>
-    @if ($paginator->hasPages())
-        @php(isset($this->numberOfPaginatorsRendered[$paginator->getPageName()]) ? $this->numberOfPaginatorsRendered[$paginator->getPageName()]++ : $this->numberOfPaginatorsRendered[$paginator->getPageName()] = 1)   
-        <nav>
-            <ul class="pagination justify-content-center">
-                {{-- Previous Page Link --}}
-                @if ($paginator->onFirstPage())
-                    <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                        <span class="page-link" aria-hidden="true">&lsaquo;</span>
-                    </li>
-                @else
-                    <li class="page-item">
-                        <button style="background: rgb(224, 224, 224);" type="button" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
-                    </li>
-                @endif
+@if ($paginator->hasPages())
+    <ul class="pagination justify-content-center" role="navigation">
+        {{-- Previous Page Link --}}
+        @if ($paginator->onFirstPage())
+            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                <span class="page-link" aria-hidden="true">&lsaquo;</span>
+            </li>
+        @else
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+            </li>
+        @endif
 
-                {{-- Pagination Elements --}}
-                @foreach ($elements as $element)
-                    {{-- "Three Dots" Separator --}}
-                    @if (is_string($element))
-                        <li class="page-item disabled" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
-                    @endif
+        <?php
+            $start = $paginator->currentPage() - 2; // show 3 pagination links before current
+            $end = $paginator->currentPage() + 2; // show 3 pagination links after current
+            if($start < 1) {
+                $start = 1; // reset start to 1
+                $end += 1;
+            } 
+            if($end >= $paginator->lastPage() ) $end = $paginator->lastPage(); // reset end to last page
+        ?>
 
-                    {{-- Array Of Links --}}
-                    @if (is_array($element))
-                        @foreach ($element as $page => $url)
-                            @if ($page == $paginator->currentPage())
-                                <li class="page-item active" wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}" aria-current="page"><span class="page-link">{{ $page }}</span></li>
-                            @else
-                                <li class="page-item" wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}"><button type="button" class="page-link" wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')">{{ $page }}</button></li>
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
+        @if($start > 1)
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->url(1) }}">{{1}}</a>
+            </li>
+            @if($paginator->currentPage() != 4)
+                {{-- "Three Dots" Separator --}}
+                <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+            @endif
+        @endif
+            @for ($i = $start; $i <= $end; $i++)
+                <li class="page-item {{ ($paginator->currentPage() == $i) ? ' active' : '' }}">
+                    <a class="page-link" href="{{ $paginator->url($i) }}">{{$i}}</a>
+                </li>
+            @endfor
+        @if($end < $paginator->lastPage())
+            @if($paginator->currentPage() + 3 != $paginator->lastPage())
+                {{-- "Three Dots" Separator --}}
+                <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+            @endif
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">{{$paginator->lastPage()}}</a>
+            </li>
+        @endif
 
-                {{-- Next Page Link --}}
-                @if ($paginator->hasMorePages())
-                    <li class="page-item">
-                        <button style="background: rgb(224, 224, 224);" type="button" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</button>
-                    </li>
-                @else
-                    <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                        <span class="page-link" aria-hidden="true">&rsaquo;</span>
-                    </li>
-                @endif
-            </ul>
-        </nav>
-    @endif
-</div>
+        {{-- Next Page Link --}}
+        @if ($paginator->hasMorePages())
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+            </li>
+        @else
+            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <span class="page-link" aria-hidden="true">&rsaquo;</span>
+            </li>
+        @endif
+    </ul>
+@endif
 
 <style>
     .pagination {
@@ -71,8 +81,9 @@
     --bs-pagination-disabled-bg: #fff;
     --bs-pagination-disabled-border-color: #dee2e6;
     display: flex;
-    padding-left: 0;
+    padding: 0;
     list-style: none;
+    margin: 20px 0 50px 0;
 }
 .page-link {
     position: relative;
@@ -85,4 +96,33 @@
     border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+
+@media screen and ( max-width: 680px ){
+
+    .pagination {
+    --bs-pagination-padding-x: 1rem;
+    --bs-pagination-padding-y: 0.5rem;
+    --bs-pagination-font-size: 1rem;
+    }
+}
+
+@media screen and ( max-width: 580px ){
+
+    .pagination {
+    --bs-pagination-padding-x: 0.8rem;
+    --bs-pagination-padding-y: 0.3rem;
+    --bs-pagination-font-size: 0.8rem;
+    }
+}
+
+@media screen and ( max-width: 480px ){
+
+.pagination {
+--bs-pagination-padding-x: 0.5rem;
+--bs-pagination-padding-y: 0.2rem;
+--bs-pagination-font-size: 0.8rem;
+}
+}
+
 </style>

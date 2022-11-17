@@ -32,12 +32,33 @@
     text-align: center;
 }
 
+.boximgnp{
+    display: table;
+    height: 250px;
+}
+
+.imgnp{
+    text-decoration: none; 
+    color: black; 
+    margin: auto 0; 
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.nameimgnp{
+    text-decoration: none; 
+    color: black; 
+    text-align: center;
+}
+
 .NP-col img{
     width: 100%;
     height: auto;
     display: flex; 
     padding: 5%; /*ในนอก*/
-    
+}
+.NP-col p{
+    text-align: center;
 }
 
 .NP-col p:hover{
@@ -55,21 +76,64 @@
 }
 
 /* responsive */
-@media(max-width: 960px){
+
+
+@media(max-width: 1400px){
+    .boximgnp{
+        height: 170px;
+    }
+}
+@media(max-width: 1200px){
+    .boximgnp{
+        height: 140px;
+    }
+}
+
+@media(max-width: 991px){
     .NP-col{
         width: 30%;  
     }
     .text{
         margin-top: 10%;
     }
+    .boximgnp{
+        height: 220px;
+    }
 }
 
-@media(max-width: 767px){
+@media(max-width: 820px){
     .NP-col{
         width: 50%;  
     }
     .text{
         margin-top: 10%;
+    }
+    .boximgnp{
+        height: 330px;
+    }
+}
+
+@media(max-width: 750px){
+    .NP-col{
+        width: 50%;  
+    }
+    .text{
+        margin-top: 10%;
+    }
+    .boximgnp{
+        height: 250px;
+    }
+}
+
+@media(max-width: 560px){
+    .boximgnp{
+        height: 250px;
+    }
+}
+
+@media(max-width: 460px){
+    .boximgnp{
+        height: 210px;
     }
 }
 

@@ -12,27 +12,6 @@
     justify-items: center;
 }
 
-.imgg{
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
-}
-
-.box{
-    display: table;
-    height: 170px;
-    margin: auto;
-}
-
-a{
-    text-decoration: none; 
-    color: black; 
-    margin: auto; 
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-
 .txt{
     position:absolute;
     color: #fff;
@@ -214,96 +193,218 @@ a{
         object-fit: cover;
     }
 }
+.col {
+    text-align: center;
+}
+
+
+
+/* หมวดหมู่เเละหัวข้อ */
+.col button {
+    width: 200px;
+    background-color: #eaeaea;
+    border-radius: 20px;;
+    margin: 1% 1% 5% 1%;
+    padding: 1% 1% 1% 1%; /* top right bottom left */
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: scale(1);
+    transition: all 0.1s ease-in-out 0s;
+}
+.col button:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.col i{
+    font-size: 250%;
+}
+
+.title p {
+    background-color: #194276;
+    color: white;
+    padding: 5px 0 5px 10px;
+    font-size: 30px;
+    font-weight: normal;
+    border-radius: 10px;
+}
+
+
+
+/* ส่วนด้านล่าง */
 
 .container-fluid{
-    margin-bottom: 0%;
+    max-width: 1170px;
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 64px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.head1{
+    text-align: center; 
+    margin-bottom: 1%; 
+    background: #194276; 
+    color: white; 
+    padding: 1% 0;
+}
+.brand{
+    text-align: center;
+}
+.brand img{
+    margin-top: 2%;
+    width: 30%;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+.table-header-theme-blue>thead>tr {
+    color: #fff;
+    background-color: #194276;
+}
+.table-header-no-border>thead>tr>th {
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+.text-cust-gray {
+    color: #6c6c6c;
+}
+.text-cust-gray p{
+    display: inline;
+    color: black;
+}
+.tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
 }
 
-.B{
-    margin-top: 5%;
-    margin-bottom: 5%;
+.fakescroll{
+ visibility: hidden;
+ height: 80px;
 }
-p{
-    font-size: 30px;
+
+.h4{
     font-weight: bold;
 }
 
-.box{
+.namevdopc{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.namecatpre{
+    font-weight: bold;
+    color: black;
+}
+
+.namevdophone{
+    font-weight: bold;
+    color: black;
+}
+
+#phone{
+    width: 85%;  
+}
+#phone iframe{
+    width: 100%;  
+    height: 350px;
+}
+
+#disnone{
+    visibility: hidden;
+}
+
+.datanotfound{
     text-align: center;
-    background: #ffff;
-    border-radius: 5px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
-    margin: 5% 0;
-    transform: scale(1);
-    transition: all 0.3s ease 0s;
-}
-.box:hover{
-    transform: scale(1.05);
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 7px 3px;
+    margin: 10% 0;
+    font-weight: bold;
+    font-size: 30px;
 }
 
-#row-brands{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
-}
-
-.brands-col{
-    position: relative;
-    width: 25%;
-}
-
-.brands-col img{
-    width: 80%;
-    height: auto;
-    padding: 5%;
-    display: block;
-    margin: auto;
-}
-
-@media(max-width: 1400px){
-    .box{
-        height: 130px;
-    }
-}
-
+/* responsive */
 @media(max-width: 1200px){
-    #row-brands{
-        width: 100%;
+    .brand img{
+        width: 40%;
     }
-    .brands-col {
-        width: 33%;
+    .container-fluid{
+        padding-right: 50px;
+        padding-left: 50px;
     }
-    .brands-col img{
-        width: 90%;
+}
+
+@media(max-width: 850px){
+    .brand img{
+    width: 60%;
+    margin-bottom:2%; 
     }
-    .box{
-        height: 150px;
+}
+
+@media (min-width: 768px){
+    .d-md-none {
+    display: none!important;
     }
 }
 
 @media(max-width: 767px){
-    #row-brands{
+    #disnone{
+        display: none;
+    }
+    #phone{
+        width: 100%;
+        margin-left: 20%;
+    }
+    .namevdopc{
+        display: none;
+    }
+    iframe{
         width: 100%;
     }
-    .brands-col {
-        width: 50%;
-    }
-    .brands-col img{
-        width: 90%;
+}
+
+@media(max-width: 751px){
+    .col button {
+        width: 180px;
     }
 }
 
-@media(max-width: 560px){
-    .box{
-        height: 120px;
+@media(max-width: 700px){
+    .brand img{
+        width: 60%;
+    }
+    .container-fluid{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media(max-width: 617px) {
+    .col button {
+        width: 80%;
+        border-radius: 10px;
+        padding: 2% 4% 2% 4%;
+        display: block;
+        margin: 5% auto;
     }
 }
 
-@media(max-width: 460px){
-    .box{
-        height: 100px;
+@media(max-width: 550px) {
+    .brand img{
+        width: 80%;   
     }
 }
