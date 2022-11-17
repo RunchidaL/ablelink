@@ -97,13 +97,11 @@
                         </select>
 						<span>@error('projectstatus')กรุณาระบุสถานะโครงการ@enderror</span>
                     </div>
-					
 					<div class="form-control">
                         <label for="Installationschedule">กำหนดการในการติดตั้ง:</label>
-                        <input type="date" id="Installationschedule" name="Installationschedule" class="input" value="{{ old('Installationschedule') }}" wire:model="Installationschedule">
+						<input type="date" id="Installationschedule" name="Installationschedule" class="input" value="{{ old('Installationschedule') }}" wire:model="Installationschedule">
 						<span>@error('Installationschedule')กรุณาระบุกำหนดการในการติดตั้ง@enderror</span>
 					</div>
-
                     <p class="subhead">ข้อมูลผลิตภัณฑ์ที่ใช้ในโครง <br> การกรุณาให้ข้อมูลผลิตภัณฑ์เพื่อความรวดเร็วในการรับบริการ</p>
                     <div class="form-control">
 						<label for="listproducts">รายการ และ จำนวน ผลิตภัณฑ์ที่ใช้ในโปรเจค</label>

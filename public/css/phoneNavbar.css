@@ -26,13 +26,12 @@
     }
     
     .toggle:hover span{ background-color: black; }
-    .toggle.is-active span:nth-child(1){transform: translate(0px, -2px)rotate(45deg);}
+    .toggle.is-active span:nth-child(1){ transform: translate(0px, -2px)rotate(45deg);}
     .toggle.is-active span:nth-child(2){ opacity: 0; }
     .toggle.is-active span:nth-child(3){ transform: translate(-3px, 3px)rotate(-45deg); }
     .toggle.is-active:hover span{ background-color: #d81b1b; }
 
     .mobile-navbar{
-        display: block;
         position: fixed;
         background-color: white;
         top: 70px;
@@ -41,15 +40,16 @@
         min-height: calc(100% - 70px);
         box-shadow: 0px 77px 27px -88px rgba(0,0,0,0.75) inset;
         -webkit-box-shadow: 0px 77px 27px -88px rgba(0,0,0,0.75) inset;
-        clip-path: circle(0px at top right);
+        /* clip-path: circle(0px at top right);
         transition: clip-path cubic-bezier(.06,.76,.68,.78) 200ms;
-        pointer-events: none
+        pointer-events: none */
     }
 
     .mobile-navbar.open{
-        clip-path: circle(150% at top right);
+        /* clip-path: circle(150% at top right);
         transition: clip-path cubic-bezier(.06,.76,.68,.78) 400ms;
-        pointer-events: all;
+        pointer-events: all; */
+        display: block;
     }
 
     ul{
@@ -82,7 +82,6 @@
         color: gray;
         background-color: #fdfdfd;
     }
-
     .mobile-navbar[once] .first li + ul{
         animation-duration: 0s !important;
         -webkit-animation-duration: 0s !important;

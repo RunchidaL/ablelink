@@ -87,7 +87,6 @@
 </div>
 
 <script> 
-    
     const toggle = document.querySelector('.toggle');
     const mobileNavbar = document.querySelector('#mobile-navbar');
     const clickBtn = document.querySelectorAll("#ulOpenBtn");
@@ -134,5 +133,4 @@
             }
         );
     }
-
 </script>
