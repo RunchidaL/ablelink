@@ -47,7 +47,10 @@
         <div class="col-4 rightProduct" id="right-product">
             <div class="head-product">
                 <div class="head-product-name">
-                    <p>{{$model->name}}<span> #{{$model->slug}}</span></p>
+                    <p>{{$model->name}}</p>
+                </div>
+                <div class="head-product-slug">
+                    <span>#{{$model->slug}}</span>
                 </div>
                 <div class="head-product-price">
                 @guest
@@ -98,160 +101,142 @@
                     </div>
                 </div>
             @endif
-            <div class="relate-product">
-                <div class="models">
-                    <p>Models:</p>
-                    <div class="relate-group">
-                        <div class="relate-wrap mob">
-                            <div class="aRow">
-                            @php
-                                $i = 0; 
-                                $count = $product_models->where('product_id',$model->product->id)->count();
-                            @endphp        
-                            @foreach($product_models->where('product_id',$model->product->id) as $product_model)
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
-                                </div>
-                                @if( $i == (($count+($count%2))/2)-1 && $count > 4)
-                            </div>
-                            <div class="aRow">
-                                @endif
-                                @php
-                                    $i++
-                                @endphp
-                            @endforeach
-                            </div>
-                        </div>
-                        <div class="relate-wrap pc">
-                            <div class="aRow">       
-                            @foreach($product_models->where('product_id',$model->product->id) as $product_model)
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
-                                </div>
-                            @endforeach
-                            </div>
-                        </div>
+
+            <p class="my-10px text-base">Models:</p>
+            <div class="w-full scroll-x">
+                @php
+                    $i = 0; 
+                    $count = $product_models->where('product_id',$model->product->id)->count();
+                @endphp
+                <div class="flex">
+                    @foreach($product_models->where('product_id',$model->product->id) as $product_model)
+                    @if($model->slug == $product_model->slug)
+                    <div class="slideBox curProduct">
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
                     </div>
-                </div>
-                <div class="series">
-                    @if(!empty($product_model->series_id))
-                        <p>Series:</p>
+                    @else
+                    <div class="slideBox">
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                    </div>
                     @endif
-                    <div class="relate-group">
-                        <div class="relate-wrap mob">
-                            <div class="aRow">
+                        @if( $i == (($count+($count%2))/2)-1 && $count > 4)
+                            </div>
+                            <div class="flex">
+                        @endif
+                        @php
+                            $i++
+                        @endphp
+                    @endforeach
+                </div>
+            </div>
+            
+            @if(!empty($product_model->series_id))            
+            <p class="my-10px text-base">Series:</p>
+            <div class="w-full scroll-x">
+                @php
+                    $i = 0; 
+                    $count = $product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id')->count();
+                @endphp
+                <div class="flex">
+                    @foreach($product_models->where('group_products',$model->product->groupproduct_id)->unique('series_id') as $product_model)
+                        @if($product_model->series_id == '')
+                        @else
+                        @if($model->series_id == $product_model->series_id)
+                        <div class="slideBox curProduct">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
+                        </div>
+                        @else
+                        <div class="slideBox">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
+                        </div>
+                        @endif
+                            @if( $i == (($count+($count%2))/2)-1 && $count > 4)
+                                </div>
+                                <div class="flex">
+                            @endif
                             @php
-                                $i = 0;                 
-                                $count = $product_models->where('group_products',$model->group_products)->unique('series_id')->count();
+                                $i++
                             @endphp
-                            @foreach($product_models->where('group_products',$model->group_products)->unique('series_id') as $product_model)
-                                @if(!empty($product_model->series_id))
-                                    <div class="relate-box">
-                                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
-                                    </div>
-                                    @if( $i == (($count+($count%2))/2)-1 && $count > 4)  
-                                    </div><div class="aRow">
-                                    @endif
-                                    @php
-                                        $i++
-                                    @endphp
-                                @endif            
-                            @endforeach
-                            </div>   
-                        </div>  
-                        <div class="relate-wrap pc">
-                            <div class="aRow">
-                            @foreach($product_models->where('group_products',$model->group_products)->unique('series_id') as $product_model)
-                                @if(!empty($product_model->series_id))
-                                    <div class="relate-box">
-                                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->series->name}}</a>
-                                    </div>
-                                @endif            
-                            @endforeach
-                            </div>   
-                        </div>
-                    </div>
-                </div>
-                <div class="types">
-                    @php
-                        $i = 0; 
-                        $count = $product_models->where('series_id',$model->series_id)->unique('series_id')->count();
-                    @endphp
-                    @foreach($product_models->where('series_id',$model->series_id)->unique('series_id') as $product_model)
-                        @if(!empty($product_model->type_id))
-                        <p>Types:</p>
                         @endif
                     @endforeach
-                    <div class="relate-group">
-                        <div class="relate-wrap mob">
-                            <div class="aRow">
-                            @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
-                                @if($product_model->type_id == '')
-                                @else
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->typemodels->name}}</a>
-                                </div>
-                                @if( $i == (($count+($count%2))/2)-1 && $count > 4)
-                            </div>
-                            <div class="aRow">
-                                @endif
-                                    @php
-                                        $i++
-                                    @endphp
-                                @endif
-                            @endforeach
-                            </div>
-                        </div>
-                        <div class="relate-wrap pc">
-                            <div class="aRow">
-                            @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
-                                @if($product_model->type_id == '')
-                                @else
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->typemodels->name}}</a>
-                                </div>
-                                @endif
-                            @endforeach
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="jacket">
-                    @php
-                        $i = 0; 
-                        $count = $product_models->where('product_id',$model->product->id)->unique('type_id')->count();
-                    @endphp
-                    @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
-                        @if(!empty($product_model->jacket_id))
-                            <p>Jacket Types:</p>
+            </div>
+            @endif
+
+            @foreach($product_models->where('series_id',$model->series_id)->unique('series_id') as $product_model)
+                @if(!empty($product_model->type_id))
+                    <p class="my-10px text-base">Types:</p>
+                @endif
+            @endforeach
+            <div class="w-full scroll-x">
+                @php
+                    $i = 0; 
+                    $count = $product_models->where('group_products',$model->product->groupproduct_id)->unique('type_id')->count();
+                @endphp
+                <div class="flex">
+                    @foreach($product_models->where('series_id',$model->series_id)->unique('type_id') as $product_model)
+                        @if($product_model->type_id == '')
+                        @else
+                        @if($model->type_id == $product_model->type_id)
+                        <div class="slideBox curProduct">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->typemodels->name}}</a>
+                        </div>
+                        @else
+                        <div class="slideBox">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->typemodels->name}}</a>
+                        </div>
+                        @endif
+                        
+                            @if( $i == (($count+($count%2))/2)-1 && $count > 4)
+                                </div>
+                                <div class="flex">
+                            @endif
+                            @php
+                                $i++
+                            @endphp
                         @endif
                     @endforeach
-                    <div class="relate-group">
-                        <div class="relate-wrap">
-                            <div class="aRow">
-                            @foreach($product_models->where('type_id',$model->type_id)->unique('jacket_id') as $product_model)
-                                @if($product_model->jacket_id == '')
-                                @else
-                                <div class="relate-box">
-                                    <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->jacket->name}}</a>
-                                </div>
-                                
-                                    @if( $i == (($count+($count%2))/2)-1 && $count > 4)
-                            </div>
-                            <div class="aRow">
-                                    @endif
-                                    @php
-                                        $i++
-                                    @endphp
-                                @endif         
-                            @endforeach
-                            </div>
+                </div>
+            </div>
+            
+            @foreach($product_models->where('product_id',$model->product->id)->unique('type_id') as $product_model)
+                @if(!empty($product_model->jacket_id))               
+                <p class="my-10px text-base">Jacket Types:</p>
+                @endif
+            @endforeach
+            <div class="w-full scroll-x">
+                @php
+                    $i = 0; 
+                    $count = $product_models->where('product_id',$model->product->id)->unique('jacket_id')->count();
+                @endphp
+             
+                <div class="flex">
+                    @foreach($product_models->where('product_id',$model->product->id)->unique('jacket_id') as $product_model)
+                        @if($product_model->jacket_id == '')
+                        @else
+                        @if($model->jacket_id == $product_model->jacket_id)
+                        <div class="slideBox curProduct">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->jacket->name}}</a>
                         </div>
-                    </div>
-                </div>  
+                        @else
+                        <div class="slideBox">
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->jacket->name}}</a>
+                        </div>
+                        @endif
+                            @if( $i == (($count+($count%2))/2)-1 && $count > 4)
+                                </div>
+                                <div class="flex">
+                            @endif
+                            @php
+                                $i++
+                            @endphp
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
+
     <div class="infomation">
         <div class="tab-contral">
             @if(!empty($model->description))
@@ -301,10 +286,10 @@
         @if(!empty($model->overview))
         <div class="tab-contents">
             @if(!empty($model->description))
-            <div class="fake-scroll" id="overview"></div>
+            <div class="fake-scroll" id="specification"></div>
             <div class="line"></div>
             @endif
-            <h4 class="me"><span>Overview</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
+            <h4 class="me"><span>Specification</span><i class="bi bi-chevron-down arw" id="chevron"></i></h4>
             <div>{!! $model->overview !!}</div>
         </div>
         @endif
@@ -492,7 +477,7 @@ for (let i = 0; i < menu.length; i++) {
     let h4 = document.querySelectorAll("h4.me");
     for (let i = 0; i < h4.length; i++) {
         h4[i].addEventListener("click", (e)=>{
-        let arrowParent = e.target.parentElement;//selecting main parent of arrow
+        let arrowParent = e.target.parentElement; //selecting main parent of arrow
         arrowParent.classList.toggle("tog");
         for(let l = 0 ; l < meArrow.length; l++){
             if(l!=i){
@@ -514,9 +499,9 @@ for (let i = 0; i < menu.length; i++) {
         pagination: {
         el: "#pagination4",
         clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
+        renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
         },
         navigation: {
         nextEl: "#next4",
@@ -534,13 +519,14 @@ for (let i = 0; i < menu.length; i++) {
     });
 </script>
 
-<style>
+<style> 
 /* swiper video */
 #swipercontainer4{
     width: 100%;
     height: 400px;
     padding: 0px 20px;
 }
+
 #swiper4{
     margin: 0 40px;
     overflow: hidden;
@@ -571,11 +557,11 @@ for (let i = 0; i < menu.length; i++) {
     color: #fff;
     background: #313131;
 }
+
 .fake-scroll{
     height: 30px;
     visibility: hidden;
 }
-
 
 /* swiper image product */
 .swiper-slide{
@@ -638,9 +624,27 @@ for (let i = 0; i < menu.length; i++) {
     opacity: 1;
 }
 
-.swiper-slide img {
+.swiper-slide img{
     display: block;
     width: 80%;
+}
+
+
+.swiper-slide-visible img{
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+.swiper-slide-thumb-active img{
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.swiper.mySwiper .swiper-wrapper{
+    justify-content: center;
+}
+
+.swiper.mySwiper .swiper-wrapper img{
+    justify-content: center;
 }
 
 .swiper.mySwiper .swiper-wrapper .swiper-slide img{
@@ -693,10 +697,10 @@ span, p, li, td, th{
 }
 
 @media(max-width: 767px){
-    .swiper {
+    .swiper{
         width: 100%;
     }
-    .swiper-slide img {
+    .swiper-slide img{
         display: block;
         width: 90%;
         height: 100%;
@@ -720,13 +724,17 @@ span, p, li, td, th{
         width: 100%;
         height: 100%;
     }
-    .swiper {
+    .swiper{
         width: 100%;
     }
-    .swiper-slide img {
+    .swiper-slide img{
         display: block;
         width: 80%;
         height: 100%;
+    }
+    table span, table span{
+        font-size: 0.5rem !important;
+        line-height: 10px !important;
     }
     table span, table span{
         font-size: 0.5rem !important;

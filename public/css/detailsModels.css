@@ -29,7 +29,7 @@
     line-height: 2em;
 }
 
-.head-product-name p span{
+.head-product-slug{
     font-size: large;
     color: gray;
 }
@@ -106,52 +106,69 @@
     text-align: center;
 }
 
-.relate-product p{
-    font-size: 18px;
-    margin: 0.7rem 0 ;
-}
+.my-10px { margin-top: 10px; margin-bottom:10px; }
+.text-base { font-size: 1rem; /* 16px */ line-height: 1.5rem; /* 24px */}
+.w-full { width: 100%; }
+.flex { display: flex; }
 
-.relate-product .relate-box{
-    margin: 1.5rem 0;
-}
-
-.relate-product a{
-    color: black;
-    text-decoration: none;
-    white-space: nowrap;
-    margin: 2.5% 0;
-    width: fit-content;
-    padding: 10px 15px;
-    margin-right:10px;
-    border: 1px solid rgb(175, 175, 175);
-    border-radius: 3px;
-    font-size: 16px;
-} 
-
-.relate-product a:hover{
-    background-color: rgb(241, 241, 241);
-}
-
-.relate-group{
-    display: flex;
-    flex-direction: column;
+.scroll-x{
+    z-index: 5;
     overflow-x: scroll;
     overflow-y: hidden;
-    z-index: 5;
 }
 
-.relate-wrap{
-    display:flex;
-    flex-direction: column;
-}
-
-.aRow{
-    display: flex;
+.slideBox{
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 8px;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
     min-width: fit-content;
+    white-space: nowrap;
+    background-color: white;
+    cursor: pointer;
 }
 
-.jacket{
-    margin-bottom: 3rem;
+.slideBox:active, .slideBox:focus{
+    border: 1px solid gray;
+}
+
+.slideBox:hover{
+    background-color: rgb(250, 250, 250);
+}
+
+.slideBox:hover a{
+    color: #000000;
+}
+
+*::-webkit-scrollbar{
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.664);
+}
+
+*::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background: rgb(174, 174, 174);
+}
+
+.scroll-x::-webkit-scrollbar{
+    width: auto;
+    height:5px;
+}
+
+.scroll-x::-webkit-scrollbar-thumb{
+    border-radius: 2.5px;
+    background: rgb(207, 207, 207);
+}
+
+.scroll-x::-webkit-scrollbar-thumb:hover{
+    background: #555;
+}
+
+.curProduct{
+    background-color: rgb(237, 237, 237);
+    border: 1px solid rgb(131, 131, 131);
 }
 
 .infomation{
@@ -160,7 +177,6 @@
 
 .tab-contral{
     padding: 0 0 30px 0;
-    /* text-align: center; */
     white-space: none;
     margin-left: 8%;
     text-align: start;
@@ -306,7 +322,7 @@ input[type=number]::-webkit-outer-spin-button{
     opacity: 1;
 }
 
-.me {
+.me{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -382,49 +398,15 @@ input[type=number]::-webkit-outer-spin-button{
     #right-product{
         width: 100%;
     }
-    .relate-product .relate-box{
-        margin: 1.3rem 0;
-        visibility: visible;
-    }
     .file-detail{
         align-items: center;
         justify-content: center;
-    }
-    .aRow{
-        visibility: visible;
     }
     .leftProduct{
         position: static;
     }
     .infomation .tab-contral{
         display: none;
-    }
-    .relate-group{
-        overflow-x: scroll;
-        max-height: calc(112px + 2.6rem);
-    }
-    .relate-group::-webkit-scrollbar{
-        height: 0.12rem;
-        border-radius: 10px; 
-        background-color: rgb(255, 255, 255);
-    }
-    .relate-group::-webkit-scrollbar-track{
-        box-shadow: inset 0 0 5px rgb(255, 255, 255); 
-    }
-    .relate-group::-webkit-scrollbar-thumb{
-        background: red; 
-        position: relative;
-        border-radius: 10px;
-        cursor: pointer;
-    } 
-    .relate-group::-webkit-scrollbar-thumb:hover{
-        background: rgb(170, 6, 6);
-    }
-    .relate-wrap.pc{
-        display: none;
-    }
-    .relate-wrap.mob{
-        display: flex;
     }
     .line{
         padding: 30px 10% 0 5%;
@@ -454,17 +436,5 @@ input[type=number]::-webkit-outer-spin-button{
     .file-detail{
         align-items: center;
         justify-content: center;
-    }
-    .aRow{
-        flex-wrap: wrap;
-    }
-    .relate-group {
-        overflow: hidden;
-    }
-    .relate-wrap.pc {
-        display: flex;
-    }
-    .relate-wrap.mob {
-        display: none;
     }
 }

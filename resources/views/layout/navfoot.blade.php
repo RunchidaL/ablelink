@@ -5,7 +5,7 @@
 <div class="navbar">
     <div class="nav-wrap container">
         <a href="/"><img src="/images/logoAbleLink.png" alt="" logo/></a>
-        <a href="/"><img src="/images/logoAbleLink2.jpg" alt="" logo2/></a>
+        <a href="/"><img src="/images/logoAbleLink3.png" alt="" logo2/></a>
         <div class="nav-left">
             <div class="nav-menu-wrap"> 
                 <div class="topic">
