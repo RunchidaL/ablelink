@@ -209,7 +209,6 @@
                     $i = 0; 
                     $count = $product_models->where('product_id',$model->product->id)->unique('jacket_id')->count();
                 @endphp
-             
                 <div class="flex">
                     @foreach($product_models->where('product_id',$model->product->id)->unique('jacket_id') as $product_model)
                         @if($product_model->jacket_id == '')
@@ -416,16 +415,14 @@
                     </div>
                     <div class="line-review"></div>
                 @endforeach
-
             @if($this->amount == 5)
             <br>
             {{$reviews->links()}}
             @else
-            <div class="seemore"><a wire:click="load" >ดูเพิ่มเติม</a></div>
+            <div class="seemore"><a wire:click="load" class="seemore2">ดูเพิ่มเติม&nbsp;<i class="bi bi-chevron-down"></i></a></div>
             @endif
-
             @else
-            <p>ยังไม่พบการรีวิวสินค้า</p>
+            <p>ยังไม่มีการรีวิวสินค้า</p>
             @endif
         </div>
 

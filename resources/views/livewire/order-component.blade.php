@@ -54,19 +54,16 @@
             @foreach($orders as $order)
             <div class="phone-order-wrapper">  
                 <div class="phone-order-left">
-                    <div class="phone-order-code">
-                        <p class="group-cen">#{{$order->id}}</p>
-                    </div>
-                    <div class="phone-order-quantity">
-                        <p class="group-cen">{{date('d/m/Y', strtotime($order->created_at))}}</p>
-                    </div>
+                    <p class="group-cen">#{{$order->id}}</p>
+                    <p class="group-cen">{{date('d/m/Y', strtotime($order->created_at))}}</p>
+                </div>
+                <div class="phone-order-mid">
+                    <p class="group-cen">฿{{number_format($order->total,2)}}</p>
                 </div>
                 <div class="phone-order-right">
-                    <div class="phone-order-detail">
-                        <div class="group-cen">
-                            <a href="{{route('order.detail',['order_id'=>$order->id])}}" class="btn btn-success">รายละเอียด</a>
-                        </div> 
-                    </div>
+                    <div class="group-cen">
+                        <a href="{{route('order.detail',['order_id'=>$order->id])}}" class="btn btn-success">รายละเอียด</a>
+                    </div> 
                 </div>
             </div>
             @endforeach

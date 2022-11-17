@@ -385,10 +385,12 @@ input[type=number]::-webkit-outer-spin-button{
     text-align: center;
 }
 
-.seemore:hover, .review:hover{
+.seemore2:hover{
     color: #194276;
-    text-decoration: underline #194276;
+    cursor: pointer;
+    border-bottom: 2px solid #194276;
 }
+
 
 /* responsive */
 @media screen and (max-width: 1400px){

@@ -85,6 +85,12 @@ p{
     justify-content: space-between;
 }
 
+.phone-order-detail-quantity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .phone-order-detail-conclu{
     border-bottom: 1px solid rgba(195, 195, 195, 0.5);
     padding: 5px 0;

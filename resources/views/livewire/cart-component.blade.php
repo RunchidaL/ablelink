@@ -25,7 +25,7 @@
                     @foreach ($cartitems as $item)
                     <tr class="cart-wrapper">
                         <td class="cart-product">
-                            <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
+                            <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                         </td>
                         <td class="cart-name">
                             @if(empty($item->attribute))
@@ -130,7 +130,7 @@
             <div class="phone-cart-wrapper">
                 <div class="phone-cart-left">
                     <div class="phone-cart-product">
-                        <a href="#"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}"><img src="{{asset('/images/products')}}/{{$item->model->image}}"></a>
                     </div>
                 </div>
                 <div class="phone-cart-right">
