@@ -118,7 +118,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Stock</label>   
+                                <label class="col-md-4">Stock</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" wire:model="stock">
                                 </div>
@@ -261,24 +261,59 @@
 </div>
 
 <script>
-    $('#description').summernote({
+    const descriptionSummernote = $('#description');
+    const overviewSummernote = $('#overview');
+    const applicationSummernote = $('#application');
+
+    function uploadFile(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/image',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+
+    descriptionSummernote.summernote({
         height: 200,
         callbacks: {
+            onImageUpload: function(files) {
+                uploadFile(files[0], descriptionSummernote);
+            },
             onChange: function(contents1, $editable) {
                 @this.set('description', contents1);
             }
         }
     });
-    $('#overview').summernote({
+
+    overviewSummernote.summernote({
         height: 200,
+        onImageUpload: function(files) {
+            uploadFile(files[0], overviewSummernote);
+        },
         callbacks: {
             onChange: function(contents2, $editable) {
                 @this.set('overview', contents2);
             }
         }
     });
-    $('#application').summernote({
+
+    applicationSummernote.summernote({
         height: 200,
+        onImageUpload: function(files) {
+            uploadFile(files[0], applicationSummernote);
+        },
         callbacks: {
             onChange: function(contents3, $editable) {
                 @this.set('application', contents3);
