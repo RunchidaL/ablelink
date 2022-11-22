@@ -20,6 +20,7 @@ class AdminEditmodelComponent extends Component
     use WithFileUploads;
     public $model_id;
     public $name;
+    public $nickname;
     public $slug;
     public $description;
     public $application;
@@ -50,6 +51,8 @@ class AdminEditmodelComponent extends Component
     public $newconfig;
     public $model_slug;
 
+    public $show1;
+
     public $new_network_images=[];
     public $network_images=[];
     public $images = [];
@@ -64,11 +67,11 @@ class AdminEditmodelComponent extends Component
         $model = ProductModels::where('slug',$model_slug)->first();
         $this->model_id = $model->id;
         $this->name = $model->name;
+        $this->nickname = $model->nickname;
         $this->slug = $model->slug;
         $this->description = $model->description;
         $this->overview = $model->overview;
         $this->application = $model->application;
-        $this->item_spotlight = $model->item_spotlight;
         $this->feature = $model->feature;
         $this->web_price = $model->web_price;
         $this->dealer_price = $model->dealer_price;
@@ -114,6 +117,7 @@ class AdminEditmodelComponent extends Component
             'newconfig' => 'mimes:pdf',
             'customer_price' => 'numeric|max:999999',
             'dealer_price' => 'numeric|max:999999',
+            'description'=>'max:2000'
         ]);
     }
 
@@ -139,6 +143,7 @@ class AdminEditmodelComponent extends Component
     {
         $this->validate([
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required',
             'image' => 'required',
             'web_price' => 'required',
@@ -148,6 +153,7 @@ class AdminEditmodelComponent extends Component
         ]);
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;
+        $model->nickname = $this->nickname;
         $model->slug = $this->slug;
         $model->web_price = $this->web_price;
         $model->dealer_price = $this->dealer_price;
@@ -157,7 +163,6 @@ class AdminEditmodelComponent extends Component
         $model->description = $this->description;
         $model->overview = $this->overview;
         $model->application = $this->application;
-        $model->item_spotlight = $this->item_spotlight;
         $model->feature = $this->feature;
         if($this->newimage)
         {

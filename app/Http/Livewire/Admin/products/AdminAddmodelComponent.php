@@ -20,11 +20,11 @@ class AdminAddmodelComponent extends Component
 {
     use WithFileUploads;
     public $name;
+    public $nickname;
     public $slug;
     public $description;
     public $overview;
     public $application;
-    public $item_spotlight;
     public $feature;
     public $image;
     public $p_images;
@@ -75,6 +75,7 @@ class AdminAddmodelComponent extends Component
     {
         $this->validateOnly($fields,[
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
             'image' => 'mimes:jpeg,jpg,png|required|size:300',
             'datasheet' => 'mimes:pdf',
@@ -82,7 +83,8 @@ class AdminAddmodelComponent extends Component
             'cert' => 'mimes:pdf',
             'config' => 'mimes:pdf',
             'dealer_price' => 'required|numeric|max:999999',
-            'customer_price' => 'required|numeric|max:999999'
+            'customer_price' => 'required|numeric|max:999999',
+            'description'=>'maxlength:2000'
         ]);
     }
 
@@ -90,6 +92,7 @@ class AdminAddmodelComponent extends Component
     {
         $this->validate([
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
             'image' => 'required',
             'web_price' => 'required',
@@ -104,7 +107,6 @@ class AdminAddmodelComponent extends Component
         $model->description = $this->description;
         $model->overview = $this->overview;
         $model->application = $this->application;
-        $model->item_spotlight = $this->item_spotlight;
         $model->feature = $this->feature;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);

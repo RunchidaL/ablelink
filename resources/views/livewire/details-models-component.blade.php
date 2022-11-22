@@ -112,11 +112,11 @@
                     @foreach($product_models->where('product_id',$model->product->id) as $product_model)
                     @if($model->slug == $product_model->slug)
                     <div class="slideBox curProduct">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->nickname}}</a>
                     </div>
                     @else
                     <div class="slideBox">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->nickname}}</a>
                     </div>
                     @endif
                         @if( $i == (($count+($count%2))/2)-1 && $count > 4)
@@ -375,6 +375,7 @@
             <h4 class="me"><span>Reviews</span></h4>
             @php
                 $avg = 0;
+                $comment = 0;
             @endphp
             @if($reviews->count()>0)
                 @foreach($rating as $r)
@@ -402,26 +403,25 @@
                         <div class="col-6">
                             @php
                                 $rate = $review->rating;
+                                $comment++; 
                             @endphp
                             @for($i=1;$i<=5;$i++)
                                 @if($i <= $rate)
                                 <i class="bi bi-star-fill"></i>
                                 @endif
                             @endfor
-                            <div>{!! $review->comment !!}</div>
+                            <div>{{$review->comment}}</div>
                         </div>
                         <div class="col-4 text-end">
                             <div>{{date('d M Y', strtotime($review->created_at))}}</div>
                         </div>
                     </div>
                     <div class="line-review"></div>
+                    
                 @endforeach
-
-            @if($this->amount == 5)
-            <br>
-            {{$reviews->links()}}
-            @else
-            <div class="seemore"><a wire:click="load" >ดูเพิ่มเติม</a></div>
+                
+            @if($this->amount < $rating->count())
+            <div class="seemore"><a wire:click="load">ดูเพิ่มเติม<i class="bi bi-chevron-down arw" id="chevron"></i></a></div>
             @endif
 
             @else

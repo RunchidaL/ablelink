@@ -19,39 +19,42 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Model Slug</label>
+                                <label class="col-md-12">*Nick Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" wire:model="nickname" placeholder="ชื่อเล่น">
+                                    @error('nickname') <p class="text-danger">{{ $message }}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">*Part Number</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="slug">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Description</label>
+                                
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="description" type="text" class="form-control" wire:model="description">{{ $model->description }}</textarea>
+                                    <textarea id="description" type="text" class="form-control" wire:model="description">{!! $model->description !!}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Specification</label>
+                                <input type="radio" wire:model="show1">
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="overview" type="text" class="form-control"  wire:model="overview">{{ $model->overview }}</textarea>
+                                    <textarea id="overview" type="text" class="form-control"  wire:model="overview">{!! $model->overview !!}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Solution</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="application" type="text" class="form-control"  wire:model="application">{{ $model->application }}</textarea>
+                                    <textarea id="application" type="text" class="form-control"  wire:model="application">{!! $model->application !!}</textarea>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-12">Item_spotlight</label>
-                                <div class="col-md-12" wire:ignore>
-                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight">{{ $model->item_spotlight }}</textarea>
-                                </div>
-                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-12">Feature</label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature">{{ $model->feature }}</textarea>
+                                    <textarea id="feature" type="text" class="form-control"  wire:model="feature">{!! $model->feature !!}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -285,14 +288,6 @@
             }
         }
     });
-    // $('#item_spotlight').summernote({
-    //     height: 200,
-    //     callbacks: {
-    //         onChange: function(contents4, $editable) {
-    //             @this.set('item_spotlight', contents4);
-    //         }
-    //     }
-    // });
     $('#feature').summernote({
         height: 200,
         callbacks: {

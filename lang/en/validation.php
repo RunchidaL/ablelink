@@ -187,6 +187,9 @@ return [
             'required' => 'กรุณาใส่',
             'numeric' => 'กรุณาใส่ ID',
         ],
+        'nickname' => [
+            'required' => 'กรุณาใส่',
+        ],
     ],
 
     /*

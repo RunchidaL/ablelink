@@ -122,6 +122,7 @@ class ChooseAddressComponent extends Component
             }
             $id = OrderID::where('user_id',$user->id)->latest('created_at')->first();
             $order->order_id = $id->id;
+            $order->rstatus = false;
             $order->save();
         }
         Cart::where('user_id',auth()->id())->delete();
