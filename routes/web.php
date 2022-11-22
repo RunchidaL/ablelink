@@ -89,6 +89,7 @@ use App\Http\Livewire\Admin\mainpage\CustomForworkComponent;
 use App\Http\Controllers\AdminOrderPdfController;
 use App\Http\Livewire\GroupCategoryComponent;
 use App\Http\Livewire\ReviewComponent;
+use App\Http\Controllers\FileController;
 
 Route::get('/', HomeComponent::class);
 
@@ -159,7 +160,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
     Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
     // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
-    
+
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
     Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
@@ -221,4 +222,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/mainpage/customaboutus/{about_id}', CustomAboutusComponent::class)->name('admin.customaboutus');
     Route::get('/admin/mainpage/customservice/{service_id}', CustomServiceComponent::class)->name('admin.customservice');
     Route::get('/admin/mainpage/customforwork/{forwork_id}', CustomForworkComponent::class)->name('admin.customforwork');
+    Route::post('/admin/upload/image', [FileController::class, 'uploadImage'])->name('admin.uploadImage');
 });
