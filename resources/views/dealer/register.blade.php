@@ -98,9 +98,9 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="idcompany">*สำนักงานใหญ่ / รหัสสาขา</label>
+                        <label for="idcompany">*สำนักงานใหญ่/รหัสสาขา</label>
                         <input type="text" name="idcompany" class="form-control" value="{{ old('idcompany') }}">
-                        <span>@error('idcompany')กรุณาระบุสำนักงานใหญ่ / รหัสสาขา@enderror</span>
+                        <span>@error('idcompany')กรุณาระบุสำนักงานใหญ่/รหัสสาขา@enderror</span>
                     </div>
                 </div>
                 <h4>แนบเอกสาร</h4>

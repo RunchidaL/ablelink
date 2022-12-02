@@ -5,7 +5,7 @@
                 @if(empty($serie_id) and empty($type_id) and empty($jacket_id))
                 <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Group</h2>
                 @elseif(empty($type_id) and empty($jacket_id))
-                <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Serie</h2>
+                <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Series</h2>
                 @elseif(empty($jacket_id))
                 <h2><a href="{{route('admin.group')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Type</h2>
                 @else

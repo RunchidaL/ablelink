@@ -11,5 +11,5 @@
     <strong>ชื่อกิจการ (ภาษาไทย):</strong>{{$data['companythai']}} <br>
     <strong>ชื่อกิจการ (ภาษาอังกฤษ):</strong>{{$data['companyeng']}} <br>
     <strong>เลขประจำตัวผู้เสียภาษี:</strong>{{$data['vatid']}} <br>
-    <strong>สำนักงานใหญ่ / รหัสสาขา:</strong>{{$data['idcompany']}} <br>
+    <strong>สำนักงานใหญ่/รหัสสาขา:</strong>{{$data['idcompany']}} <br>
 </p>

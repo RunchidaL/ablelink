@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="row gutters">
                         <div class="col-xl-8 ">
-                            <h2 class="mb-4">Change Address</h2>
+                            <h2 class="mb-4">User Profile</h2>
                         </div>
                         <div class="col-xl-4 mb-4">
                             <a href="{{route('customer.addaddress')}}"><button type="button" class="button">Add Address</button></a>

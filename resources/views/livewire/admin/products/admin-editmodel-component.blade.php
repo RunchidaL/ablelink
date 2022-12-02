@@ -19,7 +19,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">*Model Slug</label>
+                                <label class="col-md-12">*Nick Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" wire:model="nickname" placeholder="ชื่อเล่น">
+                                    @error('nickname') <p class="text-danger">{{ $message }}</p> @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">*Part Number</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="slug">
                                 </div>

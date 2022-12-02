@@ -1,5 +1,4 @@
 {{-- link --}}
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="{{asset('css/dealer/registerproject.css')}}" rel="stylesheet">
 {{-- link --}}
 <h1 class="mt-5" style="margin-left: 10%">ลงทะเบียนโปรเจค</h1>
@@ -64,7 +63,7 @@
 						<span>@error('EmailProjectManager')กรุณาระบุ E-mail ผู้ดูแลโปรเจค (Project Manager)@enderror</span>
 					</div>
                     <div class="form-control">
-						<label for="TelProjectManager">เบอร์ติดต่อ ผู้ดูแลโปรเจค (Project Manager)</label>
+						<label for="TelProjectManager">เบอร์ติดต่อผู้ดูแลโปรเจค (Project Manager)</label>
 						<input type="text" name="TelProjectManager" class="input" id="TelProjectManager" value="{{ old('TelProjectManager') }}" wire:model="TelProjectManager">
 						<span>@error('TelProjectManager')กรุณาระบุ เบอร์ติดต่อ ผู้ดูแลโปรเจค (Project Manager)@enderror</span>
 					</div>
@@ -78,9 +77,9 @@
                     <p class="head"><b>ข้อมูล Project และ End-User</b></p> 
                     <p class="subhead">กรุณากรอกข้อมูลธุรกิจและการติดต่อเพื่อใช้พัฒนาการให้บริการ</p>
 					<div class="form-control">
-						<label for="ProjectOwner">ชื่อบริษัท หรือ หน่วยงาน ที่เป็นเจ้าของโครงการ</label>
+						<label for="ProjectOwner">ชื่อบริษัทหรือหน่วยงานที่เป็นเจ้าของโครงการ</label>
 						<input type="text" name="ProjectOwner" class="input" id="ProjectOwner" value="{{ old('ProjectOwner') }}" wire:model="ProjectOwner">
-						<span>@error('ProjectOwner')กรุณาระบุชื่อบริษัท หรือ หน่วยงาน ที่เป็นเจ้าของโครงการ@enderror</span>
+						<span>@error('ProjectOwner')กรุณาระบุชื่อบริษัทหรือหน่วยงานที่เป็นเจ้าของโครงการ@enderror</span>
 					</div>
 					<div class="form-control">
 						<label for="ProjectName">ชื่อโครงการ</label>
@@ -104,9 +103,9 @@
 					</div>
                     <p class="subhead">ข้อมูลผลิตภัณฑ์ที่ใช้ในโครง <br> การกรุณาให้ข้อมูลผลิตภัณฑ์เพื่อความรวดเร็วในการรับบริการ</p>
                     <div class="form-control">
-						<label for="listproducts">รายการ และ จำนวน ผลิตภัณฑ์ที่ใช้ในโปรเจค</label>
+						<label for="listproducts">รายการและจำนวนผลิตภัณฑ์ที่ใช้ในโปรเจค</label>
 						<textarea type="text" name="listproducts" class="input" id="listproducts" value="{{ old('listproducts') }}" cols="30" row="10" wire:model="listproducts"></textarea>
-						<span>@error('listproducts')กรุณาระบุรายการ และ จำนวน ผลิตภัณฑ์ที่ใช้ในโปรเจค@enderror</span>
+						<span>@error('listproducts')กรุณาระบุรายการและจำนวนผลิตภัณฑ์ที่ใช้ในโปรเจค@enderror</span>
 					</div>
                     <div class="form-control">
                         <label for="Purchasingstyle">ลักษณะการจัดซื้อ</label>
