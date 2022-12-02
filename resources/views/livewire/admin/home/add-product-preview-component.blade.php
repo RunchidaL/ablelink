@@ -34,7 +34,9 @@
                                     @error('product_id') <p class="text-danger">{{ $message }}</p> @enderror
                                     <datalist id="datalistOptions">
                                         @foreach($products as $product)
+                                            @if($product->product->category_id == $this->category_id)
                                             <option value="{{$product->id}}">{{$product->slug}}</option>
+                                            @endif
                                         @endforeach
                                     </datalist>
                                 </div>

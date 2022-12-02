@@ -89,6 +89,7 @@ use App\Http\Livewire\Admin\mainpage\CustomForworkComponent;
 use App\Http\Controllers\AdminOrderPdfController;
 use App\Http\Livewire\GroupCategoryComponent;
 use App\Http\Livewire\ReviewComponent;
+use App\Http\Controllers\FileController;
 
 Route::get('/', HomeComponent::class);
 
@@ -221,4 +222,9 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/mainpage/customaboutus/{about_id}', CustomAboutusComponent::class)->name('admin.customaboutus');
     Route::get('/admin/mainpage/customservice/{service_id}', CustomServiceComponent::class)->name('admin.customservice');
     Route::get('/admin/mainpage/customforwork/{forwork_id}', CustomForworkComponent::class)->name('admin.customforwork');
+    Route::post('/admin/upload/imagedes', [FileController::class, 'uploadImagedes'])->name('admin.uploadImagedes');
+    Route::post('/admin/upload/imageover', [FileController::class, 'uploadImageover'])->name('admin.uploadImageover');
+    Route::post('/admin/upload/imageapp', [FileController::class, 'uploadImageapp'])->name('admin.uploadImageapp');
+    Route::post('/admin/upload/imagefea', [FileController::class, 'uploadImagefea'])->name('admin.uploadImagefea');
+    Route::post('/admin/upload/imagedescription', [FileController::class, 'uploadImagedescription'])->name('admin.uploadImagedescription');
 });

@@ -669,6 +669,11 @@ span, p, li, td, th{
     font-family: 'Prompt', sans-serif !important;
 }
 
+.summernote{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
 @media screen and (max-width: 1400px){
     p img, table, .table-responsive, .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl,  .row > *{
         width: 100% !important;

@@ -37,22 +37,32 @@ class AdminEditPostComponent extends Component
         $this->slug = Str::slug($this->title,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'slug' => 'required|alpha_dash',
+            'newtitleimg' => 'required|max:1000',
+        ]);
+    }
 
     public function updatePost()
     {
         $this->validate([
             'title' => 'required',
             'slug' => 'required|alpha_dash',
-            'titleimg' => 'required',
+            'titleimg' => 'required|max:1000',
             'category_id' => 'required',
             'description' => 'required',
         ]);
         $post = Post::find($this->post_id);
         $post->title = $this->title;
         $post->slug = $this->slug;
-        $imageName = Carbon::now()->timestamp. '.' . $this->newtitleimg->extension();
-        $this->newtitleimg->storeAs('posts',$imageName);
-        $post->titleimg = $imageName;
+        if($this->newtitleimg)
+        {
+            $imageName = Carbon::now()->timestamp. '.' . $this->newtitleimg->extension();
+            $this->newtitleimg->storeAs('posts',$imageName);
+            $post->titleimg = $imageName;
+        }
         $post->category_id = $this->category_id;
         $post->description = $this->description;
         $post->save();
