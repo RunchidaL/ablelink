@@ -71,7 +71,7 @@
                                 @endforeach
                             @endif
                             @if(Auth::user()->role == 2)
-                                        <input type="radio" id="address1" value="{{$dealer->id}}" checked/>
+                                        <input type="radio" name="ad" id="address1" value="{{$dealer->id}}" checked/>
                                         <label for="address1">
                                             <p>{{$user->name}}</p>
                                             <p>{{$dealer->phonenumber}}</p>
@@ -81,7 +81,7 @@
                             @endif
                             @if(Auth::user()->role == 1)
                                 <input type="radio" id="addressnew"  name="ad" value="new" wire:model.defer="ad"/>
-                                <label for="addressnew" onclick="myFunction()">ใส่ที่อยู่ใหม่ </label>
+                                <label for="addressnew" onclick="myFunction()">เพิ่มที่อยู่ใหม่ </label>
                                 <div class="subaddress" id="myDIV" style="display: none;">
                                     <div class="col-md-12 mb-3">
                                         <div class="form-group">

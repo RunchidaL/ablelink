@@ -16,6 +16,12 @@ class AddNewProductsComponent extends Component
 
     public function addNewProduct()
     {
+        $this->validate([
+            'name' => 'required',
+            'img' => 'required',
+            'linkproduct' => 'required',
+            'brand_id' => 'required',
+        ]);
         $NewProduct = new NewProduct();
         $NewProduct->name = $this->name;
         $NewProduct->img = $this->img;
@@ -27,7 +33,7 @@ class AddNewProductsComponent extends Component
 
     public function render()
     {
-        $brand = Brand::all();
+        $brand = Brand::orderBy('name','ASC')->get();
         return view('livewire.admin.posts.add-new-products-component',['brand'=> $brand])->layout("layout.navfoot");
     }
 }

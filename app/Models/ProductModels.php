@@ -34,6 +34,10 @@ class ProductModels extends Model
     {
         return $this->hasMany(NetworkValue::class,'model_id');
     }
+    public function review()
+    {
+        return $this->hasMany(Review::class,'product_id');
+    }
 
     // public function jacketname()
     // {

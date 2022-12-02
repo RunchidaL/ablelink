@@ -40,7 +40,7 @@
                                         <div class="box-wrap">
                                             <div class="box">
                                             @foreach($brand->subbrandCategories as $sbcategory)                                     
-                                                <a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}">> {{$sbcategory->name}}</a>                                               
+                                                <a href="{{route('product.groupcategory',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug,'sbcategory_slug'=>$sbcategory->slug])}}">> {{$sbcategory->name}}</a>                                               
                                             @endforeach
                                             </div>
                                         </div> 

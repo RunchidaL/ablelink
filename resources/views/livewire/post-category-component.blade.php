@@ -18,7 +18,6 @@
     </div>
 </div>
 
-
 <h1 style="text-align: center; margin-bottom: 2%; background: #194276; color: white; padding: 1% 0;">{{$postcategory->name}}</h1>
 
 <div class="blog">

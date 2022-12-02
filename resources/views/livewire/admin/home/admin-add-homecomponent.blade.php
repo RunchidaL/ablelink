@@ -39,7 +39,8 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Image</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="image">
+                                    <input type="file" class="input-file" wire:model="image" accept=".jpg,.jpeg,.png">
+                                    @error('image') <p class="text-danger">กรุณาใส่</p> @enderror
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120" alt="">
                                     @endif
@@ -50,8 +51,8 @@
                                 <label class="col-md-4 control-label">Status</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="status">
-                                        <option value="0">Active</option>
-                                        <option value="1">In-active</option>
+                                        <option value="0">แสดง</option>
+                                        <option value="1">ไม่แสดง</option>
                                     </select>
                                 </div>
                             </div>

@@ -16,8 +16,22 @@ class AdminAddDealerComponent extends Component
     public $password;
     public $role;
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+    }
+
     public function addDealer()
     {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
         $dealer = new User();
         $dealer->name = $this->name;
         $dealer->email = $this->email;

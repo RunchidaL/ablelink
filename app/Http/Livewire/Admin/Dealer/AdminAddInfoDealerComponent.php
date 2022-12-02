@@ -30,6 +30,23 @@ class AdminAddInfoDealerComponent extends Component
 
     public function addDealerinfo()
     {
+        $this->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'emailaddress' => 'required|email',
+            'phonenumber' => 'required',
+            'address' => 'required',
+            'subdistrict' => 'required',
+            'district' => 'required',
+            'county' => 'required',
+            'zipcode' => 'required',
+            'companyTH' => 'required',
+            'companyEN' => 'required',
+            'taxid' => 'required',
+            'idcompany' => 'required',
+            'coin' => 'required',
+            'dealerid' => 'required|numeric',
+        ]);
         $dealerinfo = new Dealer();
         $dealerinfo->firstname = $this->firstname;
         $dealerinfo->lastname = $this->lastname;

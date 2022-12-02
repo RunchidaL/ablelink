@@ -118,7 +118,7 @@
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); 
         color: white; 
         font-size: 100%; 
-        padding: 1%; 
+        padding: 1% 2%; 
         border-radius: 20px
     }
     .button{
@@ -144,6 +144,7 @@
         }
         .subhead{
             padding: 3%; 
+            font-size: 70%; 
         }
         }
     </style>

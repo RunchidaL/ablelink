@@ -10,6 +10,7 @@ use App\Models\ProductModels;
 class AdminProductComponent extends Component
 {
     public $searchproduct;
+    public $searchmodel;
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
@@ -34,6 +35,9 @@ class AdminProductComponent extends Component
         $products = Product::where('name','LIKE',$search)
                     ->orderBy('id','DESC')->paginate(10);
 
-        return view('livewire.admin.products.admin-product-component',['products' => $products])->layout("layout.navfoot");
+        $searchmodel = '%' . $this->searchmodel . '%';
+        $models = ProductModels::where('slug','LIKE',$searchmodel)->orderBy('id','DESC')->get();
+
+        return view('livewire.admin.products.admin-product-component',['products' => $products,'models'=>$models])->layout("layout.navfoot");
     }
 }

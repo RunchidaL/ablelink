@@ -21,7 +21,7 @@
             <div class="row" id="row-brands">
                 @foreach ($brand as $brands)
                 <div class="brands-col" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="800">
-                    <div class="box"><a href="{{route('download.brand',['download_brand'=>$brands->slug])}}"><img src="{{asset('/images/brands')}}/{{$brands->image}}" alt="logo"></a></div>
+                    <div class="box"><a href="{{route('download.brand',['download_brand'=>$brands->slug])}}" id="imgbrand"><img src="{{asset('/images/brands')}}/{{$brands->image}}" alt="logo"></a></div>
                 </div>
                 @endforeach
             </div>

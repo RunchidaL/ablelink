@@ -22,8 +22,7 @@ class CustomerAddressComponent extends Component
     public function deleteAddress()
     {
         $customeraddresses = CustomerAddress::where('id',$this->delete_id)->first();
-        $customeraddresses->status = 0;
-        $customeraddresses->save();
+        $customeraddresses->delete();
         $this->dispatchBrowserEvent('deleteaddress');
         session()->flash('message','Item has been deleted successfully!');
     }
@@ -31,7 +30,7 @@ class CustomerAddressComponent extends Component
     public function render()
     {
         $user = User::find(Auth::user()->id);
-        $customeraddress = CustomerAddress::where('status',1)->get();
+        $customeraddress = CustomerAddress::all();
         return view('livewire.customer.customer-address-component',['user'=>$user],['customeraddress'=>$customeraddress])->layout("layout.navfoot");
     }
 }

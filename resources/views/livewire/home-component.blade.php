@@ -100,10 +100,7 @@
                 @foreach($posts as $post)
                 <div class="card swiper-slide">
                     <div class="image-content">
-                        <span class="overlay"></span>
-                        <div class="card-image">
-                            <a href="{{route('post.details',['slug'=>$post->slug])}}"><img class="card-img" src="{{asset('/images/posts')}}/{{$post -> titleimg}}" width="100%" height="100%"/></a>
-                        </div>
+                        <img class="card-img" src="{{asset('/images/posts')}}/{{$post -> titleimg}}"/>
                     </div>
                     <div class="card-content">
                         <a style="text-decoration: none" href="{{route('post.details',['slug'=>$post->slug])}}"><h2 class="name">{{$post->title}}</h2></a>
@@ -352,7 +349,7 @@
 <script>
     var swiper6 = new Swiper(".slide-content6", {
         slidesPerView: 3,
-        spaceBetween: 25,
+        spaceBetween: 30,
         loop: true,
         centerSlide: 'true',
         fade: 'true',

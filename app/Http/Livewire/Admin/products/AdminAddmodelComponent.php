@@ -76,7 +76,7 @@ class AdminAddmodelComponent extends Component
         $this->validateOnly($fields,[
             'name' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
-            'image' => 'mimes:jpeg,jpg,png|required',
+            'image' => 'mimes:jpeg,jpg,png|required|size:300',
             'datasheet' => 'mimes:pdf',
             'guide' => 'mimes:pdf',
             'cert' => 'mimes:pdf',
@@ -95,10 +95,11 @@ class AdminAddmodelComponent extends Component
             'web_price' => 'required',
             'dealer_price' => 'required|numeric|max:999999',
             'customer_price' => 'required|numeric|max:999999',
-            'product_id' => 'required',
+            'product_id' => 'required|numeric',
         ]);
         $model = new ProductModels();
         $model->name = $this->name;
+        // $model->nickname = $this->nickname;
         $model->slug = $this->slug;
         $model->description = $this->description;
         $model->overview = $this->overview;
@@ -154,7 +155,13 @@ class AdminAddmodelComponent extends Component
         $model->web_price = $this->web_price;
         $model->dealer_price = $this->dealer_price;
         $model->customer_price = $this->customer_price;
-        $model->stock = $this->stock;
+        if($this->stock){
+            $model->stock = $this->stock;
+        }
+        else{
+            $model->stock = 0;
+        }
+        
         $model->product_id = $this->product_id;
 
         if($this->group_products)

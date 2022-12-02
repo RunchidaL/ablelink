@@ -21,9 +21,11 @@
 .step{
 	margin-bottom: 50px;
 }
+
 .step h2{
 	text-align: center;
 }
+
 .step h4{
 	text-align: center;
 	color: red;
@@ -166,9 +168,11 @@
 input[type="date"]{
 	position: relative;
 	min-width: 95%;
+	min-height: 3em;
 	display:block;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator{
@@ -186,7 +190,6 @@ input[type="date"]:before{
 	/* This is the calendar icon in FontAwesome */
 	width: 30px;
 	position: absolute;
-	top: 0.275rem;
 	right: 0;
 	color: #999;
 }

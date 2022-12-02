@@ -1,12 +1,12 @@
 <div style="margin-left: 5%; margin-right: 5%">
-    <div class="container">
+    <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-12" id="head">
-                                <a href="{{route('admin.post')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Posts
+                                <h2><a href="{{route('admin.post')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Posts</h2>
                             </div>
                         </div>
                     </div>
@@ -18,19 +18,22 @@
                             <div class="form-group">
                                 <label class="col-md-12">Title : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="title" wire:keyup="generateSlug" required >
+                                    <input type="text" class="form-control" wire:model="title" wire:keyup="generateSlug">
+                                    @error('title') <p class="text-danger">กรุณาใส่</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">slug : </label>
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" wire:model="slug" required >
+                                    <input type="text" class="form-control" wire:model="slug" >
+                                    @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Title Image : </label>
                                 <div class="col-md-12">
-                                    <input type="file" class="input-file" wire:model="newtitleimg" >
+                                    <input type="file" class="input-file" wire:model="newtitleimg" accept=".jpg,.jpeg,.png">
+                                    @error('titleimg') <p class="text-danger">กรุณาใส่</p> @enderror
                                     @if($newtitleimg)
                                         <img src="{{$newtitleimg->temporaryUrl()}}" width="120"/>
                                     @else
@@ -41,21 +44,24 @@
                             <div class="form-group">
                                 <label class="col-md-12">Category : </label>
                                 <div class="col-md-12">
-                                    <select class="form-control form-control-sm" name="category" wire:model="category_id" required>
+                                    <select class="form-control form-control-sm" name="category" wire:model="category_id">
                                         <option value="">--Select--</option>
                                         @foreach ($postcategories as $postcategory)
                                             <option value="{{$postcategory->id}}">{{$postcategory->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('category_id') <p class="text-danger">กรุณาใส่</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Description : </label>
                                 <div class="col-md-12" wire:ignore>
-                                    <textarea id="description" type="text" class="form-control" wire:model="description" required>{{ $post->description }}</textarea>
+                                    <textarea id="description" type="text" class="form-control" wire:model="description">{{ $post->description }}</textarea>
                                 </div>
+                                @error('description') <p class="text-danger">กรุณาใส่</p> @enderror
                             </div>
                             <div class="form-group">
+                                <label class="col-md-12"></label>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-success">Update</button>
                                 </div>
@@ -67,30 +73,6 @@
         </div>
     </div>
 </div>
-
-<style>
-    #head{
-        font-size: 30px;
-    }
-    .col-md-12{
-        font-size: 15px;
-        background: rgb(243, 243, 243);
-        border-radius: 20px;
-    }
-    .panel-heading.head{
-        font-size: 50px;
-    }
-    .panel-body{
-        margin: 2% 5% 2% 5%;
-    }
-    .row{
-        margin: 25px;
-    }
-    button{
-        margin-top: 2%
-    }
-</style>
-
 
 <script>
 $('#description').summernote({

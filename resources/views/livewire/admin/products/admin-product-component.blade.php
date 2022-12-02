@@ -11,24 +11,60 @@
                         <a href="{{route('admin.addproduct')}}"><button class="btn btn-success">Add Products</button></a>
                     </div>
                     <div class="col offset-md-8 d-md-flex justify-content-md-end">
-                        <input class="form-control" list="datalistOptions" placeholder="search" wire:model="searchproduct">
+                        <input class="form-control mb-3" list="datalistOptions" placeholder="Part number" wire:model="searchmodel">
+                        <datalist id="datalistOptions">
+                            @foreach($models as $model)
+                                <option>{{$model->slug}}</option>
+                            @endforeach
+                        </datalist>
+                    </div>
+                    <!-- <div class="col offset-md-8 d-md-flex justify-content-md-end">
+                        <input class="form-control" list="datalistOptions" placeholder="Group Product Name" wire:model="searchproduct">
                         <datalist id="datalistOptions">
                             @foreach($products as $product)
                                 <option>{{$product->slug}}</option>
                             @endforeach
                         </datalist>
-                    </div>
+                    </div> -->
                 </div>
                 <table class="table table-striped">
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                     @endif
+                    @if($searchmodel)
+                        @if($models->count()>0)
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Models</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($models as $model)
+                                
+                                <tr>
+                                    <td>{{$model->id}}</td>
+                                    <td>{{$model->slug}}</td> 
+                                    <td>
+                                        <a href="{{route('admin.editmodel',['model_slug'=>$model->slug])}}"><i class="bi bi-pencil-square" id="edit"></i></a>
+                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteModel({{$model->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                    </td> 
+                                </tr>
+                                
+                                
+                            @endforeach
+                        </tbody>
+                        @else
+                        <p class="noproduct">ไม่พบสินค้าที่ค้นหา</p>
+                        @endif
+                    @else
                     <thead>
                         <tr>
                             <th>ID</th>
                             <!-- <th>Image</th> -->
                             <th>Name</th>
-                            <!-- <th>Brand</th> -->
+                            <th>Brand</th>
                             <th>Models</th>
                             <th>Action</th>
                         </tr>
@@ -39,7 +75,7 @@
                                 <td>{{$product->id}}</td>
                                 <!-- <td><img src="{{asset('/images/products')}}/{{$product -> image}}" width="60"/></td> -->
                                 <td class="product-name">{{$product->name}}</td>
-                                <!-- <td class="product-name">{{$product->brand->name}}</td> -->
+                                <td>{{$product->brand->brands->name}}</td>
                                 <td class="models">
                                     <ul class="slist">
                                         @foreach($product->product_models as $model)
@@ -59,6 +95,7 @@
                     </tbody>
                 </table>
                 {{$products->links()}}
+                @endif
             </div>
         </div>
     </div>
@@ -79,5 +116,10 @@
     .product-name{
         width:20%;
     }
-
+    .noproduct{
+        text-align: center;
+        margin: 10% 0;
+        font-weight: bold;
+        font-size: 30px;
+    }
 </style>

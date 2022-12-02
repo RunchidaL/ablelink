@@ -30,7 +30,6 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>LinkProducts</th>
-                                    <th>Brand_id</th>
                                     <th>Brand</th>
                                     <th>Date</th>
                                     <th>Action</th>
@@ -38,21 +37,18 @@
                             </thead>
                             <tbody>
                                 @foreach($NewProduct as $NewProducts)
-                                    {{-- @foreach ($NewProduct->where('brand_id',$NewProducts->brand_id) as $NewProducts) --}}
                                     <tr>
                                         <td>{{$NewProducts->id}}</td>
                                         <td>{{$NewProducts->name}}</td>
                                         <td><img src="{{$NewProducts->img}}" style="width: 50%"></td>
                                         <td>{{$NewProducts->linkproduct}}</td>
-                                        <td>{{$NewProducts->brand_id}}</td>
-                                        <td><img src="{{asset('/images/brands')}}/{{$NewProducts->brand->image}}" style="width: 80%"></td>
+                                        <td>{{$NewProducts->brand->name}}</td>
                                         <td>{{$NewProducts->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.EditNewProducts',['NewProduct_id'=>$NewProducts->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                             <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteNewProduct({{$NewProducts->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                         </td>
                                     </tr>
-                                    {{-- @endforeach --}}
                                 @endforeach
                             </tbody>
                         </table>

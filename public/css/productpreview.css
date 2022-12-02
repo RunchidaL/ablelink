@@ -109,6 +109,7 @@ text-align: center;
 .boximgpp{
     display: table;
     height: 300px;
+    margin: auto;
 }
 .imgpp{
     text-decoration: none; 

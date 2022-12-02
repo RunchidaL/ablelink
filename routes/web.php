@@ -86,6 +86,9 @@ use App\Http\Livewire\Admin\mainpage\CustomContactComponent;
 use App\Http\Livewire\Admin\mainpage\CustomAboutusComponent;
 use App\Http\Livewire\Admin\mainpage\CustomServiceComponent;
 use App\Http\Livewire\Admin\mainpage\CustomForworkComponent;
+use App\Http\Controllers\AdminOrderPdfController;
+use App\Http\Livewire\GroupCategoryComponent;
+use App\Http\Livewire\ReviewComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -125,7 +128,9 @@ Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 Route::get('/product/attribute/{modelslug}', DetailsModelsComponent::class)->name('product.detailsmodels');
 
-Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}/{sbcategory_slug?}', CategoryComponent::class)->name('product.category');
+Route::get('/product_category/{category_slug}/{scategory_slug?}/{bcategory_slug?}', CategoryComponent::class)->name('product.category');
+
+Route::get('/product_category/{category_slug}/{scategory_slug}/{bcategory_slug}/{sbcategory_slug}', GroupCategoryComponent::class)->name('product.groupcategory');
 
 Route::post('/send-email',[InfodealerRequestController::class,'sendEmail'])->name('send.email');
 
@@ -160,6 +165,8 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
     Route::get('/customer/addaddress',CustomerAddAddressComponent::class)->name('customer.addaddress');
     Route::get('/customer/editaddress/{address_id}',CustomerEditAddressComponent::class)->name('customer.editaddress');
+
+    Route::get('/review/{order_item_id}',ReviewComponent::class)->name('review');
 });
 
 // for Admin
@@ -188,7 +195,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/categorydownload/edit/{categorydownload_slug}', AdminEditCategoryDownloadComponent::class)->name('admin.editcategorydownload');
     Route::get('/admin/download', AdminDownloadComponent::class)->name('admin.download');
     Route::get('/admin/download/add', AdminAddDownloadComponent::class)->name('admin.adddownload');
-    Route::get('/admin/download/edit/{download_slug}', AdminEditDownloadComponent::class)->name('admin.editdownload');
+    Route::get('/admin/download/edit/{download_id}', AdminEditDownloadComponent::class)->name('admin.editdownload');
     Route::get('/admin/model/add', AdminAddmodelComponent::class)->name('admin.addmodel');
     Route::get('/admin/model/edit/{model_slug}', AdminEditmodelComponent::class)->name('admin.editmodel');
     Route::get('/admin/group', GroupComponent::class)->name('admin.group');
@@ -206,6 +213,7 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::get('/admin/AdminEditNewProducts{NewProduct_id}', EditNewProductsComponent::class)->name('admin.EditNewProducts');
     Route::get('/admin/AllOrder', AllOrderComponent::class)->name('admin.AllOrder');
     Route::get('/admin/order/{orderid}', OrderDetailsComponent::class)->name('admin.OrderDetails');
+    Route::get('/admin/orderpdf/{orderpdf_id}',[AdminOrderPdfController::class,'export'])->name('admin.orderpdf');
     Route::get('/admin/productpreview', ProductPreviewComponent::class)->name('admin.productpreview');
     Route::get('/admin/productpreview/add', AddProductPreviewComponent::class)->name('admin.addproductpreview');
     Route::get('/admin/productpreview/edit/{preview_id}', EditProductPreviewComponent::class)->name('admin.editproductpreview');

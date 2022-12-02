@@ -13,7 +13,6 @@
                         <td>รหัสใบสั่งซื้อ</td>
                         <td>วันสั่งซื้อ</td>
                         <td>ยอดชำระเงิน</td>
-                        <td>สถานะ</td>
                         <td>ดูรายการสินค้า</td>
                     </tr>
                 </thead>
@@ -28,9 +27,6 @@
                         </td>
                         <td class="order-total">
                             <p class="group-cen">฿{{number_format($order->total,2)}}</p>
-                        </td>
-                        <td class="order-status">
-                            <p class="group-cen">อยู่ระหว่างการขนส่ง</p>
                         </td>
                         <td class="order-detail">
                             <div class="group-cen">
@@ -58,24 +54,16 @@
             @foreach($orders as $order)
             <div class="phone-order-wrapper">  
                 <div class="phone-order-left">
-                    <div class="phone-order-code">
-                        <p class="group-cen">#{{$order->id}}</p>
-                    </div>
-                    <div class="phone-order-quantity">
-                        <p class="group-cen">{{date('d/m/Y', strtotime($order->created_at))}}</p>
-                    </div>
+                    <p class="group-cen">#{{$order->id}}</p>
+                    <p class="group-cen">{{date('d/m/Y', strtotime($order->created_at))}}</p>
                 </div>
                 <div class="phone-order-mid">
-                    <div class="phone-order-status">
-                        <p class="group-cen">อยู่ระหว่างการขนส่ง</p>
-                    </div>
+                    <p class="group-cen">฿{{number_format($order->total,2)}}</p>
                 </div>
                 <div class="phone-order-right">
-                    <div class="phone-order-detail">
-                        <div class="group-cen">
-                            <a href="{{route('order.detail',['order_id'=>$order->id])}}" class="btn btn-success">รายละเอียด</a>
-                        </div> 
-                    </div>
+                    <div class="group-cen">
+                        <a href="{{route('order.detail',['order_id'=>$order->id])}}" class="btn btn-success">รายละเอียด</a>
+                    </div> 
                 </div>
             </div>
             @endforeach

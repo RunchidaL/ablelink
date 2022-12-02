@@ -1,6 +1,15 @@
 #swiper-wrapper img{
     width: 100%;
 }
+
+#nextver1{
+    right: 3%;
+}
+
+#prevver1{
+    left: 3%;
+}
+
 #nextver1 , #prevver1{
     color: 	#A9A9A9;
     padding: 30px 25px;

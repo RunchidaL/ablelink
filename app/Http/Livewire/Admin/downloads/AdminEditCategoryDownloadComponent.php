@@ -29,6 +29,10 @@ class AdminEditCategoryDownloadComponent extends Component
 
     public function updateCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|alpha_dash'
+        ]);
         $category = DownloadCategory::find($this->category_id);
         $category->name = $this->name;
         $category->slug = $this->slug;

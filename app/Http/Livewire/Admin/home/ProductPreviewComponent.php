@@ -17,7 +17,7 @@ class ProductPreviewComponent extends Component
 
     public function render()
     {
-        $previews = ProductPreview::all();
+        $previews = ProductPreview::orderBy('category_id','DESC')->get();
         return view('livewire.admin.home.product-preview-component',['previews'=>$previews])->layout("layout.navfoot");
     }
 }

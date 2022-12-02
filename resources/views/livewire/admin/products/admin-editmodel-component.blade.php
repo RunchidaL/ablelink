@@ -31,23 +31,23 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Overview</label>
+                                <label class="col-md-12">Specification</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="overview" type="text" class="form-control"  wire:model="overview">{{ $model->overview }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Application</label>
+                                <label class="col-md-12">Solution</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="application" type="text" class="form-control"  wire:model="application">{{ $model->application }}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-12">Item_spotlight</label>
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight">{{ $model->item_spotlight }}</textarea>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-12">Feature</label>
                                 <div class="col-md-12" wire:ignore>
@@ -213,7 +213,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-md-6">Network Type (กรุณา Select Network Type ก่อน Add product)</label>
                                 <div class="row justify-content-start">
                                     <div class="col-4">
@@ -243,7 +243,7 @@
                                 <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
                                 <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
                             </div>
-                            @endforeach                
+                            @endforeach -->
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button type="file" class="btn btn-success my-4">Update</button>
@@ -285,14 +285,14 @@
             }
         }
     });
-    $('#item_spotlight').summernote({
-        height: 200,
-        callbacks: {
-            onChange: function(contents4, $editable) {
-                @this.set('item_spotlight', contents4);
-            }
-        }
-    });
+    // $('#item_spotlight').summernote({
+    //     height: 200,
+    //     callbacks: {
+    //         onChange: function(contents4, $editable) {
+    //             @this.set('item_spotlight', contents4);
+    //         }
+    //     }
+    // });
     $('#feature').summernote({
         height: 200,
         callbacks: {

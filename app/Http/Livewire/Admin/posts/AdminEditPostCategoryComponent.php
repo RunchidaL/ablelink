@@ -29,6 +29,10 @@ class AdminEditPostCategoryComponent extends Component
 
     public function updatePostCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|alpha_dash',
+        ]);
         $postcategory = PostCategory::find($this->postcategory_id);
         $postcategory->name = $this->name;
         $postcategory->slug = $this->slug;

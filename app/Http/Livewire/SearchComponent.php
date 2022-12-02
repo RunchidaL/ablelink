@@ -80,7 +80,7 @@ class SearchComponent extends Component
 
     public function render()
     {   
-        $products = ProductModels::where('name','like','%'. $this->search .'%')->orderBy('created_at','DESC')->paginate(10);
+        $products = ProductModels::where('name','like','%'. $this->search .'%')->orWhere('slug','like','%'. $this->search .'%')->orderBy('created_at','DESC')->paginate(10);
         $categories = Category::all();
         return view('livewire.search-component',['products'=> $products, 'categories' => $categories])->layout("layout.navfoot"); 
     }

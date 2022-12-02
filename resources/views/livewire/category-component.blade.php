@@ -16,8 +16,8 @@
             @endif
         </div>
         <div class="row" id="products">
-            @foreach($products as $product)
-                @foreach($models->where('product_id',$product->id)->unique('product_id') as $model)
+
+                @foreach($models as $model)
                 <div class="NP-col">
                     <div class="card">
                         <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}" class="card-wrapper">
@@ -93,59 +93,11 @@
                     </div>
                 </div>
                 @endforeach
-            @endforeach
-            {{$products->links()}}
+
+
+
         </div>
     </div>
-    <div class="add-products-preview">
-        @foreach($products as $product)
-            @foreach($models->where('product_id',$product->id)->unique('product_id') as $model)
-            <div class="preview" data-target="{{$model->slug}}">
-                <i class="bi bi-x-lg"></i>
-                <div class="row">
-                    <div class="col">
-                        <img src="{{asset('/images/products')}}/{{$model->image}}">
-                    </div>
-                    <div class="col">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}">
-                        <h4>{{$model->name}}<span> #{{$model->slug}}</span></h4></a>
-                        <div class="head-product-price">
-                        @guest
-                        <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
-                        @else
-                            @if(Auth::user()->role == 1)
-                            <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
-                            @else
-                            <p>฿{{number_format($model->dealer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
-                            @endif
-                        @endguest
-                        </div><br>
-                        @if(($model->product->subCategories->name) == "Cabling")
-                        <div class="length">
-                            <p>Length:</p>
-                            <div class="add-attribute">
-                                <input wire:model.defer="attribute"> m
-                                <p class="text-danger">กรุณาใส่ความยาว</p>
-                            </div>
-                        </div><br>
-                        @endif
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <div class="quantity">
-                        <div class="add-qty">
-                            <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
-                        </div>
-                        <div class="addtocart" style="display: inline-block;">
-                            <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        @endforeach
-    </div>
-</div>
 
 <script>
 let preveiwContainer = document.querySelector('.add-products-preview');

@@ -23,7 +23,7 @@ class Product extends Model
 
     public function brand()
     {
-        return $this->belongsTo(Brand::class,'brandcategory_id');
+        return $this->belongsTo(BrandCategory::class,'brandcategory_id');
     }
 
     public function network_allimage()

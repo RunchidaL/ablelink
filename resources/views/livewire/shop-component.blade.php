@@ -69,17 +69,10 @@
                     </a> 
                     <div class="card-footer">
                         @if($product->stock == 0)
-                            <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
-                        @endif
-                        @guest
-                            @if($product->stock > 0)
-                                <a href="{{ route('login') }}"><button type='button' class="button btn"><span>Add to cart</span></button></a>
-                            @endif
+                            <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
                         @else
-                            @if($product->stock > 0)
                             <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
-                            @endif
-                        @endguest
+                        @endif
                     </div>
                 </div>
             </div>

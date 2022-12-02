@@ -10,7 +10,7 @@
     </div>
     <div class="mac-center">
         <a href="{{route('newproducts')}}"><i class="bi bi-box-seam"></i></a>
-        <p>ผลิตภัณฑ์</p>
+        <p>ผลิตภัณฑ์ใหม่</p>
     </div>
     <div class="mac-right">
         <a href="/post_category/องค์กร"><i class="bi bi-building"></i></a>

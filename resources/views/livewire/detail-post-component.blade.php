@@ -14,6 +14,9 @@
     .body{
         margin: 5% 20% 5% 20%;
     }
+    img{
+        width: 100% !important;
+    }
 
     @media(max-width: 767px){
         .head{
