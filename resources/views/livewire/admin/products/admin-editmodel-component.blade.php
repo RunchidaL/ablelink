@@ -285,6 +285,9 @@
     }
     overviewSummernote.summernote({
         height: 200,
+        onImageUpload: function(files) {
+            uploadFile(files[0], overviewSummernote);
+        },
         callbacks: {
             onImageUpload: function(files) {
                 uploadFileover(files[0], overviewSummernote);
@@ -315,6 +318,9 @@
     }
     applicationSummernote.summernote({
         height: 200,
+        onImageUpload: function(files) {
+            uploadFile(files[0], applicationSummernote);
+        },
         callbacks: {
             onImageUpload: function(files) {
                 uploadFileapp(files[0], applicationSummernote);

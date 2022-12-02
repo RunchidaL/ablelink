@@ -160,7 +160,7 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
     Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
     // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
-    
+
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
     Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
