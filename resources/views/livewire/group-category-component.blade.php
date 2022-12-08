@@ -7,9 +7,11 @@
         <div class="row" id="products">
         @foreach($products->unique('groupproduct_id') as $product)
             <br>
+            @if(!empty($product->product_models->id))
             <div>
                 <h2 class="text" style="font-weight: bold">{{$product->group_products->name}}</h2>
             </div>
+            @endif
 
             <!-- group -->
             @foreach($models->where('group_products',$product->groupproduct_id) as $model)
@@ -250,6 +252,7 @@
                     @endforeach
             @endforeach
         @endforeach
+        {{$products->links()}}
     </div>
     <div class="add-products-preview" id="add-products-preview">
         @foreach($models as $model)
@@ -296,6 +299,7 @@
             </div>
         </div>
         @endforeach
+        
     </div>
 </div>
 

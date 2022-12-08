@@ -40,7 +40,7 @@
             @livewire('search-component')
             <div class="cart">
                 @guest
-                <a href="{{ route('login') }}"><button class="icon"><i class="bi bi-cart-fill"></i></button></a>
+                <a href="{{ route('login') }}"><button class="iconcart"><i class="bi bi-cart-fill"></i></button></a>
                 @else
                     @livewire('cart-count-component')
                 @endguest
@@ -93,52 +93,6 @@
 </div>
 
 <!-- footer -->
-<footer class="footer-wrapper" >
-    <div class="container">
-        <div class="footer">
-            <div class="footer-col">
-                <img src="/images/logoAbleLink.png" alt="logo">
-                <div class="social">
-                    <a href="https://www.facebook.com/ablelinkthailand/"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-line"></i></a>
-                    <a href="#"><i class="bi bi-envelope"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h5>Contact</h5>
-                    <ul>
-                        <li>Tel : 095-145-1538</li>
-                        <li>Email : ablelink.thailand99@gmail.com</li>
-                        <li>ABLE LINK (Thailand) CO., LTD.</li>
-                        <li>12 Soi Sukhaphiban 5 Soi 5 Yaek 3,</li>
-                        <li>Tha Raeng, Bang Khen  Bangkok 10220</li>
-                    </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Product</h5>
-                    <ul>
-                        <li><a href="/">หน้าหลัก</a></li>
-                        <li><a href="/shop">ผลิตภัณฑ์</a></li>
-                    </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Connect</h5>
-                    <ul>
-                        <li><a href="/aboutus">เกี่ยวกับเรา</a></li>
-                        <li><a href="/forwork">ร่วมงานกับเรา</a></li>
-                        <li><a href="/contact">ติดต่อเรา</a></li>
-                    </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Customer Service</h5>
-                <ul>
-                    <li><a href="/activity">ข่าวสาร&กิจกรรม</a></li>
-                    <li><a href="/service">บริการ</a></li>
-                    <li><a href="/download">ดาวน์​โหลด</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+@livewire('footer-component')
+
 @endsection

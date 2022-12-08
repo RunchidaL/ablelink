@@ -31,11 +31,11 @@ ol, ul{
 }
 
 .navbar .nav-wrap img[logo]{
-    height: 4.375rem;
+    height: 3.5rem;
 }
 
 .navbar .nav-wrap img[logo2]{
-    height: 4.375rem;
+    height: 4rem;
     display: none;
 }
 
@@ -369,6 +369,18 @@ ol, ul{
     color: #194276;
 }
 
+.nav-right .iconcart{
+    border: none;
+    background: none;
+    padding: 0 10px;
+    color: black;
+    font-size: 20px;
+}
+
+.nav-right .iconcart:hover{
+    color: #194276;
+}
+
 /* dropdown User */
 .dropdown-item{
     text-align: center;
@@ -399,45 +411,6 @@ ol, ul{
 /* Toggle */
 .toggle{
     display: none;
-    position: relative;
-    user-select: none;
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-}
-
-.toggle span{
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background-color: black;
-    border-radius: 6px;
-    transform-origin: 0 0;
-    transition: 0.4s;
-}
-
-.toggle:hover span{
-    background-color: red;
-}
-
-.toggle.is-active span:nth-child(1){
-    transform: translate(0px, -2px)rotate(45deg);
-}
-
-.toggle.is-active span:nth-child(2){
-    opacity: 0;
-}
-
-.toggle.is-active span:nth-child(3){
-    transform: translate(-3px, 3px)rotate(-45deg);
-}
-
-.toggle.is-active:hover span{
-    background-color: red;
 }
 
 .fakenav{
@@ -584,7 +557,10 @@ footer *{
         display: block;
     }
     #CartCount{
-        padding: 2px 5px 2px 5px;
+        padding: 1px 4px;
+        font-size: 9px;
+        margin-left: -10px; 
+        margin-top: 0px;  
     }
 }
 
@@ -596,7 +572,22 @@ footer *{
         display: none;
     }
     .nav-right .searchbox input{
-        width: 80%;
+        width: 70%;
+    }
+    .nav-right{
+        justify-content: flex-end;
+    }
+    .searchbox-wrap{
+        width: 70%;
+    }
+    #CartCount{
+        padding: 0 3px;
+        font-size: 8px;
+        margin-left: -9px; 
+        margin-top: -2px;  
+    }
+    .nav-right .iconcart{
+        padding: 0 15px;
     }
 }
 

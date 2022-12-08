@@ -66,7 +66,7 @@ class AdminEditDealerComponent extends Component
             'taxid' => 'required',
             'idcompany' => 'required',
             'coin' => 'required',
-            'dealerid' => 'required|numeric',
+            'dealerid' => 'required|numeric|exists:users,id',
         ]);
         $dealerinfo = Dealer::find($this->D_id);
         $dealerinfo->firstname = $this->firstname;

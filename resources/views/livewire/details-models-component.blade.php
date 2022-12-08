@@ -93,7 +93,7 @@
                 @endguest
                 </div>
             </div>
-            @if($model->product->subcategory_id == "7")
+            @if($model->product->subbrandcategory_id == "89")
                 <div class="length">
                     <p>Length:</p>
                     <div class="add-attribute">

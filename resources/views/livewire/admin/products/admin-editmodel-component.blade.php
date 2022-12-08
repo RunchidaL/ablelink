@@ -32,24 +32,28 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Description</label>
+                                <input type="radio" wire:model="nulldes"> ต้องการลบข้อมูล Description ทั้งหมด
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="description" type="text" class="form-control" wire:model="description">{{ $model->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Specification</label>
+                                <input type="radio" wire:model="nullover"> ต้องการลบข้อมูล Specification ทั้งหมด
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="overview" type="text" class="form-control"  wire:model="overview">{{ $model->overview }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Solution</label>
+                                <input type="radio" wire:model="nullapp"> ต้องการลบข้อมูล Solution ทั้งหมด
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="application" type="text" class="form-control"  wire:model="application">{{ $model->application }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Feature</label>
+                                <input type="radio" wire:model="nullfea"> ต้องการลบข้อมูล Feature ทั้งหมด
                                 <div class="col-md-12" wire:ignore>
                                     <textarea id="feature" type="text" class="form-control"  wire:model="feature">{{ $model->feature }}</textarea>
                                 </div>
@@ -87,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4">Videos  (ถ้าต้องการใส่หลาย Video ให้พิมพ์ , ก่อนแล้วตามด้วย Link Video ถัดไป)</label>
+                                <label class="col-md-4">Videos (ถ้าต้องการใส่หลาย Video ให้พิมพ์ , ก่อนแล้วตามด้วย Link Video ถัดไป)</label>
                                 <div class="col-md-4">
                                     <textarea cols="100" rows="5" wire:model="videos"></textarea>
                                 </div>

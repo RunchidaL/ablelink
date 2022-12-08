@@ -1,419 +1,375 @@
-<div class="container">
-    <div class="container mt-3 shadow-sm" id="myForm" style="max-width: 420px; height: auto; background-color: #fff; border-radius: 25px; border: 1px solid rgb(233, 233, 233); display: none; position: fixed; right: 125px; bottom: 25px;">
-        <br><button type="button" style="border: 1px solid #fff; background: #fff; float: right;" onclick="closeForm()"><img src="static/images/cancel.png" style="width: 22px; height: 22px;"></button>
-        <h5 style="padding:5px; margin-left: 17px; margin-top: 7px; font-size: 23px;">What are you inquiring about?</h5>
-        <div class="btn-group-vertical" style="position: flex; padding: 7px; display: block;">
-            <button type="button" onclick="myChatT()" class="btn btn-outline-dark" style="font-size: 18px; padding: 10px; margin-bottom: 10px; border-radius: 10px 10px 0 0;">การเคลม</button>
-            <button type="button" onclick="myChatS()"class="btn btn-outline-dark" style="font-size: 18px; padding: 10px; margin-bottom: 10px;">Support ทางเทคนิค</button>
-            <button type="button" onclick="myChatTx()"class="btn btn-outline-dark" style="font-size: 18px; padding: 10px; border-radius: 0 0 10px 10px; margin-bottom: 13px;">ใบเสนอราคา</button>
+<div class="wrapper" id="wrapper">
+    <div class="wrap">
+        <div class="iconChat" id="iconChat1" onclick="openHelp()">
+            <div class="textChat" id="textChat1">
+            <span>Help</span>
+            </div>
+            <i class="bi bi-question-lg"></i>
+        </div>
+        <div class="iconChat" id="iconChat2" onclick="openChat()">
+            <div class="textChat" id="textChat2">
+            <span>Chat</span>
+            </div>
+            <i class="bi bi-chat-dots" id="support"></i>
+        </div>
+        <div class="animation start q" id="animation"></div>
+    </div>
+    <div class="helpWrapper" id="helpContainer">
+        <div class="head">
+            <span>ข้อมูลติดต่อกลับ</span>
+            <i class="bi bi-x" onclick="openHelp()"></i>
+        </div>
+        <form class="contact-back-form">
+            <p>
+            <span>ชื่อ :</span>
+            <input type="text" name="name" id="name" />
+            </p>
+            <p>
+            <span>เบอร์ :</span>
+            <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phone" />
+            </p>
+            <button onclick="openHelp()">Submit</button>
+        </form>
+    </div>
+    <div class="chatWrapper" id="chatContainer">
+        <div class="head">
+            <span>คุณต้องการติดต่อเรื่องใด ?</span>
+            <i class="bi bi-x" onclick="openChat()"></i>
+        </div>
+        <div class="chat-choices" id="chatChoice">
+            <button class="chat-choice" onclick="openChatBox('การเคลม')">การเคลม</button>
+            <button class="chat-choice" onclick="openChatBox('support ทางเทคนิค')">support ทางเทคนิค</button>
+            <button class="chat-choice" onclick="openChatBox('ใบเสนอราคา')">ใบเสนอราคา</button>
         </div>
     </div>
-    <div class="chat-box shadow-sm" id="chatTechnical" style="display: none; left: 920px; top: 250px;">
-        <div class="client">
-            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                <div class="text" style="margin-left: 8px; width: 100%;">
-                    <h2 style="font-size: 20px; margin-top: 5px;">การเคลม</h2>
-                </div>
-                <button type="button" style="border: 1px solid #fff; background: #fff; float: right;" onclick="closeChatT()"><img src="static/images/cancel.png" style="width: 22px; height: 22px;"></button>
+    <div class="chatboxWrapper" id="chatboxContainer">
+        <div class="head">
+            <span id="chatHead"></span>
+            <i class="bi bi-x" onclick="openChat()"></i>
         </div>
-        <div class="chats">
-            <div class="client-chat">
-                    
-                    <div class="d-flex align-items-baseline text-end justify-content-end" style="margin-top: 13px; ">
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div>
-                                <div class="card card-text-client d-inline-block p-2 px-3 m-1">Hello</div>
-                            </div>
-                            <div>
-                                <div class="small" style="margin-right: 5px;">01.19 AM</div>
-                            </div>
-                        </div>
-                        <div class="position-relative avatar" style="margin-right: 17px;">
-                            <img src="static/images/user.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="admin profile">
-                        </div>
+        <div class="chatbox">
+            <div style="padding: 10px;">
+                <div class="d-flex align-items-baseline justify-content-end">
+                    <div>
+                        <div class="card d-inline-block p-1 px-3 m-1">Hello</div>
+                        <div class="small text-end" style="font-size: 10px">01.19 AM</div>
                     </div>
-                    <div class="d-flex align-items-baseline mb-4">
-                        <div class="position-relative avatar" style="margin-left: 17px;">
-                            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                        </div>
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">Hello sir,</div></div>
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">May I help you ?</div></div>
-                        </div>
+                </div>
+                <div class="d-flex align-items-baseline justify-content-start">
+                    <div class="position-relative avatar" style="padding: 0 3px;">
+                        <i class="bi bi-robot"></i>
                     </div>
+                    <div>
+                        <div class="card d-inline-block p-1 px-3 m-1">Hello sir,</div>
+                        <div class="card d-inline-block p-1 px-3 m-1">May I help you ?</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Write a message...">
-            <button class="send-btn">
-                <img src="static/images/send.png" alt="send-btn">
-            </button>
+        <div class="input-textChat">
+            <input type="text" id="inputTextChat" />
+            <button onclick="sendTextChat()">Send</button>
         </div>
     </div>
-    <div class="chat-box shadow-sm" id="chatSales" style="display: none; left: 920px; top: 250px;">
-        <div class="client">
-            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                <div class="text" style="margin-left: 8px; width: 100%;">
-                    <h2 style="font-size: 20px; margin-top: 5px;">Support ทางเทคนิค</h2>
-                </div>
-                <button type="button" style="border: 1px solid #fff; background: #fff; float: right;" onclick="closeChatS()"><img src="static/images/cancel.png" style="width: 22px; height: 22px;"></button>
-        </div>
-        <div class="chats">
-            <div class="client-chat">
-                    
-                    <div class="d-flex align-items-baseline text-end justify-content-end" style="margin-top: 13px; ">
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div>
-                                <div class="card card-text-client d-inline-block p-2 px-3 m-1">Hello</div>
-                            </div>
-                            <div>
-                                <div class="small" style="margin-right: 5px;">01.19 AM</div>
-                            </div>
-                        </div>
-                        <div class="position-relative avatar" style="margin-right: 17px;">
-                            <img src="static/images/user.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="admin profile">
-                        </div>
-                    </div>
-                        <div class="d-flex align-items-baseline mb-4">
-                        <div class="position-relative avatar" style="margin-left: 17px;">
-                            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                        </div>
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">Hello sir,</div></div>
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">May I help you ?</div></div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Write a message...">
-            <button class="send-btn">
-                <img src="static/images/send.png" alt="send-btn">
-            </button>
-        </div>
-    </div>
-    <div class="chat-box shadow-sm" id="chatTax" style="display: none; left: 920px; top: 250px;">
-        <div class="client">
-            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                <div class="text" style="margin-left: 8px; width: 100%;">
-                    <h2 style="font-size: 20px; margin-top: 5px;">ใบเสนอราคา</h2>
-                </div>
-                <button type="button" style="border: 1px solid #fff; background: #fff; float: right;" onclick="closeChatTx()"><img src="static/images/cancel.png" style="width: 22px; height: 22px;"></button>
-        </div>
-        <div class="chats">
-            <div class="client-chat">
-                    
-                    <div class="d-flex align-items-baseline text-end justify-content-end" style="margin-top: 13px; ">
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div>
-                                <div class="card card-text-client d-inline-block p-2 px-3 m-1">Hello</div>
-                            </div>
-                            <div>
-                                <div class="small" style="margin-right: 5px;">01.19 AM</div>
-                            </div>
-                        </div>
-                        <div class="position-relative avatar" style="margin-right: 17px;">
-                            <img src="static/images/user.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="admin profile">
-                        </div>
-                    </div>
-                        <div class="d-flex align-items-baseline mb-4">
-                        <div class="position-relative avatar" style="margin-left: 17px;">
-                            <img src="static/images/admin.png" class="img-fluid rounded-circle" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid red; padding: 1px;" alt="user profile">
-                        </div>
-                        <div class="pe-2" style="margin-top: 13px; margin-left: 10px;">
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">Hello sir,</div></div>
-                            <div><div class="card card-text-admin d-inline-block p-2 px-3 m-1">May I help you ?</div></div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Write a message...">
-            <button class="send-btn">
-                <img src="static/images/send.png" alt="send-btn">
-            </button>
-        </div>
-    </div>
-</div>
-<div class="container mt-3 shadow-sm" id="myContact" style="max-width: 350px; height: auto; background-color: #fff; border-radius: 25px; border: 1px solid rgb(233, 233, 233); display: none; position: fixed; right: 125px; bottom: 25px;">
-    <br><button type="button" style="border: 1px solid #fff; background: #fff; float: right;" onclick="closeContact()"><img src="static/images/cancel.png" style="width: 22px; height: 22px;"></button>
-    <h5 style="margin-left: 17px; margin-top: 7px; font-size: 23px;">Contact call back</h5>
-    <form class="Contact">
-        <div class="mt-3" style="margin-left: 15px; margin-bottom: 15px;">
-            <b><div class="small" style="font-size: 17px;">Name :</div>
-            <input type="text" placeholder=" Name" name="name" style="width: 290px; height:40px; border: 1px solid rgb(174, 174, 174); border-radius: 8px; font-size: 17px; padding: 3px; margin-bottom: 7px;">
-            <b><div class="small" style="font-size: 17px;">Tel :</div>
-            <input type="tel" placeholder=" 0X-XXXX-XXXX" name="tel" style="width: 290px; height:40px; border: 1px solid rgb(174, 174, 174); border-radius: 8px; font-size: 17px; padding: 3px;">
-
-        </div>
-        <button type="button" class="btn btn-outline-dark" style="width:90px; font-size: 17px; padding: 5px; border-radius: 10px 10px 10px 10px; margin-bottom: 15px; margin-left: 220px;">Submit</button>
-    </form>
-</div>
-<div class="navigation">
-    <ul>
-        <li class="list active">
-            <a href="#">
-                <span class="icon"><button class="btn" onclick="openContact()"><i class="fa-solid fa-circle-question"></i></button></span>
-                <span class="title">Help</span>
-            </a>
-        </li>
-        <li class="list">
-            <a>
-                <span class="icon"><button class="btn" onclick="openForm()"><i class="fa-solid fa-headset"></i></button></span>
-                <span class="title">Chat</span>
-            </a>
-        </li>
-        <div class="indicator"></div>
-    </ul>
 </div>
 
 <style>
-.navigation {
-    position: relative;
-    width: 70px;
-    height: 170px;
-    background: #fff;
-    border-radius: 35px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-    position: fixed;
-    right: 30px;
-    bottom: 25px;
 
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 20px 20px 0;
+    background: white;
+    width: 70px;
+    height: 140px;
+    border-radius: 35px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 100;
 }
-.navigation ul {
+
+.wrap {
     position: absolute;
-    top: 37px;
-    left: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 140px;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.navigation ul li {
+
+.iconChat {
+    cursor: pointer;
+    z-index: 300;
     position: relative;
-    list-style: none;
-    width: 70px;
-    height: 75px;
-    z-index: 1;
-}
-.navigation ul li a {
-    position: relative;
+    margin: 8px 0;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12%;
-    text-align: center;
-    color: #333;
-    font-weight: 500;
-    cursor: pointer;
-}
-.navigation ul li a .icon .btn {
-    position: relative;
-    display: block;
-    line-height: 25px;
-    text-align: center;
-    transition: 0.3s;
-
-}
-.navigation ul li.active a .icon .btn{
-    color: #fff;
-}
-.navigation ul li a .icon .btn i {
-    font-size: 27px;
-}
-
-.navigation ul li a .title {
-    position: absolute;
-    top: 50%;
-    right: 50px;
-    color: #fff;
-    background: #2f2f2f;
-    transform: translateY(-50%);
-    padding: 10px 13px;
-    border-radius: 6px;
-    transition: 0.5s;
-    box-shadow: 0.5px 8px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-}
-.navigation ul li:hover a .title {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-25px) translateY(-50%);
-}
-.navigation ul .indicator {
-    position: absolute;
-    left: 0;
-    width: 70px;
-    height: 70px;
-    transition: 0.3s;
-}
-.navigation ul .indicator::before {
-    content: '';
-    position: absolute;
-    bottom: 26px;
-    left: 13px; 
-    width: 47px;
-    height: 47px;
-    background: #333;
-    border-radius: 50%; 
-    transition: 0.3s;
-}
-.navigation ul li:nth-child(1).active ~ .indicator {
-    transform: translateY(calc(78px * 0));
-}
-.navigation ul li:nth-child(2).active ~ .indicator {
-    transform: translateY(calc(76px * 1));
-}
-.navigation ul li:nth-child(1).active ~ .indicator::before {
-    background: #f53b57;
-}
-.navigation ul li:nth-child(2).active ~ .indicator::before {
-   background: #0fbcf9;
-}
-.chat-box {
-    max-width: 370px;
-    height: 470px;
-    background-color: #fff;
     border-radius: 25px;
-    border: 1px solid rgb(233, 233, 233);
-    overflow: hidden;
-    position: relative;
-}
-.client {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 80px;
-    padding: 15px;
-    background: #fff;
-}
-.chats {
-    background: #eee;
-    height: 330px;
-}
-.card-text-admin {
-    border: 2px solid #ddd;
-    border-radius: 10px 10px 10px 0;
-}
-.card-text-client {
-    border: 2px solid #ddd;
-    border-radius: 10px  10px 0 10px;
-}
-.chat-input {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 65px;
-    background-color: #fff;
-    padding: 15px;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-}
-.chat-input input {
-    width: calc(100% - 40px);
-    height: 100%;
-    background-color: #4f5d7321;
-    border-radius: 50px;
-    border: 1px solid #fff;
-    font-size: 15px;
-    padding: 0 15px;
+    transition: all ease 200ms;
 }
 
-.send-btn {
+.iconChat .textChat {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #000000;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    opacity: 0;
+    left: -70px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    transition: all ease 300ms;
+    box-shadow: 0px 4px 0px 0px rgba(58, 58, 58, 0.75);
+    z-index: 300;
+    pointer-events: none;
+    user-select: none;
+}
+
+.iconChat:hover .textChat {
+    opacity: 1;
+    transform: translateX(-15px);
+}
+
+.animation {
+    position: absolute;
+    top: 0;
+    margin: 10px 0;
+    border-radius: 25px;
     width: 50px;
-    height: 40px;
-    background-color: transparent;
-    border: 1px solid #fff;
-    overflow: hidden;
-    position: relative;
-    border-radius: 50%;
-    margin-left: 5px;
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
+    height: 50px;
+    transition: all ease 200ms;
+    background-color: #f53b57;
 }
-.send-btn:active {
-    transform: scale(0.85);
+
+.chatWrapper, .helpWrapper, .chatboxWrapper {
+    display: none;
+    z-index: 200;
+    width: 300px;
+    min-height: 200px;
+    border-radius: 20px;
+    position: fixed;
+    background: white;
+    right: 100px;
+    bottom: 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-.send-btn img {
-    color: #fff;
+
+.helpWrapper .contact-back-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    font-size: 16px;
+}
+
+
+.helpWrapper .contact-back-form p:nth-child(2)  {
+    margin-top: 0.5rem;
+}
+
+.helpWrapper .contact-back-form input {
     width: 100%;
-    height: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-.open-popup {
-    visibility: visible;
-    top: 477px;
-    transform: translate(-1%,-50%) scale(1);
+.helpWrapper .contact-back-form button {
+    height: 42px;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 15px 0 8px 0;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+}
+
+.helpWrapper .contact-back-form button:hover {
+    background-color: white;
+    color: black;
+}
+
+.helpWrapper .contact-back-form button:active {
+    background-color: rgb(211, 211, 211); 
+}
+
+.chatWrapper {
+    min-height: 250px;
+}
+
+.chatWrapper .chat-choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(189px);
+    padding: 1rem;
+}
+
+.chatWrapper .chat-choices .chat-choice {
+    cursor: pointer;
+    height: 44px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(155, 154, 154);
+    transition: all 0.2s ease;
+}
+
+.chatWrapper .chat-choices .chat-choice:hover {
+    background: rgb(52, 77, 219);
+    color: white;
+}
+
+.chatWrapper .chat-choices .chat-choice:active {
+    background: rgb(105, 125, 233);
+    color: white;
+}
+
+.chatboxWrapper .chatbox {
+    height: 290px;
+    overflow-y: auto;
+}
+
+.chatboxWrapper .input-textChat {
+    border-top: 0.5px solid rgb(204, 204, 204);
+    border-radius: 0 0 20px 20px;
+    background-color: rgb(42, 42, 42);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem;
+}
+
+.chatboxWrapper .input-textChat input {
+    border: 0.5px solid rgb(204, 204, 204);
+    border-radius: 5px 5px 5px 20px ;
+    margin-right: 0.5rem;
+    width: 75%;
+    padding: 0.375rem;
+    height: min-content;
+}
+
+.chatboxWrapper .input-textChat button {
+    min-width: fit-content;
+    padding: 0.375rem;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.chatboxWrapper .input-textChat button:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+.chatboxWrapper .input-textChat button:active {
+    background-color: rgb(51, 50, 50);
+}
+
+.chatWrapper .head,
+.helpWrapper .head,
+.chatboxWrapper .head {
+    font-size: 20px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(204, 204, 204);
+    transition: all 0.2s ease;
+}
+
+.chatWrapper .head i:hover,
+.helpWrapper .head i:hover,
+.chatboxWrapper .head i:hover {
+    cursor: pointer;
+    color: red;
 }
 </style>
 
 <script>
-    let list = document.querySelectorAll('li');
-    for(let i=0; i<list.length; i++) {
-        list[i].onmouseover = function(){
-            let j=0;
-            while (j < list.length) {
-                list[j++].className = 'list';
-            }
-            list[i].className = 'list active';
-        }
+    const helpContainer = document.getElementById("helpContainer");
+    const chatContainer = document.getElementById("chatContainer");
+    const chatChoice = document.getElementById("chatChoice");
+    const chatboxContainer = document.getElementById("chatboxContainer");
+    const wrapper = document.getElementById("wrapper");
+    let isHelpOpen = false;
+    let isChatOpen = false;
+    let isChatChoice = true;
+    document.addEventListener("click", (event) => {
+    const isClickInside = wrapper.contains(event.target);
+
+    if (!isClickInside) {
+        isChatOpen = false;
+        isHelpOpen = false;
+        isChatChoice = true;
+        helpContainer.style.display = "none";
+        chatContainer.style.display = "none";
     }
+    });
+    
+    const openHelp = () => {
+    isChatChoice = true;
+    isChatOpen = false;
+    chatContainer.style.display = "none";
+    chatboxContainer.style.display = "none";
+    if (isHelpOpen === true) {
+        helpContainer.style.display = "none";
+        isHelpOpen = false;
+    } else {
+        isHelpOpen = true;
+        helpContainer.style.display = "block";
+    }
+    };
+
+    const openChat = () => {
+    isChatChoice = true;
+    isHelpOpen = false;
+    helpContainer.style.display = "none";
+    chatboxContainer.style.display = "none";
+    if (isChatOpen === true) {
+        isChatOpen = false;
+        chatContainer.style.display = "none";
+    } else {
+        isChatOpen = true;
+        chatContainer.style.display = "block";
+    }
+    };
+    
+    const openChatBox = (textChat) => {
+    document.getElementById('chatHead').innerHTML = textChat;
+    isChatChoice = false;
+    chatContainer.style.display = "none";
+    chatboxContainer.style.display = "block";
+    }
+    const iconChat1 = document.getElementById("iconChat1");
+    const iconChat2 = document.getElementById("iconChat2");
+    const animation = document.getElementById("animation");
+    const textChat1 = document.getElementById("textChat1");
+    const textChat2 = document.getElementById("textChat2");
+    const support = document.getElementById("support");
+    iconChat1.onmouseover = () => {
+    animation.style.top = "0px";
+    animation.style.background = "#f53b57";
+    support.style.color = "black";
+    };
+    iconChat2.onmouseover = () => {
+    animation.style.top = "70px";
+    animation.style.background = "skyblue";
+    support.style.color = "white";
+    };
 </script>
-<script>
-    function myChatT() {
-        var x = document.getElementById("chatTechnical");
-        var menu = document.getElementById("myForm");
-        if(x.style.display === "none") {
-            menu.style.display = "none";
-            x.style.display = "block";
-        }
-        else {
-            x.style.display = "none";
-        }
-    }
-    function myChatS() {
-        var x = document.getElementById("chatSales");
-        var menu = document.getElementById("myForm");
-        if(x.style.display === "none") {
-            menu.style.display = "none";
-            x.style.display = "block";
-        }
-        else {
-            x.style.display = "none";
-        }
-    }
-    function myChatTx() {
-        var x = document.getElementById("chatTax");
-        var menu = document.getElementById("myForm");
-        if(x.style.display === "none") {
-            menu.style.display = "none";
-            x.style.display = "block";
-        }
-        else {
-            x.style.display = "none";
-        }
-    }
-    function closeChatT() {
-        document.getElementById("chatTechnical").style.display = "none";
-    }
-    function closeChatS() {
-        document.getElementById("chatSales").style.display = "none";
-    }
-    function closeChatTx() {
-        document.getElementById("chatTax").style.display = "none";
-    }
-    function openContact() {
-        document.getElementById("myContact").style.display = "block";
-        document.getElementById("myForm").style.display = "none";
-    }
-    function closeContact() {
-        document.getElementById("myContact").style.display = "none";
-    }
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-        document.getElementById("myContact").style.display = "none";
-    }
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-    }
-</script>
+
+

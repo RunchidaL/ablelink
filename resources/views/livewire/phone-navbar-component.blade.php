@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/phoneNavbar.css">
 
+
 <button class="toggle">
     <span></span>
     <span></span>
@@ -8,14 +9,7 @@
 
 <div class="mobile-navbar" id="mobile-navbar" once>
     <ul class="first">
-        <li class="double-icons">
-            @guest
-            <a href="{{ route('login') }}"><span><i class="bi bi-cart-fill"></i></span></a>
-            @else
-            <a href="/cart"><span><i class="bi bi-cart-fill"></i></span></a>
-            @endguest
-            <span id="person"><i class="bi bi-person-circle"></i></span> 
-        </li>
+        <li class="menu"><span id="person">บัญชี<i class="bi bi-caret-right-fill arrow"></i></span></li>
         <ul class="my-account" id="my-account" style="--ulbg: #EAFD92;">
             <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
             @guest

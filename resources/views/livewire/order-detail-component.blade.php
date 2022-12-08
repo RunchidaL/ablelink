@@ -160,14 +160,18 @@
                 </div>
                 <div class="phone-order-detail-right">
                     <div class="phone-order-detail-name">
-                        @if($item->attribute)
+                        @if(empty($item->model->id))
+                        <a href="">ไม่มีสินค้าในระบบแล้ว</a>
+                        @elseif($item->attribute)
                         <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
                         @else
                         <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
                         @endif
                     </div>
                     <div class="phone-order-detail-total">
-                        @if($item->attribute)
+                        @if(empty($item->model->id))
+                        <a href="">ไม่มีสินค้าในระบบแล้ว</a>
+                        @elseif($item->attribute)
                         <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
                         @else
                         <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>

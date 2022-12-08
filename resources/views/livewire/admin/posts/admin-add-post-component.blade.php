@@ -95,6 +95,16 @@
         });
     }
     descriptionSummernote.summernote({
+        toolbar: [
+            ['style', ['style']],
+            ['fontsize', ['fontsize']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['picture']],
+        ],
         height: 200,
         callbacks: {
             onImageUpload: function(files) {

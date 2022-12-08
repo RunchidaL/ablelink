@@ -54,6 +54,7 @@
                                         <option value="0">แสดง</option>
                                         <option value="1">ไม่แสดง</option>
                                     </select>
+                                    @error('status') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
 

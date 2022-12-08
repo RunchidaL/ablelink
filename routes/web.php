@@ -90,6 +90,7 @@ use App\Http\Controllers\AdminOrderPdfController;
 use App\Http\Livewire\GroupCategoryComponent;
 use App\Http\Livewire\ReviewComponent;
 use App\Http\Controllers\FileController;
+use App\Http\Livewire\Admin\mainpage\FooterComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -152,22 +153,27 @@ Auth::routes();
 
 // for Dealer & Customer
 Route::middleware(['auth:sanctum','verified'])->group(function(){
-    Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
-    Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
-    Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
-
     Route::get('/order', OrderComponent::class);
     Route::get('/orderDetail/{order_id}', OrderDetailComponent::class)->name('order.detail');
-    Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
-    // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
+    Route::get('/review/{order_item_id}',ReviewComponent::class)->name('review');
+});
 
+// for Customer
+Route::middleware(['auth:sanctum','verified','customer'])->group(function(){
     Route::get('/customer/info',CustomerInfoComponent::class)->name('customer.info');
     Route::get('/customer/address',CustomerAddressComponent::class)->name('customer.address');
     Route::get('/customer/changepassword',CustomerChangePasswordComponent::class)->name('customer.changepassword');
     Route::get('/customer/addaddress',CustomerAddAddressComponent::class)->name('customer.addaddress');
     Route::get('/customer/editaddress/{address_id}',CustomerEditAddressComponent::class)->name('customer.editaddress');
+});
 
-    Route::get('/review/{order_item_id}',ReviewComponent::class)->name('review');
+// for Dealer
+Route::middleware(['auth:sanctum','verified','dealer'])->group(function(){
+    Route::get('/dealer/changeinfo',DealerChangeInfoComponent::class)->name('dealer.changeinfo');
+    Route::get('/dealer/changepassword',DealerChangePasswordComponent::class)->name('dealer.changepassword');
+    Route::get('/dealer/registerproject',RegisterprojectComponent::class)->name('dealer.registerproject');
+    Route::get('/orderpdf/{orderpdf_id}',[OrderPdfController::class,'export'])->name('orderpdf');
+    // Route::get('/orderpdf/{order_id}',OrderPdfComponent::class)->name('order.pdf');
 });
 
 // for Admin
@@ -227,4 +233,5 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::post('/admin/upload/imageapp', [FileController::class, 'uploadImageapp'])->name('admin.uploadImageapp');
     Route::post('/admin/upload/imagefea', [FileController::class, 'uploadImagefea'])->name('admin.uploadImagefea');
     Route::post('/admin/upload/imagedescription', [FileController::class, 'uploadImagedescription'])->name('admin.uploadImagedescription');
+    Route::get('/admin/footer/{footer_id}', FooterComponent::class)->name('admin.footer');
 });

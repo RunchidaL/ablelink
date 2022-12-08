@@ -16,7 +16,6 @@
                     @endif
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>slug</th>
@@ -27,7 +26,6 @@
                     <tbody>
                         @foreach($brands as $brand)
                             <tr>
-                                <td>{{$brand->id}}</td>
                                 <td><img src="{{asset('/images/brands')}}/{{$brand->image}}" width="120" alt=""></td>
                                 <td>{{$brand->name}}</td>
                                 <td>{{$brand->slug}}</td>

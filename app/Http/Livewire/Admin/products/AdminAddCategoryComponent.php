@@ -36,7 +36,7 @@ class AdminAddCategoryComponent extends Component
         {   
             $this->validate([
                 'name' => 'required',
-                'slug' => 'required',
+                'slug' => 'required|alpha_dash',
                 'category_id' => 'required',
                 'brand_id' => 'required',
                 'scategory_id' => 'required'

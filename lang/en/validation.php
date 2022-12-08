@@ -182,6 +182,7 @@ return [
         'product_id' => [
             'required' => 'กรุณาใส่',
             'numeric' => 'กรุณาใส่ ID',
+            'exists' => 'ไม่มี ID นี้อยู่',
         ],
         'dealerid' => [
             'required' => 'กรุณาใส่',

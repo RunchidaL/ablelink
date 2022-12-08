@@ -30,9 +30,8 @@ class GroupCategoryComponent extends Component
     public $ccategory_id;
     public $count = 0;
 
-    protected $listeners = ['addToCart'];
-
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public function mount($category_slug,$scategory_slug,$bcategory_slug,$sbcategory_slug)
     {
@@ -169,7 +168,7 @@ class GroupCategoryComponent extends Component
         $category_id = $sbcategory->id;
         $category_name = $sbcategory->name;
 
-        $products = Product::where('subbrandcategory_id',$category_id)->where('brandcategory_id',$bcategory->id)->get();
+        $products = Product::where('subbrandcategory_id',$category_id)->where('brandcategory_id',$bcategory->id)->paginate(1);
         $models = ProductModels::all();
         $namegroups = ProductModels::all();
         $groups = GroupProduct::all();

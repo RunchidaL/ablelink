@@ -15,7 +15,7 @@ class AddProductPreviewComponent extends Component
     public function addproductpreview()
     {
         $this->validate([
-            'product_id' => 'required|numeric',
+            'product_id' => 'required|numeric|exists:product_models,id',
             'category_id' => 'required'
         ]);
         $preview = new ProductPreview();
@@ -23,6 +23,7 @@ class AddProductPreviewComponent extends Component
         $preview->category_id = $this->category_id;
         $preview->save();
         session()->flash('message','Add Successs');
+
     }
 
     public function render()

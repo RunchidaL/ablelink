@@ -76,6 +76,10 @@ class AdminEditCategoryComponent extends Component
 
     public function updateCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|alpha_dash',
+        ]);
         if($this->sbcategory_slug)
         {
             $sbcategory = SubBrandCategory::find($this->sbcategory_slug);

@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">ID</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ID หรือค้นหาโดยการใส่ PartNumber">
+                                    <input type="text" class="form-control" list="datalistOptions" wire:model="product_id" placeholder="ใส่ ID สินค้าหรือค้นหาด้วย Part Number">
                                     @error('product_id') <p class="text-danger">{{ $message }}</p> @enderror
                                     <datalist id="datalistOptions">
                                         @foreach($products as $product)

@@ -45,7 +45,10 @@ class EditBrandComponent extends Component
             $this->newimage->storeAs('brands',$imageName);
             $brand->image = $imageName;
         }
-        $brand->link = $this->link;
+        if($this->link)
+        {
+            $brand->link = $this->link;
+        }
         $brand->save();
         session()->flash('message','Edit success');
     }

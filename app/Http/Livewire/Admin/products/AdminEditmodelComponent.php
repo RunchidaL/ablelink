@@ -50,6 +50,10 @@ class AdminEditmodelComponent extends Component
     public $newcert;
     public $newconfig;
     public $model_slug;
+    public $nulldes;
+    public $nullover;
+    public $nullapp;
+    public $nullfea;
 
     public $show1;
 
@@ -149,7 +153,7 @@ class AdminEditmodelComponent extends Component
             'web_price' => 'required',
             'dealer_price' => 'numeric|max:999999',
             'customer_price' => 'numeric|max:999999',
-            'product_id' => 'required',
+            'product_id' => 'required|numeric|exists:products,id',
         ]);
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;
@@ -160,10 +164,32 @@ class AdminEditmodelComponent extends Component
         $model->customer_price = $this->customer_price;
         $model->stock = $this->stock;
         $model->product_id = $this->product_id;
-        $model->description = $this->description;
-        $model->overview = $this->overview;
-        $model->application = $this->application;
-        $model->feature = $this->feature;
+        
+        if($this->nulldes)
+        {
+            $model->description = null;
+        }else{
+            $model->description = $this->description;
+        }
+        if($this->nullover)
+        {
+            $model->overview = null;
+        }else{
+            $model->overview = $this->overview;
+        }
+        if($this->nullapp)
+        {
+            $model->application = null;
+        }else{
+            $model->application = $this->application;
+        }
+        if($this->nullfea)
+        {
+            $model->feature = null;
+        }else{
+            $model->feature = $this->feature;
+        }
+
         if($this->newimage)
         {
             $imageName = $this->newimage->getClientOriginalName();

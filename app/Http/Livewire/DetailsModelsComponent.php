@@ -63,7 +63,7 @@ class DetailsModelsComponent extends Component
         $this->model_id = $id;
         
         $model = ProductModels::where('id',$this->model_id)->first();
-        if($model->product->subcategory_id == "7")
+        if($model->product->subbrandcategory_id == "89")
         {
             $this->validate([
                 'attribute' => 'required'
