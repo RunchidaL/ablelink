@@ -53,13 +53,13 @@
                                 <div class="col-md-6">
                                     @if($category_id == 1 or $category_id == 3)
                                     <input type="file" class="input-file" wire:model="file">
-                                    @error('file') <p class="text-danger">กรุณาเลือกไฟล์</p> @enderror
                                     @elseif($category_id == 5)
-                                    <input type="text" class="form-control" wire:model="filetext">
-                                    @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
+                                    <input type="text" class="form-control" wire:model="filetext" required>
                                     @endif
+                                    @error('file') <p class="text-danger">{{ $message }}</p> @enderror
+                                    @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
                                 </div>
-                                
+
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">

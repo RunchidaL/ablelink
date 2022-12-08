@@ -26,11 +26,7 @@ class AdminAddProductComponent extends Component
     public $bcategory_id;
     public $sbcategory_id;
     public $groupproduct_id;
-    
-    // public function generateslug()
-    // {
-    //     $this->slug = Str::slug($this->name);
-    // }
+    public $attibute;
 
     public function addProduct()
     {
@@ -40,27 +36,27 @@ class AdminAddProductComponent extends Component
             'scategory_id' => 'required',
             'bcategory_id' => 'required',
             'sbcategory_id' => 'required',
+            'groupproduct_id' => 'required',
         ]);
         $product = new Product();
         $product->name = $this->name;
-        // $product->slug = $this->slug;
         $product->category_id = $this->category_id;
-        if($this->scategory_id)
+        $product->subcategory_id = $this->scategory_id;
+        $product->brandcategory_id = $this->bcategory_id;
+        $product->subbrandcategory_id = $this->sbcategory_id;
+        if($this->sbcategory_id == 89)
         {
-            $product->subcategory_id = $this->scategory_id;
+            if($this->attibute == null){
+                $product->attibute = 0;
+            }
+            elseif($this->attibute == 0){
+                $product->attibute = 0;
+            }
+            else{
+                $product->attibute = 1;
+            }
         }
-        if($this->bcategory_id)
-        {
-            $product->brandcategory_id = $this->bcategory_id;
-        }
-        if($this->sbcategory_id)
-        {
-            $product->subbrandcategory_id = $this->sbcategory_id;
-        }
-        if($this->groupproduct_id)
-        {
-            $product->groupproduct_id = $this->groupproduct_id;
-        }
+        $product->groupproduct_id = $this->groupproduct_id;
         $product->save();    
         session()->flash('message','Add Product Success!');
     }

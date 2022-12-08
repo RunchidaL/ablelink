@@ -41,7 +41,6 @@ class AdminEditDownloadComponent extends Component
             'name' => 'required',
             'category_id' => 'required',
             'brand_id' => 'required',
-            'filetext' => 'required',
         ]);
         $download = Download::find($this->download_id);
         $download->name = $this->name;

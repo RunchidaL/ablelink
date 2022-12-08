@@ -276,7 +276,7 @@
                         @endif
                     @endguest
                     </div><br>
-                    @if(($model->product->subcategory_id) == 7)
+                    @if($model->product->attibute == 1)
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">

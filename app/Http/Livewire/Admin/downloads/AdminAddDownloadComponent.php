@@ -18,6 +18,13 @@ class AdminAddDownloadComponent extends Component
     public $category_id;
     public $brand_id;
     
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'file' => 'required|max',
+        ]);
+    }
+
     public function addDownload()
     {
         $download = new Download();
@@ -31,17 +38,14 @@ class AdminAddDownloadComponent extends Component
         $download->brand_id =  $this->brand_id;
 
         if($this->file){
-            $this->validate([
-                'file' => 'required',
+            $this->validate($fields,[
+                'file' => 'required|max:1200',
             ]);
             $fileName = $this->file->getClientOriginalName();
             $this->file->storeAs('downloads', $fileName);
             $download->file = $fileName;
         }
         if($this->filetext){
-            $this->validate([
-                'filetext' => 'required',
-            ]);
             $download->file = $this->filetext;
         }
         

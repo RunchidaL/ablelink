@@ -88,7 +88,11 @@
                 </div>
                 <div class="col">
                     <a href="{{route('product.detailsmodels',['modelslug'=>$product->slug])}}">
-                    <h4>{{$product->name}}<span> #{{$product->slug}}</span></h4></a>
+                        <h4>{{$product->name}}</h4>
+                    </a>
+                    <div class="head-product-slug">
+                        <p>#{{$product->slug}}</p>
+                    </div>
                     <div class="head-product-price">
                     @guest
                         <p>฿{{number_format($product->customer_price,2)}}<span> | In stock {{$product->stock}}</span></p>
@@ -100,7 +104,7 @@
                         @endif
                     @endguest
                     </div><br>
-                    @if(($product->product->subcategory_id) == 7)
+                    @if($product->product->attibute == 1)
                     <div class="length">
                         <p>Length:</p>
                         <div class="add-attribute">

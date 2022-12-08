@@ -80,20 +80,13 @@
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                 @if($model->stock == 0)
-                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
-                @endif
-                @guest
-                    @if($model->stock > 0)
-                        <a href="{{ route('login') }}"><button>Add To Cart</button></button></a>
-                    @endif
+                    <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
                 @else
-                    @if($model->stock > 0)
-                        <button wire:click="addToCart({{$model->id}})">Add To Cart</button>
-                    @endif
-                @endguest
+                    <button wire:click="addToCart({{$model->id}})">เพิ่มลงตะกร้า</button>
+                @endif
                 </div>
             </div>
-            @if($model->product->subbrandcategory_id == "89")
+            @if($model->product->attibute == 1)
                 <div class="length">
                     <p>Length:</p>
                     <div class="add-attribute">

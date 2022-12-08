@@ -22,18 +22,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Category</label>
-                                <div class="col-md-2">
-                                    <select class="form-control form-control" name="category" wire:model="category_id">
-                                        <option value="">Select Category</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('category_id') <p class="text-danger">กรุณาเลือก</p> @enderror
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-md-12">Brand</label>
                                 <div class="col-md-2">
                                     <select class="form-control" wire:model="brand_id">
@@ -51,12 +39,14 @@
                                 <div class="col-md-6">
                                     @if($category_id == 1 or $category_id == 3)
                                     <input type="file" class="input-file" wire:model="newfile">
-                                    @error('file') <p class="text-danger">กรุณาเลือกไฟล์</p> @enderror
+                                    
                                     @elseif($category_id == 5)
                                     <input type="text" class="form-control" wire:model="filetext">
-                                    @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
+                                    
                                     @endif
                                 </div>
+                                @error('newfile') <p class="text-danger">{{ $message }}</p> @enderror
+                                @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
                             </div>
                             <div class="form-group">
                                 <div class="col-md">

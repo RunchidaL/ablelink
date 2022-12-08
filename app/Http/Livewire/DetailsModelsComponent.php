@@ -60,10 +60,12 @@ class DetailsModelsComponent extends Component
 
     public function addToCart($id)
     {
+        if(auth()->user())
+        {
         $this->model_id = $id;
         
         $model = ProductModels::where('id',$this->model_id)->first();
-        if($model->product->subbrandcategory_id == "89")
+        if($model->product->attibute == 1)
         {
             $this->validate([
                 'attribute' => 'required'
@@ -99,9 +101,8 @@ class DetailsModelsComponent extends Component
             }
         }
 
-        if(auth()->user())
-        {
-            $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
+
+        $count = ShoppingCart::whereUserId(auth()->user()->id)->count();
             
             if($count == 0)
             {
@@ -138,7 +139,7 @@ class DetailsModelsComponent extends Component
         }
         else
         {
-            return redirect(route('login'));
+            return redirect('/login');
         }
     }
 
