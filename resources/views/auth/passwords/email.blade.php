@@ -10,7 +10,7 @@
         <div class="sc">
             <div class="header">
                 <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-                <span class="topic_name">| Forgot Password</span>
+                <span class="topic_name">| ลืมรหัสผ่าน</span>
             </div>
         </div>
         @if (session('status'))
@@ -23,8 +23,7 @@
         <div class="md-sc">
             <div class="main-form">
                 <div class="message">
-                    <span>Please enter the email address for your account &<br>
-                    we’ll email you a link to reset your password.</span>
+                    <span>กรุณาระบุอีเมลล์ที่ต้องการให้ส่งลิงค์เพื่อรีเซ็ตรหัสผ่าน</span>
                 </div>
                 <div class="main">
                     <form method="POST" action="{{ route('password.email') }}">
@@ -39,15 +38,15 @@
                             @enderror
                         </div>
                         <span class="button">
-                            <button type="submit" class="btn">{{ __('Submit') }}</button>
+                            <button type="submit" class="btn">ส่ง</button>
                         </span>
                     </form>
                 </div>
                 <div class="choice">
                     <span>You can also:</span><br>
-                    <a href="{{ route('login') }}"><span>Sign In</span></a><br>
-                    <a href="{{ route('register') }}"><span>Create new account</span></a><br>
-                    <a href="/contact"><span>Contact Us</span></a>
+                    <a href="{{ route('login') }}"><span>เข้าสู่ระบบ</span></a><br>
+                    <a href="{{ route('register') }}"><span>สมัครบัญชีผู้ใช้งาน</span></a><br>
+                    <a href="/contact"><span>ติดต่อเรา</span></a>
                 </div>
             </div>
         </div>

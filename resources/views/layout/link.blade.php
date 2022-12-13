@@ -71,5 +71,77 @@
   @livewireScripts
   @include('sweetalert::alert')
   @stack('scripts')
+
+  <div class="cookie-container">
+    <p id="contentcookie">
+      เราใช้คุกกี้เพื่อเพิ่มประสบการณ์ในการเยี่ยมชมเว็บไซต์นี้ อนุญาตคุกกี้เพื่อรับประสบการณ์ที่ดีขึ้น
+    </p>
+    <button class="cookie-btn">
+      ยอมรับ
+    </button>
+  </div>
+  
+  <style>
+      .cookie-container{
+        display: block;
+        position: fixed;
+        bottom: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 80;
+        background: white;
+        margin: 1% auto;
+        padding: 20px 20px 10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .cookie-container.active{
+        bottom: 0;
+      }
+      .cookie-btn{
+        background: white;
+        color: black;
+        font-weight: bold;
+        text-decoration: underline;
+        padding: 5px 7px;
+        border: none;
+        border-radius: 5px;
+        transition: 0.2s ease-in-out;
+      }
+      .cookie-btn:hover{
+        background: #CECECE;
+      }
+      #contentcookie{
+        font-size: 16px;
+      }
+      @media(max-width: 1350px){
+        .cookie-container{
+        width: 70%;
+        }
+      }
+      @media(max-width: 650px){
+        .cookie-container{
+        width: 80%;
+        }
+      }
+  </style>
+
+  <script>
+      const cookieContainer = document.querySelector(".cookie-container");
+      const cookieButton = document.querySelector(".cookie-btn");
+
+      cookieButton.addEventListener("click", () => {
+        cookieContainer.classList.remove("active");
+        localStorage.setItem("cookieBannerDisplayed", "true");
+      });
+
+      setTimeout(() => {
+        if (!localStorage.getItem("cookieBannerDisplayed")) {
+            cookieContainer.classList.add("active");
+        }
+      }, 2000);
+  </script>
+
   </body>
 </html>

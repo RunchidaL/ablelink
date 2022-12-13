@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row gutters">
-        <div class="col-xl-4">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="account-settings">
@@ -12,18 +12,18 @@
                             <h6 class="user-email">{{$user->email}}</h6>
                         </div>
                         <div class="about">
-                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>User Profile</li></a></h5>
-                            <h5 class="mb-4"><a href="{{route('customer.changepassword')}}"><li>Change Password</li></a></h5>
-                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.address')}}"><li>Change Address</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>ข้อมูลผู้ใช้งาน</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.changepassword')}}"><li>เปลี่ยนรหัสผ่าน</li></a></h5>
+                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.address')}}"><li>ที่อยู่</li></a></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-1">
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
             <div class="vl"></div>
         </div>
-        <div class="col-xl-7">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             @if(Session::has('message'))
             <div class="alert alert-success" role="alert"><p style="text-align: center">{{Session::get('message')}}</p></div>
             @endif
@@ -31,8 +31,8 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="row gutters">
-                        <div class="col-xl-12">
-                            <h2 class="mb-4"><a href="{{route('customer.address')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add Address</h2>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                            <h2 class="mb-4"><a href="{{route('customer.address')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  เพิ่มที่อยู่</h2>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
@@ -87,7 +87,7 @@
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                             <div class="text-right">
-                                <button type="submit" class="button">Save Address</button>
+                                <button type="submit" class="button">บันทึกที่อยู่</button>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
     color: #9fa8b9;
 }
 .account-settings .about {
-    margin: 2rem 0 0 30%;
+    margin: 2rem 0 0 25%;
     text-align: start;
 }
 .account-settings .about h5 {
@@ -185,6 +185,7 @@
     background: rgb(222, 226, 236);
     color: #194276;
 }
+
 @media(max-width: 1200px){
     .account-settings .about {
         margin: 0;

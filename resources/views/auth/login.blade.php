@@ -10,7 +10,7 @@
         <div class="sc">
             <div class="header">
                 <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-                <span class="topic_name">| Sign In</span>
+                <span class="topic_name">| เข้าสู่ระบบ</span>
             </div>
         </div>
         @if ($message = Session::get('error'))
@@ -43,16 +43,16 @@
                                 </span>
                             @enderror
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" forgotPass>Forgot Your Password?</a>
+                                <a href="{{ route('password.request') }}" forgotPass>ลืมรหัสผ่าน?</a>
                             @endif
                         </div>
                         <span class="button">
-                            <button type="submit" class="btn">{{ __('Login') }}</button> 
+                            <button type="submit" class="btn">เข้าสู่ระบบ</button> 
                         </span>
                     </form> 
                 </div>
                 <div class="choice">
-                    <p>New Customer?&nbsp<a href="{{ route('register') }}"><span>Create an account</span></a></p>
+                    <p>New Customer?&nbsp<a href="{{ route('register') }}"><span>สมัครใช้งาน</span></a></p>
                 </div>
             </div>
         </div>

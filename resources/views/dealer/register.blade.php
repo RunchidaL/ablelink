@@ -9,7 +9,7 @@
     <div class="sc">
         <div class="header">
             <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-            <span class="topic_name">| Create a dealer account</span>
+            <span class="topic_name">| สมัครบัญชีตัวแทนจำหน่าย</span>
         </div>
     </div>
     <div class="container d-flex justify-content-center">
@@ -58,9 +58,9 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="province">*จังหวัด</label>
-                        <input type="text" name="province" class="form-control" value="{{ old('province') }}">
-                        <span>@error('province')กรุณาระบุจังหวัด@enderror</span>
+                        <label for="subdistrict">*แขวง/ตำบล</label>
+                        <input type="text" name="subdistrict" class="form-control" value="{{ old('subdistrict') }}">
+                        <span>@error('subdistrict')กรุณาระบุตำบล@enderror</span>
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -72,9 +72,16 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="subdistrict">*แขวง/ตำบล</label>
-                        <input type="text" name="subdistrict" class="form-control" value="{{ old('subdistrict') }}">
-                        <span>@error('subdistrict')กรุณาระบุตำบล@enderror</span>
+                        <label for="province">*จังหวัด</label>
+                        <input type="text" name="province" class="form-control" value="{{ old('province') }}">
+                        <span>@error('province')กรุณาระบุจังหวัด@enderror</span>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="zipcode">*รหัสไปรษณีย์</label>
+                        <input type="text" name="zipcode" class="form-control" value="{{ old('zipcode') }}">
+                        <span>@error('zipcode')กรุณาระบุรหัสไปรษณีย์@enderror</span>
                     </div>
                 </div>
                 <h4>ข้อมูลกิจการ</h4>
@@ -101,9 +108,9 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label for="idcompany">*สำนักงานใหญ่ / รหัสสาขา</label>
+                        <label for="idcompany">*สำนักงานใหญ่/รหัสสาขา</label>
                         <input type="text" name="idcompany" class="form-control" value="{{ old('idcompany') }}">
-                        <span>@error('idcompany')กรุณาระบุสำนักงานใหญ่ / รหัสสาขา@enderror</span>
+                        <span>@error('idcompany')กรุณาระบุสำนักงานใหญ่/รหัสสาขา@enderror</span>
                     </div>
                 </div>
                 <h4>แนบเอกสาร</h4>
@@ -124,14 +131,14 @@
                     <input type="file" name="file4" class="form-control">
                 </div>
                 <div class="button">
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn">ยืนยัน</button>
                 </div>        
             </div>
         </form>
     </div>
     <div class="choice">
-        <p>Already have an account?&nbsp<a href="{{ route('login') }}"><span>Sign In</span></a></p>
-        <p><i class="bi bi-dash"></i>or create an user?<i class="bi bi-dash"></i></p>
+        <p>มีบัญชีอยู่แล้ว?&nbsp<a href="{{ route('login') }}"><span>เข้าสู่ระบบ</span></a></p>
+        <p><i class="bi bi-dash"></i>ต้องการสร้างบัญชีผู้ใช้งาน?<i class="bi bi-dash"></i></p>
         <a href="{{ route('register') }}"><button>User account</button></a>
     </div>
 </div>   

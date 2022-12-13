@@ -122,7 +122,7 @@
                         <p class="text-AC">บทความ</p></a>
                     </div>
                     <div class="AC-col" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
-                        <a href="#"><img src="https://www.techtalkthai.com/wp-content/uploads/2018/04/techtalkthai_2018_data_center_01.jpg" alt="">
+                        <a href="/newproducts"><img src="https://www.techtalkthai.com/wp-content/uploads/2018/04/techtalkthai_2018_data_center_01.jpg" alt="">
                         <p class="text-AC">ผลิตภัณฑ์</p></a>
                     </div>
                     <div class="AC-col"data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">

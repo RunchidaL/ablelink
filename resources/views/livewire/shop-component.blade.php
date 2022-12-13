@@ -69,9 +69,9 @@
                     </a> 
                     <div class="card-footer">
                         @if($product->stock == 0)
-                            <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
+                            <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>เพิ่มลงตะกร้า</span></button>
                         @else
-                            <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>Add to cart</span></button>
+                            <button id="add-cart-button" type='button' class="button btn" data-name="{{$product->slug}}"><span>เพิ่มลงตะกร้า</span></button>
                         @endif
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$product->stock}}">
                     </div>
                     <div class="addtocart" style="display: inline-block;">
-                        <button wire:click.prevent="addToCart({{$product->id}})">Add To Cart</button>
+                        <button wire:click.prevent="addToCart({{$product->id}})">เพิ่มลงตะกร้า</button>
                     </div>
                 </div>
             </div>

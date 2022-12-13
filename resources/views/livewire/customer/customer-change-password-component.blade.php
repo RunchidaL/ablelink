@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row gutters">
-        <div class="col-xl-4">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="account-settings">
@@ -12,18 +12,18 @@
                             <h6 class="user-email">{{$user->email}}</h6>
                         </div>
                         <div class="about">
-                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>User Profile</li></a></h5>
-                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.changepassword')}}"><li>Change Password</li></a></h5>
-                            <h5 class="mb-4"><a href="{{route('customer.address')}}"><li>Change Address</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>ข้อมูลผู้ใช้งาน</li></a></h5>
+                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.changepassword')}}"><li>เปลี่ยนรหัสผ่าน</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.address')}}"><li>ที่อยู่</li></a></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-1">
+        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
             <div class="vl"></div>
         </div>
-        <div class="col-xl-7">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 mt-3">
             @if(Session::has('password_success'))
             <div class="alert alert-success" role="alert"><p style="text-align: center">{{Session::get('password_success')}}</p></div>
             @endif
@@ -34,10 +34,10 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="row gutters">
-                        <div class="col-xl-12">
-                            <h2 class="mb-4">Change Password</h2>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h2 class="mb-4">เปลี่ยนรหัสผ่าน</h2>
                         </div>
-                        <div class="col-xl-8 mt-2">
+                        <div class="col-xl-6 mt-2">
                             <div class="form-group">
                                 <label for="Current_password">Current Password :</label>
                                 <input type="password" name="Current_password" id="password1" class="form-control" wire:model="current_password">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <p></p>
-                        <div class="col-xl-8 mt-2">
+                        <div class="col-xl-6 mt-2">
                             <div class="form-group">
                                 <label for="password">New Password :</label>
                                 <input type="password" name="password" id="password2" class="form-control" wire:model="password">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <p></p>
-                        <div class="col-xl-8 mt-2">
+                        <div class="col-xl-6 mt-2">
                             <div class="form-group">
                                 <label for="confirmPassword">Confirm Password :</label>
                                 <input type="password" name="confirmPassword" id="password3" class="form-control" wire:model="password_confirmation">
@@ -62,9 +62,9 @@
                         </div>
                     </div>
                     <div class="row gutters">
-                        <div class="col-xl-8 mt-4">
+                        <div class="col-xl-6 mt-4">
                             <div class="text-right">
-                                <button type="submit" class="button">Update Password</button>
+                                <button type="submit" class="button">อัพเดต</button>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
     color: #9fa8b9;
 }
 .account-settings .about {
-    margin: 2rem 0 0 30%;
+    margin: 2rem 0 0 25%;
     text-align: start;
 }
 .account-settings .about h5 {
@@ -170,5 +170,4 @@
         text-align: center;
     }
 }
-
 </style>

@@ -147,4 +147,4 @@
             font-size: 70%; 
         }
         }
-    </style>
+</style>

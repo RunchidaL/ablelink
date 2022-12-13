@@ -12,9 +12,9 @@
                             <h6 class="user-email">{{$user->email}}</h6>
                         </div>
                         <div class="about">
-                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>User Profile</li></a></h5>
-                            <h5 class="mb-4"><a href="{{route('customer.changepassword')}}"><li>Change Password</li></a></h5>
-                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.address')}}"><li>Change Address</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.info')}}"><li>ข้อมูลผู้ใช้งาน</li></a></h5>
+                            <h5 class="mb-4"><a href="{{route('customer.changepassword')}}"><li>เปลี่ยนรหัสผ่าน</li></a></h5>
+                            <h5 class="mb-4" style="text-decoration: underline;"><a href="{{route('customer.address')}}"><li>ที่อยู่</li></a></h5>
                         </div>
                     </div>
                 </div>
@@ -32,10 +32,10 @@
                 <div class="card-body">
                     <div class="row gutters">
                         <div class="col-xl-8 ">
-                            <h2 class="mb-4">User Profile</h2>
+                            <h2 class="mb-4">ที่อยู่</h2>
                         </div>
                         <div class="col-xl-4 mb-4">
-                            <a href="{{route('customer.addaddress')}}"><button type="button" class="button">Add Address</button></a>
+                            <a href="{{route('customer.addaddress')}}"><button type="button" class="button">เพิ่มที่อยู่</button></a>
                         </div>
                     </div>
                     @php
@@ -50,7 +50,7 @@
                             <div class="form-group" style="background: rgb(240, 240, 240); border-radius: 20px; box-shadow: 5px 5px 10px 1px #929292; padding: 3% 5% 3% 5%">
                                 <h3 style="display: flex; justify-content: space-between;">
                                     <div>
-                                        Address {{$i}}
+                                        ที่อยู่ {{$i}}
                                     </div>
                                     <div>          
                                         <a href="{{route('customer.editaddress',['address_id'=>$customeraddresses->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
@@ -64,7 +64,7 @@
                                 <p>อำเภอ : {{$customeraddresses->district}}</p>
                                 <p>จังหวัด : {{$customeraddresses->county}}</p>
                                 <p>รหัสไปรษณีย์ : {{$customeraddresses->zipcode}}</p>
-                                <p>Phonenumber : {{$customeraddresses->phonenumber}}</p>
+                                <p>เบอร์โทรศัพท์ : {{$customeraddresses->phonenumber}}</p>
                             </div>
                         </div>
                         @endif

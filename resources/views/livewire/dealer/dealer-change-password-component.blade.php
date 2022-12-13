@@ -8,7 +8,7 @@
         @endif
         <form  name="signupForm" id="signupForm" wire:submit.prevent="changePassword">
             <img src="/images/key.jpg" id="signupLogo"/>
-            <h1 class="formTitle">Change Password</h1>
+            <h1 class="formTitle">เปลี่ยนรหัสผ่าน</h1>
             <div class="inputDiv">
                 <label class="inputLabel" for="Current_password">Current Password</label>
                 <input type="password" id="password" name="Current_password" wire:model="current_password"/>
@@ -26,11 +26,11 @@
             </div>
             <div class="buttonWrapper">
                 <button type="submit" id="submitButton" onclick="validateSignupForm()" class="submitButton pure-button pure-button-primary">
-                    <span style="font-size: 16px;">Update Password</span>
+                    <span style="font-size: 16px;">อัพเดต</span>
                 </button>
             </div>
         </form>
-        <h6 class="mt-3" style="text-align: center" ><a href="{{route('dealer.changeinfo')}}">Back</a></h6>
+        <h6 class="mt-3" style="text-align: center" ><a href="{{route('dealer.changeinfo')}}">ย้อนกลับ</a></h6>
     </div>
 </div>
 

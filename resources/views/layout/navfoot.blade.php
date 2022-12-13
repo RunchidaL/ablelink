@@ -141,4 +141,13 @@
         </div>
     </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.link').forEach
+    (link => {
+        if(link.href === window.location.href){
+            link.setAttribute('aria-current','page')
+        }
+    })
+</script>
 @endsection

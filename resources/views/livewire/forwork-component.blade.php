@@ -82,3 +82,8 @@
     </div>
 </div>
 
+<style>
+    #forwork span{
+        border-bottom: 2px solid rgb(255, 0, 0);
+    }
+</style>

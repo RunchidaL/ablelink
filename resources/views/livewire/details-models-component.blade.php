@@ -80,15 +80,15 @@
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                 @if($model->stock == 0)
-                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">Add To Cart</button>
+                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">เพิ่มลงตะกร้า</button>
                 @endif
                 @guest
                     @if($model->stock > 0)
-                        <a href="{{ route('login') }}"><button>Add To Cart</button></button></a>
+                        <a href="{{ route('login') }}"><button>เพิ่มลงตะกร้า</button></button></a>
                     @endif
                 @else
                     @if($model->stock > 0)
-                        <button wire:click="addToCart({{$model->id}})">Add To Cart</button>
+                        <button wire:click="addToCart({{$model->id}})">เพิ่มลงตะกร้า</button>
                     @endif
                 @endguest
                 </div>
@@ -633,13 +633,13 @@ for (let i = 0; i < menu.length; i++) {
     border: 1px solid gray;
 }
 
-.swiper.mySwiper .swiper-wrapper{
-    justify-content: center;
-}
-
-/* .swiper.mySwiper .swiper-wrapper img{
+/* .swiper.mySwiper .swiper-wrapper{
     justify-content: center;
 } */
+
+.swiper.mySwiper .swiper-wrapper img{
+    justify-content: center;
+}
 
 .swiper.mySwiper .swiper-wrapper .swiper-slide img{
     display: block;

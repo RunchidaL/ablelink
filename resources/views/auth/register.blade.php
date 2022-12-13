@@ -9,7 +9,7 @@
     <div class="sc">
         <div class="header">
             <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-            <span class="topic_name">| Create an account</span>
+            <span class="topic_name">| สมัครบัญชีผู้ใช้งาน</span>
         </div>
     </div>
     <div class="container d-flex justify-content-center">
@@ -56,14 +56,14 @@
                     </div>
                 </div>                  
                 <span class="button">
-                    <button type="submit" class="btn">Sign Up</button>
+                    <button type="submit" class="btn">ยืนยัน</button>
                 </span>
             </div>
         </form>
     </div>
     <div class="choice">
-        <p>Already have an account?&nbsp<a href="{{ route('login') }}"><span>Sign In</span></a></p>
-        <p><i class="bi bi-dash"></i>or create a dealer<i class="bi bi-dash"></i></p>
+        <p>มีบัญชีอยู่แล้ว?&nbsp<a href="{{ route('login') }}"><span>เข้าสู่ระบบ</span></a></p>
+        <p><i class="bi bi-dash"></i>ต้องการสมัครบัญชีสำหรับตัวแทนจำหน่าย<i class="bi bi-dash"></i></p>
         <a href="/register_dealer"><button>Dealer account</button></a>
     </div>
 </div>    

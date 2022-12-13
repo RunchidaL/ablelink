@@ -57,7 +57,7 @@ ol, ul{
 
 .topic .link{
     padding: 0 5px;
-    text-decoration: none;
+    /* text-decoration: none; */
     color: black;
     display: flex;
     height: 70px;
@@ -87,6 +87,11 @@ ol, ul{
 .topic:hover .link span::after{
     transform: scale(1,1);
 }
+
+.link[aria-current="page"]{
+    text-decoration: 0.1rem underline rgb(255, 0, 0);
+    text-underline-position: under;
+ }
 
 .prd-dropdown.container{
     padding-right: 0;

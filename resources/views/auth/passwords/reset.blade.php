@@ -9,7 +9,7 @@
     <div class="sc">
         <div class="header">
             <a href="/"><img src="/images/logoAbleLink.png"  alt=""></a>
-            <span class="topic_name">| Reset Password</span>
+            <span class="topic_name">| รีเซ็ตรหัสผ่าน</span>
         </div>
     </div>
     <div class="container d-flex justify-content-center">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <span class="button">
-                    <button type="submit" class="btn">Reset Password</button>
+                    <button type="submit" class="btn">ยืนยัน</button>
                 </span>
             </form>
         </div>
