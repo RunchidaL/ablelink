@@ -17,9 +17,10 @@
                     <div class="panel-body">
                         <form class="form-horizontal" wire:submit.prevent="customService">
                             <div class="form-group">
-                                <label class="col-md-6 control-label">Image</label>
+                                <label class="col-md-6 control-label">Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                 <div class="col-md-6">
                                     <input type="file" class="input-file" wire:model="newimage" accept=".jpg,.jpeg,.png">
+                                    @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                     @if($newimage)
                                         <img src="{{$newimage->temporaryUrl()}}" width="120"/>
                                     @else
@@ -39,8 +40,9 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <p>หัวข้อย่อย 1</p>
-                                        <label>Image</label>
+                                        <label>Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                         <input type="file" class="input-file" wire:model="newimage1" accept=".jpg,.jpeg,.png">
+                                        @error('newimage1') <p class="text-danger">{{$message}}</p> @enderror
                                         @if($newimage1)
                                             <img src="{{$newimage1->temporaryUrl()}}" width="120"/>
                                         @else
@@ -56,8 +58,9 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <p>หัวข้อย่อย 2</p>
-                                        <label>Image</label>
+                                        <label>Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                         <input type="file" class="input-file" wire:model="newimage2" accept=".jpg,.jpeg,.png">
+                                        @error('newimage2') <p class="text-danger">{{$message}}</p> @enderror
                                         @if($newimage2)
                                             <img src="{{$newimage2->temporaryUrl()}}" width="120"/>
                                         @else
@@ -73,8 +76,9 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <p>หัวข้อย่อย 3</p>
-                                        <label>Image</label>
+                                        <label>Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                         <input type="file" class="input-file" wire:model="newimage3" accept=".jpg,.jpeg,.png">
+                                        @error('newimage3') <p class="text-danger">{{$message}}</p> @enderror
                                         @if($newimage3)
                                             <img src="{{$newimage3->temporaryUrl()}}" width="120"/>
                                         @else

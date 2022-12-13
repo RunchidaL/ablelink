@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/css/phoneNavbar.css">
 
-
 <button class="toggle">
     <span></span>
     <span></span>
@@ -49,18 +48,15 @@
             @foreach($categories as $category)
                 <li class="menu" id="ulOpenBtn"><span>{{$category->name}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
                 <ul class="third" style="--ulbg: #036bfc;">
-                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
-                    <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug])}}"><span>View All {{$category->name}}</span></a></li>   
+                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li> 
                     @foreach($category->subCategories as $scategory)
                         <li class="menu" id="ulOpenBtn"><span>{{$scategory->name}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
                         <ul class="fourth" style="--ulbg: #03c6fc;">
-                            <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
-                            <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug])}}"><span>View All {{$scategory->name}}</span></a></li>   
+                            <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li> 
                             @foreach($scategory->brandCategories as $brand)
                                 <li class="menu" id="ulOpenBtn"><span>{{$brand->brands->name ?? ''}}<i class="bi bi-caret-right-fill arrow"></i></span></li>
                                 <ul class="fifth" style="--ulbg: #03fc90;">
-                                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li>
-                                    <li class="menu"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->name ?? ''])}}"><span>View All {{$brand->brands->name ?? ''}} @if(count($brand->subbrandCategories)>0) @endif</span></a></li>   
+                                    <li class="goBack" id="goBack"><span><i class="bi bi-caret-left-fill arrow"></i>back</span></li> 
                                     @foreach($brand->subbrandCategories as $sbcategory)
                                         <li class="menu" id="ulOpenBtn"><a href="{{route('product.category',['category_slug'=>$category->slug,'scategory_slug'=>$scategory->slug,'bcategory_slug'=>$brand->brands->slug ?? '','sbcategory_slug'=>$sbcategory->slug])}}"><span>{{$sbcategory->name}}</span></a></li>
                                     @endforeach

@@ -26,10 +26,14 @@
                                     <th>Email</th>
                                     <th>ชื่อบริษัท</th>
                                     <th>Credit</th>
+                                    <th>ยอดการสั่งซื้อทั้งหมด</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $sum = 0;
+                            @endphp
                                 @foreach ($dealers as $dealer)
                                     <tr>
                                         <td>{{$dealer->id}}</td>
@@ -37,8 +41,14 @@
                                         <td>{{$dealer->email}}</td>
                                         @foreach ($dealer->dealers as $name)
                                             <td>{{$name->companyTH}}</td>
-                                            <td>{{$name->coin}}</td>
+                                            <td>{{number_format($name->coin)}}</td>
                                         @endforeach
+                                        @foreach ($totals->where('user_id',$dealer->id) as $total)
+                                            @php
+                                                $sum += $total->total;
+                                            @endphp
+                                        @endforeach
+                                        <td>{{number_format($sum,2)}}</td>
                                         <td>
                                             @foreach ($dealer->dealers as $infodealer)
                                             <a href="{{route('admin.editDealer',['infodealer_id'=>$infodealer->dealerid])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>

@@ -16,7 +16,7 @@
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="updatePost">
                             <div class="form-group">
-                                <label class="col-md-12">Title : </label>
+                                <label class="col-md-12">Title(ใส่ไฟล์ขนาดไม่เกิน 12 MB) : </label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="title" wire:keyup="generateSlug">
                                     @error('title') <p class="text-danger">กรุณาใส่</p> @enderror

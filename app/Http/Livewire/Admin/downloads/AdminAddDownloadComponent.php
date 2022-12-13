@@ -18,13 +18,6 @@ class AdminAddDownloadComponent extends Component
     public $category_id;
     public $brand_id;
     
-    public function updated($fields)
-    {
-        $this->validateOnly($fields,[
-            'file' => 'required|max',
-        ]);
-    }
-
     public function addDownload()
     {
         $download = new Download();
@@ -37,20 +30,25 @@ class AdminAddDownloadComponent extends Component
         $download->category_id = $this->category_id;
         $download->brand_id =  $this->brand_id;
 
-        if($this->file){
-            $this->validate($fields,[
-                'file' => 'required|max:1200',
-            ]);
+        if($this->filetext and $this->file == null){
+            $download->filetext = $this->filetext;
+            $download->save();
+            session()->flash('message','add Download successs');
+        }
+        if($this->file and $this->filetext == null){
             $fileName = $this->file->getClientOriginalName();
             $this->file->storeAs('downloads', $fileName);
             $download->file = $fileName;
+            $download->save();
+            session()->flash('message','add Download successs');
         }
-        if($this->filetext){
-            $download->file = $this->filetext;
+        if($this->filetext and $this->file){
+            session()->flash('danger','กรุณาเลือกใส่ File หรือ Link');
+        }
+        if($this->filetext == null and $this->file == null){
+            session()->flash('danger','กรุณาเลือกใส่ File หรือ Link');
         }
         
-        $download->save();
-        session()->flash('message','add Download successs');
     }
 
     public function render()

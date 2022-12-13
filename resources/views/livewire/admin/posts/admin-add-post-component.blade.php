@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Title Image : </label>
+                                <label class="col-md-12">Title Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB) : </label>
                                 <div class="col-md-12">
                                     <input type="file" class="input-file" wire:model="titleimg" accept=".jpg,.jpeg,.png">
                                     @if($errors->has('titleimg'))

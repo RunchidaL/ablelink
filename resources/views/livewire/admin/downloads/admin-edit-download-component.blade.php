@@ -4,14 +4,16 @@
             <div class="col-md-12">
                 <div class="panel">
                     <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-12" id="head">
+                        <div class="row"id="head">
+                            <div class="col-md-4">
                                 <h2><a href="{{route('admin.download')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Add Download</h2>
                             </div>
                         </div>
                     </div>
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                    @elseif(Session::has('danger'))
+                        <div class="alert alert-danger" role="alert">{{Session::get('danger')}}</div>
                     @endif
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="updateDownload">
@@ -19,6 +21,18 @@
                                 <label class="col-md-12">Name</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Category</label>
+                                <div class="col-md-4">
+                                <select class="form-control form-control" name="category" wire:model="category_id">
+                                    <option value="">Select Category</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -33,20 +47,22 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                @if($category_id)
-                                <label class="col-md-12">File</label>
-                                @endif
-                                <div class="col-md-6">
-                                    @if($category_id == 1 or $category_id == 3)
-                                    <input type="file" class="input-file" wire:model="newfile">
-                                    
-                                    @elseif($category_id == 5)
-                                    <input type="text" class="form-control" wire:model="filetext">
-                                    
+                                <label class="col-md-12 my-2"><b>กรุณาเลือกใส่ไฟล์(ขนาดไม่เกิน 12 MB) หรือลิงค์ (ชื่อไฟล์หรือลิงค์เดิมคือ 
+                                    @if($download->file)
+                                    {{$download->file}})
+                                    @elseif($download->filetext)
+                                    {{$download->filetext}})
                                     @endif
-                                </div>
+                                </b></label>
+                                <div class="col-md-6">
+                                    @if($category_id != 5)
+                                    <label class="col-md-12">File</label>
+                                    <input type="file" class="input-file" wire:model="newfile">
+                                    @endif
+                                    <label class="col-md-12">Link</label>
+                                    <input type="text" class="form-control" wire:model="newfiletext">
                                 @error('newfile') <p class="text-danger">{{ $message }}</p> @enderror
-                                @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md">

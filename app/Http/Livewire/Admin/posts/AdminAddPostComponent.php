@@ -28,7 +28,7 @@ class AdminAddPostComponent extends Component
     {
         $this->validateOnly($fields,[
             'slug' => 'required|alpha_dash',
-            'titleimg' => 'required|max:1000',
+            'titleimg' => 'required',
         ]);
     }
 
@@ -37,7 +37,7 @@ class AdminAddPostComponent extends Component
         $this->validate([
             'title' => 'required',
             'slug' => 'required|alpha_dash',
-            'titleimg' => 'required|max:1000',
+            'titleimg' => 'required',
             'category_id' => 'required',
             'description' => 'required',
         ]);
