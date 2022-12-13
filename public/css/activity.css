@@ -307,12 +307,17 @@
 }
 
 /* responsive */
+
+@media(max-width: 600px){
+    .menu-activity{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
 @media(max-width: 414px){
     .menu-activity{
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 5%;
-        margin-right: 5%;
+        margin: 5%;
     }
 }
 

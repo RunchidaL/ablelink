@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Dealer;
 use App\Models\OrderID;
+use App\Models\CostSale;
 
 class AdminDealerComponent extends Component
 {
@@ -22,6 +23,7 @@ class AdminDealerComponent extends Component
         $totals = OrderID::all();
         $dealers = User::where('role',2)->orderBy('created_at','DESC')->get();
         $infodealers = Dealer::all();
-        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers,'totals'=>$totals])->layout("layout.navfoot");
+        $costs = CostSale::all();
+        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers,'totals'=>$totals,'costs'=>$costs])->layout("layout.navfoot");
     }
 }

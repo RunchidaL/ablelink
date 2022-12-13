@@ -42,7 +42,11 @@
                 @guest
                 <a href="{{ route('login') }}"><button class="iconcart"><i class="bi bi-cart-fill"></i></button></a>
                 @else
-                    @livewire('cart-count-component')
+                    @if(Auth::user()->role == 3)
+                    @else
+                        @livewire('cart-count-component')
+                    @endif
+                    
                 @endguest
             </div>
             <div class="user">
@@ -95,4 +99,12 @@
 <!-- footer -->
 @livewire('footer-component')
 
+<script>
+    document.querySelectorAll('.link').forEach
+    (link => {
+        if(link.href === window.location.href){
+            link.setAttribute('aria-current','page')
+        }
+    })
+</script>
 @endsection
