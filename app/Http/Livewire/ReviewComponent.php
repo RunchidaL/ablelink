@@ -19,25 +19,39 @@ class ReviewComponent extends Component
 
     public function addReview()
     {
+        $this->validate([
+            'comment' => 'required'
+        ]);
         $review = new Review();
-        if($this->rating == null){
-            $review->rating = 5;
+        $reviewitem = Order::find($this->order_item_id);
+        if($reviewitem->rstatus == true)
+        {
+            session()->flash('danger','เคยรีวิวแล้ว');
         }
         else{
-            $review->rating = $this->rating;
+            if($this->rating == null){
+                $review->rating = 5;
+            }
+            else{
+                $review->rating = $this->rating;
+            }
+            $review->comment = $this->comment;
+            $review->product_id = $reviewitem->model->id;
+            $review->user_id = auth()->user()->id;
+            $review->save();
+            
+            $reviewitem->rstatus = true;
+            $reviewitem->save();
+
+            session()->flash('message','Add Review successs');
+            $this->dispatchBrowserEvent('alert-review-success');
+            return redirect(route('order.detail',['order_id'=>$reviewitem->order_id]));
         }
-        $review->comment = $this->comment;
-        $reviewitem = Order::find($this->order_item_id);
-        $review->product_id = $reviewitem->model->id;
-        $review->user_id = auth()->user()->id;
-        $review->save();
-        session()->flash('message','Add Review successs');
-        $this->dispatchBrowserEvent('alert-review-success');
     }
 
     public function render()
     {
-        $item = Order::find($this->order_item_id);
+        $item = Order::where('id',$this->order_item_id)->first();
         return view('livewire.review-component',['item'=>$item])->layout("layout.navfoot");
     }
 }

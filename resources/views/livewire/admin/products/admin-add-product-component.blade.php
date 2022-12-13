@@ -68,6 +68,13 @@
                                         @endforeach
                                     </select>
                                     @error('sbcategory_id') <p class="text-danger">กรุณาเลือก</p> @enderror
+                                    @if($sbcategory_id == 89)
+                                    <label class="col-md-4">การขาย</label>
+                                    <select class="form-control" wire:model="attibute">
+                                        <option value="0">ขายเป็นชิ้น</option>
+                                        <option value="1">ขายแบบให้มีกำหนดความยาว</option>
+                                    </select>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
@@ -94,58 +101,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-        tinymce.init({
-            selector: '#overview',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var o_data = $('#overview').val();
-                    @this.set('overview',o_data);
-                });
-            }
-            
-        });
-        tinymce.init({
-            selector: '#application',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var sd_data = $('#application').val();
-                    @this.set('application',sd_data);
-                });
-            }
-        });
-        tinymce.init({
-            selector: '#item_spotlight',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var i_data = $('#item_spotlight').val();
-                    @this.set('item_spotlight',i_data);
-                });
-            }
-        });
-        
-        tinymce.init({
-            selector: '#feature',
-            plugins: ['quickbars table image link lists media autoresize help',
-            'searchreplace visualblocks code fullscreen'],
-            setup:function(editor){
-                editor.on('Change',function(e){
-                    tinyMCE.triggerSave();
-                    var f_data = $('#feature').val();
-                    @this.set('feature',f_data);
-                });
-            }
-        });
-    </script>
-@endpush

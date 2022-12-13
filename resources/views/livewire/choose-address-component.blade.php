@@ -214,7 +214,7 @@
                                 <script type="text/javascript" src="https://cdn.omise.co/omise.js"
                                     data-key="pkey_test_5t30hpp2jv76v7wwj48"
                                     data-image="http://bit.ly/customer_image"
-                                    data-frame-label="Merchant site name"
+                                    data-frame-label="Ablelink"
                                     data-button-label="ชำระเงิน"
                                     data-submit-label="Submit"
                                     data-location="no"

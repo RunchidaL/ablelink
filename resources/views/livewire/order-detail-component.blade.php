@@ -116,7 +116,13 @@
                                 @endif
                                 
                             </td>
-                            <td><a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn-success">เขียนรีวิว</a></td>
+                            <td>
+                                @if($item->rstatus == true)
+                                <button class="btn btn" disabled>เขียนรีวิว</button>
+                                @else
+                                <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn">เขียนรีวิว</a>
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>    
@@ -154,14 +160,18 @@
                 </div>
                 <div class="phone-order-detail-right">
                     <div class="phone-order-detail-name">
-                        @if($item->attribute)
+                        @if(empty($item->model->id))
+                        <a href="">ไม่มีสินค้าในระบบแล้ว</a>
+                        @elseif($item->attribute)
                         <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}} {{$item->attribute}} m</a>
                         @else
                         <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}">{{$item->model->slug}}, {{$item->model->name}}</a>
                         @endif
                     </div>
                     <div class="phone-order-detail-total">
-                        @if($item->attribute)
+                        @if(empty($item->model->id))
+                        <a href="">ไม่มีสินค้าในระบบแล้ว</a>
+                        @elseif($item->attribute)
                         <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity * $item->attribute,2)}}</p>
                         @else
                         <p class="group-cen">฿{{number_format($item->model->dealer_price * $item->quantity,2)}}</p>
@@ -169,7 +179,11 @@
                     </div>
                     <div class="phone-order-detail-quantity">
                         <p class="group-cen">จำนวน {{$item->quantity}} ชิ้น</p>
-                        <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn-success">เขียนรีวิว</a>
+                        @if($item->rstatus == true)
+                            <p class="btn btn disabled">เขียนรีวิว</p>
+                        @else
+                            <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn">เขียนรีวิว</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -182,3 +196,17 @@
     </div>
 </div>
 
+<style>
+    .btn{
+        background-color: #194276;
+        color: white;
+    }
+    .btn:hover{
+        background-color: #194276;
+        color: white;
+    }
+    .btn[disabled]{
+        background-color: #C4C4C4;
+        color: white;
+    }
+</style>

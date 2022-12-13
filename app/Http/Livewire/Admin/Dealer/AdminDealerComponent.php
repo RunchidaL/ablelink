@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Dealer;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\Dealer;
+use App\Models\OrderID;
 
 class AdminDealerComponent extends Component
 {
@@ -17,9 +18,10 @@ class AdminDealerComponent extends Component
     }
 
     public function render()
-    {
+    {   
+        $totals = OrderID::all();
         $dealers = User::where('role',2)->orderBy('created_at','DESC')->get();
         $infodealers = Dealer::all();
-        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers])->layout("layout.navfoot");
+        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers,'totals'=>$totals])->layout("layout.navfoot");
     }
 }

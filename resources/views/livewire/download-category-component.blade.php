@@ -50,10 +50,18 @@
                         <td class="align-middle pl-3 py-3" colspan="2">
                             <p class="namecatpre">{{$c->name}}</p>
                             <div class="d-block d-md-none text-cust-gray">
+                            @if($c->file)
                                 ไฟล์ : <a href="{{url('/images/downloads')}}/{{$c -> file}}">Download</a>
+                            @elseif($c->filetext)
+                                ไฟล์ : <a href="{{$c -> filetext}}" target="_blank">Download</a>
+                            @endif
                             </div>
                         </td>
+                        @if($c->file)
                         <td class="text-center align-middle d-none d-md-table-cell" ><a href="{{url('/images/downloads')}}/{{$c -> file}}">Download</a></td>
+                        @elseif($c->filetext)
+                        <td class="text-center align-middle d-none d-md-table-cell" ><a href="{{$c -> filetext}}" target="_blank">Download</a></td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
@@ -85,10 +93,18 @@
                         <td class="align-middle pl-3 py-3" colspan="2">
                             <p class="namecatpre">{{$p->name}}</p>
                             <div class="d-block d-md-none text-cust-gray">
+                            @if($p->file)
                                 ไฟล์ : <a href="{{url('/images/downloads')}}/{{$p -> file}}">Download</a>
+                            @elseif($p->filetext)
+                                ไฟล์ : <a href="{{$p -> filetext}}" target="_blank">Download</a>
+                            @endif
                             </div>
                         </td>
+                        @if($p->file)
                         <td class="text-center align-middle d-none d-md-table-cell"><a href="{{url('/images/downloads')}}/{{$p -> file}}">Download</a></td>
+                        @elseif($p->filetext)
+                        <td class="text-center align-middle d-none d-md-table-cell"><a href="{{$p -> filetext}}" target="_blank">Download</a></td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

@@ -131,6 +131,7 @@ class PaymentController extends Controller
                 $order = New Order();
                 $order->product_id = $item->product_id;
                 $order->quantity = $item->quantity;
+                $order->rstatus = false;
                 if($item->attribute)
                 {
                     $order->attribute = $item->attribute;

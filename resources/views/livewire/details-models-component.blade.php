@@ -80,20 +80,13 @@
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                 @if($model->stock == 0)
-                    <button type='button' class="button btn" style="opacity: 0.5; pointer-events:none;">เพิ่มลงตะกร้า</button>
-                @endif
-                @guest
-                    @if($model->stock > 0)
-                        <a href="{{ route('login') }}"><button>เพิ่มลงตะกร้า</button></button></a>
-                    @endif
+                    <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>เพิ่มลงตะกร้า</span></button>
                 @else
-                    @if($model->stock > 0)
-                        <button wire:click="addToCart({{$model->id}})">เพิ่มลงตะกร้า</button>
-                    @endif
-                @endguest
+                    <button wire:click="addToCart({{$model->id}})">เพิ่มลงตะกร้า</button>
+                @endif
                 </div>
             </div>
-            @if($model->product->subcategory_id == "7")
+            @if($model->product->attibute == 1)
                 <div class="length">
                     <p>Length:</p>
                     <div class="add-attribute">
@@ -112,11 +105,11 @@
                     @foreach($product_models->where('product_id',$model->product->id) as $product_model)
                     @if($model->slug == $product_model->slug)
                     <div class="slideBox curProduct">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->nickname}}</a>
                     </div>
                     @else
                     <div class="slideBox">
-                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->name}}</a>
+                        <a href="{{route('product.detailsmodels',['modelslug'=>$product_model->slug])}}">{{$product_model->nickname}}</a>
                     </div>
                     @endif
                         @if( $i == (($count+($count%2))/2)-1 && $count > 4)
@@ -374,6 +367,7 @@
             <h4 class="me"><span>Reviews</span></h4>
             @php
                 $avg = 0;
+                $comment = 0;
             @endphp
             @if($reviews->count()>0)
                 @foreach($rating as $r)
@@ -401,25 +395,25 @@
                         <div class="col-6">
                             @php
                                 $rate = $review->rating;
+                                $comment++; 
                             @endphp
                             @for($i=1;$i<=5;$i++)
                                 @if($i <= $rate)
                                 <i class="bi bi-star-fill"></i>
                                 @endif
                             @endfor
-                            <div>{!! $review->comment !!}</div>
+                            <div>{{$review->comment}}</div>
                         </div>
                         <div class="col-4 text-end">
                             <div>{{date('d M Y', strtotime($review->created_at))}}</div>
                         </div>
                     </div>
                     <div class="line-review"></div>
+                    
                 @endforeach
-            @if($this->amount == 5)
-            <br>
-            {{$reviews->links()}}
-            @else
-            <div class="seemore"><a wire:click="load" class="seemore2">ดูเพิ่มเติม&nbsp;<i class="bi bi-chevron-down"></i></a></div>
+                
+            @if($this->amount < $rating->count())
+            <div class="seemore"><a wire:click="load" class="seemore2">ดูเพิ่มเติม<i class="bi bi-chevron-down arw" id="chevron"></i></a></div>
             @endif
             @else
             <p>ยังไม่มีการรีวิวสินค้า</p>
@@ -531,15 +525,15 @@ for (let i = 0; i < menu.length; i++) {
 }
 
 .swiper-navBtn4{
-    color: black;
+    color: black !important;
     background: #F5F5F5;
     padding: 30px 25px;
-    border-radius: 10px; 
+    border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .swiper-navBtn4:hover{
-    color: black;
+    color: black !important;
     background: #c0c0c0;
     border-radius: 10px; 
 }
@@ -667,6 +661,11 @@ for (let i = 0; i < menu.length; i++) {
 span, p, li, td, th{
     font-family: 'Prompt', sans-serif !important;
 }
+
+.summernote{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 
 @media screen and (max-width: 1400px){
     p img, table, .table-responsive, .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl,  .row > *{

@@ -26,6 +26,7 @@ class AdminEditProductComponent extends Component
     public $bcategory_id;
     public $sbcategory_id;
     public $groupproduct_id;
+    public $attibute;
 
     public function mount($product_id)
     {
@@ -37,6 +38,7 @@ class AdminEditProductComponent extends Component
         $this->sbcategory_id = $product->subbrandcategory_id;
         $this->product_id = $product->id;
         $this->groupproduct_id = $product->groupproduct_id;
+        $this->attibute = $product->attibute;
 
     }
 
@@ -48,6 +50,7 @@ class AdminEditProductComponent extends Component
             'scategory_id' => 'required',
             'bcategory_id' => 'required',
             'sbcategory_id' => 'required',
+            'groupproduct_id' => 'required',
         ]);
         $product = Product::find($this->product_id);
         $product->name = $this->name;
@@ -63,6 +66,18 @@ class AdminEditProductComponent extends Component
         if($this->sbcategory_id)
         {
             $product->subbrandcategory_id = $this->sbcategory_id;
+        }
+        if($this->sbcategory_id == 89)
+        {
+            if($this->attibute == null){
+                $product->attibute = 0;
+            }
+            elseif($this->attibute == 0){
+                $product->attibute = 0;
+            }
+            else{
+                $product->attibute = 1;
+            }
         }
         if($this->groupproduct_id)
         {

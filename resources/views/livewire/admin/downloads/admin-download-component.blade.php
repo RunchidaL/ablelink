@@ -11,16 +11,24 @@
                             <a href="{{route('admin.categorydownload')}}"><button class="btn btn-success">Download Category</button></a>
                             <a href="{{route('admin.adddownload')}}"><button class="btn btn-success">Add Download</button></a>
                         </div>
-                        <div class="col offset-md-8 d-md-flex justify-content-md-end">
-                            <select style="min-width:90px" wire:model="category">
-                                <option value="default" selected="selected">ทั้งหมด</option>
-                                <option value="1">Catelog</option>
-                                <option value="2">Presentation</option>
-                                <option value="3">Marketing Videos</option>
-                            </select>
+                        <div class="row justify-content-end my-3">
+                            <div class="col-auto">
+                                <select style="min-width:90px" wire:model="brand">
+                                    <option value="default" selected="selected">ทั้งหมด</option>
+                                    @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    @endforeach
+                                </select>
+                                <select style="min-width:90px" wire:model="category">
+                                    <option value="default" selected="selected">ทั้งหมด</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
                     <div class="panel-body">
+                        @if($downloads->count()>0)
                         <table class="table table-striped">
                             @if(Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
@@ -40,7 +48,11 @@
                                     <tr>
                                         <td>{{$download->id}}</td>
                                         <td>{{$download->name}}</td>
-                                        <td>{{$download->file}}</td>
+                                        @if($download->file)
+                                            <td>{{$download->file}}</td>
+                                        @elseif($download->filetext)
+                                            <td>{{$download->filetext}}</td>
+                                        @endif
                                         <td>{{$download->category->name}}</td>
                                         <td>{{$download->brand->name}}</td>
                                         <td>
@@ -51,6 +63,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @else
+                            <p class="noproduct">ไม่พบสินค้าที่ค้นหา</p>
+                        @endif
                         {{$downloads->links()}}
                     </div>
                 </div>

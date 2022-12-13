@@ -8,9 +8,11 @@
         <div class="row" id="products">
         @foreach($products->unique('groupproduct_id') as $product)
             <br>
+            @if(!empty($product->product_models->id))
             <div>
                 <h2 class="text" style="font-weight: bold">{{$product->group_products->name}}</h2>
             </div>
+            @endif
 
             <!-- group -->
             @foreach($models->where('group_products',$product->groupproduct_id) as $model)
@@ -24,7 +26,7 @@
                         </div>
                         <div class="card-body">
                             <p><span>#{{$model->slug}}</span></p>
-                            <p class="card-title">{{$model->name}}</p>
+                            <p class="card-title">{{$model->nickname}}</p>
                             @guest
                                 @if(($model->web_price) == '1')
                                     <p class="empty">฿</p>
@@ -109,7 +111,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p><span>#{{$model->slug}}</span></p>
-                                    <p class="card-title">{{$model->name}}</p>
+                                    <p class="card-title">{{$model->nickname}}</p>
                                     @guest
                                         @if(($model->web_price) == '1')
                                             <p class="empty">฿</p>
@@ -179,9 +181,8 @@
                             @if($t->id == $model->type_id and $model->product->brandcategory_id == $bcategory->id)
                             <h5 class="text" style="padding-left:30px;">{{$model->series->name}} > {{$t->name}}</h5>
                             @endif
-                        @endforeach
                         </div>
-                        
+                        @endforeach
                         
                         @foreach($models->where('type_id',$t->id) as $model)
                             @if($model->jacket_id)
@@ -194,7 +195,7 @@
                                     </div>
                                     <div class="card-body">
                                         <p><span>#{{$model->slug}}</span></p>
-                                        <p class="card-title">{{$model->name}}</p>
+                                        <p class="card-title">{{$model->nickname}}</p>
                                         @guest
                                             @if(($model->web_price) == '1')
                                                 <p class="empty">฿</p>
@@ -260,6 +261,54 @@
                     @endforeach
             @endforeach
         @endforeach
+        {{$products->links()}}
+    </div>
+    <div class="add-products-preview" id="add-products-preview">
+        @foreach($models as $model)
+        <div class="preview" data-target="{{$model->slug}}">
+            <i class="bi bi-x-lg"></i>
+            <div class="row">
+                <div class="col">
+                    <img src="{{asset('/images/products')}}/{{$model->image}}">
+                </div>
+                <div class="col">
+                    <a href="{{route('product.detailsmodels',['modelslug'=>$model->slug])}}">
+                    <h4>{{$model->name}}<span> #{{$model->slug}}</span></h4></a>
+                    <div class="head-product-price">
+                    @guest
+                        <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                    @else
+                        @if(Auth::user()->role == 1)
+                        <p>฿{{number_format($model->customer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                        @else
+                        <p>฿{{number_format($model->dealer_price,2)}}<span> | In stock {{$model->stock}}</span></p>
+                        @endif
+                    @endguest
+                    </div><br>
+                    @if($model->product->attibute == 1)
+                    <div class="length">
+                        <p>Length:</p>
+                        <div class="add-attribute">
+                            <input wire:model.defer="attribute" required> m
+                            <p class="text-danger">กรุณาใส่ความยาว</p>
+                        </div>
+                    </div><br>
+                    @endif
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <div class="quantity">
+                    <div class="add-qty">
+                        <input wire:model.defer="qty" type="number" min="1" step="1" value="1" max="{{$model->stock}}">
+                    </div>
+                    <div class="addtocart" style="display: inline-block;">
+                        <button wire:click.prevent="addToCart({{$model->id}})">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        
     </div>
         @else
         <p class="noproduct">ไม่พบสินค้าที่ค้นหา</p>
@@ -337,4 +386,3 @@
         };
     });
 </script>
-

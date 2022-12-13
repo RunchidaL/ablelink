@@ -3,9 +3,12 @@
         @if(Session::has('message'))
             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
         @endif
+        @if(Session::has('danger'))
+            <div class="alert alert-danger" role="alert">{{Session::get('danger')}}</div>
+        @endif
         <div class="review-page">
             <form wire:submit.prevent="addReview">
-                <h5>รีวิวสินค้า</h5>
+                <a href="{{route('order.detail',['order_id'=>$item->order_id])}}"><i class="bi bi-arrow-left"></i> ย้อนกลับ</a>
                 <div class="review-img">
                 <a href="{{route('product.detailsmodels',['modelslug'=>$item->model->slug])}}"><img src="{{asset('/images/products')}}/{{$item->model->image}}" alt="" width="180"></a>
                 </div>  
@@ -29,12 +32,13 @@
                 <div class="review-comment">
                     <div class="col-md-8"> 
                         <div>
+                            <h5>รีวิวสินค้า</h5>
                             <label>ความคิดเห็นของคุณ</label>
-                            <textarea type="text" class="form-control" wire:model="comment" col="30" rows="5" required></textarea>
+                            <textarea type="text" class="form-control" wire:model="comment" col="30" rows="5"></textarea>
+                            @error('comment') <p class="text-danger">กรุณาใส่ความคิดเห็น</p> @enderror
                         </div>
                         <div class="review-button">
-                            <a href="{{route('order.detail',['order_id'=>$item->order_id])}}" class="btn btn-secondary">ย้อนกลับ</a>
-                            <button type="submit" class="btn btn-success">ส่ง</button>
+                            <button type="submit" class="btn btn">ส่ง</button>
                         </div>
                     </div>
                 </div>
@@ -42,8 +46,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     window.addEventListener('alert-review-success', event =>{
         Swal.fire({
@@ -58,6 +60,7 @@
     .swal2-styled.swal2-confirm{
         background-color: #194276;
     }
+
     .review-img img{
         display: block;
         margin-left: auto;
@@ -105,13 +108,18 @@
     .review-button{
         display: flex;
         margin: 20px 0;
-        justify-content: space-between
+        justify-content: end;
     }
 
     .review-button .btn{
         width: 150px;
         height: 40px;
         border-radius: 30px;
+    }
+
+    .btn{
+        background-color: #194276;
+        color: white;
     }
 
     @media screen and (max-width: 767px){

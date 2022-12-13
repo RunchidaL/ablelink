@@ -12,6 +12,8 @@
                     </div>
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                    @elseif(Session::has('danger'))
+                        <div class="alert alert-danger" role="alert">{{Session::get('danger')}}</div>
                     @endif
                     <div class="panel-body">
                         <form class="form-panel" enctype="multipart/form-data" wire:submit.prevent="addDownload">
@@ -47,19 +49,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                @if($category_id)
-                                <label class="col-md-12">File</label>
-                                @endif
+                                <label class="col-md-12 my-2"><b>กรุณาเลือกใส่ไฟล์(ขนาดไม่เกิน 12 MB) หรือลิงค์</b></label>
                                 <div class="col-md-6">
-                                    @if($category_id == 1 or $category_id == 3)
+                                    @if($category_id != 5)
+                                    <label class="col-md-12">File</label>
                                     <input type="file" class="input-file" wire:model="file">
-                                    @error('file') <p class="text-danger">กรุณาเลือกไฟล์</p> @enderror
-                                    @elseif($category_id == 5)
-                                    <input type="text" class="form-control" wire:model="filetext">
-                                    @error('filetext') <p class="text-danger">กรุณาใส่ลิ้งค์</p> @enderror
                                     @endif
+                                    @error('file') <p class="text-danger">{{ $message }}</p> @enderror
+                                    <label class="col-md-12">Link</label>
+                                    <input type="text" class="form-control" wire:model="filetext">
                                 </div>
-                                
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">

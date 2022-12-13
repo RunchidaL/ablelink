@@ -16,7 +16,6 @@
                     @endif
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Name</th>
                             <th>slug</th>
                             <th>SubCategory</th>
@@ -28,7 +27,6 @@
                     <tbody>
                         @foreach($categories as $category)
                             <tr>
-                                <td>{{$category->id}}</td>
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->slug}}</td>
                                 <td>

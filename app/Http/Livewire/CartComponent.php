@@ -47,7 +47,6 @@ class CartComponent extends Component
         $item = Cart::where('id',$this->delete_id)->first();
         $item->delete();
         $this->dispatchBrowserEvent('deletedItem');
-        session()->flash('message','Item has been deleted successfully!');
     }
 
     public function getCartItemCount()
@@ -109,30 +108,36 @@ class CartComponent extends Component
 
         foreach($this->cartitems as $item)
         {
-            if(auth()->user()->role == '1')
-            {
-
-                if($item->attribute)
+            if(empty($item->model->id)){
+                $item->delete();
+            }
+            else{
+                if(auth()->user()->role == '1')
                 {
-                    $this->subtotal += $item->model->customer_price * $item->quantity * $item->attribute;
+    
+                    if($item->attribute)
+                    {
+                        $this->subtotal += $item->model->customer_price * $item->quantity * $item->attribute;
+                    }
+                    else
+                    {
+                        $this->subtotal += $item->model->customer_price * $item->quantity;
+                    }
+    
                 }
                 else
                 {
-                    $this->subtotal += $item->model->customer_price * $item->quantity;
+                    if($item->attribute)
+                    {
+                        $this->subtotal += $item->model->dealer_price * $item->quantity * $item->attribute;
+                    }
+                    else
+                    {
+                        $this->subtotal += $item->model->dealer_price * $item->quantity;
+                    }
                 }
+            }
 
-            }
-            else
-            {
-                if($item->attribute)
-                {
-                    $this->subtotal += $item->model->dealer_price * $item->quantity * $item->attribute;
-                }
-                else
-                {
-                    $this->subtotal += $item->model->dealer_price * $item->quantity;
-                }
-            }
 
         }
 

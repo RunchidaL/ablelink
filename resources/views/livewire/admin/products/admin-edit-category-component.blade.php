@@ -32,6 +32,7 @@
                     <label class="col-md-12">Slug</label>
                     <div class="col-md-12">
                         <input type="text" class="form-control" wire:model="slug">
+                        @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
                     </div>
                 </div>
                 @if($category_slug and $scategory_slug and empty($bcategory_slug))

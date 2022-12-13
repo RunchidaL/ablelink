@@ -5,24 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\PostCategory;
+use Livewire\WithPagination;
 
 class ActivityComponent extends Component
 {   
-    // public function deletePost($id)
-    // {
-    //     $post = Post::find($id);
-    //     $post->delete();
-    //     session()->flash('message','Post has been deleted successfully!');
-    // }
-
-
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['addToCart'];
 
     public function render()
     {
 
         $postcategory = PostCategory::all();
         
-        $posts = Post::orderBy('created_at','DESC')->get();
+        $posts = Post::orderBy('created_at','DESC')->paginate(10);
         return view('livewire.activity-component',['posts'=> $posts,'postcategory'=>$postcategory])->layout("layout.navfoot");
     }
 }

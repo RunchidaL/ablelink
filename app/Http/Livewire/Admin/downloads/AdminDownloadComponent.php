@@ -6,15 +6,18 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Download;
 use App\Models\DownloadCategory;
+use App\Models\Brand;
 
 class AdminDownloadComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $category;
+    public $brand;
     public function mount()
     {
         $this->category = "default";
+        $this->brand = "default";
     }
 
     public function deleteDownload($id)
@@ -25,19 +28,20 @@ class AdminDownloadComponent extends Component
     }
     public function render()
     {
-        if($this->category=="default"){
+        if($this->category=="default" and $this->brand=="default"){
             $downloads = Download::orderBy('created_at','DESC')->paginate(10);
         }
-        elseif($this->category=="1"){
-            $downloads = Download::where('category_id',1)->orderBy('created_at','DESC')->paginate(10);
+        elseif($this->category and $this->brand =="default"){
+            $downloads = Download::where('category_id',$this->category)->orderBy('created_at','DESC')->paginate(10);
         }
-        elseif($this->category=="2"){
-            $downloads = Download::where('category_id',3)->orderBy('created_at','DESC')->paginate(10);
+        elseif($this->category =="default"and $this->brand){
+            $downloads = Download::where('brand_id',$this->brand)->orderBy('created_at','DESC')->paginate(10);
         }
-        elseif($this->category=="3"){
-            $downloads = Download::where('category_id',5)->orderBy('created_at','DESC')->paginate(10);
+        elseif($this->category and $this->brand){
+            $downloads = Download::where('category_id',$this->category)->where('brand_id',$this->brand)->orderBy('created_at','DESC')->paginate(10);
         }
-        
-        return view('livewire.admin.downloads.admin-download-component',['downloads'=>$downloads])->layout("layout.navfoot");
+        $brands = Brand::orderBy('name','ASC')->get();
+        $categories = DownloadCategory::orderBy('name','ASC')->get();
+        return view('livewire.admin.downloads.admin-download-component',['downloads'=>$downloads,'brands'=>$brands,'categories'=>$categories])->layout("layout.navfoot");
     }
 }

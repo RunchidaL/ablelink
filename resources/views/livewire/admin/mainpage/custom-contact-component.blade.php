@@ -20,9 +20,10 @@
                         @endif
                         <form class="form-horizontal" wire:submit.prevent="customContact">
                             <div class="form-group">
-                                <label class="col-md-6 control-label">Image</label>
+                                <label class="col-md-6 control-label">Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                 <div class="col-md-6">
                                     <input type="file" class="input-file" wire:model="newimage" accept=".jpg,.jpeg,.png">
+                                    @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                     @if($newimage)
                                         <img src="{{$newimage->temporaryUrl()}}" width="120"/>
                                     @else

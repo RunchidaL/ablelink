@@ -24,6 +24,14 @@ class AdminAddPostComponent extends Component
         $this->slug = Str::slug($this->title,'-');
     }
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'slug' => 'required|alpha_dash',
+            'titleimg' => 'required',
+        ]);
+    }
+
     public function addPost()
     {
         $this->validate([

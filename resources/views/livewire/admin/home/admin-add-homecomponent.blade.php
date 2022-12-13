@@ -37,10 +37,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Image</label>
+                                <label class="col-md-4 control-label">Image(ใส่ไฟล์ขนาดไม่เกิน 12 MB)</label>
                                 <div class="col-md-4">
                                     <input type="file" class="input-file" wire:model="image" accept=".jpg,.jpeg,.png">
-                                    @error('image') <p class="text-danger">กรุณาใส่</p> @enderror
+                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120" alt="">
                                     @endif
@@ -54,6 +54,7 @@
                                         <option value="0">แสดง</option>
                                         <option value="1">ไม่แสดง</option>
                                     </select>
+                                    @error('status') <p class="text-danger">กรุณาเลือก</p> @enderror
                                 </div>
                             </div>
 

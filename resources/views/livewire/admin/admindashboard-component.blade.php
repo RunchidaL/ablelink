@@ -13,9 +13,9 @@
         <div class="col-md-4">
             <a href="{{route('admin.group')}}"><button class="button">Group Product</button></a>
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <a href="{{route('admin.networktype')}}"><button class="button">Network type</button></a>
-        </div>
+        </div> -->
         <div class="col-md-4">
             <a href="{{route('admin.products')}}"><button class="button">Products</button></a>
         </div>
@@ -28,6 +28,17 @@
         <div class="col-md-4">
             <a href="{{route('admin.productpreview')}}"><button class="button">Product Preview <br>หน้าหลัก</button></a>
         </div>
+        <!-- เกี่ยวกับเรา บริการ -->
+        <div class="col-md-4">
+            <a href="{{route('admin.post')}}"><button class="button">หน้าข่าวสารเเละกิจกรรม</button></a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{route('admin.AdminNewProducts')}}"><button class="button">ผลิตภัณฑ์ใหม่สำหรับ<br>หน้าข่าวสารเเละกิจกรรม</button></a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{route('admin.download')}}"><button class="button">ดาวน์โหลด</button></a>
+        </div>
+
         <div class="col-md-4">
             <a href="{{route('admin.customaboutus',['about_id'=>'1'])}}"><button class="button">เกี่ยวกับเรา</button></a>
         </div>
@@ -48,6 +59,9 @@
         </div>
         <div class="col-md-4">
             <a href="{{route('admin.customcontact',['contact_id'=>'1'])}}"><button class="button">ติดต่อเรา</button></a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{route('admin.footer',['footer_id'=>'1'])}}"><button class="button">Footer</button></a>
         </div>
         
         <h3 class="mt-3 mb-3">อื่นๆ</h3>

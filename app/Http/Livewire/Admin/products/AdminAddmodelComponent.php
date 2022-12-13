@@ -20,11 +20,11 @@ class AdminAddmodelComponent extends Component
 {
     use WithFileUploads;
     public $name;
+    public $nickname;
     public $slug;
     public $description;
     public $overview;
     public $application;
-    public $item_spotlight;
     public $feature;
     public $image;
     public $p_images;
@@ -53,36 +53,37 @@ class AdminAddmodelComponent extends Component
     public $attribute_arr=[];
     public $attribute_values;
 
-    public function add()
-    {
-        $this->validate([
-            'attr' => 'required',
-        ]);
-        if(!in_array($this->attr,$this->attribute_arr))
-        {
-            array_push($this->inputs,$this->attr);
-            array_push($this->attribute_arr,$this->attr);
-            array_push($this->images,$this->attr);
-        }
-    }
+    // public function add()
+    // {
+    //     $this->validate([
+    //         'attr' => 'required',
+    //     ]);
+    //     if(!in_array($this->attr,$this->attribute_arr))
+    //     {
+    //         array_push($this->inputs,$this->attr);
+    //         array_push($this->attribute_arr,$this->attr);
+    //         array_push($this->images,$this->attr);
+    //     }
+    // }
 
-    public function remove($attr)
-    {
-        unset($this->inputs[$attr]);
-    }
+    // public function remove($attr)
+    // {
+    //     unset($this->inputs[$attr]);
+    // }
 
     public function updated($fields)
     {
         $this->validateOnly($fields,[
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
-            'image' => 'mimes:jpeg,jpg,png|required|size:300',
+            'image' => 'mimes:jpeg,jpg,png|required',
             'datasheet' => 'mimes:pdf',
             'guide' => 'mimes:pdf',
             'cert' => 'mimes:pdf',
             'config' => 'mimes:pdf',
             'dealer_price' => 'required|numeric|max:999999',
-            'customer_price' => 'required|numeric|max:999999'
+            'customer_price' => 'required|numeric|max:999999',
         ]);
     }
 
@@ -90,12 +91,13 @@ class AdminAddmodelComponent extends Component
     {
         $this->validate([
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required|alpha_dash|unique:product_models,slug',
             'image' => 'required',
             'web_price' => 'required',
             'dealer_price' => 'required|numeric|max:999999',
             'customer_price' => 'required|numeric|max:999999',
-            'product_id' => 'required|numeric',
+            'product_id' => 'required|numeric|exists:products,id',
         ]);
         $model = new ProductModels();
         $model->name = $this->name;
@@ -104,7 +106,6 @@ class AdminAddmodelComponent extends Component
         $model->description = $this->description;
         $model->overview = $this->overview;
         $model->application = $this->application;
-        $model->item_spotlight = $this->item_spotlight;
         $model->feature = $this->feature;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
         $this->image->storeAs('products',$imageName);
@@ -183,34 +184,34 @@ class AdminAddmodelComponent extends Component
 
         $model->save();
 
-        if($this->attribute_values)
-        {
+        // if($this->attribute_values)
+        // {
 
-            foreach($this->attribute_values as $key=>$attribute_value)
-            {
+        //     foreach($this->attribute_values as $key=>$attribute_value)
+        //     {
 
-                if($this->network_images)
-                {
-                $attribute_image = new NetworkImage();
-                $fileNet = $this->network_images[$key]->getClientOriginalName();
-                $this->network_images[$key]->storeAs('products', $fileNet);
-                $attribute_image->image = $fileNet;
-                $attribute_image->type_id = $key;
-                $attribute_image->save();
+        //         if($this->network_images)
+        //         {
+        //         $attribute_image = new NetworkImage();
+        //         $fileNet = $this->network_images[$key]->getClientOriginalName();
+        //         $this->network_images[$key]->storeAs('products', $fileNet);
+        //         $attribute_image->image = $fileNet;
+        //         $attribute_image->type_id = $key;
+        //         $attribute_image->save();
                 
 
-                $avalues = explode(",",$attribute_value);
-                foreach($avalues as $avalue)
-                {
-                    $attr_value = new NetworkValue();
-                    $attr_value->network_image_id = $attribute_image->id;
-                    $attr_value->product_in_photo = $avalue;
-                    $attr_value->model_id = $model->id;
-                    $attr_value->save();
-                }
-                }
-            }
-        }
+        //         $avalues = explode(",",$attribute_value);
+        //         foreach($avalues as $avalue)
+        //         {
+        //             $attr_value = new NetworkValue();
+        //             $attr_value->network_image_id = $attribute_image->id;
+        //             $attr_value->product_in_photo = $avalue;
+        //             $attr_value->model_id = $model->id;
+        //             $attr_value->save();
+        //         }
+        //         }
+        //     }
+        // }
 
         session()->flash('message','Add Model successs');
     }

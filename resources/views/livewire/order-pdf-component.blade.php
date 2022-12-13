@@ -8,7 +8,7 @@
     <body>
         <div class="row">
             <div class="column">
-                <img src="{{ public_path('images/AbleLink.jpg') }}" id="logo">
+                <img src="{{ asset('images/AbleLink.jpg') }}" id="logo">
             </div>
             <div class="column text-end">
                 <p>บริษัท เอเบิลลิ้งค์ (ประเทศไทย) จำกัด เลขประจำตัวผู้เสียภาษี 0-10556-1132-34-1</p>
@@ -23,11 +23,11 @@
             <p class="desc">
                 Attn : <br>
                 Position : <br>
-                Company : {{$order->company}}<br>
-                Address : {{$order->address}}  แขวง/ตำบล {{$order->subdistrict}} <br>
-                เขต/อำเภอ {{$order->district}} {{$order->county}} {{$order->zipcode}}<br>
-                E-Mail : {{$order->email}}<br>
-                Phone : {{$order->phonenumber}}<br>
+                Company : {{$dealer->companyTH}}<br>
+                Address : {{$dealer->address}}  แขวง/ตำบล {{$dealer->subdistrict}} <br>
+                เขต/อำเภอ {{$dealer->district}} {{$dealer->county}} {{$dealer->zipcode}}<br>
+                E-Mail : {{$dealer->emailaddress}}<br>
+                Phone : {{$dealer->phonenumber}}<br>
                 Fax : 
             </p>
         </div>
@@ -38,15 +38,13 @@
                 Date : {{date('d/m/Y', strtotime($order->created_at))}}<br>
                 Revised Date : <br>
                 Page No. : <br>
-                Sale : <br>
-                Mobile :  {{$order->phonenumber}}<br>
+                Sale :  {{$dealer->emailaddress}}<br>
+                Mobile :  {{$dealer->phonenumber}}<br>
                 validity : <br>
                 Project :
             </p>
         </div>
-        
         <h6 style="clear: both;"></h6>
-
         Ablelink (Thailand) Co., Ltd. Would like to thank you for your trust to selected services, products and we pround to offer quotation as :-
         <table>
             <tr style="height: 5px">
@@ -68,30 +66,27 @@
                 @endphp
             <tr>
                 <td>{{$i}}</td>
-                <td>{{$item->model->product->brand->name}}</td>
+                <td>{{$item->model->product->brand->brands->name}}</td>
                 <td>{{$item->model->slug}}</td>
-                <td></td>
+                <td>{{$item->model->name}}</td>
                 <td>{{$item->quantity}}</td>
                 <td></td>
                 <td>{{number_format($item->model->dealer_price,2)}}</td>
                 <td>{{number_format($item->model->dealer_price * $item->quantity,2)}}</td>
             </tr>
             @endforeach
-
             <tr>
                 <td rowspan="3"></td>
                 <td rowspan="3"></td>
                 <td rowspan="3"></td>
                 <td rowspan="3" colspan="2" style="color: red">หมายเหตุ xxxxxxxx</td>
                 <td class="blast" colspan="2">&nbsp;    Total</td>
-                <td class="last"><strong>{{$order->total}}</strong></td>
+                <td class="last"><strong>{{number_format($order->total,2)}}</strong></td>
             </tr>
-
             <tr>
                 <td class="blast" colspan="2">&nbsp;    Vat 7%</td>
                 <td class="last"><strong>-  &nbsp;</strong></td>
             </tr>
-
             <tr>
                 <td colspan="2"><strong style="font-size: 20px;">Grand Total</strong></td>
                 <td class="last"><strong>-  &nbsp;</strong></td>
@@ -160,25 +155,25 @@
         font-family: 'THSarabunNew';
         font-style: normal;
         font-weight: normal;
-        src: url("{{ public_path('fonts/THSarabunNew.ttf') }}") format('truetype');
+        src: url("{{ asset('/fonts/THSarabunNew.ttf') }}") format('truetype');
     }
     @font-face {
         font-family: 'THSarabunNew';
         font-style: normal;
         font-weight: bold;
-        src: url("{{ public_path('fonts/THSarabunNewBold.ttf') }}") format('truetype');
+        src: url("{{ asset('/fonts/THSarabunNewBold.ttf') }}") format('truetype');
     }
     @font-face {
         font-family: 'THSarabunNew';
         font-style: italic;
         font-weight: normal;
-        src: url("{{ public_path('fonts/THSarabunNewItalic.ttf') }}") format('truetype');
+        src: url("{{ asset('/fonts/THSarabunNewItalic.ttf') }}") format('truetype');
     }
     @font-face {
         font-family: 'THSarabunNew';
         font-style: italic;
         font-weight: bold;
-        src: url("{{ public_path('fonts/THSarabunNewBoldItalic.ttf') }}") format('truetype');
+        src: url("{{ asset('/fonts/THSarabunNewBoldItalic.ttf') }}") format('truetype');
     }
 
     body{

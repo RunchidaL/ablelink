@@ -15,8 +15,8 @@
 
     .toggle span{
         display: block;
-        width: 33px;
-        height: 4px;
+        width: 23px;
+        height: 3px;
         margin-bottom: 5px;
         position: relative;
         background-color: black;
@@ -26,10 +26,12 @@
     }
     
     .toggle:hover span{ background-color: black; }
-    .toggle.is-active span:nth-child(1){ transform: translate(0px, -2px)rotate(45deg);}
+    .toggle.is-active span:nth-child(1){ transform: translate(1.5px, 0px)rotate(45deg);}
     .toggle.is-active span:nth-child(2){ opacity: 0; }
-    .toggle.is-active span:nth-child(3){ transform: translate(-3px, 3px)rotate(-45deg); }
-    .toggle.is-active:hover span{ background-color: #d81b1b; }
+    .toggle.is-active span:nth-child(3){ transform: translate(0px, 0.5px)rotate(-45deg); }
+    .toggle.is-active:hover span{ 
+        background-color: #d81b1b; 
+    }
 
     .mobile-navbar{
         position: fixed;

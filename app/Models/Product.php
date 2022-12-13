@@ -25,6 +25,11 @@ class Product extends Model
     {
         return $this->belongsTo(BrandCategory::class,'brandcategory_id');
     }
+    
+    public function subbrand()
+    {
+        return $this->belongsTo(SubBrandCategory::class,'subbrandcategory_id');
+    }
 
     public function network_allimage()
     {

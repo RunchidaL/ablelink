@@ -23,11 +23,11 @@
                                 <label class="col-md-12">*Nick Name</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="nickname" placeholder="ชื่อเล่น">
-                                    @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
+                                    @error('nickname') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div> --}}
                             <div class="form-group">
-                                <label class="col-md-12">*Model Slug</label>
+                                <label class="col-md-12">*Part Number</label>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" wire:model="slug" placeholder="Part Number">
                                     @error('slug') <p class="text-danger">{{ $message }}</p> @enderror
@@ -51,12 +51,6 @@
                                     <textarea id="application" type="text" class="form-control"  wire:model="application"></textarea>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-md-12">Item_spotlight</label> 
-                                <div class="col-md-12" wire:ignore>
-                                    <textarea id="item_spotlight" type="text" class="form-control"  wire:model="item_spotlight"></textarea>
-                                </div>
-                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-12">Feature</label>
                                 <div class="col-md-12" wire:ignore>
@@ -211,38 +205,6 @@
                                     </select>
                                 </div>
                             </div>                
-                            <!-- <div class="form-group">
-                                <label class="col-md-6">Network Type (กรุณา Select Network Type ก่อน Add product)</label>
-                                <div class="row justify-content-start">
-                                    <div class="col-4">
-                                        <select class="form-control" wire:model="attr">
-                                            <option value="0">Select Network Type</option>
-                                            @foreach($network_types as $network_type)
-                                                <option value="{{$network_type->id}}">{{$network_type->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('attr') <p class="text-danger">กรุณาเลือก Network Type</p> @enderror
-                                    </div>
-                                    <div class="col-4">
-                                        <button type="button" id="add" class="btn btn-primary" wire:click.prevent="add">Add product</button>
-                                    </div>
-                                </div>
-                            </div>
-                            @foreach($inputs as $key => $value)
-                            <div class="form-group">
-                                <label class="col-md-4">{{$network_types->where('id',$attribute_arr[$key])->first()->name}}</label>
-                                <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="network_images.{{$value}}">
-                                    @if($network_images)
-                                        @foreach($network_images as $network_image)
-                                            <img src="{{$network_image->temporaryUrl()}}" width="120"/>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <input type="text" class="input-file" wire:model="attribute_values.{{$value}}">
-                                <button type="submit" class="btn btn-danger" wire:click.prevent="remove({{$key}})">Remove</button>
-                            </div>
-                            @endforeach -->
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button type="file" class="btn btn-success my-4">Submit</button>
@@ -260,43 +222,127 @@
 </div>
 
 <script>
-    $('#description').summernote({
+    const descriptionSummernote = $('#description');
+    const overviewSummernote = $('#overview');
+    const applicationSummernote = $('#application');
+    const featureSummernote = $('#feature');
+    function uploadFiledes(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/imagedes',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.classList.add('summernote');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+    descriptionSummernote.summernote({
         height: 200,
         callbacks: {
+            onImageUpload: function(files) {
+                uploadFiledes(files[0], descriptionSummernote);
+            },
             onChange: function(contents1, $editable) {
                 @this.set('description', contents1);
             }
         }
     });
-    $('#overview').summernote({
+    function uploadFileover(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/imageover',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.classList.add('summernote');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+    overviewSummernote.summernote({
         height: 200,
         callbacks: {
+            onImageUpload: function(files) {
+                uploadFileover(files[0], overviewSummernote);
+            },
             onChange: function(contents2, $editable) {
                 @this.set('overview', contents2);
             }
         }
     });
-    $('#application').summernote({
+    function uploadFileapp(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/imageapp',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.classList.add('summernote');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+    applicationSummernote.summernote({
         height: 200,
         callbacks: {
+            onImageUpload: function(files) {
+                uploadFileapp(files[0], applicationSummernote);
+            },
             onChange: function(contents3, $editable) {
                 @this.set('application', contents3);
             }
         }
     });
-    // $('#item_spotlight').summernote({
-    //     height: 200,
-    //     callbacks: {
-    //         onChange: function(contents4, $editable) {
-    //             @this.set('item_spotlight', contents4);
-    //         }
-    //     }
-    // });
-    $('#feature').summernote({
+    function uploadFilefea(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/imagefea',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.classList.add('summernote');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+    featureSummernote.summernote({
         height: 200,
         callbacks: {
-            onChange: function(contents5, $editable) {
-                @this.set('feature', contents5);
+            onImageUpload: function(files) {
+                uploadFilefea(files[0], featureSummernote);
+            },
+            onChange: function(contents4, $editable) {
+                @this.set('feature', contents4);
             }
         }
     });
