@@ -46,7 +46,7 @@
         </div>
     </div>
 </div>
-<?php phpinfo(); ?>
+
 <script>
     window.addEventListener('alert-review-success', event =>{
         Swal.fire({

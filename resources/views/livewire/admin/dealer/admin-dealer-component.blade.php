@@ -9,6 +9,7 @@
                                 <h1><a href="{{route('admin.dashboard')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a> All Dealers</h1>
                             </div>
                             <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+                                <a href="{{route('admin.addsale')}}"><button class="btn btn-success">Add Cost</button></a>
                                 <a href="{{route('admin.addinfoDealer')}}"><button class="btn btn-success">Add Info Dealer</button></a>
                                 <a href="{{route('admin.addDealer')}}"><button class="btn btn-success">Add New Dealer</button></a>
                             </div>
@@ -33,6 +34,7 @@
                             <tbody>
                             @php
                                 $sum = 0;
+                                $sum_total = 0;
                             @endphp
                                 @foreach ($dealers as $dealer)
                                     <tr>
@@ -48,7 +50,12 @@
                                                 $sum += $total->total;
                                             @endphp
                                         @endforeach
-                                        <td>{{number_format($sum,2)}}</td>
+                                        @foreach ($costs->where('user_id',$dealer->id) as $cost)
+                                            @php
+                                                $sum_total += $cost->cost;
+                                            @endphp
+                                        @endforeach
+                                        <td>{{number_format($sum+$sum_total,2)}}</td>
                                         <td>
                                             @foreach ($dealer->dealers as $infodealer)
                                             <a href="{{route('admin.editDealer',['infodealer_id'=>$infodealer->dealerid])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>

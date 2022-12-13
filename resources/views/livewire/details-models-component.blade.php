@@ -80,7 +80,7 @@
                 </div>
                 <div class="addtocart" style="display: inline-block;">
                 @if($model->stock == 0)
-                    <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>Add to cart</span></button>
+                    <button id="add-cart-button" type='button' class="button btn" style="opacity: 0.5; pointer-events:none;"><span>เพิ่มลงตะกร้า</span></button>
                 @else
                     <button wire:click="addToCart({{$model->id}})">เพิ่มลงตะกร้า</button>
                 @endif

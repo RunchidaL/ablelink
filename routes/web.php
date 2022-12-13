@@ -91,6 +91,8 @@ use App\Http\Livewire\GroupCategoryComponent;
 use App\Http\Livewire\ReviewComponent;
 use App\Http\Controllers\FileController;
 use App\Http\Livewire\Admin\mainpage\FooterComponent;
+use App\Http\Livewire\AddCostSaleComponent;
+use App\Http\Livewire\EditCostSaleComponent;
 
 Route::get('/', HomeComponent::class);
 
@@ -234,4 +236,6 @@ Route::middleware(['auth:sanctum','verified','role'])->group(function(){
     Route::post('/admin/upload/imagefea', [FileController::class, 'uploadImagefea'])->name('admin.uploadImagefea');
     Route::post('/admin/upload/imagedescription', [FileController::class, 'uploadImagedescription'])->name('admin.uploadImagedescription');
     Route::get('/admin/footer/{footer_id}', FooterComponent::class)->name('admin.footer');
+    Route::get('/admin/addcost', AddCostSaleComponent::class)->name('admin.addsale');
+    Route::get('/admin/costhistory/{dealer_id}', EditCostSaleComponent::class)->name('admin.salehis');
 });

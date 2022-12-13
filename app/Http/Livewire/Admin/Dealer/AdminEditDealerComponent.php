@@ -91,6 +91,7 @@ class AdminEditDealerComponent extends Component
     public function render()
     {
         $users = User::where('role',2,)->get();
-        return view('livewire.admin.dealer.admin-edit-dealer-component',['users'=>$users])->layout("layout.navfoot");
+        $dealer = Dealer::find($this->D_id);
+        return view('livewire.admin.dealer.admin-edit-dealer-component',['users'=>$users,'dealer'=>$dealer])->layout("layout.navfoot");
     }
 }

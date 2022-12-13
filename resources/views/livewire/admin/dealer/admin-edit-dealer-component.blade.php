@@ -1,5 +1,12 @@
 <div class="container mt-1 p-5">
-    <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Info Dealer</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h2><a href="{{route('admin.Dealer')}}" style="color: black;"><i class="bi bi-arrow-left-circle-fill"></i></a>  Edit Info Dealer</h2>
+        </div>
+        <div class="col-md-4 gap-2 offset-md-4 d-md-flex justify-content-md-end">
+            <a href="{{route('admin.salehis',['dealer_id'=>$dealer->dealerid])}}"><button class="btn btn-success">Sale History</button></a>
+        </div>
+    </div>
     <br>
     <form enctype="multipart/form-data" wire:submit.prevent="addDealerinfo">
         @csrf
