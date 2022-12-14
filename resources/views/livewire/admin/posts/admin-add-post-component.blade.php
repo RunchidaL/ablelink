@@ -33,8 +33,9 @@
                                 <label class="col-md-12">Title Image : </label>
                                 <div class="col-md-12">
                                     <input type="file" class="input-file" wire:model="titleimg" accept=".jpg,.jpeg,.png">
-                                    @error('titleimg') <p class="text-danger">กรุณาใส่</p> @enderror
-                                    @if($titleimg)
+                                    @if($errors->has('titleimg'))
+                                        @error('titleimg') <p class="text-danger">{{ $message }}</p> @enderror
+                                    @elseif($titleimg)
                                         <img src="{{$titleimg->temporaryUrl()}}" width="120"/>
                                     @endif
                                 </div>
@@ -73,11 +74,34 @@
 </div>
 
 <script>
-$('#description').summernote({
+    const descriptionSummernote = $('#description');
+    function uploadFiledes(file, summernoteInstance) {
+        const formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/upload/imagedescription',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            contentType: false,
+            processData: false,
+            data: formData,
+        }).done((response) => {
+            const image = document.createElement('img');
+            image.classList.add('summernote');
+            image.setAttribute('src', response.url);
+            summernoteInstance.summernote('insertNode', image);
+        });
+    }
+    descriptionSummernote.summernote({
         height: 200,
         callbacks: {
-            onChange: function(contents, $editable) {
-                @this.set('description', contents);
+            onImageUpload: function(files) {
+                uploadFiledes(files[0], descriptionSummernote);
+            },
+            onChange: function(contents1, $editable) {
+                @this.set('description', contents1);
             }
         }
     });

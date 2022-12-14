@@ -116,7 +116,13 @@
                                 @endif
                                 
                             </td>
-                            <td><a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn-success">เขียนรีวิว</a></td>
+                            <td>
+                                @if($item->rstatus == true)
+                                <button class="btn btn" disabled>เขียนรีวิว</button>
+                                @else
+                                <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn">เขียนรีวิว</a>
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>    
@@ -169,7 +175,15 @@
                     </div>
                     <div class="phone-order-detail-quantity">
                         <p class="group-cen">จำนวน {{$item->quantity}} ชิ้น</p>
+<<<<<<< HEAD
                         <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn-success">เขียนรีวิว</a>
+=======
+                        @if($item->rstatus == true)
+                            <p class="btn btn disabled">เขียนรีวิว</p>
+                        @else
+                            <a href="{{route('review',['order_item_id'=>$item->id])}}" class="btn btn">เขียนรีวิว</a>
+                        @endif
+>>>>>>> b89918132b61dd49364687b73f132d1357653781
                     </div>
                 </div>
             </div>
@@ -182,3 +196,17 @@
     </div>
 </div>
 
+<style>
+    .btn{
+        background-color: #194276;
+        color: white;
+    }
+    .btn:hover{
+        background-color: #194276;
+        color: white;
+    }
+    .btn[disabled]{
+        background-color: #C4C4C4;
+        color: white;
+    }
+</style>

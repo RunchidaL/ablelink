@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Dealer;
 use Barryvdh\DomPDF\Facade\PDF;
 use App\Models\CustomerAddress;
+use App\Models\Review;
 
 class OrderDetailComponent extends Component
 {
@@ -33,6 +34,7 @@ class OrderDetailComponent extends Component
         $items = Order::where('order_id',$order->id)->get();
         $dealer = Dealer::where('dealerid',Auth::user()->id)->first();
         $customer = CustomerAddress::where('customerid',Auth::user()->id)->where('id',$order->address_id)->first();
-        return view('livewire.order-detail-component',['order'=>$order,'items'=>$items,'dealer'=>$dealer,'customer'=>$customer])->layout("layout.navfoot");
+        $reviews = Review::all();
+        return view('livewire.order-detail-component',['order'=>$order,'items'=>$items,'dealer'=>$dealer,'customer'=>$customer,'reviews'=>$reviews])->layout("layout.navfoot");
     }
 }

@@ -20,6 +20,7 @@ class AdminEditmodelComponent extends Component
     use WithFileUploads;
     public $model_id;
     public $name;
+    public $nickname;
     public $slug;
     public $description;
     public $application;
@@ -50,6 +51,8 @@ class AdminEditmodelComponent extends Component
     public $newconfig;
     public $model_slug;
 
+    public $show1;
+
     public $new_network_images=[];
     public $network_images=[];
     public $images = [];
@@ -64,11 +67,11 @@ class AdminEditmodelComponent extends Component
         $model = ProductModels::where('slug',$model_slug)->first();
         $this->model_id = $model->id;
         $this->name = $model->name;
+        $this->nickname = $model->nickname;
         $this->slug = $model->slug;
         $this->description = $model->description;
         $this->overview = $model->overview;
         $this->application = $model->application;
-        $this->item_spotlight = $model->item_spotlight;
         $this->feature = $model->feature;
         $this->web_price = $model->web_price;
         $this->dealer_price = $model->dealer_price;
@@ -114,31 +117,33 @@ class AdminEditmodelComponent extends Component
             'newconfig' => 'mimes:pdf',
             'customer_price' => 'numeric|max:999999',
             'dealer_price' => 'numeric|max:999999',
+            'description'=>'max:2000'
         ]);
     }
 
-    public function add()
-    {
-        $this->validate([
-            'attr' => 'required'
-        ]);
-        if(!$this->attribute_arr->contains($this->attr))
-        {
-            $this->inputs->push($this->attr);
-            $this->attribute_arr->push($this->attr);
-            $this->images->push($this->attr);
-        }
-    }
+    // public function add()
+    // {
+    //     $this->validate([
+    //         'attr' => 'required'
+    //     ]);
+    //     if(!$this->attribute_arr->contains($this->attr))
+    //     {
+    //         $this->inputs->push($this->attr);
+    //         $this->attribute_arr->push($this->attr);
+    //         $this->images->push($this->attr);
+    //     }
+    // }
 
-    public function remove($attr)
-    {
-        unset($this->inputs[$attr]);
-    }
+    // public function remove($attr)
+    // {
+    //     unset($this->inputs[$attr]);
+    // }
 
     public function updateModel()
     {
         $this->validate([
             'name' => 'required',
+            'nickname' => 'required',
             'slug' => 'required',
             'image' => 'required',
             'web_price' => 'required',
@@ -148,6 +153,7 @@ class AdminEditmodelComponent extends Component
         ]);
         $model = ProductModels::find($this->model_id);
         $model->name = $this->name;
+        $model->nickname = $this->nickname;
         $model->slug = $this->slug;
         $model->web_price = $this->web_price;
         $model->dealer_price = $this->dealer_price;
@@ -157,7 +163,6 @@ class AdminEditmodelComponent extends Component
         $model->description = $this->description;
         $model->overview = $this->overview;
         $model->application = $this->application;
-        $model->item_spotlight = $this->item_spotlight;
         $model->feature = $this->feature;
         if($this->newimage)
         {
@@ -242,31 +247,31 @@ class AdminEditmodelComponent extends Component
         
         $model->save();
 
-        NetworkValue::where('model_id',$model->id)->delete();
+        // NetworkValue::where('model_id',$model->id)->delete();
         
-        foreach($this->attribute_values as $key=>$attribute_value)
-        {
-            if($this->network_images)
-            {
-                $attribute_image = new NetworkImage();
-                $fileNet = $this->network_images[$key]->getClientOriginalName();
-                $this->network_images[$key]->storeAs('products', $fileNet);
-                $attribute_image->image = $fileNet;
-                $attribute_image->type_id = $key;
-                $attribute_image->save();
+        // foreach($this->attribute_values as $key=>$attribute_value)
+        // {
+        //     if($this->network_images)
+        //     {
+        //         $attribute_image = new NetworkImage();
+        //         $fileNet = $this->network_images[$key]->getClientOriginalName();
+        //         $this->network_images[$key]->storeAs('products', $fileNet);
+        //         $attribute_image->image = $fileNet;
+        //         $attribute_image->type_id = $key;
+        //         $attribute_image->save();
 
-            $avalues = explode(",",$attribute_value);
-            foreach($avalues as $avalue)
-            {
-                $attr_value = new NetworkValue();
-                $attr_value->network_image_id = $attribute_image->id;
-                $attr_value->product_in_photo = $avalue;
-                $attr_value->model_id = $model->id;
-                $attr_value->save();
-            }
-            }
+        //     $avalues = explode(",",$attribute_value);
+        //     foreach($avalues as $avalue)
+        //     {
+        //         $attr_value = new NetworkValue();
+        //         $attr_value->network_image_id = $attribute_image->id;
+        //         $attr_value->product_in_photo = $avalue;
+        //         $attr_value->model_id = $model->id;
+        //         $attr_value->save();
+        //     }
+        //     }
         
-        }
+        // }
 
         session()->flash('message','Update Model successs');
     }
@@ -292,6 +297,6 @@ class AdminEditmodelComponent extends Component
         $network_images = NetworkImage::all();
         $products = Product::orderBy('created_at','DESC')->get();
         $model = ProductModels::where('slug',$this->model_slug)->first();
-        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'groups'=>$groups,'jackets'=>$jackets,'network_types'=>$network_types,'network_images'=>$network_images,'products'=>$products,'model'=>$model])->layout("layout.navfoot");
+        return view('livewire.admin.products.admin-editmodel-component',['series'=>$series,'types'=>$types,'groups'=>$groups,'jackets'=>$jackets,'products'=>$products,'model'=>$model])->layout("layout.navfoot");
     }
 }

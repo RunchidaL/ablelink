@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\ShoppingCart as Cart;
 use App\Models\ProductModels;
+use App\Models\Dealer;
 
 class CartComponent extends Component
 {
@@ -140,7 +141,7 @@ class CartComponent extends Component
         
         $this->getCartItemCount();
         $this->setAmount();
-
-        return view('livewire.cart-component')->layout("layout.navfoot");
+        $dealer = Dealer::where('dealerid',auth()->user()->id)->first();
+        return view('livewire.cart-component',['dealer'=>$dealer])->layout("layout.navfoot");
     }
 }
