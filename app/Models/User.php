@@ -57,4 +57,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(CustomerAddress::class,'customerid');
     }
+
+    public function totals()
+    {
+        return $this->hasMany(OrderID::class);
+    }
+
+    public function costs()
+    {
+        return $this->hasMany(CostSale::class);
+    }
 }

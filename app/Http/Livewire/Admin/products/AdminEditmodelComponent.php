@@ -54,6 +54,10 @@ class AdminEditmodelComponent extends Component
     public $nullover;
     public $nullapp;
     public $nullfea;
+    public $nulldatasheet;
+    public $nullguide;
+    public $nullcert;
+    public $nullconfig;
 
     public $show1;
 
@@ -218,29 +222,50 @@ class AdminEditmodelComponent extends Component
             }
             $model->images = $imagesName;
         }
-        if($this->newdatasheet)
+
+        if($this->nulldatasheet)
+        {
+            $model->datasheet = null;
+        }
+        else if($this->newdatasheet)
         {
             $file1 = $this->newdatasheet->getClientOriginalName();
             $this->newdatasheet->storeAs('products',$file1);
             $model->datasheet = $file1;
         }
+
         if($this->firmware)
         {
             $model->firmware = $this->firmware;
         }
-        if($this->newguide)
+
+        if($this->nullguide)
+        {
+            $model->guide = null;
+        }
+        else if($this->newguide)
         {
             $file3 = $this->newguide->getClientOriginalName();
             $this->newguide->storeAs('products',$file3);
             $model->guide = $file3;
         }
-        if($this->newcert)
+
+        if($this->nullcert)
+        {
+            $model->cert = null;
+        }
+        else if($this->newcert)
         {
             $file4 = $this->newcert->getClientOriginalName();
             $this->newcert->storeAs('products',$file4);
             $model->cert = $file4;
         }
-        if($this->newconfig)
+
+        if($this->nullconfig)
+        {
+            $model->config = null;
+        }
+        else if($this->newconfig)
         {
             $file5 = $this->newconfig->getClientOriginalName();
             $this->newconfig->storeAs('products',$file5);

@@ -68,7 +68,7 @@
                                         @endforeach
                                     </select>
                                     @error('sbcategory_id') <p class="text-danger">กรุณาเลือก</p> @enderror
-                                    @if($sbcategory_id == 89)
+                                    @if($scategory_id == 7)
                                     <label class="col-md-4">การขาย</label>
                                     <select class="form-control" wire:model="attibute">
                                         <option value="0">ขายเป็นชิ้น</option>

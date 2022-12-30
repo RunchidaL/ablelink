@@ -144,8 +144,8 @@ class SearchProductsComponent extends Component
 
     public function render()
     {   
-        $models = ProductModels::where('name','like','%'.$this->search .'%')->orWhere('slug','like','%'. $this->search .'%')->orderBy('created_at','DESC')->paginate(10);
+        $products = ProductModels::where('name','like','%'.$this->search .'%')->orWhere('slug','like','%'. $this->search .'%')->orderBy('created_at','DESC')->paginate(10);
         $categories = Category::all();
-        return view('livewire.search-products-component',['models'=> $models, 'categories' => $categories])->layout("layout.navfoot"); 
+        return view('livewire.search-products-component',['products'=> $products, 'categories' => $categories])->layout("layout.navfoot"); 
     }
 }

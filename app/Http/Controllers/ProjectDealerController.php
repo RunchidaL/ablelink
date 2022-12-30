@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ProjectMail;
 use Illuminate\Http\Response;
 use RealRashid\SweetAlert\Facades\Alert;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 class ProjectDealerController extends Controller
 {
@@ -41,14 +38,10 @@ class ProjectDealerController extends Controller
             'Purchasingstyle' => $req->Purchasingstyle
             
         ];
-       
-        Mail::to('cpe327@gmail.com')->send(new ProjectMail($data));
+        Mail::to('test@ablelink.co.th')->send(new ProjectMail($data));
         session()->flash('message','Register Project Successfully!');
-        Alert::success('Register Project','Successfully!');
+        Alert::success('ลงทะเบียนโปรเจ็ค','สำเร็จ!');
         return redirect('/dealer/registerproject');
-   
-
-       
     }
 
 

@@ -17,6 +17,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>วันที่</th>
                                     <th>ยอด</th>
                                     <th>Action</th>
                                 </tr>
@@ -24,6 +25,7 @@
                             <tbody>
                                 @foreach ($dealers->where('user_id',$id->dealerid) as $dealer)
                                     <tr>
+                                        <td>{{$dealer->created_at}}</td>
                                         <td>{{number_format($dealer->cost,2)}}</td>
                                         <td>
                                             <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deleteCost({{$dealer->id}})"><i class="bi bi-x" id="editsub"></i></a>

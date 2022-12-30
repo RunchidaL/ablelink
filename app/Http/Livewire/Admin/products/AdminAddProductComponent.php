@@ -44,7 +44,7 @@ class AdminAddProductComponent extends Component
         $product->subcategory_id = $this->scategory_id;
         $product->brandcategory_id = $this->bcategory_id;
         $product->subbrandcategory_id = $this->sbcategory_id;
-        if($this->sbcategory_id == 89)
+        if($this->scategory_id == 7)
         {
             if($this->attibute == null){
                 $product->attibute = 0;

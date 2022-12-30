@@ -23,7 +23,6 @@ class AdminDealerComponent extends Component
         $totals = OrderID::all();
         $dealers = User::where('role',2)->orderBy('created_at','DESC')->get();
         $infodealers = Dealer::all();
-        $costs = CostSale::all();
-        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers,'totals'=>$totals,'costs'=>$costs])->layout("layout.navfoot");
+        return view('livewire.admin.dealer.admin-dealer-component',['dealers'=>$dealers,'infodealers'=>$infodealers,'totals'=>$totals])->layout("layout.navfoot");
     }
 }

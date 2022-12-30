@@ -65,6 +65,8 @@
             <div class="slide-content{{$i}}" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="800">
                 <div class="card-wrapper swiper-wrapper">
                     @foreach ($previews->where('category_id',$preview->category_id) as $preview)
+                    @if(empty($preview->product->id))
+                    @else
                     <div class="swiper-slide">
                         <div class="product-grid">
                             <div class="product-image">
@@ -81,6 +83,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endforeach
                 </div>
             </div>

@@ -72,8 +72,7 @@ class InfodealerRequestController extends Controller
                 'file3'=>$req->file('file3')
             ];
         }
-        // dd($data);
-        Mail::to('cpe327@gmail.com')->send(new ContactMail($data));
+        Mail::to('test@ablelink.co.th')->send(new ContactMail($data));
         session()->flash('message','Register Dealer Successfully!');
         Alert::success('Register Dealer','Successfully!');
         return redirect('/register_dealer');

@@ -30,7 +30,14 @@
                             <tbody>
                                 @foreach ($previews as $preview)
                                     <tr>
-                                        <td>{{$preview->id}}</td>
+                                        @if(empty($preview->product->id))
+                                        <td></td>
+                                        <td>สินค้าไม่อยู่ในระบบ กรุณาลบ</td>
+                                        <td></td>
+                                        <td>
+                                        <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deletePreview({{$preview->id}})"><i class="bi bi-x" id="editsub"></i></a>
+                                        </td>
+                                        @else
                                         <td>{{$preview->categories->name}}</td>
                                         <td><img src="{{asset('/images/products')}}/{{$preview->product->image}}" width="120" alt=""></td>
                                         <td>{{$preview->product->slug}}</td>
@@ -38,6 +45,7 @@
                                             <a href="{{route('admin.editproductpreview',['preview_id'=>$preview->id])}}"><i class="bi bi-pencil-square" id="editsub"></i></a>
                                             <a href="#" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click.prevent="deletePreview({{$preview->id}})"><i class="bi bi-x" id="editsub"></i></a>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>

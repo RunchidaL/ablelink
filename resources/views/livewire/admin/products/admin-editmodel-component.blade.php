@@ -130,6 +130,7 @@
                             <div class="form-group">
                                 <label class="col-md-4">datasheet</label>
                                 <div class="col-md-4">
+                                    <input type="radio" wire:model="nulldatasheet"> ต้องการลบไฟล์ datasheet
                                     <input type="file" class="input-file" wire:model="newdatasheet" accept=".pdf">
                                     @error('newdatasheet') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
@@ -137,6 +138,7 @@
                             <div class="form-group">
                                 <label class="col-md-4">guide</label>
                                 <div class="col-md-4">
+                                    <input type="radio" wire:model="nullguide"> ต้องการลบไฟล์ guide
                                     <input type="file" class="input-file" wire:model="newguide" accept=".pdf">
                                     @error('newguide') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
@@ -144,6 +146,7 @@
                             <div class="form-group">
                                 <label class="col-md-4">cert</label>
                                 <div class="col-md-4">
+                                    <input type="radio" wire:model="nullcert"> ต้องการลบไฟล์ cert
                                     <input type="file" class="input-file" wire:model="newcert" accept=".pdf">
                                     @error('newcert') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>
@@ -151,6 +154,7 @@
                             <div class="form-group">
                                 <label class="col-md-4">config</label>
                                 <div class="col-md-4">
+                                    <input type="radio" wire:model="nullconfig"> ต้องการลบไฟล์ config
                                     <input type="file" class="input-file" wire:model="newconfig" accept=".pdf">
                                     @error('newconfig') <p class="text-danger">กรุณาใส่ไฟล์ pdf</p> @enderror
                                 </div>

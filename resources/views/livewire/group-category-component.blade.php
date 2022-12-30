@@ -26,7 +26,11 @@
                         </div>
                         <div class="card-body">
                             <p><span>#{{$model->slug}}</span></p>
+                            @if($model->product->subbrandcategory_id == 89)
                             <p class="card-title">{{$model->nickname}}</p>
+                            @else
+                            <p class="card-title">{{$model->name}}</p>
+                            @endif
                             @guest
                                 @if(($model->web_price) == '1')
                                     <p class="empty">฿</p>
@@ -111,7 +115,11 @@
                                 </div>
                                 <div class="card-body">
                                     <p><span>#{{$model->slug}}</span></p>
+                                    @if($model->product->subbrandcategory_id == 89)
                                     <p class="card-title">{{$model->nickname}}</p>
+                                    @else
+                                    <p class="card-title">{{$model->name}}</p>
+                                    @endif
                                     @guest
                                         @if(($model->web_price) == '1')
                                             <p class="empty">฿</p>
@@ -195,7 +203,11 @@
                                     </div>
                                     <div class="card-body">
                                         <p><span>#{{$model->slug}}</span></p>
+                                        @if($model->product->subbrandcategory_id == 89)
                                         <p class="card-title">{{$model->nickname}}</p>
+                                        @else
+                                        <p class="card-title">{{$model->name}}</p>
+                                        @endif
                                         @guest
                                             @if(($model->web_price) == '1')
                                                 <p class="empty">฿</p>
